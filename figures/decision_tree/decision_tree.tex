@@ -1,0 +1,26 @@
+% Tikz File 'decision_tree.tex'
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\newdimen\nodeDist
+\nodeDist=20mm
+
+\begin{document}
+
+\begin{tikzpicture}[node/.style={draw, rectangle}]
+
+  \node [node] (A) {$p_t > 20$ GeV?};
+  
+  \path (A) ++(-135:\nodeDist) node [node] (B) {leaf node 1};
+  \path (A) ++(- 45:\nodeDist) node [node] (C) {$E > 10$ GeV};
+  \path (C) ++(-135:\nodeDist) node [node] (D) {leaf node 2};
+  \path (C) ++(- 45:\nodeDist) node [node] (E) {leaf node 3};
+
+  \draw (A) -- (B) node [left, pos=0.5] {No}(A);
+  \draw (A) -- (C) node [right,pos=0.5] {Yes}(A);
+  \draw (C) -- (D) node [left, pos=0.5] {No}(A);
+  \draw (C) -- (E) node [right,pos=0.5] {Yes}(A);
+\end{tikzpicture}
+
+\end{document}
+

@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: MasterThesis.aux
+The style file: plainnat.bst
+Database file #1: ZoteroLibrary.bib
+Warning--entry type for "LargeElectronPositronCollider" isn't style-file defined
+--line 3165 of file ZoteroLibrary.bib
+Warning--to sort, need author or key in LargeElectronPositronCollider
+Warning--empty year in LargeElectronPositronCollider
+Warning--empty journal in andersonSpeciesProblemIris1936a
+Warning--empty year in andersonSpeciesProblemIris1936a
+Warning--empty year in andersonSpeciesProblemIris1936a
+Warning--empty journal in fisherUseMultipleMeasurements1936
+Warning--empty year in fisherUseMultipleMeasurements1936
+Warning--empty year in fisherUseMultipleMeasurements1936
+You've used 3 entries,
+            2773 wiz_defined-function locations,
+            614 strings with 5475 characters,
+and the built_in function-call counts, 1123 in all, are:
+= -- 107
+> -- 20
+< -- 2
++ -- 9
+- -- 6
+* -- 90
+:= -- 159
+add.period$ -- 14
+call.type$ -- 3
+change.case$ -- 11
+chr.to.int$ -- 3
+cite$ -- 15
+duplicate$ -- 55
+empty$ -- 116
+format.name$ -- 8
+if$ -- 238
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 2
+newline$ -- 28
+num.names$ -- 8
+pop$ -- 34
+preamble$ -- 1
+purify$ -- 8
+quote$ -- 0
+skip$ -- 35
+stack$ -- 0
+substring$ -- 49
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 33
+warning$ -- 8
+while$ -- 8
+width$ -- 0
+write$ -- 50
+(There were 9 warnings)
