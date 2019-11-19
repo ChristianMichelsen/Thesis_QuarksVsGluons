@@ -1,8 +1,8 @@
 \contentsline {chapter}{\numberline {1}Abstract}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Introduction}{3}{chapter.2}
 \contentsline {chapter}{\numberline {3}Machine Learning Theory}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Machine Learning}{5}{section.3.1}
-\contentsline {section}{\numberline {3.2}bla}{5}{section.3.2}
+\contentsline {section}{\numberline {3.1}Statistical Learning Theory}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Supervised Learning}{6}{section.3.2}
 \contentsline {chapter}{\numberline {4}Housing Prices Analysis}{9}{chapter.4}
 \contentsline {section}{\numberline {4.1}Headings}{10}{section.4.1}
 \contentsline {paragraph}{Paragraph}{10}{paragraph*.4}

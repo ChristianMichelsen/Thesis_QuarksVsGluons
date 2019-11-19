@@ -89,6 +89,15 @@
 % \usepackage{tikz-feynman}
 % \usepackage{feynman}
 
+% % for using Inkscape plots
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
 
 
 
@@ -130,7 +139,11 @@
 % make Figure quote
 \newcommand{\figref}[1]{Figure ~\ref{#1}}
 
+% avoid problems with autocite not properly defined
 \newcommand{\autocite}[1]{\cite{#1}}
+
+% bold vector
+\renewcommand{\vec}[1]{\mathbf{#1}}
 
 
 
@@ -380,23 +393,41 @@ All of the work presented here is performed by the author unless otherwise noted
 \chapter{Machine Learning Theory}
 \label{ch:ML_theory}
 
-\section{Machine Learning}
 \epigraph{\textit{``People worry that computers will get too smart and take over the world, but the real problem is that they're too stupid and they've already taken over the world.''}}{--- Pedro Domingos}
 
+\newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a set of subject located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks\autocite{veenNeuralNetworkZoo2016} which has seen a plethora of use cases in recent years. 
 
-\newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a set of subject located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks.
+\section{Statistical Learning Theory}
+This chapter deals with the theory of ML which Statistical Learning Theory (SLT) is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data\autocite{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning\autocite{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU} at the faculty of Science, University of Copenhagen. Statistical Learning Theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
 
-\section{bla}
+Overall there are two subfields within machine learning: supervised and unsupervised\sidenote{Also known as \q{self-supervised} or \q{predictive}  learning}. The difference depends on whether or not the data that is trained on is labelled or not. Classic linear regression is an example of the former and linear dimensionality reduction using PCA of the latter. Since unsupervised learning techniques are only used sparsely throughout this project, the main focus will be on supervised learning. 
+
+\section{Supervised Learning}
+In supervised learning we are given a set of $N$ different samples of which we for each one knows $M$ different variables written as the column-vector $\vec{x}_i = [x_1, x_2, \dots, x_M] \in \mathcal{X}$ for the $i$th observation and $\mathcal{X}$ denotes the sample space. All of these samples as a whole is written as the matrix $\vec{X}$ with the individual observations $\vec{x}_i$ transposed and stacked on top of each other $\vec{X} = [\vec{x}_0^T, \vec{x}_1^T, \dots, \vec{x}_N^T]$ such that row $i$ in $\vec{X}$ corresponds to observation $i$. In the case of supervised learning we also have the label $y$ of each sample $y \in \mathcal{Y}$ where $\mathcal{Y}$ denotes the sample or label space. 
+In the case where $\mathcal{Y} = \mathbb{R}$ the problem is said to a regression problem, e.g. predicting the price of a house. On the contrary, if $\mathcal{Y}$ is binary such that $\mathcal{Y} = \{0, 1\}$ then the problem is said to be a (binary) classification problem\sidenote{If $\mathcal{Y}\in \mathbb{Z}$ then it would be a multiclass classification problem.}. 
+
+Without any loss of loss of generality let the focus for now be on 
+
 
 
 Notation:
+
+\begin{marginfigure}
+  \includegraphics[width=0.9\textwidth]{figures/learning_problem/learning_problem.pdf}
+  \caption[blabla.]
+    {bla.
+    }
+  \label{fig:ml:learning_problem}
+\end{marginfigure}
+
+
 
 $\mathcal{X}$ \\
 $\mathcal{Y}$ \\
 $X \in \mathcal{X}$ \\
 $(X, Y) \in \left(\mathcal{X} \times \mathcal{Y} \right)$ \\
 $S = \{ (X_1, Y_1), \ldots, (X_n, Y_n) \}$ \\
-$h: \mathcal{X} \rightarrow \mathcal{Y}$ \\
+$h: \mathcal{X} \mapsto \mathcal{Y}$ \\
 $\mathcal{H} = \left\{h_1, h_2, \ldots, h_M  \right\}$ \\
 $\ell(Y', Y)$ \\
 $\hat{L}(h, S) = \frac{1}{2} \sum_{i=1}^{n} \ell(h(X_i, Y_i))$ \\

@@ -89,6 +89,15 @@
 % \usepackage{tikz-feynman}
 % \usepackage{feynman}
 
+% % for using Inkscape plots
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
 
 
 
@@ -130,7 +139,11 @@
 % make Figure quote
 \newcommand{\figref}[1]{Figure ~\ref{#1}}
 
+% avoid problems with autocite not properly defined
 \newcommand{\autocite}[1]{\cite{#1}}
+
+% bold vector
+\renewcommand{\vec}[1]{\mathbf{#1}}
 
 
 
@@ -366,38 +379,54 @@ come to an end; then stop.''}}{--- Lewis Carroll, \textit{Alice in Wonderland}}
 
 
 The first part of the thesis deals with the problem of estimating housing prices as precisely and accurately as possible. This was the sub-project that was worked on in the beginning of the overall project and worked as an initial introduction to the application of machine learning to real-life datasets. The housing prices dataset thus became the playground in which the subtleties of these new modern tools were examined, where the difference between real life datasets with all its quirks, outliers and bad formatting, and curated toy datasets that works out of the box (such as the famous Iris dataset\cite{andersonSpeciesProblemIris1936a,fisherUseMultipleMeasurements1936}) were experienced first hand. Since the project started the dataset changed due to a new collaboration with the Danish housing agency \href{www.boligsiden.dk}{Boligsiden} where the agreement was, stated shortly, that we would get their data and they would get our results. Boligsiden is a natural collaborator since they are the biggest on the market\sidenote{Due to being owned by the \q{Dansk Ejendomsmæglerforening}, The Danish Association of Chartered Estate Agents} and have been very helpful the continuos process of providing data but it also should also be noted that they have had no say on the results presented in this thesis. 
-% During this initial stage, the author sparred with Simon Gudiksen\sidenote{who afterwards went on to get a job at Boligsiden.} who also worked on the same dataset, however, both projects were done independently. Where Gudiksen focussed on the prediction of the time evolution of the housing prices using Recurrent Neural Networks (RNN), my work was mostly on the different levels and methods of hyperparameter optimization with some smaller detours into Natural Language Processing (NLP) as an example. \newline
+During this initial stage, the author sparred with Simon Gudiksen\sidenote{who afterwards went on to get a job at Boligsiden.} who also worked on the same dataset, however, both projects were done independently. Where Gudiksen focussed on the prediction of the time evolution of the housing prices using Recurrent Neural Networks (RNN), my work was mostly on the different levels and methods of hyperparameter optimization with some smaller detours into Natural Language Processing (NLP) as an example. \newline
 
 
-% The second part, the Quark-Gluon discrimination in particle physics, was the main part of the project. Not only was most of the time focussed on this sub-project, it was also the work that generated the highest academic output; an article based on this is in the making. This part dealt with data from the Large Electron Positron collider (LEP) which was an underground particle accelerator at CERN built in 1989 and was discontinued in 2000, where the first phase (LEP1), from 1989-1995, is the sole source of data. As the name suggests it collided electrons and positrons together in what is still the largest electron-positron accelerator ever built\cite{LargeElectronPositronCollider}. During LEP1 it was primarily the decay channels of the $Z$-boson that were probed where especially the $Z\rightarrow q\bar{q}g$ and $Z \rightarrow q\bar{q}gg$ were examined in this thesis. It is especially the distributions of these gluon jets and the difference between Data\sidenote{Where \q{Data} with capital D refers to the actual, measured data and \q{data} refers to any arbitrary selection of data}   and MC that are of interests to the theoreticians that develop the MC-models. At first an improved $b$-tagging algorithm was developed based on only the vertex variables since the primary variables of interest to the theoreticians are the shape variables. Here methods and code developed in the hyperparameter optimization process from the housing prices part were used. After the improvement in the $b$-tagging model, an event-based $g$-tag model -- in comparison to the jet-based $b$-tagging model -- was implemented which (hopefully) allows one to extract useful events of interest. Having found these useful events, one can start looking at how the distributions in the relevant variables differ between Data and MC. Finally XXX \TODO.
+The second part, the Quark-Gluon discrimination in particle physics, was the main part of the project. Not only was most of the time focussed on this sub-project, it was also the work that generated the highest academic output; an article based on this is in the making. This part dealt with data from the Large Electron Positron collider (LEP) which was an underground particle accelerator at CERN built in 1989 and was discontinued in 2000, where the first phase (LEP1), from 1989-1995, is the sole source of data. As the name suggests it collided electrons and positrons together in what is still the largest electron-positron accelerator ever built\cite{LargeElectronPositronCollider}. During LEP1 it was primarily the decay channels of the $Z$-boson that were probed where especially the $Z\rightarrow q\bar{q}g$ and $Z \rightarrow q\bar{q}gg$ were examined in this thesis. It is especially the distributions of these gluon jets and the difference between Data\sidenote{Where \q{Data} with capital D refers to the actual, measured data and \q{data} refers to any arbitrary selection of data}   and MC that are of interests to the theoreticians that develop the MC-models. At first an improved $b$-tagging algorithm was developed based on only the vertex variables since the primary variables of interest to the theoreticians are the shape variables. Here methods and code developed in the hyperparameter optimization process from the housing prices part were used. After the improvement in the $b$-tagging model, an event-based $g$-tag model -- in comparison to the jet-based $b$-tagging model -- was implemented which (hopefully) allows one to extract useful events of interest. Having found these useful events, one can start looking at how the distributions in the relevant variables differ between Data and MC. Finally XXX \TODO.
 
-% The thesis is structured such that chapter \autoref{ch:ML_theory} introduces the needed theoretical Machine Learning (ML) background needed for understanding the methods used throughout the thesis, chapter \autoref{ch:housing_price_analysis} describes the housing prices part of the project as mentioned above, chapter \autoref{ch:particle_physcis_LEP} introduces the basic physics in the standard model and the Lund string model which is used throughout the rest of the theses, chapter \autoref{ch:quark_gluon_analysis} explains analysis of the main project in this thesis, i.e. the quark gluon analysis, and finally the two chapters \autoref{ch:discussion_outlook} and \autoref{ch:conclusion} discusses the overall work in this thesis and concludes on it. 
+The thesis is structured such that chapter \autoref{ch:ML_theory} introduces the needed theoretical Machine Learning (ML) background needed for understanding the methods used throughout the thesis, chapter \autoref{ch:housing_price_analysis} describes the housing prices part of the project as mentioned above, chapter \autoref{ch:particle_physcis_LEP} introduces the basic physics in the standard model and the Lund string model which is used throughout the rest of the theses, chapter \autoref{ch:quark_gluon_analysis} explains analysis of the main project in this thesis, i.e. the quark gluon analysis, and finally the two chapters \autoref{ch:discussion_outlook} and \autoref{ch:conclusion} discusses the overall work in this thesis and concludes on it. 
 
-% The work presented in this thesis is split up into two parts as presented above, however, it should be noted that during the analysis part of the project they were treated not as two different projects but rather as two different instances of same underlying problem: teaching computers how to find patterns in high-dimensional data automatically and should thus not be seen as two independent projects. This also highlight another key aspect of this project, that the author does not have any background in particle physics other than rudimentary knowledge stemming from an undergraduate education in general physics. 
+The work presented in this thesis is split up into two parts as presented above, however, it should be noted that during the analysis part of the project they were treated not as two different projects but rather as two different instances of same underlying problem: teaching computers how to find patterns in high-dimensional data automatically and should thus not be seen as two independent projects. This also highlight another key aspect of this project, that the author does not have any background in particle physics other than rudimentary knowledge stemming from an undergraduate education in general physics. 
 
-% All of the work presented here is performed by the author unless otherwise noted.
+All of the work presented here is performed by the author unless otherwise noted.
 
-% \chapter{Machine Learning Theory}
-% \label{ch:ML_theory}
+\chapter{Machine Learning Theory}
+\label{ch:ML_theory}
 
-% \section{Machine Learning}
-% % \epigraph{\textit{``People worry that computers will get too smart and take over the world, but the real problem is that they're too stupid and they've already taken over the world.''}}{--- Pedro Domingos}
+\epigraph{\textit{``People worry that computers will get too smart and take over the world, but the real problem is that they're too stupid and they've already taken over the world.''}}{--- Pedro Domingos}
 
+\newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a set of subject located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks\autocite{veenNeuralNetworkZoo2016} which has seen a plethora of use cases in recent years. 
 
-% % \newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a set of subject located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks.
+\section{Statistical Learning Theory}
+This chapter deals with the theory of ML which Statistical Learning Theory (SLT) is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data\autocite{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning\autocite{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU} at the faculty of Science, University of Copenhagen. Statistical Learning Theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
 
-% % \section{bla}
+Overall there are two subfields within machine learning: supervised and unsupervised\sidenote{Also known as \q{self-supervised} or \q{predictive}  learning}. The difference depends on whether or not the data that is trained on is labelled or not. Classic linear regression is an example of the former and linear dimensionality reduction using PCA of the latter. Since unsupervised learning techniques are only used sparsely throughout this project, the main focus will be on supervised learning. 
+
+\section{Supervised Learning}
+In supervised learning we are given a set of $N$ different samples of which we for each one knows $M$ different variables written as the column-vector $\vec{x}_i = [x_1, x_2, \dots, x_M] \in \mathcal{X}$ for the $i$th observation and $\mathcal{X}$ denotes the sample space. All of these samples as a whole is written as the matrix $\vec{X}$ with the individual observations $\vec{x}_i$ transposed and stacked on top of each other $\vec{X} = [\vec{x}_0^T, \vec{x}_1^T, \dots, \vec{x}_N^T]$ such that row $i$ in $\vec{X}$ corresponds to observation $i$. In the case of supervised learning we also have the label of each sample $y \in \mathcal{Y}$ where $\mathcal{Y}$ denotes the sample or label space. 
+In the case where $\mathcal{Y} = \mathbb{R}$ the problem is said to a regression problem, e.g. predicting the price of a house. On the contrary, if $\mathcal{Y}$ is binary such that $\mathcal{Y} = \{0, 1\}$ then the problem is said to be a classification problem. If 
+
 
 
 
 Notation:
+
+\begin{marginfigure}
+  \includegraphics[width=0.9\textwidth]{figures/learning_problem/learning_problem.pdf}
+  \caption[blabla.]
+    {bla.
+    }
+  \label{fig:ml:learning_problem}
+\end{marginfigure}
+
+
 
 $\mathcal{X}$ \\
 $\mathcal{Y}$ \\
 $X \in \mathcal{X}$ \\
 $(X, Y) \in \left(\mathcal{X} \times \mathcal{Y} \right)$ \\
 $S = \{ (X_1, Y_1), \ldots, (X_n, Y_n) \}$ \\
-$h: \mathcal{X} \rightarrow \mathcal{Y}$ \\
+$h: \mathcal{X} \mapsto \mathcal{Y}$ \\
 $\mathcal{H} = \left\{h_1, h_2, \ldots, h_M  \right\}$ \\
 $\ell(Y', Y)$ \\
 $\hat{L}(h, S) = \frac{1}{2} \sum_{i=1}^{n} \ell(h(X_i, Y_i))$ \\
@@ -423,7 +452,7 @@ $$ g(z') = \phi_0 + \sum_{i=1}^{M} \phi_i {z'}_i $$
 
 
 \begin{marginfigure}
-  \includegraphics[width=0.9\textwidth]{figures/overfitting/overfitting1.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/overfitting/overfitting_1.pdf}
   \caption[Illustration of the empirical risk as a function of model complexity.]
     {Illustration of the empirical risk as a function of model complexity. The \textcolor{blue}{training error} is shown in blue and \textcolor{red}{validation error} in red.
     }
