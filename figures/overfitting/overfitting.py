@@ -84,8 +84,9 @@ ax.text(xmin+0.03, 0.8, 'Overfitting',
         fontsize=18,
         )
 
-ax.set(xlabel=fr'Complexity of $h$', 
-       ylabel=r'$R_\mathrm{emp}(h)$' if model1 else '',
+ax.set(xlabel=r'Complexity of $\mathcal{H}$', 
+    #    ylabel=r'$\hat{L}(h, S)$' if model1 else '',
+       ylabel=r'Loss' if model1 else '',
        xlim=(0, 1), ylim=(0, 0.6))
 ax.legend(loc='lower left', frameon=False)
 
