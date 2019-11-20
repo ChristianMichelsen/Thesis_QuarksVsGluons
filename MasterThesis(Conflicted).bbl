@@ -1,46 +1,8 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{0}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[Adv()]{AdvancedTopicsMachine}
-Advanced {{Topics}} in {{Machine Learning}} ({{ATML}}).
-\newblock URL \url{https://kurser.ku.dk/course/ndak15014u}.
-
-\bibitem[Lar()]{LargeElectronPositronCollider}
-The {{Large Electron}}-{{Positron Collider}} | {{CERN}}.
-\newblock URL
-  \url{https://home.cern/science/accelerators/large-electron-positron-collider}.
-
-\bibitem[Abu-Mostafa et~al.()Abu-Mostafa, Magdon-Ismail, and
-  Lin]{abu-mostafaLearningData2012}
-Yaser~S. Abu-Mostafa, Malik Magdon-Ismail, and Hsuan-Tien Lin.
-\newblock \emph{Learning {{From Data}}}.
-\newblock {AMLBook}.
-\newblock ISBN 978-1-60049-006-4.
-
-\bibitem[Anderson()]{andersonSpeciesProblemIris1936a}
-Edgar Anderson.
-\newblock The {{Species Problem}} in {{Iris}}.
-\newblock 23\penalty0 (3):\penalty0 457--509.
-\newblock ISSN 00266493.
-\newblock \doi{10.2307/2394164}.
-\newblock URL \url{www.jstor.org/stable/2394164}.
-
-\bibitem[Fisher()]{fisherUseMultipleMeasurements1936}
-R.~A. Fisher.
-\newblock The {{Use}} of {{Multiple Measurements}} in {{Taxonomic Problems}}.
-\newblock 7\penalty0 (2):\penalty0 179--188.
-\newblock ISSN 2050-1439.
-\newblock \doi{10.1111/j.1469-1809.1936.tb02137.x}.
-\newblock URL
-  \url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x}.
-
-\bibitem[van Veen()]{veenNeuralNetworkZoo2016}
-Fjodor van Veen.
-\newblock The {{Neural Network Zoo}}.
-\newblock URL \url{http://www.asimovinstitute.org/neural-network-zoo/}.
 
 \end{thebibliography}

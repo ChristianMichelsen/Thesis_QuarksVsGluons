@@ -3,6 +3,7 @@
 \contentsline {chapter}{\numberline {3}Machine Learning Theory}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Statistical Learning Theory}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}Supervised Learning}{6}{section.3.2}
+\contentsline {section}{\numberline {3.3}Generalization Bound}{7}{section.3.3}
 \contentsline {chapter}{\numberline {4}Housing Prices Analysis}{9}{chapter.4}
 \contentsline {section}{\numberline {4.1}Headings}{10}{section.4.1}
 \contentsline {paragraph}{Paragraph}{10}{paragraph*.4}

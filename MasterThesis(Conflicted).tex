@@ -145,6 +145,8 @@
 % bold vector
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
+\DeclareMathOperator*{\argmin}{arg\,min} % Jan Hlavacek
+
 
 
 
@@ -398,39 +400,46 @@ All of the work presented here is performed by the author unless otherwise noted
 \newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a set of subject located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks\autocite{veenNeuralNetworkZoo2016} which has seen a plethora of use cases in recent years. 
 
 \section{Statistical Learning Theory}
-This chapter deals with the theory of ML which Statistical Learning Theory (SLT) is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data\autocite{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning\autocite{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU} at the faculty of Science, University of Copenhagen. Statistical Learning Theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
+This chapter deals with the theory of ML which Statistical Learning Theory is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data\autocite{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning\autocite{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU} at the faculty of Science, University of Copenhagen. Statistical learning theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
 
 Overall there are two subfields within machine learning: supervised and unsupervised\sidenote{Also known as \q{self-supervised} or \q{predictive}  learning}. The difference depends on whether or not the data that is trained on is labelled or not. Classic linear regression is an example of the former and linear dimensionality reduction using PCA of the latter. Since unsupervised learning techniques are only used sparsely throughout this project, the main focus will be on supervised learning. 
 
 \section{Supervised Learning}
-In supervised learning we are given a set of $N$ different samples of which we for each one knows $M$ different variables written as the column-vector $\vec{x}_i = [x_1, x_2, \dots, x_M] \in \mathcal{X}$ for the $i$th observation and $\mathcal{X}$ denotes the sample space. All of these samples as a whole is written as the matrix $\vec{X}$ with the individual observations $\vec{x}_i$ transposed and stacked on top of each other $\vec{X} = [\vec{x}_0^T, \vec{x}_1^T, \dots, \vec{x}_N^T]$ such that row $i$ in $\vec{X}$ corresponds to observation $i$. In the case of supervised learning we also have the label of each sample $y \in \mathcal{Y}$ where $\mathcal{Y}$ denotes the sample or label space. 
-In the case where $\mathcal{Y} = \mathbb{R}$ the problem is said to a regression problem, e.g. predicting the price of a house. On the contrary, if $\mathcal{Y}$ is binary such that $\mathcal{Y} = \{0, 1\}$ then the problem is said to be a classification problem. If 
-
-
-
-
-Notation:
+In supervised learning we are given a set of $N$ different samples of which we for each one knows $M$ different variables written as the column-vector $\vec{x}_i = [x_1, x_2, \dots, x_M] \in \mathcal{X}$ for the $i$th observation and $\mathcal{X}$ denotes the sample space. All of these samples as a whole is written as the matrix $\vec{X}$ with the individual observations $\vec{x}_i$ transposed and stacked on top of each other $\vec{X} = [\vec{x}_0^T, \vec{x}_1^T, \dots, \vec{x}_N^T]$ such that row $i$ in $\vec{X}$ corresponds to observation $i$. In the case of supervised learning we also have the label $y$ of each sample $y \in \mathcal{Y}$ where $\mathcal{Y}$ denotes the sample or label space. 
+In the case where $y$ is a real number $\mathcal{Y} = \mathbb{R}$ the problem is said to a \emph{regression} problem, e.g. predicting the price of a house. On the contrary, if $\mathcal{Y}$ is binary such that $\mathcal{Y} = \{0, 1\}$ then the problem is said to be a (binary) \emph{classification} problem\sidenote{If $\mathcal{Y}\in \mathbb{Z}$ then it would be a multiclass classification problem.}. 
 
 \begin{marginfigure}
   \includegraphics[width=0.9\textwidth]{figures/learning_problem/learning_problem.pdf}
-  \caption[blabla.]
-    {bla.
+  \caption[Schematic overview of the learning problem.]
+    {Schematic overview of the learning problem and how to find the optimal hypothesis $h^*$ to approximate $f$ given the training data $\mathcal{D}_\mathrm{train}$.
     }
   \label{fig:ml:learning_problem}
 \end{marginfigure}
 
+Without any loss of loss of generality let the focus for now be on regression. The goal is to find the underlying \q{true} function $f: \mathcal{X} \mapsto \mathcal{Y}$ that gives the correct label $y\in\mathcal{Y}$ for each observation $\vec{x}\in\mathcal{X}$. This function, however, is unknown and cannot perfectly be found. Although it is impossible to find $f$ it is possible to learn an approximation of it $h$ based on some training observations $\mathcal{D}_\mathrm{train} = \left \{(\vec{x}_1, y_1), \dots, \vec{x}_N, y_N) \right\}$. The optimal hypothesis, $h^*$, is chosen among a set of candidate hypotheses $\mathcal{H} = \left\{h_1, h_2, \ldots, h_M  \right\}$, and hopefully $h^*$ will be a good approximation of $f$, $h^* \approx f$. A schematic overview of this process can be seen in Figure~\ref{fig:ml:learning_problem}. 
+
+How can one make sure that $h^*$ really is a good approximation of $f$? That is where Statistical learning theory comes into play. From a statistical standpoint we are interested in modelling the unknown joint probability $P(\vec{x}, y)$ over $\mathcal{X}$ and $\mathcal{Y}$. We assume that $\mathcal{D}_\mathrm{train}$ is independent and identically distributed (\emph{iid})\sidenote{This is one of the two key assumptions of statistical learning theory, the other being that future events are coming from the same distrubution as the one that generated the past events.} from $P(\vec{x}, y)$ and thus want to find the hypothesis whose predictions $h(\vec{x})=\hat{y}$ matches the conditional probability distribution $P(y|\vec{x})$ as best as possible. 
+
+To quantify the statement \q{as best as possible} in the previous paragraph we define the loss function $\ell$ which measures the loss for predicting $\hat{y}$ instead of $y$: $\ell(\hat{y}, y) = \ell(h(\vec{x}), y) = \in \mathbb{R}^+$. Given $\ell$ we now introduce the method of (empirical) risk minimization\autocite{vapnikPrinciplesRiskMinimization1991} and the expected loss:
+\begin{equation} \label{eu_eqn}
+  L(h) = \mathbb{E} \left[\ell(h(\vec{x}), y) \right] = \int \ell(h(\vec{x}), y)  \, dP(\vec{x}, y).
+  \end{equation}
+The optimal hypotheses $h^*$ is the hypothesis which minimizes the expected loss $L(h)$. However, the joint probability distribution $P(\vec{x}, y)$ is unknown and we are thus left with the empirical loss of $h$ on $\mathcal{D}$:
+\begin{equation}
+  \hat{L}(h, S) = \frac{1}{N} \sum_{i=1}^{N} \ell(h(\vec{x}_i, y_i)), % \equiv \mathcal{L} 
+\end{equation}
+which is an approximation of $L(h)$ based on the training data available. 
+% In the remainder of the text $\hat{L}(h, S)$ and $\mathcal{L}$ will be used interchangeably. 
+Now the optimal hypothesis $h^*$ can defined:
+\begin{equation}
+  h^* = \argmin_h \hat{L}(h, S).
+\end{equation}
 
 
-$\mathcal{X}$ \\
-$\mathcal{Y}$ \\
-$X \in \mathcal{X}$ \\
-$(X, Y) \in \left(\mathcal{X} \times \mathcal{Y} \right)$ \\
-$S = \{ (X_1, Y_1), \ldots, (X_n, Y_n) \}$ \\
-$h: \mathcal{X} \mapsto \mathcal{Y}$ \\
-$\mathcal{H} = \left\{h_1, h_2, \ldots, h_M  \right\}$ \\
-$\ell(Y', Y)$ \\
-$\hat{L}(h, S) = \frac{1}{2} \sum_{i=1}^{n} \ell(h(X_i, Y_i))$ \\
-$L(h) = \mathbb{E} \left[\ell(h(X), Y) \right]$ \\
+\section{Generalization Bound}
+
+
+
 $\mathbb{P} \left[ |\nu-\mu| > \epsilon \right] \le 2 e^{-2\epsilon^2 N} \quad \text{for any } \epsilon > 0$  \\
 $\mathbb{P} \left[ |E_\text{in}(g)-E_{out}(g)| > \epsilon \right] \le 2 M e^{-2\epsilon^2 N} \quad \text{for any } \epsilon > 0$  \\
 $E_\text{out}(g) \le E_{in}(g) + \sqrt{\frac{1}{2N} \ln \frac{2M}{\delta}}$ \\ %  generalization bound
@@ -1629,7 +1638,7 @@ classes rely upon.  Packages marked with an asterisk are optional.
 
 \backmatter
 
-\bibliography{ZoteroLibrary}
+\bibliography{My_Library}
 \bibliographystyle{plainnat}
 
 
