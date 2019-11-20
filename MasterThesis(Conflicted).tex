@@ -159,6 +159,9 @@
 
 
 
+% to have references in normal text and not sidenotes, see:
+% https://tex.stackexchange.com/questions/247636/how-to-remove-sidenote-citations-in-tufte-latex
+
 
 
 % \usepackage{titlesec, blindtext, color}
@@ -431,7 +434,7 @@ Without any loss of loss of generality let the focus for now be on classificatio
 
 How can one make sure that $h^*$ really is a good approximation of $f$? That is where Statistical learning theory comes into play. From a statistical standpoint we are interested in modelling the unknown joint probability $P(\vec{x}, y)$ over $\mathcal{X}$ and $\mathcal{Y}$. We assume that $\mathcal{D}_\mathrm{train}$ is independent and identically distributed (\emph{iid})\sidenote{This is one of the two key assumptions of statistical learning theory, the other being that future events are coming from the same distrubution as the one that generated the past events. These assumptions are sometimes called the PAC assumtions where PAC is an abbreviation for Probably, Approximatelly Correct.} from $P(\vec{x}, y)$ and thus want to find the hypothesis whose predictions $h(\vec{x})=\hat{y}$ matches the conditional probability distribution $P(y|\vec{x})$ as best as possible. 
 
-To quantify the statement \q{as best as possible} in the previous paragraph we define the loss function $\ell$ which measures the loss for predicting $\hat{y}$ instead of $y$: $\ell(\hat{y}, y) = \ell(h(\vec{x}), y) \in \mathbb{R}^+$. Given $\ell$ we now introduce the method of (empirical) risk minimization\autocite{vapnikPrinciplesRiskMinimization1991} and the expected loss\sidenote{Also called expected error.}:
+To quantify the statement \q{as best as possible} in the previous paragraph we define the loss function $\ell$ which measures the loss for predicting $\hat{y}$ instead of $y$: $\ell(\hat{y}, y) = \ell(h(\vec{x}), y) \in \mathbb{R}^+$. Given $\ell$ we now introduce the method of (empirical) risk minimization\autocite{vapnikPrinciplesRiskMinimization1991} and the expected loss\sidenote{Also called expected error or the out-of-sample error.}:
 \begin{equation} 
   \label{eq:L}
   L(h) = \mathbb{E} \left[\ell(h(\vec{x}), y) \right] = \int \ell(h(\vec{x}), y)  \, dP(\vec{x}, y).
@@ -506,7 +509,7 @@ Equation \eqref{eq:hoeffding_inequality_generalization_error_delta} can be read 
   \label{eq:hoeffding_inequality_single_PAC}
   \left| \hat{L}(h, S) - L(h) \right| \leq \sqrt{\frac{\ln \frac{2}{\delta}}{2N}}.
 \end{equation}
-This is a powerful result relating the performance for a (fixed) hypothesis $h$ with the number of samples, $N$. We see that a higher $N$ yields a tighter bound on the generalization error, however, inversely\sidenote{Not to be understood as $1/x$ in this context.} related to on the certainty $1-\delta$ of this bound. 
+This is a powerful result relating the performance for a (fixed) hypothesis $h$ with the number of samples, $N$. We see that a higher $N$ yields a tighter bound on the generalization error, however, inversely\sidenote{Not to be understood as $1/x$ in this context.} related to on the certainty\sidenote{Technically the certainty of the model is $1-\delta$.} $\delta$ of this bound. 
 
 There is a big assumption of this derivation although: that the hypothesis $h$ cannot depend on the sample $S$ and thus has to be chosen before seeing the data. We say that $h$ has to be \emph{fixed}. Of course the term machine learning indicates that some kind of learning is taking place: exactly as seen previously where we wanted to find the optimal hypotheses $h^*$ out of all the possible ones $\mathcal{H}$. For now assume that $\mathcal{H}$ is finite and consists of $M$ hypotheses: $|\mathcal{H}| = M$. We thus have $[h_1, h_2, \dots, h_M]$ hypotheses which we test simultaneously and where Hoeffding's inequality is true for each of them leading to the following theorem:
 \begin{theorem}[Hoeffding's inequality for a finite set of hypotheses candidates]
@@ -528,7 +531,7 @@ There is a big assumption of this derivation although: that the hypothesis $h$ c
   % \label{eq:hoeffding_inequality_generalization_error_delta}
   \begin{split}
     \mathbb{P} \Biggl\{ \exists h \in \mathcal{H}: \left| \hat{L}(h, S) - L(h) \right| &\geq \sqrt{\frac{\ln \frac{2}{\delta'}}{2N}}  \Biggr\} \\
-    &= \mathbb{P} \left\{ \bigcup_{i \leq M} H_i  \right\}  \\
+    &= \mathbb{P} \left\{ \bigcup_{h \in \mathcal{H}} \left| \hat{L}(h, S) - L(h) \right| \geq \sqrt{\frac{\ln \frac{2}{\delta'}}{2N}}  \right\}  \\
     &\leq \sum_{h \in \mathcal{H}} \mathbb{P} \left\{\left| \hat{L}(h, S) - L(h) \right| \geq \sqrt{\frac{\ln \frac{2}{\delta'}}{2N}} \right\}  \\
     &\leq \sum_{h \in \mathcal{H}} \delta' \\
     &= M \delta'.
@@ -542,25 +545,40 @@ As we did in equation \eqref{eq:hoeffding_inequality_single_PAC}, equation \eqre
   \label{eq:hoeffding_inequality_multi_PAC}
   \left| \hat{L}(h, S) - L(h) \right| \leq \sqrt{\frac{\ln \frac{2M}{\delta}}{2N}}.
 \end{equation}
-This bound is looser than the one for only a single hypothesis by a factor $\ln M$, however, this holds for the optimal hypothesis $h^*$. As the hypothesis space $\mathcal{H}$ grows, the generalization bound loosens but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the \emph{approximation-estimation} tradeoff\sidenote{Or the bias-variance tradeoff}. When the model is too simple to properly fit the complexity in the data it is called \emph{underfitting}, when the model is so complex that it starts fitting the inherent noise in the data it is called \emph{overfitting}. This is something that is clearly seen in data if one monitors the (empirical) loss for two datasets $\mathcal{D}_\mathrm{train}$ and $\mathcal{D}_\mathrm{val}$, a so-called training and validation dataset. Here the model is only fitted on $\mathcal{D}_\mathrm{train}$ but the performance on $\mathcal{D}_\mathrm{val}$ is also measured. This gives the characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases the training loss decreases. Initially also the validation loss decreases, but at some point the behavior of model on the validation set worsens and the loss increases; overfitting happens. 
+This bound is looser than the one for only a single hypothesis by a factor $\ln M$, however, this holds for the optimal hypothesis $h^*$. 
+
+\subsection{Generalization Bound for infinite hypotheses}
+Section \ref{sec:generalization_bound} dealt with the case of a single hypotheses $h$ and a finite set of candidate hypotheses $h\in\mathcal{H}, |\mathcal{H}| = M$. When $M$ goes towards $\infty$ the generalization bound goes to $\infty$ and the bound becomes useless. However, even simple models such as a linear classifier\sidenote{Also known as the perceptron. Often includes a constant offset $b$ as well which is omitted for brevity.} that predicts $\hat{y}=1$ when the dot product $\vec{w}^T\vec{x}$ is positive and $\hat{y}=0$ when it is negative has $|\mathcal{H}| = \infty$. Since there an infinite number of hypotheses $h(\vec{w})$, assuming we allow $\vec{w}$ to take any real values as is almost always the case, $\mathcal{H}$ is infinite. 
+
+To solve this obvious problem with the Hoeffding inequality, we introduce\sidenote{For proof, see \cite{abu-mostafaLearningData2012}.} the Vapnik-Chervonenkis (VC) generalization bound. The VC-bound is based on the so-called VC-dimension of the hypothesis space $\mathcal{H}$: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. The VC-dimension is a measure of the complexity of the hypothesis space, the degrees of freedom of the model so to say. For example the VC-dimension of the $d$-dimensional linear classifier defined above\sidenote{In the general case when the offset $b$ is included: $d_\mathrm{VC}=d+1$} is $d_\mathrm{VC}=d$ for $\{\vec{x}, \vec{w}\} \in \mathbb{R}^d$. 
+\begin{theorem}[VC Generalization Bound]
+  \label{theorem:hoeffding_finite}
+  Let $\mathcal{H}$ be a hypotheses class with VC-dimension: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. Then with probability at least $1-\delta$: 
+  \begin{equation}
+    \label{eq:VC_bound}
+    L(h) \leq \hat{L}(h, S) + \sqrt{ \frac{8}{N} \ln \left( \frac{4}{\delta} \left( \left(2N \right)^{d_\mathrm{VC}} + 1 \right)  \right)} .
+  \end{equation}
+\end{theorem}
+Equation \eqref{eq:VC_bound} states that the out of sample error $L(h)$ is bounded from above by the empirical error $\hat{L}(h, S)$ and the $\sqrt{ \boldsymbol{\cdot}}$ which is related to the complexity of the hypothesis space $\mathcal{H}$, the number of samples $N$ and the certainty $\delta$. We will call this model complexity penalty $\Omega(N, \mathcal{H}, \delta)$:
+\begin{equation}
+  \Omega(N, \mathcal{H}, \delta) = \sqrt{ \frac{8}{N} \ln \left( \frac{4}{\delta} \left( \left(2N \right)^{d_\mathrm{VC}(\mathcal{H})} + 1 \right)  \right)}.
+\end{equation}
+As the hypothesis space complexity $d_\mathrm{VC}$ grows, the generalization bound loosens but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the \emph{approximation-estimation} tradeoff\sidenote{Or the bias-variance tradeoff}. When the model is too simple to properly fit the complexity in the data it is called \emph{underfitting}\sidenote{Here the error from $\hat{L}(h, S)$ dominates}, when the model is so complex that it starts fitting the inherent noise in the data it is called \emph{overfitting}\sidenote{Here the error from $\Omega(N, \mathcal{H}, \delta)$ dominates}. 
+
+This is something that is clearly seen in data if one monitors the (empirical) loss for two datasets $\mathcal{D}_\mathrm{train}$ and $\mathcal{D}_\mathrm{val}$, a so-called training and validation dataset. Here the model is only fitted on $\mathcal{D}_\mathrm{train}$ but the performance on $\mathcal{D}_\mathrm{val}$ is also measured. They are both iid. realizations coming from the same underlying distribution. The loss as a function of model complexity gives the .characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases the training loss decreases. Initially also the validation loss decreases, but at some point the behavior of model on the validation set worsens and the loss increases; overfitting happens. 
 
 \begin{marginfigure}
-  \includegraphics[width=0.9\textwidth]{figures/overfitting/overfitting_1.pdf}
+  \includegraphics[width=0.98\textwidth]{figures/overfitting/overfitting_1.pdf}
   \caption[Approximation-Estimation tradeoff]
     {Illustration of the empirical loss as a function of model complexity. The \textcolor{blue}{training error} is shown in blue and \textcolor{red}{validation error} in red.
     }
   \label{fig:ml:empirical_risk}
 \end{marginfigure}
 
-\subsection{Generalization Bound for infinite hypotheses}
-Section \ref{sec:generalization_bound} dealt with the case of a single hypotheses 
 
+\section{Avoiding overfitting}
+Normal regularization. Early stopping. Cross validation.
 
-\section{Model regularization}
-
-blalblasdlad
-
-\section{}
 
 
 

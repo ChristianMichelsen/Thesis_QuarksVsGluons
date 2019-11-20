@@ -1,167 +1,167 @@
 \begin{theindex}
 
-  \item \texttt  {a4paper} class option, \hyperpage{34}
+  \item \texttt  {a4paper} class option, \hyperpage{36}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {author}, 
-		\hyperpage{35}
+		\hyperpage{37}
 
   \indexspace
 
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {bibliography}, 
-		\hyperpage{30}
-  \item \texttt  {bidi} class option, \hyperpage{34}
-  \item \texttt  {bidi} package, \hyperpage{34}
-  \item \texttt  {booktabs} package, \hyperpage{31}
+		\hyperpage{32}
+  \item \texttt  {bidi} class option, \hyperpage{36}
+  \item \texttt  {bidi} package, \hyperpage{36}
+  \item \texttt  {booktabs} package, \hyperpage{33}
 
   \indexspace
 
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {caption}, 
-		\hyperpage{31}
+		\hyperpage{33}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {cite}, 
-		\hyperpage{30}
-  \item class options, \hyperpage{34--35}
-    \subitem \texttt  {a4paper}, \hyperpage{34}
-    \subitem \texttt  {bidi}, \hyperpage{34}
-    \subitem \texttt  {debug}, \hyperpage{34}, \hyperpage{39}
-    \subitem \texttt  {justified}, \hyperpage{34}
-    \subitem \texttt  {nofonts}, \hyperpage{34}
-    \subitem \texttt  {nohyper}, \hyperpage{35}
-    \subitem \texttt  {nols}, \hyperpage{34}
-    \subitem \texttt  {notitlepage}, \hyperpage{34}
-    \subitem \texttt  {notoc}, \hyperpage{35}
-    \subitem \texttt  {oneside}, \hyperpage{34}
-    \subitem \texttt  {sfsidenotes}, \hyperpage{34}
-    \subitem \texttt  {symmetric}, \hyperpage{34}, \hyperpage{40}
-    \subitem \texttt  {titlepage}, \hyperpage{34}
-    \subitem \texttt  {twoside}, \hyperpage{34}, \hyperpage{40}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {clearpage}, 
 		\hyperpage{32}
+  \item class options, \hyperpage{36--37}
+    \subitem \texttt  {a4paper}, \hyperpage{36}
+    \subitem \texttt  {bidi}, \hyperpage{36}
+    \subitem \texttt  {debug}, \hyperpage{36}, \hyperpage{41}
+    \subitem \texttt  {justified}, \hyperpage{36}
+    \subitem \texttt  {nofonts}, \hyperpage{36}
+    \subitem \texttt  {nohyper}, \hyperpage{37}
+    \subitem \texttt  {nols}, \hyperpage{36}
+    \subitem \texttt  {notitlepage}, \hyperpage{36}
+    \subitem \texttt  {notoc}, \hyperpage{37}
+    \subitem \texttt  {oneside}, \hyperpage{36}
+    \subitem \texttt  {sfsidenotes}, \hyperpage{36}
+    \subitem \texttt  {symmetric}, \hyperpage{36}, \hyperpage{42}
+    \subitem \texttt  {titlepage}, \hyperpage{36}
+    \subitem \texttt  {twoside}, \hyperpage{36}, \hyperpage{42}
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {clearpage}, 
+		\hyperpage{34}
 
   \indexspace
 
-  \item \texttt  {debug} class option, \hyperpage{34}, \hyperpage{39}
-  \item debug messages, \hyperpage{39}
+  \item \texttt  {debug} class option, \hyperpage{36}, \hyperpage{41}
+  \item debug messages, \hyperpage{41}
 
   \indexspace
 
   \item environments
-    \subitem \texttt  {figure}, \hyperpage{30}
-    \subitem \texttt  {figure*}, \hyperpage{30}
-    \subitem \texttt  {fullwidth}, \hyperpage{33}
-    \subitem \texttt  {marginfigure}, \hyperpage{30}
-    \subitem \texttt  {margintable}, \hyperpage{30}
-    \subitem \texttt  {table*}, \hyperpage{30}
-    \subitem \texttt  {tabular}, \hyperpage{30}
-  \item error messages, \hyperpage{39}
+    \subitem \texttt  {figure}, \hyperpage{32}
+    \subitem \texttt  {figure*}, \hyperpage{32}
+    \subitem \texttt  {fullwidth}, \hyperpage{35}
+    \subitem \texttt  {marginfigure}, \hyperpage{32}
+    \subitem \texttt  {margintable}, \hyperpage{32}
+    \subitem \texttt  {table*}, \hyperpage{32}
+    \subitem \texttt  {tabular}, \hyperpage{32}
+  \item error messages, \hyperpage{41}
 
   \indexspace
 
-  \item \texttt  {figure} environment, \hyperpage{30}
-  \item \texttt  {figure*} environment, \hyperpage{30}
-  \item file hooks, \hyperpage{37}
-    \subitem book, \hyperpage{37}
-    \subitem common, \hyperpage{37}
-    \subitem handout, \hyperpage{37}
+  \item \texttt  {figure} environment, \hyperpage{32}
+  \item \texttt  {figure*} environment, \hyperpage{32}
+  \item file hooks, \hyperpage{39}
+    \subitem book, \hyperpage{39}
+    \subitem common, \hyperpage{39}
+    \subitem handout, \hyperpage{39}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {FloatBarrier}, 
-		\hyperpage{32}
-  \item \texttt  {fontenc} package, \hyperpage{34}
+		\hyperpage{34}
+  \item \texttt  {fontenc} package, \hyperpage{36}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {footnote}, 
-		\hyperpage{23}
+		\hyperpage{25}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {forcerectofloat}, 
-		\hyperpage{33}
+		\hyperpage{35}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {forceversofloat}, 
-		\hyperpage{33}
-  \item \texttt  {fullwidth} environment, \hyperpage{33}
+		\hyperpage{35}
+  \item \texttt  {fullwidth} environment, \hyperpage{35}
 
   \indexspace
 
-  \item headings, \hyperpage{12}, \hyperpage{21}
-  \item \texttt  {hyperref} package, \hyperpage{35}
+  \item headings, \hyperpage{14}, \hyperpage{23}
+  \item \texttt  {hyperref} package, \hyperpage{37}
 
   \indexspace
 
-  \item \texttt  {justified} class option, \hyperpage{34}
+  \item \texttt  {justified} class option, \hyperpage{36}
 
   \indexspace
 
-  \item \texttt  {letterspace} package, \hyperpage{34}
+  \item \texttt  {letterspace} package, \hyperpage{36}
   \item license, \hyperpage{ii}
 
   \indexspace
 
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {maketitle}, 
-		\hyperpage{34}
-  \item \texttt  {marginfigure} environment, \hyperpage{30}
+		\hyperpage{36}
+  \item \texttt  {marginfigure} environment, \hyperpage{32}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {marginnote}, 
-		\hyperpage{23}, \hyperpage{30}
-  \item \texttt  {margintable} environment, \hyperpage{30}
+		\hyperpage{25}, \hyperpage{32}
+  \item \texttt  {margintable} environment, \hyperpage{32}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}, 
-		\hyperpage{32}, \hyperpage{40}
+		\hyperpage{34}, \hyperpage{42}
 
   \indexspace
 
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {newthought}, 
-		\hyperpage{21}
+		\hyperpage{23}
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {nobibliography}, 
-		\hyperpage{30}
-  \item \texttt  {nofonts} class option, \hyperpage{34}
-  \item \texttt  {nohyper} class option, \hyperpage{35}
-  \item \texttt  {nols} class option, \hyperpage{34}
-  \item \texttt  {notitlepage} class option, \hyperpage{34}
-  \item \texttt  {notoc} class option, \hyperpage{35}
+		\hyperpage{32}
+  \item \texttt  {nofonts} class option, \hyperpage{36}
+  \item \texttt  {nohyper} class option, \hyperpage{37}
+  \item \texttt  {nols} class option, \hyperpage{36}
+  \item \texttt  {notitlepage} class option, \hyperpage{36}
+  \item \texttt  {notoc} class option, \hyperpage{37}
 
   \indexspace
 
-  \item \texttt  {oneside} class option, \hyperpage{34}
+  \item \texttt  {oneside} class option, \hyperpage{36}
 
   \indexspace
 
   \item packages
-    \subitem \texttt  {bidi}, \hyperpage{34}
-    \subitem \texttt  {booktabs}, \hyperpage{31}
-    \subitem \texttt  {fontenc}, \hyperpage{34}
-    \subitem \texttt  {hyperref}, \hyperpage{35}
-    \subitem \texttt  {letterspace}, \hyperpage{34}
-    \subitem \texttt  {soul}, \hyperpage{34}
+    \subitem \texttt  {bidi}, \hyperpage{36}
+    \subitem \texttt  {booktabs}, \hyperpage{33}
+    \subitem \texttt  {fontenc}, \hyperpage{36}
+    \subitem \texttt  {hyperref}, \hyperpage{37}
+    \subitem \texttt  {letterspace}, \hyperpage{36}
+    \subitem \texttt  {soul}, \hyperpage{36}
 
   \indexspace
 
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {setfloatalignment}, 
-		\hyperpage{32}
-  \item \texttt  {sfsidenotes} class option, \hyperpage{34}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}, 
-		\hyperpage{23}, \hyperpage{30}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {smallcaps}, 
-		\hyperpage{33}
-  \item \texttt  {soul} package, \hyperpage{34}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}, 
-		\hyperpage{40}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}, 
-		\hyperpage{40}
-  \item \texttt  {symmetric} class option, \hyperpage{34}, 
-		\hyperpage{40}
-
-  \indexspace
-
-  \item \texttt  {table*} environment, \hyperpage{30}
-  \item \texttt  {tabular} environment, \hyperpage{30}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {textsc}, 
 		\hyperpage{34}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {title}, 
+  \item \texttt  {sfsidenotes} class option, \hyperpage{36}
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}, 
+		\hyperpage{25}, \hyperpage{32}
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {smallcaps}, 
 		\hyperpage{35}
-  \item \texttt  {titlepage} class option, \hyperpage{34}
-  \item \texttt  {tufte-book-local.tex}, \hyperpage{37}
-  \item \texttt  {tufte-common-handout.tex}, \hyperpage{37}
-  \item \texttt  {tufte-common-local.tex}, \hyperpage{37}
-  \item \texttt  {tufte-handout-local.tex}, \hyperpage{37}
-  \item \texttt  {twoside} class option, \hyperpage{34}, \hyperpage{40}
-  \item typefaces, \hyperpage{33}
+  \item \texttt  {soul} package, \hyperpage{36}
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}, 
+		\hyperpage{42}
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}, 
+		\hyperpage{42}
+  \item \texttt  {symmetric} class option, \hyperpage{36}, 
+		\hyperpage{42}
 
   \indexspace
 
-  \item warning messages, \hyperpage{39}
+  \item \texttt  {table*} environment, \hyperpage{32}
+  \item \texttt  {tabular} environment, \hyperpage{32}
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {textsc}, 
+		\hyperpage{36}
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {title}, 
+		\hyperpage{37}
+  \item \texttt  {titlepage} class option, \hyperpage{36}
+  \item \texttt  {tufte-book-local.tex}, \hyperpage{39}
+  \item \texttt  {tufte-common-handout.tex}, \hyperpage{39}
+  \item \texttt  {tufte-common-local.tex}, \hyperpage{39}
+  \item \texttt  {tufte-handout-local.tex}, \hyperpage{39}
+  \item \texttt  {twoside} class option, \hyperpage{36}, \hyperpage{42}
+  \item typefaces, \hyperpage{35}
 
   \indexspace
 
-  \item \XeLaTeX , \hyperpage{34}
+  \item warning messages, \hyperpage{41}
+
+  \indexspace
+
+  \item \XeLaTeX , \hyperpage{36}
 
 \end{theindex}
