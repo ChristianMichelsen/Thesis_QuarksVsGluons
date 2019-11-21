@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -37,6 +37,27 @@ R.~A. Fisher.
 \newblock \doi{10.1111/j.1469-1809.1936.tb02137.x}.
 \newblock URL
   \url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x}.
+
+\bibitem[Hastie et~al.()Hastie, Tibshirani, and
+  Friedman]{hastieElementsStatisticalLearning2009}
+Trevor Hastie, Robert Tibshirani, and Jerome Friedman.
+\newblock \emph{The {{Elements}} of {{Statistical Learning}}: {{Data Mining}},
+  {{Inference}}, and {{Prediction}}, {{Second Edition}}}.
+\newblock Springer {{Series}} in {{Statistics}}. {Springer-Verlag}, 2 edition.
+\newblock ISBN 978-0-387-84857-0.
+\newblock URL \url{//www.springer.com/la/book/9780387848570}.
+
+\bibitem[Tibshirani()]{tibshiraniRegressionShrinkageSelection1996}
+Robert Tibshirani.
+\newblock Regression {{Shrinkage}} and {{Selection}} via the {{Lasso}}.
+\newblock 58\penalty0 (1):\penalty0 267--288.
+\newblock ISSN 0035-9246.
+\newblock URL \url{www.jstor.org/stable/2346178}.
+
+\bibitem[Tikhonov()]{tikhonovStabilityInverseProblems1943}
+A.N. Tikhonov.
+\newblock \emph{On the Stability of Inverse Problems}, volume vol. 39 of
+  \emph{Doklady {{Akademii Nauk SSSR}}}.
 
 \bibitem[van Veen()]{veenNeuralNetworkZoo2016}
 Fjodor van Veen.

@@ -99,6 +99,15 @@
 \newtheorem{theorem}{Theorem}
 
 
+% bold math
+\usepackage{bm}
+
+% for vector norms and abs
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+
+
+
 % % for using Inkscape plots
 \usepackage{import}
 \usepackage{xifthen}
@@ -108,6 +117,8 @@
     \def\svgwidth{\columnwidth}
     \import{./figures/}{#1.pdf_tex}
 }
+
+
 
 
 
@@ -390,7 +401,9 @@ and the use of the \doccls{tufte-book} and \doccls{tufte-handout} document class
 come to an end; then stop.''}}{--- Lewis Carroll, \textit{Alice in Wonderland}}
 
 
-\newthought{Not only is} the title of this project fairly broad, so are the subjects covered in this thesis. The overall goal of this project is to apply machine learning to different datasets and see how well these comparatively new tools might improve classical statistical methods. The project have dealt with two (seemingly) very different datasets: Danish housing prices and Quark-Gluon discrimination in particle physics, and the aim of this section is to provide an initial overview of the scope and relationship of the two sub-projects; two sub-projects which are covered in each part of this book. 
+\newthought{Not only} \marginnote{The background for this masters's thesis, is that it is part of a so-called 4+4 Ph.D. project (also known as an integrated Ph.D.). The Ph.D. dissertation is about the use of machine learning and deep learning in the field of ancient genomics. Here ancient DNA is sampled and analysed with the hope of finding patterns, structure, in the genome which were previously unknown. The overall goal is two-fold. On the big scale it is the better understand human history in the broadest sense of the word history. Where did we come from, where did we go. On a much smaller scale, the goal is to understand local history and migration patterns; how did we end up where we did. It is with this background that this project should be seen: as an introduction to the general use of applied machine learning.}
+is the title of this project fairly broad, so are the subjects covered in this thesis. The overall goal of this project is to apply machine learning to different datasets and see how well these comparatively new tools might improve classical statistical methods. The project have dealt with two (seemingly) very different datasets: Danish housing prices and Quark-Gluon discrimination in particle physics, and the aim of this section is to provide an initial overview of the scope and relationship of the two sub-projects; two sub-projects which are covered in each part of this book. 
+
 
 
 The first part of the thesis deals with the problem of estimating housing prices as precisely and accurately as possible. This was the sub-project that was worked on in the beginning of the overall project and worked as an initial introduction to the application of machine learning to real-life datasets. The housing prices dataset thus became the playground in which the subtleties of these new modern tools were examined, where the difference between real life datasets with all its quirks, outliers and bad formatting, and curated toy datasets that works out of the box (such as the famous Iris dataset\cite{andersonSpeciesProblemIris1936a,fisherUseMultipleMeasurements1936}) were experienced first hand. Since the project started the dataset changed due to a new collaboration with the Danish housing agency \href{www.boligsiden.dk}{Boligsiden} where the agreement was, stated shortly, that we would get their data and they would get our results. Boligsiden is a natural collaborator since they are the biggest on the market\sidenote{Due to being owned by the \q{Dansk Ejendomsmæglerforening}, The Danish Association of Chartered Estate Agents} and have been very helpful the continuos process of providing data but it also should also be noted that they have had no say on the results presented in this thesis. 
@@ -548,6 +561,7 @@ As we did in equation \eqref{eq:hoeffding_inequality_single_PAC}, equation \eqre
 This bound is looser than the one for only a single hypothesis by a factor $\ln M$, however, this holds for the optimal hypothesis $h^*$. 
 
 \subsection{Generalization Bound for infinite hypotheses}
+\label{subsec:generalization_bound_infinite}
 Section \ref{sec:generalization_bound} dealt with the case of a single hypotheses $h$ and a finite set of candidate hypotheses $h\in\mathcal{H}, |\mathcal{H}| = M$. When $M$ goes towards $\infty$ the generalization bound goes to $\infty$ and the bound becomes useless. However, even simple models such as a linear classifier\sidenote{Also known as the perceptron. Often includes a constant offset $b$ as well which is omitted for brevity.} that predicts $\hat{y}=1$ when the dot product $\vec{w}^T\vec{x}$ is positive and $\hat{y}=0$ when it is negative has $|\mathcal{H}| = \infty$. Since there an infinite number of hypotheses $h(\vec{w})$, assuming we allow $\vec{w}$ to take any real values as is almost always the case, $\mathcal{H}$ is infinite. 
 
 To solve this obvious problem with the Hoeffding inequality, we introduce\sidenote{For proof, see:\cite{abu-mostafaLearningData2012}} the Vapnik-Chervonenkis (VC) generalization bound. The VC-bound is based on the so-called VC-dimension of the hypothesis space $\mathcal{H}$: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. The VC-dimension is a measure of the complexity of the hypothesis space, the degrees of freedom of the model so to say. For example the VC-dimension of the $d$-dimensional linear classifier defined above\sidenote{In the general case when the offset $b$ is included: $d_\mathrm{VC}=d+1$} is $d_\mathrm{VC}=d$ for $\{\vec{x}, \vec{w}\} \in \mathbb{R}^d$. 
@@ -577,7 +591,91 @@ This is something that is clearly seen in data if one monitors the (empirical) l
 
 
 \section{Avoiding overfitting}
-Normal regularization. Early stopping. Cross validation.
+\label{sec:overfitting}
+Avoiding overfitting is one of the most important issues in machine learning. By now, most modern machine learning algorithms have the inherent model complexity needed for overfitting and thus it has to be managed. Due to the importance of the issue, a number of different methods preventing or reducing overfitting exists. Most of them are not complementary of each other but can be taken advantage of in a combination. In this section model regularization will be introduced in \autoref{subsec:regularization}, cross validation in \autoref{subsec:cross_validation}, and early stopping in \autoref{subsec:early_stopping}. 
+
+\subsection{Model Regularization}
+\label{subsec:regularization}
+One of the earliest methods developed for preventing overfitting was model regularization. A. N. Tikhonov\autocite{tikhonovStabilityInverseProblems1943} was one of the first to describe this method in 1943. In particular regularization was used to solve \emph{ill posed} linear regression problems. Regular linear regression problems refer to minimizing the residual sum of squares written in matrix form as:
+\begin{equation}
+  \begin{split}
+    \hat{\bm{\beta}}_{\mathrm{LS}} = \argmin_{\bm{\beta}} \norm{\vec{y} - \vec{X} \bm{\beta} }_2^2 = \argmin_{\bm{\beta}} \norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 \\
+    \vec{f}(\vec{X}) = \vec{X} \bm{\beta},
+  \end{split}
+\end{equation}
+where $\vec{y}$ is vector of values we are trying to predict\sidenote{E.g. the prices of a collection of houses}, $\vec{X}\in\mathbb{R}^{N\times d}$ is the matrix of input parameters such that each observation $\vec{x}_i \in \mathbb{R}^d$ is a $d$-dimensional vector stacked in $\vec{X}$ as rows with $N$ total observations, $\hat{\bm{\beta}}_{\mathrm{LS}}$ is the vector of unknown coefficients\sidenote{Here excluding the constant offset $\beta_0$ which can be included trivially} of the linear least squares (LS) model $\vec{f}$, and $\norm{ \bm{\cdot} }_2$ is the normal Euclidean norm. Differentiating the objective $\norm{\vec{y} - \vec{X} \bm{\beta} }_2^2$ with respect to (w.r.t.) $\bm{\beta}$ and setting the derivative equal to $0$ to find the minimum\sidenote{When checking the double derivative wrt. $\bm{\beta}$ it is seen that this really is a minimum and not a maximum (or saddle point)}  yields the solution for $\bm{\beta}$:
+\begin{equation}
+  \begin{split}
+    \frac{\partial}{\partial \bm{\beta}} \norm{\vec{y} - \vec{X} \bm{\beta} }_2^2 = -2 \vec{X}^T \left( \vec{y} - \vec{X} \bm{\beta} \right) = 0  \Rightarrow \\
+    \vec{X}^T \vec{y} - \vec{X}^T \vec{X} \bm{\beta} \Rightarrow \\
+    \hat{\bm{\beta}}_{\mathrm{LS}} =  \left( \vec{X}^T \vec{X} \right)^{-1} \vec{X}^T \vec{y}.
+  \end{split}
+\end{equation}
+However, this solution for $\hat{\bm{\beta}}_{\mathrm{LS}}$ is only valid when $\vec{X}^T \vec{X}$ is invertible, i.e. $\vec{X}$ has to be full rank\autocite{hastieElementsStatisticalLearning2009}. If this is not the case, the problem is said to be ill posed. Tikhonov solved this problem by adding an extra term to the minimization problem, which we will call $\Omega$ for simplicity. For a specific choice of $\Omega$, one gets:
+\begin{equation}
+  \label{eq:l2_norm}
+  \hat{\bm{\beta}}_{\mathrm{L_2}} = \argmin_{\bm{\beta}} \left \{\norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 + \lambda \norm{ \bm{\beta} }^2_2 \right \},
+\end{equation}
+where $\lambda \geq 0$ is the regularization strength. This is the so-called $L_2$-regularization, also known as ridge regression for linear problems. For ridge regression\sidenote{Here $\hat{\bm{\beta}}_{\mathrm{L_2}}$ is the solution for any general function $\vec{f}$ and $\hat{\bm{\beta}}_{\mathrm{ridge}}$ is the specific solution for a linear function $\vec{f}$, where linear is w.r.t. to the model parameters $\bm{\beta}$} the corresponding solution for $\bm{\beta}$ is:
+\begin{equation}
+  \label{eq:l2_norm_linear}
+  \hat{\bm{\beta}}_{\mathrm{ridge}} =  \left( \vec{X}^T \vec{X} + \lambda \vec{I} \right)^{-1} \vec{X}^T \vec{y},
+\end{equation}
+where $\vec{I}$ is the identity matrix\sidenote{The $\lambda \vec{I}$ in equation \eqref{eq:l2_norm_linear} also acts as a conditioner on the problem in the sense that it reduces the condition number of the matrix to be inverted turning the ill-posed problem to a well-behaved one}. This extra term, $\Omega =  \lambda \norm{ \bm{\beta} }^2_2$, acts as a shrinkage factor on the coefficients of $\bm{\beta}$. Looking at equation \eqref{eq:l2_norm}, we see that this is the Lagrangian form of the equivalent problem: 
+\begin{equation}
+  \begin{split}
+    \hat{\bm{\beta}}_{\mathrm{L_2}} = \argmin_{\bm{\beta}} \norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 \\
+    \mathrm{subject~to:} \quad \sum_{i=1}^N \beta_i^2 = \norm{\bm{\beta}}^2_2 \leq t,
+  \end{split}
+  \label{eq:l2_norm_non_lagrangian}
+\end{equation}
+
+for some $t \geq 0$ with a one-to-one mapping between $\lambda$ and $t$. We thus see that $L_2$ regularizes the coefficients of $\bm{\beta}$ to have some maximal norm. The effect of the regularization is controlled by $\lambda$, where $\hat{\bm{\beta}}_{\mathrm{L_2}} \rightarrow \hat{\bm{\beta}}_{\mathrm{LS}}$ for $\lambda \rightarrow 0$ and $\hat{\bm{\beta}}_{\mathrm{L_2}} \rightarrow \vec{0}$ for $\lambda \rightarrow \infty$. An example of this can be seen in Figure~\ref{fig:ml:regularization_ridge}. 
+\begin{marginfigure}
+  \includegraphics[width=0.98\textwidth]{figures/ridge_regression/ridge.pdf}
+  \caption[Regularization Effect]
+    {Effect of tuning the regularization strength $\lambda$ in ridge regression.
+    }
+  \label{fig:ml:regularization_ridge}
+\end{marginfigure}
+Here $N=9$ datapoints were randomly generated such that the $x$-values are evenly spaced from 0 to 1 and $y \sim \mathcal{N}(\mu=0, \sigma=10)$. They were then fit with a 9-order polynomial by minimizing equation \eqref{eq:l2_norm} for different values of $\lambda$. Here we see the regularizing effect of $\lambda$, going from $\lambda=0$ in blue which fits all points\sidenote{Since the order of the polynomial is the same as the number of datapoints} with a high degree of variance and a wildly oscillatory pattern to $\lambda=10$ in orange which is mostly flat in most of the interval. Also note in the legend how the norm of the fit parameters also decrease with $\lambda$ as expected. This is a great example of the \emph{bias-variance} tradeoff mentioned in \autoref{subsec:generalization_bound_infinite}, where bias refers the error the model makes when it is not advanced enough to fit the overall trend in the data (underfitting) and variance refers to the error the model makes when it starts to fit spurious noisy fluctuations in the training set which are not present in the validation set (overfitting). In this example $\lambda=0$ is clearly overfitting the data whereas $\lambda=10$ is an example of underfitting. 
+
+Other values of the regularization function $\Omega$ exists, for example the $L_1$-penalty:
+\begin{equation}
+  \Omega = \lambda \norm{\bm{\beta}}_1.
+\end{equation}
+In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by Tibshirani\autocite{tibshiraniRegressionShrinkageSelection1996} in 1996. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$} solutions. An illustration of this can be seen in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso}. here the XXX
+
+\begin{marginfigure}
+  \includegraphics[width=0.98\textwidth]{figures/ridge_lasso_sparse/ridge.pdf}
+  \caption[Ridge Regularization Effect]
+    {XXX.
+    }
+  \label{fig:ml:regularization_effect_ridge}
+\end{marginfigure}
+
+\begin{marginfigure}
+  \includegraphics[width=0.98\textwidth]{figures/ridge_lasso_sparse/lasso.pdf}
+  \caption[Lasso Regularization Effect]
+    {XXX.
+    }
+  \label{fig:ml:regularization_effect_lasso}
+\end{marginfigure}
+
+
+How to choose a suitable value for $\lambda$ is discussed in the next two subsections. 
+
+\subsection{Cross Validation}
+\label{subsec:cross_validation}
+Cross validation.
+
+\subsection{Early Stopping}
+\label{subsec:early_stopping}
+Early stopping. 
+
+\section{Choice of loss function}
+\label{subsec:loss_function}
+Loss function. 
 
 
 
