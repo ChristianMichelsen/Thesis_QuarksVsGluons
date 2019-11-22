@@ -603,7 +603,11 @@ One of the earliest methods developed for preventing overfitting was model regul
     \vec{f}(\vec{X}) = \vec{X} \bm{\beta},
   \end{split}
 \end{equation}
-where $\vec{y}$ is vector of values we are trying to predict\sidenote{E.g. the prices of a collection of houses}, $\vec{X}\in\mathbb{R}^{N\times d}$ is the matrix of input parameters such that each observation $\vec{x}_i \in \mathbb{R}^d$ is a $d$-dimensional vector stacked in $\vec{X}$ as rows with $N$ total observations, $\hat{\bm{\beta}}_{\mathrm{LS}}$ is the vector of unknown coefficients\sidenote{Here excluding the constant offset $\beta_0$ which can be included trivially} of the linear least squares (LS) model $\vec{f}$, and $\norm{ \bm{\cdot} }_2$ is the normal Euclidean norm. Differentiating the objective $\norm{\vec{y} - \vec{X} \bm{\beta} }_2^2$ with respect to (w.r.t.) $\bm{\beta}$ and setting the derivative equal to $0$ to find the minimum\sidenote{When checking the double derivative wrt. $\bm{\beta}$ it is seen that this really is a minimum and not a maximum (or saddle point)}  yields the solution for $\bm{\beta}$:
+where $\vec{y}$ is vector of values we are trying to predict\sidenote{E.g. the prices of a collection of houses}, $\vec{X}\in\mathbb{R}^{N\times d}$ is the matrix of input parameters such that each observation $\vec{x}_i \in \mathbb{R}^d$ is a $d$-dimensional vector stacked in $\vec{X}$ as rows with $N$ total observations, $\hat{\bm{\beta}}_{\mathrm{LS}}$ is the vector of unknown coefficients\sidenote{Here excluding the constant offset $\beta_0$ which can be included trivially} of the linear least squares (LS) model $\vec{f}$, and $\norm{ \bm{\cdot} }_2$ is the normal Euclidean norm. In general, the $p$-norm is defined as:
+\begin{equation}
+  \norm{\vec{x}}_p = \left( \sum_{i=1}^N \abs{x_i}^p \right)^{1/p}.
+\end{equation}
+Differentiating the objective $\norm{\vec{y} - \vec{X} \bm{\beta} }_2^2$ with respect to (w.r.t.) $\bm{\beta}$ and setting the derivative equal to $0$ to find the minimum\sidenote{When checking the double derivative wrt. $\bm{\beta}$ it is seen that this really is a minimum and not a maximum (or saddle point)}  yields the solution for $\bm{\beta}$:
 \begin{equation}
   \begin{split}
     \frac{\partial}{\partial \bm{\beta}} \norm{\vec{y} - \vec{X} \bm{\beta} }_2^2 = -2 \vec{X}^T \left( \vec{y} - \vec{X} \bm{\beta} \right) = 0  \Rightarrow \\
@@ -623,6 +627,7 @@ where $\lambda \geq 0$ is the regularization strength. This is the so-called $L_
 \end{equation}
 where $\vec{I}$ is the identity matrix\sidenote{The $\lambda \vec{I}$ in equation \eqref{eq:l2_norm_linear} also acts as a conditioner on the problem in the sense that it reduces the condition number of the matrix to be inverted turning the ill-posed problem to a well-behaved one}. This extra term, $\Omega =  \lambda \norm{ \bm{\beta} }^2_2$, acts as a shrinkage factor on the coefficients of $\bm{\beta}$. Looking at equation \eqref{eq:l2_norm}, we see that this is the Lagrangian form of the equivalent problem: 
 \begin{equation}
+  % \label{eq:ml:constrained_minimization_L2}
   \begin{split}
     \hat{\bm{\beta}}_{\mathrm{L_2}} = \argmin_{\bm{\beta}} \norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 \\
     \mathrm{subject~to:} \quad \sum_{i=1}^N \beta_i^2 = \norm{\bm{\beta}}^2_2 \leq t,
@@ -640,30 +645,28 @@ for some $t \geq 0$ with a one-to-one mapping between $\lambda$ and $t$. We thus
 \end{marginfigure}
 Here $N=9$ datapoints were randomly generated such that the $x$-values are evenly spaced from 0 to 1 and $y \sim \mathcal{N}(\mu=0, \sigma=10)$. They were then fit with a 9-order polynomial by minimizing equation \eqref{eq:l2_norm} for different values of $\lambda$. Here we see the regularizing effect of $\lambda$, going from $\lambda=0$ in blue which fits all points\sidenote{Since the order of the polynomial is the same as the number of datapoints} with a high degree of variance and a wildly oscillatory pattern to $\lambda=10$ in orange which is mostly flat in most of the interval. Also note in the legend how the norm of the fit parameters also decrease with $\lambda$ as expected. This is a great example of the \emph{bias-variance} tradeoff mentioned in \autoref{subsec:generalization_bound_infinite}, where bias refers the error the model makes when it is not advanced enough to fit the overall trend in the data (underfitting) and variance refers to the error the model makes when it starts to fit spurious noisy fluctuations in the training set which are not present in the validation set (overfitting). In this example $\lambda=0$ is clearly overfitting the data whereas $\lambda=10$ is an example of underfitting. 
 
-Other values of the regularization function $\Omega$ exists, for example the $L_1$-penalty:
-\begin{equation}
-  \Omega = \lambda \norm{\bm{\beta}}_1.
-\end{equation}
-In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by Tibshirani\autocite{tibshiraniRegressionShrinkageSelection1996} in 1996. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$} solutions. An illustration of this can be seen in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso}. here the XXX
-
 \begin{marginfigure}
-  \includegraphics[width=0.98\textwidth]{figures/ridge_lasso_sparse/ridge.pdf}
-  \caption[Ridge Regularization Effect]
-    {XXX.
+  \includegraphics[width=0.7\textwidth]{figures/ridge_lasso_sparse/ridge.pdf}
+  \caption[Regularization Effect of $L_2$ ]
+    {Sketch of the minimization problem defined in equation \eqref{eq:l2_norm_non_lagrangian}, i.e. for a $L_2$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\beta_1^2 + \beta_2^2 \leq t$ for $L_2$ in $2D$-space and the contours of the unconstrained solution is shown with grey, dashed lines. 
     }
   \label{fig:ml:regularization_effect_ridge}
 \end{marginfigure}
-
 \begin{marginfigure}
-  \includegraphics[width=0.98\textwidth]{figures/ridge_lasso_sparse/lasso.pdf}
-  \caption[Lasso Regularization Effect]
-    {XXX.
+  \includegraphics[width=0.7\textwidth]{figures/ridge_lasso_sparse/lasso.pdf}
+  \caption[Regularization Effect of $L_1$]
+    {Sketch of the similar minimization problem defined in Figure~\ref{fig:ml:regularization_effect_ridge} for the $L_1$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\abs{\beta_1} + \abs{\beta_2} \leq t$ for $L_1$ in $2D$-space and the contours of the unconstrained solution is shown with grey, dashed lines.
     }
   \label{fig:ml:regularization_effect_lasso}
-\end{marginfigure}
+\end{marginfigure} 
 
+Other values of the regularization function $\Omega$ exists, for example the $L_1$-penalty:
+\begin{equation}
+  \Omega = \lambda \norm{\bm{\beta}}_1, 
+\end{equation}
+where the 1-norm, also known as Manhattan norm, is used. In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by Tibshirani\cite{tibshiraniRegressionShrinkageSelection1996} in 1996. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$} solutions. An illustration of this can be seen in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso} where the constraint regions of $\bm{\beta}$ os shown in red and the grey ellipses are the contours of the non-constrained problem. Notice how the intersection of the contour lines and the constrain region leads to $\beta_1 \neq 0, \beta_2 \neq 0$ for the $L_2$-penalty whereas it leads to the sparse solution $\beta_1=0, \beta_2 \neq 0$ for the $L_1$-penalty. This is a general pattern. seen for $L_p$-penalties for $p \leq 1$.
 
-How to choose a suitable value for $\lambda$ is discussed in the next two subsections. 
+As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in the next two subsections. 
 
 \subsection{Cross Validation}
 \label{subsec:cross_validation}
