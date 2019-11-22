@@ -8,36 +8,36 @@
 \contentsline {section}{\numberline {3.4}Avoiding overfitting}{10}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}Model Regularization}{10}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Cross Validation}{12}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Early Stopping}{12}{subsection.3.4.3}
-\contentsline {section}{\numberline {3.5}Choice of loss function}{12}{section.3.5}
-\contentsline {chapter}{\numberline {4}Housing Prices Analysis}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}Headings}{16}{section.4.1}
-\contentsline {paragraph}{Paragraph}{16}{paragraph*.4}
-\contentsline {chapter}{\numberline {5}Particle Physics and LEP}{25}{chapter.5}
-\contentsline {section}{\numberline {5.1}Page Layout}{25}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Headings}{25}{subsection.5.1.1}
-\contentsline {chapter}{\numberline {6}Quark Gluon Analysis}{27}{chapter.6}
-\contentsline {section}{\numberline {6.1}Sidenotes}{27}{section.6.1}
-\contentsline {section}{\numberline {6.2}References}{34}{section.6.2}
-\contentsline {section}{\numberline {6.3}Figures and Tables}{34}{section.6.3}
-\contentsline {section}{\numberline {6.4}Captions}{36}{section.6.4}
-\contentsline {paragraph}{Vertical alignment}{36}{paragraph*.5}
-\contentsline {paragraph}{Horizontal alignment}{37}{paragraph*.6}
-\contentsline {section}{\numberline {6.5}Full-width text blocks}{37}{section.6.5}
-\contentsline {section}{\numberline {6.6}Typography}{37}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Typefaces}{37}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Letterspacing}{37}{subsection.6.6.2}
-\contentsline {section}{\numberline {6.7}Document Class Options}{38}{section.6.7}
-\contentsline {chapter}{\numberline {7}Discussion and Outlook}{41}{chapter.7}
-\contentsline {section}{\numberline {7.1}File Hooks}{41}{section.7.1}
-\contentsline {chapter}{\numberline {8}Conclusion}{43}{chapter.8}
-\contentsline {section}{\numberline {8.1}Tufte-\LaTeX \xspace Website}{43}{section.8.1}
-\contentsline {section}{\numberline {8.2}Tufte-\LaTeX \xspace Mailing Lists}{43}{section.8.2}
-\contentsline {paragraph}{Discussion list}{43}{paragraph*.7}
-\contentsline {paragraph}{Commits list}{43}{paragraph*.8}
-\contentsline {section}{\numberline {8.3}Getting Help}{43}{section.8.3}
-\contentsline {section}{\numberline {8.4}Errors, Warnings, and Informational Messages}{43}{section.8.4}
-\contentsline {section}{\numberline {8.5}Package Dependencies}{44}{section.8.5}
-\contentsline {chapter}{Bibliography}{47}{chapter*.9}
-\contentsline {chapter}{Index}{49}{chapter*.10}
+\contentsline {subsection}{\numberline {3.4.3}Early Stopping}{13}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Choice of loss function}{13}{section.3.5}
+\contentsline {chapter}{\numberline {4}Housing Prices Analysis}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}Headings}{18}{section.4.1}
+\contentsline {paragraph}{Paragraph}{18}{paragraph*.4}
+\contentsline {chapter}{\numberline {5}Particle Physics and LEP}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Page Layout}{27}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Headings}{27}{subsection.5.1.1}
+\contentsline {chapter}{\numberline {6}Quark Gluon Analysis}{29}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sidenotes}{29}{section.6.1}
+\contentsline {section}{\numberline {6.2}References}{36}{section.6.2}
+\contentsline {section}{\numberline {6.3}Figures and Tables}{36}{section.6.3}
+\contentsline {section}{\numberline {6.4}Captions}{38}{section.6.4}
+\contentsline {paragraph}{Vertical alignment}{38}{paragraph*.5}
+\contentsline {paragraph}{Horizontal alignment}{39}{paragraph*.6}
+\contentsline {section}{\numberline {6.5}Full-width text blocks}{39}{section.6.5}
+\contentsline {section}{\numberline {6.6}Typography}{39}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Typefaces}{39}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Letterspacing}{39}{subsection.6.6.2}
+\contentsline {section}{\numberline {6.7}Document Class Options}{40}{section.6.7}
+\contentsline {chapter}{\numberline {7}Discussion and Outlook}{43}{chapter.7}
+\contentsline {section}{\numberline {7.1}File Hooks}{43}{section.7.1}
+\contentsline {chapter}{\numberline {8}Conclusion}{45}{chapter.8}
+\contentsline {section}{\numberline {8.1}Tufte-\LaTeX \xspace Website}{45}{section.8.1}
+\contentsline {section}{\numberline {8.2}Tufte-\LaTeX \xspace Mailing Lists}{45}{section.8.2}
+\contentsline {paragraph}{Discussion list}{45}{paragraph*.7}
+\contentsline {paragraph}{Commits list}{45}{paragraph*.8}
+\contentsline {section}{\numberline {8.3}Getting Help}{45}{section.8.3}
+\contentsline {section}{\numberline {8.4}Errors, Warnings, and Informational Messages}{45}{section.8.4}
+\contentsline {section}{\numberline {8.5}Package Dependencies}{46}{section.8.5}
+\contentsline {chapter}{Bibliography}{49}{chapter*.9}
+\contentsline {chapter}{Index}{51}{chapter*.10}
 \contentsfinish 

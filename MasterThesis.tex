@@ -666,17 +666,37 @@ Other values of the regularization function $\Omega$ exists, for example the $L_
 \end{equation}
 where the 1-norm, also known as Manhattan norm, is used. In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by Tibshirani\cite{tibshiraniRegressionShrinkageSelection1996} in 1996. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$} solutions. An illustration of this can be seen in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso} where the constraint regions of $\bm{\beta}$ os shown in red and the grey ellipses are the contours of the non-constrained problem. Notice how the intersection of the contour lines and the constrain region leads to $\beta_1 \neq 0, \beta_2 \neq 0$ for the $L_2$-penalty whereas it leads to the sparse solution $\beta_1=0, \beta_2 \neq 0$ for the $L_1$-penalty. This is a general pattern. seen for $L_p$-penalties for $p \leq 1$.
 
-As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in the next two subsections. 
+Overall, model regularization is heavily used in modern machine learning algorithms. In general, the function or the so-called objective function $\mathcal{L}$ they are trying to minimize is:
+\begin{equation}
+  \mathcal{L}(h) = \tilde{L}(\ell, h, S) + \Omega(h)
+\end{equation}
+where $\tilde{L}$ is function of the error, as defined by the training loss function $\ell$, of the model $h$ fit on the data $S$ and $\Omega$ is the regularization penalty. As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{subsec:loss_function}. 
 
 \subsection{Cross Validation}
 \label{subsec:cross_validation}
 Cross validation.
 
+\begin{marginfigure}
+  \includegraphics[width=0.7\textwidth]{figures/cross_validation/kfold.pdf}
+  \caption[$k$-Fold Cross Validation]
+    {$k$-fold cross validation. 
+    }
+  \label{fig:ml:cross_val_kfold}
+\end{marginfigure} 
+
+\begin{marginfigure}
+  \includegraphics[width=0.7\textwidth]{figures/cross_validation/kfold_time.pdf}
+  \caption[$k$-Fold Cross Validation for Time Series Data]
+    {$k$-fold cross validation for time series data. 
+    }
+  \label{fig:ml:cross_val_kfold_time}
+\end{marginfigure} 
+
 \subsection{Early Stopping}
 \label{subsec:early_stopping}
 Early stopping. 
 
-\section{Choice of loss function}
+\subsection{Choice of loss function}
 \label{subsec:loss_function}
 Loss function. 
 
