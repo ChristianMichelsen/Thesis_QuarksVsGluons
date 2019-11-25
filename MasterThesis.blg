@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: MasterThesis.aux
-The style file: plainnat.bst
+The style file: abbrvnat.bst
 Database file #1: My_Library.bib
 Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
 --line 1341 of file My_Library.bib
@@ -42,7 +42,7 @@ Warning--empty year in vapnikPrinciplesRiskMinimization1991
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
 You've used 12 entries,
             2773 wiz_defined-function locations,
-            671 strings with 7296 characters,
+            671 strings with 7012 characters,
 and the built_in function-call counts, 4373 in all, are:
 = -- 397
 > -- 130

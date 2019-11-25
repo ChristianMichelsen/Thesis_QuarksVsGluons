@@ -12,7 +12,10 @@
 \contentsline {section}{\numberline {3.5}Loss functions}{14}{section.3.5}
 \contentsline {subsection}{\numberline {3.5.1}Evaluation Function}{15}{subsection.3.5.1}
 \contentsline {section}{\numberline {3.6}Decision Trees}{16}{section.3.6}
-\contentsline {section}{\numberline {3.7}Hyperparamater Optimization}{16}{section.3.7}
+\contentsline {section}{\numberline {3.7}Hyperparamater Optimization}{17}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Grid Search}{17}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Random Search}{17}{subsection.3.7.2}
+\contentsline {subsection}{\numberline {3.7.3}Beyesian Optimization}{17}{subsection.3.7.3}
 \contentsline {chapter}{\numberline {4}Housing Prices Analysis}{19}{chapter.4}
 \contentsline {section}{\numberline {4.1}Headings}{20}{section.4.1}
 \contentsline {paragraph}{Paragraph}{20}{paragraph*.4}
@@ -41,6 +44,5 @@
 \contentsline {section}{\numberline {8.3}Getting Help}{47}{section.8.3}
 \contentsline {section}{\numberline {8.4}Errors, Warnings, and Informational Messages}{47}{section.8.4}
 \contentsline {section}{\numberline {8.5}Package Dependencies}{48}{section.8.5}
-\contentsline {chapter}{Bibliography}{51}{chapter*.9}
 \contentsline {chapter}{Index}{53}{chapter*.10}
 \contentsfinish 

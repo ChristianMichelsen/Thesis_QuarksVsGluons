@@ -1,4 +1,4 @@
-\documentclass[a4paper, twoside]{tufte-book}
+\documentclass[a4paper, twoside, nobib]{tufte-book}
 
 
 \hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
@@ -27,6 +27,11 @@
 %\IfFileExists{chantill.sty}{\usepackage{chantill}}{}% Gill Sans
 
 %\usepackage{microtype}
+
+% when using custom bibliography
+\usepackage[square, numbers, nonamebreak]{natbib}
+\bibliographystyle{abbrvnat}
+
 
 %%
 % Just some sample text
@@ -84,6 +89,7 @@
 
 % add numbers to chapters, sections, subsections
 \setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
 
 % Feyman diagrams
 % \usepackage{tikz-feynman}
@@ -162,7 +168,7 @@
 \newcommand{\figref}[1]{Figure ~\ref{#1}}
 
 % avoid problems with autocite not properly defined
-\newcommand{\autocite}[1]{\cite{#1}}
+\newcommand{\autocite}[1]{ \citep{#1}}
 
 % bold vector
 \renewcommand{\vec}[1]{\mathbf{#1}}
@@ -388,7 +394,7 @@ under the License.\index{license}
 \pagenumbering{arabic}
 
 This sample book discusses the design of Edward Tufte's books
-% \cite{Tufte2001,Tufte1990,Tufte1997,Tufte2006} 
+%  \citep{Tufte2001,Tufte1990,Tufte1997,Tufte2006} 
 and the use of the \doccls{tufte-book} and \doccls{tufte-handout} document classes.
 
 
@@ -407,11 +413,11 @@ is the title of this project fairly broad, so are the subjects covered in this t
 
 
 
-The first part of the thesis deals with the problem of estimating housing prices as precisely and accurately as possible. This was the sub-project that was worked on in the beginning of the overall project and worked as an initial introduction to the application of machine learning to real-life datasets. The housing prices dataset thus became the playground in which the subtleties of these new modern tools were examined, where the difference between real life datasets with all its quirks, outliers and bad formatting, and curated toy datasets that works out of the box (such as the famous Iris dataset\cite{andersonSpeciesProblemIris1936a,fisherUseMultipleMeasurements1936}) were experienced first hand. Since the project started the dataset changed due to a new collaboration with the Danish housing agency \href{www.boligsiden.dk}{Boligsiden} where the agreement was, stated shortly, that we would get their data and they would get our results. Boligsiden is a natural collaborator since they are the biggest on the market\sidenote{Due to being owned by the \q{Dansk Ejendomsmæglerforening}, The Danish Association of Chartered Estate Agents} and have been very helpful the continuos process of providing data but it also should also be noted that they have had no say on the results presented in this thesis. 
+The first part of the thesis deals with the problem of estimating housing prices as precisely and accurately as possible. This was the sub-project that was worked on in the beginning of the overall project and worked as an initial introduction to the application of machine learning to real-life datasets. The housing prices dataset thus became the playground in which the subtleties of these new modern tools were examined, where the difference between real life datasets with all its quirks, outliers and bad formatting, and curated toy datasets that works out of the box (such as the famous Iris dataset \citep{andersonSpeciesProblemIris1936a,fisherUseMultipleMeasurements1936}) were experienced first hand. Since the project started the dataset changed due to a new collaboration with the Danish housing agency \href{www.boligsiden.dk}{Boligsiden} where the agreement was, stated shortly, that we would get their data and they would get our results. Boligsiden is a natural collaborator since they are the biggest on the market\sidenote{Due to being owned by the \q{Dansk Ejendomsmæglerforening}, The Danish Association of Chartered Estate Agents} and have been very helpful the continuos process of providing data but it also should also be noted that they have had no say on the results presented in this thesis. 
 During this initial stage, the author sparred with Simon Gudiksen\sidenote{who afterwards went on to get a job at Boligsiden.} who also worked on the same dataset, however, both projects were done independently. Where Gudiksen focussed on the prediction of the time evolution of the housing prices using Recurrent Neural Networks (RNN), my work was mostly on the different levels and methods of hyperparameter optimization with some smaller detours into Natural Language Processing (NLP) as an example. \newline
 
 
-The second part, the Quark-Gluon discrimination in particle physics, was the main part of the project. Not only was most of the time focussed on this sub-project, it was also the work that generated the highest academic output; an article based on this is in the making. This part dealt with data from the Large Electron Positron collider (LEP) which was an underground particle accelerator at CERN built in 1989 and was discontinued in 2000, where the first phase (LEP1), from 1989-1995, is the sole source of data. As the name suggests it collided electrons and positrons together in what is still the largest electron-positron accelerator ever built\cite{LargeElectronPositronCollider}. During LEP1 it was primarily the decay channels of the $Z$-boson that were probed where especially the $Z\rightarrow q\bar{q}g$ and $Z \rightarrow q\bar{q}gg$ were examined in this thesis. It is especially the distributions of these gluon jets and the difference between Data\sidenote{Where \q{Data} with capital D refers to the actual, measured data and \q{data} refers to any arbitrary selection of data}   and MC that are of interests to the theoreticians that develop the MC-models. At first an improved $b$-tagging algorithm was developed based on only the vertex variables since the primary variables of interest to the theoreticians are the shape variables. Here methods and code developed in the hyperparameter optimization process from the housing prices part were used. After the improvement in the $b$-tagging model, an event-based $g$-tag model -- in comparison to the jet-based $b$-tagging model -- was implemented which (hopefully) allows one to extract useful events of interest. Having found these useful events, one can start looking at how the distributions in the relevant variables differ between Data and MC. Finally XXX \TODO.
+The second part, the Quark-Gluon discrimination in particle physics, was the main part of the project. Not only was most of the time focussed on this sub-project, it was also the work that generated the highest academic output; an article based on this is in the making. This part dealt with data from the Large Electron Positron collider (LEP) which was an underground particle accelerator at CERN built in 1989 and was discontinued in 2000, where the first phase (LEP1), from 1989-1995, is the sole source of data. As the name suggests it collided electrons and positrons together in what is still the largest electron-positron accelerator ever built \citep{LargeElectronPositronCollider}. During LEP1 it was primarily the decay channels of the $Z$-boson that were probed where especially the $Z\rightarrow q\bar{q}g$ and $Z \rightarrow q\bar{q}gg$ were examined in this thesis. It is especially the distributions of these gluon jets and the difference between Data\sidenote{Where \q{Data} with capital D refers to the actual, measured data and \q{data} refers to any arbitrary selection of data}   and MC that are of interests to the theoreticians that develop the MC-models. At first an improved $b$-tagging algorithm was developed based on only the vertex variables since the primary variables of interest to the theoreticians are the shape variables. Here methods and code developed in the hyperparameter optimization process from the housing prices part were used. After the improvement in the $b$-tagging model, an event-based $g$-tag model -- in comparison to the jet-based $b$-tagging model -- was implemented which (hopefully) allows one to extract useful events of interest. Having found these useful events, one can start looking at how the distributions in the relevant variables differ between Data and MC. Finally XXX \TODO.
 
 The thesis is structured such that chapter \autoref{ch:ML_theory} introduces the needed theoretical Machine Learning (ML) background needed for understanding the methods used throughout the thesis, chapter \autoref{ch:housing_price_analysis} describes the housing prices part of the project as mentioned above, chapter \autoref{ch:particle_physcis_LEP} introduces the basic physics in the standard model and the Lund string model which is used throughout the rest of the theses, chapter \autoref{ch:quark_gluon_analysis} explains analysis of the main project in this thesis, i.e. the quark gluon analysis, and finally the two chapters \autoref{ch:discussion_outlook} and \autoref{ch:conclusion} discusses the overall work in this thesis and concludes on it. 
 
@@ -424,10 +430,10 @@ All of the work presented here is performed by the author unless otherwise noted
 
 \epigraph{\textit{``People worry that computers will get too smart and take over the world, but the real problem is that they're too stupid and they've already taken over the world.''}}{--- Pedro Domingos}
 
-\newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a set of subject located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks\autocite{veenNeuralNetworkZoo2016} which has seen a plethora of use cases in recent years. 
+\newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a set of subject located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks \citep{veenNeuralNetworkZoo2016} which has seen a plethora of use cases in recent years. 
 
 \section{Statistical Learning Theory}
-This chapter deals with the theory of ML which Statistical Learning Theory is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data\autocite{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning\autocite{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU} at the faculty of Science, University of Copenhagen. Statistical learning theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
+This chapter deals with the theory of ML which Statistical Learning Theory is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data \citep{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning \citep{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU} at the faculty of Science, University of Copenhagen. Statistical learning theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
 
 Overall there are two subfields within machine learning: supervised and unsupervised\sidenote{Also known as \q{self-supervised} or \q{predictive}  learning}. The difference depends on whether or not the data that is trained on is labelled or not. Classic linear regression is an example of the former and linear dimensionality reduction using PCA of the latter. Since unsupervised learning techniques are only used sparsely throughout this project, the main focus will be on supervised learning. 
 
@@ -448,7 +454,7 @@ Without any loss of loss of generality let the focus for now be on classificatio
 
 How can one make sure that $h^*$ really is a good approximation of $f$? That is where Statistical learning theory comes into play. From a statistical standpoint we are interested in modelling the unknown joint probability $P(\vec{x}, y)$ over $\mathcal{X}$ and $\mathcal{Y}$. We assume that $\mathcal{D}_\mathrm{train}$ is independent and identically distributed (\emph{iid})\sidenote{This is one of the two key assumptions of statistical learning theory, the other being that future events are coming from the same distrubution as the one that generated the past events. These assumptions are sometimes called the PAC assumtions where PAC is an abbreviation for Probably, Approximatelly Correct.} from $P(\vec{x}, y)$ and thus want to find the hypothesis whose predictions $h(\vec{x})=\hat{y}$ matches the conditional probability distribution $P(y|\vec{x})$ as best as possible. 
 
-To quantify the statement \q{as best as possible} in the previous paragraph we define the loss function $\ell$ which measures the loss for predicting $\hat{y}$ instead of $y$: $\ell(\hat{y}, y) = \ell(h(\vec{x}), y) \in \mathbb{R}^+$. Given $\ell$ we now introduce the method of (empirical) risk minimization\autocite{vapnikPrinciplesRiskMinimization1991} and the expected loss\sidenote{Also called expected error or the out-of-sample error.}:
+To quantify the statement \q{as best as possible} in the previous paragraph we define the loss function $\ell$ which measures the loss for predicting $\hat{y}$ instead of $y$: $\ell(\hat{y}, y) = \ell(h(\vec{x}), y) \in \mathbb{R}^+$. Given $\ell$ we now introduce the method of (empirical) risk minimization \citep{vapnikPrinciplesRiskMinimization1991} and the expected loss\sidenote{Also called expected error or the out-of-sample error.}:
 \begin{equation} 
   \label{eq:L}
   L(h) = \mathbb{E} \left[\ell(h(\vec{x}), y) \right] = \int \ell(h(\vec{x}), y)  \, dP(\vec{x}, y).
@@ -565,7 +571,7 @@ This bound is looser than the one for only a single hypothesis by a factor $\ln 
 \label{subsec:generalization_bound_infinite}
 Section \ref{sec:generalization_bound} dealt with the case of a single hypotheses $h$ and a finite set of candidate hypotheses $h\in\mathcal{H}, |\mathcal{H}| = M$. When $M$ goes towards $\infty$ the generalization bound goes to $\infty$ and the bound becomes useless. However, even simple models such as a linear classifier\sidenote{Also known as the perceptron. Often includes a constant offset $b$ as well which is omitted for brevity.} that predicts $\hat{y}=1$ when the dot product $\vec{w}^T\vec{x}$ is positive and $\hat{y}=0$ when it is negative has $|\mathcal{H}| = \infty$. Since there an infinite number of hypotheses $h(\vec{w})$, assuming we allow $\vec{w}$ to take any real values as is almost always the case, $\mathcal{H}$ is infinite. 
 
-To solve this obvious problem with the Hoeffding inequality, we introduce\sidenote{For proof, see:\cite{abu-mostafaLearningData2012}} the Vapnik-Chervonenkis (VC) generalization bound. The VC-bound is based on the so-called VC-dimension of the hypothesis space $\mathcal{H}$: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. The VC-dimension is a measure of the complexity of the hypothesis space, the degrees of freedom of the model so to say. For example the VC-dimension of the $d$-dimensional linear classifier defined above\sidenote{In the general case when the offset $b$ is included: $d_\mathrm{VC}=d+1$} is $d_\mathrm{VC}=d$ for $\{\vec{x}, \vec{w}\} \in \mathbb{R}^d$. 
+To solve this obvious problem with the Hoeffding inequality, we introduce\sidenote{For proof, see: \citep{abu-mostafaLearningData2012}} the Vapnik-Chervonenkis (VC) generalization bound. The VC-bound is based on the so-called VC-dimension of the hypothesis space $\mathcal{H}$: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. The VC-dimension is a measure of the complexity of the hypothesis space, the degrees of freedom of the model so to say. For example the VC-dimension of the $d$-dimensional linear classifier defined above\sidenote{In the general case when the offset $b$ is included: $d_\mathrm{VC}=d+1$} is $d_\mathrm{VC}=d$ for $\{\vec{x}, \vec{w}\} \in \mathbb{R}^d$. 
 \begin{theorem}[VC Generalization Bound]
   \label{theorem:hoeffding_finite}
   Let $\mathcal{H}$ be a hypotheses class with VC-dimension: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. Then with probability at least $1-\delta$: 
@@ -595,7 +601,7 @@ Avoiding overfitting is one of the most important issues in machine learning. By
 
 \subsection{Model Regularization}
 \label{subsec:regularization}
-One of the earliest methods developed for preventing overfitting was model regularization. A. N. Tikhonov\autocite{tikhonovStabilityInverseProblems1943} was one of the first to describe this method in 1943. In particular regularization was used to solve \emph{ill posed} linear regression problems. Regular linear regression problems refer to minimizing the residual sum of squares written in matrix form as:
+One of the earliest methods developed for preventing overfitting was model regularization. A. N. Tikhonov \citep{tikhonovStabilityInverseProblems1943} was one of the first to describe this method in 1943. In particular regularization was used to solve \emph{ill posed} linear regression problems. Regular linear regression problems refer to minimizing the residual sum of squares written in matrix form as:
 \begin{equation}
   \begin{split}
     \hat{\bm{\beta}}_{\mathrm{LS}} = \argmin_{\bm{\beta}} \norm{\vec{y} - \vec{X} \bm{\beta} }_2^2 = \argmin_{\bm{\beta}} \norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 \\
@@ -614,7 +620,7 @@ Differentiating the objective $\norm{\vec{y} - \vec{X} \bm{\beta} }_2^2$ with re
     \hat{\bm{\beta}}_{\mathrm{LS}} =  \left( \vec{X}^T \vec{X} \right)^{-1} \vec{X}^T \vec{y}.
   \end{split}
 \end{equation}
-However, this solution for $\hat{\bm{\beta}}_{\mathrm{LS}}$ is only valid when $\vec{X}^T \vec{X}$ is invertible, i.e. $\vec{X}$ has to be full rank\autocite{hastieElementsStatisticalLearning2009}. If this is not the case, the problem is said to be ill posed. Tikhonov solved this problem by adding an extra term to the minimization problem, which we will call $\Omega$ for simplicity. For a specific choice of $\Omega$, one gets:
+However, this solution for $\hat{\bm{\beta}}_{\mathrm{LS}}$ is only valid when $\vec{X}^T \vec{X}$ is invertible, i.e. $\vec{X}$ has to be full rank \citep{hastieElementsStatisticalLearning2009}. If this is not the case, the problem is said to be ill posed. Tikhonov solved this problem by adding an extra term to the minimization problem, which we will call $\Omega$ for simplicity. For a specific choice of $\Omega$, one gets:
 \begin{equation}
   \label{eq:l2_norm}
   \hat{\bm{\beta}}_{\mathrm{L_2}} = \argmin_{\bm{\beta}} \left \{\norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 + \lambda \norm{ \bm{\beta} }^2_2 \right \},
@@ -663,13 +669,13 @@ Other values of the regularization function $\Omega$ exists, for example the $L_
 \begin{equation}
   \Omega = \lambda \norm{\bm{\beta}}_1, 
 \end{equation}
-where the 1-norm, also known as Manhattan norm, is used. In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by Tibshirani\cite{tibshiraniRegressionShrinkageSelection1996} in 1996. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$} solutions. An illustration of this can be seen in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso} where the constraint regions of $\bm{\beta}$ os shown in red and the grey ellipses are the contours of the non-constrained problem. Notice how the intersection of the contour lines and the constrain region leads to $\beta_1 \neq 0, \beta_2 \neq 0$ for the $L_2$-penalty whereas it leads to the sparse solution $\beta_1=0, \beta_2 \neq 0$ for the $L_1$-penalty. This is a general pattern. seen for $L_p$-penalties for $p \leq 1$.
+where the 1-norm, also known as Manhattan norm, is used. In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by \citet{tibshiraniRegressionShrinkageSelection1996} in 1996. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$} solutions. An illustration of this can be seen in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso} where the constraint regions of $\bm{\beta}$ os shown in red and the grey ellipses are the contours of the non-constrained problem. Notice how the intersection of the contour lines and the constrain region leads to $\beta_1 \neq 0, \beta_2 \neq 0$ for the $L_2$-penalty whereas it leads to the sparse solution $\beta_1=0, \beta_2 \neq 0$ for the $L_1$-penalty. This is a general pattern. seen for $L_p$-penalties for $p \leq 1$.
 
 Overall, model regularization is heavily used in modern machine learning algorithms. In general, the function or the so-called \emph{objective function} $\mathcal{L}$ they are trying to minimize is:
 \begin{equation}
   \mathcal{L}(h) = \hat{L}(\ell, h, S) + \Omega(h)
 \end{equation}
-where $\hat{L}$ is the empirical loss and $\Omega$ is the regularization penalty. As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{subsec:loss_function}. 
+where $\hat{L}$ is the empirical loss and $\Omega$ is the regularization penalty. As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{sec:loss_function}. 
 
 \subsection{Cross Validation}
 \label{subsec:cross_validation}
@@ -677,7 +683,7 @@ In general we want to  be able to estimate the performance\sidenote{\q{Performan
 However, if one then needed to compare two different models and choose the best one, as is often the case, this method would not work since we would choose the model with the best performance on the test set which can be seen as training on the test set and thus it has \q{tainted} the purity of the test set. To avoid this, an additional split is made such that we get a training set, a validation set, and a test set, where you often see a $80:10:10$ ratio. The two models can then be compared on the validation set and the performance of the chosen model can be estimated from the test set. 
 
 \begin{marginfigure}
-  \includegraphics[width=0.7\textwidth]{figures/cross_validation/kfold.pdf}
+  \includegraphics[width=0.98\textwidth]{figures/cross_validation/kfold.pdf}
   \caption[$k$-Fold Cross Validation]
     {$k$-fold cross validation. 
     }
@@ -685,14 +691,14 @@ However, if one then needed to compare two different models and choose the best 
 \end{marginfigure} 
 
 \begin{marginfigure}
-  \includegraphics[width=0.7\textwidth]{figures/cross_validation/kfold_time.pdf}
+  \includegraphics[width=0.98\textwidth]{figures/cross_validation/kfold_time.pdf}
   \caption[$k$-Fold Cross Validation for Time Series Data]
     {$k$-fold cross validation for time series data. 
     }
   \label{fig:ml:cross_val_kfold_time}
 \end{marginfigure} 
 
-This way of splitting up the data has some clear benefits and is thus also often used. There is a drawback, however, and that it that we are not fully utilizing a lot of the data in this way. Basically $20\%$ of the data are only used to provide a single number of performance and does not necessarily allow an uncertainty or confidence interval of this measurement to calculated. Thus other methods of estimating model performance are developed where one of the most used and well-known are the $k$-fold cross validation (CV). Here the entire dataset are split up into $k$ chunks which are randomly drawn subsamples (without replacement). In the first iteration, the model is trained on the first $k-1$ subsamples and evaluated on the last $k$ subsample. In the second iteration the evaluation subsample is a new one. This process is continued $k$ times until all samples in the dataset have been trained and evaluated on\cite{hastieElementsStatisticalLearning2009}. For an illustration of this, see Figure~\ref{fig:ml:cross_val_kfold}. The process yields $k$ estimates of the performance of the model which can then be averaged to form a single performance number and the variability of the performance can even be gauged\sidenote{Special care has to be taken here since the $k$ different performance values are not independent}. The disadvantage of $k$-fold CV is that the performance estimate is now slightly biased, however, this effect is generally very small. The biggest disadvantage is the computational burden related to doing $k$-fold CV where $k\gg 1$. A compromise often used in applied ML is $k=5$ which is also what is used in this project.  
+This way of splitting up the data has some clear benefits and is thus also often used. There is a drawback, however, and that it that we are not fully utilizing a lot of the data in this way. Basically $20\%$ of the data are only used to provide a single number of performance and does not necessarily allow an uncertainty or confidence interval of this measurement to calculated. Thus other methods of estimating model performance are developed where one of the most used and well-known are the $k$-fold cross validation (CV). Here the entire dataset are split up into $k$ chunks which are randomly drawn subsamples (without replacement). In the first iteration, the model is trained on the first $k-1$ subsamples and evaluated on the last $k$ subsample. In the second iteration the evaluation subsample is a new one. This process is continued $k$ times until all samples in the dataset have been trained and evaluated on \citep{hastieElementsStatisticalLearning2009}. For an illustration of this, see Figure~\ref{fig:ml:cross_val_kfold}. The process yields $k$ estimates of the performance of the model which can then be averaged to form a single performance number and the variability of the performance can even be gauged\sidenote{Special care has to be taken here since the $k$ different performance values are not independent}. The disadvantage of $k$-fold CV is that the performance estimate is now slightly biased, however, this effect is generally very small. The biggest disadvantage is the computational burden related to doing $k$-fold CV where $k\gg 1$. A compromise often used in applied ML is $k=5$ which is also what is used in this project.  
 
 Special care has to be taken when dealing with time series data. Here the problem of \q{data leakage} is often introduced inadvertently. Data leakage is when the model is exposed to information from the test set that it was not supposed to be exposed to. In the case of time series data, if the data is split by the usual $k$-fold CV, then each subsample contains events from all times and the model does not learn how to predict future events. To circumvent this problem, a special type of $k$-fold CV for time series data has to be used. Here all samples up to a specific time, eg. all houses sold before 2018, is used for training and then it is evaluated on the performance of samples after the event, e.g. houses sold in 2018. For an illlustration of this, see Figure~\ref{fig:ml:cross_val_kfold_time}.
 
@@ -709,7 +715,7 @@ To avoid stopping just because of a single outlier due to noise that terminated 
 \label{sec:loss_function}
 How we evaluate the performance of a model is of course very important since it defines the metric for the problem; what is good and what is bad? Obviously this depends on whether or not we a dealing with a classification problem or a regression problem. Let us for know focus on the latter. Say that a house is estimated to cost 2 million DKK (M. kr.) but was sold for 4 M. kr. Compare this to an a house that was estimated to cost 8 M. kr. but was sold for 6 M. kr. In both cases the price was 2 M. kr. wrong, but does this mean that both predictions are equally good? The first case was a factor of 2 off, whereas the second was only $25\%$ off. The first case underestimated the price whereas the second overestimated. 
 
-As it should be clear by now the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyper parameter}, the optimization of which is further discussed in \autoref{sec:hyperparameter_optimization}. The most common choice of loss function is by far the Squared Error (SE): 
+As it should be clear by now the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyper parameter}, the optimization of which is further discussed in \autoref{sec:ml:hyperparameter_optimization}. The most common choice of loss function is by far the Squared Error (SE): 
 \begin{equation}
   \ell_\mathrm{SE}(y, \hat{y}) = \left( y-\hat{y} \right)^2,
 \end{equation}
@@ -726,7 +732,7 @@ where $y$ is the true value and $\hat{y}$ is the predicted one. Squared Error ha
   \label{fig:ml:objective_funcs_zoom}
 \end{marginfigure}
 
-For AE, outliers have a lot smaller weight since it deals with the absolute value of the deviation and not the squared deviation. However, this comes at a price; AE is not differentiable at every point: at $y-\hat{y} = 0$ the derivative of the absolute value function is un-defined. Many functions have been invented trying to deal with these problems. For a more general discussion of loss functions, see e.g. Barron\autocite{barronGeneralAdaptiveRobust2017}. Six different loss functions (for regression problems) have been investigated in this project. In addition to SE and AE also the LogCosh, Cauchy\autocite{barronGeneralAdaptiveRobust2017}, Welsch\autocite{barronGeneralAdaptiveRobust2017} and Fair\autocite{AllstateClaimsSeverity} loss functions are used:
+For AE, outliers have a lot smaller weight since it deals with the absolute value of the deviation and not the squared deviation. However, this comes at a price; AE is not differentiable at every point: at $y-\hat{y} = 0$ the derivative of the absolute value function is un-defined. Many functions have been invented trying to deal with these problems. For a more general discussion of loss functions, see e.g. Barron \citep{barronGeneralAdaptiveRobust2017}. Six different loss functions (for regression problems) have been investigated in this project. In addition to SE and AE also the LogCosh, Cauchy  \citep{barronGeneralAdaptiveRobust2017}, Welsch  \citep{barronGeneralAdaptiveRobust2017} and Fair  \citep{AllstateClaimsSeverity} loss functions are used:
 \begin{equation}
   \begin{split}
     \ell_\mathrm{LogCosh}(y, \hat{y})  &= \log\left( \cosh\left( y-\hat{y} \right) \right) \\
@@ -741,7 +747,7 @@ The above loss functions share some similarities with AE, and in addition to thi
   \includegraphics[width=0.9\textwidth]{figures/objective_functions/objective_functions.pdf}
   \caption[Comparison of different objective functions.]
     {Comparison of the the six loss functions SE, AE, LogCosh, Cauchy, Welsch, and Fair as a function of $y-\hat{y}$. In the plot \textcolor{blue}{SE} is shown in blue, \textcolor{red}{AE} in red, \textcolor{green}{LogCosh} in green, \textcolor{orange}{Cauchy} in orange, \textcolor{purple}{Welsch} in purple, and \textcolor{light-blue}{Fair} in light blue. For the Cauchy, Welsch, and Fair functions $c$ is set to 1. For a zoom in of the inner region 
-    where $y-\hat{y}<2$ see \figref{fig:ml:objective_funcs_zoom}. All six grafs are symmetric in $y-\hat{y}$ which is why they are only shown for positive values of $y-\hat{y}$.
+    where $y-\hat{y}<2$ see \figref{fig:ml:objective_funcs_zoom}. All six graphs are symmetric in $y-\hat{y}$ which is why they are only shown for positive values of $y-\hat{y}$.
     }
   \label{fig:ml:objective_funcs}
 \end{figure}
@@ -757,24 +763,37 @@ For the loss functions defined in \autoref{sec:loss_function} the objective func
 \section{Decision Trees}
 \label{sec:decision_trees}
 
-
-\begin{figure}
-  \includestandalone[width=0.9\textwidth]{figures/decision_tree/decision_tree}%     without .tex extension
+\begin{marginfigure}[-3cm]
+  \includegraphics[width=0.98\textwidth]{figures/decision_tree/tree_example.pdf}%     without .tex extension
   % or use \input{mytikz}
-  \caption{My TikZ picture 1}
-  \label{fig:tikz:decision_tree_1}
-\end{figure}
-
-\begin{marginfigure}[-4cm]
-  \includestandalone[width=0.9\textwidth]{figures/decision_tree/decision_tree}%     without .tex extension
-  % or use \input{mytikz}
-  \caption{My TikZ picture 2}
-  \label{fig:tikz:decision_tree_2}
+  \caption[Decision Tree Cuts]{Illustration of the cuts a decision tree model make for \textcolor{blue}{signal} in blue circles and \textcolor{red}{background} in red squares. This is an visualization in the feature space of the decision tree seen in Figure~\ref{fig:tikz:decision_tree}.}
+  \label{fig:decision_tree_feature_space}
 \end{marginfigure}
 
+Decision Trees are a simple machine learning method that works by partitioning the feature space into smaller subspaces, high-dimensional rectangles basically, and then fit each subspace with a constant for regression problems or a single label for classification problems \citep{hastieElementsStatisticalLearning2009}. A simple example of this can be seen in Figure~\ref{fig:decision_tree_feature_space} and Figure~\ref{fig:tikz:decision_tree}. 
+
+
+\begin{figure}
+  \centering
+  \includestandalone[width=0.7\textwidth]{figures/decision_tree/decision_tree}%     without .tex extension
+  % or use \input{mytikz}
+  \caption[Decision Tree Illustration]{
+    Illustration of a simple decision tree. Here the tree partitions the input feature space consisting of the two variables $p_\perp$ and $E_\mathrm{jet}$ into two categories; either signal or background. A visualization of the cuts in the feature space can be seen in Figure~\ref{fig:decision_tree_feature_space}
+  }
+  \label{fig:tikz:decision_tree}
+\end{figure}
 
 \section{Hyperparamater Optimization}
-\label{sec:hyperparameter_optimization}
+\label{sec:ml:hyperparameter_optimization}
+
+\subsection{Grid Search}
+\label{subsec:ml:grid_search}
+
+\subsection{Random Search}
+\label{subsec:ml:random_search}
+
+\subsection{Beyesian Optimization}
+\label{subsec:ml:bayesian_optimization}
 
 
 
@@ -1147,7 +1166,7 @@ If you need more than two levels of section headings, you'll have to define
 them yourself at the moment; there are no pre-defined styles for anything below
 a \Verb|\subsection|.  As Bringhurst points out in \textit{The Elements of
 Typographic Style}, 
-% \cite{Bringhurst2005} 
+%  \citep{Bringhurst2005} 
 you should ``use as many levels of
 headings as you need: no more, and no fewer.''
 
@@ -1156,7 +1175,7 @@ The \TL classes will emit an error if you try to use
 
 % let's start a new thought -- a new section
 \newthought{In his later books}, 
-% \cite{Tufte2006}
+%  \citep{Tufte2006}
  Tufte
 starts each section with a bit of vertical space, a non-indented paragraph,
 and sets the first few words of the sentence in \textsc{small caps}.  To
@@ -1449,7 +1468,7 @@ The \doccmddef{marginnote} command has a similar \docarg{offset} argument:
 
 \section{References}
 References are placed alongside their citations as sidenotes,
-as well.  This can be accomplished using the normal \doccmddef{cite}
+as well.  This can be accomplished using the normal \doccmddef{citep}
 command.\sidenote{The first paragraph of this document includes a citation.}
 
 The complete list of references may also be printed automatically by using
@@ -1684,7 +1703,7 @@ existing commands for letterspacing.
 
 When setting strings of \allcaps{ALL CAPS} or \smallcaps{small caps}, the
 letter\-spacing---that is, the spacing between the letters---should be
-% increased slightly.\cite{Bringhurst2005}  The \doccmddef{allcaps} command has proper letterspacing for
+% increased slightly. \citep{Bringhurst2005}  The \doccmddef{allcaps} command has proper letterspacing for
 strings of \allcaps{FULL CAPITAL LETTERS}, and the \doccmddef{smallcaps} command
 has letterspacing for \smallcaps{small capital letters}.  These commands
 will also automatically convert the case of the text to upper- or
@@ -1728,7 +1747,7 @@ narrower column.
 
 The \docclsoptdef{bidi} option loads the \docpkg{bidi} package which is used with
 \tXeLaTeX\ to typeset bi-directional text.  Since the \docpkg{bidi}
-package needs to be loaded before the sidenotes and cite commands are defined,
+package needs to be loaded before the sidenotes and citep commands are defined,
 it can't be loaded in the document preamble.
 
 The \docclsoptdef{debug} option causes the \TL classes to output debug
@@ -1920,7 +1939,7 @@ classes rely upon.  Packages marked with an asterisk are optional.
 \backmatter
 
 \bibliography{My_Library}
-\bibliographystyle{plainnat}
+% \bibliographystyle{plainnat}
 
 
 \printindex

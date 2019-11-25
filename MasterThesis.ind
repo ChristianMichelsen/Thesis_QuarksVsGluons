@@ -16,7 +16,7 @@
 
   \item \hangleft {\texttt  {\char '134\relax }}\texttt  {caption}, 
 		\hyperpage{39}
-  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {cite}, 
+  \item \hangleft {\texttt  {\char '134\relax }}\texttt  {citep}, 
 		\hyperpage{38}
   \item class options, \hyperpage{42--43}
     \subitem \texttt  {a4paper}, \hyperpage{42}

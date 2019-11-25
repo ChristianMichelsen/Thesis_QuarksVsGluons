@@ -10,9 +10,9 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces $k$-Fold Cross Validation for Time Series Data}}{13}{subsection.3.4.2}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison of different objective functions zoom in.}}{15}{equation.3.5.26}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison of different objective functions.}}{16}{equation.3.5.27}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces My TikZ picture 1}}{16}{section.3.6}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces My TikZ picture 2}}{16}{section.3.6}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Feynman diagram for the jet production at LEP}}{17}{section.3.7}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Decision Tree Cuts}}{16}{section.3.6}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Decision Tree Illustration}}{16}{section.3.6}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Feynman diagram for the jet production at LEP}}{18}{subsection.3.7.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Geographic overview of square meter price in Denmark}}{19}{chapter.4}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Histogram of prices of houses and apartments sold in Denmark}}{19}{chapter.4}
@@ -66,7 +66,6 @@
 \contentsline {figure}{\numberline {6.24}{\ignorespaces This is a margin figure. The helix is defined by $x = \qopname \relax o{cos}(2\pi z)$, $y = \qopname \relax o{sin}(2\pi z)$, and $z = [0, 2.7]$. The figure was drawn using Asymptote (\url {http://asymptote.sf.net/}).}}{38}{section.6.3}
 \contentsline {figure}{\numberline {6.25}{\ignorespaces This graph shows $y = \qopname \relax o{sin}x$ from about $x = [-10, 10]$. \emph {Notice that this figure takes up the full page width.}}}{39}{section.6.3}
 \contentsline {figure}{\numberline {6.26}{\ignorespaces Hilbert curves of various degrees $n$.}}{39}{section.6.3}
-\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

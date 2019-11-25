@@ -20,13 +20,13 @@ The {{Large Electron}}-{{Positron Collider}} | {{CERN}}.
 
 \bibitem[Abu-Mostafa et~al.()Abu-Mostafa, Magdon-Ismail, and
   Lin]{abu-mostafaLearningData2012}
-Yaser~S. Abu-Mostafa, Malik Magdon-Ismail, and Hsuan-Tien Lin.
+Y.~S. Abu-Mostafa, M.~Magdon-Ismail, and H.-T. Lin.
 \newblock \emph{Learning {{From Data}}}.
 \newblock {AMLBook}.
 \newblock ISBN 978-1-60049-006-4.
 
 \bibitem[Anderson()]{andersonSpeciesProblemIris1936a}
-Edgar Anderson.
+E.~Anderson.
 \newblock The {{Species Problem}} in {{Iris}}.
 \newblock 23\penalty0 (3):\penalty0 457--509.
 \newblock ISSN 00266493.
@@ -34,7 +34,7 @@ Edgar Anderson.
 \newblock URL \url{www.jstor.org/stable/2394164}.
 
 \bibitem[Barron()]{barronGeneralAdaptiveRobust2017}
-Jonathan~T. Barron.
+J.~T. Barron.
 \newblock A {{General}} and {{Adaptive Robust Loss Function}}.
 \newblock URL \url{http://arxiv.org/abs/1701.03077}.
 
@@ -49,7 +49,7 @@ R.~A. Fisher.
 
 \bibitem[Hastie et~al.()Hastie, Tibshirani, and
   Friedman]{hastieElementsStatisticalLearning2009}
-Trevor Hastie, Robert Tibshirani, and Jerome Friedman.
+T.~Hastie, R.~Tibshirani, and J.~Friedman.
 \newblock \emph{The {{Elements}} of {{Statistical Learning}}: {{Data Mining}},
   {{Inference}}, and {{Prediction}}, {{Second Edition}}}.
 \newblock Springer {{Series}} in {{Statistics}}. {Springer-Verlag}, 2 edition.
@@ -57,19 +57,19 @@ Trevor Hastie, Robert Tibshirani, and Jerome Friedman.
 \newblock URL \url{//www.springer.com/la/book/9780387848570}.
 
 \bibitem[Tibshirani()]{tibshiraniRegressionShrinkageSelection1996}
-Robert Tibshirani.
+R.~Tibshirani.
 \newblock Regression {{Shrinkage}} and {{Selection}} via the {{Lasso}}.
 \newblock 58\penalty0 (1):\penalty0 267--288.
 \newblock ISSN 0035-9246.
 \newblock URL \url{www.jstor.org/stable/2346178}.
 
 \bibitem[Tikhonov()]{tikhonovStabilityInverseProblems1943}
-A.N. Tikhonov.
+A.~Tikhonov.
 \newblock \emph{On the Stability of Inverse Problems}, volume vol. 39 of
   \emph{Doklady {{Akademii Nauk SSSR}}}.
 
 \bibitem[van Veen()]{veenNeuralNetworkZoo2016}
-Fjodor van Veen.
+F.~van Veen.
 \newblock The {{Neural Network Zoo}}.
 \newblock URL \url{http://www.asimovinstitute.org/neural-network-zoo/}.
 
