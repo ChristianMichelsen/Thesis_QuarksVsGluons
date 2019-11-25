@@ -48,11 +48,11 @@ def arrowed_spines(fig, ax):
              length_includes_head= True, clip_on = False)
 
 
-def mae(z):
+def ae(z):
     return np.sqrt(np.square(z))
 
 
-def mse(z):
+def se(z):
     return np.square(z)
 
 
@@ -74,7 +74,7 @@ def fair(z):
     c = 1
     return c**2 * (np.abs(z) / c - np.log(np.abs(z)/c + 1))
 
-losses = {'MSE': mse, 'MAE': mae, 'LogCosh': logcosh, r'Cauchy': cauchy, r'Welsch': welsch, r'Fair': fair}
+losses = {'SE': se, 'AE': ae, 'LogCosh': logcosh, r'Cauchy': cauchy, r'Welsch': welsch, r'Fair': fair}
 
 
 fig, ax = plt.subplots(figsize=(9, 6))
@@ -84,7 +84,7 @@ x = np.linspace(0, 7, 1000)
 for name, loss in losses.items():
     ax.plot(x, loss(x), '-', label=name, lw=3)
 ax.legend()
-ax.set(xlabel=r'$|z|$', ylabel=r'$f(z)$', ylim=(0, 8))
+ax.set(xlabel=r'$y-\hat{y}$', ylabel=r'$\ell(y, \hat{y})$', ylim=(0, 8))
 
 # arrowed_spines(fig, ax)
 
@@ -109,7 +109,7 @@ x = np.linspace(0, 2, 1000)
 
 for name, loss in losses.items():
     ax2.plot(x, loss(x), '-', label=name, lw=4)
-ax2.set(xlabel=r'$|z|$', ylabel=r'$f(z)$', ylim=(0, 1.5))
+ax2.set(xlabel=r'$y-\hat{y}$', ylabel=r'$\ell(y, \hat{y})$', ylim=(0, 1.5))
 
 box = ax2.get_position()
 ax2.set_position([box.x0, 

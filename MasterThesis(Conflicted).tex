@@ -106,7 +106,8 @@
 \newcommand{\abs}[1]{\lvert#1\rvert}
 \newcommand{\norm}[1]{\lVert#1\rVert}
 
-
+% allow first, second and third
+\usepackage[super]{nth}
 
 % % for using Inkscape plots
 \usepackage{import}
@@ -455,7 +456,7 @@ To quantify the statement \q{as best as possible} in the previous paragraph we d
 The optimal hypotheses $h^*$ is the hypothesis which minimizes the expected loss $L(h)$. However, the joint probability distribution $P(\vec{x}, y)$ is unknown and we are thus left with the empirical loss\sidenote{Also called empirical error.} of $h$ on $\mathcal{D}$:
 \begin{equation}
   \label{eq:L_hat}
-  \hat{L}(h, S) = \frac{1}{N} \sum_{i=1}^{N} \ell(h(\vec{x}_i, y_i)), % \equiv \mathcal{L} 
+  \hat{L}(h, S) = \frac{1}{N} \sum_{i=1}^{N} \ell(h(\vec{x}_i), y_i), % \equiv \mathcal{L} 
 \end{equation}
 which is an approximation of $L(h)$ based on the training data available. 
 % In the remainder of the text $\hat{L}(h, S)$ and $\mathcal{L}$ will be used interchangeably. 
@@ -577,11 +578,9 @@ Equation \eqref{eq:VC_bound} states that the out of sample error $L(h)$ is bound
 \begin{equation}
   \Omega(N, \mathcal{H}, \delta) = \sqrt{ \frac{8}{N} \ln \left( \frac{4}{\delta} \left( \left(2N \right)^{d_\mathrm{VC}(\mathcal{H})} + 1 \right)  \right)}.
 \end{equation}
-As the hypothesis space complexity $d_\mathrm{VC}$ grows, the generalization bound loosens but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the \emph{approximation-estimation} tradeoff\sidenote{Or the bias-variance tradeoff}. When the model is too simple to properly fit the complexity in the data it is called \emph{underfitting}\sidenote{Here the error from $\hat{L}(h, S)$ dominates}, when the model is so complex that it starts fitting the inherent noise in the data it is called \emph{overfitting}\sidenote{Here the error from $\Omega(N, \mathcal{H}, \delta)$ dominates}. 
+As the hypothesis space complexity $d_\mathrm{VC}$ grows, the generalization bound loosens but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the approximation-estimation or the  \emph{bias-variance} tradeoff. When the model is too simple to properly fit the complexity in the data it is called \emph{underfitting}\sidenote{Here the error from $\hat{L}(h, S)$ dominates}, when the model is so complex that it starts fitting the inherent noise in the data it is called \emph{overfitting}\sidenote{Here the error from $\Omega(N, \mathcal{H}, \delta)$ dominates}. The loss as a function of model complexity gives the characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases the training loss decreases. Initially also the validation loss decreases, but at some point the behavior of model on the validation set worsens and the loss increases; overfitting happens. 
 
-This is something that is clearly seen in data if one monitors the (empirical) loss for two datasets $\mathcal{D}_\mathrm{train}$ and $\mathcal{D}_\mathrm{val}$, a so-called training and validation dataset. Here the model is only fitted on $\mathcal{D}_\mathrm{train}$ but the performance on $\mathcal{D}_\mathrm{val}$ is also measured. They are both iid. realizations coming from the same underlying distribution. The loss as a function of model complexity gives the characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases the training loss decreases. Initially also the validation loss decreases, but at some point the behavior of model on the validation set worsens and the loss increases; overfitting happens. 
-
-\begin{marginfigure}[-4cm]
+\begin{marginfigure}
   \includegraphics[width=0.98\textwidth]{figures/overfitting/overfitting_1.pdf}
   \caption[Approximation-Estimation tradeoff]
     {Illustration of the empirical loss as a function of model complexity. The \textcolor{blue}{training error} is shown in blue and \textcolor{red}{validation error} in red.
@@ -666,70 +665,97 @@ Other values of the regularization function $\Omega$ exists, for example the $L_
 \end{equation}
 where the 1-norm, also known as Manhattan norm, is used. In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by Tibshirani\cite{tibshiraniRegressionShrinkageSelection1996} in 1996. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$} solutions. An illustration of this can be seen in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso} where the constraint regions of $\bm{\beta}$ os shown in red and the grey ellipses are the contours of the non-constrained problem. Notice how the intersection of the contour lines and the constrain region leads to $\beta_1 \neq 0, \beta_2 \neq 0$ for the $L_2$-penalty whereas it leads to the sparse solution $\beta_1=0, \beta_2 \neq 0$ for the $L_1$-penalty. This is a general pattern. seen for $L_p$-penalties for $p \leq 1$.
 
-Overall, model regularization is heavily used in modern machine learning algorithms. In general, the function or the so-called objective function $\mathcal{L}$ they are trying to minimize is:
+Overall, model regularization is heavily used in modern machine learning algorithms. In general, the function or the so-called \emph{objective function} $\mathcal{L}$ they are trying to minimize is:
 \begin{equation}
-  \mathcal{L}(h) = \tilde{L}(\ell, h, S) + \Omega(h)
+  \mathcal{L}(h) = \hat{L}(\ell, h, S) + \Omega(h)
 \end{equation}
-where $\tilde{L}$ is function of the error, as defined by the training loss function $\ell$, of the model $h$ fit on the data $S$ and $\Omega$ is the regularization penalty. As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in the next subsection, \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in s. 
+where $\hat{L}$ is the empirical loss and $\Omega$ is the regularization penalty. As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{subsec:loss_function}. 
 
 \subsection{Cross Validation}
 \label{subsec:cross_validation}
-Cross validation.
+In general we want to  be able to estimate the performance\sidenote{\q{Performance} is used here as the word for the general metric to be optimized for, no matter whether or not this metric should be maximized or minimized.} of the developed model. Since evaluation the model on the data it was already trained on would give a biased estimate of the performance, we need an unbiased method of doing so. The easiest way of doing so would be to set a fraction of the data aside, e.g. $20\%$, train on the remaining part and then evaluate the performance on the data set aside. Splitting the data up like this would provide us with a training (data)set and a test set in a $80:20$ ratio. This would then yield an unbiased performance estimate when evaluation the performance on the test set. 
+However, if one then needed to compare two different models and choose the best one, as is often the case, this method would not work since we would choose the model with the best performance on the test set which can be seen as training on the test set and thus it has \q{tainted} the purity of the test set. To avoid this, an additional split is made such that we get a training set, a validation set, and a test set, where you often see a $80:10:10$ ratio. The two models can then be compared on the validation set and the performance of the chosen model can be estimated from the test set. 
+
+\begin{marginfigure}
+  \includegraphics[width=0.7\textwidth]{figures/cross_validation/kfold.pdf}
+  \caption[$k$-Fold Cross Validation]
+    {$k$-fold cross validation. 
+    }
+  \label{fig:ml:cross_val_kfold}
+\end{marginfigure} 
+
+\begin{marginfigure}
+  \includegraphics[width=0.7\textwidth]{figures/cross_validation/kfold_time.pdf}
+  \caption[$k$-Fold Cross Validation for Time Series Data]
+    {$k$-fold cross validation for time series data. 
+    }
+  \label{fig:ml:cross_val_kfold_time}
+\end{marginfigure} 
+
+This way of splitting up the data has some clear benefits and is thus also often used. There is a drawback, however, and that it that we are not fully utilizing a lot of the data in this way. Basically $20\%$ of the data are only used to provide a single number of performance and does not necessarily allow an uncertainty or confidence interval of this measurement to calculated. Thus other methods of estimating model performance are developed where one of the most used and well-known are the $k$-fold cross validation (CV). Here the entire dataset are split up into $k$ chunks which are randomly drawn subsamples (without replacement). In the first iteration, the model is trained on the first $k-1$ subsamples and evaluated on the last $k$ subsample. In the second iteration the evaluation subsample is a new one. This process is continued $k$ times until all samples in the dataset have been trained and evaluated on\cite{hastieElementsStatisticalLearning2009}. For an illustration of this, see Figure~\ref{fig:ml:cross_val_kfold}. The process yields $k$ estimates of the performance of the model which can then be averaged to form a single performance number and the variability of the performance can even be gauged\sidenote{Special care has to be taken here since the $k$ different performance values are not independent}. The disadvantage of $k$-fold CV is that the performance estimate is now slightly biased, however, this effect is generally very small. The biggest disadvantage is the computational burden related to doing $k$-fold CV where $k\gg 1$. A compromise often used in applied ML is $k=5$ which is also what is used in this project.  
+
+Special care has to be taken when dealing with time series data. Here the problem of \q{data leakage} is often introduced inadvertently. Data leakage is when the model is exposed to information from the test set that it was not supposed to be exposed to. In the case of time series data, if the data is split by the usual $k$-fold CV, then each subsample contains events from all times and the model does not learn how to predict future events. To circumvent this problem, a special type of $k$-fold CV for time series data has to be used. Here all samples up to a specific time, eg. all houses sold before 2018, is used for training and then it is evaluated on the performance of samples after the event, e.g. houses sold in 2018. For an illlustration of this, see Figure~\ref{fig:ml:cross_val_kfold_time}.
+
 
 \subsection{Early Stopping}
 \label{subsec:early_stopping}
-Early stopping. 
+Most modern machine learning models are trained iteratively. This is the case for both (boosted) decision trees and neural networks, both of which are used in this project. Iteratively here means that the model starts off with an initial guess of the parameters of the model to learnt and then by looking at the data \q{learns} a new set of values for the parameters. The question then become: for how long should the model be allowed to continue training. 
 
-\section{Choice of loss function}
-\label{subsec:loss_function}
-Loss function. 
+This is a prime example of the bias-variance tradeoff. The model should be trained long enough to be able to capture the complexity inherent in the data but also should not train for so long that it starts to overfit the data. Even though Figure~\ref{fig:ml:empirical_risk} was just an illustration of the bias variance tradeoff, it is also something that is seen in real data and can taken advantage of through \emph{early stopping}. Early stopping is the process of monitoring the loss for training set and validation set $\mathcal{D}_\mathrm{train}$ and $\mathcal{D}_\mathrm{val}$. As mentioned in \autoref{subsec:cross_validation}, the model is only fitted on $\mathcal{D}_\mathrm{train}$ but the performance on $\mathcal{D}_\mathrm{val}$ is also measured. Whenever the validation loss starts to increase, the training of the model should be terminated. 
 
+To avoid stopping just because of a single outlier due to noise that terminated the process, one often uses \emph{patience} in the early stopping process: if the loss has not decreased since the last minimum after \emph{patience} number of iterations, then terminate the process. Early stopping is thus an easy way of avoiding overfitting for iteratively trained models only requiring a validation set.  
 
+\section{Loss functions}
+\label{sec:loss_function}
+How we evaluate the performance of a model is of course very important since it defines the metric for the problem; what is good and what is bad? Obviously this depends on whether or not we a dealing with a classification problem or a regression problem. Let us for know focus on the latter. Say that a house is estimated to cost 2 million DKK (M. kr.) but was sold for 4 M. kr. Compare this to an a house that was estimated to cost 8 M. kr. but was sold for 6 M. kr. In both cases the price was 2 M. kr. wrong, but does this mean that both predictions are equally good? The first case was a factor of 2 off, whereas the second was only $25\%$ off. The first case underestimated the price whereas the second overestimated. 
 
-
-\newpage
-$\mathbb{P} \left[ |\nu-\mu| > \epsilon \right] \le 2 e^{-2\epsilon^2 N} \quad \text{for any } \epsilon > 0$  \\
-$\mathbb{P} \left[ |E_\text{in}(g)-E_{out}(g)| > \epsilon \right] \le 2 M e^{-2\epsilon^2 N} \quad \text{for any } \epsilon > 0$  \\
-$E_\text{out}(g) \le E_{in}(g) + \sqrt{\frac{1}{2N} \ln \frac{2M}{\delta}}$ \\ %  generalization bound
-$E_\text{out}(g) \le E_{in}(g) + \sqrt{\frac{8}{2N} \ln \frac{4 m_\mathcal{H}(2N)}{\delta}}$ \\ % VC generalization bound
-$E_\text{out}(g^{(\mathcal{D})}) = \mathbb{E}_\mathbf{x} \left[ \left(g^{(\mathcal{D})}(\mathbf{x}) - f(\mathbf{x}) \right)^2  \right]$ % out of sample error, bias-variance
-
-$$\mathbb{E}_\mathcal{D} \left[ E_\text{out} \left( g^{\mathcal{D}} \right) \right] = \
-\mathbb{E}_\mathbf{x} \biggl[\
-\underbrace{\mathbb{E}_\mathcal{D} \left[ g^{\mathcal{D}}\left(\mathbf{x}\right)\right] - \bar{g}\left(\mathbf{x}\right)^2}_{\
-\mathbb{E}_\mathcal{D} \left[g^{\mathcal{D}}\left(\mathbf{x}\right)\right] - \bar{g}\left(\mathbf{x}\right)^2} \
-+ \underbrace{\bar{g}\left(\mathbf{x}\right)^2 - 2 \bar{g}\left(\mathbf{x}\right)f(\mathbf{x}) + f(\mathbf{x})^2}_{\
-\left(\bar{g}(\mathbf{x}) - f(\mathbf{x}) \right)^2} \biggr]$$ \\
-
-$$\prod_{n=1}^{N} P\left( y_n | x_n \right)$$ \\
-
-$$\phi_i = \sum_{S \subseteq N \backslash \{i\}} \frac{|S|!(M-|S|-1)!}{M!} \left[ f_x(S \cup \{i\}) - f_x(S) \right]  $$
-
-$$ g(z') = \phi_0 + \sum_{i=1}^{M} \phi_i {z'}_i $$
-
-
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/objective_functions/objective_functions.pdf}
-  \caption[Comparison of different objective functions.]
-    {Comparison of the the six objective functions MSE, MAE, LogCosh, Cauchy, Welsch, and Fair as a function of $|z|$. In the plot \textcolor{blue}{MSE} is shown in blue, \textcolor{red}{MAE} in red, \textcolor{green}{LogCosh} in green, \textcolor{orange}{Cauchy} in orange, \textcolor{purple}{Welsch} in purple, and \textcolor{light-blue}{Fair} in light blue. For the Cauchy and Welsch functions $C$ is set to 1 and for the Fair function $c$ is set to 1. For a zoom in of the inner region where $|z|<2$ see \figref{fig:ml:objective_funcs_zoom}. 
-    }
-  \label{fig:ml:objective_funcs}
-\end{figure}
-
+As it should be clear by now the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyper parameter}, the optimization of which is further discussed in \autoref{sec:hyperparameter_optimization}. The most common choice of loss function is by far the Squared Error (SE): 
+\begin{equation}
+  \ell_\mathrm{SE}(y, \hat{y}) = \left( y-\hat{y} \right)^2,
+\end{equation}
+where $y$ is the true value and $\hat{y}$ is the predicted one. Squared Error has the advantage that it is differentiable everywhere, an effect that is both needed for many statistical derivations but also a requirement for some machine learning models. The disadvantage is that it gives too much weight to outliers since every deviation away from the truth is squared. In contrast to this, there is the Absolute Error (AE) defined as:
+\begin{equation}
+  \ell_\mathrm{AE}(y, \hat{y})  = \abs{y-\hat{y} }.
+\end{equation}
 
 \begin{marginfigure}
-  \includegraphics[width=0.9\textwidth]{figures/objective_functions/objective_functions_zoom.pdf}
+  \includegraphics[width=0.98\textwidth]{figures/objective_functions/objective_functions_zoom.pdf}
   \caption[Comparison of different objective functions zoom in.]
     {Zoom in of \figref{fig:ml:objective_funcs}. 
     }
   \label{fig:ml:objective_funcs_zoom}
 \end{marginfigure}
 
+For AE, outliers have a lot smaller weight since it deals with the absolute value of the deviation and not the squared deviation. However, this comes at a price; AE is not differentiable at every point: at $y-\hat{y} = 0$ the derivative of the absolute value function is un-defined. Many functions have been invented trying to deal with these problems. For a more general discussion of loss functions, see e.g. Barron\autocite{barronGeneralAdaptiveRobust2017}. Six different loss functions (for regression problems) have been investigated in this project. In addition to SE and AE also the LogCosh, Cauchy\autocite{barronGeneralAdaptiveRobust2017}, Welsch\autocite{barronGeneralAdaptiveRobust2017} and Fair\autocite{AllstateClaimsSeverity} loss functions are used:
+\begin{equation}
+  \begin{split}
+    \ell_\mathrm{LogCosh}(y, \hat{y})  &= \log\left( \cosh\left( y-\hat{y} \right) \right) \\
+    \ell_\mathrm{Cauchy}(y, \hat{y})  &= \log\left( \frac{1}{2} \left(\frac{y-\hat{y}}{c}\right)^2 + 1   \right) \\
+    \ell_\mathrm{Welsch}(y, \hat{y})  &=  1 - \exp\left( - \frac{1}{2} \left(\frac{y-\hat{y}}{c}\right)^2  \right)\\
+    \ell_\mathrm{Fair}(y, \hat{y})  &= c^2  \left( \frac{\abs{y-\hat{y}} }{c}  - \log \left(\frac{\abs{y-\hat{y}}}{c} +1 \right )   \right). 
+  \end{split}
+\end{equation}
+The above loss functions share some similarities with AE, and in addition to this they are all (twice) differentiable functions. They are shown in Figure~\ref{fig:ml:objective_funcs}. They are shown for only positive values of $y-\hat{y}$ since they are symmetric in $y-\hat{y}$. Notice how SE quickly grows very large compared to the others. Absolute Error has a kink at $y-\hat{y}=0$ as the only one of the functions. Welsch is bounded in the interval $[0, 1)$. The derivative of both LogCosh and Fair goes toward $1$ when $y-\hat{y}$ goes towards $\infty$, whereas it goes to 0 for the Cauchy loss. A priori it is almost impossible to know which one of these loss functions performs best for a specific data set, so they have to be treated as hyper parameters. 
 
+\begin{figure}
+  \includegraphics[width=0.9\textwidth]{figures/objective_functions/objective_functions.pdf}
+  \caption[Comparison of different objective functions.]
+    {Comparison of the the six loss functions SE, AE, LogCosh, Cauchy, Welsch, and Fair as a function of $y-\hat{y}$. In the plot \textcolor{blue}{SE} is shown in blue, \textcolor{red}{AE} in red, \textcolor{green}{LogCosh} in green, \textcolor{orange}{Cauchy} in orange, \textcolor{purple}{Welsch} in purple, and \textcolor{light-blue}{Fair} in light blue. For the Cauchy, Welsch, and Fair functions $c$ is set to 1. For a zoom in of the inner region 
+    where $y-\hat{y}<2$ see \figref{fig:ml:objective_funcs_zoom}. All six grafs are symmetric in $y-\hat{y}$ which is why they are only shown for positive values of $y-\hat{y}$.
+    }
+  \label{fig:ml:objective_funcs}
+\end{figure}
 
+\subsection{Evaluation Function}
+Since some machine learning models require an analytic expression for the derivative and second derivative, it not always possible to use a custom objective function if it is non-differentiable. The Area Under Curve (AUC) of the Receiver Operating Characteristic (ROC) is such a measure. Another example would be the width of the distribution of all $y_i-\hat{y}_i$. In this thesis this overall performance metric will be called the \emph{evaluation function} compared to the differentiable proxy for this function, the objective function. To sum up: the loss function $\ell(y, \hat{y})$ measures the loss for an individual prediction and the objective function $\mathcal{L}$ is the aggregated version of the individual losses. The objective function is assumed to be a good proxy for the evaluation function. 
 
+For the loss functions defined in \autoref{sec:loss_function} the objective function is based on the mean of the individual losses:
+\begin{equation}
+  \mathcal{L} = \frac{1}{N} \sum^N \ell(y_i, \hat{y}_i) + \Omega. 
+\end{equation}
+
+\section{Decision Trees}
+\label{sec:decision_trees}
 
 \begin{figure}
   \includestandalone[width=0.9\textwidth]{figures/decision_tree/decision_tree}%     without .tex extension
@@ -744,6 +770,19 @@ $$ g(z') = \phi_0 + \sum_{i=1}^{M} \phi_i {z'}_i $$
   \caption{My TikZ picture 2}
   \label{fig:tikz:decision_tree_2}
 \end{marginfigure}
+
+
+\section{Hyperparamater Optimization}
+\label{sec:hyperparameter_optimization}
+
+
+
+\newpage
+
+$$\phi_i = \sum_{S \subseteq N \backslash \{i\}} \frac{|S|!(M-|S|-1)!}{M!} \left[ f_x(S \cup \{i\}) - f_x(S) \right]  $$
+
+$$ g(z') = \phi_0 + \sum_{i=1}^{M} \phi_i {z'}_i $$
+
 
 
 

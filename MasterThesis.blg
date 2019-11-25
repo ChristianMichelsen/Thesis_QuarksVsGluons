@@ -4,20 +4,27 @@ The top-level auxiliary file: MasterThesis.aux
 The style file: plainnat.bst
 Database file #1: My_Library.bib
 Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
---line 1356 of file My_Library.bib
+--line 1341 of file My_Library.bib
 Warning--entry type for "LargeElectronPositronCollider" isn't style-file defined
---line 3151 of file My_Library.bib
+--line 3136 of file My_Library.bib
 Warning--entry type for "AdvancedTopicsMachine" isn't style-file defined
---line 3176 of file My_Library.bib
+--line 3161 of file My_Library.bib
+Warning--entry type for "AllstateClaimsSeverity" isn't style-file defined
+--line 3209 of file My_Library.bib
 Warning--to sort, need author or key in LargeElectronPositronCollider
 Warning--to sort, need author or key in AdvancedTopicsMachine
+Warning--to sort, need author or key in AllstateClaimsSeverity
 Warning--empty year in AdvancedTopicsMachine
+Warning--empty year in AllstateClaimsSeverity
 Warning--empty year in LargeElectronPositronCollider
 Warning--empty year in abu-mostafaLearningData2012
 Warning--empty year in abu-mostafaLearningData2012
 Warning--empty journal in andersonSpeciesProblemIris1936a
 Warning--empty year in andersonSpeciesProblemIris1936a
 Warning--empty year in andersonSpeciesProblemIris1936a
+Warning--empty journal in barronGeneralAdaptiveRobust2017
+Warning--empty year in barronGeneralAdaptiveRobust2017
+Warning--empty year in barronGeneralAdaptiveRobust2017
 Warning--empty journal in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
@@ -33,45 +40,45 @@ Warning--empty year in tikhonovStabilityInverseProblems1943
 Warning--empty year in veenNeuralNetworkZoo2016
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
-You've used 10 entries,
+You've used 12 entries,
             2773 wiz_defined-function locations,
-            662 strings with 7000 characters,
-and the built_in function-call counts, 3823 in all, are:
-= -- 348
-> -- 120
-< -- 8
-+ -- 46
-- -- 36
-* -- 302
-:= -- 547
-add.period$ -- 42
-call.type$ -- 10
-change.case$ -- 40
-chr.to.int$ -- 10
-cite$ -- 46
-duplicate$ -- 200
-empty$ -- 375
-format.name$ -- 44
-if$ -- 816
+            671 strings with 7296 characters,
+and the built_in function-call counts, 4373 in all, are:
+= -- 397
+> -- 130
+< -- 9
++ -- 51
+- -- 39
+* -- 339
+:= -- 615
+add.period$ -- 47
+call.type$ -- 12
+change.case$ -- 47
+chr.to.int$ -- 12
+cite$ -- 56
+duplicate$ -- 234
+empty$ -- 440
+format.name$ -- 48
+if$ -- 937
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 10
-newline$ -- 68
-num.names$ -- 32
-pop$ -- 132
+missing$ -- 11
+newline$ -- 77
+num.names$ -- 36
+pop$ -- 160
 preamble$ -- 1
-purify$ -- 32
+purify$ -- 37
 quote$ -- 0
-skip$ -- 125
+skip$ -- 149
 stack$ -- 0
-substring$ -- 117
-swap$ -- 20
+substring$ -- 122
+swap$ -- 21
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 95
-warning$ -- 24
-while$ -- 30
+type$ -- 117
+warning$ -- 29
+while$ -- 33
 width$ -- 0
-write$ -- 143
-(There were 27 warnings)
+write$ -- 163
+(There were 33 warnings)

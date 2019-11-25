@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -8,6 +8,10 @@
 \bibitem[Adv()]{AdvancedTopicsMachine}
 Advanced {{Topics}} in {{Machine Learning}} ({{ATML}}).
 \newblock URL \url{https://kurser.ku.dk/course/ndak15014u}.
+
+\bibitem[All()]{AllstateClaimsSeverity}
+Allstate {{Claims Severity}} - {{Fair Loss}}.
+\newblock URL \url{https://kaggle.com/c/allstate-claims-severity}.
 
 \bibitem[Lar()]{LargeElectronPositronCollider}
 The {{Large Electron}}-{{Positron Collider}} | {{CERN}}.
@@ -28,6 +32,11 @@ Edgar Anderson.
 \newblock ISSN 00266493.
 \newblock \doi{10.2307/2394164}.
 \newblock URL \url{www.jstor.org/stable/2394164}.
+
+\bibitem[Barron()]{barronGeneralAdaptiveRobust2017}
+Jonathan~T. Barron.
+\newblock A {{General}} and {{Adaptive Robust Loss Function}}.
+\newblock URL \url{http://arxiv.org/abs/1701.03077}.
 
 \bibitem[Fisher()]{fisherUseMultipleMeasurements1936}
 R.~A. Fisher.

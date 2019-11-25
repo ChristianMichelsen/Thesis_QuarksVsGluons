@@ -4,11 +4,11 @@ The top-level auxiliary file: MasterThesis.aux
 The style file: plainnat.bst
 Database file #1: My_Library.bib
 Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
---line 1356 of file My_Library.bib
+--line 1341 of file My_Library.bib
 Warning--entry type for "LargeElectronPositronCollider" isn't style-file defined
---line 3151 of file My_Library.bib
+--line 3136 of file My_Library.bib
 Warning--entry type for "AdvancedTopicsMachine" isn't style-file defined
---line 3176 of file My_Library.bib
+--line 3161 of file My_Library.bib
 Warning--to sort, need author or key in LargeElectronPositronCollider
 Warning--to sort, need author or key in AdvancedTopicsMachine
 Warning--empty year in AdvancedTopicsMachine
@@ -18,11 +18,17 @@ Warning--empty year in abu-mostafaLearningData2012
 Warning--empty journal in andersonSpeciesProblemIris1936a
 Warning--empty year in andersonSpeciesProblemIris1936a
 Warning--empty year in andersonSpeciesProblemIris1936a
+Warning--empty journal in barronGeneralAdaptiveRobust2017
+Warning--empty year in barronGeneralAdaptiveRobust2017
+Warning--empty year in barronGeneralAdaptiveRobust2017
 Warning--empty journal in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
 Warning--empty year in hastieElementsStatisticalLearning2009
 Warning--empty year in hastieElementsStatisticalLearning2009
+Warning--empty journal in tibshiraniRegressionShrinkageSelection1996
+Warning--empty year in tibshiraniRegressionShrinkageSelection1996
+Warning--empty year in tibshiraniRegressionShrinkageSelection1996
 Warning--can't use both volume and number fields in tikhonovStabilityInverseProblems1943
 Warning--empty publisher in tikhonovStabilityInverseProblems1943
 Warning--empty year in tikhonovStabilityInverseProblems1943
@@ -30,45 +36,45 @@ Warning--empty year in tikhonovStabilityInverseProblems1943
 Warning--empty year in veenNeuralNetworkZoo2016
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
-You've used 9 entries,
+You've used 11 entries,
             2773 wiz_defined-function locations,
-            654 strings with 6792 characters,
-and the built_in function-call counts, 3412 in all, are:
-= -- 309
-> -- 110
-< -- 7
-+ -- 42
-- -- 33
-* -- 268
-:= -- 485
-add.period$ -- 37
-call.type$ -- 9
-change.case$ -- 36
-chr.to.int$ -- 9
-cite$ -- 41
-duplicate$ -- 180
-empty$ -- 335
-format.name$ -- 40
-if$ -- 730
+            667 strings with 7163 characters,
+and the built_in function-call counts, 4133 in all, are:
+= -- 374
+> -- 130
+< -- 9
++ -- 50
+- -- 39
+* -- 323
+:= -- 596
+add.period$ -- 45
+call.type$ -- 11
+change.case$ -- 44
+chr.to.int$ -- 11
+cite$ -- 51
+duplicate$ -- 219
+empty$ -- 405
+format.name$ -- 48
+if$ -- 878
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 9
-newline$ -- 61
-num.names$ -- 28
-pop$ -- 121
+missing$ -- 11
+newline$ -- 73
+num.names$ -- 36
+pop$ -- 146
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 35
 quote$ -- 0
-skip$ -- 115
+skip$ -- 135
 stack$ -- 0
-substring$ -- 94
+substring$ -- 119
 swap$ -- 20
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
-warning$ -- 21
-while$ -- 26
+type$ -- 106
+warning$ -- 27
+while$ -- 33
 width$ -- 0
-write$ -- 128
-(There were 24 warnings)
+write$ -- 154
+(There were 30 warnings)
