@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,6 +12,14 @@ Advanced {{Topics}} in {{Machine Learning}} ({{ATML}}).
 \bibitem[All()]{AllstateClaimsSeverity}
 Allstate {{Claims Severity}} - {{Fair Loss}}.
 \newblock URL \url{https://kaggle.com/c/allstate-claims-severity}.
+
+\bibitem[Dml()]{DmlcXgboost}
+Dmlc/xgboost.
+\newblock URL \url{https://github.com/dmlc/xgboost}.
+
+\bibitem[HEP()]{HEPMeetsML}
+{{HEP}} meets {{ML}} award | {{The Higgs Machine Learning Challenge}}.
+\newblock URL \url{https://higgsml.lal.in2p3.fr/prizes-and-award/award/}.
 
 \bibitem[Lar()]{LargeElectronPositronCollider}
 The {{Large Electron}}-{{Positron Collider}} | {{CERN}}.
@@ -37,6 +45,21 @@ E.~Anderson.
 J.~T. Barron.
 \newblock A {{General}} and {{Adaptive Robust Loss Function}}.
 \newblock URL \url{http://arxiv.org/abs/1701.03077}.
+
+\bibitem[Breiman()]{breimanRandomForests2001}
+L.~Breiman.
+\newblock Random {{Forests}}.
+\newblock 45\penalty0 (1):\penalty0 5--32.
+\newblock ISSN 1573-0565.
+\newblock \doi{10.1023/A:1010933404324}.
+\newblock URL \url{https://doi.org/10.1023/A:1010933404324}.
+
+\bibitem[Chen and Guestrin()]{chenXGBoostScalableTree2016}
+T.~Chen and C.~Guestrin.
+\newblock {{XGBoost}}: {{A Scalable Tree Boosting System}}.
+\newblock pages 785--794.
+\newblock \doi{10.1145/2939672.2939785}.
+\newblock URL \url{http://arxiv.org/abs/1603.02754}.
 
 \bibitem[Fisher()]{fisherUseMultipleMeasurements1936}
 R.~A. Fisher.
@@ -81,5 +104,13 @@ V.~Vapnik.
   {Morgan Kaufmann Publishers Inc.}
 \newblock ISBN 978-1-55860-222-9.
 \newblock URL \url{http://dl.acm.org/citation.cfm?id=2986916.2987018}.
+
+\bibitem[Wickham()]{JSSv059i10}
+H.~Wickham.
+\newblock Tidy data.
+\newblock 59\penalty0 (10):\penalty0 1--23.
+\newblock ISSN 1548-7660.
+\newblock \doi{10.18637/jss.v059.i10}.
+\newblock URL \url{https://www.jstatsoft.org/v059/i10}.
 
 \end{thebibliography}

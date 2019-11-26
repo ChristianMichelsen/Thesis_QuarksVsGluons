@@ -89,6 +89,7 @@
 
 % add numbers to chapters, sections, subsections
 \setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
 
 % Feyman diagrams
 % \usepackage{tikz-feynman}
@@ -125,6 +126,8 @@
 }
 
 
+%  units
+\usepackage{siunitx}
 
 
 
@@ -769,7 +772,7 @@ For the loss functions defined in \autoref{sec:loss_function} the objective func
   \label{fig:decision_tree_feature_space}
 \end{marginfigure}
 
-Decision Trees are a simple machine learning method that works by partitioning the feature space into smaller subspaces, high-dimensional rectangles basically, and then fit each subspace with a constant for regression problems or a single label for classification problems \citep{hastieElementsStatisticalLearning2009}. A simple example of this can be seen in Figure~\ref{fig:decision_tree_feature_space} and Figure~\ref{fig:tikz:decision_tree}. 
+Decision Trees are a simple machine learning method that works by partitioning the feature space into smaller subspaces, high-dimensional rectangles basically, and then fit each subspace with a constant for regression problems or a single label for classification problems \citep{hastieElementsStatisticalLearning2009}. A simple example of this can be seen in Figure~\ref{fig:decision_tree_feature_space} and Figure~\ref{fig:tikz:decision_tree}. In the first figure we see an illustration of how the signal and background distributions look in the 2D feature space. The dashed lines in the figure indicate the cuts made by the decision tree (DT), cuts which are shown on the second figure as a typical DT plot. At first the DT partitions the space according the the value of the transverse momentum\sidenote{All units in this project are in natural units such that both momentum and energy are in units of \SI{\GeV}} $p_\perp$: if it is lower than (or equal to) \SI{20}{\GeV} then it classified as background. If the value is higher than 20 GeV then an extra split is made, this time on the energy of the jet $E_\mathrm{jet}$: if it is higher than \SI{10}{\GeV} it is classified as signal and otherwise as background. Training a DT on this data allows us to predict a new unseen event $(p_\perp, E_\mathrm{jet}) = (\SI{24}{\GeV}, )$
 
 
 \begin{figure}
@@ -792,7 +795,7 @@ Decision Trees are a simple machine learning method that works by partitioning t
 \label{subsec:ml:random_search}
 
 \subsection{Beyesian Optimization}
-\label{subsec:ml:bayesian_opti}
+\label{subsec:ml:bayesian_optimization}
 
 
 
