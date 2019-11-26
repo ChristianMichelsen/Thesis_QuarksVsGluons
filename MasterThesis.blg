@@ -42,8 +42,12 @@ Warning--empty year in chenXGBoostScalableTree2016
 Warning--empty journal in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
+Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
+Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
 Warning--empty year in hastieElementsStatisticalLearning2009
 Warning--empty year in hastieElementsStatisticalLearning2009
+Warning--empty year in keLightGBMHighlyEfficient2017
+Warning--empty year in keLightGBMHighlyEfficient2017
 Warning--empty journal in tibshiraniRegressionShrinkageSelection1996
 Warning--empty year in tibshiraniRegressionShrinkageSelection1996
 Warning--empty year in tibshiraniRegressionShrinkageSelection1996
@@ -57,45 +61,45 @@ Warning--empty year in vapnikPrinciplesRiskMinimization1991
 Warning--empty journal in JSSv059i10
 Warning--empty year in JSSv059i10
 Warning--empty year in JSSv059i10
-You've used 17 entries,
+You've used 19 entries,
             2773 wiz_defined-function locations,
-            705 strings with 7685 characters,
-and the built_in function-call counts, 6217 in all, are:
-= -- 578
-> -- 171
-< -- 13
-+ -- 68
-- -- 51
-* -- 477
-:= -- 854
-add.period$ -- 68
-call.type$ -- 17
-change.case$ -- 66
-chr.to.int$ -- 17
-cite$ -- 81
-duplicate$ -- 333
-empty$ -- 629
-format.name$ -- 65
-if$ -- 1350
+            724 strings with 8547 characters,
+and the built_in function-call counts, 7855 in all, are:
+= -- 721
+> -- 294
+< -- 16
++ -- 108
+- -- 89
+* -- 617
+:= -- 1100
+add.period$ -- 79
+call.type$ -- 19
+change.case$ -- 82
+chr.to.int$ -- 19
+cite$ -- 89
+duplicate$ -- 399
+empty$ -- 738
+format.name$ -- 107
+if$ -- 1705
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 14
-newline$ -- 108
-num.names$ -- 48
-pop$ -- 222
+missing$ -- 16
+newline$ -- 121
+num.names$ -- 60
+pop$ -- 265
 preamble$ -- 1
-purify$ -- 51
+purify$ -- 65
 quote$ -- 0
-skip$ -- 222
+skip$ -- 274
 stack$ -- 0
-substring$ -- 186
-swap$ -- 32
-text.length$ -- 3
+substring$ -- 250
+swap$ -- 53
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 172
-warning$ -- 42
-while$ -- 46
+type$ -- 194
+warning$ -- 46
+while$ -- 59
 width$ -- 0
-write$ -- 230
-(There were 48 warnings)
+write$ -- 262
+(There were 52 warnings)

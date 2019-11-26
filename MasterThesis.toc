@@ -15,37 +15,38 @@
 \contentsline {subsection}{\numberline {3.6.1}Ensembles of Decision Trees}{17}{subsection.3.6.1}
 \contentsline {subsubsection}{Random Forests}{17}{subsubsection*.4}
 \contentsline {subsubsection}{Boosted Decision Trees}{18}{subsubsection*.5}
-\contentsline {section}{\numberline {3.7}Hyperparamater Optimization}{18}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}Grid Search}{18}{subsection.3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}Random Search}{18}{subsection.3.7.2}
-\contentsline {subsection}{\numberline {3.7.3}Beyesian Optimization}{18}{subsection.3.7.3}
-\contentsline {chapter}{\numberline {4}Housing Prices Analysis}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Headings}{22}{section.4.1}
-\contentsline {paragraph}{Paragraph}{22}{paragraph*.6}
-\contentsline {chapter}{\numberline {5}Particle Physics and LEP}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Page Layout}{31}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Headings}{31}{subsection.5.1.1}
-\contentsline {chapter}{\numberline {6}Quark Gluon Analysis}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Sidenotes}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}References}{40}{section.6.2}
-\contentsline {section}{\numberline {6.3}Figures and Tables}{40}{section.6.3}
-\contentsline {section}{\numberline {6.4}Captions}{42}{section.6.4}
-\contentsline {paragraph}{Vertical alignment}{42}{paragraph*.7}
-\contentsline {paragraph}{Horizontal alignment}{43}{paragraph*.8}
-\contentsline {section}{\numberline {6.5}Full-width text blocks}{43}{section.6.5}
-\contentsline {section}{\numberline {6.6}Typography}{43}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Typefaces}{43}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Letterspacing}{43}{subsection.6.6.2}
-\contentsline {section}{\numberline {6.7}Document Class Options}{44}{section.6.7}
-\contentsline {chapter}{\numberline {7}Discussion and Outlook}{47}{chapter.7}
-\contentsline {section}{\numberline {7.1}File Hooks}{47}{section.7.1}
-\contentsline {chapter}{\numberline {8}Conclusion}{49}{chapter.8}
-\contentsline {section}{\numberline {8.1}Tufte-\LaTeX \xspace Website}{49}{section.8.1}
-\contentsline {section}{\numberline {8.2}Tufte-\LaTeX \xspace Mailing Lists}{49}{section.8.2}
-\contentsline {paragraph}{Discussion list}{49}{paragraph*.9}
-\contentsline {paragraph}{Commits list}{49}{paragraph*.10}
-\contentsline {section}{\numberline {8.3}Getting Help}{49}{section.8.3}
-\contentsline {section}{\numberline {8.4}Errors, Warnings, and Informational Messages}{49}{section.8.4}
-\contentsline {section}{\numberline {8.5}Package Dependencies}{50}{section.8.5}
-\contentsline {chapter}{Index}{55}{chapter*.12}
+\contentsline {section}{\numberline {3.7}Hyperparamater Optimization}{19}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Grid Search}{20}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Random Search}{20}{subsection.3.7.2}
+\contentsline {subsection}{\numberline {3.7.3}Bayesian Optimization}{20}{subsection.3.7.3}
+\contentsline {section}{\numberline {3.8}Feature Importance}{20}{section.3.8}
+\contentsline {chapter}{\numberline {4}Housing Prices Analysis}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Headings}{24}{section.4.1}
+\contentsline {paragraph}{Paragraph}{24}{paragraph*.6}
+\contentsline {chapter}{\numberline {5}Particle Physics and LEP}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Page Layout}{33}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Headings}{33}{subsection.5.1.1}
+\contentsline {chapter}{\numberline {6}Quark Gluon Analysis}{35}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sidenotes}{35}{section.6.1}
+\contentsline {section}{\numberline {6.2}References}{42}{section.6.2}
+\contentsline {section}{\numberline {6.3}Figures and Tables}{42}{section.6.3}
+\contentsline {section}{\numberline {6.4}Captions}{44}{section.6.4}
+\contentsline {paragraph}{Vertical alignment}{44}{paragraph*.7}
+\contentsline {paragraph}{Horizontal alignment}{45}{paragraph*.8}
+\contentsline {section}{\numberline {6.5}Full-width text blocks}{45}{section.6.5}
+\contentsline {section}{\numberline {6.6}Typography}{45}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Typefaces}{45}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Letterspacing}{45}{subsection.6.6.2}
+\contentsline {section}{\numberline {6.7}Document Class Options}{46}{section.6.7}
+\contentsline {chapter}{\numberline {7}Discussion and Outlook}{49}{chapter.7}
+\contentsline {section}{\numberline {7.1}File Hooks}{49}{section.7.1}
+\contentsline {chapter}{\numberline {8}Conclusion}{51}{chapter.8}
+\contentsline {section}{\numberline {8.1}Tufte-\LaTeX \xspace Website}{51}{section.8.1}
+\contentsline {section}{\numberline {8.2}Tufte-\LaTeX \xspace Mailing Lists}{51}{section.8.2}
+\contentsline {paragraph}{Discussion list}{51}{paragraph*.9}
+\contentsline {paragraph}{Commits list}{51}{paragraph*.10}
+\contentsline {section}{\numberline {8.3}Getting Help}{51}{section.8.3}
+\contentsline {section}{\numberline {8.4}Errors, Warnings, and Informational Messages}{51}{section.8.4}
+\contentsline {section}{\numberline {8.5}Package Dependencies}{52}{section.8.5}
+\contentsline {chapter}{Index}{57}{chapter*.12}
 \contentsfinish 

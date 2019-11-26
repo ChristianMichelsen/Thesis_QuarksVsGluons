@@ -787,6 +787,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplri9d.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrij8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplb9d.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplbj8r.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmb7t.vf
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /Users/michelsen/Jottacloud/Master_Thesis/thesis/figures/feynman_diagrams/eeZqqg.pdf
 INPUT /Users/michelsen/Jottacloud/Master_Thesis/thesis/figures/feynman_diagrams/eeZqqg.pdf
 INPUT /Users/michelsen/Jottacloud/Master_Thesis/thesis/figures/feynman_diagrams/eeZqqg.pdf
@@ -1044,6 +1046,7 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmb.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb

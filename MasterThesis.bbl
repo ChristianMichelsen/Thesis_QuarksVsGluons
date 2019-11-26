@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -70,6 +70,16 @@ R.~A. Fisher.
 \newblock URL
   \url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x}.
 
+\bibitem[Freund and
+  Schapire()]{freundDesiciontheoreticGeneralizationOnline1995}
+Y.~Freund and R.~E. Schapire.
+\newblock A desicion-theoretic generalization of on-line learning and an
+  application to boosting.
+\newblock In P.~Vitányi, editor, \emph{Computational Learning Theory}, pages
+  23--37. {Springer Berlin Heidelberg}.
+\newblock ISBN 978-3-540-49195-8.
+\newblock AdaBoost.
+
 \bibitem[Hastie et~al.()Hastie, Tibshirani, and
   Friedman]{hastieElementsStatisticalLearning2009}
 T.~Hastie, R.~Tibshirani, and J.~Friedman.
@@ -78,6 +88,17 @@ T.~Hastie, R.~Tibshirani, and J.~Friedman.
 \newblock Springer {{Series}} in {{Statistics}}. {Springer-Verlag}, 2 edition.
 \newblock ISBN 978-0-387-84857-0.
 \newblock URL \url{//www.springer.com/la/book/9780387848570}.
+
+\bibitem[Ke et~al.()Ke, Meng, Finley, Wang, Chen, Ma, Ye, and
+  Liu]{keLightGBMHighlyEfficient2017}
+G.~Ke, Q.~Meng, T.~Finley, T.~Wang, W.~Chen, W.~Ma, Q.~Ye, and T.-Y. Liu.
+\newblock {{LightGBM}}: {{A Highly Efficient Gradient Boosting Decision Tree}}.
+\newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
+  S.~Vishwanathan, and R.~Garnett, editors, \emph{Advances in {{Neural
+  Information Processing Systems}} 30}, pages 3146--3154. {Curran Associates,
+  Inc.}
+\newblock URL
+  \url{http://papers.nips.cc/paper/6907-lightgbm-a-highly-efficient-gradient-boosting-decision-tree.pdf}.
 
 \bibitem[Tibshirani()]{tibshiraniRegressionShrinkageSelection1996}
 R.~Tibshirani.

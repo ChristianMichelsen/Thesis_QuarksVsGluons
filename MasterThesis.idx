@@ -1,161 +1,161 @@
 \indexentry{license|hyperpage}{ii}
-\indexentry{headings|hyperpage}{22}
-\indexentry{headings|hyperpage}{31}
-\indexentry{newthought command@\hangleft {\texttt  {\char '134\relax }}\texttt  {newthought}|hyperpage}{31}
-\indexentry{newthought command@\hangleft {\texttt  {\char '134\relax }}\texttt  {newthought}|hyperpage}{31}
-\indexentry{footnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {footnote}|hyperpage}{33}
-\indexentry{marginnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {marginnote}|hyperpage}{33}
-\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{33}
-\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{33}
-\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{40}
-\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{40}
-\indexentry{marginnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {marginnote}|hyperpage}{40}
-\indexentry{marginnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {marginnote}|hyperpage}{40}
-\indexentry{citep command@\hangleft {\texttt  {\char '134\relax }}\texttt  {citep}|hyperpage}{40}
-\indexentry{bibliography command@\hangleft {\texttt  {\char '134\relax }}\texttt  {bibliography}|hyperpage}{40}
-\indexentry{nobibliography command@\hangleft {\texttt  {\char '134\relax }}\texttt  {nobibliography}|hyperpage}{40}
-\indexentry{figure environment@\texttt  {figure} environment|hyperpage}{40}
-\indexentry{environments!figure@\texttt  {figure}|hyperpage}{40}
-\indexentry{tabular environment@\texttt  {tabular} environment|hyperpage}{40}
-\indexentry{environments!tabular@\texttt  {tabular}|hyperpage}{40}
-\indexentry{figure* environment@\texttt  {figure*} environment|hyperpage}{40}
-\indexentry{environments!figure*@\texttt  {figure*}|hyperpage}{40}
-\indexentry{table* environment@\texttt  {table*} environment|hyperpage}{40}
-\indexentry{environments!table*@\texttt  {table*}|hyperpage}{40}
-\indexentry{marginfigure environment@\texttt  {marginfigure} environment|hyperpage}{40}
-\indexentry{environments!marginfigure@\texttt  {marginfigure}|hyperpage}{40}
-\indexentry{margintable environment@\texttt  {margintable} environment|hyperpage}{40}
-\indexentry{environments!margintable@\texttt  {margintable}|hyperpage}{40}
-\indexentry{marginfigure environment@\texttt  {marginfigure} environment|hyperpage}{40}
-\indexentry{environments!marginfigure@\texttt  {marginfigure}|hyperpage}{40}
-\indexentry{margintable environment@\texttt  {margintable} environment|hyperpage}{40}
-\indexentry{environments!margintable@\texttt  {margintable}|hyperpage}{40}
-\indexentry{figure* environment@\texttt  {figure*} environment|hyperpage}{40}
-\indexentry{environments!figure*@\texttt  {figure*}|hyperpage}{40}
-\indexentry{figure environment@\texttt  {figure} environment|hyperpage}{40}
-\indexentry{environments!figure@\texttt  {figure}|hyperpage}{40}
-\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{41}
-\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{41}
-\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{41}
-\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{41}
-\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{41}
-\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{41}
-\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{41}
-\indexentry{booktabs package@\texttt  {booktabs} package|hyperpage}{41}
-\indexentry{packages!booktabs@\texttt  {booktabs}|hyperpage}{41}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{42}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{42}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{42}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{42}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{42}
-\indexentry{FloatBarrier command@\hangleft {\texttt  {\char '134\relax }}\texttt  {FloatBarrier}|hyperpage}{42}
-\indexentry{FloatBarrier command@\hangleft {\texttt  {\char '134\relax }}\texttt  {FloatBarrier}|hyperpage}{42}
-\indexentry{clearpage command@\hangleft {\texttt  {\char '134\relax }}\texttt  {clearpage}|hyperpage}{42}
-\indexentry{setfloatalignment command@\hangleft {\texttt  {\char '134\relax }}\texttt  {setfloatalignment}|hyperpage}{42}
-\indexentry{setfloatalignment command@\hangleft {\texttt  {\char '134\relax }}\texttt  {setfloatalignment}|hyperpage}{42}
-\indexentry{setfloatalignment command@\hangleft {\texttt  {\char '134\relax }}\texttt  {setfloatalignment}|hyperpage}{42}
-\indexentry{forceversofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forceversofloat}|hyperpage}{43}
-\indexentry{forcerectofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forcerectofloat}|hyperpage}{43}
-\indexentry{forceversofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forceversofloat}|hyperpage}{43}
-\indexentry{forcerectofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forcerectofloat}|hyperpage}{43}
-\indexentry{fullwidth environment@\texttt  {fullwidth} environment|hyperpage}{43}
-\indexentry{environments!fullwidth@\texttt  {fullwidth}|hyperpage}{43}
-\indexentry{typefaces|hyperpage}{43}
-\indexentry{smallcaps command@\hangleft {\texttt  {\char '134\relax }}\texttt  {smallcaps}|hyperpage}{43}
-\indexentry{textsc command@\hangleft {\texttt  {\char '134\relax }}\texttt  {textsc}|hyperpage}{44}
-\indexentry{textsc command@\hangleft {\texttt  {\char '134\relax }}\texttt  {textsc}|hyperpage}{44}
-\indexentry{class options|(hyperpage}{44}
-\indexentry{a4paper class option@\texttt  {a4paper} class option|hyperpage}{44}
-\indexentry{class options!a4paper@\texttt  {a4paper}|hyperpage}{44}
-\indexentry{sfsidenotes class option@\texttt  {sfsidenotes} class option|hyperpage}{44}
-\indexentry{class options!sfsidenotes@\texttt  {sfsidenotes}|hyperpage}{44}
-\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{44}
-\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{44}
-\indexentry{oneside class option@\texttt  {oneside} class option|hyperpage}{44}
-\indexentry{class options!oneside@\texttt  {oneside}|hyperpage}{44}
-\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{44}
-\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{44}
-\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{44}
-\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{44}
-\indexentry{justified class option@\texttt  {justified} class option|hyperpage}{44}
-\indexentry{class options!justified@\texttt  {justified}|hyperpage}{44}
-\indexentry{bidi class option@\texttt  {bidi} class option|hyperpage}{44}
-\indexentry{class options!bidi@\texttt  {bidi}|hyperpage}{44}
-\indexentry{bidi package@\texttt  {bidi} package|hyperpage}{44}
-\indexentry{packages!bidi@\texttt  {bidi}|hyperpage}{44}
-\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{44}
-\indexentry{bidi package@\texttt  {bidi} package|hyperpage}{44}
-\indexentry{packages!bidi@\texttt  {bidi}|hyperpage}{44}
-\indexentry{debug class option@\texttt  {debug} class option|hyperpage}{44}
-\indexentry{class options!debug@\texttt  {debug}|hyperpage}{44}
-\indexentry{nofonts class option@\texttt  {nofonts} class option|hyperpage}{44}
-\indexentry{class options!nofonts@\texttt  {nofonts}|hyperpage}{44}
-\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{44}
-\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{44}
-\indexentry{nols class option@\texttt  {nols} class option|hyperpage}{44}
-\indexentry{class options!nols@\texttt  {nols}|hyperpage}{44}
-\indexentry{letterspace package@\texttt  {letterspace} package|hyperpage}{44}
-\indexentry{packages!letterspace@\texttt  {letterspace}|hyperpage}{44}
-\indexentry{soul package@\texttt  {soul} package|hyperpage}{44}
-\indexentry{packages!soul@\texttt  {soul}|hyperpage}{44}
-\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{44}
-\indexentry{fontenc package@\texttt  {fontenc} package|hyperpage}{44}
-\indexentry{packages!fontenc@\texttt  {fontenc}|hyperpage}{44}
-\indexentry{notitlepage class option@\texttt  {notitlepage} class option|hyperpage}{44}
-\indexentry{class options!notitlepage@\texttt  {notitlepage}|hyperpage}{44}
-\indexentry{maketitle command@\hangleft {\texttt  {\char '134\relax }}\texttt  {maketitle}|hyperpage}{44}
-\indexentry{titlepage class option@\texttt  {titlepage} class option|hyperpage}{44}
-\indexentry{class options!titlepage@\texttt  {titlepage}|hyperpage}{44}
-\indexentry{maketitle command@\hangleft {\texttt  {\char '134\relax }}\texttt  {maketitle}|hyperpage}{44}
-\indexentry{notoc class option@\texttt  {notoc} class option|hyperpage}{45}
-\indexentry{class options!notoc@\texttt  {notoc}|hyperpage}{45}
-\indexentry{notoc class option@\texttt  {notoc} class option|hyperpage}{45}
-\indexentry{class options!notoc@\texttt  {notoc}|hyperpage}{45}
-\indexentry{nohyper class option@\texttt  {nohyper} class option|hyperpage}{45}
-\indexentry{class options!nohyper@\texttt  {nohyper}|hyperpage}{45}
-\indexentry{hyperref package@\texttt  {hyperref} package|hyperpage}{45}
-\indexentry{packages!hyperref@\texttt  {hyperref}|hyperpage}{45}
-\indexentry{hyperref package@\texttt  {hyperref} package|hyperpage}{45}
-\indexentry{packages!hyperref@\texttt  {hyperref}|hyperpage}{45}
-\indexentry{title command@\hangleft {\texttt  {\char '134\relax }}\texttt  {title}|hyperpage}{45}
-\indexentry{author command@\hangleft {\texttt  {\char '134\relax }}\texttt  {author}|hyperpage}{45}
-\indexentry{class options|)hyperpage}{45}
-\indexentry{file hooks|(hyperpage}{47}
-\indexentry{file hooks!common|hyperpage}{47}
-\indexentry{tufte-common-local.tex@\texttt  {tufte-common-local.tex}|hyperpage}{47}
-\indexentry{file hooks!book|hyperpage}{47}
-\indexentry{tufte-book-local.tex@\texttt  {tufte-book-local.tex}|hyperpage}{47}
-\indexentry{file hooks!handout|hyperpage}{47}
-\indexentry{tufte-handout-local.tex@\texttt  {tufte-handout-local.tex}|hyperpage}{47}
-\indexentry{file hooks!common|hyperpage}{47}
-\indexentry{tufte-common-local.tex@\texttt  {tufte-common-local.tex}|hyperpage}{47}
-\indexentry{file hooks!book|hyperpage}{47}
-\indexentry{tufte-book-local.tex@\texttt  {tufte-book-local.tex}|hyperpage}{47}
-\indexentry{file hooks!handout|hyperpage}{47}
-\indexentry{tufte-common-handout.tex@\texttt  {tufte-common-handout.tex}|hyperpage}{47}
-\indexentry{file hooks|)hyperpage}{47}
-\indexentry{debug class option@\texttt  {debug} class option|hyperpage}{49}
-\indexentry{class options!debug@\texttt  {debug}|hyperpage}{49}
-\indexentry{error messages|hyperpage}{49}
-\indexentry{warning messages|hyperpage}{49}
-\indexentry{debug messages|hyperpage}{49}
-\indexentry{subparagraph command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}|hyperpage}{50}
-\indexentry{subparagraph command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}|hyperpage}{50}
-\indexentry{subparagraph command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}|hyperpage}{50}
-\indexentry{subsubsection command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}|hyperpage}{50}
-\indexentry{subsubsection command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}|hyperpage}{50}
-\indexentry{subsubsection command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}|hyperpage}{50}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{50}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{50}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{50}
-\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{50}
-\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{50}
-\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{50}
-\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{50}
-\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{50}
-\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{50}
-\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{50}
-\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{50}
-\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{50}
-\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{50}
-\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{50}
+\indexentry{headings|hyperpage}{24}
+\indexentry{headings|hyperpage}{33}
+\indexentry{newthought command@\hangleft {\texttt  {\char '134\relax }}\texttt  {newthought}|hyperpage}{33}
+\indexentry{newthought command@\hangleft {\texttt  {\char '134\relax }}\texttt  {newthought}|hyperpage}{33}
+\indexentry{footnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {footnote}|hyperpage}{35}
+\indexentry{marginnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {marginnote}|hyperpage}{35}
+\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{35}
+\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{35}
+\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{42}
+\indexentry{sidenote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {sidenote}|hyperpage}{42}
+\indexentry{marginnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {marginnote}|hyperpage}{42}
+\indexentry{marginnote command@\hangleft {\texttt  {\char '134\relax }}\texttt  {marginnote}|hyperpage}{42}
+\indexentry{citep command@\hangleft {\texttt  {\char '134\relax }}\texttt  {citep}|hyperpage}{42}
+\indexentry{bibliography command@\hangleft {\texttt  {\char '134\relax }}\texttt  {bibliography}|hyperpage}{42}
+\indexentry{nobibliography command@\hangleft {\texttt  {\char '134\relax }}\texttt  {nobibliography}|hyperpage}{42}
+\indexentry{figure environment@\texttt  {figure} environment|hyperpage}{42}
+\indexentry{environments!figure@\texttt  {figure}|hyperpage}{42}
+\indexentry{tabular environment@\texttt  {tabular} environment|hyperpage}{42}
+\indexentry{environments!tabular@\texttt  {tabular}|hyperpage}{42}
+\indexentry{figure* environment@\texttt  {figure*} environment|hyperpage}{42}
+\indexentry{environments!figure*@\texttt  {figure*}|hyperpage}{42}
+\indexentry{table* environment@\texttt  {table*} environment|hyperpage}{42}
+\indexentry{environments!table*@\texttt  {table*}|hyperpage}{42}
+\indexentry{marginfigure environment@\texttt  {marginfigure} environment|hyperpage}{42}
+\indexentry{environments!marginfigure@\texttt  {marginfigure}|hyperpage}{42}
+\indexentry{margintable environment@\texttt  {margintable} environment|hyperpage}{42}
+\indexentry{environments!margintable@\texttt  {margintable}|hyperpage}{42}
+\indexentry{marginfigure environment@\texttt  {marginfigure} environment|hyperpage}{42}
+\indexentry{environments!marginfigure@\texttt  {marginfigure}|hyperpage}{42}
+\indexentry{margintable environment@\texttt  {margintable} environment|hyperpage}{42}
+\indexentry{environments!margintable@\texttt  {margintable}|hyperpage}{42}
+\indexentry{figure* environment@\texttt  {figure*} environment|hyperpage}{42}
+\indexentry{environments!figure*@\texttt  {figure*}|hyperpage}{42}
+\indexentry{figure environment@\texttt  {figure} environment|hyperpage}{42}
+\indexentry{environments!figure@\texttt  {figure}|hyperpage}{42}
+\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{43}
+\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{43}
+\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{43}
+\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{43}
+\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{43}
+\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{43}
+\indexentry{caption command@\hangleft {\texttt  {\char '134\relax }}\texttt  {caption}|hyperpage}{43}
+\indexentry{booktabs package@\texttt  {booktabs} package|hyperpage}{43}
+\indexentry{packages!booktabs@\texttt  {booktabs}|hyperpage}{43}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{44}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{44}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{44}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{44}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{44}
+\indexentry{FloatBarrier command@\hangleft {\texttt  {\char '134\relax }}\texttt  {FloatBarrier}|hyperpage}{44}
+\indexentry{FloatBarrier command@\hangleft {\texttt  {\char '134\relax }}\texttt  {FloatBarrier}|hyperpage}{44}
+\indexentry{clearpage command@\hangleft {\texttt  {\char '134\relax }}\texttt  {clearpage}|hyperpage}{44}
+\indexentry{setfloatalignment command@\hangleft {\texttt  {\char '134\relax }}\texttt  {setfloatalignment}|hyperpage}{44}
+\indexentry{setfloatalignment command@\hangleft {\texttt  {\char '134\relax }}\texttt  {setfloatalignment}|hyperpage}{44}
+\indexentry{setfloatalignment command@\hangleft {\texttt  {\char '134\relax }}\texttt  {setfloatalignment}|hyperpage}{44}
+\indexentry{forceversofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forceversofloat}|hyperpage}{45}
+\indexentry{forcerectofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forcerectofloat}|hyperpage}{45}
+\indexentry{forceversofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forceversofloat}|hyperpage}{45}
+\indexentry{forcerectofloat command@\hangleft {\texttt  {\char '134\relax }}\texttt  {forcerectofloat}|hyperpage}{45}
+\indexentry{fullwidth environment@\texttt  {fullwidth} environment|hyperpage}{45}
+\indexentry{environments!fullwidth@\texttt  {fullwidth}|hyperpage}{45}
+\indexentry{typefaces|hyperpage}{45}
+\indexentry{smallcaps command@\hangleft {\texttt  {\char '134\relax }}\texttt  {smallcaps}|hyperpage}{45}
+\indexentry{textsc command@\hangleft {\texttt  {\char '134\relax }}\texttt  {textsc}|hyperpage}{46}
+\indexentry{textsc command@\hangleft {\texttt  {\char '134\relax }}\texttt  {textsc}|hyperpage}{46}
+\indexentry{class options|(hyperpage}{46}
+\indexentry{a4paper class option@\texttt  {a4paper} class option|hyperpage}{46}
+\indexentry{class options!a4paper@\texttt  {a4paper}|hyperpage}{46}
+\indexentry{sfsidenotes class option@\texttt  {sfsidenotes} class option|hyperpage}{46}
+\indexentry{class options!sfsidenotes@\texttt  {sfsidenotes}|hyperpage}{46}
+\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{46}
+\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{46}
+\indexentry{oneside class option@\texttt  {oneside} class option|hyperpage}{46}
+\indexentry{class options!oneside@\texttt  {oneside}|hyperpage}{46}
+\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{46}
+\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{46}
+\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{46}
+\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{46}
+\indexentry{justified class option@\texttt  {justified} class option|hyperpage}{46}
+\indexentry{class options!justified@\texttt  {justified}|hyperpage}{46}
+\indexentry{bidi class option@\texttt  {bidi} class option|hyperpage}{46}
+\indexentry{class options!bidi@\texttt  {bidi}|hyperpage}{46}
+\indexentry{bidi package@\texttt  {bidi} package|hyperpage}{46}
+\indexentry{packages!bidi@\texttt  {bidi}|hyperpage}{46}
+\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{46}
+\indexentry{bidi package@\texttt  {bidi} package|hyperpage}{46}
+\indexentry{packages!bidi@\texttt  {bidi}|hyperpage}{46}
+\indexentry{debug class option@\texttt  {debug} class option|hyperpage}{46}
+\indexentry{class options!debug@\texttt  {debug}|hyperpage}{46}
+\indexentry{nofonts class option@\texttt  {nofonts} class option|hyperpage}{46}
+\indexentry{class options!nofonts@\texttt  {nofonts}|hyperpage}{46}
+\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{46}
+\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{46}
+\indexentry{nols class option@\texttt  {nols} class option|hyperpage}{46}
+\indexentry{class options!nols@\texttt  {nols}|hyperpage}{46}
+\indexentry{letterspace package@\texttt  {letterspace} package|hyperpage}{46}
+\indexentry{packages!letterspace@\texttt  {letterspace}|hyperpage}{46}
+\indexentry{soul package@\texttt  {soul} package|hyperpage}{46}
+\indexentry{packages!soul@\texttt  {soul}|hyperpage}{46}
+\indexentry{XeLaTeX@\XeLaTeX |hyperpage}{46}
+\indexentry{fontenc package@\texttt  {fontenc} package|hyperpage}{46}
+\indexentry{packages!fontenc@\texttt  {fontenc}|hyperpage}{46}
+\indexentry{notitlepage class option@\texttt  {notitlepage} class option|hyperpage}{46}
+\indexentry{class options!notitlepage@\texttt  {notitlepage}|hyperpage}{46}
+\indexentry{maketitle command@\hangleft {\texttt  {\char '134\relax }}\texttt  {maketitle}|hyperpage}{46}
+\indexentry{titlepage class option@\texttt  {titlepage} class option|hyperpage}{46}
+\indexentry{class options!titlepage@\texttt  {titlepage}|hyperpage}{46}
+\indexentry{maketitle command@\hangleft {\texttt  {\char '134\relax }}\texttt  {maketitle}|hyperpage}{46}
+\indexentry{notoc class option@\texttt  {notoc} class option|hyperpage}{47}
+\indexentry{class options!notoc@\texttt  {notoc}|hyperpage}{47}
+\indexentry{notoc class option@\texttt  {notoc} class option|hyperpage}{47}
+\indexentry{class options!notoc@\texttt  {notoc}|hyperpage}{47}
+\indexentry{nohyper class option@\texttt  {nohyper} class option|hyperpage}{47}
+\indexentry{class options!nohyper@\texttt  {nohyper}|hyperpage}{47}
+\indexentry{hyperref package@\texttt  {hyperref} package|hyperpage}{47}
+\indexentry{packages!hyperref@\texttt  {hyperref}|hyperpage}{47}
+\indexentry{hyperref package@\texttt  {hyperref} package|hyperpage}{47}
+\indexentry{packages!hyperref@\texttt  {hyperref}|hyperpage}{47}
+\indexentry{title command@\hangleft {\texttt  {\char '134\relax }}\texttt  {title}|hyperpage}{47}
+\indexentry{author command@\hangleft {\texttt  {\char '134\relax }}\texttt  {author}|hyperpage}{47}
+\indexentry{class options|)hyperpage}{47}
+\indexentry{file hooks|(hyperpage}{49}
+\indexentry{file hooks!common|hyperpage}{49}
+\indexentry{tufte-common-local.tex@\texttt  {tufte-common-local.tex}|hyperpage}{49}
+\indexentry{file hooks!book|hyperpage}{49}
+\indexentry{tufte-book-local.tex@\texttt  {tufte-book-local.tex}|hyperpage}{49}
+\indexentry{file hooks!handout|hyperpage}{49}
+\indexentry{tufte-handout-local.tex@\texttt  {tufte-handout-local.tex}|hyperpage}{49}
+\indexentry{file hooks!common|hyperpage}{49}
+\indexentry{tufte-common-local.tex@\texttt  {tufte-common-local.tex}|hyperpage}{49}
+\indexentry{file hooks!book|hyperpage}{49}
+\indexentry{tufte-book-local.tex@\texttt  {tufte-book-local.tex}|hyperpage}{49}
+\indexentry{file hooks!handout|hyperpage}{49}
+\indexentry{tufte-common-handout.tex@\texttt  {tufte-common-handout.tex}|hyperpage}{49}
+\indexentry{file hooks|)hyperpage}{49}
+\indexentry{debug class option@\texttt  {debug} class option|hyperpage}{51}
+\indexentry{class options!debug@\texttt  {debug}|hyperpage}{51}
+\indexentry{error messages|hyperpage}{51}
+\indexentry{warning messages|hyperpage}{51}
+\indexentry{debug messages|hyperpage}{51}
+\indexentry{subparagraph command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}|hyperpage}{52}
+\indexentry{subparagraph command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}|hyperpage}{52}
+\indexentry{subparagraph command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subparagraph}|hyperpage}{52}
+\indexentry{subsubsection command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}|hyperpage}{52}
+\indexentry{subsubsection command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}|hyperpage}{52}
+\indexentry{subsubsection command@\hangleft {\texttt  {\char '134\relax }}\texttt  {subsubsection}|hyperpage}{52}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{52}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{52}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{52}
+\indexentry{morefloats command@\hangleft {\texttt  {\char '134\relax }}\texttt  {morefloats}|hyperpage}{52}
+\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{52}
+\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{52}
+\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{52}
+\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{52}
+\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{52}
+\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{52}
+\indexentry{twoside class option@\texttt  {twoside} class option|hyperpage}{52}
+\indexentry{class options!twoside@\texttt  {twoside}|hyperpage}{52}
+\indexentry{symmetric class option@\texttt  {symmetric} class option|hyperpage}{52}
+\indexentry{class options!symmetric@\texttt  {symmetric}|hyperpage}{52}

@@ -829,10 +829,42 @@ In addition to training the trees on bagged samples, one more technique is used 
 \label{subsubsec:ml:boosted_decision_trees}
 In the overall family of ensemble models, \emph{boosting} might be the most successful of them all where especially the specific algorithm called XGBoost \autocite{chenXGBoostScalableTree2016} revolutionized the ML world by winning numerous Kaggle\sidenote{XXX \TODO} competitions \autocite{DmlcXgboost} including the Higgs Machine Learning competition in \num{2014} \autocite{HEPMeetsML}. 
 
+Boosting is the process of sequentially applying weak learner models to repeatedly modified versions of data \autocite{hastieElementsStatisticalLearning2009}. In an iterative fashion this combines many weak learners into a single strong learner. The final prediction is thus a weighted sum over the $M$ different weak learners $F_m$: 
+\begin{equation}
+  F(\vec{x}) = \sum_{m=1}^M \alpha_m F_m(\vec{x})
+\end{equation}
+Boosting thus works by reducing both bias and variance since it iteratively fits weak learners. The variance is not reduced as much as for RFs since the weak learners are more correlated, however, their bias is lower. 
 
+The term gradient boosting comes from the observation that repeatedly minimizing the residuals of the current model is similar to minimizing the gradient of the loss function for a specific choice of the loss function.
+
+Imagine that we start off with an imperfect model $F_m(x)=\hat{y}$. In boosting we want the next iteration to be a better model than the previous one, so image that the perfect addition to the model that we needed to make was $h(x)$. For it to be perfect, the following would have to be true:
+\begin{equation}
+  \label{eq:ml:boosted_decision_trees_residual}
+  F_{m+1}(x) = F_m(x) + h(x) = y \Leftrightarrow h(x) = y - F_m(x).
+\end{equation}
+The r.h.s. is the residual of the model, so at each stage the model is trying to fit the residuals of the current iteration of model. The \q{gradient} in \q{gradient boosting} comes from the following. Assume the loss function: $L(y, F_m(x)) = \frac{1}{2}  (y-F_m(x))^2$. The gradient of the loss w.r.t. to $F_m(x)$ is:
+\begin{equation}
+  \frac{\partial L(y, F_m(x))}{\partial F_m(x)} = F_m(x) - y. 
+\end{equation}
+This is exactly the negative of the r.h.s. of equation \eqref{eq:ml:boosted_decision_trees_residual}. Instead of looking at the model as trying to minimize the residual at each iteration, it can instead be generalized as trying to fit the negative gradients of the loss function:
+\begin{equation}
+  h(x) = - \frac{\partial L}{\partial F_m}.
+\end{equation}
+We thus end up with the following iterative model which is basically a \emph{gradient descent} algorithm.
+\begin{equation}
+  F_{m+1}(x) = F_m(x) + h(x) = F_m - \frac{\partial L}{\partial F_m}.
+\end{equation}
+
+
+AdaBoost \autocite{freundDesiciontheoreticGeneralizationOnline1995} was the first major algorithm to make use of boosting. It was seen as a way of iteratively giving wrongly predicted observations higher weight, however, this is just a result of a \q{lucky} choice of loss function\sidenote{Exponential loss for classification} which was not realized until much later. AdaBoost could be used with many different weak learners, however mostly DTs were used to form BDTs. XGBoost \autocite{chenXGBoostScalableTree2016} is a fast, computationally efficient implementation of gradient boosting with DTs as base learners. It implements several model regularization techniques which makes it less prone to overfitting than other BDTs. In 2017 Microsoft released the competitor to XGBoost called LightGBM \autocite{keLightGBMHighlyEfficient2017}. In comparison to XGBoost, LightGBM implements some extra binning and categorical assumptions that greatly speeds up the fitting process. 
 
 \section{Hyperparamater Optimization}
 \label{sec:ml:hyperparameter_optimization}
+By now linear models with $L_1$ and $L_2$ regularization have been introduced along with decision trees (DTs), random forests (RFs) and gradient boosted trees (GBTs). All of these ML models tries to optimize their parameters according to some objective function. In addition to the parameters of the model, each one has a specific set of \emph{hyperparameters} that cannot directly be optimized in internal optimization process. This could be amount of regularization $\lambda$ for linear models, the maximum tree depth for DTs, the number of trees for RFs, or the column (or row) subsampling fraction for BTDs. 
+
+In general we say that we have the ML model $\mathcal{A}$ with $N$ hyperparameters. Each of these hyperparameters have a domain $\Lambda_n$. The domain can be either real numbers $\Lambda_n \in \mathbb{R}$, integers $\Lambda_n \in \mathbb{Z}$, binary $\Lambda_n \in \{0, 1\}$, or categorical\sidenote{Could e.g. be the choice of loss function}. We define the hyperparameter configuration space as: $\bm{\Lambda} = \Lambda_1 \times \Lambda_2 \times \dots \times \Lambda_N$. Within this space we are searching for a vector of hyperparameters $\bm{\lambda} \in \bm{\Lambda}$ which defines the optimal model $\mathcal{A}_\lambda$. Here the optimal model is the defined as the model which gives the best generalization performance according to some evaluation function. The goal of finding the best hyperparameter $\bm{\lambda}$ is known as \emph{hyperparameter optimization} (HPO.)
+
+The first naive approach would simply to manually\sidenote{ALso known as jokingly as \q{Grad Student Descent}} try out different combinations of $\bm{\lambda}$ and see performance on the validation set\sidenote{Remember only to use the test set on the final model!}. This is of course too cumbersome for advanced ML models, but it should be noted that it is a good place to start. In \autoref{subsec:ml:grid_search} the HPO method called Grid Search is introduced which is further generalized and optimized in \autoref{subsec:ml:random_search} with Random Search. Both these methods are easily parallelizable since they do not have any inherent history in its guesses. This is in contrary to Bayesian Optimization introduced in \label{subsec:ml:bayesian_optimization}.
 
 \subsection{Grid Search}
 \label{subsec:ml:grid_search}
@@ -840,9 +872,11 @@ In the overall family of ensemble models, \emph{boosting} might be the most succ
 \subsection{Random Search}
 \label{subsec:ml:random_search}
 
-\subsection{Beyesian Optimization}
+\subsection{Bayesian Optimization}
 \label{subsec:ml:bayesian_optimization}
 
+
+\section{Feature Importance}
 
 
 \newpage
