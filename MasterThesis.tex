@@ -864,10 +864,22 @@ By now linear models with $L_1$ and $L_2$ regularization have been introduced al
 
 In general we say that we have the ML model $\mathcal{A}$ with $N$ hyperparameters. Each of these hyperparameters have a domain $\Lambda_n$. The domain can be either real numbers $\Lambda_n \in \mathbb{R}$, integers $\Lambda_n \in \mathbb{Z}$, binary $\Lambda_n \in \{0, 1\}$, or categorical\sidenote{Could e.g. be the choice of loss function}. We define the hyperparameter configuration space as: $\bm{\Lambda} = \Lambda_1 \times \Lambda_2 \times \dots \times \Lambda_N$. Within this space we are searching for a vector of hyperparameters $\bm{\lambda} \in \bm{\Lambda}$ which defines the optimal model $\mathcal{A}_\lambda$. Here the optimal model is the defined as the model which gives the best generalization performance according to some evaluation function. The goal of finding the best hyperparameter $\bm{\lambda}$ is known as \emph{hyperparameter optimization} (HPO.)
 
-The first naive approach would simply to manually\sidenote{ALso known as jokingly as \q{Grad Student Descent}} try out different combinations of $\bm{\lambda}$ and see performance on the validation set\sidenote{Remember only to use the test set on the final model!}. This is of course too cumbersome for advanced ML models, but it should be noted that it is a good place to start. In \autoref{subsec:ml:grid_search} the HPO method called Grid Search is introduced which is further generalized and optimized in \autoref{subsec:ml:random_search} with Random Search. Both these methods are easily parallelizable since they do not have any inherent history in its guesses. This is in contrary to Bayesian Optimization introduced in \label{subsec:ml:bayesian_optimization}.
+The first naive approach would simply to manually\sidenote{ALso known as jokingly as \q{Grad Student Descent}} try out different combinations of $\bm{\lambda}$ and see performance on the validation set\sidenote{Remember only to use the test set on the final model!}. This is of course too cumbersome for advanced ML models, but it should be noted that it is a good place to start. In \autoref{subsec:ml:grid_search} the HPO method called Grid Search is introduced which is further generalized and optimized in \autoref{subsec:ml:random_search} with Random Search. Both these methods are easily parallelizable since they do not have any inherent history in its guesses. This is in contrary to Bayesian Optimization introduced in \label{subsec:ml:bayesian_optimization} which allows for \q{smart} guesses.
 
 \subsection{Grid Search}
 \label{subsec:ml:grid_search}
+
+\begin{marginfigure}
+  \includegraphics[width=0.8\textwidth]{figures/gridsearch/grid.pdf}
+  \caption[Grid Search]{Visualization of grid search run on the two hyperparameters $x$ and why $y$ with the domains $x=\{1, 2, 3\}$ and $y=\{1, 2, 3,4\}$.}
+  \label{fig:ml:gridsearch}
+\end{marginfigure}
+
+Grid Seach (GS) is a HPO method also known as full factorial design. It is called this because it tries out all possible combinations of the hyperparameter configuration space: the so-called cartesian product of $\bm{\Lambda}$. Imagine a 2D space where the two domains are respectively $x=\{1, 2, 3\}$ and $y=\{1, 2, 3,4\}$. Then GS runs through all \num{12} combinations of these two sets: 
+\begin{equation}
+  \{(1, 1), (1, 2), \dots, (x_i, y_i), \dots, (3, 4)\},
+\end{equation}
+as visualized in Figure~\ref{fig:ml:gridsearch}. The advantage of GS is that is an exhaustive search over all combinations\sidenote{Note that the user has to provide the values for each hyperparamater to be tried out manually} of hyperparameters, however, the total number of combinations grows exponentially and GS as a method thus suffers the curse of dimensionality\sidenote{Not the dimensionality of the input feature space, but of the hyperparameter configuration space}.
 
 \subsection{Random Search}
 \label{subsec:ml:random_search}
