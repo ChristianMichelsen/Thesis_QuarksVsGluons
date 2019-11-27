@@ -103,7 +103,7 @@
 \newtheorem{sublemma}{Lemma}[lemma]
 \newtheorem{corollary}{Corollary}
 \newtheorem{theorem}{Theorem}
-
+\newtheorem{axiom}{Axiom}
 
 % bold math
 \usepackage{bm}
@@ -456,7 +456,7 @@ This chapter deals with the theory of ML which Statistical Learning Theory is a 
 Overall there are two subfields within machine learning: supervised and unsupervised\sidenote{Also known as \q{self-supervised} or \q{predictive}  learning}. The difference depends on whether or not the data that is trained on is labelled or not. Classic linear regression is an example of the former and linear dimensionality reduction using PCA of the latter. Since unsupervised learning techniques are only used sparsely throughout this project, the main focus will be on supervised learning. 
 
 \section{Supervised Learning}
-\label{sec:supervised_learning}
+\label{sec:ml:supervised_learning}
 In supervised learning we are given a set of $N$ different samples of which we for each one knows $M$ different variables written as the column-vector $\vec{x}_i = [x_1, x_2, \dots, x_M] \in \mathcal{X}$ for the $i$th observation and $\mathcal{X}$ denotes the sample space. All of these samples as a whole is written as the matrix $\vec{X}$ with the individual observations $\vec{x}_i$ transposed and stacked on top of each other $\vec{X} = [\vec{x}_0^T, \vec{x}_1^T, \dots, \vec{x}_N^T]$ such that row $i$ in $\vec{X}$ corresponds to observation $i$. In the case of supervised learning we also have the label $y$ of each sample $y \in \mathcal{Y}$ where $\mathcal{Y}$ denotes the sample or label space. 
 In the case where $y$ is a real number $\mathcal{Y} = \mathbb{R}$ the problem is said to a \emph{regression} problem, e.g. predicting the price of a house. On the contrary, if $\mathcal{Y}$ is binary such that $\mathcal{Y} = \{0, 1\}$ then the problem is said to be a (binary) \emph{classification} problem\sidenote{If $\mathcal{Y}\in \mathbb{Z}$ then it would be a multiclass classification problem.} e.g. predicting whether or not a particle is a quark or not. 
 
@@ -491,7 +491,7 @@ Now the optimal hypothesis $h^*$ can defined:
 
 \section{Generalization Bound}
 \label{sec:generalization_bound}
-In \autoref{sec:supervised_learning} the method of selecting the optimal hypothesis $h^*$ out of the total set of candidate hypothesis $\mathcal{H}$ was sketched. However, there is still no guarantee that $h^*$ will work well, that is to say that the \emph{generalization error} $G(h)$ might be big:
+In \autoref{sec:ml:supervised_learning} the method of selecting the optimal hypothesis $h^*$ out of the total set of candidate hypothesis $\mathcal{H}$ was sketched. However, there is still no guarantee that $h^*$ will work well, that is to say that the \emph{generalization error} $G(h)$ might be big:
 \begin{equation}
   G(h) = \hat{L}(h, S) - L(h).
 \end{equation}
@@ -614,7 +614,7 @@ As the hypothesis space complexity $d_\mathrm{VC}$ grows, the generalization bou
 
 
 \section{Avoiding overfitting}
-\label{sec:overfitting}
+\label{sec:ml:overfitting}
 Avoiding overfitting is one of the most important issues in machine learning. By now, most modern machine learning algorithms have the inherent model complexity needed for overfitting and thus it has to be managed. Due to the importance of the issue, a number of different methods preventing or reducing overfitting exists. Most of them are not complementary of each other but can be taken advantage of in a combination. In this section model regularization will be introduced in \autoref{subsec:regularization}, cross validation in \autoref{subsec:cross_validation}, and early stopping in \autoref{subsec:early_stopping}. 
 
 \subsection{Model Regularization}
@@ -779,24 +779,24 @@ For the loss functions defined in \autoref{sec:loss_function} the objective func
 \end{equation}
 
 \section{Decision Trees}
-\label{sec:decision_trees}
+\label{sec:ml:decision_trees}
 
 \begin{marginfigure}[-3cm]
   \includegraphics[width=0.98\textwidth]{figures/decision_tree/tree_example.pdf}%     without .tex extension
   % or use \input{mytikz}
-  \caption[Decision Tree Cuts]{Illustration of the cuts a decision tree model make for \textcolor{blue}{signal} in blue circles and \textcolor{red}{background} in red squares. This is an visualization in the feature space of the decision tree seen in Figure~\ref{fig:tikz:decision_tree}.}
-  \label{fig:decision_tree_feature_space}
+  \caption[Decision Tree Cuts]{Illustration of the cuts a decision tree model make for \textcolor{blue}{signal} in blue circles and \textcolor{red}{background} in red squares. This is an visualization in the feature space of the decision tree seen in Figure~\ref{fig:ml:decision_tree}.}
+  \label{fig:ml:decision_tree_feature_space}
 \end{marginfigure}
 
-Decision Trees are a simple machine learning method that works by partitioning the feature space into smaller subspaces, high-dimensional rectangles basically, and then fit each subspace with a constant for regression problems or a single label for classification problems \citep{hastieElementsStatisticalLearning2009}. A simple example of this can be seen in Figure~\ref{fig:decision_tree_feature_space} and Figure~\ref{fig:tikz:decision_tree}. In the first figure we see an illustration of how the signal and background distributions look in the 2D feature space. The dashed lines in the figure indicate the cuts made by the decision tree (DT), cuts which are shown on the second figure as a typical DT plot. 
+Decision Trees are a simple machine learning method that works by partitioning the feature space into smaller subspaces, high-dimensional rectangles basically, and then fit each subspace with a constant for regression problems or a single label for classification problems \citep{hastieElementsStatisticalLearning2009}. A simple example of this can be seen in Figure~\ref{fig:ml:decision_tree_feature_space} and Figure~\ref{fig:ml:decision_tree}. In the first figure we see an illustration of how the signal and background distributions look in the 2D feature space. The dashed lines in the figure indicate the cuts made by the decision tree (DT), cuts which are shown on the second figure as a typical DT plot. 
 \begin{figure}
   \centering
   \includestandalone[width=0.7\textwidth]{figures/decision_tree/decision_tree}%     without .tex extension
   % or use \input{mytikz}
   \caption[Decision Tree Illustration]{
-    Illustration of a simple decision tree. Here the tree partitions the input feature space consisting of the two variables $p_\perp$ and $E_\mathrm{jet}$ into two categories; either signal or background. A visualization of the cuts in the feature space can be seen in Figure~\ref{fig:decision_tree_feature_space}
+    Illustration of a simple decision tree. Here the tree partitions the input feature space consisting of the two variables $p_\perp$ and $E_\mathrm{jet}$ into two categories; either signal or background. A visualization of the cuts in the feature space can be seen in Figure~\ref{fig:ml:decision_tree_feature_space}
   }
-  \label{fig:tikz:decision_tree}
+  \label{fig:ml:decision_tree}
 \end{figure}
 At first the DT partitions the space according the the value of the transverse momentum\sidenote{All units in this project are in natural units such that both momentum and energy are in units of \si{\eV}} $p_\perp$: if it is lower than (or equal to) \SI{20}{\GeV} then it classified as background. If the value is higher than \SI{20}{\GeV} then an extra split is made, this time on the energy of the jet $E_\mathrm{jet}$: if it is higher than \SI{10}{\GeV} it is classified as signal and otherwise as background. Training a DT on this data allows us to predict a new unseen event $(p_\perp, E_\mathrm{jet}) = (\SI{24}{\GeV},\SI{11}{\GeV})$ to be a signal-like event. This DT is said to be a shallow tree since it only has a depth of \num{2}. The maximum depth allowed for the model is an important hyperparameter since it clearly controls under- and overfitting by changing how many cuts and partitions in the feature space are allowed; the deeper the tree, the more complex the model becomes. Single DTs are very prone to overfitting\sidenote{With a solution to this problem given in \autoref{subsec:ml:multiple_decision_trees}}, however, they are also extremely inspectable. They are even referred to as \q{white-box models} compared to black-box models such as neural networks. For a more thorough introduction to decision trees and how they are internally optimized (for finding the best cut values), see \citet{hastieElementsStatisticalLearning2009}. 
 
@@ -862,9 +862,9 @@ AdaBoost \autocite{freundDesiciontheoreticGeneralizationOnline1995} was the firs
 \label{sec:ml:hyperparameter_optimization}
 By now linear models with $L_1$ and $L_2$ regularization have been introduced along with decision trees (DTs), random forests (RFs) and gradient boosted trees (GBTs). All of these ML models tries to optimize their parameters according to some objective function. In addition to the parameters of the model, each one has a specific set of \emph{hyperparameters} that cannot directly be optimized in internal optimization process. This could be amount of regularization $\lambda$ for linear models, the maximum tree depth for DTs, the number of trees for RFs, or the column (or row) subsampling fraction for BTDs. 
 
-In general we say that we have the ML model $\mathcal{A}$ with $N$ hyperparameters. Each of these hyperparameters have a domain $\Lambda_n$. The domain can be either real numbers $\Lambda_n \in \mathbb{R}$, integers $\Lambda_n \in \mathbb{Z}$, binary $\Lambda_n \in \{0, 1\}$, or categorical\sidenote{Could e.g. be the choice of loss function}. We define the hyperparameter configuration space as: $\bm{\Lambda} = \Lambda_1 \times \Lambda_2 \times \dots \times \Lambda_N$. Within this space we are searching for a vector of hyperparameters $\bm{\lambda} \in \bm{\Lambda}$ which defines the optimal model $\mathcal{A}_\lambda$. Here the optimal model is the defined as the model which gives the best generalization performance according to some evaluation function. The goal of finding the best hyperparameter $\bm{\lambda}$ is known as \emph{hyperparameter optimization} (HPO.)
+In general we say that we have the ML model $\mathcal{A}$ with $N$ hyperparameters. Each of these hyperparameters have a domain $\Lambda_n$. The domain can be either real numbers $\Lambda_n \in \mathbb{R}$, integers $\Lambda_n \in \mathbb{Z}$, binary $\Lambda_n \in \{0, 1\}$, or categorical\sidenote{Could e.g. be the choice of loss function}. We define the hyperparameter configuration space as: $\bm{\Lambda} = \Lambda_1 \times \Lambda_2 \times \dots \times \Lambda_N$. Within this space we are searching for a vector of hyperparameters $\bm{\lambda} \in \bm{\Lambda}$ which defines the optimal model $\mathcal{A}_{\bm{\lambda}^*}$. Here the optimal model is the defined as the model which gives the best generalization performance according to some evaluation function. The goal of finding the best hyperparameter $\bm{\lambda^*}$ is known as \emph{hyperparameter optimization} (HPO.)
 
-The first naive approach would simply to manually\sidenote{ALso known as jokingly as \q{Grad Student Descent}} try out different combinations of $\bm{\lambda}$ and see performance on the validation set\sidenote{Remember only to use the test set on the final model!}. This is of course too cumbersome for advanced ML models, but it should be noted that it is a good place to start. In \autoref{subsec:ml:grid_search} the HPO method called Grid Search is introduced which is further generalized and optimized in \autoref{subsec:ml:random_search} with Random Search. Both these methods are easily parallelizable since they do not have any inherent history in its guesses. This is in contrary to Bayesian Optimization introduced in \label{subsec:ml:bayesian_optimization} which allows for \q{smart} guesses.
+The first naive approach would simply to manually\sidenote{ALso known as jokingly as \q{Grad Student Descent}} try out different combinations of $\bm{\lambda}$ and see performance on the validation set\sidenote{Remember only to use the test set on the final model!}. This is of course too cumbersome for advanced ML models, but it should be noted that it is a good place to start. In \autoref{subsec:ml:grid_search} the HPO method called Grid Search is introduced which is further generalized and optimized in \autoref{subsec:ml:random_search} with Random Search. Both these methods are easily parallelizable since they do not have any inherent history in its guesses. This is in contrary to Bayesian Optimization introduced in \autoref{subsec:ml:bayesian_optimization} which allows for \q{smart} guesses.
 
 \subsection{Grid Search}
 \label{subsec:ml:grid_search}
@@ -879,33 +879,137 @@ Grid Seach (GS) is a HPO method also known as full factorial design. It is calle
 \begin{equation}
   \{(1, 1), (1, 2), \dots, (x_i, y_i), \dots, (3, 4)\},
 \end{equation}
-as visualized in Figure~\ref{fig:ml:gridsearch}. The advantage of GS is that is an exhaustive search over all combinations\sidenote{Note that the user has to provide the values for each hyperparamater to be tried out manually} of hyperparameters, however, the total number of combinations grows exponentially and GS as a method thus suffers the curse of dimensionality\sidenote{Not the dimensionality of the input feature space, but of the hyperparameter configuration space}.
+as visualized in Figure~\ref{fig:ml:gridsearch}. The advantage of GS is that it is an exhaustive search over all combinations\sidenote{Note that the user has to provide the values for each hyperparamater to be tried out manually} of hyperparameters, however, the total number of combinations grows exponentially and GS as a method thus suffers the curse of dimensionality\sidenote{Not the dimensionality of the input feature space, but of the hyperparameter configuration space}.
 
 \subsection{Random Search}
 \label{subsec:ml:random_search}
 
+To circumvent the problems of grid search, \citet{bergstraRandomSearchHyperparameter2012} developed the Random Search (RS) algorithm in 2012. Regarding the effect of the curse of dimensionality on grid search they wrote: \emph{``This failure of grid search is the rule rather than the exception in high dimensional hyper-parameter optimization.''} \citep{bergstraRandomSearchHyperparameter2012}. Instead of searching through all possible values of $\bm{\lambda}$ like in GS, RS makes $B$ runs where each $\bm{\lambda}_i$ is given by:
+\begin{equation}
+  \label{eq:ml:random_search}
+  \bm{\lambda}_i \sim \sum_{j=1}^N  \mathrm{PDF}_j(\Lambda_j) \cdot \bm{\hat{e}}_j  .
+\end{equation}
+Equation \eqref{eq:ml:random_search} should be understood in the following way. For each hyperparameter draw a random number from a user-defined Probability Density Function (PDF) and then let $\bm{\lambda}$ be the vector of those $N$ random numbers. In a 2D-space $\bm{\lambda}_i$ could thus be: 
+\begin{align}
+  \bm{\lambda}_i \sim &= \begin{bmatrix}
+      \mathcal{N}(100, 4) \\
+      \mathcal{U}(0, 1)
+       \end{bmatrix},
+\end{align}
+where $\mathcal{N}(100, 2)$ is normal (Gaussian) distribution with mean $\mu=100$ and standard deviation $\sigma^2=4$ and $\mathcal{U}(0, 1)$ is the uniform distribution in the interval $[0, 1]$. Of course the PDF can be a PMF in the case of discrete hyperparameter domains.
+
+The reason why random search is so powerful is not only because the number of function evaluations $B$ is easily tunable\sidenote{Compared to grid search which tries \emph{all} possible combinations}, but also due to the fact that often some hyperparameter dimensions are more important than other. Even though the hyperparameter configuration space $\bm{\Lambda}$  might be high-dimensional, it often exhibits \emph{low effective dimensionality} \autocite{bergstraRandomSearchHyperparameter2012}. In the simplest 2D-case this can be written as the following example. Imagine that we want to maximize some evaluation function, e.g. accuracy of the predictions, and the model depends on the two independent hyperparameters $x$ and $y$: $f(x, y)$. In this example assume that $f$ is almost insensitive to $y$ and thus has an effective dimensionality of 1. Then $f(x,y) = g(x) + h(y) \approx g(x)$. For a visualization of this example, see Figure~\ref{fig:ml:random_search}.
+
+\begin{marginfigure}
+  \includegraphics[width=0.8\textwidth]{figures/randomsearch/random.pdf}
+  \caption[Random Search]{Visualization of the difference between grid search and random search. Taken from \citet{bergstraRandomSearchHyperparameter2012}}
+  \label{fig:ml:random_search}
+\end{marginfigure}
+
+Here GS is run with a grid of $3\times3 = 9$ points and RS is similarly run with 9 points drawn from uniform PDFs in the same interval. It easy to see that when the hyperparameter configuration space has a lower effective dimensionality than the actual dimensionality RS is far better at probing the space due to the projections into the sensitive dimensions cover more of these axes than for GS. In general in ML the hyperparameter configuration space has lower effective dimension than its actual dimension, but the different hyperparameters matter in different datasets
+
+In general only a fraction of all hyperparameters matter for any dataset but different hyperparameters matter in different datasets and thus generally RS performs as well as GS or better \autocite{bergstraRandomSearchHyperparameter2012}. 
+
+Note that RS can be seen as a generalization of GS, where GS is the specific example of RS if one uses a multidimensional hypergeometric distribution as PDF where the PDF is reevaluated after each run. 
+
 \subsection{Bayesian Optimization}
 \label{subsec:ml:bayesian_optimization}
+When optimizing the hyperparameters it often takes a lot of time to evaluate the individual hyperparameters. Remember, that each evaluation consists of fitting $\mathcal{A}_{\bm{\lambda}}$ to the training data and then measure the performance on the validation set. Fitting the model on the training set can often take minutes, if not hours. This process is even slower when using cross validation. The idea behind Bayesian Optimization is that when the ML model, or any other black box function, is expensive\sidenote{With respect to time} to evaluate then \q{smart} guesses are worth spending a bit of time on developing. The hope is that the time taken to come up with smart guesses is negligible compared to the overall function evaluation time. This is contrary to both GS and RS where each new set of hyperparameters $\bm{\lambda}$ is independent of the value of the evaluation performance.
 
+In Bayesian Optimization (BO) \autocite{brochuTutorialBayesianOptimization2010}, the (unknown) evaluation function is iteratively fitted with a probabilistic surrogate model, most often by Gaussian processes (GPs). Given the fitted surrogate model, an acquisition function is computed. This function is cheap to evaluate and is a measure of where in the hyper-dimensional hyperparameter space there is a highest chance of finding a new good value of $\bm{\lambda}$. The acquisition function has to be chosen manually and especially the tradeoff between \emph{exploitation versus exploration} is particularly important. This value decides how \q{adventurous} or conservative the BO algorithm should be when exploring the evaluation space. 
+
+\begin{marginfigure}
+  \includegraphics[width=0.99\textwidth]{figures/bayesian_optimization/bo.pdf}
+  \caption[Bayesian Optimization]{XXX \TODO. Taken from \citet{brochuTutorialBayesianOptimization2010}}
+  \label{fig:ml:bayesian_optimization}
+\end{marginfigure}
+
+Bayesian Optimization is better explained by looking at Figure~\ref{fig:ml:bayesian_optimization}. First look at the top plot. This is a plot of the surrogate function in black with uncertainties shown in blue. This is a result of fitting GPs to the two previous points in black, $t=2$. This surrogate function is supposed to fit the evaluation function (called objective in the figure) shown as a dashed black line. Below we see the acquisition function in green. This is a function of the blue curve and the position of its maximum decides where the next guess of $\bm{\lambda}$ should be. With the chosen acquisition function and exploration willingness, we see that the next guess should be slightly to the left of the right-most point. This is a simple 1D toy problem, but one should imagine this happening in a high-dimensional space. After making a new guess, $t=3$ in the middle plot, the acquisition function changes since it learnt that this gave a worse evaluation value than the right-most point. Therefore, the next proposal for $\bm{\lambda}$ is slighty to the right of the right-most point. The process continues like this in an iterative fashion: first fitting GPs to the previous evaluation values and then choosing the next $\bm{\lambda}$ according the acquisition function given the GPs. 
+
+Gaussian Processes provide a posterior distribution given some prior distribution and the datadependent ikelihood. The process of BO is quite technical and mathematical, especially if GPs are new material. For a more in-depth explanation of the topic, see \citet{brochuTutorialBayesianOptimization2010}. The important thing to note is that GPs return not only a posterior mean $\mu(\vec{x})$ but also an uncertainty $\sigma(\vec{x})$, as seen in Figure~\ref{fig:ml:bayesian_optimization} described above. The acquisition function used in this project is the Upper Confidence Bound (UCB):
+\begin{equation}
+  \mathrm{UCB}(\vec{x}) = \mu(\vec{x}) + \kappa \sigma(\vec{x}),
+\end{equation}
+where $\kappa \geq 0$ is the parameter\sidenote{Here $\kappa$ can thus be regarded as a hyper-hyperparameter since it controlls how the other hyperparamaters are optimized.} controlling the exploration-exploitation tradeoff. 
+
+Bayesian Optimization has the great benefit of slowly learning the hyperparameter space and making smarter and more educated guesses over time. However, it also comes with the cost of being harder to numerically implement compared to GS and RS\sidenote{Which are basically plug-and-play with Scikit-Learn \autocite{scikit-learn}.}, and parallelization is non-trivial to implement since it by definition is a sequential process. The performance boost is also not guaranteed. 
 
 \section{Feature Importance}
+\label{sec:ml:feature_importance}
+Having first established in \autoref{sec:ml:supervised_learning} that machine learning algorithms are indeed able to not only learn from data but also to generalize well without overfitting (\autoref{sec:ml:overfitting}), modern ML algorithms such as decision trees, random forests and boosted decision trees were introduced in \autoref{sec:ml:decision_trees} and they were hyperparameter optimized in \autoref{sec:ml:hyperparameter_optimization}, one would expect that one would have a well performing model by now. 
+
+Now comes one of the most important issues in ML today: model inspection. Actually trying to make sense of the learnt model. Why does it predict as it does? Which features or variables are most important according to the model? Model interpretation is still very much active research today with no universally accepted methods. Some methods are model dependent and accurate, others might be model agnostic but slow or only approximations. In this the focus will be on the so-called \emph{SHAP} values. 
+
+In 2017 \citet{Lundberg:2017} showed that six different previously used methods were all specific instances of a universal underlying method\sidenote{The class of \emph{additive feature attribution methods} \citep{Lundberg:2017}} and propose SHaplay Additive exPlanation (SHAP) values as a unified measure of feature importance. In 2018-2019 they developed a fast algorithm for computing SHAP values for tree ensemples and showed that previous measures of feature importance heavily used for trees, e.g. \emph{gain}, were \emph{inconsistent} \autocite{lundbergConsistentIndividualizedFeature2019}. That a measure for feature importance is inconsistent means that a model could rely more on feature $A$ than $B$, however, the feature importance would indicate opposite. SHAP values and \emph{permutation} feature importance are both consistent feature importance measure, however, only SHAP allows for individualized\sidenote{Meaning that you can get the feature importances for a single observation compared to only the global, overall feature importances as seen across the entire data set}, or local, feature importances.  
+
+SHAP values are within the class of additive feature attribution methods, which are functions where the explanation model $g$ is a linear combination of binary variables:
+\begin{equation}
+  \label{eq:ml:additive_feature_attribution_method}
+  g(z') = \phi_0 + \sum_{i=1}^N \phi_i z_i'.
+\end{equation}
+Here the $\phi_i \in \mathbb{R}$'s are the feature importances and $z'$ is a binary variable such that $z_i'=1$ if the feature is present and otherwise $z_i' = 0$. SHAP values are based on Shapley regression values known from cooperative game theory \autocite{Shapley1953}. These values are based on the three axioms:
+\begin{axiom}[Local Accuracy]
+  Local accuracy says that the sum of the feature importances should equal the total reward:
+  \begin{equation}
+    f(x) = g(z') = \phi_0 + \sum_{i=1}^N \phi_i z_i'.
+  \end{equation}
+\end{axiom}
+Here $f$ is the ML model, $g$ is the explanation model, $x$ is an observation in input feature space, $z'$ is an observation in the binary space as described above, and $\phi_i$ is the feature importance. 
+\begin{axiom}[Missingness]
+  Missingness means that features missing in the original input feature space (such that $z_i'=0$) should be attributed no importance:
+  \begin{equation}
+    z_i' = 0 \Rightarrow \phi_i = 0.
+  \end{equation} 
+\end{axiom}
+\begin{axiom}[Consistency]
+  Consistency states if a model is changed such that it relies more on a certain feature, the feature importance of that feature should never decrease. 
+\end{axiom}
+% \begin{description}
+%   \item[Local Accuracy] 
+%   Local accuracy says that the sum of the feature importances should equal the total reward:
+%   \begin{equation}
+%     f(x) = g(x') = \phi_0 + \sum_{i=1}^N \phi_i x_i'.
+%   \end{equation}
+%   Here $f$ is the ML model, $g$ is the explanation model, $x$ is an observation in input feature space, $x'$ is an observation in the binary space as described above, and $\phi_i$ is the feature importance. 
+
+%   \item[Missingness] Missingness means that features missing in the original input feature space (such that $x_i'=0$) should be attributed no importance:
+%   \begin{equation}
+%     x_i = 0 \Rightarrow \phi_i = 0
+%   \end{equation}
+%   \item[Consistency] Consistency states if a model is changed such that it relies more on a certain feature, the feature importance of that feature should never decrease.
+% \end{description}
+Given these three axioms, \citet{Lundberg:2017} show that the only solution to equation \eqref{eq:ml:additive_feature_attribution_method} is:
+\begin{equation}
+  \label{eq:ml:shap_feature_importance}
+    \phi_i = \sum_{S \subseteq \tilde{N} \backslash \{i\}} \frac{|S|!(N-|S|-1)!}{N!} \left[ f_x(S \cup \{i\}) - f_x(S) \right] ,
+\end{equation}
+which can be simplified to:
+\begin{equation}
+  \label{eq:ml:shap_feature_importance_simplification}
+  \begin{split}
+    \phi_i        &= \sum_{S \subseteq \tilde{N} \backslash \{i\}} k(S) \cdot \Delta_{f_x}(S) \\
+    k(S)             &\equiv \frac{|S|!(N-|S|-1)!}{N!} \\
+    \Delta_{f_x}(S)  &\equiv \left[ f_x(S \cup \{i\}) - f_x(S) \right].
+  \end{split}
+\end{equation}
 
 
-\newpage
+In equation \eqref{eq:ml:shap_feature_importance} $\tilde{N}$ is the set of all input features\sidenote{compared to $N=|\tilde{N}|$ which is the number of all input featues}, $S \subseteq \tilde{N} \backslash \{i\}$ means a subset $S$ of $\tilde{N}$ without feature $i$, $S \cup \{i\}$ means the set $S$ with feature $i$ and $f_x(S) = f(h_x(z'))$ where $h_x(z')$ is the mapping function from the binary $z'$ space to the input feature space $x$.In equation \eqref{eq:ml:shap_feature_importance_simplification} the function is simplified to its basic constituents: the difference in performance  between including feature $i$ and not including it, $\Delta_{f_x}$, and its weight $k$. 
 
-$$\phi_i = \sum_{S \subseteq N \backslash \{i\}} \frac{|S|!(M-|S|-1)!}{M!} \left[ f_x(S \cup \{i\}) - f_x(S) \right]  $$
+To get a better understanding of the different sets in the summation, one could look at the decision tree shown in Figure~\ref{fig:ml:decision_tree}. Here $\tilde{N}$ would be $\tilde{N}=\{p_\perp, E_\mathrm{jet} \}$. For the feature $i=p_\perp $ one would thus have:
+\begin{equation}
+  \begin{split}
+    \phi_{p_\vert} = & \sum_{S \subseteq \tilde{N} \backslash \{p_\perp \}} k(S)  \cdot\Delta_{f_x}(S)  \\
+                   = & \sum_{S \in \left[\{\}, \{E_\mathrm{jet}\} \right]} k(S)  \cdot\Delta_{f_x}(S)  \\
+                   = & \frac{0! (2-0-1)!}{2!}  [ f_x(\{p_\perp\}) - f_x(\{\})]  \\ 
+                     & +    \frac{1! (2-1-1)!}{2!}  [f_x(\{ E_\mathrm{jet}, p_\perp \}) - f_x(\{ E_\mathrm{jet} \})].
+  \end{split}
+\end{equation}
+Whereas $k(S)$ are easily calculated, $\Delta_{f_x}$ depends on the data. As the number of features grows, the number of terms in the sum grows exponentially. What \citet{lundbergConsistentIndividualizedFeature2019} did was to develop an algorithm that could solve this for trees in polynomial time.
 
-$$ g(z') = \phi_0 + \sum_{i=1}^{M} \phi_i {z'}_i $$
 
 
 
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/feynman_diagrams/eeZqqg.pdf}
-  \caption[Feynman diagram for the jet production at LEP][6pt]{Feynman diagram showing the $e^+ e^- \rightarrow Z^0$ production at LEP. The $Z^0$ has several decay modes where the $Z \rightarrow q\bar{q}g$ is shown here.}
-  \label{fig:feynman_3j_qqg}
-  %\zsavepos{pos:textfig}
-\end{figure}
 
 
 \chapter{Housing Prices Analysis}
@@ -1124,7 +1228,7 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 \begin{figure}
   \includegraphics[width=0.9\textwidth, trim=0 0 0 1, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_tight_SHAP_vals_summary.pdf}
   \caption[Feature importance of apartments prices using LGB][6pt]
-          {Feature importance of apartment prices using the LGB-model. The feature importance is measured using SHAP-values. The variables are sorted top to bottom according to their overall feature importance, i.e. the previous public property valuation \code{EjdVurdering_EjendomdsVaerdi0} is the most important single feature. Along the x-axis is the impact on model output, in this example the price in XXX. This axes is colored by the value of the feature, from \textcolor{blue}{low} (blue) to \textcolor{red}{high} (red). In this particular example we see that high values of the previous public property valuation has high, positive impact on the model prediction -- exactly as expected. This is exactly opposite the total days on market (DOM) described by the variable \code{LiggetidSamlet} where a high value has a negative impact.  
+          {Feature importance of apartment prices using the LGB-model. The feature importance is measured using SHAP values. The variables are sorted top to bottom according to their overall feature importance, i.e. the previous public property valuation \code{EjdVurdering_EjendomdsVaerdi0} is the most important single feature. Along the x-axis is the impact on model output, in this example the price in XXX. This axes is colored by the value of the feature, from \textcolor{blue}{low} (blue) to \textcolor{red}{high} (red). In this particular example we see that high values of the previous public property valuation has high, positive impact on the model prediction -- exactly as expected. This is exactly opposite the total days on market (DOM) described by the variable \code{LiggetidSamlet} where a high value has a negative impact.  
           } 
   \label{fig:h:shap_overview}
 \end{figure}
@@ -1132,7 +1236,7 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 \begin{figure}
   \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_tight_SHAP_vals_summary_all.pdf}
   \caption[Total feature importance of apartment prices using LGB][6pt]
-          {Total feature importance of apartment prices using the LGB-model. The total feature importance is measured using SHAP-values, more specifically the mean of the absolute SHAP-values for each variable. This allows a ranking of all of the features ordered after the total importance. Here the total feature importance is scaled such that they sum to 1 when summing over all variables. The absolute total feature importance is in itself not important, but the relative values indicate the difference in feature importance. 
+          {Total feature importance of apartment prices using the LGB-model. The total feature importance is measured using SHAP values, more specifically the mean of the absolute SHAP values for each variable. This allows a ranking of all of the features ordered after the total importance. Here the total feature importance is scaled such that they sum to 1 when summing over all variables. The absolute total feature importance is in itself not important, but the relative values indicate the difference in feature importance. 
           } 
   \label{fig:h:shap_overview_total}
 \end{figure}
@@ -1243,6 +1347,19 @@ italicized text and separated from the main paragraph by a bit of space.
 \label{ch:particle_physcis_LEP}
 % \immediate\write{./quote.sh \the\value{chapter}}
 % \epigraph{\input{/tmp/fortune-\the\value{chapter}}}{--- \textup{\texttt{/usr/bin/fortune}}}
+
+
+\begin{figure}
+  \includegraphics[width=0.9\textwidth]{figures/feynman_diagrams/eeZqqg.pdf}
+  \caption[Feynman diagram for the jet production at LEP][6pt]{Feynman diagram showing the $e^+ e^- \rightarrow Z^0$ production at LEP. The $Z^0$ has several decay modes where the $Z \rightarrow q\bar{q}g$ is shown here.}
+  \label{fig:hep:feynman_3j_qqg}
+  %\zsavepos{pos:textfig}
+\end{figure}
+
+
+
+
+
 
 The \TL document classes define a style similar to the
 style Edward Tufte uses in his books and handouts.  Tufte's style is known

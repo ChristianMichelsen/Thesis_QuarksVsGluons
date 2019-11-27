@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -46,6 +46,13 @@ J.~T. Barron.
 \newblock A {{General}} and {{Adaptive Robust Loss Function}}.
 \newblock URL \url{http://arxiv.org/abs/1701.03077}.
 
+\bibitem[Bergstra and Bengio()]{bergstraRandomSearchHyperparameter2012}
+J.~Bergstra and Y.~Bengio.
+\newblock Random {{Search}} for {{Hyper}}-parameter {{Optimization}}.
+\newblock 13:\penalty0 281--305.
+\newblock ISSN 1532-4435.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=2188385.2188395}.
+
 \bibitem[Breiman()]{breimanRandomForests2001}
 L.~Breiman.
 \newblock Random {{Forests}}.
@@ -53,6 +60,14 @@ L.~Breiman.
 \newblock ISSN 1573-0565.
 \newblock \doi{10.1023/A:1010933404324}.
 \newblock URL \url{https://doi.org/10.1023/A:1010933404324}.
+
+\bibitem[Brochu et~al.()Brochu, Cora, and
+  de~Freitas]{brochuTutorialBayesianOptimization2010}
+E.~Brochu, V.~M. Cora, and N.~de~Freitas.
+\newblock A {{Tutorial}} on {{Bayesian Optimization}} of {{Expensive Cost
+  Functions}}, with {{Application}} to {{Active User Modeling}} and
+  {{Hierarchical Reinforcement Learning}}.
+\newblock URL \url{http://arxiv.org/abs/1012.2599}.
 
 \bibitem[Chen and Guestrin()]{chenXGBoostScalableTree2016}
 T.~Chen and C.~Guestrin.
@@ -99,6 +114,38 @@ G.~Ke, Q.~Meng, T.~Finley, T.~Wang, W.~Chen, W.~Ma, Q.~Ye, and T.-Y. Liu.
   Inc.}
 \newblock URL
   \url{http://papers.nips.cc/paper/6907-lightgbm-a-highly-efficient-gradient-boosting-decision-tree.pdf}.
+
+\bibitem[Lundberg and Lee()]{Lundberg:2017}
+S.~M. Lundberg and S.-I. Lee.
+\newblock A unified approach to interpreting model predictions.
+\newblock In \emph{Proceedings of the 31st International Conference on Neural
+  Information Processing Systems}, {{NIPS}}'17, pages 4768--4777. {Curran
+  Associates Inc.}
+\newblock ISBN 978-1-5108-6096-4.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=3295222.3295230}.
+
+\bibitem[Lundberg et~al.()Lundberg, Erion, and
+  Lee]{lundbergConsistentIndividualizedFeature2019}
+S.~M. Lundberg, G.~G. Erion, and S.-I. Lee.
+\newblock Consistent {{Individualized Feature Attribution}} for {{Tree
+  Ensembles}}.
+\newblock URL \url{http://arxiv.org/abs/1802.03888}.
+
+\bibitem[Pedregosa et~al.()Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
+  Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot, and Duchesnay]{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {{Python}}.
+\newblock 12:\penalty0 2825--2830.
+
+\bibitem[Shapley()]{Shapley1953}
+L.~Shapley.
+\newblock A value for n-person games.
+\newblock In \emph{The {{Shapley Value}}}, volume~28 of \emph{Annals of {{Math
+  Studies}}}, pages 307--317.
+\newblock \doi{10.1017/CBO9780511528446.003}.
 
 \bibitem[Tibshirani()]{tibshiraniRegressionShrinkageSelection1996}
 R.~Tibshirani.
