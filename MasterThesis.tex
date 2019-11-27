@@ -962,6 +962,7 @@ Here $f$ is the ML model, $g$ is the explanation model, $x$ is an observation in
   \end{equation} 
 \end{axiom}
 \begin{axiom}[Consistency]
+  \label{axiom:ml:shap_consistency}
   Consistency states if a model is changed such that it relies more on a certain feature, the feature importance of that feature should never decrease. 
 \end{axiom}
 % \begin{description}
@@ -981,35 +982,50 @@ Here $f$ is the ML model, $g$ is the explanation model, $x$ is an observation in
 Given these three axioms, \citet{Lundberg:2017} show that the only solution to equation \eqref{eq:ml:additive_feature_attribution_method} is:
 \begin{equation}
   \label{eq:ml:shap_feature_importance}
-    \phi_i = \sum_{S \subseteq \tilde{N} \backslash \{i\}} \frac{|S|!(N-|S|-1)!}{N!} \left[ f_x(S \cup \{i\}) - f_x(S) \right] ,
+    \phi_i = \sum_{S \subseteq \tilde{M} \backslash \{i\}} \frac{|S|!(M-|S|-1)!}{M!} \left[ f_x(S \cup \{i\}) - f_x(S) \right] ,
 \end{equation}
 which can be simplified to:
 \begin{equation}
   \label{eq:ml:shap_feature_importance_simplification}
   \begin{split}
-    \phi_i        &= \sum_{S \subseteq \tilde{N} \backslash \{i\}} k(S) \cdot \Delta_{f_x}(S) \\
-    k(S)             &\equiv \frac{|S|!(N-|S|-1)!}{N!} \\
+    \phi_i        &= \sum_{S \subseteq \tilde{M} \backslash \{i\}} k(S) \cdot \Delta_{f_x}(S) \\
+    k(S)             &\equiv \frac{|S|!(M-|S|-1)!}{M!} \\
     \Delta_{f_x}(S)  &\equiv \left[ f_x(S \cup \{i\}) - f_x(S) \right].
   \end{split}
 \end{equation}
 
 
-In equation \eqref{eq:ml:shap_feature_importance} $\tilde{N}$ is the set of all input features\sidenote{compared to $N=|\tilde{N}|$ which is the number of all input featues}, $S \subseteq \tilde{N} \backslash \{i\}$ means a subset $S$ of $\tilde{N}$ without feature $i$, $S \cup \{i\}$ means the set $S$ with feature $i$ and $f_x(S) = f(h_x(z'))$ where $h_x(z')$ is the mapping function from the binary $z'$ space to the input feature space $x$.In equation \eqref{eq:ml:shap_feature_importance_simplification} the function is simplified to its basic constituents: the difference in performance  between including feature $i$ and not including it, $\Delta_{f_x}$, and its weight $k$. 
+In equation \eqref{eq:ml:shap_feature_importance} $\tilde{M}$ is the \emph{set} of all input features\sidenote{compared to $M=|\tilde{M}|$ which is the \emph{number} of all input features}, $S \subseteq \tilde{N} \backslash \{i\}$ means a subset $S$ of $\tilde{N}$ without feature $i$, $S \cup \{i\}$ means the set $S$ with feature $i$ and $f_x(S) = f(h_x(z'))$ where $h_x(z')$ is the mapping function from the binary $z'$ space to the input feature space $x$.In equation \eqref{eq:ml:shap_feature_importance_simplification} the function is simplified to its basic constituents: the difference in performance  between including feature $i$ and not including it, $\Delta_{f_x}$, and its weight $k$. 
 
 To get a better understanding of the different sets in the summation, one could look at the decision tree shown in Figure~\ref{fig:ml:decision_tree}. Here $\tilde{N}$ would be $\tilde{N}=\{p_\perp, E_\mathrm{jet} \}$. For the feature $i=p_\perp $ one would thus have:
 \begin{equation}
   \begin{split}
-    \phi_{p_\vert} = & \sum_{S \subseteq \tilde{N} \backslash \{p_\perp \}} k(S)  \cdot\Delta_{f_x}(S)  \\
+    \phi_{p_\vert} = & \sum_{S \subseteq \tilde{M} \backslash \{p_\perp \}} k(S)  \cdot\Delta_{f_x}(S)  \\
                    = & \sum_{S \in \left[\{\}, \{E_\mathrm{jet}\} \right]} k(S)  \cdot\Delta_{f_x}(S)  \\
                    = & \frac{0! (2-0-1)!}{2!}  [ f_x(\{p_\perp\}) - f_x(\{\})]  \\ 
                      & +    \frac{1! (2-1-1)!}{2!}  [f_x(\{ E_\mathrm{jet}, p_\perp \}) - f_x(\{ E_\mathrm{jet} \})].
   \end{split}
 \end{equation}
-Whereas $k(S)$ are easily calculated, $\Delta_{f_x}$ depends on the data. As the number of features grows, the number of terms in the sum grows exponentially. What \citet{lundbergConsistentIndividualizedFeature2019} did was to develop an algorithm that could solve this for trees in polynomial time.
+Whereas $k(S)$ are easily calculated, $\Delta_{f_x}$ depends on the data. As the number of features grows, the number of terms in the sum grows exponentially. What \citet{lundbergConsistentIndividualizedFeature2019} did was to develop an efficient algorithm that could solve this for trees in polynomial time. 
 
+SHAP values allows one to explain for a single prediction why it got the prediction that it got. When applied to the entire data set $\vec{X} \in \mathbb{R}^{N \times M}$ with $N$ observations each of with $M$ features, one gets the matrix $\bm{\Phi}$. When summing the over the absolute value of each column, one gets the global impact $\phi_i^\mathrm{tot}$ of that feature \citep{lundbergConsistentIndividualizedFeature2019}:
+\begin{equation}
+  \phi_i^\mathrm{tot} = \sum_{j=1}^N \abs{ \bm{\Phi}_{i, j} }.
+\end{equation}
+The global feature importance $\phi_i^\mathrm{tot}$ is thus a measure of the overall importance of feature $i$. 
 
-
-
+Note that if one introduces a new feature to the dataset, correlated\sidenote{Not necessarily linearly correlated} to an already existing feature, the feature importance of the previous feature will decrease
+\sidenote{
+This is due to the axiom of symmetry:
+\begin{axiom}[Symmetry]
+  \label{axiom:ml:shapley_symmetry}
+  If for all subsets S that do not contain $i$ or $j$: 
+  \begin{equation}
+    f_x(S \cup \{i\}) = f_x(S \cup \{j\})
+  \end{equation}
+  then $\phi_i = \phi_j$.
+\end{axiom}
+It can be shown that axiom \ref{axiom:ml:shapley_symmetry} is implied by axiom \ref{axiom:ml:shap_consistency}  \citep[Supp. Material]{Lundberg:2017}. Two identical features, as seen by the model, will thus \q{share} the feature importance. }
 
 
 \chapter{Housing Prices Analysis}
