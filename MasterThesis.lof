@@ -1,17 +1,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Schematic overview of the learning problem.}}{6}{section.3.2}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Overview of the learning problem.}}{6}{section.3.2}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Approximation-Estimation tradeoff}}{10}{equation.3.3.16}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Regularization Effect}}{11}{equation.3.4.22}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Regularization Effect of $L_2$ }}{12}{equation.3.4.22}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Regularization Effect of $L_1$}}{12}{equation.3.4.22}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces $k$-Fold Cross Validation}}{13}{subsection.3.4.2}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces $k$-Fold Cross Validation for Time Series Data}}{13}{subsection.3.4.2}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison of different objective functions zoom in.}}{15}{equation.3.5.26}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison of different objective functions.}}{16}{equation.3.5.27}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Decision Tree Cuts}}{16}{section.3.6}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Decision Tree Illustration}}{16}{section.3.6}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison of different objective functions.}}{16}{equation.3.5.27}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison of different objective functions zoom in.}}{16}{equation.3.5.27}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Decision Tree Cuts In Feature Space}}{16}{section.3.6}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Decision Tree}}{17}{section.3.6}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Grid Search}}{20}{subsection.3.7.1}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Random Search}}{21}{equation.3.7.38}
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Bayesian Optimization}}{22}{subsection.3.7.3}

@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {3.4.2}Cross Validation}{12}{subsection.3.4.2}
 \contentsline {subsection}{\numberline {3.4.3}Early Stopping}{14}{subsection.3.4.3}
 \contentsline {section}{\numberline {3.5}Loss functions}{14}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Evaluation Function}{15}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.1}Evaluation Function}{16}{subsection.3.5.1}
 \contentsline {section}{\numberline {3.6}Decision Trees}{16}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Ensembles of Decision Trees}{17}{subsection.3.6.1}
 \contentsline {subsubsection}{Random Forests}{17}{subsubsection*.4}
@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {3.7.1}Grid Search}{20}{subsection.3.7.1}
 \contentsline {subsection}{\numberline {3.7.2}Random Search}{20}{subsection.3.7.2}
 \contentsline {subsection}{\numberline {3.7.3}Bayesian Optimization}{21}{subsection.3.7.3}
-\contentsline {section}{\numberline {3.8}Feature Importance}{22}{section.3.8}
+\contentsline {section}{\numberline {3.8}Feature Importance}{23}{section.3.8}
 \contentsline {chapter}{\numberline {4}Housing Prices Analysis}{27}{chapter.4}
 \contentsline {section}{\numberline {4.1}Headings}{28}{section.4.1}
 \contentsline {paragraph}{Paragraph}{28}{paragraph*.6}

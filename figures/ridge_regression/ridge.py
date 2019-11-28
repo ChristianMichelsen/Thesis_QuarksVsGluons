@@ -114,7 +114,7 @@ for lamb in [0, 0.001, 0.1, 10]:
     
     # s = fr"$\lambda = {lamb:.3f}    $" + "\t" + fr"$|\beta|^2 = {s1} \times 10^{s2}$"
     s_lamb = fr"${lamb:.3f}$" if lamb < 10 else fr"${lamb:.2f}$"
-    s = fr"$\lambda = $"+s_lamb+fr"$, \quad |\beta|^2 = {s1} \times 10^{s2}$"
+    s = fr"$\lambda = $"+s_lamb+fr"$, \: |\beta|^2 = {s1} \times 10^{s2}$"
 
     ax.plot(xx, y_fit, '-', lw=2, label=s) #r'$\lambda = $'+f'{lamb:.4f}')
 
@@ -131,9 +131,9 @@ ax.set_position([box.x0,
         box.height * 0.9])
 
 # Put a legend below current axis
-ax.legend(loc='lower center', bbox_to_anchor=(0.5, 1.01),
-        fancybox=False, shadow=False, ncol=2, frameon=False,
-        fontsize=15)
+ax.legend(loc='lower center', bbox_to_anchor=(0.45, 1.01),
+        fancybox=False, shadow=False, ncol=1, frameon=False,
+        fontsize=20)
 
 
 # fig
