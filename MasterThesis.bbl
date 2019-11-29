@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -76,6 +76,12 @@ T.~Chen and C.~Guestrin.
 \newblock \doi{10.1145/2939672.2939785}.
 \newblock URL \url{http://arxiv.org/abs/1603.02754}.
 
+\bibitem[DST()]{dstPriceIndexEJ14}
+S.~D. DST.
+\newblock Price {{Index}} ({{EJ14}}) - {{Statistics Denmark}}.
+\newblock URL
+  \url{https://www.dst.dk/en/Statistik/emner/priser-og-forbrug/ejendomme}.
+
 \bibitem[Fisher()]{fisherUseMultipleMeasurements1936}
 R.~A. Fisher.
 \newblock The {{Use}} of {{Multiple Measurements}} in {{Taxonomic Problems}}.
@@ -104,6 +110,13 @@ T.~Hastie, R.~Tibshirani, and J.~Friedman.
 \newblock ISBN 978-0-387-84857-0.
 \newblock URL \url{//www.springer.com/la/book/9780387848570}.
 
+\bibitem[Hviid()]{hviidWorkingPaperRegional2017}
+S.~Hviid, Juul.
+\newblock Working {{Paper}}: {{A}} regional model of the {{Danish}} housing
+  market.
+\newblock URL
+  \url{http://www.nationalbanken.dk/en/publications/Pages/2017/11/Working-Paper-A-regional-model-of-the-Danish-housing-market.aspx}.
+
 \bibitem[Ke et~al.()Ke, Meng, Finley, Wang, Chen, Ma, Ye, and
   Liu]{keLightGBMHighlyEfficient2017}
 G.~Ke, Q.~Meng, T.~Finley, T.~Wang, W.~Chen, W.~Ma, Q.~Ye, and T.-Y. Liu.
@@ -130,6 +143,15 @@ S.~M. Lundberg, G.~G. Erion, and S.-I. Lee.
 \newblock Consistent {{Individualized Feature Attribution}} for {{Tree
   Ensembles}}.
 \newblock URL \url{http://arxiv.org/abs/1802.03888}.
+
+\bibitem[Mulalic et~al.()Mulalic, Rasmussen, Rouwendal, and
+  Woltmann]{mulalicFinancialCrisisDiverging2017}
+I.~Mulalic, H.~Rasmussen, J.~Rouwendal, and H.~H. Woltmann.
+\newblock The {{Financial Crisis}} and {{Diverging House Prices}}: {{Evidence}}
+  from the {{Copenhagen Metropolitan Area}}.
+\newblock ISSN 1556-5068.
+\newblock \doi{10.2139/ssrn.3041272}.
+\newblock URL \url{https://www.ssrn.com/abstract=3041272}.
 
 \bibitem[Pedregosa et~al.()Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
   Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
@@ -172,6 +194,25 @@ V.~Vapnik.
   {Morgan Kaufmann Publishers Inc.}
 \newblock ISBN 978-1-55860-222-9.
 \newblock URL \url{http://dl.acm.org/citation.cfm?id=2986916.2987018}.
+
+\bibitem[Virtanen et~al.()Virtanen, Gommers, Oliphant, Haberland, Reddy,
+  Cournapeau, Burovski, Peterson, Weckesser, Bright, van~der Walt, Brett,
+  Wilson, Jarrod~Millman, Mayorov, Nelson, Jones, Kern, Larson, Carey, Polat,
+  Feng, Moore, VanderPlas, Laxalde, Perktold, Cimrman, Henriksen, Quintero,
+  Harris, Archibald, Ribeiro, Pedregosa, van Mulbregt, and
+  Contributors]{virtanenSciPyFundamentalAlgorithms2019}
+P.~Virtanen, R.~Gommers, T.~E. Oliphant, M.~Haberland, T.~Reddy, D.~Cournapeau,
+  E.~Burovski, P.~Peterson, W.~Weckesser, J.~Bright, S.~J. van~der Walt,
+  M.~Brett, J.~Wilson, K.~Jarrod~Millman, N.~Mayorov, A.~R.~J. Nelson,
+  E.~Jones, R.~Kern, E.~Larson, C.~J. Carey, I.~Polat, Y.~Feng, E.~W. Moore,
+  J.~VanderPlas, D.~Laxalde, J.~Perktold, R.~Cimrman, I.~Henriksen, E.~A.
+  Quintero, C.~R. Harris, A.~M. Archibald, A.~H. Ribeiro, F.~Pedregosa, P.~van
+  Mulbregt, and S.~.~. Contributors.
+\newblock {{SciPy}} 1.0--{{Fundamental Algorithms}} for {{Scientific
+  Computing}} in {{Python}}.
+\newblock page arXiv:1907.10121.
+\newblock URL
+  \url{https://ui.adsabs.harvard.edu/abs/2019arXiv190710121V/abstract}.
 
 \bibitem[Wickham()]{JSSv059i10}
 H.~Wickham.

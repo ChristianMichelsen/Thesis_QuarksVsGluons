@@ -4,17 +4,21 @@ The top-level auxiliary file: MasterThesis.aux
 The style file: abbrvnat.bst
 Database file #1: My_Library.bib
 Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
---line 1307 of file My_Library.bib
+--line 1291 of file My_Library.bib
+Warning--entry type for "hviidWorkingPaperRegional2017" isn't style-file defined
+--line 1371 of file My_Library.bib
 Warning--entry type for "LargeElectronPositronCollider" isn't style-file defined
---line 3102 of file My_Library.bib
+--line 3068 of file My_Library.bib
 Warning--entry type for "AdvancedTopicsMachine" isn't style-file defined
---line 3127 of file My_Library.bib
+--line 3093 of file My_Library.bib
 Warning--entry type for "AllstateClaimsSeverity" isn't style-file defined
---line 3175 of file My_Library.bib
+--line 3141 of file My_Library.bib
 Warning--entry type for "HEPMeetsML" isn't style-file defined
---line 3228 of file My_Library.bib
+--line 3194 of file My_Library.bib
 Warning--entry type for "DmlcXgboost" isn't style-file defined
---line 3237 of file My_Library.bib
+--line 3203 of file My_Library.bib
+Warning--entry type for "dstPriceIndexEJ14" isn't style-file defined
+--line 3298 of file My_Library.bib
 Warning--to sort, need author or key in LargeElectronPositronCollider
 Warning--to sort, need author or key in AdvancedTopicsMachine
 Warning--to sort, need author or key in AllstateClaimsSeverity
@@ -45,6 +49,7 @@ Warning--empty year in brochuTutorialBayesianOptimization2010
 Warning--empty journal in chenXGBoostScalableTree2016
 Warning--empty year in chenXGBoostScalableTree2016
 Warning--empty year in chenXGBoostScalableTree2016
+Warning--empty year in dstPriceIndexEJ14
 Warning--empty journal in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
@@ -52,6 +57,7 @@ Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
 Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
 Warning--empty year in hastieElementsStatisticalLearning2009
 Warning--empty year in hastieElementsStatisticalLearning2009
+Warning--empty year in hviidWorkingPaperRegional2017
 Warning--empty year in keLightGBMHighlyEfficient2017
 Warning--empty year in keLightGBMHighlyEfficient2017
 Warning--empty year in Lundberg:2017
@@ -59,6 +65,9 @@ Warning--empty year in Lundberg:2017
 Warning--empty journal in lundbergConsistentIndividualizedFeature2019
 Warning--empty year in lundbergConsistentIndividualizedFeature2019
 Warning--empty year in lundbergConsistentIndividualizedFeature2019
+Warning--empty journal in mulalicFinancialCrisisDiverging2017
+Warning--empty year in mulalicFinancialCrisisDiverging2017
+Warning--empty year in mulalicFinancialCrisisDiverging2017
 Warning--empty journal in scikit-learn
 Warning--empty year in scikit-learn
 Warning--empty year in scikit-learn
@@ -76,48 +85,51 @@ Warning--empty year in tikhonovStabilityInverseProblems1943
 Warning--empty year in veenNeuralNetworkZoo2016
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
+Warning--empty journal in virtanenSciPyFundamentalAlgorithms2019
+Warning--empty year in virtanenSciPyFundamentalAlgorithms2019
+Warning--empty year in virtanenSciPyFundamentalAlgorithms2019
 Warning--empty journal in JSSv059i10
 Warning--empty year in JSSv059i10
 Warning--empty year in JSSv059i10
-You've used 25 entries,
+You've used 29 entries,
             2773 wiz_defined-function locations,
-            766 strings with 10140 characters,
-and the built_in function-call counts, 11545 in all, are:
-= -- 1040
-> -- 553
-< -- 22
-+ -- 195
-- -- 170
-* -- 952
-:= -- 1653
-add.period$ -- 103
-call.type$ -- 25
-change.case$ -- 127
-chr.to.int$ -- 25
-cite$ -- 119
-duplicate$ -- 548
-empty$ -- 991
-format.name$ -- 198
-if$ -- 2474
+            789 strings with 11865 characters,
+and the built_in function-call counts, 15014 in all, are:
+= -- 1313
+> -- 930
+< -- 25
++ -- 322
+- -- 293
+* -- 1265
+:= -- 2198
+add.period$ -- 118
+call.type$ -- 29
+change.case$ -- 180
+chr.to.int$ -- 29
+cite$ -- 135
+duplicate$ -- 652
+empty$ -- 1136
+format.name$ -- 325
+if$ -- 3176
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 22
-newline$ -- 156
-num.names$ -- 84
-pop$ -- 382
+missing$ -- 24
+newline$ -- 179
+num.names$ -- 100
+pop$ -- 509
 preamble$ -- 1
-purify$ -- 104
+purify$ -- 153
 quote$ -- 0
-skip$ -- 383
+skip$ -- 513
 stack$ -- 0
-substring$ -- 378
-swap$ -- 79
-text.length$ -- 8
+substring$ -- 418
+swap$ -- 114
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 260
-warning$ -- 64
-while$ -- 84
+type$ -- 304
+warning$ -- 72
+while$ -- 97
 width$ -- 0
-write$ -- 343
-(There were 70 warnings)
+write$ -- 393
+(There were 80 warnings)

@@ -112,7 +112,7 @@
 \newcommand{\abs}[1]{\lvert#1\rvert}
 \newcommand{\norm}[1]{\lVert#1\rVert}
 
-% allow first, second and third
+% allow first, second and third, 1st 2nd 3rd
 \usepackage[super]{nth}
 
 % % for using Inkscape plots
@@ -127,7 +127,7 @@
 
 
 %  units
-\usepackage{siunitx}
+\usepackage[binary-units=true]{siunitx}
 \sisetup{seperr}
 \DeclareSIUnit{\kroner}{kr.}
 \DeclareSIUnit{\kr}{kr.}
@@ -591,7 +591,7 @@ Section \ref{sec:generalization_bound} dealt with the case of a single hypothese
 
 To solve this obvious problem with the Hoeffding inequality, we introduce\sidenote{For proof, see: \citet{abu-mostafaLearningData2012}} the Vapnik-Chervonenkis (VC) generalization bound. The VC-bound is based on the so-called VC-dimension of the hypothesis space $\mathcal{H}$: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. The VC-dimension is a measure of the complexity of the hypothesis space, the degrees of freedom of the model so to say. For example the VC-dimension of the $d$-dimensional linear classifier defined above\sidenote{In the general case when the offset $b$ is included: $d_\mathrm{VC}=d+1$.} is $d_\mathrm{VC}=d$ for $\{\vec{x}, \vec{w}\} \in \mathbb{R}^d$. 
 \begin{theorem}[VC Generalization Bound]
-  \label{theorem:hoeffding_finite}
+  \label{theorem:VC_generalization_bound}
   Let $\mathcal{H}$ be a hypotheses class with VC-dimension: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. Then with probability at least $1-\delta$: 
   \begin{equation}
     \label{eq:VC_bound}
@@ -1032,80 +1032,168 @@ This is due to the axiom of symmetry:
 It can be shown that axiom \ref{axiom:ml:shapley_symmetry} is implied by axiom \ref{axiom:ml:shap_consistency}  \citep[Supp. Material]{Lundberg:2017}. Two identical features, as seen by the model, will thus \q{share} the feature importance.
 
 
-\chapter{Housing Prices Analysis}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Danish Housing Prices}
 \label{ch:housing_price_analysis}
+\epigraph{\textit{``Buy land, they’re not making it anymore.''}}{--- Mark Twain}
+\epigraph{\textit{``It’s tangible, it’s solid, it’s beautiful. It’s artistic, from my standpoint, and I just love real estate.''}}{--- Donald Trump}
+\newthought{Housing markets} have always been a playing field for economists, property speculator, real estate developers, and realtors. The author of this thesis is by no metric any of these, not even close to, yet, when the issue of estimating Danish housing prices came up, it was too much of a challenge just lying there to let it go. Estimating housing prices is a classical economical discipline with papers from the Danish National Bank developing a regional model of the Danish housing market \autocite{hviidWorkingPaperRegional2017} to analysis of the financial crisis in 2008-2009 and its effects on the Copenhagen metropolitan area \autocite{mulalicFinancialCrisisDiverging2017}. 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Denmark_Overview_SqmPrice.png}
-  \caption[Geographic overview of square meter price in Denmark][6pt]
-          {Geographic overview of square meter prices for houses and apartments in Denmark (excluding Bornholm for visual purposes). Notice the strong correlation with the major cities and the shore line. Also notice the three outliers west of Jutland. }
-  \label{fig:h:geo_overview}
+  \includegraphics[width=0.98\textwidth, trim=10 20 10 10, clip]{figures/housing_price_index_dst/housingindex_wide.pdf}
+  \caption[Danish Housing Price Index]
+          {Price Index of the Danish housing market. Prince index of Danish one-family houses and owner-occupied apartments where \textcolor{red}{houses} are shown in red and \textcolor{blue}{apartments} in blue, where full lines are for the entirety of Denmark and dashed lines are only for Copenhagen. Errorbars (scaled up with a factor of 2) are shown as colored bands. The price index and its uncertainty is based on numbers from \citet{dstPriceIndexEJ14}, however, rescaled to 100 in 2000 (instead of 2006 as it was in the data).}
+  \label{fig:h:price_index}
 \end{figure}
 
+If one takes a look at the time development of the Danish housing\sidenote[][1cm]{\q{Housing} means both actual houses and privately owned apartments in this project.} market, the Danish governmental organization for statistics, Statistics Denmark, releases a price index \citep{dstPriceIndexEJ14} for both one-family houses and owner-occupied apartments quarterly, this is shown in Figure~\ref{fig:h:price_index}. Here it is easy to see the effect of the financial crisis around 2008, but also the steady increase in the housing market since then in both Copenhagen and the entire country. 
 
+The goal of this subproject\sidenote{The housing price estimation subproject.} is not to predict any future collapse as the financial markets as we saw upwards of 10 years ago. Instead, it is to learn patterns in the price of houses in steady times. The goal is training a computer\sidenote{In contrary to \citet{hviidWorkingPaperRegional2017, mulalicFinancialCrisisDiverging2017} and others who base their models on macro-economic principles.} to automatically to find these patterns and see if we can improve this model.
+
+In chapter XXX I will introduce the data, do EDA and so on. Then I will introduce the models in XXX, start the HPO in chapter XXX, and talk about the results in XXX, the SHAP values in XXX and the time predictions in XXX. 
+
+This subproject was done in collaboration with Boligsiden without whom it would not have been possible. During this project, common python data science tools from the SciPy ecosystem\autocite{virtanenSciPyFundamentalAlgorithms2019} such as NumPy, Matplotlib, Pandas, Scikit-Learn, Scipy has been used extensively and should thus also be mentioned. 
+
+\section{Data Cleaning and Exploratory Data Analysis}
+\label{sec:h:data_cleaning}
+The first part of any data science project is actually getting the data and being able to read it. This has been an iterative process that has improved over time. The last data transfer we got was September \nth{3} 2019 and consisted of a \SI{522.4}{\mega\byte} CSV file with dimensions $(\num{711410} \times \num{171})$. This section will go through the data cleaning process.
+
+Before any further data analysis is performed, all of the data is loaded, except three columns which only contain internal information for Boligsiden\sidenote{The variables are \code{Sag_Kvhx}, \code{Enhed_GOP_BoligtypeKode}, and \code{Bygning_GOP_Matrikelnr}.}. To get a better understanding of all of the variables, histograms showing the one-dimensional distributions of all of the variables were made.
+
+Four particularly interesting ones are seen in Figure~\ref{fig:h:variable_overview}: 
+the distribution of the date of the sale \code{SalgsPris} in subfigure~\subref{fig:h:variable_overview_date},  
+the distribution of the type of sale \code{SagtypeNr} in subfigure~\subref{fig:h:variable_overview_type},
+the distribution of the longitude of the residence \code{GisX_WGS84} in subfigure~\subref{fig:h:variable_overview_longitude}, and
+the distribution of the area of the residence \code{ArealBolig} in subfigure~\subref{fig:h:variable_overview_area}.
+
+\begin{figure*}
+  \centering
+  % \vspace*{-\abovecaptionskip}
+  \subfloat[\label{fig:h:variable_overview_date}]{\qquad}
+  \includegraphics[width=0.45\textwidth, page=2, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}\hfil
+  \subfloat[\label{fig:h:variable_overview_type}]{\qquad}
+  \includegraphics[width=0.45\textwidth, page=6, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
+  \subfloat[\label{fig:h:variable_overview_longitude}]{\qquad}
+  \includegraphics[width=0.45\textwidth, page=20, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}\hfil
+  \subfloat[\label{fig:h:variable_overview_area}]{\qquad}
+  \includegraphics[width=0.45\textwidth, page=23, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
+  \caption[Distributions for the housing price dataset]{Distributions of four out of the 168 input variables. 
+           Subplot ~\protect\subref{fig:h:variable_overview_date} shows the date of the sale, 
+           Subplot ~\protect\subref{fig:h:variable_overview_type} shows the type of sale,
+           Subplot ~\protect\subref{fig:h:variable_overview_longitude} shows the longitude,
+           Subplot ~\protect\subref{fig:h:variable_overview_area} shows the area og the house.}
+  \label{fig:h:variable_overview}
+  \vspace{\abovecaptionskip}
+\end{figure*}
+
+The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_date}, is an interesting variable because it shows how Boligsiden has been collecting more and more data over time. Here 2007 and 2019 are clear outliers since their current database only contains sales from the end of 2007, and 2019 only contains data from the first eight months of the year. The type of sale is a discrete code that Boligsiden uses to differentiate between different types of sales. The mapping between code and description can be seen in Table~\ref{tab:h:salgstype}. 
+
+\begin{margintable}
+  \centering
+  \begin{tabular}{@{}rl@{}}
+  % \toprule
+  Type & Name           \\ 
+  \midrule
+  100  & Villa          \\ 
+  200  & Rækkehus       \\
+  300  & Ejerlejlighed  \\
+  400  & Fritidsbolig   \\
+  401  & Kolonihave     \\
+  500  & Andelsbolig    \\
+  600  & Landejendom    \\
+  700  & Helårsgrund    \\
+  800  & Fritidsgrund   \\
+  900  & Villalejlighed \\
+  1000 & Kvæggård       \\
+  1100 & Svinegård      \\
+  1200 & Planteavlsgård \\
+  1300 & Skovejendom    \\
+  1400 & Lystejendom    \\
+  1500 & Specialejendom \\ 
+  % \bottomrule
+  \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX \TODO.}
+  \label{tab:h:salgstype}
+\end{margintable}
+
+In this project only single-family houses -- \q{Villas} in Danish -- with code \num{100} and owner-occupied apartments -- \q{Ejerlejlighed} in Danish -- with code 300 are considered. As can be seen from Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_type} these two types of sales are also the most frequent sales with close to \num{400000} and \num{150000} sales in total. The longitude distribution, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_longitude}, is mostly interesting due to fact that it clearly shows how the Great Belt and especially the Baltic Sea separates Denmark into three parts; the Western part, the Eastern part, and then Bornholm. Note that more than \SI{5}{\percent} of the residences are unknown values: Not a Number \q{NaNs}. The distribution of the area, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_area}, shows that most residences are between \SI{50}{\meter^2} and \SI{150}{\meter^2}, as expected. However, a relatively large part of the residences, \SI{2.5}{\percent}, are listed as having an area of \SI{0}{\meter^2}.
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, page=2]{figures/housing/overview_fig.pdf}
-  \caption[Histogram of prices of houses and apartments sold in Denmark][6pt]
+  \includegraphics[width=0.99\textwidth, page=1, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
+  \caption[Histogram of prices of houses and apartments sold in Denmark]
           {Histogram of prices of houses and apartments sold in Denmark.}
   \label{fig:h:price_overview}
 \end{figure}
 
 
-\begin{figure*}[htb]
-  \centering
-  
-  \vspace*{-\abovecaptionskip}
-  
-  \subfloat[\label{fig:h:variable_overview_a}]{\qquad}
-  \includegraphics[width=0.4\textwidth, page=2]{figures/housing/overview_fig.pdf}\hfil
-  \subfloat[\label{fig:h:variable_overview_b}]{\qquad}
-  \includegraphics[width=0.4\textwidth, page=6]{figures/housing/overview_fig.pdf}
-
-  \subfloat[\label{fig:h:variable_overview_c}]{\qquad}
-  \includegraphics[width=0.4\textwidth, page=20]{figures/housing/overview_fig.pdf}\hfil
-  \subfloat[\label{fig:h:variable_overview_d}]{\qquad}
-  \includegraphics[width=0.4\textwidth, page=23]{figures/housing/overview_fig.pdf}
-  
-  \caption[Input paramater distributions for the housing prices dataset]{Distributions of the four out of the XXX input variables. Subplot ~\protect\subref{fig:h:variable_overview_a} shows the date of the sale, 
-           Subplot ~\protect\subref{fig:h:variable_overview_b} shows the type of sale,
-           Subplot ~\protect\subref{fig:h:variable_overview_c} shows the longitude,
-           Subplot ~\protect\subref{fig:h:variable_overview_d} shows the area,}
-  \label{fig:h:variable_overview}
-  
-  \vspace{\abovecaptionskip}
-\end{figure*}
-
-
-Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two images --- fig.~\subref{fig:h:variable_overview_a} shows an "A", fig.~\subref{fig:h:variable_overview_b} shows a "B".
-
-
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/missing_bar.pdf}
-  \caption[Percentage of valid counts for each variable][6pt]
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/housing/missing_bar.pdf}
+  \caption[Validity of input features]
           {Percentage of valid counts for each variable grouped together in categories.}
   \label{fig:h:nans}
 \end{figure}
 
 
 \begin{figure}
+  \includegraphics[width=0.99\textwidth, trim=0 10 0 10, clip]{figures/housing/missing_dendrogram.pdf}
+  \caption[Validity Dendrogram]
+          {XXXX \TODO.}
+  \label{fig:h:nans_dendrogram}
+\end{figure}
+
+also see Figure~\ref{fig:h:nans_heatmap}
+
+
+
+
+\newpage
+
+\begin{figure}
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Denmark_Overview_SqmPrice.png}
+  \caption[Geographic overview of square meter price in Denmark]
+          {Geographic overview of square meter prices for houses and apartments in Denmark (excluding Bornholm for visual purposes). Notice the strong correlation with the major cities and the shore line. Also notice the three outliers west of Jutland. }
+  \label{fig:h:geo_overview}
+\end{figure}
+
+
+
+
+
+
+
+\begin{figure}
   \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/lin_correlation.pdf}
-  \caption[Linear correlation between variables and price][6pt]
+  \caption[Linear correlation between variables and price]
           {Linear correlation between variables and price for variables where the correlation coefficient $\rho$ is $|\rho| > 10\%$.}
   \label{fig:h:corr_lin}
 \end{figure}
 
 \begin{figure}
   \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/MIC_plot.pdf}
-  \caption[Non-linear correlation between variables and price][6pt]
+  \caption[Non-linear correlation between variables and price]
           {Non-linear correlation between variables and price using Maximal Information Coefficient (MIC) for variables where $\text{MIC}>10\%$.}
   \label{fig:h:corr_MIC}
 \end{figure}
 
 \begin{figure}
   \includegraphics[width=0.9\textwidth]{figures/housing/tinglysning_fig.pdf}
-  \caption[Registration of property][6pt]
+  \caption[Registration of property]
           {Overview of registration of property as a function of amount of owners (\code{AntEjere}), lowest share (\code{MindsteAndel}) and biggest share (\code{StoersteAndel}) written as \code{[AntEjere, MindsteAndel, StoersteAndel]}.
           }
   \label{fig:h:tinglysning}
@@ -1114,8 +1202,8 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_prophet_forecast.pdf}
-  \caption[Prophet Forecast for apartments][6pt]
+  \includegraphics[width=0.9\textwidth]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
+  \caption[Prophet Forecast for apartments]
           {The predictions of the Facebook Prophet model trained on square meter prices for apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the 1-sigma confidence interval.
           }
   \label{fig:h:prophet_forecast}
@@ -1123,8 +1211,8 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_prophet_trends.pdf}
-  \caption[Prophet Trends][6pt]
+  \includegraphics[width=0.9\textwidth]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_trends.pdf}
+  \caption[Prophet Trends]
           {The trends of the Facebook Prophet model trained on square meter prices for apartments sold before January 1st, 2018. In the top plot is the overall trend as a function of year and in the bottom plot is the yearly variation as a function of day of year. It can be seen that the square meter price is higher during the Summer months compared to the Winter months, however, compared to the overall trend this effect is minor ($<10\%$). 
           }
   \label{fig:h:prophet_trends}
@@ -1228,8 +1316,8 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 
 
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
-  \caption[Overview of initial hyperparamater optimization of the housing model for apartments][6pt]
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
+  \caption[Overview of initial hyperparamater optimization of the housing model for apartments]
           {Hyperparameter optimization results of the housing model for apartments. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by MAD from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{objektive} the functions RMSE (0), LogCosh (1), Cauchy (2), Welsch (3), and Fair (4) are mapped to the integers in the parentheses.   
           } 
   \label{fig:h:CV_res_parallel_coords}
@@ -1238,69 +1326,69 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 70, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_z_hist_metrics.pdf}
-  \caption[Performance of LGB-model on apartment prices][6pt]
-          {Histogram of $z$-values of the LGB-model trained on apartments. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.}
-  \label{fig:h:performance_lgb}
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 70, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_z_hist_metrics.pdf}
+  \caption[Performance of XGB-model on apartment prices]
+          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.}
+  \label{fig:h:performance_xgb}
 \end{figure}
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 1, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_tight_SHAP_vals_summary.pdf}
-  \caption[Feature importance of apartments prices using LGB][6pt]
-          {Feature importance of apartment prices using the LGB-model. The feature importance is measured using SHAP values. The variables are sorted top to bottom according to their overall feature importance, i.e. the previous public property valuation \code{EjdVurdering_EjendomdsVaerdi0} is the most important single feature. Along the x-axis is the impact on model output, in this example the price in XXX. This axes is colored by the value of the feature, from \textcolor{blue}{low} (blue) to \textcolor{red}{high} (red). In this particular example we see that high values of the previous public property valuation has high, positive impact on the model prediction -- exactly as expected. This is exactly opposite the total days on market (DOM) described by the variable \code{LiggetidSamlet} where a high value has a negative impact.  
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 1, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_tight_SHAP_vals_summary.pdf}
+  \caption[Feature importance of apartments prices using XGB]
+          {Feature importance of apartment prices using the XGB-model. The feature importance is measured using SHAP values. The variables are sorted top to bottom according to their overall feature importance, i.e. the previous public property valuation \code{EjdVurdering_EjendomdsVaerdi0} is the most important single feature. Along the x-axis is the impact on model output, in this example the price in XXX. This axes is colored by the value of the feature, from \textcolor{blue}{low} (blue) to \textcolor{red}{high} (red). In this particular example we see that high values of the previous public property valuation has high, positive impact on the model prediction -- exactly as expected. This is exactly opposite the total days on market (DOM) described by the variable \code{LiggetidSamlet} where a high value has a negative impact.  
           } 
   \label{fig:h:shap_overview}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_tight_SHAP_vals_summary_all.pdf}
-  \caption[Total feature importance of apartment prices using LGB][6pt]
-          {Total feature importance of apartment prices using the LGB-model. The total feature importance is measured using SHAP values, more specifically the mean of the absolute SHAP values for each variable. This allows a ranking of all of the features ordered after the total importance. Here the total feature importance is scaled such that they sum to 1 when summing over all variables. The absolute total feature importance is in itself not important, but the relative values indicate the difference in feature importance. 
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_tight_SHAP_vals_summary_all.pdf}
+  \caption[Total feature importance of apartment prices using XGB]
+          {Total feature importance of apartment prices using the XGB-model. The total feature importance is measured using SHAP values, more specifically the mean of the absolute SHAP values for each variable. This allows a ranking of all of the features ordered after the total importance. Here the total feature importance is scaled such that they sum to 1 when summing over all variables. The absolute total feature importance is in itself not important, but the relative values indicate the difference in feature importance. 
           } 
   \label{fig:h:shap_overview_total}
 \end{figure}
 
 
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_SHAP_fig_loc=489266.pdf}
-  \caption[SHAP Prediction Explanation for apartment][6pt]
-          {Model explanation for LGB model for a specific apartment. The bars are the variables in the dataset that the model found most important sorted after their importance for this particular apartment. The bias bar refers to the expected value of the model, which is simply the mean of the training set which acts as the naive prediction baseline. The \q{cutoff positive (negative)} bars are the sum of the remaining positive (negative) values that are not shown. On the right hand side of the plot is the model prediction shown. The model prediction is the sum of all of the bars in the left par (5.36 in this example) calculated in $10^6$ DKK. The \textcolor{red}{negative} values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_SHAP_fig_loc=489266.pdf}
+  \caption[SHAP Prediction Explanation for apartment]
+          {Model explanation for XGB model for a specific apartment. The bars are the variables in the dataset that the model found most important sorted after their importance for this particular apartment. The bias bar refers to the expected value of the model, which is simply the mean of the training set which acts as the naive prediction baseline. The \q{cutoff positive (negative)} bars are the sum of the remaining positive (negative) values that are not shown. On the right hand side of the plot is the model prediction shown. The model prediction is the sum of all of the bars in the left par (5.36 in this example) calculated in $10^6$ DKK. The \textcolor{red}{negative} values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
           } 
   \label{fig:h:shap_single_apartment}
 \end{figure}
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_score_over_time_random.pdf}
-  \caption[Hyperparameter optimization: random search results][6pt]
-          {The results of running random search (RS) as hyperparameter optimization (HPO) on apartments using the LGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of iteration number.  
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+  \caption[Hyperparameter optimization: random search results]
+          {The results of running random search (RS) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of iteration number.  
           } 
-  \label{fig:h:RS_lgb_apartment}
+  \label{fig:h:RS_xgb_apartment}
 \end{figure}
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_score_over_time_BO.pdf}
-  \caption[Hyperparameter optimization: Bayesian optimization results][6pt]
-          {The results of running Bayesian optimization (BO) as hyperparameter optimization (HPO) on apartments using the LGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of iteration number. The first XXX iterations are run as RS for use as input to the internal optimization algorithm, the last XX iterations are thus the \q{smart} BO guesses.
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
+  \caption[Hyperparameter optimization: Bayesian optimization results]
+          {The results of running Bayesian optimization (BO) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of iteration number. The first XXX iterations are run as RS for use as input to the internal optimization algorithm, the last XX iterations are thus the \q{smart} BO guesses.
           } 
-  \label{fig:h:BO_lgb_apartment}
+  \label{fig:h:BO_xgb_apartment}
 \end{figure}
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all_lgb_early_stopping_fig.pdf}
-  \caption[Early Stopping results][6pt]
-          {The results of early stopping on apartments using the LGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of number of estimators (trees). In orange the \textcolor{orange}{\q{best} number of estimators} is shown, defined as the lowest number of estimators which are still within 1 SDOM of the minimum value. This leads to a model that has a performance that is within 1 SDOM of the best model, but a lot simpler and faster.  
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_early_stopping_fig.pdf}
+  \caption[Early Stopping results]
+          {The results of early stopping on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of number of estimators (trees). In orange the \textcolor{orange}{\q{best} number of estimators} is shown, defined as the lowest number of estimators which are still within 1 SDOM of the minimum value. This leads to a model that has a performance that is within 1 SDOM of the best model, but a lot simpler and faster.  
           } 
   \label{fig:h:early_stopping}
 \end{figure}
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 35 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all__MAD_gridsearch_obj.pdf}
-  \caption[Comparison of different objective functions][6pt]
+  \includegraphics[width=0.9\textwidth, trim=0 35 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_obj.pdf}
+  \caption[Comparison of different objective functions]
           {Comparison of performance (measured using the median of the absolute deviation, MAD, for apartments) of the five different objective functions: RMSE, LogCosh, Cauchy, Welsch, and Fair. We see that the default objective function, RMSE, does a reasonable job, however, the LogCosh function is a clear improvement.
           } 
   \label{fig:h:objective_functions_performance}
@@ -1309,8 +1397,8 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all__MAD_gridsearch_half.pdf}
-  \caption[Comparison of different half times weights][6pt]
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_half.pdf}
+  \caption[Comparison of different half times weights]
           {Comparison of performance (measured using the median of the absolute deviation, MAD, on apartments) of the five different half time weights: 2.5, 5, 10, 20, inf/None. We see that using no half time weights does has the worst performance, whereas a 5-year half time weight has the best performance (although with a very high uncertainty).
           } 
   \label{fig:h:half_time_performance}
@@ -1319,11 +1407,11 @@ Outside referencing isn't different: In fig.~\ref{fig:h:variable_overview}: Two 
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 70, clip]{figures/housing/Ejerlejlighed_v17_cut_all_Ncols_all__lgb_forecast_prediction_2018.pdf}
-  \caption[2018 LGB Forecast][6pt]
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 70, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_forecast_prediction_2018.pdf}
+  \caption[2018 XGB Forecast]
           {Performance of 1-month forecasts for 2018 for apartments. For both plots the LGM model is trained on data up to (but excluding) 2018. Top) The performance of the static model's prediction on sales in the individual months of 2018 is shown for both the \textcolor{blue}{mean} and \textcolor{red}{median} of the $z$-scores. Bottom) Same as above, however this time based a dynamic model, i.e. a model which is retrained after every month to include the previous month's sales.
           } 
-  \label{fig:h:forecast_2018_lgb}
+  \label{fig:h:forecast_2018_xgb}
 \end{figure}
 
 
@@ -1371,7 +1459,7 @@ italicized text and separated from the main paragraph by a bit of space.
 
 \begin{figure}
   \includegraphics[width=0.9\textwidth]{figures/feynman_diagrams/eeZqqg.pdf}
-  \caption[Feynman diagram for the jet production at LEP][6pt]{Feynman diagram showing the $e^+ e^- \rightarrow Z^0$ production at LEP. The $Z^0$ has several decay modes where the $Z \rightarrow q\bar{q}g$ is shown here.}
+  \caption[Feynman diagram for the jet production at LEP]{Feynman diagram showing the $e^+ e^- \rightarrow Z^0$ production at LEP. The $Z^0$ has several decay modes where the $Z \rightarrow q\bar{q}g$ is shown here.}
   \label{fig:hep:feynman_3j_qqg}
   %\zsavepos{pos:textfig}
 \end{figure}
@@ -1437,7 +1525,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Histograms of the vertex variables][6pt]
+  \caption[Histograms of the vertex variables]
           {Histograms of the three vertex variables, \code{projet}, \code{bqvjet}, and \code{ptljet}, used as input variables in the b-tagging models. In blue colors the variables are shown for \textcolor{blue}{true b-jets}, in red for \textcolor{red}{true c-jets}, in green for \textcolor{green}{true g-jets}, and in orange for \textcolor{orange}{all of the jets} (including non q-matched). In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. Notice the logarithmic y-axis, that there are no g-jets for 2-jet events (as expected), and that all of the distributions are very similar not matter how many jets.
           } 
   \label{fig:q:vertex_variables}
@@ -1447,7 +1535,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=20 20 50 50, clip]{figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf}
-  \caption[UMAP vizualisation of vertex variables][6pt]
+  \caption[UMAP vizualisation of vertex variables]
           {Vizualisation of the vertex variables for the different categories: \textcolor{blue}{true b-jets} in blue, \textcolor{red}{true c-jets} in red, \textcolor{green}{true uds-jets} in green, \textcolor{orange}{true g-jets} in orange, and \textcolor{purple}{non q-matched}. The clustering is performed with the UMAP algorithm which outputs a 2D-projection. This projection is then visualized using the Datashader which takes takes care of point size, avoids over- and under-plotting, and color intensity. 
           } 
   \label{fig:q:UMAP_vertex}
@@ -1457,8 +1545,8 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-tag scores in 3-jet events][6pt]
-          {Histogram of b-tag scores (model prediction) in 3-jet events for \textcolor{blue}{NNB} (the neural network trained by ATLAS, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. We see that the LGB predictions closely match those of NNB which is a good confirmation of a successful fit.  
+  \caption[b-tag scores in 3-jet events]
+          {Histogram of b-tag scores (model prediction) in 3-jet events for \textcolor{blue}{NNB} (the neural network trained by ATLAS, also called \code{nnbjet}) in blue, \textcolor{red}{XGB} in red, and \textcolor{green}{XGB} in green. We see that the XGB predictions closely match those of NNB which is a good confirmation of a successful fit.  
           } 
   \label{fig:q:btag_scores_3j}
 \end{figure}
@@ -1468,8 +1556,8 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[ROC curve for b-tag in 4-jet events][6pt]
-          {ROC curve of the three b-tag models in 3-jet events for \textcolor{blue}{NNB} (the neural network trained by ATLAS, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the Area Under Curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. In the particle physics community False Positive Rate (FPR) is sometimes better known as background efficiency and True Positive Rate (TPR) as signal efficiency.  
+  \caption[ROC curve for b-tag in 4-jet events]
+          {ROC curve of the three b-tag models in 3-jet events for \textcolor{blue}{NNB} (the neural network trained by ATLAS, also called \code{nnbjet}) in blue, \textcolor{red}{XGB} in red, and \textcolor{green}{XGB} in green. In the legend the Area Under Curve (AUC) is also shown. Notice that the XGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. In the particle physics community False Positive Rate (FPR) is sometimes better known as background efficiency and True Positive Rate (TPR) as signal efficiency.  
           } 
   \label{fig:q:roc_btag_4j}
 \end{figure}
@@ -1479,9 +1567,9 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[g-tag scores in 4-jet events][6pt]
+  \caption[g-tag scores in 4-jet events]
           {
-            Histogram of g-tag scores (model prediction) in 4-jet events for \textcolor{blue}{LGB: Energy Ordered} in blue, \textcolor{red}{LGB: Shuffled} in red, \textcolor{green}{LGB: All Permutations} in green, \textcolor{orange}{LGB: Sum 1D} in orange, \textcolor{purple}{PermNet: Energy Ordered} in purple, \textcolor{light-blue}{PermNet: Shuffled} in light-blue, \textcolor{light-green}{PermNet: All Permutations} in light-green, \textcolor{light-purple}{PermNet: Sum 1D} in light-purple.  Here LGB and PermNet are the two different type of models and \q{Energy Ordered}, \q{Shuffled}, \q{All Permutations}, and \q{Sum 1D} are the different methods used for making the input data permutation invariant.  
+            Histogram of g-tag scores (model prediction) in 4-jet events for \textcolor{blue}{XGB: Energy Ordered} in blue, \textcolor{red}{XGB: Shuffled} in red, \textcolor{green}{XGB: All Permutations} in green, \textcolor{orange}{XGB: Sum 1D} in orange, \textcolor{purple}{PermNet: Energy Ordered} in purple, \textcolor{light-blue}{PermNet: Shuffled} in light-blue, \textcolor{light-green}{PermNet: All Permutations} in light-green, \textcolor{light-purple}{PermNet: Sum 1D} in light-purple.  Here XGB and PermNet are the two different type of models and \q{Energy Ordered}, \q{Shuffled}, \q{All Permutations}, and \q{Sum 1D} are the different methods used for making the input data permutation invariant.  
           }   
   \label{fig:q:gtag_scores_4j}
 \end{figure}
@@ -1489,8 +1577,8 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[g-tag scores in 4-jet events for signal and background][6pt]
-          {Histogram of g-tag scores (model prediction) from the LGB-model in 4-jet events for \textcolor{blue}{b signal} in blue, \textcolor{red}{c signal} in red, \textcolor{green}{l signal} in green, \textcolor{orange}{b background} in orange, \textcolor{purple}{c background} in purple, \textcolor{light-blue}{l background} in light-blue.
+  \caption[g-tag scores in 4-jet events for signal and background]
+          {Histogram of g-tag scores (model prediction) from the XGB-model in 4-jet events for \textcolor{blue}{b signal} in blue, \textcolor{red}{c signal} in red, \textcolor{green}{l signal} in green, \textcolor{orange}{b background} in orange, \textcolor{purple}{c background} in purple, \textcolor{light-blue}{l background} in light-blue.
           } 
   \label{fig:q:gtag_scores_4j_sig_bkg}
 \end{figure}
@@ -1501,9 +1589,9 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[ROC curve for g-tag in 4-jet events][6pt]
+  \caption[ROC curve for g-tag in 4-jet events]
           {ROC curve of the eight g-tag models in 4-jet events. First one in dashed black is the ROC curve that you get by random chance. The colors are the same as in \figref{fig:q:gtag_scores_4j} and in the legend also the Area Under the ROC curve (AUC) is shown. 
-          Notice that the LGB model which uses the energy ordered data produced the best model, however, this model is not permutation invariant. Of the permutation invariant models (the rest), the LGB model trained on all permutations of the b-tags performs highest. The lowest performing models are the two models trained only on the 1-dimensional sum of b-tags, as expected, however, still with a better performance than expected by the author.  
+          Notice that the XGB model which uses the energy ordered data produced the best model, however, this model is not permutation invariant. Of the permutation invariant models (the rest), the XGB model trained on all permutations of the b-tags performs highest. The lowest performing models are the two models trained only on the 1-dimensional sum of b-tags, as expected, however, still with a better performance than expected by the author.  
           } 
   \label{fig:q:roc_gtag_4j}
 \end{figure}
@@ -1514,8 +1602,8 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[1D Sum Model Cuts for 4-jets][6pt]
-          {Histogram of the distribution of \textcolor{blue}{signal} in blue and \textcolor{red}{background} in red for 1-dimensional sum of b-tags training data. A histogram of the \textcolor{green}{cut values} from the LGB model trained on this data is shown in green together with a rug plot of the cut values in black. Notice how most of the cuts match up with the signal peak at around a $\sum \beta_i \sim 2.1$, however, there are also quite a lot of cuts around $\sum \beta_i \sim 0.5$.
+  \caption[1D Sum Model Cuts for 4-jets]
+          {Histogram of the distribution of \textcolor{blue}{signal} in blue and \textcolor{red}{background} in red for 1-dimensional sum of b-tags training data. A histogram of the \textcolor{green}{cut values} from the XGB model trained on this data is shown in green together with a rug plot of the cut values in black. Notice how most of the cuts match up with the signal peak at around a $\sum \beta_i \sim 2.1$, however, there are also quite a lot of cuts around $\sum \beta_i \sim 0.5$.
           } 
   \label{fig:q:1d_sum_model_cuts_4j}
 \end{figure}
@@ -1523,8 +1611,8 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[1D Sum Models Predictions and Signal Fraction for 4-jets][6pt]
-          {Plot of the (1D) g-tag scores as a function of $\sum \beta_i$ for the \textcolor{blue}{LGB} model in blue and the \textcolor{red}{PermNet} model in red. Here the g-tag scores are just the models' output values when input a uniformly spaced grid of $\sum \beta_i$ values between 0 and 4. The signal fraction (based on the signal and background histograms in \figref{fig:q:1d_sum_model_cuts_4j}) is plotted as black error bars where the size of the error bars is based on the propagated uncertainties of the signal and background histogram assuming Poissonian statistics. Notice how both models capture the overall trend of the signal fraction with the PermNet being particularly close. 
+  \caption[1D Sum Models Predictions and Signal Fraction for 4-jets]
+          {Plot of the (1D) g-tag scores as a function of $\sum \beta_i$ for the \textcolor{blue}{XGB} model in blue and the \textcolor{red}{PermNet} model in red. Here the g-tag scores are just the models' output values when input a uniformly spaced grid of $\sum \beta_i$ values between 0 and 4. The signal fraction (based on the signal and background histograms in \figref{fig:q:1d_sum_model_cuts_4j}) is plotted as black error bars where the size of the error bars is based on the propagated uncertainties of the signal and background histogram assuming Poissonian statistics. Notice how both models capture the overall trend of the signal fraction with the PermNet being particularly close. 
           } 
   \label{fig:q:1d_sum_models_signal_fraction_4j}
 \end{figure}
@@ -1534,8 +1622,8 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 60, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Hyperparameter Optimization of b- and g-tagging][6pt]
-          {Hyperparameter Optimization (HPO) results after running 100 iterations of Random Search (only 10 for XGB). In the top row are the results of the 3-jet models and in the bottom row the results of the 4-jet models. From left to right, we have first) the b-tagging results of LGB, second) the b-tagging results of XGB using only 10 iterations of RS, third) the g-tagging results of LGB fit on the Energy Ordered b-tags, and forth) the g-tagging results of LGB fit on the shuffled b-tags. Notice the different ranges on the y-axes.
+  \caption[Hyperparameter Optimization of b- and g-tagging]
+          {Hyperparameter Optimization (HPO) results after running 100 iterations of Random Search (only 10 for XGB). In the top row are the results of the 3-jet models and in the bottom row the results of the 4-jet models. From left to right, we have first) the b-tagging results of XGB, second) the b-tagging results of XGB using only 10 iterations of RS, third) the g-tagging results of XGB fit on the Energy Ordered b-tags, and forth) the g-tagging results of XGB fit on the shuffled b-tags. Notice the different ranges on the y-axes.
           } 
   \label{fig:q:CV_res_iterations}
 \end{figure}
@@ -1543,7 +1631,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Overview of Hyperparamaters of g-tagging for 3-jet shuffled events][6pt]
+  \caption[Overview of Hyperparamaters of g-tagging for 3-jet shuffled events]
           {Hyperparameter optimization results of g-tagging for 3-jet shuffled events. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by AUC from \textcolor{viridis-dark}{highest} AUC in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. 
           } 
   \label{fig:q:CV_res_parallel_coords}
@@ -1553,7 +1641,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf}
-  \caption[SHAP Prediction Explanation for b-like jet][6pt]
+  \caption[SHAP Prediction Explanation for b-like jet]
           {Model explanation for the 3-jet b-tagging model for a b-like jet. The first column is the bias of the training set which acts as the naive prediction baseline, the rest are the input data variables. On the right hand side of the plot is the model prediction shown. The left part of the plot is shown in log-odds space, the right part in probability space. The model prediction is the sum of the log-odds (5.09 in this example) transformed into probability space. The \textcolor{red}{negative} log-odd values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
           } 
   \label{fig:q:shap_signal}
@@ -1562,7 +1650,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
-  \caption[Monte Carlo -- Data bias for b-tags and jet energy][6pt]
+  \caption[Monte Carlo -- Data bias for b-tags and jet energy]
           {Comparison of the b-tag and jet energy (\code{Ejet}) distributions for Monte Carlo (MC) versus data. In the top row the 2D-distributions are shown for MC on the left (without the extra MCb samples) and data on the right. In the bottom row the 1D marginal distrubtions are shown for the b-tag and the jet energy with \textcolor{red}{data} in red and \textcolor{blue}{Monte Carlo} ones in blue. Notice the the almost identical distributions in b-tag. 
           } 
   \label{fig:q:btag_Ejet_comparison}
@@ -1570,7 +1658,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_b^{b\mathrm{-sig}}$ as a function of jet energy][6pt]
+  \caption[b-Tagging Efficiency $\varepsilon_b^{b\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for b-jets in the b-signal region for 3-jet events, $\varepsilon_b^{b\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The b-signal region is defined as $\beta > 0.9$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
           } 
   \label{fig:q:effiency_btag_bjet_bsig}
@@ -1579,7 +1667,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_b^{g\mathrm{-sig}}$ as a function of jet energy][6pt]
+  \caption[b-Tagging Efficiency $\varepsilon_b^{g\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for b-jets in the g-signal region for 3-jet events, $\varepsilon_b^{g\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The g-signal region is defined as $\beta < 0.4$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
           } 
   \label{fig:q:effiency_btag_bjet_gsig}
@@ -1588,7 +1676,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_g^{g\mathrm{-sig}}$ as a function of jet energy][6pt]
+  \caption[b-Tagging Efficiency $\varepsilon_g^{g\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for g-jets in the g-signal region for 3-jet events, $\varepsilon_g^{g\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The g-signal region is defined as $\beta < 0.4$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
           } 
   \label{fig:q:effiency_btag_gjet_gsig}
@@ -1596,7 +1684,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_g^{b\mathrm{-sig}}$ as a function of jet energy][6pt]
+  \caption[b-Tagging Efficiency $\varepsilon_g^{b\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for g-jets in the b-signal region for 3-jet events, $\varepsilon_g^{b\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The b-signal region is defined as $\beta > 0.9$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis.  
           } 
   \label{fig:q:effiency_btag_gjet_bsig}
@@ -1605,7 +1693,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of the mean invariant mass][6pt]
+  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of the mean invariant mass]
           {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\mathrm{-sig}} \cdot \varepsilon_{\bar{b}}^{b\mathrm{-sig}} \cdot  \varepsilon_g^{g\mathrm{-sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
           } 
   \label{fig:q:effiency_btag_bbg_m_mean}
@@ -1614,7 +1702,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of g-tag][6pt]
+  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of g-tag]
           {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the event's g-tag. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\mathrm{-sig}} \cdot \varepsilon_{\bar{b}}^{b\mathrm{-sig}} \cdot  \varepsilon_g^{g\mathrm{-sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
           } 
   \label{fig:q:effiency_btag_bbg_gtag}
@@ -1624,7 +1712,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip, page=1]{figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference][6pt]
+  \caption[g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference]
           {Efficiency of the g-tags for 4-jet events as a function of normalized gluon gluon jet energy difference in Monte Carlo. The efficiency is measured as the number of events with a g-tag higher than 0.8 ($\gamma > 0.8$) out of the total number and the normalized gluon gluon jet energy difference $A$ is $A=\frac{E_{g_\mathrm{max}}-E_{g_\mathrm{min}}}{E_{g_\mathrm{max}}+E_{g_\mathrm{min}}}$ where $E_{g_\mathrm{max}}$ ($E_{g_\mathrm{min}}$) refers to the energy of the gluon with the highest (lowest) energy. The efficiency is plotted for \textcolor{blue}{signal events} according to MC Truth in blue and \textcolor{red}{background events} according to MC Truth in red.
           } 
   \label{fig:q:effiency_gtag_E_diff}
@@ -1633,7 +1721,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 65, clip, page=1]{figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
-  \caption[Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference][6pt]
+  \caption[Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference]
           {Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference. The corrected g-taggingg model is described in further detail in section XXX \TODO. In the top part of the plot the \textcolor{blue}{MC Truth} is shown in blue, the \textcolor{red}{corrected g-tagging model} \code{"PDF 2gg"} in red, the \textcolor{green}{g-signal distribution} in semi-transparent green and the \textcolor{orange}{g-sideband distribution} in semi-transparent orange. In the bottom part of the plot the ratio between MC Truth and the output of the corrected g-tagging model is shown. The normalized gluon gluon jet energy difference $A$ is $A=\frac{E_{g_\mathrm{max}}-E_{g_\mathrm{min}}}{E_{g_\mathrm{max}}+E_{g_\mathrm{min}}}$ where $E_{g_\mathrm{max}}$ ($E_{g_\mathrm{min}}$) refers to the energy of the gluon with the highest (lowest) energy.
           } 
   \label{fig:q:closure_E_diff}
@@ -1642,7 +1730,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 118, clip, page=1]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4}
-  \caption[R kt CA overview  XXX \TODO][6pt]
+  \caption[R kt CA overview  XXX \TODO]
           {R kt CA overview XXX \TODO
           } 
   \label{fig:q:R_kt_CA_overview}
@@ -1650,7 +1738,7 @@ there is no number in the main text where this note was written.}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip, page=2]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4}
-  \caption[R kt CA cut region A  XXX \TODO][6pt]
+  \caption[R kt CA cut region A  XXX \TODO]
           {R kt CA cut region A XXX \TODO
           } 
   \label{fig:q:R_kt_CA_cut_A}
@@ -1760,7 +1848,7 @@ environment and figure~\ref{fig:textfig} is an example of the normal
 \begin{figure}
   \includegraphics{hilbertcurves.pdf}
 %  \checkparity This is an \pageparity\ page.%
-  \caption[Hilbert curves of various degrees $n$.][6pt]{Hilbert curves of various degrees $n$. \emph{Notice that this figure only takes up the main textblock width.}}
+  \caption[Hilbert curves of various degrees $n$.]{Hilbert curves of various degrees $n$. \emph{Notice that this figure only takes up the main textblock width.}}
   \label{fig:textfig}
   %\zsavepos{pos:textfig}
 \end{figure}
@@ -1785,7 +1873,7 @@ provided in order. Thus, to specify an \docopt{offset} without specifying a
 \Verb|[]|, which tell \doccmd{caption} to use the default ``long'' caption. As
 an example, the caption to figure~\ref{fig:textfig} above was given in the form
 \begin{docspec}
-  \doccmd{caption}[Hilbert curves...][6pt]\{Hilbert curves...\}
+  \doccmd{caption}[Hilbert curves...]\{Hilbert curves...\}
 \end{docspec}
 
 Table~\ref{tab:normaltab} shows table created with the \docpkg{booktabs}
@@ -2165,6 +2253,19 @@ classes rely upon.  Packages marked with an asterisk are optional.
 
 %%
 % The back matter contains appendices, bibliographies, indices, glossaries, etc.
+
+\appendix
+\chapter{Housing Prices Appendix}
+
+\begin{figure*}
+  \includegraphics[width=0.9\textwidth, trim=10 10 10 10, clip]{figures/housing/missing_heatmap.pdf}
+  \caption[Validity Heatmap]
+          {XXXX \TODO.}
+  \label{fig:h:nans_heatmap}
+\end{figure*}
+
+
+\chapter{Quarks vs. Gluons Appendix}
 
 
 \backmatter

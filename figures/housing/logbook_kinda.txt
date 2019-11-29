@@ -1,0 +1,602 @@
+(0, 'ID')
+(1, 'SalgsPris')
+(2, 'SalgsDato')
+(3, 'OISSalgDato')
+(4, 'SagtypeNr')
+(5, 'SalgsType')
+(6, 'GeoKommuneNr')
+(7, 'GeoPostNr')
+(8, 'PostHovedNr')
+(9, 'Vejkode')
+(10, 'HusNr')
+(11, 'Etage')
+(12, 'SidedoerNr')
+(13, 'GisX')
+(14, 'GisY')
+(15, 'GisX_ETRS89')
+(16, 'GisY_ETRS89')
+(17, 'GisX_WGS84')
+(18, 'GisY_WGS84')
+(19, 'Vejnavn')
+(20, 'EjendomsNr')
+(21, 'ArealBolig')
+(22, 'ArealKaelder')
+(23, 'ArealGrund')
+(24, 'ArealVaegtet')
+(25, 'BeregnetAreal')
+(26, 'AntalRum')
+(27, 'AntalEtager')
+(28, 'ByggeAAr')
+(29, 'OmbygningsAAr')
+(30, 'EnergiMaerke')
+(31, 'EnergiLov')
+(32, 'UdenAnnoncering')
+(33, 'ProjektSalg')
+(34, 'AnnonceretDato')
+(35, 'OprettetDato')
+(36, 'SlettetDato')
+(37, 'LiggetidAktuel')
+(38, 'LiggetidSamlet')
+(39, 'Kontantpris')
+(40, 'KontantprisOprettet')
+(41, 'KontantprisNedsatIalt')
+(42, 'HovedEjendomsnr')
+(43, 'BBRbygningNr')
+(44, 'EnhedAntalVaerelserBeboelse')
+(45, 'EnhedAntalVaerelserErhverv')
+(46, 'EnhedAntalBad')
+(47, 'EnhedAntalToilet')
+(48, 'EnhedSamletAreal')
+(49, 'EnhedArealBeboelse')
+(50, 'EnhedArealErhverv')
+(51, 'EnhedArealAndet')
+(52, 'EnhedArealFaellesAdgang')
+(53, 'EnhedArealAabenOverdaekning')
+(54, 'EnhedArealLukketOverdaekning')
+(55, 'BygningFredningskode')
+(56, 'BygningOpfoerselesAAr')
+(57, 'BygningOmbygningsAAr')
+(58, 'BygningAntalEtagerUdenKldTag')
+(59, 'BygningAntalBoligerKooekken')
+(60, 'BygningAntalBoligerUdenKoekken')
+(61, 'BygningMaterialeYdervaegKode')
+(62, 'BygningMaterialeTagdaegningsKode')
+(63, 'BygningMaterialeSuplYdervaegKode')
+(64, 'BygningMaterialeSuplTagdaegningsKode')
+(65, 'BygningMaterialeAsbestKode')
+(66, 'BygningVarmeInstalKode')
+(67, 'BygningOpvarmningKode')
+(68, 'BygningSuplerendeVarmeKode')
+(69, 'BygningVandforsyningKode')
+(70, 'BygningAfloebsForholdKode')
+(71, 'BygningGrundplanBebbyget')
+(72, 'BygningGrundplanHerafAffaldsrum')
+(73, 'BygningGrundplanHerafIndbyggetGarage')
+(74, 'BygningGrundplanHerafIndbyggetCarport')
+(75, 'BygningGrundplanHerafIndbUdhus')
+(76, 'BygningGrundplanHerafUdstue')
+(77, 'BygningGrundplanOverdaekket')
+(78, 'BygningAHBSamletBygning')
+(79, 'BygningAHBHerafUdvIsolering')
+(80, 'BygningAHBKaelderSamlet')
+(81, 'BygningAHBKaelderUnder125cm')
+(82, 'BygningAHBTagSamlet')
+(83, 'BygningAHBTagBeboelse')
+(84, 'BygningAHBLukkedeOverdaekning')
+(85, 'BygningArealAnvendelseSamletBolig')
+(86, 'BygningArealAnvendelseHerafKaelder')
+(87, 'BygningArealAnvendelseSamletErhverv')
+(88, 'BygningArealAnvendelseAdgang')
+(89, 'BygningArealAnvendelseAndet')
+(90, 'BygningArealAnvendelseAabenOverdaekning')
+(91, 'HisKVHX')
+(92, 'HisSalgsDatoNu')
+(93, 'HisSalgstypeNu')
+(94, 'HisSalgsDato1')
+(95, 'HisSalgsPris1')
+(96, 'HisSalgstype1')
+(97, 'HisSalgsDato2')
+(98, 'HisSalgsPris2')
+(99, 'HisSalgstype2')
+(100, 'HisSalgsDato3')
+(101, 'HisSalgsPris3')
+(102, 'HisSalgstype3')
+(103, 'HisSalgsDato4')
+(104, 'HisSalgsPris4')
+(105, 'HisSalgstype4')
+(106, 'kvhx')
+(107, 'Faengsel')
+(108, 'Hede')
+(109, 'Hoejspaendingsledning')
+(110, 'Industri')
+(111, 'JernbaneSynlig')
+(112, 'Kirke')
+(113, 'Kirkegaard')
+(114, 'Kyst')
+(115, 'Landingsbane')
+(116, 'Motorvej')
+(117, 'MotorvejTilFraKoersel')
+(118, 'RekreativtOmraade')
+(119, 'Rigsgraense')
+(120, 'Sportsanlaeg')
+(121, 'Strand')
+(122, 'Vindmoelle')
+
+
+Feltet overdragelsekode fra OIS historiske salgsprise
+1 = Almindelig frit salg, 2 = Familieoverdragelse, 3 = Auktion, 4 = Salg i øvrigt
+
+SagtypeNr:
+    Nr    Navn
+  100    Villa  
+  200    Rækkehus
+  300    Ejerlejlighed
+  400    Fritidsbolig
+  401    Kolonihave
+  500    Andelsbolig
+  600    Landejendom
+  700    Helårsgrund
+  800    Fritidsgrund
+  900    Villa lejlighed
+1000    Kvæggård
+1100    Svinegård
+1200    Planteavlsgård
+1300    Skovejendom
+1400    Lystejendom
+1500    Specialejendom
+
+
+Counts
+SagtypeNr
+100     282865
+200      33774
+300      98178
+400      51095
+401         77
+500        566
+600       9097
+700       6565
+800       1302
+900        769
+1000       337
+1100       251
+1200       550
+1300        28
+1400      4768
+1500        73
+
+
+
+
+København, uden gamle priser):
+Regression Results
+XGBoost.        R^2 score: 0.672. Prediction within +11.6% / -11.3% at 1 sigma CI.
+XGBoost.        R^2 score: 0.672. Prediction within +/-11.4%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.672. Prediction within +33.5% / -24.3% at 2 sigma CI.
+XGBoost.        R^2 score: 0.672. Prediction within +/-28.4%        at 2 sigma CI.
+
+København, med 2 gamle priser):
+Regression Results
+XGBoost.        R^2 score: 0.789. Prediction within +11.1% / -11.4% at 1 sigma CI.
+XGBoost.        R^2 score: 0.789. Prediction within +/-11.3%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.789. Prediction within +32.5% / -24.2% at 2 sigma CI.
+XGBoost.        R^2 score: 0.789. Prediction within +/-27.7%        at 2 sigma CI.
+XGBoost.        36.4% within 5%, 63.6% within 10%, 89.1% within 20%,
+
+Danmark, med 2 gamle priser):
+Regression Results
+XGBoost.        R^2 score: 0.658. Prediction within +23.9% / -20.7% at 1 sigma CI.
+XGBoost.        R^2 score: 0.658. Prediction within +/-22.0%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.658. Prediction within +101.7% / -44.6% at 2 sigma CI.
+XGBoost.        R^2 score: 0.658. Prediction within +/-66.8%        at 2 sigma CI.
+
+Danmark, med 2 gamle priser:
+{'xgbregressor__max_depth': 10, 'xgbregressor__n_estimators': 1000, 'xgbregressor__min_child_weight': 3}
+Regression Results
+XGBoost.        R^2 score: 0.709. Prediction within +21.6% / -19.0% at 1 sigma CI.
+XGBoost.        R^2 score: 0.709. Prediction within +/-20.2%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.709. Prediction within +92.4% / -42.6% at 2 sigma CI.
+XGBoost.        R^2 score: 0.709. Prediction within +/-61.7%        at 2 sigma CI.
+XGBoost.        22.6% within 5%, 41.9% within 10%, 67.9% within 20%.
+
+
+Danmark, med 2 gamle priser:
+best parameters, with no old price information:
+'xgbregressor__max_depth': 30, 'xgbregressor__n_estimators': 1000, 'xgbregressor__learning_rate': 0.01, 'xgbregressor__subsample': 0.6, 'xgbregressor__min_child_weight': 4}
+Regression Results
+XGBoost.        R^2 score: 0.710. Prediction within +21.4% / -19.8% at 1 sigma CI.
+XGBoost.        R^2 score: 0.710. Prediction within +/-20.5%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.710. Prediction within +95.4% / -44.4% at 2 sigma CI.
+XGBoost.        R^2 score: 0.710. Prediction within +/-64.6%        at 2 sigma CI.
+XGBoost.        23.0% within 5%, 41.7% within 10%, 67.3% within 20%.
+
+Danmark, alle variable (næsten), Villa
+xgbregressor__max_depth': 10, 'xgbregressor__n_estimators': 1000, 'xgbregressor__min_child_weight': 5
+Regression Results
+XGBoost.        R^2 score: 0.893. Prediction within +19.3% / -17.4% at 1 sigma CI.
+XGBoost.        R^2 score: 0.893. Prediction within +/-18.2%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.893. Prediction within +76.0% / -37.8% at 2 sigma CI.
+XGBoost.        R^2 score: 0.893. Prediction within +/-52.9%        at 2 sigma CI.
+XGBoost.        24.3% within 5%, 44.6% within 10%, 72.1% within 20%.
+
+Danmark, important variables, Villa
+{'xgbregressor__max_depth': 10, 'xgbregressor__n_estimators': 10000, 'xgbregressor__min_child_weight': 5}
+Regression Results
+XGBoost.        R^2 score: 0.894. Prediction within +19.2% / -17.3% at 1 sigma CI.
+XGBoost.        R^2 score: 0.894. Prediction within +/-18.0%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.894. Prediction within +76.1% / -38.0% at 2 sigma CI.
+XGBoost.        R^2 score: 0.894. Prediction within +/-52.9%        at 2 sigma CI.
+XGBoost.        24.7% within 5%, 44.7% within 10%, 72.1% within 20%.
+
+
+
+
+
+
+
+
+
+
+
+
+Danmark, alle variable (næsten), Villa, n=10.000, no grid search
+xgbregressor__max_depth': 10, 'xgbregressor__n_estimators': 10000, 'xgbregressor__min_child_weight': 5
+Regression Results
+XGBoost.        R^2 score: 0.866. Prediction within +20.4% / -18.3% at 1 sigma CI.
+XGBoost.        R^2 score: 0.866. Prediction within +/-19.2%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.866. Prediction within +75.6% / -39.5% at 2 sigma CI.
+XGBoost.        R^2 score: 0.866. Prediction within +/-53.7%        at 2 sigma CI.
+XGBoost.        22.7% within 5%, 42.7% within 10%, 70.1% within 20%.
+
+
+
+
+
+Danmark, lejligheder, alle variable, 
+'xgbregressor__max_depth': 10, 'xgbregressor__n_estimators': 10000, 'xgbregressor__min_child_weight': 5}
+
+XGBoost.        R^2 score: 0.941. Prediction within +11.6% / -10.2% at 1 sigma CI.
+XGBoost.        R^2 score: 0.941. Prediction within +/-10.8%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.941. Prediction within +31.7% / -22.2% at 2 sigma CI.
+XGBoost.        R^2 score: 0.941. Prediction within +/-27.0%        at 2 sigma CI.
+XGBoost.        38.2% within 5%, 65.3% within 10%, 90.3% within 20%.
+
+Improved.       R^2 score: 0.936. Prediction within +11.0% / -9.7% at 1 sigma CI.
+Improved.       R^2 score: 0.936. Prediction within +/-10.3%        at 1 sigma CI.
+Improved.       R^2 score: 0.936. Prediction within +31.6% / -22.3% at 2 sigma CI.
+Improved.       R^2 score: 0.936. Prediction within +/-27.0%        at 2 sigma CI.
+Improved.       39.8% within 5%, 67.3% within 10%, 90.4% within 20%.
+
+Danmark, lejligheder, TPOT
+Regression Results
+XGBoost.        R^2 score: 0.931. Prediction within +12.3% / -10.8% at 1 sigma CI.
+XGBoost.        R^2 score: 0.931. Prediction within +/-11.5%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.931. Prediction within +34.4% / -22.7% at 2 sigma CI.
+XGBoost.        R^2 score: 0.931. Prediction within +/-28.6%        at 2 sigma CI.
+XGBoost.        35.1% within 5%, 62.3% within 10%, 89.1% within 20%.
+
+
+
+
+Danmark, rækkehuse
+xgbregressor__max_depth': 10, 'xgbregressor__n_estimators': 10000, 'xgbregressor__min_child_weight': 5}
+
+XGBoost.        R^2 score: 0.884. Prediction within +10.6% / -10.5% at 1 sigma CI.
+XGBoost.        R^2 score: 0.884. Prediction within +/-10.5%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.884. Prediction within +32.9% / -23.7% at 2 sigma CI.
+XGBoost.        R^2 score: 0.884. Prediction within +/-28.0%        at 2 sigma CI.
+XGBoost.        39.0% within 5%, 66.2% within 10%, 90.1% within 20%.
+
+Improved.       R^2 score: 0.876. Prediction within +10.2% / -10.8% at 1 sigma CI.
+Improved.       R^2 score: 0.876. Prediction within +/-10.6%        at 1 sigma CI.
+Improved.       R^2 score: 0.876. Prediction within +34.7% / -25.4% at 2 sigma CI.
+Improved.       R^2 score: 0.876. Prediction within +/-30.1%        at 2 sigma CI.
+Improved.       39.9% within 5%, 65.8% within 10%, 89.3% within 20%.
+
+Danmark, rækkehuse, TPOT
+Regression Results
+XGBoost.        R^2 score: 0.881. Prediction within +10.8% / -10.5% at 1 sigma CI.
+XGBoost.        R^2 score: 0.881. Prediction within +/-10.6%        at 1 sigma CI.
+XGBoost.        R^2 score: 0.881. Prediction within +34.2% / -23.1% at 2 sigma CI.
+XGBoost.        R^2 score: 0.881. Prediction within +/-28.6%        at 2 sigma CI.
+XGBoost.        40.0% within 5%, 66.0% within 10%, 90.0% within 20%.
+
+
+
+
+
+
+Lejlighed MSE.  R^2 score: 0.941. Prediction within +11.6% / -10.2% at 1 sigma CI.
+Lejlighed MSE.  R^2 score: 0.941. Prediction within +/-10.8%        at 1 sigma CI.
+Lejlighed MSE.  R^2 score: 0.941. Prediction within +31.7% / -22.2% at 2 sigma CI.
+Lejlighed MSE.  R^2 score: 0.941. Prediction within +/-27.0%        at 2 sigma CI.
+Lejlighed MSE.  38.2% within 5%, 65.3% within 10%, 90.3% within 20%.
+
+Lejlighed MSE imp. R^2 score: 0.936. Prediction within +11.0% / -9.7% at 1 sigma CI.
+Lejlighed MSE imp. R^2 score: 0.936. Prediction within +/-10.3%        at 1 sigma CI.
+Lejlighed MSE imp. R^2 score: 0.936. Prediction within +31.6% / -22.3% at 2 sigma CI.
+Lejlighed MSE imp. R^2 score: 0.936. Prediction within +/-27.0%        at 2 sigma CI.
+Lejlighed MSE imp. 39.8% within 5%, 67.3% within 10%, 90.4% within 20%.
+
+Lejlighed MAE.  R^2 score: 0.938. Prediction within +11.8% / -10.4% at 1 sigma CI.
+Lejlighed MAE.  R^2 score: 0.938. Prediction within +/-11.0%        at 1 sigma CI.
+Lejlighed MAE.  R^2 score: 0.938. Prediction within +33.5% / -22.7% at 2 sigma CI.
+Lejlighed MAE.  R^2 score: 0.938. Prediction within +/-27.5%        at 2 sigma CI.
+Lejlighed MAE.  38.0% within 5%, 64.3% within 10%, 89.4% within 20%.
+
+Lejlighed MAE imp. R^2 score: 0.936. Prediction within +11.2% / -9.9% at 1 sigma CI.
+Lejlighed MAE imp. R^2 score: 0.936. Prediction within +/-10.5%        at 1 sigma CI.
+Lejlighed MAE imp. R^2 score: 0.936. Prediction within +31.6% / -22.6% at 2 sigma CI.
+Lejlighed MAE imp. R^2 score: 0.936. Prediction within +/-26.6%        at 2 sigma CI.
+Lejlighed MAE imp. 39.2% within 5%, 66.1% within 10%, 90.2% within 20%.
+
+
+Villa MSE.      R^2 score: 0.866. Prediction within +20.4% / -18.3% at 1 sigma CI.
+Villa MSE.      R^2 score: 0.866. Prediction within +/-19.2%        at 1 sigma CI.
+Villa MSE.      R^2 score: 0.866. Prediction within +75.6% / -39.5% at 2 sigma CI.
+Villa MSE.      R^2 score: 0.866. Prediction within +/-53.7%        at 2 sigma CI.
+Villa MSE.      22.7% within 5%, 42.7% within 10%, 70.1% within 20%.
+
+Villa MSE imp.  R^2 score: 0.881. Prediction within +19.2% / -17.9% at 1 sigma CI.
+Villa MSE imp.  R^2 score: 0.881. Prediction within +/-18.5%        at 1 sigma CI.
+Villa MSE imp.  R^2 score: 0.881. Prediction within +75.8% / -37.3% at 2 sigma CI.
+Villa MSE imp.  R^2 score: 0.881. Prediction within +/-52.7%        at 2 sigma CI.
+Villa MSE imp.  24.8% within 5%, 44.4% within 10%, 71.6% within 20%.
+
+Villa MAE.      R^2 score: 0.866. Prediction within +20.4% / -18.3% at 1 sigma CI.
+Villa MAE.      R^2 score: 0.866. Prediction within +/-19.2%        at 1 sigma CI.
+Villa MAE.      R^2 score: 0.866. Prediction within +75.6% / -39.5% at 2 sigma CI.
+Villa MAE.      R^2 score: 0.866. Prediction within +/-53.7%        at 2 sigma CI.
+Villa MAE.      22.7% within 5%, 42.7% within 10%, 70.1% within 20%.
+
+Villa MAE imp.  R^2 score: 0.881. Prediction within +19.2% / -17.9% at 1 sigma CI.
+Villa MAE imp.  R^2 score: 0.881. Prediction within +/-18.5%        at 1 sigma CI.
+Villa MAE imp.  R^2 score: 0.881. Prediction within +75.8% / -37.3% at 2 sigma CI.
+Villa MAE imp.  R^2 score: 0.881. Prediction within +/-52.7%        at 2 sigma CI.
+Villa MAE imp.  24.8% within 5%, 44.4% within 10%, 71.6% within 20%.
+
+
+
+
+
+
+New data, 03.11.2017,
+
+	Villa:
+	Regression Results, including Vurdering, skat
+	XGBoost, Villa. R^2 score: 0.926. Prediction within +18.1% / -16.0% at 1 sigma CI.
+	XGBoost, Villa. R^2 score: 0.926. Prediction within +/-16.8%        at 1 sigma CI.
+	XGBoost, Villa. R^2 score: 0.926. Prediction within +64.7% / -33.5% at 2 sigma CI.
+	XGBoost, Villa. R^2 score: 0.926. Prediction within +/-46.4%        at 2 sigma CI.
+	XGBoost, Villa. 24.8% within 5%, 46.6% within 10%, 75.2% within 20%.
+
+	Villa:
+	Regression Results, excluding Vurdering, skat
+	XGBoost, Villa. R^2 score: 0.869. Prediction within +20.5% / -17.8% at 1 sigma CI.
+	XGBoost, Villa. R^2 score: 0.869. Prediction within +/-18.8%        at 1 sigma CI.
+	XGBoost, Villa. R^2 score: 0.869. Prediction within +75.9% / -37.1% at 2 sigma CI.
+	XGBoost, Villa. R^2 score: 0.869. Prediction within +/-53.7%        at 2 sigma CI.
+	XGBoost, Villa. 22.4% within 5%, 42.1% within 10%, 70.7% within 20%.
+
+
+
+	Ejerlejlighed:
+	Regression Results, including Vurdering, skat
+	XGBoost, Ejerlejlighed. R^2 score: 0.955. Prediction within +9.7% / -8.5% at 1 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.955. Prediction within +/-9.0%        at 1 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.955. Prediction within +24.6% / -18.7% at 2 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.955. Prediction within +/-21.7%        at 2 sigma CI.
+	XGBoost, Ejerlejlighed. 44.0% within 5%, 72.8% within 10%, 94.0% within 20%.
+
+	Ejerlejlighed:
+	Regression Results, excluding Vurdering, skat
+	XGBoost, Ejerlejlighed. R^2 score: 0.915. Prediction within +11.9% / -10.4% at 1 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.915. Prediction within +/-11.1%        at 1 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.915. Prediction within +33.0% / -22.5% at 2 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.915. Prediction within +/-27.4%        at 2 sigma CI.
+	XGBoost, Ejerlejlighed. 36.8% within 5%, 64.0% within 10%, 89.2% within 20%.
+
+
+
+
+
+
+# with ejerudgift
+
+	Stopping. Best iteration:
+	[4294]	validation_0-rmse:0.089322	validation_1-rmse:0.103443	validation_0-MSE:0.007978	validation_1-MSE:0.0107
+
+	Regression Results
+	XGBoost, Villa. R^2 score: 0.888. Prediction within +19.4% / -17.1% at 1 sigma CI.
+	XGBoost, Villa. R^2 score: 0.888. Prediction within +/-18.1%        at 1 sigma CI.
+	XGBoost, Villa. R^2 score: 0.888. Prediction within +75.2% / -36.8% at 2 sigma CI.
+	XGBoost, Villa. R^2 score: 0.888. Prediction within +/-51.8%        at 2 sigma CI.
+	XGBoost, Villa. 23.7% within 5%, 44.4% within 10%, 72.5% within 20%.
+
+
+	Stopping. Best iteration:
+	[4331]	validation_0-rmse:0.044975	validation_1-rmse:0.058459	validation_0-MSE:0.002023	validation_1-MSE:0.003417
+
+	Regression Results
+	XGBoost, Ejerlejlighed. R^2 score: 0.920. Prediction within +12.1% / -10.2% at 1 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.920. Prediction within +/-11.1%        at 1 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.920. Prediction within +32.9% / -22.5% at 2 sigma CI.
+	XGBoost, Ejerlejlighed. R^2 score: 0.920. Prediction within +/-27.7%        at 2 sigma CI.
+	XGBoost, Ejerlejlighed. 37.1% within 5%, 64.0% within 10%, 89.6% within 20%.
+
+
+
+
+
+{'xgbregressor__max_depth': 10, 'xgbregressor__min_child_weight': 5}
+{'xgbregressor__max_depth': 15, 'xgbregressor__min_child_weight': 15}
+{'xgbregressor__max_depth': 17, 'xgbregressor__min_child_weight': 20}
+{'xgbregressor__max_depth': 20, 'xgbregressor__min_child_weight': 30}
+{'xgbregressor__max_depth': 30, 'xgbregressor__min_child_weight': 50}
+{'xgbregressor__max_depth': 30, 'xgbregressor__min_child_weight': 50}
+{'xgbregressor__max_depth': 30, 'xgbregressor__min_child_weight': 50}
+{'xgbregressor__max_depth': 30, 'xgbregressor__min_child_weight': 50}
+
+seperate test and validation set, finding early stopping
+[1460]	validation_0-rmse:0.070494	validation_1-rmse:0.102676
+combined test and validation set
+[2192]	train-rmse:0.059615+0.000185714	test-rmse:0.101795+0.000527322
+
+
+Model Report for training
+RMSE : 2.835e+05
+MAE : 1.843e+05
+Early stopping happens after 2137 rounds
+
+Model Report for training
+RMSE : 3.02e+05
+MAE : 1.959e+05
+Early stopping happens after 1837 rounds
+
+
+08.11.2017: 
+	New method of first fitting to entire villa data set, then find most important features and N_estimators. 
+
+	Shape: 				(244594, 138) vs (244594, 77)
+	Early stopping:			 2137 	  vs     1837
+
+	Regression Results
+	XGBoost.        R^2 score: 0.897. Prediction within +19.3% / -16.7% at 1 sigma CI.
+	XGBoost.        R^2 score: 0.897. Prediction within +/-17.7%        at 1 sigma CI.
+	XGBoost.        R^2 score: 0.897. Prediction within +72.5% / -36.4% at 2 sigma CI.
+	XGBoost.        R^2 score: 0.897. Prediction within +/-51.3%        at 2 sigma CI.
+	XGBoost.        24.1% within 5%, 45.2% within 10%, 73.0% within 20%.
+	Improved.       R^2 score: 0.885. Prediction within +19.4% / -16.8% at 1 sigma CI.
+	Improved.       R^2 score: 0.885. Prediction within +/-17.8%        at 1 sigma CI.
+	Improved.       R^2 score: 0.885. Prediction within +73.0% / -36.4% at 2 sigma CI.
+	Improved.       R^2 score: 0.885. Prediction within +/-51.7%        at 2 sigma CI.
+	Improved.       24.3% within 5%, 45.1% within 10%, 72.7% within 20%. 
+
+
+	hyperparameters_xgb_1 = { 'xgbregressor__max_depth' : [5, 6, 7, 8, 9],
+	                          'xgbregressor__min_child_weight': [1, 2, 3]}
+
+    Best parameters set found on development set:
+	{'xgbregressor__max_depth': 7, 'xgbregressor__min_child_weight': 1}
+
+	hyperparameters_xgb_2 = { 'xgbregressor__gamma' : [0.001, 0.01, 0.1, 0.2]}
+	{'xgbregressor__gamma': 0.01}
+
+
+	Model Report for validation
+	RMSE : 4.87e+05
+	MAE : 2.656e+05
+
+	Model Report for validation
+	RMSE : 5.14e+05
+	MAE : 2.67e+05
+
+	RMSE : 3.02e+05
+	MAE : 1.959e+05
+
+
+Random Forest / Extra Random Forest, default parameters, gridsearch over [100, 500, 1000, 5000]:
+
+	ERF:
+	-0.015427 (+/-0.000265) for {'extratreesregressor__n_estimators': 100}
+	-0.015379 (+/-0.000254) for {'extratreesregressor__n_estimators': 500}
+	-0.015349 (+/-0.000246) for {'extratreesregressor__n_estimators': 1000}
+	-0.015339 (+/-0.000239) for {'extratreesregressor__n_estimators': 5000}
+	{'extratreesregressor__n_estimators': 5000}
+
+	RF:
+	-0.014433 (+/-0.000265) for {'randomforestregressor__n_estimators': 100}
+	-0.014416 (+/-0.000269) for {'randomforestregressor__n_estimators': 500}
+	-0.014408 (+/-0.000262) for {'randomforestregressor__n_estimators': 1000}
+	-0.014406 (+/-0.000262) for {'randomforestregressor__n_estimators': 5000}
+	{'randomforestregressor__n_estimators': 5000}
+
+	RF.             R^2 score: 0.836. Prediction within +24.7% / -20.6% at 1 sigma CI.
+	RF.             R^2 score: 0.836. Prediction within +/-22.0%        at 1 sigma CI.
+	RF.             R^2 score: 0.836. Prediction within +102.2% / -41.1% at 2 sigma CI.
+	RF.             R^2 score: 0.836. Prediction within +/-67.9%        at 2 sigma CI.
+	RF.             19.1% within 5%, 36.9% within 10%, 64.4% within 20%.
+
+	ERF.            R^2 score: 0.842. Prediction within +24.0% / -19.8% at 1 sigma CI.
+	ERF.            R^2 score: 0.842. Prediction within +/-21.5%        at 1 sigma CI.
+	ERF.            R^2 score: 0.842. Prediction within +93.8% / -41.1% at 2 sigma CI.
+	ERF.            R^2 score: 0.842. Prediction within +/-64.0%        at 2 sigma CI.
+	ERF.            19.9% within 5%, 37.9% within 10%, 65.3% within 20%.
+
+
+
+	'extratreesregressor__max_features' : ['auto', 'sqrt', 'log2'],
+    'extratreesregressor__max_depth': [1, 5, 10, 50, None]
+
+	{'extratreesregressor__max_depth': None, 'extratreesregressor__max_features': 'auto'}
+
+	-0.05724 (+/-0.00306) for {'extratreesregressor__max_depth': 1, 'extratreesregressor__max_features': 'auto'}
+	-0.07898 (+/-0.00163) for {'extratreesregressor__max_depth': 1, 'extratreesregressor__max_features': 'sqrt'}
+	-0.08223 (+/-0.00146) for {'extratreesregressor__max_depth': 1, 'extratreesregressor__max_features': 'log2'}
+	-0.02169 (+/-0.00040) for {'extratreesregressor__max_depth': 5, 'extratreesregressor__max_features': 'auto'}
+	-0.04514 (+/-0.00070) for {'extratreesregressor__max_depth': 5, 'extratreesregressor__max_features': 'sqrt'}
+	-0.05382 (+/-0.00058) for {'extratreesregressor__max_depth': 5, 'extratreesregressor__max_features': 'log2'}
+	-0.01549 (+/-0.00030) for {'extratreesregressor__max_depth': 10, 'extratreesregressor__max_features': 'auto'}
+	-0.02642 (+/-0.00053) for {'extratreesregressor__max_depth': 10, 'extratreesregressor__max_features': 'sqrt'}
+	-0.03223 (+/-0.00064) for {'extratreesregressor__max_depth': 10, 'extratreesregressor__max_features': 'log2'}
+	-0.01240 (+/-0.00020) for {'extratreesregressor__max_depth': 50, 'extratreesregressor__max_features': 'auto'}
+	-0.01334 (+/-0.00020) for {'extratreesregressor__max_depth': 50, 'extratreesregressor__max_features': 'sqrt'}
+	-0.01381 (+/-0.00021) for {'extratreesregressor__max_depth': 50, 'extratreesregressor__max_features': 'log2'}
+	-0.01237 (+/-0.00016) for {'extratreesregressor__max_depth': None, 'extratreesregressor__max_features': 'auto'}
+	-0.01336 (+/-0.00016) for {'extratreesregressor__max_depth': None, 'extratreesregressor__max_features': 'sqrt'}
+	-0.01388 (+/-0.00020) for {'extratreesregressor__max_depth': None, 'extratreesregressor__max_features': 'log2'}
+
+
+	{'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'auto'}
+
+	-0.04578 (+/-0.00044) for {'randomforestregressor__max_depth': 1, 'randomforestregressor__max_features': 'auto'}
+	-0.05098 (+/-0.00076) for {'randomforestregressor__max_depth': 1, 'randomforestregressor__max_features': 'sqrt'}
+	-0.05639 (+/-0.00068) for {'randomforestregressor__max_depth': 1, 'randomforestregressor__max_features': 'log2'}
+	-0.01946 (+/-0.00038) for {'randomforestregressor__max_depth': 5, 'randomforestregressor__max_features': 'auto'}
+	-0.02141 (+/-0.00036) for {'randomforestregressor__max_depth': 5, 'randomforestregressor__max_features': 'sqrt'}
+	-0.02328 (+/-0.00046) for {'randomforestregressor__max_depth': 5, 'randomforestregressor__max_features': 'log2'}
+	-0.01448 (+/-0.00029) for {'randomforestregressor__max_depth': 10, 'randomforestregressor__max_features': 'auto'}
+	-0.01551 (+/-0.00027) for {'randomforestregressor__max_depth': 10, 'randomforestregressor__max_features': 'sqrt'}
+	-0.01639 (+/-0.00028) for {'randomforestregressor__max_depth': 10, 'randomforestregressor__max_features': 'log2'}
+	-0.01268 (+/-0.00021) for {'randomforestregressor__max_depth': 50, 'randomforestregressor__max_features': 'auto'}
+	-0.01289 (+/-0.00022) for {'randomforestregressor__max_depth': 50, 'randomforestregressor__max_features': 'sqrt'}
+	-0.01322 (+/-0.00021) for {'randomforestregressor__max_depth': 50, 'randomforestregressor__max_features': 'log2'}
+	-0.01267 (+/-0.00019) for {'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'auto'}
+	-0.01293 (+/-0.00023) for {'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'sqrt'}
+	-0.01319 (+/-0.00022) for {'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'log2'}
+
+
+
+	'extratreesregressor__max_features' : ['auto', 'sqrt', 'log2'], n_estimators=1000
+    'extratreesregressor__max_depth': [50, 250, 500, None]
+
+	{'extratreesregressor__max_depth': 250, 'extratreesregressor__max_features': 'auto'}
+	Grid scores on development set:
+	-0.01224 (+/-0.00018) for {'extratreesregressor__max_depth': 50, 'extratreesregressor__max_features': 'auto'}
+	-0.01315 (+/-0.00019) for {'extratreesregressor__max_depth': 50, 'extratreesregressor__max_features': 'sqrt'}
+	-0.01364 (+/-0.00020) for {'extratreesregressor__max_depth': 50, 'extratreesregressor__max_features': 'log2'}
+	-0.01223 (+/-0.00018) for {'extratreesregressor__max_depth': 250, 'extratreesregressor__max_features': 'auto'}
+	-0.01313 (+/-0.00020) for {'extratreesregressor__max_depth': 250, 'extratreesregressor__max_features': 'sqrt'}
+	-0.01365 (+/-0.00021) for {'extratreesregressor__max_depth': 250, 'extratreesregressor__max_features': 'log2'}
+	-0.01224 (+/-0.00018) for {'extratreesregressor__max_depth': 500, 'extratreesregressor__max_features': 'auto'}
+	-0.01315 (+/-0.00020) for {'extratreesregressor__max_depth': 500, 'extratreesregressor__max_features': 'sqrt'}
+	-0.01365 (+/-0.00021) for {'extratreesregressor__max_depth': 500, 'extratreesregressor__max_features': 'log2'}
+	-0.01224 (+/-0.00019) for {'extratreesregressor__max_depth': None, 'extratreesregressor__max_features': 'auto'}
+	-0.01315 (+/-0.00021) for {'extratreesregressor__max_depth': None, 'extratreesregressor__max_features': 'sqrt'}
+	-0.01364 (+/-0.00019) for {'extratreesregressor__max_depth': None, 'extratreesregressor__max_features': 'log2'}
+
+
+	{'randomforestregressor__max_depth': 250, 'randomforestregressor__max_features': 'auto'}
+	Grid scores on development set:
+	-0.01253 (+/-0.00021) for {'randomforestregressor__max_depth': 50, 'randomforestregressor__max_features': 'auto'}
+	-0.01270 (+/-0.00020) for {'randomforestregressor__max_depth': 50, 'randomforestregressor__max_features': 'sqrt'}
+	-0.01299 (+/-0.00021) for {'randomforestregressor__max_depth': 50, 'randomforestregressor__max_features': 'log2'}
+	-0.01253 (+/-0.00021) for {'randomforestregressor__max_depth': 250, 'randomforestregressor__max_features': 'auto'}
+	-0.01271 (+/-0.00021) for {'randomforestregressor__max_depth': 250, 'randomforestregressor__max_features': 'sqrt'}
+	-0.01298 (+/-0.00021) for {'randomforestregressor__max_depth': 250, 'randomforestregressor__max_features': 'log2'}
+	-0.01253 (+/-0.00021) for {'randomforestregressor__max_depth': 500, 'randomforestregressor__max_features': 'auto'}
+	-0.01271 (+/-0.00020) for {'randomforestregressor__max_depth': 500, 'randomforestregressor__max_features': 'sqrt'}
+	-0.01299 (+/-0.00020) for {'randomforestregressor__max_depth': 500, 'randomforestregressor__max_features': 'log2'}
+	-0.01253 (+/-0.00021) for {'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'auto'}
+	-0.01271 (+/-0.00020) for {'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'sqrt'}
+	-0.01298 (+/-0.00021) for {'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'log2'}
