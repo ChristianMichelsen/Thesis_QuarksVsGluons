@@ -2604,6 +2604,34 @@ classes rely upon.  Packages marked with an asterisk are optional.
 
 
 
+ %rmse:
+
+ \begin{table}[h!]
+  \begin{tabular}{@{}ccrrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & Time [$s$] & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{363} & \num{278} & \num{0.2008} \\
+    \num{2.5} & False & \num{905} & \num{483} & \num{0.1904} \\
+    \num{5} & True & \num{607} & \num{407} & \num{0.1987} \\
+    $\mathbf{5}$ & \textbf{False} & $\mathbf{1558}$ & $\mathbf{743}$ & $\mathbf{0.1855}$ \\
+    \num{10} & True & \num{414} & \num{300} & \num{0.2010} \\
+    \num{10} & False & \num{904} & \num{454} & \num{0.1887} \\
+    \num{20} & True & \num{545} & \num{371} & \num{0.1978} \\
+    \num{20} & False & \num{1140} & \num{550} & \num{0.1885} \\
+    $\infty$ & True & \num{985} & \num{630} & \num{0.1936} \\
+    $\infty$ & False & \num{1169} & \num{568} & \num{0.1874} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Rmse-villa}Rmse-villa.}
+\end{table}
+
+
+
+
+
+
+
 
 
 \chapter{Quarks vs. Gluons Appendix}
