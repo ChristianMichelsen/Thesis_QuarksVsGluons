@@ -1,0 +1,210 @@
+% RMSE:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{244} & \num{0.1663} \\
+    \num{2.5} & False & \num{218} & \num{0.1746} \\
+    \num{5} & True & \num{291} & \num{0.1631} \\
+    \num{5} & False & \num{381} & \num{0.1792} \\
+    \num{10} & True & \num{285} & \num{0.1601} \\
+    \num{10} & False & \num{274} & \num{0.1716} \\
+    \num{20} & True & \num{246} & \num{0.1637} \\
+    \num{20} & False & \num{589} & \num{0.1760} \\
+    $\bm{\infty}$ & True & $\mathbf{657}$ & $\mathbf{0.1555}$ \\
+    $\infty$ & False & \num{362} & \num{0.1680} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Rmse_ejerlejlighed}Rmse_ejerlejlighed.}
+\end{margintable}
+
+% logcosh:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{347} & \num{0.1642} \\
+    $\mathbf{2.5}$ & \textbf{False} & $\mathbf{630}$ & $\mathbf{0.1515}$ \\
+    \num{5} & True & \num{260} & \num{0.1607} \\
+    \num{5} & False & \num{698} & \num{0.1519} \\
+    \num{10} & True & \num{230} & \num{0.1631} \\
+    \num{10} & False & \num{391} & \num{0.1572} \\
+    \num{20} & True & \num{374} & \num{0.1609} \\
+    \num{20} & False & \num{301} & \num{0.1606} \\
+    $\infty$ & True & \num{361} & \num{0.1582} \\
+    $\infty$ & False & \num{283} & \num{0.1627} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Logcosh_ejerlejlighed}Logcosh_ejerlejlighed.}
+\end{margintable}
+
+% cauchy:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{393} & \num{0.1609} \\
+    \num{2.5} & False & \num{887} & \num{0.1449} \\
+    \num{5} & True & \num{296} & \num{0.1599} \\
+    \num{5} & False & \num{776} & \num{0.1476} \\
+    \num{10} & True & \num{266} & \num{0.1611} \\
+    \num{10} & False & \num{822} & \num{0.1457} \\
+    \num{20} & True & \num{257} & \num{0.1614} \\
+    $\mathbf{20}$ & \textbf{False} & $\mathbf{932}$ & $\mathbf{0.1439}$ \\
+    $\infty$ & True & \num{418} & \num{0.1567} \\
+    $\infty$ & False & \num{1015} & \num{0.1468} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Cauchy_ejerlejlighed}Cauchy_ejerlejlighed.}
+\end{margintable}
+
+% welsch:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{253} & \num{0.1627} \\
+    \num{2.5} & False & \num{936} & \num{0.1485} \\
+    \num{5} & True & \num{245} & \num{0.1608} \\
+    $\mathbf{5}$ & \textbf{False} & $\mathbf{947}$ & $\mathbf{0.1470}$ \\
+    \num{10} & True & \num{214} & \num{0.1644} \\
+    \num{10} & False & \num{760} & \num{0.1493} \\
+    \num{20} & True & \num{279} & \num{0.1607} \\
+    \num{20} & False & \num{856} & \num{0.1502} \\
+    $\infty$ & True & \num{292} & \num{0.1592} \\
+    $\infty$ & False & \num{767} & \num{0.1480} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Welsch_ejerlejlighed}Welsch_ejerlejlighed.}
+\end{margintable}
+
+% fair:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{180} & \num{0.1641} \\
+    \num{2.5} & False & \num{343} & \num{0.1566} \\
+    \num{5} & True & \num{228} & \num{0.1609} \\
+    \num{5} & False & \num{372} & \num{0.1576} \\
+    \num{10} & True & \num{364} & \num{0.1572} \\
+    \num{10} & False & \num{349} & \num{0.1556} \\
+    \num{20} & True & \num{355} & \num{0.1595} \\
+    $\mathbf{20}$ & \textbf{False} & $\mathbf{458}$ & $\mathbf{0.1519}$ \\
+    $\infty$ & True & \num{349} & \num{0.1583} \\
+    $\infty$ & False & \num{390} & \num{0.1541} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Fair_ejerlejlighed}Fair_ejerlejlighed.}
+\end{margintable}
+
+
+% rmse:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{363} & \num{0.2008} \\
+    \num{2.5} & False & \num{905} & \num{0.1904} \\
+    \num{5} & True & \num{607} & \num{0.1987} \\
+    $\mathbf{5}$ & \textbf{False} & $\mathbf{1558}$ & $\mathbf{0.1855}$ \\
+    \num{10} & True & \num{414} & \num{0.2010} \\
+    \num{10} & False & \num{904} & \num{0.1887} \\
+    \num{20} & True & \num{545} & \num{0.1978} \\
+    \num{20} & False & \num{1140} & \num{0.1885} \\
+    $\infty$ & True & \num{985} & \num{0.1936} \\
+    $\infty$ & False & \num{1169} & \num{0.1874} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Rmse_villa}Rmse_villa.}
+\end{margintable}
+
+% logcosh:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{346} & \num{0.2016} \\
+    \num{2.5} & False & \num{1003} & \num{0.1900} \\
+    \num{5} & True & \num{510} & \num{0.1995} \\
+    \num{5} & False & \num{984} & \num{0.1870} \\
+    \num{10} & True & \num{572} & \num{0.1992} \\
+    \num{10} & False & \num{1162} & \num{0.1874} \\
+    \num{20} & True & \num{424} & \num{0.1995} \\
+    \num{20} & False & \num{1263} & \num{0.1871} \\
+    $\infty$ & True & \num{373} & \num{0.1992} \\
+    $\bm{\infty}$ & \textbf{False} & $\mathbf{2003}$ & $\mathbf{0.1862}$ \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Logcosh_villa}Logcosh_villa.}
+\end{margintable}
+
+% cauchy:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{348} & \num{0.1990} \\
+    \num{2.5} & False & \num{1163} & \num{0.1871} \\
+    \num{5} & True & \num{345} & \num{0.2000} \\
+    \num{5} & False & \num{964} & \num{0.1869} \\
+    \num{10} & True & \num{424} & \num{0.1992} \\
+    \num{10} & False & \num{1139} & \num{0.1859} \\
+    \num{20} & True & \num{382} & \num{0.2000} \\
+    $\mathbf{20}$ & \textbf{False} & $\mathbf{1251}$ & $\mathbf{0.1848}$ \\
+    $\infty$ & True & \num{415} & \num{0.1989} \\
+    $\infty$ & False & \num{1073} & \num{0.1864} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Cauchy_villa}Cauchy_villa.}
+\end{margintable}
+
+% welsch:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{572} & \num{0.1971} \\
+    \num{2.5} & False & \num{923} & \num{0.1891} \\
+    \num{5} & True & \num{368} & \num{0.2029} \\
+    \num{5} & False & \num{1014} & \num{0.1877} \\
+    \num{10} & True & \num{343} & \num{0.2032} \\
+    \num{10} & False & \num{938} & \num{0.1879} \\
+    \num{20} & True & \num{454} & \num{0.2004} \\
+    \num{20} & False & \num{869} & \num{0.1881} \\
+    $\infty$ & True & \num{846} & \num{0.1947} \\
+    $\bm{\infty}$ & \textbf{False} & $\mathbf{1137}$ & $\mathbf{0.1855}$ \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Welsch_villa}Welsch_villa.}
+\end{margintable}
+
+% fair:
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{520} & \num{0.1956} \\
+    \num{2.5} & False & \num{1062} & \num{0.1857} \\
+    \num{5} & True & \num{394} & \num{0.1968} \\
+    \num{5} & False & \num{1455} & \num{0.1836} \\
+    \num{10} & True & \num{1026} & \num{0.1942} \\
+    \num{10} & False & \num{1216} & \num{0.1847} \\
+    \num{20} & True & \num{606} & \num{0.1963} \\
+    $\mathbf{20}$ & \textbf{False} & $\mathbf{1996}$ & $\mathbf{0.1812}$ \\
+    $\infty$ & True & \num{417} & \num{0.1988} \\
+    $\infty$ & False & \num{1597} & \num{0.1839} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Fair_villa}Fair_villa.}
+\end{margintable}

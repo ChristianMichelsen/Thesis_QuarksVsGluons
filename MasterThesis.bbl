@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -26,12 +26,30 @@ The {{Large Electron}}-{{Positron Collider}} | {{CERN}}.
 \newblock URL
   \url{https://home.cern/science/accelerators/large-electron-positron-collider}.
 
+\bibitem[bed()]{bednarDatashaderRevealingStructure2019}
+Datashader: {{Revealing}} the {{Structure}} of {{Genuinely Big Data}}.
+\newblock URL \url{https://github.com/holoviz/datashader}.
+
+\bibitem[~()]{oisWwwOISDk}
+O.~.
+\newblock Www.{{OIS}}.dk - {{Din}} genvej til ejendomsdata.
+\newblock URL \url{https://www.ois.dk/}.
+
 \bibitem[Abu-Mostafa et~al.()Abu-Mostafa, Magdon-Ismail, and
   Lin]{abu-mostafaLearningData2012}
 Y.~S. Abu-Mostafa, M.~Magdon-Ismail, and H.-T. Lin.
 \newblock \emph{Learning {{From Data}}}.
 \newblock {AMLBook}.
 \newblock ISBN 978-1-60049-006-4.
+
+\bibitem[Albanese et~al.()Albanese, Riccadonna, Donati, and
+  Franceschi]{albanesePracticalToolMaximal2018a}
+D.~Albanese, S.~Riccadonna, C.~Donati, and P.~Franceschi.
+\newblock A practical tool for maximal information coefficient analysis.
+\newblock 7.
+\newblock ISSN 2047-217X.
+\newblock \doi{10.1093/gigascience/giy032}.
+\newblock URL \url{https://doi.org/10.1093/gigascience/giy032}.
 
 \bibitem[Anderson()]{andersonSpeciesProblemIris1936a}
 E.~Anderson.
@@ -101,6 +119,19 @@ Y.~Freund and R.~E. Schapire.
 \newblock ISBN 978-3-540-49195-8.
 \newblock AdaBoost.
 
+\bibitem[Harvey and Peters()]{harveyEstimationProceduresStructural1990}
+A.~E. Harvey and S.~Peters.
+\newblock Estimation {{Procedures}} for {{Structural Time Series Models}}.
+\newblock \doi{10.1002/for.3980090203}.
+
+\bibitem[Hastie and Tibshirani()]{hastieGeneralizedAdditiveModels1987}
+T.~Hastie and R.~Tibshirani.
+\newblock Generalized {{Additive Models}}: {{Some Applications}}.
+\newblock 82\penalty0 (398):\penalty0 371--386.
+\newblock ISSN 01621459.
+\newblock \doi{10.2307/2289439}.
+\newblock URL \url{www.jstor.org/stable/2289439}.
+
 \bibitem[Hastie et~al.()Hastie, Tibshirani, and
   Friedman]{hastieElementsStatisticalLearning2009}
 T.~Hastie, R.~Tibshirani, and J.~Friedman.
@@ -109,6 +140,13 @@ T.~Hastie, R.~Tibshirani, and J.~Friedman.
 \newblock Springer {{Series}} in {{Statistics}}. {Springer-Verlag}, 2 edition.
 \newblock ISBN 978-0-387-84857-0.
 \newblock URL \url{//www.springer.com/la/book/9780387848570}.
+
+\bibitem[Huber and Ronchetti()]{huber2011robust}
+P.~Huber and E.~Ronchetti.
+\newblock \emph{Robust Statistics}.
+\newblock Wiley Series in Probability and Statistics. {Wiley}.
+\newblock ISBN 978-1-118-21033-8.
+\newblock URL \url{https://books.google.dk/books?id=j1OhquR_j88C}.
 
 \bibitem[Hviid()]{hviidWorkingPaperRegional2017}
 S.~Hviid, Juul.
@@ -162,12 +200,28 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
 \newblock Scikit-learn: Machine learning in {{Python}}.
 \newblock 12:\penalty0 2825--2830.
 
+\bibitem[Reshef et~al.()Reshef, Reshef, Finucane, Grossman, McVean, Turnbaugh,
+  Lander, Mitzenmacher, and Sabeti]{reshefDetectingNovelAssociations2011}
+D.~N. Reshef, Y.~A. Reshef, H.~K. Finucane, S.~R. Grossman, G.~McVean, P.~J.
+  Turnbaugh, E.~S. Lander, M.~Mitzenmacher, and P.~C. Sabeti.
+\newblock Detecting {{Novel Associations}} in {{Large Data Sets}}.
+\newblock 334\penalty0 (6062):\penalty0 1518--1524.
+\newblock ISSN 0036-8075, 1095-9203.
+\newblock \doi{10.1126/science.1205438}.
+\newblock URL \url{http://science.sciencemag.org/content/334/6062/1518}.
+
 \bibitem[Shapley()]{Shapley1953}
 L.~Shapley.
 \newblock A value for n-person games.
 \newblock In \emph{The {{Shapley Value}}}, volume~28 of \emph{Annals of {{Math
   Studies}}}, pages 307--317.
 \newblock \doi{10.1017/CBO9780511528446.003}.
+
+\bibitem[Taylor and Letham()]{taylorForecastingScale}
+S.~J. Taylor and B.~Letham.
+\newblock Forecasting at scale.
+\newblock \doi{10.7287/peerj.preprints.3190v2}.
+\newblock URL \url{https://peerj.com/preprints/3190}.
 
 \bibitem[Tibshirani()]{tibshiraniRegressionShrinkageSelection1996}
 R.~Tibshirani.

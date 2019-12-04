@@ -39,6 +39,7 @@
         "Matplotlib",
         "Scikit",
         "Scipy",
+        "quantiles",
         "subfields",
         "subfigure",
         "subproject",

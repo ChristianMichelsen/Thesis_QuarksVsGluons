@@ -135,7 +135,6 @@
 
 
 % custom subsubsection:
-
 \titleclass{\subsubsection}{straight}
 \titleformat{\subsubsection}%
   [hang]% shape
@@ -144,6 +143,18 @@
   {1em}% horizontal separation between label and title body
   {}% before the title body
   []% after the title body
+
+
+% custom centering of figure 
+\makeatletter
+\newcommand*{\centerfloat}{%
+  \parindent \z@
+  \leftskip \z@ \@plus 1fil \@minus \textwidth
+  \rightskip\leftskip
+  \parfillskip \z@skip}
+\makeatother
+
+
 
 
 
@@ -693,7 +704,7 @@ Overall, model regularization is heavily used in modern machine learning algorit
 \begin{equation}
   \mathcal{L}(h) = \hat{L}(\ell, h, S) + \Omega(h)
 \end{equation}
-where $\hat{L}$ is the empirical loss and $\Omega$ is the regularization penalty. As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{sec:loss_function}. 
+where $\hat{L}$ is the empirical loss and $\Omega$ is the regularization penalty. As can be seen from the above discussion, choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{sec:ml:loss_function}. 
 
 \subsection{Cross Validation}
 \label{subsec:cross_validation}
@@ -730,10 +741,10 @@ This is a prime example of the bias-variance tradeoff. The model should be train
 To avoid stopping just because of a single outlier due to noise that terminated the process, one often uses \emph{patience} in the early stopping process: if the loss has not decreased since the last minimum after \emph{patience} number of iterations, then terminate the process. Early stopping is thus an easy way of avoiding overfitting for iteratively trained models only requiring a validation set.  
 
 \section{Loss functions}
-\label{sec:loss_function}
+\label{sec:ml:loss_function}
 How we evaluate the performance of a model is of course very important since it defines the metric for the problem; what is good and what is bad? Obviously this depends on whether or not we a dealing with a classification problem or a regression problem. Let us for know focus on the latter. Say that a house is estimated to cost \num{2} million DKK (\si{\Mkr}) but was sold for \SI{4}{\Mkr}. Compare this to an a house that was estimated to cost \SI{8}{\Mkr} but was sold for \SI{6}{\Mkr} In both cases the price was \SI{2}{\Mkr} wrong, but does this mean that both predictions are equally good? The first case was a factor of 2 off, whereas the second was only $25\%$ off. The first case underestimated the price whereas the second overestimated. 
 
-As it should be clear by now the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyper parameter}, the optimization of which is further discussed in \autoref{sec:ml:hyperparameter_optimization}. The most common choice of loss function is by far the Squared Error (SE): 
+As it should be clear by now the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyperparameter}, the optimization of which is further discussed in \autoref{sec:ml:hyperparameter_optimization}. The most common choice of loss function is by far the Squared Error (SE): 
 \begin{equation}
   \ell_\mathrm{SE}(y, \hat{y}) = \left( y-\hat{y} \right)^2,
 \end{equation}
@@ -751,7 +762,7 @@ For AE, outliers have a lot smaller weight since it deals with the absolute valu
     \ell_\mathrm{Fair}(y, \hat{y})  &= c^2  \left( \frac{\abs{y-\hat{y}} }{c}  - \log \left(\frac{\abs{y-\hat{y}}}{c} +1 \right )   \right). 
   \end{split}
 \end{equation}
-The above loss functions share some similarities with AE, and in addition to this they are all (twice) differentiable functions. They are shown in Figure~\ref{fig:ml:objective_funcs}. They are shown for only positive values of $y-\hat{y}$ since they are symmetric in $y-\hat{y}$. Notice how SE quickly grows very large compared to the others. Absolute Error has a kink at $y-\hat{y}=0$ as the only one of the functions. Welsch is bounded in the interval $[0, 1)$. The derivative of both LogCosh and Fair goes toward $1$ when $y-\hat{y}$ goes towards $\infty$, whereas it goes to 0 for the Cauchy loss. A priori it is almost impossible to know which one of these loss functions performs best for a specific data set, so they have to be treated as hyper parameters. 
+The above loss functions share some similarities with AE, and in addition to this they are all (twice) differentiable functions. They are shown in Figure~\ref{fig:ml:objective_funcs}. They are shown for only positive values of $y-\hat{y}$ since they are symmetric in $y-\hat{y}$. Notice how SE quickly grows very large compared to the others. Absolute Error has a kink at $y-\hat{y}=0$ as the only one of the functions. Welsch is bounded in the interval $[0, 1)$. The derivative of both LogCosh and Fair goes toward $1$ when $y-\hat{y}$ goes towards $\infty$, whereas it goes to 0 for the Cauchy loss. A priori it is almost impossible to know which one of these loss functions performs best for a specific data set, so they have to be treated as hyperparameters. 
 
 \begin{figure}
   \includegraphics[width=0.9\textwidth]{figures/objective_functions/objective_functions.pdf}
@@ -773,7 +784,7 @@ The above loss functions share some similarities with AE, and in addition to thi
 \subsection{Evaluation Function}
 Since some machine learning models require an analytic expression for the derivative and second derivative, it not always possible to use a custom objective function if it is non-differentiable. The Area Under Curve (AUC) of the Receiver Operating Characteristic (ROC) is such a measure. Another example would be the width of the distribution of all $y_i-\hat{y}_i$. In this thesis this overall performance metric will be called the \emph{evaluation function} $f_\mathrm{eval}$ compared to the differentiable proxy for this function, the objective function. To sum up: the loss function $\ell(y, \hat{y})$ measures the loss for an individual prediction and the objective function $\mathcal{L}$ is the aggregated version of the individual losses. The objective function is assumed to be a good proxy for the evaluation function. 
 
-For the loss functions defined in \autoref{sec:loss_function} the objective function is based on the mean of the individual losses:
+For the loss functions defined in \autoref{sec:ml:loss_function} the objective function is based on the mean of the individual losses:
 \begin{equation}
   \mathcal{L} = \frac{1}{N} \sum_{i=1}^N \ell(y_i, \hat{y}_i) + \Omega. 
 \end{equation}
@@ -1060,7 +1071,7 @@ It can be shown that axiom \ref{axiom:ml:shapley_symmetry} is implied by axiom \
   \label{fig:h:price_index}
 \end{figure}
 
-If one takes a look at the time development of the Danish housing\sidenote[][1cm]{\q{Housing} means both actual houses and privately owned apartments in this project.} market, the Danish governmental organization for statistics, Statistics Denmark, releases a price index \citep{dstPriceIndexEJ14} for both one-family houses and owner-occupied apartments quarterly, this is shown in Figure~\ref{fig:h:price_index}. Here it is easy to see the effect of the financial crisis around 2008, but also the steady increase in the housing market since then in both Copenhagen and the entire country. 
+If one takes a look at the time development of the Danish housing\sidenote[][1cm]{\q{Housing} means both actual houses and privately owned apartments in this project.} market, the Danish governmental organization for statistics, Statistics Denmark, releases a price index \citep{dstPriceIndexEJ14} for both one-family houses (OFH) and owner-occupied apartments (OOA) quarterly, this is shown in Figure~\ref{fig:h:price_index}. Here it is easy to see the effect of the financial crisis around 2008, but also the steady increase in the housing market since then in both Copenhagen and the entire country. 
 
 The goal of this subproject\sidenote{The housing price estimation subproject.} is not to predict any future collapse as the financial markets as we saw upwards of 10 years ago. Instead, it is to learn patterns in the price of houses in steady times. The goal is training a computer\sidenote{In contrary to \citet{hviidWorkingPaperRegional2017, mulalicFinancialCrisisDiverging2017} and others who base their models on macro-economic principles.} to automatically to find these patterns and see if we can improve this model.
 
@@ -1068,15 +1079,18 @@ In chapter XXX I will introduce the data, do EDA and so on. Then I will introduc
 
 This subproject was done in collaboration with Boligsiden without whom it would not have been possible. During this project, common python data science tools from the SciPy ecosystem\autocite{virtanenSciPyFundamentalAlgorithms2019} such as NumPy, Matplotlib, Pandas, Scikit-Learn, Scipy has been used extensively and should thus also be mentioned. 
 
-\section{Data Cleaning and Exploratory Data Analysis}
+\section{Data Preparation and Exploratory Data Analysis}
 \label{sec:h:data_cleaning}
-The first part of any data science project is actually getting the data and being able to read it. This has been an iterative process that has improved over time. The last data transfer we got was September \nth{3} 2019 and consisted of a \SI{522.4}{\mega\byte} CSV file with dimensions $(\num{711410} \times \num{171})$. This section will go through the data cleaning process.
+\epigraph{\textit{``\SI{80}{\percent} of data science is cleaning the data and \SI{20}{\percent} is complaining about cleaning the data.''}}{--- Anthony Goldbloom, Kaggle}
+
+
+The first part of any data science project is actually getting the data and being able to read it. This has been an iterative process that has improved over time. The last data transfer we got was September \nth{3} 2019 and consisted of a \SI{522.4}{\mega\byte} CSV file with dimensions $(\num{711212}, \num{171})$. This section will go through the data cleaning process.
 
 Before any further data analysis is performed, all of the data is loaded, except three columns which only contain internal information for Boligsiden\sidenote{The variables are \code{Sag_Kvhx}, \code{Enhed_GOP_BoligtypeKode}, and \code{Bygning_GOP_Matrikelnr}.}. To get a better understanding of all of the variables, histograms showing the one-dimensional distributions of all of the variables were made.
 
 Four particularly interesting ones are seen in Figure~\ref{fig:h:variable_overview}: 
 the distribution of the date of the sale \code{SalgsPris} in subfigure~\subref{fig:h:variable_overview_date},  
-the distribution of the type of sale \code{SagtypeNr} in subfigure~\subref{fig:h:variable_overview_type},
+the distribution of the type of residence \code{SagtypeNr} in subfigure~\subref{fig:h:variable_overview_type},
 the distribution of the longitude of the residence \code{GisX_WGS84} in subfigure~\subref{fig:h:variable_overview_longitude}, and
 the distribution of the area of the residence \code{ArealBolig} in subfigure~\subref{fig:h:variable_overview_area}.
 
@@ -1093,14 +1107,14 @@ the distribution of the area of the residence \code{ArealBolig} in subfigure~\su
   \includegraphics[width=0.45\textwidth, page=23, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
   \caption[Distributions for the housing price dataset]{Distributions of four out of the 168 input variables. 
            Subplot ~\protect\subref{fig:h:variable_overview_date} shows the date of the sale, 
-           Subplot ~\protect\subref{fig:h:variable_overview_type} shows the type of sale,
+           Subplot ~\protect\subref{fig:h:variable_overview_type} shows the type of residence,
            Subplot ~\protect\subref{fig:h:variable_overview_longitude} shows the longitude,
            Subplot ~\protect\subref{fig:h:variable_overview_area} shows the area og the house.}
   \label{fig:h:variable_overview}
   \vspace{\abovecaptionskip}
 \end{figure*}
 
-The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_date}, is an interesting variable because it shows how Boligsiden has been collecting more and more data over time. Here 2007 and 2019 are clear outliers since their current database only contains sales from the end of 2007, and 2019 only contains data from the first eight months of the year. The type of sale is a discrete code that Boligsiden uses to differentiate between different types of sales. The mapping between code and description can be seen in Table~\ref{tab:h:salgstype}. 
+The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_date}, is an interesting variable because it shows how Boligsiden has been collecting more and more data over time. Here 2007 and 2019 are clear outliers since their current database only contains sales from the end of 2007, and 2019 only contains data from the first eight months of the year. The type of residence is a discrete code that Boligsiden uses to differentiate between different types of residences. The mapping between code and description can be seen in Table~\ref{tab:h:salgstype}. 
 
 \begin{margintable}
   \centering
@@ -1131,188 +1145,355 @@ The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subr
   \label{tab:h:salgstype}
 \end{margintable}
 
-In this project only single-family houses -- \q{Villas} in Danish -- with code \num{100} and owner-occupied apartments -- \q{Ejerlejlighed} in Danish -- with code 300 are considered. As can be seen from Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_type} these two types of sales are also the most frequent sales with close to \num{400000} and \num{150000} sales in total. The longitude distribution, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_longitude}, is mostly interesting due to fact that it clearly shows how the Great Belt and especially the Baltic Sea separates Denmark into three parts; the Western part, the Eastern part, and then Bornholm. Note that more than \SI{5}{\percent} of the residences are unknown values: Not a Number \q{NaNs}. The distribution of the area, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_area}, shows that most residences are between \SI{50}{\meter^2} and \SI{150}{\meter^2}, as expected. However, a relatively large part of the residences, \SI{2.5}{\percent}, are listed as having an area of \SI{0}{\meter^2}.
+In this project only one-family houses -- \q{Villas} in Danish -- with code \num{100} and owner-occupied apartments -- \q{Ejerlejlighed} in Danish -- with code 300 are considered. As can be seen from Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_type} these two types of residences are also the most frequent sales with close to \num{400000} and \num{150000} sales in total. The longitude distribution, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_longitude}, is mostly interesting due to fact that it clearly shows how the Great Belt and especially the Baltic Sea separates Denmark into three parts; the Western part, the Eastern part, and then Bornholm. Note that more than \SI{5}{\percent} of the residences' locations are unknown values: Not A Number \q{NANs}. The distribution of the area, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_area}, shows that most residences are between \SI{50}{\meter^2} and \SI{200}{\meter^2}, as expected in Denmark. However, a relatively large part of the residences, \SI{2.5}{\percent}, are listed as having an area of \SI{0}{\meter^2}. All of the 1D-distributions can be seen in Figure~\ref{fig:h:variable_overview_all_1}--\ref{fig:h:variable_overview_all_14}. 
+
+The geographic distribution of sales can be seen in Figure~\ref{fig:h:geo_overview}. The residences are coloured according the square meter price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sqm_price} and according to the sales price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sales_price}. Notice the strong correlation between the distance to water and the square meter price, a correlation that is less visible when looking at the sales price. Since these plots each contain \num{674647} points\sidenote{Only sales with a valid GPS-coordinate and area of residence are shown}, over-plotting quickly becomes an issue. To circumvent this, the great software package called DataShader was used \autocite{bednarDatashaderRevealingStructure2019} which in a simple, consistent, and not at least fast manner allows one to plot big data.
+% \begin{figure}
+%   \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Denmark_Overview_SqmPrice.png}
+%   \caption[Geographic overview of square meter price in Denmark]
+%           {Geographic overview of square meter prices for houses and apartments in Denmark (excluding Bornholm for visual purposes). Notice the strong correlation with the major cities and the shore line. Also notice the three outliers west of Jutland. }
+%   \label{fig:h:geo_overview}
+% \end{figure}
 
 \begin{figure}
-  \includegraphics[width=0.99\textwidth, page=1, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
-  \caption[Histogram of prices of houses and apartments sold in Denmark]
-          {Histogram of prices of houses and apartments sold in Denmark.}
-  \label{fig:h:price_overview}
+  \centering
+  % \vspace*{-\abovecaptionskip}
+  \subfloat[\label{fig:h:geo_overview_sqm_price}]{\qquad}
+  \includegraphics[draft, width=0.4\textwidth]{figures/housing/Denmark_Overview_SqmPrice.png}\hfil
+  \subfloat[\label{fig:h:geo_overview_sales_price}]{\qquad}
+  \includegraphics[draft, width=0.4\textwidth]{figures/housing/Denmark_Overview_SalesPrice.png}
+  \caption[Distributions for the housing price dataset]{Geographic distribution of the sold residences. 
+           In subplot ~\protect\subref{fig:h:geo_overview_sqm_price} the sales are colored according to their square meter price and in subplot ~\protect\subref{fig:h:geo_overview_sales_price} according to the sales price. 
+           }
+  \label{fig:h:geo_overview}
+  \vspace{\abovecaptionskip}
 \end{figure}
 
 
+The most important of the features is the sales price, called \code{SalgsPris} in the dataset, and its distribution shown in Figure~\ref{fig:h:price_overview_price}. This is a positively skewed distribution that shares visual similarities with a log-normal distribution. The mode of the distribution is \SI{1.1}{\Mkr} and the median\sidenote{The mean is \SI{2.0}{\Mkr} but this value is heavily influenced by a few very high values.} is \SI{1.6}{\Mkr}, but remember that this variables is shown for all types of residences.  
 
 \begin{figure}
-  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/housing/missing_bar.pdf}
+  \includegraphics[width=0.98\textwidth, page=1, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
+  \caption[Histogram of prices of houses and apartments sold in Denmark]
+          {Histogram of prices of houses and apartments sold in Denmark.}
+  \label{fig:h:price_overview_price}
+\end{figure}
+
+\subsection{Correlations}
+
+Having shown the \num{1}D-distributions of all the different variables in the previous section, the next step would be to look at the correlations between the variables. Since there are \num{168} input variables, it is almost impossible to understand every inter-variable correlation, however, it is tried in Figure~\ref{fig:h:correlations_all_lin} in the appendix. Here the correlation between all numerical variables that are not obviously related to other variables (like the GPS-coordinates that are in both lattitude-longitude and ETRS89\sidenote{European Terrestrial Reference System \num{1989}.} format), and with the condition that it has to have one inter-variable correlation higher than $|\rho| > \SI{30}{\percent}$, are plotted as a $(86 \times 86)$-dimensional heatmap.
+
+Even though inter-variable correlations are important in the exploratory data analysis (EDA) phase, what is more important is to get a better understanding of how the input variables correlate with the output variables; the sales price. This is shown in Figure~\ref{fig:h:corr_lin} for the variables where $\abs{\rho} > \SI{10}{\percent}$. It is the previous property evaluations, \code{EjdVurdering_EjendomsVaerdi} that are positively correlated the most with the sales price, which does not come as any huge surprise. Other positively correlated variables are the cost of ownership\sidenote{This a great example of the fact that correlation does not imply causation}, area, number of bathrooms, its longitude, and distance to nearest wind mill. In the other end, the local income tax, \code{Kommune_SkatteProcent}, is the variable that is the most negatively correlated to the sales price, followed by the geographical variables related to province, municipality, and postcode.
+
+\begin{figure*}
+  \centerfloat
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 40, clip]{figures/housing/lin_correlation.pdf}
+  \caption[Linear correlation between variables and price]
+          {Linear correlation between variables and price for variables where the correlation coefficient $\rho$ is $\abs{\rho} > \SI{10}{\percent}$.}
+  \label{fig:h:corr_lin}
+\end{figure*}
+
+The correlation $\rho$ used above is the linear correlation which thus only captures linear relationships between variables. All modern machine learning algorithms, however, are also able to capture higher-order correlations and thus a higher-order correlation measure is needed. The maximal information coefficient (MIC), which is a value between \num{0} and \num{1}, is such a non-linear measure. It finds correlation based on the intuition that if two variables are correlated, it should be possible to split the data up into smaller grids where, if they are correlated, the grid that contain points should contain many points and the rest of the grids should be (relatively) empty \autocite{reshefDetectingNovelAssociations2011}. This is in comparison to two uncorrelated variables which would simply display noisy behavior and only have few grids with many points in. \citet{albanesePracticalToolMaximal2018a} extended on this idea and developed the computationally efficient algorithm called \code{MICtools} which computes the estimator for MIC: $\mathrm{MIC}_e$. An example of this tool non-linear correlation is seen in Figure~\ref{fig:h:MIC_example_small}. Here the relationship between the normal linear correlation $\rho$ and $\mathrm{MIC}_e$ can be seen for four synthetic datasets. Notice that $\mathrm{MIC}_e$ does it particularly well for the sine wave, and decent for the line and parabola, but only slightly captures the relationship for the exponential growth. The influence of noise on $\rho$ and $\mathrm{MIC}_e$ can be see in Figure~\ref{fig:h:MIC_example} in the appendix. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.99\textwidth, trim=20 20 20 20, clip]{figures/housing/MIC_test_small.pdf}
+  \caption[MIC non-linear correlation.]
+          {MIC non-linear correlation. XXX \TODO}
+  \label{fig:h:MIC_example_small}
+\end{figure}
+
+Using $\mathrm{MIC}_e$ as the correlation measure between the numerical variables and the sales prices, the variables with a $\mathrm{MIC}_e$-score higher than \SI{10}{\percent} can be seen in Figure~\ref{fig:h:corr_MIC}. Again, the previous property evaluations are the most correlated features to the sales price followed by the parish code, \code{SogneKode}. In general the geographical variables score high here, with also the post code, municipality number, and longitude. 
+
+\begin{figure*}
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/MIC_plot.pdf}
+  \caption[Non-linear correlation between variables and price]
+          {Non-linear correlation between variables and price using Maximal Information Coefficient (MIC) for variables where $\text{MIC}>10\%$.}
+  \label{fig:h:corr_MIC}
+\end{figure*}
+
+\subsection{Validity of input variables}
+
+The fact that some of the variables contains considerable amount of invalid values, NANs, requires this to be taken into account before any further analysis. The validity, defined as the percentage of valid observations, of every variable is shown in Figure~\ref{fig:h:nans}. Here the 168 variables variables are grouped together into 25 variables where each group share the same validity. An example of this are all of the 16 different distance-variables\sidenote{Distance to: Fængsel, Hede, Højspaendingsledning, Industri, JernbaneSynlig, Kirke, Kirkegård, Kyst, Landingsbane, Motorvej, MotorvejTilFraKørsel, RekreativtOmråde, Rigsgrænse, Sportsanlæg, Strand, Vindmølle}. We see that most of the variables have validities around more than 
+\SI{85}{\percent}, however, a few of the variables, especially information about the building, \code{BygningsInfo}, have validities less than \SI{20}{\percent}. 
+
+\begin{figure}
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/housing/missing_bar.pdf}
   \caption[Validity of input features]
           {Percentage of valid counts for each variable grouped together in categories.}
   \label{fig:h:nans}
 \end{figure}
 
+To see how closely related the different validity groups are, one can look at the dendrogram in Figure~\ref{fig:h:nans_dendrogram}. The dendrogram is based on a hierarchical clustering algorithm \citep{virtanenSciPyFundamentalAlgorithms2019} where the different groups are clustered according to their linear correlation. This diagram is supposed to be read in a top-down approach, where it can be see that the name of the street, \code{Vejnavn}, and the number of the residence, \code{HusNr}, correlate a lot and are thus clustered very early. The year of the last time the residence was rebuilt or greatly modified, \code{OmbygningsAAr}, does not correlate strongly with any of the other variables and is thus the last variable to be clustered together. 
 
 \begin{figure}
-  \includegraphics[width=0.99\textwidth, trim=0 10 0 10, clip]{figures/housing/missing_dendrogram.pdf}
+  \includegraphics[width=0.98\textwidth, trim=35 10 0 10, clip]{figures/housing/missing_dendrogram.pdf}
   \caption[Validity Dendrogram]
-          {XXXX \TODO.}
+          {Validity Dendrogram \TODO.}
   \label{fig:h:nans_dendrogram}
 \end{figure}
 
-also see Figure~\ref{fig:h:nans_heatmap}
+To see a heatmap of the inter-variable correlations, see Figure~\ref{fig:h:nans_heatmap} in the appendix. 
+
+\subsection{Cuts}
+Given the 1D input variable distributions and their validity, we apply some very basic cuts before any further analysis. These cuts are seen in Table \ref{tab:h:initial_cuts}. Sales type, \code{OISSalgsType}, is a OIS\sidenote{OIS is short for \q{Den Offentlige Informationsserver}, the Danish public information server, and it collects information about Danish residences \autocite{oisWwwOISDk}.} code which describes what type of sale it is: when it is \num{1} it is considered a normal sale, compared e.g. forced sales. These cuts are seen as the minimum requirements for what constitutes a curated dataset with no obvious outliers. The reason why the time requirement is applied, is to reduce the effect of the financial crisis to creep into the model. 
+
+\begin{table}[h]
+  \begin{tabular}{@{}llcr@{}}
+  % \toprule
+               & Description                                          & Remaining & Removed \\ 
+  \midrule
+  Area         & \SI{20}{\meter\squared} $\leq$ Area $\leq$ \SI{500}{\meter\squared} & \num{689140}              & \num{23666}     \\
+  Price        & \SI{0.1}{\Mkr} $\leq$ Price $\leq$ \SI{100}{\Mkr}                   & \num{687546}              & \num[group-minimum-digits=3]{1594}      \\
+  Type         & Has sales type \num{1}                                              & \num{605415}              & \num{82131}     \\
+  GPS          & Has valid GPS coordinates                                           & \num{578860}              & \num{26555}     \\
+  Private      & Only non-business sales                                             & \num{549140}              & \num{29720}     \\
+  Time         & Sold in \num{2009} or later                                         & \num{520548}              & \num{28592}     \\
+  \bottomrule
+  \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX \TODO.}
+  \label{tab:h:initial_cuts}
+\end{table}
+
+\section{Feature Augmentation}
+\label{sec:h:feature_augmentation}
+
+\begin{margintable}
+  % \begin{tabular}{llr}
+  \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} lr}
+  % \toprule
+  String & Explanation  & Code \\ \midrule
+  NAN    & No side door & 0    \\
+  TH, TV & Right, left  & 11   \\
+  MF     & Center       & 12   \\
+  --     & The rest         & 15 
+  \end{tabular*}
+  \vspace{3mm}
+  \caption{XXX \TODO.}
+  \label{tab:h:sidedoor_code}
+  \vspace{3mm}
+\end{margintable}
+
+\begin{margintable}
+  % \vspace{\abovecaptionskip}
+  % \begin{tabular}{llr}
+  \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} lr}
+  Contains   & Explanation  & Code \\ \midrule
+  Vej        & Road       & 0    \\
+  Gade       & Street     & 1    \\
+  Alle, Allé & Avenue     & 2    \\
+  Boulevard  & Boulevard  & 3    \\
+  --         & The rest   & -1  
+  \end{tabular*}
+  \vspace{3mm}
+  \caption{XXX \TODO.}
+  \label{tab:h:road_code}
+  \vspace{3mm}
+\end{margintable}
+
+\begin{margintable}
+  \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+  % \begin{tabular}{lr}
+  Energy rating label    & Code \\ \midrule
+  A2020                  & 2 \\
+  A2015 & 4  \\
+  A2010 & 6 \\
+  A2 & 8 \\
+  A1 & 10 \\
+  A &  12 \\
+  B  & 20 \\
+  C  & 30 \\
+  D  & 40 \\
+  E  & 50 \\
+  F2  & 60 \\
+  F1  & 62 \\
+  F  & 64 \\
+  G2  & 70 \\
+  G1  & 72 \\
+  G  & 74 \\
+  H, I, J, K, M  & 90 \\
+  NAN  & 100
+  \end{tabular*}
+  % \end{tabular}
+  \vspace{3mm}
+  \caption{XXX \TODO.}
+  \label{tab:h:energy_code}
+  \vspace{3mm}
+\end{margintable}
+
+Until now all of the analysis have dealt with different types of residences all together. From now on, the rest of the analysis will be applied on single-family houses and owner-occupied apartments independently. 
+
+First invalid counts are dropped, such that variables which contain more than \SI{10}{\percent} NANs are dropped, and duplicate rows are also removed. Then some manual features are added based on the day of the month, the month, and the year are extracted from the sales date and the sales date is also represented as both a float and as the numbers of days since January \nth{1}, \num{2009}. From the number of the house, \code{HusNr}, the number is extracted along with a boolean flag indicating whether or not it includes a letter (eg. \q{27B}). The number of the side door, \code{SidedoerNr}, is formatted according to Table~\ref{tab:h:sidedoor_code} and the road name is according to  Table~\ref{tab:h:road_code}. The age of the house is added\sidenote{In addition to only having the year the house was was built} and the amount of time (in year) since last major modification. The energy rating label, \code{EnergiMaerke}, is also converted from strings to values according to  Table~\ref{tab:h:energy_code} 
+
+Finally, some of the variables in the dataset are not suitable for machine learning or simply transformations of other varibles. These are variables such as the ID, when the house was deleted at Boligsiden, or the cash price, since we want the model to learn the price of the house and not simply the efficiency of the realtor.
+
+\subsection{Time-Dependent Price Index}
+
+In addition to the manual data augmentation in \autoref{sec:h:feature_augmentation}, a time-dependent price index is also added. We make use of the open source package called Prophet made by \citet{taylorForecastingScale} at Facebook. It is based on a decomposable time series model \autocite{harveyEstimationProceduresStructural1990} with two\sidenote{In their paper, \citet{taylorForecastingScale} include a holiday component in their analysis as well which is not included in this project.} components; trend $g(t)$ and seasonality $s(t)$:
+\begin{equation}
+  y_\mathrm{Prophet}(t) = g(t) + s(t) + \epsilon_t,
+\end{equation}
+where $\epsilon_t$ is a normally distributed error term. \citet{taylorForecastingScale} fit this equation with a generalized additive model (GAM) \autocite{hastieGeneralizedAdditiveModels1987} which they argue has several practical advantages compared to ARIMA models\sidenote{AutoRegressive Integrated Moving Average}. 
+
+We fit the Prophet model on the weekly median price pr. square meter (PPSM) up until (and including) \num{2017}. The results of the prophet model fitted on OOAs are seen in Figure~\ref{fig:h:prophet_forecast} and Figure~\ref{fig:h:prophet_trends}. In Figure~\ref{fig:h:prophet_forecast} the weakly median price pr. square meter for OOAs are shown as black dots with the fitted Prophet model shown in blue. The \num{1}-$\sigma$ uncertainty intervals are shown as the transparent blue band. The Prophet model not only allows predicting previous and future PPSMs, it also return the uncertainty of this prediction. The future predictions for the PPSM are the values after 2018. The trend and seasonality of the model are shown in Figure~\ref{fig:h:prophet_trends} where the top plot is the overall trend $g(t)$ and the bottom plot is the seasonality $s(t)$. Whereas the trend just continues to rise, the seasonality shows that residences are generally sold for a higher price in the Summer months compared to the Winter months. 
+
+\begin{figure}
+  \includegraphics[draft, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
+  \caption[Prophet Forecast for apartments]
+          {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the \num{1}-$\sigma$ confidence interval.
+          }
+  \label{fig:h:prophet_forecast}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[draft, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_trends.pdf}
+  \caption[Prophet Trends]
+          {The trends of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. In the top plot is the overall trend as a function of year and in the bottom plot is the yearly variation as a function of day of year. It can be seen that the square meter price is higher during the Summer months compared to the Winter months, however, compared to the overall trend this effect is minor ($<10\%$). 
+          }
+  \label{fig:h:prophet_trends}
+\end{figure}
+
+The Prophet model plots for OFHs can be seen in Figure~\ref{fig:h:prophet_forecast_villa} and Figure~\ref{fig:h:prophet_trends_villa} in the appendix. 
+
+Using the Prophet model, we define the price index (PI) to be the Prophet-predicted PPSM, $y_\mathrm{Prophet}$, for each residence normalized by the mean to give values around 1:
+\begin{equation}
+  \mathrm{PI}(t) = \frac{y_\mathrm{Prophet}(t)}{\bar{y}_\mathrm{Prophet}}.
+\end{equation}
+The price index thus works as a measure of the national price for houses or apartments at a given time and is added as a variable to the dataset. 
+
+% \begin{figure}
+%   \includegraphics[width=0.9\textwidth]{figures/housing/tinglysning_fig.pdf}
+%   \caption[Registration of property]
+%           {Overview of registration of property as a function of amount of owners (\code{AntEjere}), lowest share (\code{MindsteAndel}) and biggest share (\code{StoersteAndel}) written as \code{[AntEjere, MindsteAndel, StoersteAndel]}.
+%           }
+%   \label{fig:h:tinglysning}
+% \end{figure}
+
+\section{Evaluation Function}
+
+The choice of evaluation function $f_\mathrm{eval}$ is an important decision. The evaluation function will be based on the relative prediction $z$: 
+\begin{equation}
+  z = \frac{y - \hat{y}}{y},
+\end{equation}
+where $y$ is true price and $\hat{y}$ the predicted one: $z$ would thus be expected to approximately follow a normal distribution. Initially the mean of $z$ was considered as $f_\mathrm{eval}$ though this only ensures a minimum of bias, not necessarily a low spread. This lead the discussion on to look at the standard deviation of $z$ as $f_\mathrm{eval}$. The mean and the standard deviation, however, are not a very robust estimators since they are heavily influenced by outliers. The mean (and thus also the standard deviation) has a \emph{asymptotic breakdown point} at \SI{0}{\percent}, where the breakdown point is defined as the smallest fraction\sidenote{where the \q{asymptotic} in \q{asymptotic breakdown point} refers to when the number of samples goes to infinity.} of bad observations that can cause an estimator to become arbitrarily small or large: a single outlier with an arbitrarily large value may cause the mean to diverge to that large value \autocite{huber2011robust}. In comparison, the median has an asymptotic breakdown point of \SI{50}{\percent} and is thus a more robust estimator of centrality. A robust measure of the variability or dispersion of a sample $\vec{x}$ -- compared to e.g. the standard deviation $\sigma$ -- is the median absolute deviation (MAD) written as:
+\begin{equation}
+  \mathrm{MAD}(\vec{x}) = \mathrm{median} \left( \abs{\vec{x} - \mathrm{median}(\vec{x})} \right)
+\end{equation}
+The MAD is thus the median of the absolute differences between the data and the median of the data. We are, however, not just interested in having the distribution of the (relative) predictions as narrow as possible, we also want it centered around \num{0}. We thus continue with the following evaluation function:
+\begin{equation}
+  \begin{split}
+    \mathrm{MAD}_0(\vec{x})  &\equiv \mathrm{median} \left( \abs{\vec{x} - 0} \right) = \mathrm{median} \left( \abs{\vec{x}} \right) \\
+    f_\mathrm{eval}(\vec{z}) &= \mathrm{MAD}_0(\vec{z}) = \mathrm{median} \left( \abs{\vec{z}} \right).
+  \end{split}
+\end{equation}
+
+\section{Initial Hyperparameter Optimization}
+
+\begin{margintable}
+  \begin{tabular}{lrr}
+              & Houses       & Apartments   \\ \midrule
+   Train      & \num{240070} & \num{93115}  \\   
+   Test       & \num{34628}  & \num{14183}  \\   
+   \num{2019} & \num{16619}  & \num{6868} 
+  \end{tabular}
+  \vspace{3mm}
+  \caption{\label{tab:h:train_test_split}train test split XXX \TODO.}
+  \vspace{3mm}
+\end{margintable}
+
+\begin{margintable}
+  \begin{tabular}{lrr}
+% \begin{table}
+  % \begin{tabular}{lll}
+   Tight      & Houses        & Apartments  \\ \midrule
+   Train      & \num{143179}  & \num{57795} \\   
+   Test       & \num{20338}   & \num{8376}  \\   
+   \num{2019} & \num{9683}    & \num{4030} 
+  \end{tabular}
+  \vspace{3mm}
+  \caption{\label{tab:h:train_test_split_tight}train test split tight XXX \TODO.}
+  \vspace{3mm}
+\end{margintable}
+
+With the initial cleaning and feature adding done, the shapes of the ML-ready datasets are: (\num{291317}, \num{143}) for houses (OFHs) and (\num{114166}, \num{143}) for apartments (OOA), both sharing the same variables. All of the variables which are used from this point on can be seen in Table~\ref{tab:h:all_variables} in the appendix. 
+The data are split intro training and test sets such that training is defined as every sale from before \num{2018}, every sale from \num{2018} is the test set, and since more data came since the project started, \num{2019} is a small extra test set. 
+
+The number of observations for the different sets can be seen in Table~\ref{tab:h:train_test_split}. Since the dataset has been shown to be quite noisy with a lot invalid counts, a \q{tight} selection of the data is also applied. The tight selection is defined as residences which are within the \SI{1}{\percent} to \SI{99}{\percent} quantiles of all\sidenote{except the variables that contains the words: \q{aar} (year), \q{dato} (date), and  \q{prophet}.} numeric variables with more than 3 unique values. The number of observations for the different tight sets can be seen in Table~\ref{tab:h:train_test_split_tight}. 
+
+\begin{marginfigure}
+  \includegraphics[width=0.99\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_half_life_weights.pdf}
+  \caption[XXX ]
+    {Time here is years after January \nth{1}, 2009. XXX \TODO. 
+    }
+  \label{fig:h:half-life}
+\end{marginfigure}
+
+Before the data is properly fitted and the model is trained, a small study into the effect of some various hyperparameters was performed. This study investigated the effect of the old sales by assigning them a lower weight depending on time. It was investigated whether or not the model would perform better if samples got the time-dependent weight $w(t)$ given by:
+\begin{equation}
+  \begin{split}
+    \tilde{w}(t) &= e^{ k \cdot (t-t_\mathrm{max}) }, \quad k = \frac{\log 2}{T_{\frac{1}{2}}} \\
+    w(t) &= \frac{\tilde{w}(t)}{\mathrm{mean}(\tilde{w}(t))},
+  \end{split}
+\end{equation}
+% TODO: add parts about what weights are.
+where $T_{\frac{1}{2}}$ is the half-life. This is illustrated in Figure~\ref{fig:h:half-life} for the different values of $T_{\frac{1}{2}}$ used in the study.  In addition to the weight, it was also investigated whether or not a $\log_{10}$ transformation of the price would increase performance. The reasoning behind this would be that some machine learning methods assume that the dependent variable, $y$, is normally distributed. Finally the choice of loss function was also added to the study for the five different loss functions defined in \autoref{sec:ml:loss_function}. A grid search\sidenote{Grid search was acceptable since the parameter space is small and two of the three dimensions is non-numerical.} was performed for 
+\begin{equation}
+  \begin{split}
+    T_{\frac{1}{2}} \in \{2.5,\, 5,\, 10,\, 20,\, \infty \}~\mathrm{ years} \\
+    \log_{10} \in \{\mathrm{True},\, \mathrm{False} \} \\
+    \ell \in \{ \ell_\mathrm{SE},\, \ell_\mathrm{AE},\, \ell_\mathrm{LogCosh},\, \ell_\mathrm{Welsch},\, \ell_\mathrm{Fair} \}
+  \end{split}
+\end{equation}
+The GS is run on the training set with \num{3}-fold CV, early stopping is applied with a patience of \num{100}, and using XGBoost \autocite{chenXGBoostScalableTree2016} as the ML model. For apartments the loss function with the lowest $f_\mathrm{eval}$ was the Cauchy loss: the results of the Cauchy loss can be seen in Table~\ref{tab:h:HPO_initial_Cauchy}. For houses the loss function with the lowest $f_\mathrm{eval}$ was the Fair loss: the results of the Fair loss can be seen in Table~\ref{tab:h:HPO_initial_Fair}. All of the results for the apartments can be seen in Table~\ref{HPO_initial_Rmse-ejerlejlighed} to Table~\ref{HPO_initial_Fair-ejerlejlighed} in the appendix along with all of results for the houses in Table~\ref{HPO_initial_Rmse-villa} to Table~\ref{HPO_initial_Fair-villa}
+
+
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{393} & \num{0.1609} \\
+    \num{2.5} & False & \num{887} & \num{0.1449} \\
+    \num{5} & True & \num{296} & \num{0.1599} \\
+    \num{5} & False & \num{776} & \num{0.1476} \\
+    \num{10} & True & \num{266} & \num{0.1611} \\
+    \num{10} & False & \num{822} & \num{0.1457} \\
+    \num{20} & True & \num{257} & \num{0.1614} \\
+    $\mathbf{20}$ & \textbf{False} & $\mathbf{932}$ & $\mathbf{0.1439}$ \\
+    $\infty$ & True & \num{418} & \num{0.1567} \\
+    $\infty$ & False & \num{1015} & \num{0.1468} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Cauchy}Cauchy. Ejerlejlighed XX}
+\end{margintable}
+
+
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{520} & \num{0.1956} \\
+    \num{2.5} & False & \num{1062} & \num{0.1857} \\
+    \num{5} & True & \num{394} & \num{0.1968} \\
+    \num{5} & False & \num{1455} & \num{0.1836} \\
+    \num{10} & True & \num{1026} & \num{0.1942} \\
+    \num{10} & False & \num{1216} & \num{0.1847} \\
+    \num{20} & True & \num{606} & \num{0.1963} \\
+    $\mathbf{20}$ & \textbf{False} & $\mathbf{1996}$ & $\mathbf{0.1812}$ \\
+    $\infty$ & True & \num{417} & \num{0.1988} \\
+    $\infty$ & False & \num{1597} & \num{0.1839} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Fair}Fair. Villa XXX}
+\end{margintable}
+
 
 
 
 
 \newpage
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Denmark_Overview_SqmPrice.png}
-  \caption[Geographic overview of square meter price in Denmark]
-          {Geographic overview of square meter prices for houses and apartments in Denmark (excluding Bornholm for visual purposes). Notice the strong correlation with the major cities and the shore line. Also notice the three outliers west of Jutland. }
-  \label{fig:h:geo_overview}
-\end{figure}
-
-
-
-
-
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/lin_correlation.pdf}
-  \caption[Linear correlation between variables and price]
-          {Linear correlation between variables and price for variables where the correlation coefficient $\rho$ is $|\rho| > 10\%$.}
-  \label{fig:h:corr_lin}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/MIC_plot.pdf}
-  \caption[Non-linear correlation between variables and price]
-          {Non-linear correlation between variables and price using Maximal Information Coefficient (MIC) for variables where $\text{MIC}>10\%$.}
-  \label{fig:h:corr_MIC}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/housing/tinglysning_fig.pdf}
-  \caption[Registration of property]
-          {Overview of registration of property as a function of amount of owners (\code{AntEjere}), lowest share (\code{MindsteAndel}) and biggest share (\code{StoersteAndel}) written as \code{[AntEjere, MindsteAndel, StoersteAndel]}.
-          }
-  \label{fig:h:tinglysning}
-\end{figure}
-
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
-  \caption[Prophet Forecast for apartments]
-          {The predictions of the Facebook Prophet model trained on square meter prices for apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the 1-sigma confidence interval.
-          }
-  \label{fig:h:prophet_forecast}
-\end{figure}
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_trends.pdf}
-  \caption[Prophet Trends]
-          {The trends of the Facebook Prophet model trained on square meter prices for apartments sold before January 1st, 2018. In the top plot is the overall trend as a function of year and in the bottom plot is the yearly variation as a function of day of year. It can be seen that the square meter price is higher during the Summer months compared to the Winter months, however, compared to the overall trend this effect is minor ($<10\%$). 
-          }
-  \label{fig:h:prophet_trends}
-\end{figure}
-
-
-
-% \begin{table}[]
-  % \begin{tabular}{@{}lllll@{}}
-
-\begin{table}[]
-  \begin{tabular}{@{}llrrl@{}}
-    \toprule
-  Halflife & $\log_{10}$ & $N_\mathrm{trees}$ & Time [$s$]   & MAD    \\ \midrule
-  2.5 & True & 210 & 81  & 0.1651 \\
-  2.5 & False & 217 & 64  & 0.1791 \\
-  5   & True & 209 & 78  & 0.1647 \\
-  5   & False & 100 & 41  & 0.1950  \\
-  \textbf{10}  & \textbf{True} & \textbf{375} & \textbf{118} & \textbf{0.1563} \\
-  10  & False & 411 & 97   & 0.1739 \\
-  20  & True & 333 & 106 & 0.1639 \\
-  20  & False & 125 & 44  & 0.1925 \\
-  $\infty$   & True & 371 & 112 & 0.1596 \\
-  $\infty$   & False & 79  & 30  & 0.2062 \\ \bottomrule
-  \end{tabular}
-  \caption{\label{tab:h:HPO_initial_RMSE}RMSE.}
-  \end{table}
-  
-  \begin{table}[]
-  \begin{tabular}{@{}llrrl@{}}
-    \toprule
-  Halflife & $\log_{10}$ & $N_\mathrm{trees}$ & Time [$s$]   & MAD    \\ \midrule
-  2.5 & True & 180 & 57  & 0.1650  \\
-  \textbf{2.5} & \textbf{False} & \textbf{682} & \textbf{111} & \textbf{0.1500}   \\
-  5   & True & 198 & 62  & 0.1647 \\
-  5   & False & 892 & 139 & 0.1514 \\
-  10  & True & 244 & 68  & 0.1627 \\
-  10  & False & 381 & 65  & 0.1608 \\
-  20  & True & 396 & 95  & 0.1612 \\
-  20  & False & 302 & 53   & 0.1626 \\
-  $\infty$   & True & 239 & 60  & 0.1639 \\
-  $\infty$   & False & 303 & 50   & 0.1620  \\ \bottomrule
-  \end{tabular}
-  \caption{\label{tab:h:HPO_initial_LogCosh}LogCosh.}
-  \end{table}
-  
-  % \begin{table}[]
-  % \begin{tabular}{@{}llrrl@{}}
-  %   \toprule
-  % Halflife & $\log_{10}$ & $N_\mathrm{trees}$ & Time [$s$]   & MAD    \\ \midrule
-  % 2.5 & True & 267  & 75  & 0.1866 \\
-  % 2.5 & False & 712  & 113 & 0.2794 \\
-  % \textbf{5}   & \textbf{True} & \textbf{386}  & \textbf{91}  & \textbf{0.1843} \\
-  % 5   & False & 394  & 60   & 0.2995 \\
-  % 10  & True & 88   & 39  & 0.2426 \\
-  % 10  & False & 215  & 39  & 0.3668 \\
-  % 20  & True & 159  & 51  & 0.2152 \\
-  % 20  & False & 604  & 89  & 0.3340  \\
-  % $\infty$   & True & 326  & 82  & 0.1982 \\
-  % $\infty$   & False & 1146 & 161 & 0.2963 \\ \bottomrule
-  % \end{tabular}
-  % \caption{\label{tab:h:HPO_initial_Cauchy}Cauchy.}
-  % \end{table}
-  
-  % \begin{table}[]
-  % \begin{tabular}{@{}llrrl@{}}
-  %   \toprule
-  % Halflife & $\log_{10}$ & $N_\mathrm{trees}$ & Time [$s$]   & MAD    \\ \midrule
-  % 2.5    & True & 227  & 69  & 0.1973 \\
-  % 2.5 & False & 621  & 99  & 0.4257 \\
-  % 5   & True & 205  & 61  & 0.2128 \\
-  % 5   & False & 320  & 53  & 0.4048 \\
-  % \textbf{10}  & \textbf{True} & \textbf{286}  & \textbf{78}  & \textbf{0.1960}  \\
-  % 10  & False & 1109 & 153 & 0.4045 \\
-  % 20  & True & 171  & 53  & 0.2069 \\
-  % 20  & False & 809  & 108  & 0.3698 \\
-  % $\infty$   & True & 215  & 63  & 0.2194 \\
-  % $\infty$   & False & 558  & 81  & 0.3933 \\ \bottomrule
-  % \end{tabular}
-  % \caption{\label{tab:h:HPO_initial_Welsch}Welsch.}
-  % \end{table}
-  
-  % \begin{table}[]
-  % \begin{tabular}{@{}llrrl@{}}
-  %   \toprule
-  % Halflife & $\log_{10}$ & $N_\mathrm{trees}$ & Time [$s$]   & MAD    \\ \midrule
-  % 2.5 & True & 209 & 62 & 0.1631 \\
-  % 2.5 & False & 170 & 37 & 0.1702 \\
-  % 5   & True & 360 & 94 & 0.1623 \\
-  % 5   & False & 252 & 49 & 0.1698 \\
-  % \textbf{10}  & \textbf{True} & \textbf{368} & \textbf{93}  & \textbf{0.1574} \\
-  % 10  & False & 322 & 53 & 0.1711 \\
-  % 20  & True & 257 & 66 & 0.1614 \\
-  % 20  & False & 313 & 50 & 0.1706 \\
-  % $\infty$   & True & 351 & 85 & 0.1602 \\
-  % $\infty$   & False & 360 & 57 & 0.1740  \\ \bottomrule
-  % \end{tabular}
-  % \caption{\label{tab:h:HPO_initial_Fair}Fair.}
-  % \end{table}
-
 
 
 \begin{figure}
@@ -2257,12 +2438,59 @@ classes rely upon.  Packages marked with an asterisk are optional.
 \appendix
 \chapter{Housing Prices Appendix}
 
-\begin{figure*}
-  \includegraphics[width=0.9\textwidth, trim=10 10 10 10, clip]{figures/housing/missing_heatmap.pdf}
+\begin{figure*}[h!]
+  \includegraphics[draft, width=0.9\textwidth, trim=10 10 10 10, clip]{figures/housing/missing_heatmap.pdf}
   \caption[Validity Heatmap]
           {XXXX \TODO.}
   \label{fig:h:nans_heatmap}
 \end{figure*}
+
+
+% Input all 1D-variables for housing
+% \input{figures/housing/all_input_variables/all.tex}
+\input{figures/housing/all_input_variables/all_demo2.tex}
+
+\input{figures/housing/all_input_variables/table.tex}
+
+\begin{figure*}[h!]
+  \centerfloat
+  \includegraphics[draft, width=1.1\textwidth, trim=10 10 10 10, clip]{figures/housing/correlations_all.pdf}
+  \caption[Linear Correlations]
+          {XXXX \TODO.}
+  \label{fig:h:correlations_all_lin}
+\end{figure*}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[draft, width=0.99\textwidth, trim=0 0 0 40, clip]{figures/housing/MIC_test.pdf}
+  \caption[MIC non-linear correlation]
+          {MIC non-linear correlation.}
+  \label{fig:h:MIC_example}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+  \includegraphics[draft, width=0.9\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_forecast.png}
+  \caption[Prophet Forecast for apartments]
+          {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the $1-\sigma$ confidence interval.
+          }
+  \label{fig:h:prophet_forecast_villa}
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[draft, width=0.9\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_trends.pdf}
+  \caption[Prophet Trends]
+          {The trends of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. In the top plot is the overall trend as a function of year and in the bottom plot is the yearly variation as a function of day of year. It can be seen that the square meter price is higher during the Summer months compared to the Winter months, however, compared to the overall trend this effect is minor ($<10\%$). 
+          }
+  \label{fig:h:prophet_trends_villa}
+\end{figure}
+
+\input{figures/housing/HPO_table/combined.tex}
+
+
+
 
 
 \chapter{Quarks vs. Gluons Appendix}
