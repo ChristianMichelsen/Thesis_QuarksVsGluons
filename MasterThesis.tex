@@ -132,6 +132,9 @@
 \DeclareSIUnit{\kroner}{kr.}
 \DeclareSIUnit{\kr}{kr.}
 \DeclareSIUnit{\Mkr}{M.kr.}
+\DeclareSIUnit{\year}{year}
+\DeclareSIUnit{\years}{years}
+\DeclareSIUnit{\yr}{yr}
 
 
 % custom subsubsection:
@@ -1387,8 +1390,12 @@ The MAD is thus the median of the absolute differences between the data and the 
     f_\mathrm{eval}(\vec{z}) &= \mathrm{MAD}_0(\vec{z}) = \mathrm{median} \left( \abs{\vec{z}} \right).
   \end{split}
 \end{equation}
+Here $\vec{z} \in \mathbb{R}^N$ is the vector of all relative price predictions. To get an intuition about the size of a \q{good} value of $\mathrm{MAD}_0$, one could calculate it comparing the asking price with the actual sales price. Doing so, one finds: $f_\mathrm{eval}(\vec{z}_\mathrm{OFH}) = \SI{11.35}{\percent}$ for houses and $f_\mathrm{eval}(\vec{z}_\mathrm{OOA}) = \SI{5.72}{\percent}$ for apartments. 
 
 \section{Initial Hyperparameter Optimization}
+
+With the initial cleaning and feature adding done, the shapes of the ML-ready datasets are: (\num{291317}, \num{143}) for houses (OFHs) and (\num{114166}, \num{143}) for apartments (OOA), both sharing the same variables. All of the variables which are used from this point on can be seen in Table~\ref{tab:h:all_variables} in the appendix. 
+The data are split intro training and test sets such that training is defined as every sale from before \num{2018}, every sale from \num{2018} is the test set, and since more data came since the project started, \num{2019} is a small extra test set. 
 
 \begin{margintable}
   \begin{tabular}{lrr}
@@ -1416,10 +1423,17 @@ The MAD is thus the median of the absolute differences between the data and the 
   \vspace{3mm}
 \end{margintable}
 
-With the initial cleaning and feature adding done, the shapes of the ML-ready datasets are: (\num{291317}, \num{143}) for houses (OFHs) and (\num{114166}, \num{143}) for apartments (OOA), both sharing the same variables. All of the variables which are used from this point on can be seen in Table~\ref{tab:h:all_variables} in the appendix. 
-The data are split intro training and test sets such that training is defined as every sale from before \num{2018}, every sale from \num{2018} is the test set, and since more data came since the project started, \num{2019} is a small extra test set. 
+The number of observations for the different sets can be seen in Table~\ref{tab:h:train_test_split}. Since the dataset has been shown to be quite noisy with a lot invalid counts, a \q{tight} selection of the data is also applied. The tight selection is defined as residences which are within the \SI{1}{\percent} to \SI{99}{\percent} quantiles of all\sidenote{Except the variables that contains the words: \q{aar} (year), \q{dato} (date), and  \q{prophet}.} numeric variables with more than 3 unique values. The number of observations for the different tight sets can be seen in Table~\ref{tab:h:train_test_split_tight}. 
 
-The number of observations for the different sets can be seen in Table~\ref{tab:h:train_test_split}. Since the dataset has been shown to be quite noisy with a lot invalid counts, a \q{tight} selection of the data is also applied. The tight selection is defined as residences which are within the \SI{1}{\percent} to \SI{99}{\percent} quantiles of all\sidenote{except the variables that contains the words: \q{aar} (year), \q{dato} (date), and  \q{prophet}.} numeric variables with more than 3 unique values. The number of observations for the different tight sets can be seen in Table~\ref{tab:h:train_test_split_tight}. 
+Before the data is properly fitted and the model is trained, a small study into the effect of some various hyperparameters was performed. This study investigated the effect of the old sales by assigning them a lower weight depending on time. It was investigated whether or not the model would perform better if samples got the time-dependent weight $w(t)$ given by:
+\begin{equation}
+  \begin{split}
+    w'(t) &= e^{ k \cdot (t-t_\mathrm{max}) }, \quad k = \frac{\log 2}{T_{\frac{1}{2}}} \\
+    w(t) &= \frac{w'(t)}{\mathrm{mean}(w'(t))},
+  \end{split}
+\end{equation}
+% TODO: add parts about what weights are.
+where $T_{\frac{1}{2}}$ is the half-life. 
 
 \begin{marginfigure}
   \includegraphics[width=0.99\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_half_life_weights.pdf}
@@ -1429,26 +1443,17 @@ The number of observations for the different sets can be seen in Table~\ref{tab:
   \label{fig:h:half-life}
 \end{marginfigure}
 
-Before the data is properly fitted and the model is trained, a small study into the effect of some various hyperparameters was performed. This study investigated the effect of the old sales by assigning them a lower weight depending on time. It was investigated whether or not the model would perform better if samples got the time-dependent weight $w(t)$ given by:
+This is illustrated in Figure~\ref{fig:h:half-life} for the different values of $T_{\frac{1}{2}}$ used in the study.  In addition to the weight, it was also investigated whether or not a $\log_{10}$ transformation of the price would increase performance. The reasoning behind this would be that some machine learning methods assume that the dependent variable, $y$, is normally distributed. Finally the choice of loss function was also added to the study for the five different loss functions defined in \autoref{sec:ml:loss_function}. A grid search\sidenote{Grid search was acceptable since the parameter space is small and two of the three dimensions is non-numerical.} was performed for:
 \begin{equation}
   \begin{split}
-    \tilde{w}(t) &= e^{ k \cdot (t-t_\mathrm{max}) }, \quad k = \frac{\log 2}{T_{\frac{1}{2}}} \\
-    w(t) &= \frac{\tilde{w}(t)}{\mathrm{mean}(\tilde{w}(t))},
+    T_{\frac{1}{2}} &\in \{2.5,\, 5,\, 10,\, 20,\, \infty \}~\mathrm{ years} \\
+    \log_{10} &\in \{\mathrm{True},\, \mathrm{False} \} \\
+    \ell &\in \{ \ell_\mathrm{Cauchy},\, \ell_\mathrm{Fair},\, \ell_\mathrm{LogCosh},\, \ell_\mathrm{SE},\, \ell_\mathrm{Welsch},\}
   \end{split}
 \end{equation}
-% TODO: add parts about what weights are.
-where $T_{\frac{1}{2}}$ is the half-life. This is illustrated in Figure~\ref{fig:h:half-life} for the different values of $T_{\frac{1}{2}}$ used in the study.  In addition to the weight, it was also investigated whether or not a $\log_{10}$ transformation of the price would increase performance. The reasoning behind this would be that some machine learning methods assume that the dependent variable, $y$, is normally distributed. Finally the choice of loss function was also added to the study for the five different loss functions defined in \autoref{sec:ml:loss_function}. A grid search\sidenote{Grid search was acceptable since the parameter space is small and two of the three dimensions is non-numerical.} was performed for 
-\begin{equation}
-  \begin{split}
-    T_{\frac{1}{2}} \in \{2.5,\, 5,\, 10,\, 20,\, \infty \}~\mathrm{ years} \\
-    \log_{10} \in \{\mathrm{True},\, \mathrm{False} \} \\
-    \ell \in \{ \ell_\mathrm{SE},\, \ell_\mathrm{AE},\, \ell_\mathrm{LogCosh},\, \ell_\mathrm{Welsch},\, \ell_\mathrm{Fair} \}
-  \end{split}
-\end{equation}
-The GS is run on the training set with \num{3}-fold CV, early stopping is applied with a patience of \num{100}, and using XGBoost \autocite{chenXGBoostScalableTree2016} as the ML model. For apartments the loss function with the lowest $f_\mathrm{eval}$ was the Cauchy loss: the results of the Cauchy loss can be seen in Table~\ref{tab:h:HPO_initial_Cauchy}. For houses the loss function with the lowest $f_\mathrm{eval}$ was the Fair loss: the results of the Fair loss can be seen in Table~\ref{tab:h:HPO_initial_Fair}. All of the results for the apartments can be seen in Table~\ref{HPO_initial_Rmse-ejerlejlighed} to Table~\ref{HPO_initial_Fair-ejerlejlighed} in the appendix along with all of results for the houses in Table~\ref{HPO_initial_Rmse-villa} to Table~\ref{HPO_initial_Fair-villa}
-
 
 \begin{margintable}
+  \vspace{3mm}
   \begin{tabular}{@{}ccrc@{}}
     %\toprule
     Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
@@ -1465,9 +1470,10 @@ The GS is run on the training set with \num{3}-fold CV, early stopping is applie
     $\infty$ & False & \num{1015} & \num{0.1468} \\
     %\bottomrule
   \end{tabular}
+  \vspace{3mm}
   \caption{\label{tab:h:HPO_initial_Cauchy}Cauchy. Ejerlejlighed XX}
+  \vspace{3mm}
 \end{margintable}
-
 
 \begin{margintable}
   \begin{tabular}{@{}ccrc@{}}
@@ -1486,24 +1492,79 @@ The GS is run on the training set with \num{3}-fold CV, early stopping is applie
     $\infty$ & False & \num{1597} & \num{0.1839} \\
     %\bottomrule
   \end{tabular}
+  \vspace{3mm}
   \caption{\label{tab:h:HPO_initial_Fair}Fair. Villa XXX}
+  \vspace{3mm}
 \end{margintable}
 
+The GS is run on the training set with \num{3}-fold CV, early stopping is applied with a patience of \num{100}, and XGBoost \autocite{chenXGBoostScalableTree2016} is used as the ML model. For apartments the loss function with the lowest $f_\mathrm{eval}$ was the Cauchy loss with $T_{\frac{1}{2}}=20$ years and no $\log_{10}$ transformation. This BDT terminated by early stopping after \num{932} trees, see Table~\ref{tab:h:HPO_initial_Cauchy}. 
+For houses the loss function with the lowest $f_\mathrm{eval}$ was the Fair loss (also) with $T_{\frac{1}{2}}=20$ years and (also) no $\log_{10}$ transformation. This BDT terminated by early stopping after \num{1996} trees, see Table~\ref{tab:h:HPO_initial_Fair}. 
+It is interesting to note that both HPO for houses and apartments choose the same half-life and not to do any transformation\sidenote{The reason why the $\log_{10}$ transformation is included even to begin with, was that initially it should better results than no transformation. However, this turned out to be a numerical consequence which was alleviated by dividing all prices with a million, such that $y$ had units of \si{\Mkr} instead of \si{\kr}.}. All of the results for the apartments can be seen in Table~\ref{tab:h:HPO_initial_Rmse-ejerlejlighed}--\ref{tab:h:HPO_initial_Fair-ejerlejlighed} in the appendix along with all of results for the houses in Table~\ref{tab:h:HPO_initial_Rmse-villa}--\ref{tab:h:HPO_initial_Fair-villa}. 
 
-
-
-
-\newpage
-
+A visualization of the HPO results can be seen as the parallel coordinate plot in Figure~\ref{fig:h:CV_res_parallel_coords_ejer}. Here the hyperparameters (along the time taken and the number of trees) of the HPO are plotted along the abscissa (x-axis) and the value of the hyperparameter on the ordinate (y-axis). Every iteration of the HPO is thus a line on the plot. The lines are colored according to their evaluation score; the best hyperparameter is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. The same plot for houses can be seen in Figure~\ref{fig:h:CV_res_parallel_coords_villa} in the appendix.
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
   \caption[Overview of initial hyperparamater optimization of the housing model for apartments]
-          {Hyperparameter optimization results of the housing model for apartments. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by MAD from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{objektive} the functions RMSE (0), LogCosh (1), Cauchy (2), Welsch (3), and Fair (4) are mapped to the integers in the parentheses.   
+          {Hyperparameter optimization results of the housing model for apartments. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by $\mathrm{MAD}_0$ from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objective} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses.
           } 
-  \label{fig:h:CV_res_parallel_coords}
+  \label{fig:h:CV_res_parallel_coords_ejer}
 \end{figure}
 
+What can be concluded from Figure~\ref{fig:h:CV_res_parallel_coords_ejer} is that there is a clear preference from not $\log$-transforming the data, that the BDTs with many trees\sidenote[][4cm]{Remember that the number of trees where selected by early stopping.} generally performed better than the ones with fewer trees, that it is difficult to see a clear pattern for the half-life, and that there seems to be a tendency for the Cauchy loss to be the best, however, it is still ambiguous. What is not seen in the figure, however, are how the uncertainties\sidenote{The uncertainties here are the standard deviation (not of the mean) of the 3 folds in cross validation.} of the different iterations also matter. 
+\begin{marginfigure}[1cm]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_half.pdf}
+  \caption[XXX]
+          {Halflife $T_{\frac{1}{2}}$.
+          }
+  \label{fig:h:hpo_gridsearch_objective}
+\end{marginfigure}
+
+\begin{marginfigure}[1cm]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_obj.pdf}
+  \caption[XXX]
+          {Objective function XXX.
+          } 
+  \label{fig:h:hpo_gridsearch_halflife}
+\end{marginfigure}
+% \begin{figure}
+%   \centerfloat
+%   % \vspace*{-\abovecaptionskip}
+%   \subfloat[Objective \label{fig:h:hpo_gridsearch_objective}]{\qquad}
+%   \includegraphics[width=0.4\textwidth]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_obj.pdf}\hfil
+%   \subfloat[\label{fig:h:hpo_gridsearch_halflife} $T_{\frac{1}{2}}$]{\qquad}
+%   \includegraphics[width=0.4\textwidth]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_half.pdf}
+%   \caption[X]{XXX. 
+%            In subplot ~\protect\subref{fig:h:hpo_gridsearch_objective} XXX and in subplot ~\protect\subref{fig:h:hpo_gridsearch_halflife} XXX. 
+%            }
+%   \label{fig:h:hpo_gridsearch}
+%   \vspace{\abovecaptionskip}
+% % \end{figure}
+For the half-life and the choice of objective function these can be seen in Figure~\ref{fig:h:hpo_gridsearch_objective} and \ref{fig:h:hpo_gridsearch_halflife}. In the first of the two figures it is easily seen that even though $T_{\frac{1}{2}}=\SI{20}{\yr}$ is the minimum, the uncertainties are so large that nothing can be concluded with regards to the half-life parameter related to the weights $w(t)$. In contrary, in the second figure there is a clear performance difference between the different loss functions where the Cauchy loss archives the best (lowest) value of $f_\mathrm{eval}$. 
+
+The rest of the machine learning models thus continue with the following hyperparamaters:
+
+\begin{table}[h]
+  \centerfloat
+  \begin{tabular}{@{}llcl@{}}
+               & $\log_{10}$  & Half-life & Loss function \\ \midrule
+  Apartments   & False & \SI{20}{\yr} & Cauchy \\
+  Houses       & False & \SI{20}{\yr} & Fair
+  \end{tabular}
+  % \vspace{\abovecaptionskip}
+  % \caption{XXX}
+  \label{tab:h:initial_hpo}
+\end{table}
+
+
+
+\section{Machine Learning}
+With the initial HPO set, the actual training of the models was started. 
+
+
+\newpage
 
 
 \begin{figure}
@@ -2488,6 +2549,16 @@ classes rely upon.  Packages marked with an asterisk are optional.
 \end{figure}
 
 \input{figures/housing/HPO_table/combined.tex}
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
+  \caption[Overview of initial hyperparamater optimization of the housing model for houses]
+          {Hyperparameter optimization results of the housing model for houses. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by $\mathrm{MAD}_0$ from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses.
+          } 
+  \label{fig:h:CV_res_parallel_coords_villa}
+\end{figure}
+
 
 
 
