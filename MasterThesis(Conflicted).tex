@@ -837,7 +837,7 @@ The method of making artificial extra samples and training on them is in general
 \end{theorem}
 Equation \eqref{eq:ml:variance_of_correlated_variables} is the main idea behind RFs. As the number of trees $B$ in the forest increases, the first term goes towards zero. Thus, the more the correlation $\rho$ between the individual trees is reduced, the more the variance is reduced (which is the main problem in the case of DTs to begin with). 
 
-In addition to training the trees on bagged samples, one more technique is used to further decrease the correlation between the individual trees: each bootstrapped sample of the dataset not only contains a only subset of the observations (rows), but also only a subset of the variables (columns)\sidenote{Throughout this project all data is assumed to be \emph{tidy data} unless otherwise explicitly mentioned. Tidy data was a concept formalized in 2003 by \citet{JSSv059i10} which basically states that each variable forms a columns, each observation forms a row, and that each type of observation unit forms a table. This also means that the term variable and column will be used interchangeable (together with \emph{feature}), and likewise with observation and row.}. This called columns subsampling (in contrast to row subsampling).
+In addition to training the trees on bagged samples, one more technique is used to further decrease the correlation between the individual trees: each bootstrapped sample of the dataset not only contains a only subset of the observations (rows), but also only a subset of the variables (columns)\sidenote{Throughout this project all data is assumed to be \emph{tidy data} unless otherwise explicitly mentioned. Tidy data was a concept formalized in 2003 by \citet{JSSv059i10} which basically states that each variable forms a columns, each observation forms a row, and that each type of observation unit forms a table. This also means that the term variable and column will be used interchangeable (together with \emph{feature}), and likewise with observation and row.}. This called column-subsampling (in contrast to row subsampling).
 
 % Until very recently RF has suffered from the lack of a fast, optimized implementation in Python that could deal with big data sets. 
 
@@ -1200,7 +1200,7 @@ The correlation $\rho$ used above is the linear correlation which thus only capt
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.99\textwidth, trim=20 20 20 20, clip]{figures/housing/MIC_test_small.pdf}
+  \includegraphics[width=0.99\textwidth, trim=10 10 10 10, clip]{figures/housing/MIC_test_small.pdf}
   \caption[MIC non-linear correlation.]
           {MIC non-linear correlation. XXX \TODO}
   \label{fig:h:MIC_example_small}
@@ -1339,7 +1339,7 @@ In addition to the manual data augmentation in \autoref{sec:h:feature_augmentati
 \end{equation}
 where $\epsilon_t$ is a normally distributed error term. \citet{taylorForecastingScale} fit this equation with a generalized additive model (GAM) \autocite{hastieGeneralizedAdditiveModels1987} which they argue has several practical advantages compared to ARIMA models\sidenote{AutoRegressive Integrated Moving Average}. 
 
-We fit the Prophet model on the weekly median price pr. square meter (PPSM) up until (and including) \num{2017}. The results of the prophet model fitted on OOAs are seen in Figure~\ref{fig:h:prophet_forecast} and Figure~\ref{fig:h:prophet_trends}. In Figure~\ref{fig:h:prophet_forecast} the weakly median price pr. square meter for OOAs are shown as black dots with the fitted Prophet model shown in blue. The \num{1}-$\sigma$ uncertainty intervals are shown as the transparent blue band. The Prophet model not only allows predicting previous and future PPSMs, it also return the uncertainty of this prediction. The future predictions for the PPSM are the values after 2018. The trend and seasonality of the model are shown in Figure~\ref{fig:h:prophet_trends} where the top plot is the overall trend $g(t)$ and the bottom plot is the seasonality $s(t)$. Whereas the trend just continues to rise, the seasonality shows that residences are generally sold for a higher price in the Summer months compared to the Winter months. 
+We fit the Prophet model on the weekly median price pr. square meter (PPSM) up until (and including) \num{2017}. The results of the prophet model fitted on OOAs are seen in Figure~\ref{fig:h:prophet_forecast} and Figure~\ref{fig:h:prophet_trends}. In Figure~\ref{fig:h:prophet_forecast} the weakly median price pr. square meter for OOAs are shown as black dots with the fitted Prophet model shown in blue. The $1\sigma$ uncertainty intervals are shown as the transparent blue band. The Prophet model not only allows predicting previous and future PPSMs, it also return the uncertainty of this prediction. The future predictions for the PPSM are the values after 2018. The trend and seasonality of the model are shown in Figure~\ref{fig:h:prophet_trends} where the top plot is the overall trend $g(t)$ and the bottom plot is the seasonality $s(t)$. Whereas the trend just continues to rise, the seasonality shows that residences are generally sold for a higher price in the Summer months compared to the Winter months. 
 
 \begin{figure}
   \includegraphics[draft, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
@@ -1359,11 +1359,12 @@ We fit the Prophet model on the weekly median price pr. square meter (PPSM) up u
 
 The Prophet model plots for OFHs can be seen in Figure~\ref{fig:h:prophet_forecast_villa} and Figure~\ref{fig:h:prophet_trends_villa} in the appendix. 
 
-Using the Prophet model, we define the price index (PI) to be the Prophet-predicted PPSM, $y_\mathrm{Prophet}$, for each residence normalized by the mean to give values around 1:
+Using the Prophet model, we define the price index (PI) to be the Prophet-predicted PPSM, $y_\mathrm{Prophet}$, for each residence normalized by the mean to give values around \num{1}:
 \begin{equation}
-  \mathrm{PI}(t) = \frac{y_\mathrm{Prophet}(t)}{\bar{y}_\mathrm{Prophet}}.
+  % \mathrm{PI}(t) = \frac{y_\mathrm{Prophet}(t)}{\mathrm{mean}(y_\mathrm{Prophet}(t))}.
+  \mathrm{PI}(t) = \frac{y_\mathrm{Prophet}(t)}{\langle y_\mathrm{Prophet}(t) \rangle},
 \end{equation}
-The price index thus works as a measure of the national price for houses or apartments at a given time and is added as a variable to the dataset. 
+where $\langle \boldsymbol{\cdot} \rangle$ refers to the average. The price index thus works as a measure of the national price for houses or apartments at a given time and is added as a variable to the dataset. 
 
 % \begin{figure}
 %   \includegraphics[width=0.9\textwidth]{figures/housing/tinglysning_fig.pdf}
@@ -1377,24 +1378,29 @@ The price index thus works as a measure of the national price for houses or apar
 
 The choice of evaluation function $f_\mathrm{eval}$ is an important decision. The evaluation function will be based on the relative prediction $z$: 
 \begin{equation}
-  z = \frac{y - \hat{y}}{y},
+  z = \frac{\hat{y}-y}{y},
 \end{equation}
-where $y$ is true price and $\hat{y}$ the predicted one: $z$ would thus be expected to approximately follow a normal distribution. Initially the mean of $z$ was considered as $f_\mathrm{eval}$ though this only ensures a minimum of bias, not necessarily a low spread. This lead the discussion on to look at the standard deviation of $z$ as $f_\mathrm{eval}$. The mean and the standard deviation, however, are not a very robust estimators since they are heavily influenced by outliers. The mean (and thus also the standard deviation) has a \emph{asymptotic breakdown point} at \SI{0}{\percent}, where the breakdown point is defined as the smallest fraction\sidenote{where the \q{asymptotic} in \q{asymptotic breakdown point} refers to when the number of samples goes to infinity.} of bad observations that can cause an estimator to become arbitrarily small or large: a single outlier with an arbitrarily large value may cause the mean to diverge to that large value \autocite{huber2011robust}. In comparison, the median has an asymptotic breakdown point of \SI{50}{\percent} and is thus a more robust estimator of centrality. A robust measure of the variability or dispersion of a sample $\vec{x}$ -- compared to e.g. the standard deviation $\sigma$ -- is the median absolute deviation (MAD) written as:
+where $y$ is true price and $\hat{y}$ the predicted one. The relative prediction is defined such that it is positive when $\hat{y}>y$, due to the outlier cuts made earlier the denominator is made sure to always be positive (and never \num{0}), and $z$ is expected to approximately follow a normal distribution. Initially the mean of $z$ was considered as the choice of $f_\mathrm{eval}$ though this only ensures a minimum of bias, not necessarily a low spread. This lead the discussion on to look at the standard deviation of $z$ as $f_\mathrm{eval}$. The mean and the standard deviation, however, are not a very robust estimators since they are heavily influenced by outliers. The mean (and thus also the standard deviation) has a \emph{asymptotic breakdown point} at \SI{0}{\percent}, where the breakdown point is defined as the smallest fraction\sidenote{Where the \q{asymptotic} in \q{asymptotic breakdown point} refers to when the number of samples goes to infinity.} of bad observations that can cause an estimator to become arbitrarily small or large: a single outlier with an arbitrarily large value may cause the mean to diverge to that large value \autocite{huber2011robust}. In comparison, the median has an asymptotic breakdown point of \SI{50}{\percent} and is thus a more robust estimator of centrality. A robust measure of the variability or dispersion of a sample $\vec{x}$ -- compared to e.g. the standard deviation $\sigma$ -- is the median absolute deviation (MAD) written as:
 \begin{equation}
-  \mathrm{MAD}(\vec{x}) = \mathrm{median} \left( \abs{\vec{x} - \mathrm{median}(\vec{x})} \right)
+  \mathrm{MAD}(\vec{x}) = c \cdot \mathrm{median} \left( \abs{\vec{x} - \mathrm{median}(\vec{x})} \right), \quad c = \frac{1}{\Phi^{-1}(\frac{3}{4})},
+  \label{eq:h:MAD}
 \end{equation}
+where $c$ is a normalization constant to make MAD a consistent estimator of the standard deviation $\sigma$ assuming normally distributed data and $\Phi^{-1}$ is the percent point function\sidenote{Inverse of the cumulative distribution function.} \autocite{leysDetectingOutliersNot2013}.
 The MAD is thus the median of the absolute differences between the data and the median of the data. We are, however, not just interested in having the distribution of the (relative) predictions as narrow as possible, we also want it centered around \num{0}. We thus continue with the following evaluation function:
 \begin{equation}
   \begin{split}
-    \mathrm{MAD}_0(\vec{x})  &\equiv \mathrm{median} \left( \abs{\vec{x} - 0} \right) = \mathrm{median} \left( \abs{\vec{x}} \right) \\
-    f_\mathrm{eval}(\vec{z}) &= \mathrm{MAD}_0(\vec{z}) = \mathrm{median} \left( \abs{\vec{z}} \right).
+    \mathrm{MAD}_0(\vec{x})  &\equiv c \cdot  \mathrm{median} \left( \abs{\vec{x} - 0} \right) = c \cdot \mathrm{median} \left( \abs{\vec{x}} \right) \\
+    f_\mathrm{eval}(\vec{z}) &\equiv \mathrm{MAD}_0(\vec{z}) = c \cdot  \mathrm{median} \left( \abs{\vec{z}} \right).
   \end{split}
 \end{equation}
-Here $\vec{z} \in \mathbb{R}^N$ is the vector of all relative price predictions. To get an intuition about the size of a \q{good} value of $\mathrm{MAD}_0$, one could calculate it comparing the asking price with the actual sales price. Doing so, one finds: $f_\mathrm{eval}(\vec{z}_\mathrm{OFH}) = \SI{11.35}{\percent}$ for houses and $f_\mathrm{eval}(\vec{z}_\mathrm{OOA}) = \SI{5.72}{\percent}$ for apartments. 
+Here $\vec{z} \in \mathbb{R}^N$ is the vector of all relative price predictions. To get an intuition about the size of a \q{good} value of $\mathrm{MAD}_0$, one could calculate it comparing the asking price with the actual sales price. Doing so, one finds: $f_\mathrm{eval}(\vec{z}_\mathrm{OFH}) = \SI{11.35}{\percent}$ for houses and $f_\mathrm{eval}(\vec{z}_\mathrm{OOA}) = \SI{5.72}{\percent}$ for apartments. In some cases $f_\mathrm{eval}$ will still be referred to as MAD, however, it will be mentioned explicatly if the form in equation \eqref{eq:h:MAD} is meant. 
+
+\marginnote[-2cm]{The MAD is assuming symmetric distributions and thus non-symmetric robust measures of the variability of a sample have been developed. See \citet{rousseeuwAlternativesMedianAbsolute1993} for more details.}
+
 
 \section{Initial Hyperparameter Optimization}
 
-With the initial cleaning and feature adding done, the shapes of the ML-ready datasets are: (\num{291317}, \num{143}) for houses (OFHs) and (\num{114166}, \num{143}) for apartments (OOA), both sharing the same variables. All of the variables which are used from this point on can be seen in Table~\ref{tab:h:all_variables} in the appendix. 
+With the initial cleaning and feature adding done, the shapes of the ML-ready datasets are: (\num{291317}, \num{144}) for houses (OFHs) and (\num{114166}, \num{144}) for apartments (OOA), both sharing the same variables. All of the variables which are used from this point on can be seen in Table~\ref{tab:h:all_variables} in the appendix. 
 The data are split intro training and test sets such that training is defined as every sale from before \num{2018}, every sale from \num{2018} is the test set, and since more data came since the project started, \num{2019} is a small extra test set. 
 
 \begin{margintable}
@@ -1428,8 +1434,8 @@ The number of observations for the different sets can be seen in Table~\ref{tab:
 Before the data is properly fitted and the model is trained, a small study into the effect of some various hyperparameters was performed. This study investigated the effect of the old sales by assigning them a lower weight depending on time. It was investigated whether or not the model would perform better if samples got the time-dependent weight $w(t)$ given by:
 \begin{equation}
   \begin{split}
-    w'(t) &= e^{ k \cdot (t-t_\mathrm{max}) }, \quad k = \frac{\log 2}{T_{\frac{1}{2}}} \\
-    w(t) &= \frac{w'(t)}{\mathrm{mean}(w'(t))},
+    w'(t) &= e^{ k \cdot t}, \quad k = \frac{\log 2}{T_{\frac{1}{2}}} \\
+    w(t) &= \frac{w'(t)}{\langle w'(t) \rangle}
   \end{split}
 \end{equation}
 % TODO: add parts about what weights are.
@@ -1448,82 +1454,102 @@ This is illustrated in Figure~\ref{fig:h:half-life} for the different values of 
   \begin{split}
     T_{\frac{1}{2}} &\in \{2.5,\, 5,\, 10,\, 20,\, \infty \}~\mathrm{ years} \\
     \log_{10} &\in \{\mathrm{True},\, \mathrm{False} \} \\
-    \ell &\in \{ \ell_\mathrm{Cauchy},\, \ell_\mathrm{Fair},\, \ell_\mathrm{LogCosh},\, \ell_\mathrm{SE},\, \ell_\mathrm{Welsch},\}
+    \ell &\in \{ \ell_\mathrm{Cauchy},\, \ell_\mathrm{Fair},\, \ell_\mathrm{LogCosh},\, \ell_\mathrm{SE},\, \ell_\mathrm{Welsch}\}
   \end{split}
 \end{equation}
 
-\begin{margintable}
-  \vspace{3mm}
-  \begin{tabular}{@{}ccrc@{}}
-    %\toprule
-    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
-    \midrule
-    \num{2.5} & True & \num{393} & \num{0.1609} \\
-    \num{2.5} & False & \num{887} & \num{0.1449} \\
-    \num{5} & True & \num{296} & \num{0.1599} \\
-    \num{5} & False & \num{776} & \num{0.1476} \\
-    \num{10} & True & \num{266} & \num{0.1611} \\
-    \num{10} & False & \num{822} & \num{0.1457} \\
-    \num{20} & True & \num{257} & \num{0.1614} \\
-    $\mathbf{20}$ & \textbf{False} & $\mathbf{932}$ & $\mathbf{0.1439}$ \\
-    $\infty$ & True & \num{418} & \num{0.1567} \\
-    $\infty$ & False & \num{1015} & \num{0.1468} \\
-    %\bottomrule
-  \end{tabular}
-  \vspace{3mm}
-  \caption{\label{tab:h:HPO_initial_Cauchy}Cauchy. Ejerlejlighed XX}
-  \vspace{3mm}
-\end{margintable}
+% \begin{margintable}
+%   \begin{tabular}{@{}ccrc@{}}
+%     Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+%     \midrule
+%     \num{2.5} & True & \num{393} & \num{0.1609} \\
+%     \num{2.5} & False & \num{887} & \num{0.1449} \\
+%     \num{5} & True & \num{296} & \num{0.1599} \\
+%     \num{5} & False & \num{776} & \num{0.1476} \\
+%     \num{10} & True & \num{266} & \num{0.1611} \\
+%     \num{10} & False & \num{822} & \num{0.1457} \\
+%     \num{20} & True & \num{257} & \num{0.1614} \\
+%     $\mathbf{20}$ & \textbf{False} & $\mathbf{932}$ & $\mathbf{0.1439}$ \\
+%     $\infty$ & True & \num{418} & \num{0.1567} \\
+%     $\infty$ & False & \num{1015} & \num{0.1468} 
+%   \end{tabular}
+%   \vspace{2mm}
+%   \caption{\label{tab:h:HPO_initial_Cauchy}Cauchy. Ejerlejlighed XX}
+% \end{margintable}
+
 
 \begin{margintable}
   \begin{tabular}{@{}ccrc@{}}
     %\toprule
     Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
     \midrule
-    \num{2.5} & True & \num{520} & \num{0.1956} \\
-    \num{2.5} & False & \num{1062} & \num{0.1857} \\
-    \num{5} & True & \num{394} & \num{0.1968} \\
-    \num{5} & False & \num{1455} & \num{0.1836} \\
-    \num{10} & True & \num{1026} & \num{0.1942} \\
-    \num{10} & False & \num{1216} & \num{0.1847} \\
-    \num{20} & True & \num{606} & \num{0.1963} \\
-    $\mathbf{20}$ & \textbf{False} & $\mathbf{1996}$ & $\mathbf{0.1812}$ \\
-    $\infty$ & True & \num{417} & \num{0.1988} \\
-    $\infty$ & False & \num{1597} & \num{0.1839} \\
+    \num{2.5} & True & \num{293} & \num{0.1598} \\
+    \num{2.5} & False & \num{814} & \num{0.1466} \\
+    \num{5} & True & \num{304} & \num{0.1610} \\
+    \num{5} & False & \num{923} & \num{0.1468} \\
+    \num{10} & True & \num{266} & \num{0.1610} \\
+    $\mathbf{10}$ & \textbf{False} & $\mathbf{770}$ & $\mathbf{0.1450}$ \\
+    \num{20} & True & \num{288} & \num{0.1613} \\
+    \num{20} & False & \num{967} & \num{0.1467} \\
+    $\infty$ & True & \num{340} & \num{0.1601} \\
+    $\infty$ & False & \num{807} & \num{0.1480} \\
     %\bottomrule
   \end{tabular}
-  \vspace{3mm}
-  \caption{\label{tab:h:HPO_initial_Fair}Fair. Villa XXX}
-  \vspace{3mm}
+  \caption{\label{tab:h:HPO_initial_Cauchy-ejerlejlighed}Cauchy-ejerlejlighed.}
 \end{margintable}
 
-The GS is run on the training set with \num{3}-fold CV, early stopping is applied with a patience of \num{100}, and XGBoost \autocite{chenXGBoostScalableTree2016} is used as the ML model. For apartments the loss function with the lowest $f_\mathrm{eval}$ was the Cauchy loss with $T_{\frac{1}{2}}=20$ years and no $\log_{10}$ transformation. This BDT terminated by early stopping after \num{932} trees, see Table~\ref{tab:h:HPO_initial_Cauchy}. 
-For houses the loss function with the lowest $f_\mathrm{eval}$ was the Fair loss (also) with $T_{\frac{1}{2}}=20$ years and (also) no $\log_{10}$ transformation. This BDT terminated by early stopping after \num{1996} trees, see Table~\ref{tab:h:HPO_initial_Fair}. 
-It is interesting to note that both HPO for houses and apartments choose the same half-life and not to do any transformation\sidenote{The reason why the $\log_{10}$ transformation is included even to begin with, was that initially it should better results than no transformation. However, this turned out to be a numerical consequence which was alleviated by dividing all prices with a million, such that $y$ had units of \si{\Mkr} instead of \si{\kr}.}. All of the results for the apartments can be seen in Table~\ref{tab:h:HPO_initial_Rmse-ejerlejlighed}--\ref{tab:h:HPO_initial_Fair-ejerlejlighed} in the appendix along with all of results for the houses in Table~\ref{tab:h:HPO_initial_Rmse-villa}--\ref{tab:h:HPO_initial_Fair-villa}. 
 
-A visualization of the HPO results can be seen as the parallel coordinate plot in Figure~\ref{fig:h:CV_res_parallel_coords_ejer}. Here the hyperparameters (along the time taken and the number of trees) of the HPO are plotted along the abscissa (x-axis) and the value of the hyperparameter on the ordinate (y-axis). Every iteration of the HPO is thus a line on the plot. The lines are colored according to their evaluation score; the best hyperparameter is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. The same plot for houses can be seen in Figure~\ref{fig:h:CV_res_parallel_coords_villa} in the appendix.
+
+\begin{margintable}
+  \begin{tabular}{@{}ccrc@{}}
+    %\toprule
+    Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
+    \midrule
+    \num{2.5} & True & \num{434} & \num{0.1991} \\
+    \num{2.5} & False & \num{1007} & \num{0.1872} \\
+    \num{5} & True & \num{350} & \num{0.1999} \\
+    \num{5} & False & \num{1130} & \num{0.1858} \\
+    \num{10} & True & \num{436} & \num{0.1992} \\
+    \num{10} & False & \num{1183} & \num{0.1850} \\
+    \num{20} & True & \num{397} & \num{0.2003} \\
+    $\mathbf{20}$ & \textbf{False} & $\mathbf{1514}$ & $\mathbf{0.1833}$ \\
+    $\infty$ & True & \num{449} & \num{0.1992} \\
+    $\infty$ & False & \num{1351} & \num{0.1844} \\
+    %\bottomrule
+  \end{tabular}
+  \caption{\label{tab:h:HPO_initial_Cauchy-villa}Cauchy-villa.}
+\end{margintable}
+
+
+
+
+The GS is run on the training set with \num{5}-fold CV, early stopping is applied with a patience of \num{100}, and XGBoost \autocite{chenXGBoostScalableTree2016} (XGB) is used as the ML model. For apartments the loss function with the lowest $f_\mathrm{eval}$ was the Cauchy loss with $T_{\frac{1}{2}}=20$ years and no $\log_{10}$ transformation. This BDT terminated by early stopping after \num{932} trees, see Table~\ref{tab:h:HPO_initial_Cauchy-ejerlejlighed}. 
+For houses the loss function with the lowest $f_\mathrm{eval}$ was the Fair loss (also) with $T_{\frac{1}{2}}=20$ years and (also) no $\log_{10}$ transformation. This BDT terminated by early stopping after \num{1996} trees, see Table~\ref{tab:h:HPO_initial_Cauchy-villa}. 
+It is interesting to note that both HPO for houses and apartments choose the same half-life and not to do any transformation\sidenote{The reason why the $\log_{10}$ transformation is included even to begin with, was that initially it should better results than no transformation. However, this turned out to be a numerical consequence which was alleviated by dividing all prices with a million, such that $y$ had units of \si{\Mkr} instead of \si{\kr}.}. All of the results for the apartments can be seen in Table~\ref{tab:h:HPO_initial_Rmse-ejerlejlighed-appendix}--\ref{tab:h:HPO_initial_Fair-ejerlejlighed-appendix} in the appendix along with all of results for the houses in Table~\ref{tab:h:HPO_initial_Rmse-villa-appendix}--\ref{tab:h:HPO_initial_Fair-villa-appendix}. 
+
+A visualization of the HPO results can be seen as the parallel coordinate plot in Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer}. Here the hyperparameters (along the time taken and the number of trees) of the HPO are plotted along the abscissa (x-axis) and the value of the hyperparameter on the ordinate (y-axis). Every iteration of the HPO is thus a line on the plot. The lines are colored according to their evaluation score; the best hyperparameter is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. The same plot for houses can be seen in Figure~\ref{fig:h:initial_CV_res_parallel_coords_villa} in the appendix.
 
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
   \caption[Overview of initial hyperparamater optimization of the housing model for apartments]
           {Hyperparameter optimization results of the housing model for apartments. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by $\mathrm{MAD}_0$ from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objective} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses.
           } 
-  \label{fig:h:CV_res_parallel_coords_ejer}
+  \label{fig:h:initial_CV_res_parallel_coords_ejer}
 \end{figure}
 
-What can be concluded from Figure~\ref{fig:h:CV_res_parallel_coords_ejer} is that there is a clear preference from not $\log$-transforming the data, that the BDTs with many trees\sidenote[][4cm]{Remember that the number of trees where selected by early stopping.} generally performed better than the ones with fewer trees, that it is difficult to see a clear pattern for the half-life, and that there seems to be a tendency for the Cauchy loss to be the best, however, it is still ambiguous. What is not seen in the figure, however, are how the uncertainties\sidenote{The uncertainties here are the standard deviation (not of the mean) of the 3 folds in cross validation.} of the different iterations also matter. 
+What can be concluded from Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer} is that there is a clear preference from not $\log$-transforming the data, that the BDTs with many trees\sidenote{Remember that the number of trees where selected by early stopping.} generally performed better than the ones with fewer trees, that it is difficult to see a clear pattern for the half-life, and that there seems to be a tendency for the Cauchy loss to be the best, however, it is still ambiguous. What is not seen in the figure, however, are how the uncertainties\sidenote{The uncertainties here are the standard deviation (not of the mean) of the \num{5} folds in the cross validation.} of the different iterations also matter. 
 \begin{marginfigure}[1cm]
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_half.pdf}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_MAD_gridsearch_half.pdf}
   \caption[XXX]
-          {Halflife $T_{\frac{1}{2}}$.
+          {XXX Halflife $T_{\frac{1}{2}}$.
           }
   \label{fig:h:hpo_gridsearch_objective}
 \end{marginfigure}
 
 \begin{marginfigure}[1cm]
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_obj.pdf}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_MAD_gridsearch_obj.pdf}
   \caption[XXX]
           {Objective function XXX.
           } 
@@ -1542,7 +1568,7 @@ What can be concluded from Figure~\ref{fig:h:CV_res_parallel_coords_ejer} is tha
 %   \label{fig:h:hpo_gridsearch}
 %   \vspace{\abovecaptionskip}
 % % \end{figure}
-For the half-life and the choice of objective function these can be seen in Figure~\ref{fig:h:hpo_gridsearch_objective} and \ref{fig:h:hpo_gridsearch_halflife}. In the first of the two figures it is easily seen that even though $T_{\frac{1}{2}}=\SI{20}{\yr}$ is the minimum, the uncertainties are so large that nothing can be concluded with regards to the half-life parameter related to the weights $w(t)$. In contrary, in the second figure there is a clear performance difference between the different loss functions where the Cauchy loss archives the best (lowest) value of $f_\mathrm{eval}$. 
+For the half-life and the choice of objective function these can be seen in Figure~\ref{fig:h:hpo_gridsearch_objective} and \ref{fig:h:hpo_gridsearch_halflife}. In the first of the two figures it is easily seen that even though $T_{\frac{1}{2}}=\SI{10}{\yr}$ is the minimum, the uncertainties are so large that nothing can be concluded with regards to the half-life parameter related to the weights $w(t)$. In contrary, in the second figure there is a clear performance difference between the different loss functions where the Cauchy loss archives the best (lowest) value of $f_\mathrm{eval}$ and especially the Squared Error is disregarded. 
 
 The rest of the machine learning models thus continue with the following hyperparamaters:
 
@@ -1551,7 +1577,7 @@ The rest of the machine learning models thus continue with the following hyperpa
   \begin{tabular}{@{}llcl@{}}
                & $\log_{10}$  & Half-life & Loss function \\ \midrule
   Apartments   & False & \SI{20}{\yr} & Cauchy \\
-  Houses       & False & \SI{20}{\yr} & Fair
+  Houses       & False & \SI{20}{\yr} & Cauchy
   \end{tabular}
   % \vspace{\abovecaptionskip}
   % \caption{XXX}
@@ -1560,18 +1586,171 @@ The rest of the machine learning models thus continue with the following hyperpa
 
 
 
-\section{Machine Learning}
-With the initial HPO set, the actual training of the models was started. 
+\FloatBarrier
+\section{Hyperparameter Optimization}
+With the initial HPO set, the actual training of the models was started. An XGBoost model was fitted to the each of the two training sets, one for apartments and one for houses, where the hyperparameters were optimized using both random search and Bayesian optimization each run for \num{100} iteratations with \num{5}-fold cross validation and early stopping\sidenote{This takes around 6 hours for both RS and GS for the apartments when run with 15 cores on HEP. XXX}. The hyperparameters to be optimzed where the following:
+\begin{itemize}
+  \item[] The \code{subsample} varible controls the row-subsampling and is a number between \num{0} and \num{1}. 
+  \item[] The hyperparameter \code{colsample_bytree} controls the column-downsampling for each tree, so how many columns (or variables) are each tree allowed to fit to. Is a number between \num{0} and \num{1}.
+  \item[] The \code{max_depth} controls the maximum depth of every tree. Is a positive integer.  
+  \item[] The \code{min_child_weight} variable controls when the decision tree algorithm should stop splitting a node into further nodes (and will thus turn it into a leaf). Is a positive integer
+  \item[] \code{reg_lambda} controls the L2 regularization term. Is a positive number. 
+  \item[] \code{reg_alpha} controls the L1 regularization term. Is a positive number.
+\end{itemize}
 
-\newpage
+The ranges of the hyperparameters were chosen by a manual, iterative process of fitting a subset of the data (\SI{1}{\percent}--\SI{10}{\percent}) and making sure that the best hyperparameter is not sufficiently close to the range; if it is, then the range is extended. The final HPO ranges chosen can be seen in Table~\ref{tab:h:hpo_ranges}. Here $\mathcal{U}(a, b)$ refers to a uniform distribution from $a$ to $b$, and $\mathcal{U}_\mathrm{int}(a, b)$ is the same only an integer distribution. 
+\begin{margintable}
+  \centerfloat
+  \begin{tabular}{@{}ll@{}}
+  Hyperparameter          &  Range                      \\ \midrule
+  \code{subsample}        & $\mathcal{U}(0.5, 0.9)$           \\
+  \code{colsample_bytree} & $\mathcal{U}(0.1, 0.99)$           \\
+  \code{max_depth}        & $\mathcal{U}_\mathrm{int}(1, 20)$ \\
+  \code{min_child_weight} & $\mathcal{U}_\mathrm{int}(1, 30)$ \\
+  \code{reg_lambda}       & $\mathcal{U}(0.1, 4)$  \\
+  \code{reg_alpha}        & $\mathcal{U}(0.1, 4)$
+  \end{tabular}
+  % \vspace{\abovecaptionskip}
+  \vspace{3mm}
+  \caption{\label{tab:h:hpo_ranges} XXX}
+\end{margintable}
 
+The fitting pipeline for this subproject is to first run both RS and BO as HPOs to compare their results. The best of the two models are chosen and used afterwards where the learning rate $\eta$ is reduced from $\eta=0.1$ to $\eta=0.01$  and is finally optimised by early stopping. In the end one ends up with a model that has been HPO optimized for prepocessing optimizations ($\log$-transformations), loss function, sample weights, normal XGBoost parameters and finally the learning rate. This pipeline has been manually implemented in Python since no other packagages provide the same flexibility as a custom implementation that works fully automatically. 
+
+The results of the RS and BO can be seen in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer} and \ref{fig:h:CV_res_BO_parallel_coords_ejer} (in the appendix). The correpsonding plots for houses can be seen in Figure~\ref{fig:h:CV_res_RS_parallel_coords_villa} and \ref{fig:h:CV_res_BO_parallel_coords_villa} in the appendix. 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 70, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_z_hist_metrics.pdf}
-  \caption[Performance of XGB-model on apartment prices]
-          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.}
-  \label{fig:h:performance_xgb}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_RS_parallel_coords_ejer}
 \end{figure}
+
+As with the initial HPO, it is important to compare the results in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer} with their uncertainties. This can be seen in Figure~\ref{fig:h:CV_res_RS_uncertainties_ejer}. Here the value of the evaluation function along with its \num{1}$\sigma$  and \num{2}$\sigma$ uncertainties are plotted as a function of the iteration along the abscissa. The minimum value of $f_\mathrm{eval}$ is shown in red. Even though this is the minumum value, notice how flat of a minimum this is: most of the other iterations are within \num{1}$\sigma$. The plot for BO in Figure~\ref{fig:h:CV_res_BO_uncertainties_ejer} shows the similar characteristic and does not show any improvement over time as was otherwise expected for BO compared to RS. 
+% XXX add villas
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+  \caption[Hyperparameter optimization: random search results]
+          {The results of running random search (RS) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of iteration number.} 
+  \label{fig:h:CV_res_RS_uncertainties_ejer}
+\end{figure}
+
+The best of the RS and GS models are chosen for subsequent analysis by first reducing the learning rate to the $\eta=0.01$ and then find the best number of estimators by early stopping. The evaluation function as a function of number of estimators, also known as the \emph{learning curve}, is seen in Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer}. This curve is the realisation of Figure~\ref{fig:ml:empirical_risk} in real data, where it first improves a lot and then finds a stable plateau. The minimum is shown in red with its uncertainty. To reduce the risk of overfitting and model complexity -- with the further advantage of resulting in faster model at predition time -- we keep the model with the lowest number of estimators that are still within $1\sigma$ of the minimimum: see the orange point in the figure. This results in a model that contains less than a fifth of the number of trees and is thus also significantly simpler and faster at inference time. This is the final hyperparameter optimized model that will be used for the further analysis. 
+
+\begin{figure}
+  \includegraphics[draft, width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_early_stopping_fig.png}
+  \caption[Early Stopping results]
+          {The results of early stopping on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s)}, all as a a function of number of estimators (trees). In orange the \textcolor{orange}{\q{best} number of estimators} is shown, defined as the lowest number of estimators which are still within $1\sigma$ of the minimum value. This leads to a model that has a performance that is within $1\sigma$ of the best model, but a lot simpler and faster.} 
+  \label{fig:h:CV_res_ES_learning_curve_ejer}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+\FloatBarrier
+\section{Results}
+
+The performances of the different models, the RS-optimized, the BO-optimised and the best of the two $\eta$-optimized with ES, are shown in Figure~\ref{fig:h:CV_res_performance_ejer}. Here the distribution of the relative price prediction $\vec{z}$ of the model evaluated on the test set, apartments sold in \num{2018}, is shown for the three models. In addition to the distributions, also the performance metrics are shown: the value of the evaluation function\sidenote{Written as \code{MAD}} along with the fraction of $z$ that are within the specified percentage. In this particular instance it is seen that \SI{41.3}{\percent} of the predictions by the final ES model are less than $\pm\SI{5}{\percent}$ wrong, \SI{69.8}{\percent} within $\pm\SI{10}{\percent}$, and \SI{91.9}{\percent} within $\pm\SI{20}{\percent}$. Note that the difference between the three models are minor and that they distributions almost cannot be distinguished between each other. 
+
+\begin{figure}[h!]
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_z_hist_metrics.pdf}
+  \caption[Performance of XGB-model on apartment prices]
+          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.
+          } 
+  \label{fig:h:CV_res_performance_ejer}
+\end{figure}
+
+An interesting observation from the performance metrics of the test set, is the low value of $f_\mathrm{eval}=0.9289$ (\code{MAD}). By looking at Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer} one would expect a test loss of around \num{0.12} assuming iid. samples. However, this assumption does not seem to be fulfilled for the test set. The performances of the realtors are also better for the test set than the training set, and by comparing the test set with the extra 2019 set it seems to be 2019 that was an extra easy year without too many outliers, see Table~\ref{tab:h:realtor_mad_train_test_2019}. The \q{Tight} in the the table corresponds to the realtors performance on the tight version of the different datasets. The performance of the XGB models on the tight test set can be seen in Figure~\ref{fig:h:CV_res_performance_ejer_tight} in the appendix, where it can be seen that the final model has $f_\mathrm{eval}=0.8383$. 
+\begin{margintable}
+  \centerfloat
+  \begin{tabular}{@{}rlll@{}}
+          & Train               & Test                & \num{2019}          \\ \midrule
+  Normal  & \SI{5.80}{\percent} & \SI{4.97}{\percent} & \SI{6.19}{\percent} \\
+  Tight   & \SI{5.69}{\percent} & \SI{4.94}{\percent} & \SI{6.19}{\percent} 
+  \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX}
+  \label{tab:h:realtor_mad_train_test_2019}
+\end{margintable}
+
+To gauge the predictive power of the model over time, we applied the model to the next months data, evaluated the results for that month and continued like that for all the months in the test set (\num{2018}) and \num{2019}. We apply two different methods of forecasting: \q{static} forecasting where the model is only trained once, and \q{dynamic} forecasting where the model is retrained after each month on all of the previous sales. These predictions allows the relative predictions $\vec{z}$ to be calculated and the MAD and the standard deviation (SD) of $\vec{z}$ are shown in Figure~\ref{fig:h:forecast_MAD_SD}. 
+\begin{figure}
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_forecast_prediction_MAD.pdf}
+  \caption[2018 XGB Forecast]
+          {Performance of 1-month forecasts for apartments sold in \num{2018} and \num{2010}. For both plots the XGB model is trained on data up to (but excluding) 2018. Top) The performance of the static model's prediction for both the \textcolor{blue}{standard deviation (SD)} and \textcolor{red}{MAD} of the $z$-scores. Bottom) Same as above, however, based a dynamic model, i.e. a model which is retrained after every month to include the previous month's sales.} 
+  \label{fig:h:forecast_MAD_SD}
+\end{figure}
+
+In the top subplot the results for the static forecast are shown, whereas the dynamic results are shown in the bottom subplot. The errorbars are calculated using the usual variance of the standard deviation:
+\begin{equation}
+  \sigma_\mu  = \frac{\sigma}{\sqrt{N}}, \quad \sigma_\sigma = \frac{\sigma}{\sqrt{2N}},
+\end{equation}
+where $\sigma_\mu$ is the standard deviation of the mean and $\sigma_\sigma$ is the standard deviation of the standard deviation\sidenote{That this estimator is biased does not matter since we are in the large $N$ limit, $N \sim 1000$} \autocite{Barlow:0471922951}.
+Notice the large fluctuations in SD over time compared to MAD which an effect of MAD being a robust estimator. What is also interesting to note is that the MAD seems to increase over time for the static model, albeit slowly. In comparison, for the dynamic model this seem less pronounced. This figure not only shows the time dependence of the performance of the model, but also that the model is quite stable over time, at least for the dynamic model. 
+
+Using the relative price predictions $\vec{z}$, we construct the Market Index, $\mathrm{MI}$. This is an index which measures the overall level of the Danish housing market based on the assumption that if the houses sold in a month are generally sold at a higher price than was predicted by the model, there can be two reasons for it: either the model was wrong or the market simply changed in the time span. With the latter assumption, the ratio between the prediction and the actual price of a residence is thus a measure of the market index:
+\begin{equation}
+  \begin{split}
+    z_\mathrm{mi} &\equiv \frac{\hat{y}}{y} = 1 - \frac{\hat{y}-y}{y}  = 1-z \\
+    \mathrm{MI}_\mathrm{mean} &= \mathrm{mean}(\vec{z}_\mathrm{mi}) \\
+    \mathrm{MI}_\mathrm{median} &= \mathrm{median}(\vec{z}_\mathrm{mi}).
+  \end{split}
+\end{equation}
+Here $\vec{z}_\mathrm{mi}$ is the vector of ratios between prediction and actual price, and the market index can then be estimated using either the mean $\mathrm{MI}_\mathrm{mean}$ or the median $\mathrm{MI}_\mathrm{median}$. The market indices for every month of the forecast described in the previous figure can be seen in Figure~\ref{fig:h:forecast_MarketIndex}. In the top panel the market index for the static model is shown where it is visible for $\mathrm{MI}_\mathrm{median}$ how it cosistently overshoots. Compare this to the dynamic $\mathrm{MI}_\mathrm{median}$ whic fluctuates around \num{0}. BLABLA mere analyse her XXX. That the $\mathrm{MI}_\mathrm{mean}$ is consistently lower than $\mathrm{MI}_\mathrm{median}$ is an indication of a low tail in $z_\mathrm{mi}$ (\emph{negative skewness}) which means that some of the the predictions are much lower than the actual salesprice. BLABLA, XXX.
+
+\begin{figure}
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_forecast_prediction_MarketIndex.pdf}
+  \caption[2018 XGB Forecast]
+          {XXX \TODO.} 
+  \label{fig:h:forecast_MarketIndex}
+\end{figure}
+
+The final results for the model is seen in Table~\ref{tab:h:results_ejer} for owner-occupied apartments and in in Table~\ref{tab:h:results_villa} for one family houses. The MAD is around \SI{9}{\percent} for apartments and \SI{16}{\percent} for houses, which is still worse than the realtors' prediction, yet still acceptable for a model that does not have any variables describing the indoor conditions. For apartments around \SI{40}{\percent} of all the predicitions are within $\pm \SI{5}{\percent}$ and more than \SI{90}{\percent} are within $\pm \SI{20}{\percent}$ which is similar to the performance of the professional automated property evaluations from e.g. \citet{bolighedBolighedUsikkerhedDatavurderingen}. Also shown in the tables are the mean of the relative predictions $\mu_{\vec{z}}$ which shows that the  The performance on the tight cuts can be seen in Table~\ref{tab:h:results_ejer_tight} and \ref{tab:h:results_villa_tight} in the appendix. 
+
+
+\begin{table}
+  \centerfloat
+  \begin{tabular}{@{}lccccc@{}}
+    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$ & $\mu_\vec{z}$              \\
+    \midrule
+    Train & \num{7.83} & \num{47.90} & \num{75.74} & \num{93.97} &   $+0.0128 \pm 0.0008$ \\
+    Test  & \num{9.29} & \num{41.33} & \num{69.77} & \num{91.91} &  $-0.0067 \pm 0.0012$ \\
+    2019  & \num{9.89} & \num{38.85} & \num{66.76} & \num{90.04} &  $-0.000 \pm 0.002$ 
+    \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX ejer}
+  \label{tab:h:results_ejer}
+\end{table}
+
+
+\begin{table}
+  \centerfloat
+  \begin{tabular}{@{}lccccc@{}}
+    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$ & $\mu_\vec{z}$              \\
+    \midrule
+    Train & \num{14.12} & \num{28.95} & \num{51.89} & \num{78.04} &  $0.0449 \pm 0.0007$ \\
+    Test  & \num{15.79} & \num{25.61} & \num{47.52} & \num{75.14} &  $0.0310 \pm 0.0016$ \\
+    2019  & \num{16.50} & \num{24.01} & \num{45.89} & \num{74.22} &  $0.031 \pm 0.002$ 
+    \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX villa}
+  \label{tab:h:results_villa}
+\end{table}
+
+
+\FloatBarrier
+\section{Model Inspection}
+
+
+
 
 
 \begin{figure}
@@ -1582,17 +1761,10 @@ With the initial HPO set, the actual training of the models was started.
   \label{fig:h:shap_overview}
 \end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_tight_SHAP_vals_summary_all.pdf}
-  \caption[Total feature importance of apartment prices using XGB]
-          {Total feature importance of apartment prices using the XGB-model. The total feature importance is measured using SHAP values, more specifically the mean of the absolute SHAP values for each variable. This allows a ranking of all of the features ordered after the total importance. Here the total feature importance is scaled such that they sum to 1 when summing over all variables. The absolute total feature importance is in itself not important, but the relative values indicate the difference in feature importance. 
-          } 
-  \label{fig:h:shap_overview_total}
-\end{figure}
 
 
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_SHAP_fig_loc=489266.pdf}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_SHAP_fig_loc=489266.pdf}
   \caption[SHAP Prediction Explanation for apartment]
           {Model explanation for XGB model for a specific apartment. The bars are the variables in the dataset that the model found most important sorted after their importance for this particular apartment. The bias bar refers to the expected value of the model, which is simply the mean of the training set which acts as the naive prediction baseline. The \q{cutoff positive (negative)} bars are the sum of the remaining positive (negative) values that are not shown. On the right hand side of the plot is the model prediction shown. The model prediction is the sum of all of the bars in the left par (5.36 in this example) calculated in $10^6$ DKK. The \textcolor{red}{negative} values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
           } 
@@ -1600,60 +1772,8 @@ With the initial HPO set, the actual training of the models was started.
 \end{figure}
 
 
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
-  \caption[Hyperparameter optimization: random search results]
-          {The results of running random search (RS) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of iteration number.  
-          } 
-  \label{fig:h:RS_xgb_apartment}
-\end{figure}
 
 
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
-  \caption[Hyperparameter optimization: Bayesian optimization results]
-          {The results of running Bayesian optimization (BO) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of iteration number. The first XXX iterations are run as RS for use as input to the internal optimization algorithm, the last XX iterations are thus the \q{smart} BO guesses.
-          } 
-  \label{fig:h:BO_xgb_apartment}
-\end{figure}
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_early_stopping_fig.pdf}
-  \caption[Early Stopping results]
-          {The results of early stopping on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s) of the means (SDOM)}, all as a a function of number of estimators (trees). In orange the \textcolor{orange}{\q{best} number of estimators} is shown, defined as the lowest number of estimators which are still within 1 SDOM of the minimum value. This leads to a model that has a performance that is within 1 SDOM of the best model, but a lot simpler and faster.  
-          } 
-  \label{fig:h:early_stopping}
-\end{figure}
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 35 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_obj.pdf}
-  \caption[Comparison of different objective functions]
-          {Comparison of performance (measured using the median of the absolute deviation, MAD, for apartments) of the five different objective functions: RMSE, LogCosh, Cauchy, Welsch, and Fair. We see that the default objective function, RMSE, does a reasonable job, however, the LogCosh function is a clear improvement.
-          } 
-  \label{fig:h:objective_functions_performance}
-\end{figure}
-
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_MAD_gridsearch_half.pdf}
-  \caption[Comparison of different half times weights]
-          {Comparison of performance (measured using the median of the absolute deviation, MAD, on apartments) of the five different half time weights: 2.5, 5, 10, 20, inf/None. We see that using no half time weights does has the worst performance, whereas a 5-year half time weight has the best performance (although with a very high uncertainty).
-          } 
-  \label{fig:h:half_time_performance}
-\end{figure}
-
-
-
-\begin{figure}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 70, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_forecast_prediction_2018.pdf}
-  \caption[2018 XGB Forecast]
-          {Performance of 1-month forecasts for 2018 for apartments. For both plots the LGM model is trained on data up to (but excluding) 2018. Top) The performance of the static model's prediction on sales in the individual months of 2018 is shown for both the \textcolor{blue}{mean} and \textcolor{red}{median} of the $z$-scores. Bottom) Same as above, however this time based a dynamic model, i.e. a model which is retrained after every month to include the previous month's sales.
-          } 
-  \label{fig:h:forecast_2018_xgb}
-\end{figure}
 
 
 
@@ -1875,7 +1995,7 @@ there is no number in the main text where this note was written.}
   \caption[Overview of Hyperparamaters of g-tagging for 3-jet shuffled events]
           {Hyperparameter optimization results of g-tagging for 3-jet shuffled events. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by AUC from \textcolor{viridis-dark}{highest} AUC in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. 
           } 
-  \label{fig:q:CV_res_parallel_coords}
+  \label{fig:q:initial_CV_res_parallel_coords}
 \end{figure}
 
 
@@ -2547,18 +2667,142 @@ classes rely upon.  Packages marked with an asterisk are optional.
   \label{fig:h:prophet_trends_villa}
 \end{figure}
 
+
+
+\FloatBarrier
 \input{figures/housing/HPO_table/combined.tex}
 
+
+\FloatBarrier
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
   \caption[Overview of initial hyperparamater optimization of the housing model for houses]
           {Hyperparameter optimization results of the housing model for houses. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by $\mathrm{MAD}_0$ from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses.
           } 
-  \label{fig:h:CV_res_parallel_coords_villa}
+  \label{fig:h:initial_CV_res_parallel_coords_villa}
 \end{figure}
 
 
+\newpage
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_parallel_coords_ejer}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_BO.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_parallel_coords_ejer}
+\end{figure}
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_RS_parallel_coords_villa}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_HPO_BO.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_parallel_coords_villa}
+\end{figure}
+
+\newpage
+
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+  \caption[XXX]
+          {XXX of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_RS_uncertainties_ejer2}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
+  \caption[XXX]
+          {XXX of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_uncertainties_ejer}
+\end{figure}
+
+
+% TODO: add villa here
+% \begin{figure}
+%   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+%   \caption[XXX]
+%           {XXX of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+%           } 
+%   \label{fig:h:CV_res_RS_uncertainties_ejer2}
+% \end{figure}
+
+% \begin{figure}
+%   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
+%   \caption[XXX]
+%           {XXX of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+%           } 
+%   \label{fig:h:CV_res_BO_uncertainties_ejer}
+% \end{figure}
+
+\newpage
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_z_hist_metrics_tight.pdf}
+  \caption[Performance of XGB-model on apartment prices]
+          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.} 
+  \label{fig:h:CV_res_performance_ejer_tight}
+\end{figure}
+
+
+\newpage
+\FloatBarrier
+
+
+\begin{table}
+  \centerfloat
+  \begin{tabular}{@{}lccccc@{}}
+    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$ & $\mu$              \\
+    \midrule
+    Train & \num{6.35} & \num{56.22} & \num{83.41} & \num{97.08} &   $0.00902 \pm 0.00068$ \\
+    Test  & \num{8.38} & \num{45.06} & \num{74.32} & \num{95.58} &  $-0.00820 \pm 0.00115$ \\
+    2019  & \num{9.12} & \num{42.63} & \num{71.36} & \num{93.65} &   $0.00297 \pm 0.00235$ 
+    \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX ejer tight}
+  \label{tab:h:results_ejer_tight}
+\end{table}
+
+
+\begin{table}
+  \centerfloat
+  \begin{tabular}{@{}lccccc@{}}
+    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$ & $\mu$              \\
+    \midrule
+    Train & \num{15.63} & \num{25.65} & \num{47.89} & \num{75.82} &  $0.04543 \pm 0.00080$ \\
+    Test  & \num{16.49} & \num{24.30} & \num{45.77} & \num{75.19} &  $0.01686 \pm 0.00194$ \\
+    2019  & \num{17.17} & \num{23.67} & \num{44.25} & \num{73.54} &  $0.02056 \pm 0.00279$ 
+    \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX villa tight}
+  \label{tab:h:results_villa_tight}
+\end{table}
+
+
+\newpage
+\FloatBarrier
 
 
 
