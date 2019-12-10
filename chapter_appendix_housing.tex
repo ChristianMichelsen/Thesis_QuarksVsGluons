@@ -1,0 +1,188 @@
+
+\chapter{Housing Prices Appendix}
+
+\begin{figure*}[h!]
+  \includegraphics[draft, width=0.9\textwidth, trim=10 10 10 10, clip]{figures/housing/missing_heatmap.pdf}
+  \caption[Validity Heatmap]
+          {XXXX \TODO.}
+  \label{fig:h:nans_heatmap}
+\end{figure*}
+
+
+% Input all 1D-variables for housing
+% \input{figures/housing/all_input_variables/all.tex}
+\input{figures/housing/all_input_variables/all_demo2.tex}
+
+\input{figures/housing/all_input_variables/table.tex}
+
+\begin{figure*}[h!]
+  \centerfloat
+  \includegraphics[draft, width=1.1\textwidth, trim=10 10 10 10, clip]{figures/housing/correlations_all.pdf}
+  \caption[Linear Correlations]
+          {XXXX \TODO.}
+  \label{fig:h:correlations_all_lin}
+\end{figure*}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[draft, width=0.99\textwidth, trim=0 0 0 40, clip]{figures/housing/MIC_test.pdf}
+  \caption[MIC non-linear correlation]
+          {MIC non-linear correlation.}
+  \label{fig:h:MIC_example}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+  \includegraphics[draft, width=0.9\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_forecast.png}
+  \caption[Prophet Forecast for apartments]
+          {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the $1-\sigma$ confidence interval.
+          }
+  \label{fig:h:prophet_forecast_villa}
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[draft, width=0.9\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_trends.pdf}
+  \caption[Prophet Trends]
+          {The trends of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. In the top plot is the overall trend as a function of year and in the bottom plot is the yearly variation as a function of day of year. It can be seen that the square meter price is higher during the Summer months compared to the Winter months, however, compared to the overall trend this effect is minor ($<10\%$). 
+          }
+  \label{fig:h:prophet_trends_villa}
+\end{figure}
+
+
+
+\FloatBarrier
+\input{figures/housing/HPO_table/combined.tex}
+
+
+\FloatBarrier
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
+  \caption[Overview of initial hyperparamater optimization of the housing model for houses]
+          {Hyperparameter optimization results of the housing model for houses. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by $\mathrm{MAD}_0$ from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses.
+          } 
+  \label{fig:h:initial_CV_res_parallel_coords_villa}
+\end{figure}
+
+
+\newpage
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_parallel_coords_ejer}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_BO.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_parallel_coords_ejer}
+\end{figure}
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_RS_parallel_coords_villa}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_HPO_BO.pdf}
+  \caption[XXX]
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_parallel_coords_villa}
+\end{figure}
+
+\newpage
+
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+  \caption[XXX]
+          {XXX of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_RS_uncertainties_ejer2}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
+  \caption[XXX]
+          {XXX of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          } 
+  \label{fig:h:CV_res_BO_uncertainties_ejer}
+\end{figure}
+
+
+% TODO: add villa here
+% \begin{figure}
+%   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+%   \caption[XXX]
+%           {XXX of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+%           } 
+%   \label{fig:h:CV_res_RS_uncertainties_ejer2}
+% \end{figure}
+
+% \begin{figure}
+%   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
+%   \caption[XXX]
+%           {XXX of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+%           } 
+%   \label{fig:h:CV_res_BO_uncertainties_ejer}
+% \end{figure}
+
+\newpage
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_z_hist_metrics_tight.pdf}
+  \caption[Performance of XGB-model on apartment prices]
+          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.} 
+  \label{fig:h:CV_res_performance_ejer_tight}
+\end{figure}
+
+
+\newpage
+\FloatBarrier
+
+
+\begin{table}
+  \centerfloat
+  \begin{tabular}{@{}lccccc@{}}
+    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$ & $\mu$              \\
+    \midrule
+    Train & \num{6.35} & \num{56.22} & \num{83.41} & \num{97.08} &   $0.00902 \pm 0.00068$ \\
+    Test  & \num{8.38} & \num{45.06} & \num{74.32} & \num{95.58} &  $-0.00820 \pm 0.00115$ \\
+    2019  & \num{9.12} & \num{42.63} & \num{71.36} & \num{93.65} &   $0.00297 \pm 0.00235$ 
+    \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX ejer tight}
+  \label{tab:h:results_ejer_tight}
+\end{table}
+
+
+\begin{table}
+  \centerfloat
+  \begin{tabular}{@{}lccccc@{}}
+    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$ & $\mu$              \\
+    \midrule
+    Train & \num{15.63} & \num{25.65} & \num{47.89} & \num{75.82} &  $0.04543 \pm 0.00080$ \\
+    Test  & \num{16.49} & \num{24.30} & \num{45.77} & \num{75.19} &  $0.01686 \pm 0.00194$ \\
+    2019  & \num{17.17} & \num{23.67} & \num{44.25} & \num{73.54} &  $0.02056 \pm 0.00279$ 
+    \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{XXX villa tight}
+  \label{tab:h:results_villa_tight}
+\end{table}
+
+
+\newpage
+\FloatBarrier
