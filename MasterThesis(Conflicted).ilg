@@ -1,9 +1,6 @@
 This is makeindex, version 2.15 [TeX Live 2018] (kpathsea + Thai support).
-Scanning input file MasterThesis.idx....
-!! Input index error (file = MasterThesis.idx, line = 152):
-   -- First argument too long (max 1024).
-done (151 entries accepted, 1 rejected).
-Sorting entries....done (1174 comparisons).
-Generating output file MasterThesis.ind....done (166 lines written, 0 warnings).
+Scanning input file MasterThesis.idx....done (161 entries accepted, 0 rejected).
+Sorting entries....done (1275 comparisons).
+Generating output file MasterThesis.ind....done (167 lines written, 0 warnings).
 Output written in MasterThesis.ind.
 Transcript written in MasterThesis.ilg.
