@@ -1,0 +1,118 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: MasterThesis.aux
+The style file: abbrvnat.bst
+I couldn't open auxiliary file chapter_introduction.aux
+---line 25 of file MasterThesis.aux
+ : \@input{chapter_introduction.aux
+ :                                 }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter_machine_learning_theory.aux
+---line 26 of file MasterThesis.aux
+ : \@input{chapter_machine_learning_theory.aux
+ :                                            }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter_housing_prices.aux
+---line 27 of file MasterThesis.aux
+ : \@input{chapter_housing_prices.aux
+ :                                   }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter_quark_gluon.aux
+---line 61 of file MasterThesis.aux
+ : \@input{chapter_quark_gluon.aux
+ :                                }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter_discussion.aux
+---line 62 of file MasterThesis.aux
+ : \@input{chapter_discussion.aux
+ :                               }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter_conclusion.aux
+---line 63 of file MasterThesis.aux
+ : \@input{chapter_conclusion.aux
+ :                               }
+I'm skipping whatever remains of this command
+I couldn't open auxiliary file chapter_appendix_housing.aux
+---line 64 of file MasterThesis.aux
+ : \@input{chapter_appendix_housing.aux
+ :                                     }
+I'm skipping whatever remains of this command
+Database file #1: My_Library.bib
+Warning--entry type for "purcellGoParticleQuest2012" isn't style-file defined
+--line 3545 of file My_Library.bib
+Warning--entry type for "burgardStandardModelPhysics" isn't style-file defined
+--line 3557 of file My_Library.bib
+Warning--entry type for "bierlichRopeHadronizationGeometry2016" isn't style-file defined
+--line 3586 of file My_Library.bib
+Warning--entry type for "Armstrong1998hy" isn't style-file defined
+--line 3597 of file My_Library.bib
+Warning--empty journal in anderssonPartonFragmentationString1983
+Warning--empty year in anderssonPartonFragmentationString1983
+Warning--empty year in anderssonPartonFragmentationString1983
+Warning--empty year in Armstrong1998hy
+Warning--empty year in bierlichRopeHadronizationGeometry2016
+Warning--empty journal in buckleyGeneralpurposeEventGenerators2011
+Warning--empty year in buckleyGeneralpurposeEventGenerators2011
+Warning--empty year in buckleyGeneralpurposeEventGenerators2011
+Warning--empty year in burgardStandardModelPhysics
+Warning--empty journal in theatlascollaborationObservationNewParticle2012
+Warning--empty year in theatlascollaborationObservationNewParticle2012
+Warning--empty year in theatlascollaborationObservationNewParticle2012
+Warning--empty journal in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty journal in particledatagroupReviewParticlePhysics2018
+Warning--empty year in particledatagroupReviewParticlePhysics2018
+Warning--empty year in particledatagroupReviewParticlePhysics2018
+Warning--empty year in purcellGoParticleQuest2012
+Warning--can't use both volume and number fields in salamWeakElectromagneticInteractions1994
+Warning--empty year in salamWeakElectromagneticInteractions1994
+Warning--empty year in salamWeakElectromagneticInteractions1994
+Warning--empty journal in sjostrandIntroductionPYTHIA2015
+Warning--empty year in sjostrandIntroductionPYTHIA2015
+Warning--empty year in sjostrandIntroductionPYTHIA2015
+Warning--empty journal in weinbergModelLeptons1967
+Warning--empty year in weinbergModelLeptons1967
+Warning--empty year in weinbergModelLeptons1967
+You've used 12 entries,
+            2773 wiz_defined-function locations,
+            697 strings with 11880 characters,
+and the built_in function-call counts, 16871 in all, are:
+= -- 1179
+> -- 2306
+< -- 10
++ -- 774
+- -- 762
+* -- 1831
+:= -- 2887
+add.period$ -- 59
+call.type$ -- 12
+change.case$ -- 290
+chr.to.int$ -- 12
+cite$ -- 52
+duplicate$ -- 238
+empty$ -- 463
+format.name$ -- 774
+if$ -- 3190
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 8
+newline$ -- 90
+num.names$ -- 48
+pop$ -- 619
+preamble$ -- 1
+purify$ -- 278
+quote$ -- 0
+skip$ -- 386
+stack$ -- 0
+substring$ -- 190
+swap$ -- 17
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 132
+warning$ -- 28
+while$ -- 45
+width$ -- 0
+write$ -- 186
+(There were 7 error messages)

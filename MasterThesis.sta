@@ -1,2 +1,5 @@
 \standalonepreambles
+\subpreamble{figures/decision_tree/decision_tree.tex}
+\usepackage {tikz}\usetikzlibrary {positioning}\newdimen \nodeDist \nodeDist =20mm
+\endsubpreamble
 \endstandalonepreambles

@@ -34,15 +34,27 @@
         "yml"
     ],
     "cSpell.words": [
+        "Bembo",
         "Domingos",
         "Gudiksen",
+        "Hlavacek",
+        "Inkscape",
         "Matplotlib",
         "Scikit",
         "Scipy",
+        "Tufte",
+        "Tufte's",
+        "autocite",
+        "fancyvrb",
+        "fontsite",
         "quantiles",
+        "sidenotes",
+        "subcaption",
         "subfields",
         "subfigure",
         "subproject",
-        "textcolor"
+        "textcolor",
+        "titleclass",
+        "titleformat"
     ]
 }

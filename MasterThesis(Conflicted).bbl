@@ -1,0 +1,171 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Andersson et~al.()Andersson, Gustafson, Ingelman, and
+  Sjöstrand]{anderssonPartonFragmentationString1983}
+B.~Andersson, G.~Gustafson, G.~Ingelman, and T.~Sjöstrand.
+\newblock Parton fragmentation and string dynamics.
+\newblock 97\penalty0 (2):\penalty0 31--145.
+\newblock ISSN 0370-1573.
+\newblock \doi{10.1016/0370-1573(83)90080-7}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/0370157383900807}.
+
+\bibitem[Armstrong()]{Armstrong1998hy}
+S.~R. Armstrong.
+\newblock A {{Search}} for the standard model {{Higgs}} boson in four jet final
+  states at center-of-mass energies near 183-{{GeV}} with the {{ALEPH}}
+  detector at {{LEP}}.
+\newblock URL \url{http://wwwlib.umi.com/dissertations/fullcit?p9910371}.
+
+\bibitem[Bierlich()]{bierlichRopeHadronizationGeometry2016}
+C.~Bierlich.
+\newblock Rope hadronization, geometry and particle production in pp and
+  p¡i¿{{A}} ¡/i¿{{Collisions}}.
+\newblock URL \url{https://lup.lub.lu.se/search/ws/files/18474576/thesis.pdf}.
+
+\bibitem[Buckley et~al.()Buckley, Butterworth, Gieseke, Grellscheid, Hoche,
+  Hoeth, Krauss, Lonnblad, Nurse, Richardson, Schumann, Seymour, Sjostrand,
+  Skands, and Webber]{buckleyGeneralpurposeEventGenerators2011}
+A.~Buckley, J.~Butterworth, S.~Gieseke, D.~Grellscheid, S.~Hoche, H.~Hoeth,
+  F.~Krauss, L.~Lonnblad, E.~Nurse, P.~Richardson, S.~Schumann, M.~H. Seymour,
+  T.~Sjostrand, P.~Skands, and B.~Webber.
+\newblock General-purpose event generators for {{LHC}} physics.
+\newblock 504\penalty0 (5):\penalty0 145--233.
+\newblock ISSN 03701573.
+\newblock \doi{10.1016/j.physrep.2011.03.005}.
+\newblock URL \url{http://arxiv.org/abs/1101.2599}.
+
+\bibitem[Burgard()]{burgardStandardModelPhysics}
+C.~Burgard.
+\newblock Standard model of physics | {{TikZ}} example.
+\newblock URL \url{http://www.texample.net/tikz/examples/model-physics/}.
+
+\bibitem[Collaboration()]{theatlascollaborationObservationNewParticle2012}
+T.~A. Collaboration.
+\newblock Observation of a new particle in the search for the {{Standard Model
+  Higgs}} boson with the {{ATLAS}} detector at the {{LHC}}.
+\newblock 716\penalty0 (1):\penalty0 1--29.
+\newblock ISSN 03702693.
+\newblock \doi{10.1016/j.physletb.2012.08.020}.
+\newblock URL \url{http://arxiv.org/abs/1207.7214}.
+
+\bibitem[Glashow()]{glashowPartialsymmetriesWeakInteractions1961}
+S.~L. Glashow.
+\newblock Partial-symmetries of weak interactions.
+\newblock 22\penalty0 (4):\penalty0 579--588.
+\newblock ISSN 0029-5582.
+\newblock \doi{10.1016/0029-5582(61)90469-2}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/0029558261904692}.
+
+\bibitem[{Particle Data Group} et~al.(){Particle Data Group}, Tanabashi,
+  Hagiwara, Hikasa, Nakamura, Sumino, Takahashi, Tanaka, Agashe, Aielli,
+  Amsler, Baer, Barnett, Barnett, Bauer, Beatty, Belousov, Beringer, Bethke,
+  Bettini, Bichsel, Biebel, Black, Blucher, Buchmuller, Burkert, Bychkov, Cahn,
+  Ceccucci, Chakraborty, Chivukula, Cowan, Dahl, D’Ambrosio, Damour,
+  de~Florian, de~Gouvêa, de~Jong, Dissertori, Dobrescu, D’Onofrio, Doser,
+  Drees, Dwyer, Eerola, Eidelman, Ellis, Erler, Ezhela, Fields, Firestone,
+  Foster, Freitas, Gallagher, Garren, Gerber, Gerbier, Gershon, Gherghetta,
+  Godizov, Goodman, Grab, Gritsan, Grojean, Grünewald, Gurtu, Gutsche, Haber,
+  Hashimoto, Hayato, Hayes, Heinemeyer, Heltsley, Hernández-Rey, Hisano,
+  Höcker, Holder, Holtkamp, Hyodo, Irwin, Johnson, Kado, Karliner, Katz,
+  Klein, Klempt, Kowalewski, Krauss, Kreps, Krusche, Kuyanov, Kwon, Lahav,
+  Laiho, Lesgourgues, Liddle, Ligeti, Lin, Lippmann, Liss, Littenberg,
+  Lugovsky, Lugovsky, Lusiani, Makida, Maltoni, Mannel, Manohar, Marciano,
+  Martin, Masoni, Meißner, Milstead, Mitchell, Mönig, Molaro, Moortgat,
+  Moskovic, Murayama, Narain, Nason, Navas, Neubert, Nevski, Nir, Olive,
+  Pagan~Griso, Parsons, Patrignani, Peacock, Pennington, Petcov, Petrov,
+  Pianori, Piepke, Pomarol, Quadt, Rademacker, Raffelt, Ratcliff, Richardson,
+  Ringwald, Roesler, Rolli, Romaniouk, Rosenberg, Rosner, Rybka, Ryutin,
+  Sachrajda, Sakai, Salam, Sarkar, Sauli, Schneider, Scholberg, Schwartz,
+  Scott, Sharma, Sharpe, Shutt, Silari, Sjöstrand, Skands, Skwarnicki, Smith,
+  Smoot, Spanier, Spieler, Spiering, Stahl, Stone, Sumiyoshi, Syphers, Terashi,
+  Terning, Thoma, Thorne, Tiator, Titov, Tkachenko, Törnqvist, Tovey,
+  Valencia, Van~de Water, Varelas, Venanzoni, Verde, Vincter, Vogel, Vogt,
+  Wakely, Walkowiak, Walter, Wands, Ward, Wascko, Weiglein, Weinberg, Weinberg,
+  White, Wiencke, Willocq, Wohl, Womersley, Woody, Workman, Yao, Zeller, Zenin,
+  Zhu, Zhu, Zimmermann, Zyla, Anderson, Lugovsky, and
+  Schaffner]{particledatagroupReviewParticlePhysics2018}
+{Particle Data Group}, M.~Tanabashi, K.~Hagiwara, K.~Hikasa, K.~Nakamura,
+  Y.~Sumino, F.~Takahashi, J.~Tanaka, K.~Agashe, G.~Aielli, C.~Amsler, H.~Baer,
+  R.~M. Barnett, R.~M. Barnett, C.~W. Bauer, J.~J. Beatty, V.~I. Belousov,
+  J.~Beringer, S.~Bethke, A.~Bettini, H.~Bichsel, O.~Biebel, K.~M. Black,
+  E.~Blucher, O.~Buchmuller, V.~Burkert, M.~A. Bychkov, R.~N. Cahn,
+  A.~Ceccucci, D.~Chakraborty, R.~S. Chivukula, G.~Cowan, O.~Dahl,
+  G.~D’Ambrosio, T.~Damour, D.~de~Florian, A.~de~Gouvêa, P.~de~Jong,
+  G.~Dissertori, B.~A. Dobrescu, M.~D’Onofrio, M.~Doser, M.~Drees, D.~A.
+  Dwyer, P.~Eerola, S.~Eidelman, J.~Ellis, J.~Erler, V.~V. Ezhela, B.~D.
+  Fields, R.~Firestone, B.~Foster, A.~Freitas, H.~Gallagher, L.~Garren, H.-J.
+  Gerber, G.~Gerbier, T.~Gershon, T.~Gherghetta, A.~A. Godizov, M.~Goodman,
+  C.~Grab, A.~V. Gritsan, C.~Grojean, M.~Grünewald, A.~Gurtu, T.~Gutsche,
+  H.~E. Haber, S.~Hashimoto, Y.~Hayato, K.~G. Hayes, S.~Heinemeyer,
+  B.~Heltsley, J.~J. Hernández-Rey, J.~Hisano, A.~Höcker, J.~Holder,
+  A.~Holtkamp, T.~Hyodo, K.~D. Irwin, K.~F. Johnson, M.~Kado, M.~Karliner,
+  U.~F. Katz, S.~R. Klein, E.~Klempt, R.~V. Kowalewski, F.~Krauss, M.~Kreps,
+  B.~Krusche, Y.~V. Kuyanov, Y.~Kwon, O.~Lahav, J.~Laiho, J.~Lesgourgues,
+  A.~Liddle, Z.~Ligeti, C.-J. Lin, C.~Lippmann, T.~M. Liss, L.~Littenberg,
+  K.~S. Lugovsky, S.~B. Lugovsky, A.~Lusiani, Y.~Makida, F.~Maltoni, T.~Mannel,
+  A.~V. Manohar, W.~J. Marciano, A.~D. Martin, A.~Masoni, U.-G. Meißner,
+  D.~Milstead, R.~E. Mitchell, K.~Mönig, P.~Molaro, F.~Moortgat, M.~Moskovic,
+  H.~Murayama, M.~Narain, P.~Nason, S.~Navas, M.~Neubert, P.~Nevski, Y.~Nir,
+  K.~A. Olive, S.~Pagan~Griso, J.~Parsons, C.~Patrignani, J.~A. Peacock,
+  M.~Pennington, S.~T. Petcov, V.~A. Petrov, E.~Pianori, A.~Piepke, A.~Pomarol,
+  A.~Quadt, J.~Rademacker, G.~Raffelt, B.~N. Ratcliff, P.~Richardson,
+  A.~Ringwald, S.~Roesler, S.~Rolli, A.~Romaniouk, L.~J. Rosenberg, J.~L.
+  Rosner, G.~Rybka, R.~A. Ryutin, C.~T. Sachrajda, Y.~Sakai, G.~P. Salam,
+  S.~Sarkar, F.~Sauli, O.~Schneider, K.~Scholberg, A.~J. Schwartz, D.~Scott,
+  V.~Sharma, S.~R. Sharpe, T.~Shutt, M.~Silari, T.~Sjöstrand, P.~Skands,
+  T.~Skwarnicki, J.~G. Smith, G.~F. Smoot, S.~Spanier, H.~Spieler, C.~Spiering,
+  A.~Stahl, S.~L. Stone, T.~Sumiyoshi, M.~J. Syphers, K.~Terashi, J.~Terning,
+  U.~Thoma, R.~S. Thorne, L.~Tiator, M.~Titov, N.~P. Tkachenko, N.~A.
+  Törnqvist, D.~R. Tovey, G.~Valencia, R.~Van~de Water, N.~Varelas,
+  G.~Venanzoni, L.~Verde, M.~G. Vincter, P.~Vogel, A.~Vogt, S.~P. Wakely,
+  W.~Walkowiak, C.~W. Walter, D.~Wands, D.~R. Ward, M.~O. Wascko, G.~Weiglein,
+  D.~H. Weinberg, E.~J. Weinberg, M.~White, L.~R. Wiencke, S.~Willocq, C.~G.
+  Wohl, J.~Womersley, C.~L. Woody, R.~L. Workman, W.-M. Yao, G.~P. Zeller,
+  O.~V. Zenin, R.-Y. Zhu, S.-L. Zhu, F.~Zimmermann, P.~A. Zyla, J.~Anderson,
+  V.~S. Lugovsky, and P.~Schaffner.
+\newblock Review of {{Particle Physics}}.
+\newblock 98\penalty0 (3):\penalty0 030001.
+\newblock \doi{10.1103/PhysRevD.98.030001}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevD.98.030001}.
+
+\bibitem[Purcell()]{purcellGoParticleQuest2012}
+A.~Purcell.
+\newblock Go on a particle quest at the first {{CERN}} webfest.
+\newblock URL \url{https://cds.cern.ch/record/1473657}.
+
+\bibitem[Salam()]{salamWeakElectromagneticInteractions1994}
+A.~Salam.
+\newblock Weak and electromagnetic interactions.
+\newblock In \emph{Selected {{Papers}} of {{Abdus Salam}}}, volume Volume 5 of
+  \emph{World {{Scientific Series}} in 20th {{Century Physics}}}, pages
+  244--254. {WORLD SCIENTIFIC}.
+\newblock ISBN 978-981-02-1662-7.
+\newblock \doi{10.1142/9789812795915_0034}.
+\newblock URL
+  \url{https://www.worldscientific.com/doi/abs/10.1142/9789812795915_0034}.
+
+\bibitem[Sjöstrand et~al.()Sjöstrand, Ask, Christiansen, Corke, Desai, Ilten,
+  Mrenna, Prestel, Rasmussen, and Skands]{sjostrandIntroductionPYTHIA2015}
+T.~Sjöstrand, S.~Ask, J.~R. Christiansen, R.~Corke, N.~Desai, P.~Ilten,
+  S.~Mrenna, S.~Prestel, C.~O. Rasmussen, and P.~Z. Skands.
+\newblock An {{Introduction}} to {{PYTHIA}} 8.2.
+\newblock 191:\penalty0 159--177.
+\newblock ISSN 00104655.
+\newblock \doi{10.1016/j.cpc.2015.01.024}.
+\newblock URL \url{http://arxiv.org/abs/1410.3012}.
+
+\bibitem[Weinberg()]{weinbergModelLeptons1967}
+S.~Weinberg.
+\newblock A {{Model}} of {{Leptons}}.
+\newblock 19\penalty0 (21):\penalty0 1264--1266.
+\newblock \doi{10.1103/PhysRevLett.19.1264}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.19.1264}.
+
+\end{thebibliography}

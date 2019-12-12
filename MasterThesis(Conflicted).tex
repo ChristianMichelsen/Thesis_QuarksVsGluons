@@ -63,7 +63,7 @@
 \usepackage{tikz}
 \usepackage[subpreambles=true]{standalone}
 
-% subcaption does not work with tufte
+% subcaption does not work with Tufte
 \usepackage[caption=false]{subfig}
 % \usepackage[export]{adjustbox}
 
@@ -91,11 +91,11 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
-% Feyman diagrams
+% Feynman diagrams
 % \usepackage{tikz-feynman}
 % \usepackage{feynman}
 
-% lemmas and corrollaryies
+% lemmas and corollaries
 % \newtheorem{theorem}{Theorem}[section]
 % \newtheorem{corollary}{Corollary}[theorem]
 % \newtheorem{lemma}[theorem]{Lemma}
@@ -338,8 +338,8 @@
 
 
 
-% \includeonly{}
-\includeonly{chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing}
+\includeonly{}
+% \includeonly{chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing}
 
 
 \begin{document}
@@ -366,9 +366,7 @@
 \pagenumbering{arabic}
 
 This sample book discusses the design of Edward Tufte's books
-%  \citep{Tufte2001,Tufte1990,Tufte1997,Tufte2006} 
 and the use of the \doccls{tufte-book} and \doccls{tufte-handout} document classes.
-
 
 %%
 % Start the main matter (normal chapters)
@@ -379,27 +377,99 @@ and the use of the \doccls{tufte-book} and \doccls{tufte-handout} document class
 
 \include{chapter_introduction}
 
+\chapter*{Part I}
+The first part of this thesis deals with the introductory theory of machine learning and its predictive power in estimating Danish housing prices.
+
 \include{chapter_machine_learning_theory}
 
 \include{chapter_housing_prices}
 
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
+\chapter*{Part II}
+The second part of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. 
 
 
 \FloatBarrier
 \chapter{Particle Physics and LEP}
-\label{ch:particle_physcis_LEP}
-% \immediate\write{./quote.sh \the\value{chapter}}
-% \epigraph{\input{/tmp/fortune-\the\value{chapter}}}{--- \textup{\texttt{/usr/bin/fortune}}}
+\label{ch:hep:particle_physcis_LEP}
+\epigraph{\textit{``Not only is the Universe stranger than we think, it is stranger than we can think.''}}{--- Werner Heisenberg}
+
+The aim of this chapter is to introduce the reader to the basis level of understanding of particle physics required for understanding the following chapter, in particular introducing the Standard Model in \autoref{sec:hep:standard_model}, the theory behind quark hadronization in \autoref{sec:hep:quark_hadronization}, and the ALEPH detector at LEP in \autoref{sec:hep:aleph}. The goal is not to make a deep and thorough introduction to the field since this is not needed for the following analysis and is outside the scope of this project along with the fact that the author is no particle physicist himself. 
+
+
+\FloatBarrier
+\section{The Standard Model}
+\label{sec:hep:standard_model}
+
+The \emph{Standard Model} (SM) \autocite{glashowPartialsymmetriesWeakInteractions1961,salamWeakElectromagneticInteractions1994,weinbergModelLeptons1967} of particle physics is the currently best known description of elementary particles and thus describes the fundamental building blocks of our Universe. An overview of the particles explained by the Standard Model is shown in the typical tabular form seen in Figure~\ref{fig:hep:standard_model}. In general, particles comes in two categories: \emph{bosons} and \emph{fermions}. 
+
+The fermions, the left part of the figure, are particles with half-integer spin that obey Fermi-Dirac statistics and are further subdivided into \emph{quarks} (upper left in figure) and \emph{leptons} (lower left). The quarks interact with all of the four known forces\sidenote{Gravity, electromagnetism, and the strong and weak force.}, including the strong force. In contrary the leptons do not interact with the strong force. Quarks are never observed freely but are always combined into \emph{hadrons} due to \emph{color confinement} which is further explained in \autoref{sec:hep:quark_hadronization}. An example of this are protons which consists of two up-quarks and a down-quark. Leptons exist as either the charged leptons\sidenote{The electron $e$, the muon $\mu$, and the tau $\tau$.} or as neutral leptons, the so-called neutrinos\sidenote{The electron neutrine $\nu_e$, the muon neutrino $\nu_\mu$, and the tau neutrino $\nu_\tau$.}. The fermions come in three generations with increasing mass.
+
+The bosons, the right part of the figure, are the force-carrying particles (with integer spin and which obey Bose-Einstein statistics) where the gluon $g$ mediates the strong nuclear force (color charge), the photon $\gamma$ mediates the electromagnetic force (charge), and the two $W^\pm$ and the $Z$ bosons the weak nuclear force (weak isospin). The Higgs boson $H$, experimentally discovered in 2012, \autocite{theatlascollaborationObservationNewParticle2012}, does not mediate any forces but interacts with all massive particles and explains why particles have mass. 
+
+All particles have antiparticles which are particles with opposite charge but the same mass. Some particles\sidenote{The photon, the $Z$, and the Higgs.} are its own antiparticle, such as the $Z$. At the Large Electron Positron collider (LEP), see \autoref{sec:hep:aleph}, electrons $e^-$ and their antiparticles positrons $e^+$ were collided at a energy of around \SI{91.2}{\GeV}. This exact energy was chosen since the mass of the $Z$ follows a Cauchy distribution (also known as Breit-Wigner) with mean $m_Z = \SI{91.1876 \pm 0.0021}{\GeV}$ with a full width of $\Gamma_Z = \SI{2.4952 \pm 0.0023}{\GeV}$: LEP was as such a $Z$-factory. The $Z$, however, is only very short-lived with a half-life\sidenote{Calculated in natural units where $c=\hbar=1$ which will also be used throughout this chapter.} of $1/ \Gamma \sim \SI{2.6e-25}{s}$. The decay mode for this unstable $Z$ particle is primarily to hadrons (\SI{69.91\pm 0.06}{\percent}) where the ratio (R) for $b$-quarks is $R_b = \left( Z \rightarrow b\bar{b} \right) = \SI{15.12 \pm 0.05}{\percent}$ and $B_g = \left( Z \rightarrow ggg \right) = \SI{15.12 \pm 0.05}{\percent}$ for gluons \autocite{particledatagroupReviewParticlePhysics2018}. The fact that the $Z$ is its own anti-particle forces its decay to be a particle--anti-particle decay (due to charge-conservation) where antiparticles are written with a a bar on top, e.g. the $\bar{b}$-quark is the antiparticle of the $b$-quark.
+
+\begin{figure*}
+  \centerfloat
+  \includegraphics[width=0.9\textwidth]{figures/standard_model/sm.pdf}
+  \caption[The Standard Model]{The Standard Model. Inspired by \citet{purcellGoParticleQuest2012} using the template by \citet{burgardStandardModelPhysics} with manually updated masses according to \citet{particledatagroupReviewParticlePhysics2018}.}
+  \label{fig:hep:standard_model}
+\end{figure*}
+
+
+\FloatBarrier
+\section{Quark Hadronization}
+\label{sec:hep:quark_hadronization}
+
+The electron-positron $e^+ e^-$ annihilations at LEP are complicated events that require advanced high-energy particle physics theory to be properly understood. Most of the aspects of the process is well-described by now, however, especially the hadronization process is still an area of active research. To better get an overview of the different stages of the $e^+e^-$ annihilations, see the Feynman diagram in Figure~\ref{fig:hep:feynman_3j_qqg}. 
+
+\begin{marginfigure}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth]{figures/feynman_diagrams/eeZqqg.pdf}
+  \caption[Feynman diagram for the jet production at LEP]{Feynman diagram showing the $e^+ e^- \rightarrow Z^0$ production at LEP. The $Z$ has several decay modes where the $Z \rightarrow q\bar{q}g$ is shown here.}
+  \label{fig:hep:feynman_3j_qqg}
+\end{marginfigure}
+
+Reading from left to right, the electron and the positrons annihilates to a $Z$. This interaction is well-described by quantum electrodynamics (QED), a theory that has been around for almost a century by now (SOURCE XXX). As mentioned in the previous section, the $Z$ has several decays modes, yet most of these are background processes of no interest in this project and the focus for now will thus be the decay mode $Z \rightarrow q\bar{q}$ ($Z$ to quark--anti-quark) as seen in the Feynman diagram. The particles produced by the $Z$-decay are called primary \emph{partons}. Since this process involves quarks, and thus color charge, QED is no longer an adequate theory: quantum chromodynamics (QCD) is needed \autocite{Armstrong1998hy}. The $q\bar{q}$ pairs in this example acts as (color) dipoles from which a gluon can radiate and it can be shown with QCD that the gluon can only be radiated inside the cone that the $q\bar{q}$ pairs spans \autocite{bierlichRopeHadronizationGeometry2016}. As mentioned in the introduction, quarks cannot exist freely (due to \emph{confinement}) and we therefore cannot observe the $q\bar{q}gg$ event produced in the Feynman diagram. Confinement is basically the QCD principle saying that quarks are always confined or bound inside hadrons. The initial partons (carrying color charge) are converted to (color-neutral) hadrons by non-perturbative QCD processes in what is called \emph{hadronization}, and these hadrons can be measured. 
+
+\begin{marginfigure}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth]{figures/quark_splitting/quark_splitting.pdf}
+  \caption[Quark Splitting]{Illustration of the quarks splitting as explained by the Lund string model. For large charge separation the (color) field lines seem to be compressed to a tube-like region, where the strong interactions are mediated by the massless gluons (that couple to the color charge of quarks). When the two quarks are separated enough, the potential energy is released by the production of a new $q\bar{q}$ pair.}
+  \label{fig:hep:quark_splitting_strings}
+\end{marginfigure}
+
+The hadronization process is not yet fully developed and currently two competing models for predicting the hadronization pattern exists: the Lund string model and the cluster model. In this project only the former of the models will be used. The Lund string model \autocite{anderssonPartonFragmentationString1983} is the theoretical framework underlying the widely used Monte Carlo event generator PYTHIA \autocite{sjostrandIntroductionPYTHIA2015}. The string model is based on the observation that (color) field lines between quarks seem to compress into a tube-like region mediated by gluons, see the top part of Figure~\ref{fig:hep:quark_splitting_strings}. The field can be described by a linearly rising potential $V(r)=\kappa r$ at large distances\sidenote{At small distances a Coulumb term has to be included, however, this term is ignored by the Lund string model.}, where $r$ is the distance and $\kappa$ is the strength of potential \autocite{buckleyGeneralpurposeEventGenerators2011}. This field is similar to the (constant) force of a string: $V(r)=\kappa r \Rightarrow F(r) = -\kappa$ where $\kappa$ is the to be regarded as the spring tension. As quarks move apart, the potential energy stored in the \q{string} increases until it is large enough to \q{snap} and convert its potential energy into mass energy. This mass energy is released with the production of a new $q\bar{q}$ pair, see the rest of Figure~\ref{fig:hep:quark_splitting_strings}. 
+% The gluons can thus be seen as kinks on a string carrying energy-momentum.
+
+An example of the hadronization process, or the transition from initial partons to final hadrons, is sketched in Figure~\ref{fig:hep:hadronization}, where the production of the two kaons $\mathrm{K}^-$ and $\mathrm{K}^+$, and the two pions $\pi^-$ and $\pi^0$ are shown. Since particles are created by \q{splits} in the \q{string}, and the fact that there is energy-momentum conservation, they all have to share the total energy stored in the string. This is described by the fragmentation function:
+\begin{equation}
+  f(z) \propto \frac{(1-z)^a}{z} \exp \left(- \frac{b m^2}{z} \right),
+\end{equation}
+where $0 \leq z \leq 1$ is the remaining momentum that the new hadron takes, $a$ and $b$ are constants, and $m$ is the mass\sidenote{Where $m \rightarrow m_\perp$ for particles with transverse momentum}\autocite{bierlichRopeHadronizationGeometry2016}. When the system runs out of available momentum, it will stop producing new hadrons. The Lund string model can be extended from only $q\bar{q}$ events to $q\bar{q}gg$ events where it predicts cones spanning the angular regions $q\bar{g}$ and $\bar{q}g$ should receive enhanced particle production compared to the $q\bar{q}$ region \autocite{buckleyGeneralpurposeEventGenerators2011} which is also seen in $$ 
 
 
 \begin{figure}
-  \includegraphics[width=0.9\textwidth]{figures/feynman_diagrams/eeZqqg.pdf}
-  \caption[Feynman diagram for the jet production at LEP]{Feynman diagram showing the $e^+ e^- \rightarrow Z^0$ production at LEP. The $Z^0$ has several decay modes where the $Z \rightarrow q\bar{q}g$ is shown here.}
-  \label{fig:hep:feynman_3j_qqg}
-  %\zsavepos{pos:textfig}
+  \centerfloat
+  \includegraphics[width=0.9\textwidth]{figures/hadronization/hadronization2.pdf}
+  \caption[Hadronization process]{XXX.}
+  \label{fig:hep:hadronization}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+\FloatBarrier
+\section{The ALEPH Detector and LEP}
+\label{sec:hep:aleph}
 
 
 
