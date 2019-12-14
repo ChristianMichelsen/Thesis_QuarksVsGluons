@@ -18,46 +18,55 @@ I couldn't open auxiliary file chapter_housing_prices.aux
  :                                   }
 I'm skipping whatever remains of this command
 I couldn't open auxiliary file chapter_quark_gluon.aux
----line 61 of file MasterThesis.aux
+---line 80 of file MasterThesis.aux
  : \@input{chapter_quark_gluon.aux
  :                                }
 I'm skipping whatever remains of this command
 I couldn't open auxiliary file chapter_discussion.aux
----line 62 of file MasterThesis.aux
+---line 81 of file MasterThesis.aux
  : \@input{chapter_discussion.aux
  :                               }
 I'm skipping whatever remains of this command
 I couldn't open auxiliary file chapter_conclusion.aux
----line 63 of file MasterThesis.aux
+---line 82 of file MasterThesis.aux
  : \@input{chapter_conclusion.aux
  :                               }
 I'm skipping whatever remains of this command
 I couldn't open auxiliary file chapter_appendix_housing.aux
----line 64 of file MasterThesis.aux
+---line 83 of file MasterThesis.aux
  : \@input{chapter_appendix_housing.aux
  :                                     }
 I'm skipping whatever remains of this command
 Database file #1: My_Library.bib
 Warning--entry type for "purcellGoParticleQuest2012" isn't style-file defined
---line 3545 of file My_Library.bib
+--line 3441 of file My_Library.bib
 Warning--entry type for "burgardStandardModelPhysics" isn't style-file defined
---line 3557 of file My_Library.bib
+--line 3453 of file My_Library.bib
 Warning--entry type for "bierlichRopeHadronizationGeometry2016" isn't style-file defined
---line 3586 of file My_Library.bib
+--line 3482 of file My_Library.bib
 Warning--entry type for "Armstrong1998hy" isn't style-file defined
---line 3597 of file My_Library.bib
+--line 3493 of file My_Library.bib
 Warning--empty journal in anderssonPartonFragmentationString1983
 Warning--empty year in anderssonPartonFragmentationString1983
 Warning--empty year in anderssonPartonFragmentationString1983
 Warning--empty year in Armstrong1998hy
+Warning--empty journal in bartelExperimentalStudyJets1981
+Warning--empty year in bartelExperimentalStudyJets1981
+Warning--empty year in bartelExperimentalStudyJets1981
 Warning--empty year in bierlichRopeHadronizationGeometry2016
 Warning--empty journal in buckleyGeneralpurposeEventGenerators2011
 Warning--empty year in buckleyGeneralpurposeEventGenerators2011
 Warning--empty year in buckleyGeneralpurposeEventGenerators2011
 Warning--empty year in burgardStandardModelPhysics
+Warning--empty journal in buskulicPerformanceALEPHDetector1995
+Warning--empty year in buskulicPerformanceALEPHDetector1995
+Warning--empty year in buskulicPerformanceALEPHDetector1995
 Warning--empty journal in theatlascollaborationObservationNewParticle2012
 Warning--empty year in theatlascollaborationObservationNewParticle2012
 Warning--empty year in theatlascollaborationObservationNewParticle2012
+Warning--empty journal in buskulicPreciseMeasurementGZ1993
+Warning--empty year in buskulicPreciseMeasurementGZ1993
+Warning--empty year in buskulicPreciseMeasurementGZ1993
 Warning--empty journal in glashowPartialsymmetriesWeakInteractions1961
 Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
 Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
@@ -74,45 +83,45 @@ Warning--empty year in sjostrandIntroductionPYTHIA2015
 Warning--empty journal in weinbergModelLeptons1967
 Warning--empty year in weinbergModelLeptons1967
 Warning--empty year in weinbergModelLeptons1967
-You've used 12 entries,
+You've used 15 entries,
             2773 wiz_defined-function locations,
-            697 strings with 11880 characters,
-and the built_in function-call counts, 16871 in all, are:
-= -- 1179
-> -- 2306
-< -- 10
-+ -- 774
-- -- 762
-* -- 1831
-:= -- 2887
-add.period$ -- 59
-call.type$ -- 12
-change.case$ -- 290
-chr.to.int$ -- 12
-cite$ -- 52
-duplicate$ -- 238
-empty$ -- 463
-format.name$ -- 774
-if$ -- 3190
+            724 strings with 17476 characters,
+and the built_in function-call counts, 34954 in all, are:
+= -- 2317
+> -- 5362
+< -- 13
++ -- 1794
+- -- 1779
+* -- 3953
+:= -- 6106
+add.period$ -- 77
+call.type$ -- 15
+change.case$ -- 636
+chr.to.int$ -- 15
+cite$ -- 67
+duplicate$ -- 298
+empty$ -- 583
+format.name$ -- 1796
+if$ -- 6487
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 8
-newline$ -- 90
-num.names$ -- 48
-pop$ -- 619
-preamble$ -- 1
-purify$ -- 278
+missing$ -- 11
+newline$ -- 115
+num.names$ -- 60
+pop$ -- 1317
+preamble$ -- 2
+purify$ -- 621
 quote$ -- 0
-skip$ -- 386
+skip$ -- 753
 stack$ -- 0
-substring$ -- 190
+substring$ -- 259
 swap$ -- 17
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 132
-warning$ -- 28
-while$ -- 45
+type$ -- 165
+warning$ -- 37
+while$ -- 57
 width$ -- 0
-write$ -- 186
+write$ -- 238
 (There were 7 error messages)

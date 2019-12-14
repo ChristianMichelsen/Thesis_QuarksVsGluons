@@ -2,7 +2,7 @@
 \chapter{Danish Housing Prices}
 \label{ch:housing_price_analysis}
 \epigraph{\textit{``Buy land, they’re not making it anymore.''}}{--- Mark Twain}
-\epigraph{\textit{``It’s tangible, it’s solid, it’s beautiful. It’s artistic, from my standpoint, and I just love real estate.''}}{--- Donald Trump}
+% \epigraph{\textit{``It’s tangible, it’s solid, it’s beautiful. It’s artistic, from my standpoint, and I just love real estate.''}}{--- Donald Trump}
 \newthought{Housing markets} have always been a playing field for economists, property speculator, real estate developers, and realtors. The author of this thesis is by no metric any of these, not even close to, yet, when the issue of estimating Danish housing prices came up, it was too much of a challenge just lying there to let it go. Estimating housing prices is a classical economical discipline with papers from the Danish National Bank developing a regional model of the Danish housing market \autocite{hviidWorkingPaperRegional2017} to analysis of the financial crisis in 2008-2009 and its effects on the Copenhagen metropolitan area \autocite{mulalicFinancialCrisisDiverging2017}. 
 
 \begin{figure}
@@ -100,9 +100,9 @@ The geographic distribution of sales can be seen in Figure~\ref{fig:h:geo_overvi
   \centering
   % \vspace*{-\abovecaptionskip}
   \subfloat[\label{fig:h:geo_overview_sqm_price}]{\qquad}
-  \includegraphics[draft, width=0.4\textwidth]{figures/housing/Denmark_Overview_SqmPrice.png}\hfil
+  \includegraphics[draft=false, width=0.4\textwidth]{figures/housing/Denmark_Overview_SqmPrice.png}\hfil
   \subfloat[\label{fig:h:geo_overview_sales_price}]{\qquad}
-  \includegraphics[draft, width=0.4\textwidth]{figures/housing/Denmark_Overview_SalesPrice.png}
+  \includegraphics[draft=false, width=0.4\textwidth]{figures/housing/Denmark_Overview_SalesPrice.png}
   \caption[Distributions for the housing price dataset]{Geographic distribution of the sold residences. 
            In subplot ~\protect\subref{fig:h:geo_overview_sqm_price} the sales are colored according to their square meter price and in subplot ~\protect\subref{fig:h:geo_overview_sales_price} according to the sales price. 
            }
@@ -280,7 +280,7 @@ where $\epsilon_t$ is a normally distributed error term. \citet{taylorForecastin
 We fit the Prophet model on the weekly median price pr. square meter (PPSM) up until (and including) \num{2017}. The results of the prophet model fitted on OOAs are seen in Figure~\ref{fig:h:prophet_forecast} and Figure~\ref{fig:h:prophet_trends}. In Figure~\ref{fig:h:prophet_forecast} the weakly median price pr. square meter for OOAs are shown as black dots with the fitted Prophet model shown in blue. The $1\sigma$ uncertainty intervals are shown as the transparent blue band. The Prophet model not only allows predicting previous and future PPSMs, it also return the uncertainty of this prediction. The future predictions for the PPSM are the values after 2018. The trend and seasonality of the model are shown in Figure~\ref{fig:h:prophet_trends} where the top plot is the overall trend $g(t)$ and the bottom plot is the seasonality $s(t)$. Whereas the trend just continues to rise, the seasonality shows that residences are generally sold for a higher price in the Summer months compared to the Winter months. 
 
 \begin{figure}
-  \includegraphics[draft, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
+  \includegraphics[draft=false, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
   \caption[Prophet Forecast for apartments]
           {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the \num{1}-$\sigma$ confidence interval.
           }
@@ -288,7 +288,7 @@ We fit the Prophet model on the weekly median price pr. square meter (PPSM) up u
 \end{figure}
 
 \begin{figure}
-  \includegraphics[draft, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_trends.pdf}
+  \includegraphics[draft=false, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_trends.pdf}
   \caption[Prophet Trends]
           {The trends of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. In the top plot is the overall trend as a function of year and in the bottom plot is the yearly variation as a function of day of year. It can be seen that the square meter price is higher during the Summer months compared to the Winter months, however, compared to the overall trend this effect is minor ($<10\%$). 
           }
@@ -578,7 +578,7 @@ As with the initial HPO, it is important to compare the results in Figure~\ref{f
 The best of the RS and GS models are chosen for subsequent analysis by first reducing the learning rate to the $\eta=0.01$ and then find the best number of estimators by early stopping. The evaluation function as a function of number of estimators, also known as the \emph{learning curve}, is seen in Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer}. This curve is the realisation of Figure~\ref{fig:ml:empirical_risk} in real data, where it first improves a lot and then finds a stable plateau. The minimum is shown in red with its uncertainty. To reduce the risk of overfitting and model complexity -- with the further advantage of resulting in faster model at predition time -- we keep the model with the lowest number of estimators that are still within $1\sigma$ of the minimimum: see the orange point in the figure. This results in a model that contains less than a fifth of the number of trees and is thus also significantly simpler and faster at inference time. This is the final hyperparameter optimized model that will be used for the further analysis. 
 
 \begin{figure}
-  \includegraphics[draft, width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_early_stopping_fig.png}
+  \includegraphics[draft=false, width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_early_stopping_fig.png}
   \caption[Early Stopping results]
           {The results of early stopping on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s)}, all as a a function of number of estimators (trees). In orange the \textcolor{orange}{\q{best} number of estimators} is shown, defined as the lowest number of estimators which are still within $1\sigma$ of the minimum value. This leads to a model that has a performance that is within $1\sigma$ of the best model, but a lot simpler and faster.} 
   \label{fig:h:CV_res_ES_learning_curve_ejer}
@@ -712,7 +712,7 @@ The SHAP-package\citep{lundbergConsistentIndividualizedFeature2018} not only all
 
 \begin{figure}[ht!]
   \centerfloat
-  \includegraphics[draft, width=0.98\textwidth, trim=10 10 100 40, clip, page=1]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_tight_SHAP_vals_interaction.pdf}
+  \includegraphics[draft=false, width=0.98\textwidth, trim=10 10 100 40, clip, page=1]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_tight_SHAP_vals_interaction.pdf}
   \caption[Feature importance of apartments prices using XGB XXX]
           {Feature importance of apartment prices using the XGB-model. XXX
           } 
@@ -734,7 +734,7 @@ The results for the five different models are shown in Figure~\ref{fig:h:multipl
 
 \begin{figure}[ht!]
   \centerfloat
-  \includegraphics[draft, width=0.98\textwidth, trim=10 130 40 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_all_models.pdf}
+  \includegraphics[draft=false, width=0.98\textwidth, trim=10 130 40 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_all_models.pdf}
   \caption[Multiple Models XXX]
           {Multiple models. XXX
           } 
@@ -774,4 +774,4 @@ The methods for translating the text to numerical variables decipherable by clas
 
 The descriptions turned out to be more time-consuming to extract for Boligsiden and along with the fact that overall deadline was quickly approching, the remaining time was focussed on the main part of the project, the quark gluon discrimination. Given more time, the text analysis would definitely be first step for further improving the accuracy and precision of the price predictions. 
 
-Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the intial stages of this subproject but showed inferior performance compared to BDTs. It is a generally accepted truth (with modifications) in the ML community that neural networks underperform, or at least not outperform, classical ML methods on structured data\sidenote{In general data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations}. Most often they have the inherent complexity to perform as well as ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than for classical ML methods and thus requires more care to avoid overfitting.
+Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the intial stages of this subproject but showed inferior performance compared to BDTs. It is a generally accepted truth (with modifications) in the ML community that neural networks underperform, or at least not outperform, classical ML methods on structured data\sidenote{In general data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations} \autocite[-]{klambauerSelfNormalizingNeuralNetworks2017}. Most often they have the inherent complexity to perform as well as ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than for classical ML methods and thus requires more care to avoid overfitting.
