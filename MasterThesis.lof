@@ -58,30 +58,30 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Azimuthal angle}}{59}{section.5.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Histograms of the vertex variables}}{67}{section.6.2}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces UMAP visualization of vertex variables}}{68}{section.6.2}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces UMAP visualization of vertex variables for 4-jet events}}{68}{section.6.2}
 \contentsline {figure}{\numberline {6.3}{\ignorespaces UMAP visualization of vertex variables for 3-jet events}}{68}{section.6.2}
 \contentsline {figure}{\numberline {6.4}{\ignorespaces UMAP visualization of vertex variables for 2-jet events}}{68}{section.6.2}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces b-tag scores in 3-jet events}}{69}{section.6.2}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces ROC curve for b-tag in 4-jet events}}{69}{section.6.2}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces g-tag scores in 4-jet events}}{70}{section.6.2}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces g-tag scores in 4-jet events for signal and background}}{70}{section.6.2}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces ROC curve for g-tag in 4-jet events}}{70}{section.6.2}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces 1D Sum Model Cuts for 4-jets}}{70}{section.6.2}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets}}{71}{section.6.2}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Hyperparameter Optimization of b- and g-tagging}}{71}{section.6.2}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Overview of Hyperparamaters of g-tagging for 3-jet shuffled events}}{71}{section.6.2}
-\contentsline {figure}{\numberline {6.14}{\ignorespaces SHAP Prediction Explanation for b-like jet}}{71}{section.6.2}
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Monte Carlo -- Data bias for b-tags and jet energy}}{72}{section.6.2}
-\contentsline {figure}{\numberline {6.16}{\ignorespaces b-Tagging Efficiency $\varepsilon _b^{b\mathrm {-sig}}$ as a function of jet energy}}{72}{section.6.2}
-\contentsline {figure}{\numberline {6.17}{\ignorespaces b-Tagging Efficiency $\varepsilon _b^{g\mathrm {-sig}}$ as a function of jet energy}}{72}{section.6.2}
-\contentsline {figure}{\numberline {6.18}{\ignorespaces b-Tagging Efficiency $\varepsilon _g^{g\mathrm {-sig}}$ as a function of jet energy}}{72}{section.6.2}
-\contentsline {figure}{\numberline {6.19}{\ignorespaces b-Tagging Efficiency $\varepsilon _g^{b\mathrm {-sig}}$ as a function of jet energy}}{73}{section.6.2}
-\contentsline {figure}{\numberline {6.20}{\ignorespaces g-Tagging proxy efficiency for $b\bar {b}g$-events as function of the mean invariant mass}}{73}{section.6.2}
-\contentsline {figure}{\numberline {6.21}{\ignorespaces g-Tagging proxy efficiency for $b\bar {b}g$-events as function of g-tag}}{73}{section.6.2}
-\contentsline {figure}{\numberline {6.22}{\ignorespaces g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference}}{73}{section.6.2}
-\contentsline {figure}{\numberline {6.23}{\ignorespaces Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference}}{74}{section.6.2}
-\contentsline {figure}{\numberline {6.24}{\ignorespaces R kt CA overview XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{74}{section.6.2}
-\contentsline {figure}{\numberline {6.25}{\ignorespaces R kt CA cut region A XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{74}{section.6.2}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces b-tag scores in 3-jet events}}{69}{section.6.3}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces ROC curve for b-tag in 4-jet events}}{69}{section.6.3}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces g-tag scores in 4-jet events}}{70}{section.6.3}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces g-tag scores in 4-jet events for signal and background}}{70}{section.6.3}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces ROC curve for g-tag in 4-jet events}}{70}{section.6.3}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces 1D Sum Model Cuts for 4-jets}}{70}{section.6.3}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets}}{71}{section.6.3}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Hyperparameter Optimization of b- and g-tagging}}{71}{section.6.3}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Overview of Hyperparamaters of g-tagging for 3-jet shuffled events}}{71}{section.6.3}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces SHAP Prediction Explanation for b-like jet}}{71}{section.6.3}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Monte Carlo -- Data bias for b-tags and jet energy}}{72}{section.6.3}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces b-Tagging Efficiency $\varepsilon _b^{b\mathrm {-sig}}$ as a function of jet energy}}{72}{section.6.3}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces b-Tagging Efficiency $\varepsilon _b^{g\mathrm {-sig}}$ as a function of jet energy}}{72}{section.6.3}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces b-Tagging Efficiency $\varepsilon _g^{g\mathrm {-sig}}$ as a function of jet energy}}{72}{section.6.3}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces b-Tagging Efficiency $\varepsilon _g^{b\mathrm {-sig}}$ as a function of jet energy}}{73}{section.6.3}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces g-Tagging proxy efficiency for $b\bar {b}g$-events as function of the mean invariant mass}}{73}{section.6.3}
+\contentsline {figure}{\numberline {6.21}{\ignorespaces g-Tagging proxy efficiency for $b\bar {b}g$-events as function of g-tag}}{73}{section.6.3}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference}}{73}{section.6.3}
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference}}{74}{section.6.3}
+\contentsline {figure}{\numberline {6.24}{\ignorespaces R kt CA overview XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{74}{section.6.3}
+\contentsline {figure}{\numberline {6.25}{\ignorespaces R kt CA cut region A XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{74}{section.6.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
