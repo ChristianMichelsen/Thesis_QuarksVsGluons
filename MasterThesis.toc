@@ -52,5 +52,5 @@
 \contentsline {section}{\numberline {8.3}Getting Help}{77}{section.8.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{79}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{105}{appendix.B}
-\contentsline {chapter}{Index}{113}{appendix*.11}
+\contentsline {chapter}{Index}{113}{appendix*.7}
 \contentsfinish 

@@ -8,7 +8,8 @@ As any dedicated reader can clearly see, the Ideal of practical reason is a repr
 \section{Data Preprocessing}
 \label{sec:q:data_preprocessing}
 
-The data consists of \num{43} data files taken between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$-quark events (MCb) simulated (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $\vec{p}$ in each event is $\SI{32}{\GeV} \leq p$ to remove any $Z \rightarrow \tau^+ \tau^-$ events since XXX. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having \num{7} TPC hits and $\geq$ 1 silicon hit. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since XXX. These cuts were standard requirements for the ALEPH experiment (P. Hansen, personal communication, December, 2019, XXX).
+The data consists of \num{43} data files taken between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$-quark events (MCb) simulated (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $\vec{p}$ in each event is $\SI{32}{\GeV} \leq p$ to remove any $Z \rightarrow \tau^+ \tau^-$ events since XXX. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having \num{7} TPC hits and $\geq$ 1 silicon hit. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since the detector performance worsens significantly in that region. These cuts were standard requirements for the ALEPH experiment.
+% (P. Hansen, personal communication, December, 2019, XXX).
 
 One last cut which was experimented with was the threshold value for \emph{jet matching}. The jet matching is the process of matching the jet with one of the final state quarks. The jet is said to be matched if the dot product of between the final quark momentum and the jet momentum is more than then threshold value. Higher thresholds means cleaner jets but at the expense of less statistics. A jet matching threshold of \num{0.90} was found to be a good compromise between purity and quantity where \SI{97.8}{\percent} of all 2-jet events are matched and \SI{96.7}{\percent} of all other jets were matched\sidenote{Compare this to \SI{98.5}{\percent} and \SI{97.8}{\percent} for a threshold of \num{0.85} or \SI{95.9}{\percent} and \SI{93.9}{\percent} for a threshold of \num{0.95}.}.  
 
@@ -66,23 +67,29 @@ Since the machine learning models are only trained on the three vertex variables
   % \label{tab:q:flevt}
 \end{table}
 
-In addition to knowing the correct flavor, we define that an event is \emph{q-matched} if one, and only one, of the jets are assigned to one of the quarks, one, and only one, of the jets are assigned to the other quark, and no other jets are matched to any of the quarks. We can then define what constitutes a $b$-jet: if it has \code{flevt} $= 5$, the entire event is q-matched, and the jet is matched to on of the quarks. Similarly we define $c$-jets only with the change that \code{flevt} $= 5$, and $uds$-jets with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined as an any-flavor event which is q-matched but the jet is not assigned to any of the quarks. Strictly speaking, this means that $g$-jet is not \SI{100}{\percent} certain of being a gluon, however, since the MC simulation does not contain this information this is the only option. Due to the q-match criterion this also means that some jets are assigned the label \q{non-q-matched} which is regarded as background. 
+In addition to knowing the correct flavor, we define that an event is \emph{$q$-matched} if one, and only one, of the jets are assigned to one of the quarks, one, and only one, of the jets are assigned to the other quark, and no other jets are matched to any of the quarks. We can then define what constitutes a $b$-jet: if it has \code{flevt} $= 5$, the entire event is $q$-matched, and the jet is matched to on of the quarks. Similarly we define $c$-jets only with the change that \code{flevt} $= 5$, and $uds$-jets with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined as an any-flavor event which is $q$-matched but the jet is not assigned to any of the quarks. Strictly speaking, this means that $g$-jet is not \SI{100}{\percent} certain of being a gluon, however, since the MC simulation does not contain this information this is the only option. Due to the $q$-match criterion this also means that some jets are assigned the label \q{non-$q$-matched} which is regarded as background. 
 
-% \begin{table}
-%   \centering
-%   \begin{tabular}{@{}lrrrrrr{}}
-%     {} &                b &                c &                g &     non-q-matched &              uds &             Total \\ \midrule
-%     2     & \num{2713454} =  &  \num{944380} =  &       \num{0} =  & \num{1509860} =  & \num{2125900} =  &  \num{7293594} =  \\
-%     3     & \num{2433878} =  &  \num{964212} =  & \num{3365969} =  & \num{1887613} =  & \num{2129218} =  & \num{10780890} =  \\
-%     4     &  \num{326264} =  &  \num{156332} =  & \num{1012198} =  &  \num{410566} =  &  \num{336548} =  &  \num{2241908} =  \\
-%     5     &   \num{10332} =  &    \num{5960} =  &   \num{54525} =  &   \num{20335} =  &   \num{12668} =  &   \num{103820} =  \\
-%     6     &      \num{42} =  &      \num{26} =  &     \num{320} =  &     \num{148} =  &      \num{52} =  &      \num{588} =  \\
-%     Total & \num{5483970} =  & \num{2070910} =  & \num{4433012} =  & \num{3828522} =  & \num{4604386} =  & \num{20420800} =  
-%   \end{tabular}
-%   \vspace{\abovecaptionskip}
-%   \caption{XXX.}
-%   \label{tab:q:flevt_overview}
-% \end{table}
+\begin{table}
+  \centering
+  \begin{tabular}{@{}rrrrrr@{}}
+    {}    & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{$c$} & \multicolumn{1}{c}{$g$} & non-$q$-matched & \multicolumn{1}{c}{$uds$}    \\ 
+    \midrule
+    2     & \num{2713454} &  \num{944380} &       \num{0} & \num{1509860} & \num{2125900}  \\
+    3     & \num{2433878} &  \num{964212} & \num{3365969} & \num{1887613} & \num{2129218}  \\
+    4     &  \num{326264} &  \num{156332} & \num{1012198} &  \num{410566} &  \num{336548}  \\
+    5     &   \num{10332} &    \num{5960} &   \num{54525} &   \num{20335} &   \num{12668}  \\
+    6     &      \num{42} &      \num{26} &     \num{320} &     \num{148} &      \num{52}  \\
+    \midrule
+    Total & \num{5483970} & \num{2070910} & \num{4433012} & \num{3828522} & \num{4604386}  \\
+  \end{tabular}
+  \caption{Number of jets for MC and MCb.}
+  \label{tab:q:flevt_overview}
+\end{table}
+
+
+reft Table~\ref{tab:q:flevt_overview_percent_relative}. in appendix. 
+
+
 
 
 \newpage

@@ -1,5 +1,5 @@
 \ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi
-\begin{thebibliography}{62}
+\begin{thebibliography}{64}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -26,6 +26,10 @@ Dmlc/xgboost.
 The {{Large Electron}}-{{Positron Collider}} | {{CERN}}.
 \newblock URL
   \url{https://home.cern/science/accelerators/large-electron-positron-collider}.
+
+\bibitem[Sci()]{ScikithepUproot2019}
+Scikit-hep/uproot.
+\newblock URL \url{https://github.com/scikit-hep/uproot}.
 
 \bibitem[bed()]{bednarDatashaderRevealingStructure2019}
 Datashader: {{Revealing}} the {{Structure}} of {{Genuinely Big Data}}.
@@ -144,6 +148,15 @@ E.~Brochu, V.~M. Cora, and N.~de~Freitas.
   Functions}}, with {{Application}} to {{Active User Modeling}} and
   {{Hierarchical Reinforcement Learning}}.
 \newblock URL \url{http://arxiv.org/abs/1012.2599}.
+
+\bibitem[Brun and Rademakers()]{brunROOTObjectOriented1997}
+R.~Brun and F.~Rademakers.
+\newblock {{ROOT}} — {{An}} object oriented data analysis framework.
+\newblock 389\penalty0 (1):\penalty0 81--86.
+\newblock ISSN 0168-9002.
+\newblock \doi{10.1016/S0168-9002(97)00048-X}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S016890029700048X}.
 
 \bibitem[Buckley et~al.()Buckley, Butterworth, Gieseke, Grellscheid, Hoche,
   Hoeth, Krauss, Lonnblad, Nurse, Richardson, Schumann, Seymour, Sjostrand,
