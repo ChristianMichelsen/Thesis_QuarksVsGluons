@@ -1,10 +1,48 @@
 \contentsline {chapter}{\numberline {1}Abstract}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Particle Physics and LEP}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}The Standard Model}{7}{section.2.1}
-\contentsline {section}{\numberline {2.2}Quark Hadronization}{9}{section.2.2}
-\contentsline {section}{\numberline {2.3}The ALEPH Detector and LEP}{10}{section.2.3}
-\contentsline {section}{\numberline {2.4}Jet clustering}{12}{section.2.4}
-\contentsline {section}{\numberline {2.5}The variables}{12}{section.2.5}
-\contentsline {chapter}{\numberline {A}Quarks vs. Gluons Appendix}{17}{appendix.A}
-\contentsline {chapter}{Index}{23}{appendix*.7}
+\contentsline {chapter}{\numberline {2}Introduction}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Machine Learning Theory}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Statistical Learning Theory}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Supervised Learning}{8}{section.3.2}
+\contentsline {section}{\numberline {3.3}Generalization Bound}{9}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Generalization Bound for infinite hypotheses}{11}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Avoiding overfitting}{12}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Model Regularization}{12}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Cross Validation}{14}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Early Stopping}{16}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Loss functions}{16}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Evaluation Function}{18}{subsection.3.5.1}
+\contentsline {section}{\numberline {3.6}Decision Trees}{18}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Ensembles of Decision Trees}{19}{subsection.3.6.1}
+\contentsline {subsubsection}{Random Forests}{19}{subsubsection*.5}
+\contentsline {subsubsection}{Boosted Decision Trees}{20}{subsubsection*.6}
+\contentsline {section}{\numberline {3.7}Hyperparamater Optimization}{21}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Grid Search}{22}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Random Search}{22}{subsection.3.7.2}
+\contentsline {subsection}{\numberline {3.7.3}Bayesian Optimization}{23}{subsection.3.7.3}
+\contentsline {section}{\numberline {3.8}Feature Importance}{25}{section.3.8}
+\contentsline {chapter}{\numberline {4}Danish Housing Prices}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Data Preparation and Exploratory Data Analysis}{30}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Correlations}{32}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Validity of input variables}{33}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Cuts}{34}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Feature Augmentation}{35}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Time-Dependent Price Index}{36}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Evaluation Function}{37}{section.4.3}
+\contentsline {section}{\numberline {4.4}Initial Hyperparameter Optimization}{38}{section.4.4}
+\contentsline {section}{\numberline {4.5}Hyperparameter Optimization}{40}{section.4.5}
+\contentsline {section}{\numberline {4.6}Results}{42}{section.4.6}
+\contentsline {section}{\numberline {4.7}Model Inspection}{45}{section.4.7}
+\contentsline {section}{\numberline {4.8}Multiple Models}{47}{section.4.8}
+\contentsline {section}{\numberline {4.9}Discussion}{49}{section.4.9}
+\contentsline {chapter}{\numberline {5}Particle Physics and LEP}{55}{chapter.5}
+\contentsline {section}{\numberline {5.1}The Standard Model}{55}{section.5.1}
+\contentsline {section}{\numberline {5.2}Quark Hadronization}{57}{section.5.2}
+\contentsline {section}{\numberline {5.3}The ALEPH Detector and LEP}{58}{section.5.3}
+\contentsline {section}{\numberline {5.4}Jet clustering}{60}{section.5.4}
+\contentsline {section}{\numberline {5.5}The variables}{60}{section.5.5}
+\contentsline {chapter}{\numberline {6}Quark Gluon Analysis}{65}{chapter.6}
+\contentsline {section}{\numberline {6.1}Data Preprocessing}{65}{section.6.1}
+\contentsline {section}{\numberline {6.2}Explanatory Data Analysis}{66}{section.6.2}
+\contentsline {chapter}{\numberline {A}Quarks vs. Gluons Appendix}{75}{appendix.A}
+\contentsline {chapter}{Index}{83}{appendix*.9}
 \contentsfinish 

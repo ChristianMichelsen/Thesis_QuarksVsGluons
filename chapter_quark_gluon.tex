@@ -2,28 +2,97 @@
 \chapter{Quark Gluon Analysis}
 \label{ch:quark_gluon_analysis}
 
-\section{Sidenotes}\label{sec:sidenotes}
-One of the most prominent and distinctive features of this style is the
-extensive use of sidenotes.  There is a wide margin to provide ample room
-for sidenotes and small figures.  Any \doccmd{footnote}s will automatically
-be converted to sidenotes.\footnote{This is a sidenote that was entered
-using the \texttt{\textbackslash footnote} command.}  If you'd like to place ancillary
-information in the margin without the sidenote mark (the superscript
-number), you can use the \doccmd{marginnote} command.\marginnote{This is a
-margin note.  Notice that there isn't a number preceding the note, and
-there is no number in the main text where this note was written.}
+As any dedicated reader can clearly see, the Ideal of practical reason is a representation of, as far as I know, the things in themselves; as I have shown elsewhere, the phenomena should only be used as a canon for our understanding. The paralogisms of practical reason are what first give rise to the architectonic of practical reason. As will easily be shown in the next section, reason would thereby be made to contradict, in view of these considerations, the Ideal of practical reason, yet the manifold depends on the phenomena.
 
 
+\section{Data Preprocessing}
+\label{sec:q:data_preprocessing}
+
+The data consists of \num{43} data files taken between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$-quark events (MCb) simulated (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $\vec{p}$ in each event is $\SI{32}{\GeV} \leq p$ to remove any $Z \rightarrow \tau^+ \tau^-$ events since XXX. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having \num{7} TPC hits and $\geq$ 1 silicon hit. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since XXX. These cuts were standard requirements for the ALEPH experiment (P. Hansen, personal communication, December, 2019, XXX).
+
+One last cut which was experimented with was the threshold value for \emph{jet matching}. The jet matching is the process of matching the jet with one of the final state quarks. The jet is said to be matched if the dot product of between the final quark momentum and the jet momentum is more than then threshold value. Higher thresholds means cleaner jets but at the expense of less statistics. A jet matching threshold of \num{0.90} was found to be a good compromise between purity and quantity where \SI{97.8}{\percent} of all 2-jet events are matched and \SI{96.7}{\percent} of all other jets were matched\sidenote{Compare this to \SI{98.5}{\percent} and \SI{97.8}{\percent} for a threshold of \num{0.85} or \SI{95.9}{\percent} and \SI{93.9}{\percent} for a threshold of \num{0.95}.}.  
+
+The data structure is quite differently structured in the Ntuples compared to normal structured data in the form of tidy data \autocite{JSSv059i10}. The data is organized such that one iterates over each event where the variables are variable-length depending on the number of jets in the events; this is also known as \emph{jagged} arrays. The data is un-jagged\sidenote{Such that e.g. a 3-jet event will figure as three rows in the dataset.} before exporting to HDF5-format and only the needed variables are kept. This reduces the total output file to a \SI{2.9}{\giga\byte} HDF5-file for both Data, MC, and MCb.
+
+The number of events for each number of jets can be seen in Table~\ref{tab:q:datasize_data} for the Data and in Figure~\ref{tab:q:datasize_MC} for the MC and MCb. 
+
+\begin{margintable}
+  \centering
+  \begin{tabular}{@{}rrr@{}}
+  {} &       jets &     events \\
+  \midrule
+  \num{2}     &  \num{2359738} &  \num{1179869} \\
+  \num{3}     &  \num{3619290} &  \num{1206430} \\
+  \num{4}     &   \num{854336} &   \num{213584} \\
+  \num{5}     &    \num{52775} &    \num{10555} \\
+  \num{6}     &      \num{510} &       \num{85} \\
+  Total       &  \num{6886649} &  \num{2610523} \\  
+  \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{The dimensions of the dataset for the actual Data. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
+  \label{tab:q:datasize_data}
+\end{margintable}
+
+\begin{margintable}
+  \centering
+  \begin{tabular}{@{}rrr@{}}
+  {} &       jets &     events \\
+  \midrule
+  \num{2}     &  \num{7293594} &  \num{3646797} \\
+  \num{3}     &  \num{10780890} &  \num{3593630} \\
+  \num{4}     &   \num{2241908} &   \num{560477} \\
+  \num{5}     &    \num{103820} &    \num{20764} \\
+  \num{6}     &      \num{588} &       \num{98} \\
+  Total       &  \num{20420800} &  \num{7821766} \\  
+  \end{tabular}
+  \vspace{\abovecaptionskip}
+  \caption{The dimensions for the MC and MCb datasets.}
+  \label{tab:q:datasize_MC}
+\end{margintable}
+
+\FloatBarrier
+\section{Explanatory Data Analysis} \label{sec:q:EDA}
+
+Since the machine learning models are only trained on the three vertex variables \code{projet}, \code{bqvjet}, and \code{ptljet} -- see \autoref{ch:hep:particle_physcis_LEP} for a deeper introduction to these variables -- these variables will be the primary focus of this section. Given the fact that MC-simulated data exists, the truth of each simulated event is also known. This allows us visualize the difference between the different types of quarks. In the MC simulation each event are generated such that the type of quark, or \emph{flavor}, is known and assigned the variable \code{flevt}. The mapping from flavor to \code{flevt} is:
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{@{}rccccc@{}}
+  Flavor: & $bb$ & $cc$ & $ss$ & $dd$ & $uu$  \\
+  % \midrule
+  \code{flevt}: & \num{5} & \num{4} & \num{3} & \num{2} & \num{1}  
+  \end{tabular}
+  \vspace{\abovecaptionskip}
+  % \caption{The dimensions for the MC and MCb datasets.}
+  % \label{tab:q:flevt}
+\end{table}
+
+In addition to knowing the correct flavor, we define that an event is \emph{q-matched} if one, and only one, of the jets are assigned to one of the quarks, one, and only one, of the jets are assigned to the other quark, and no other jets are matched to any of the quarks. We can then define what constitutes a $b$-jet: if it has \code{flevt} $= 5$, the entire event is q-matched, and the jet is matched to on of the quarks. Similarly we define $c$-jets only with the change that \code{flevt} $= 5$, and $uds$-jets with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined as an any-flavor event which is q-matched but the jet is not assigned to any of the quarks. Strictly speaking, this means that $g$-jet is not \SI{100}{\percent} certain of being a gluon, however, since the MC simulation does not contain this information this is the only option. Due to the q-match criterion this also means that some jets are assigned the label \q{non-q-matched} which is regarded as background. 
+
+% \begin{table}
+%   \centering
+%   \begin{tabular}{@{}lrrrrrr{}}
+%     {} &                b &                c &                g &     non-q-matched &              uds &             Total \\ \midrule
+%     2     & \num{2713454} =  &  \num{944380} =  &       \num{0} =  & \num{1509860} =  & \num{2125900} =  &  \num{7293594} =  \\
+%     3     & \num{2433878} =  &  \num{964212} =  & \num{3365969} =  & \num{1887613} =  & \num{2129218} =  & \num{10780890} =  \\
+%     4     &  \num{326264} =  &  \num{156332} =  & \num{1012198} =  &  \num{410566} =  &  \num{336548} =  &  \num{2241908} =  \\
+%     5     &   \num{10332} =  &    \num{5960} =  &   \num{54525} =  &   \num{20335} =  &   \num{12668} =  &   \num{103820} =  \\
+%     6     &      \num{42} =  &      \num{26} =  &     \num{320} =  &     \num{148} =  &      \num{52} =  &      \num{588} =  \\
+%     Total & \num{5483970} =  & \num{2070910} =  & \num{4433012} =  & \num{3828522} =  & \num{4604386} =  & \num{20420800} =  
+%   \end{tabular}
+%   \vspace{\abovecaptionskip}
+%   \caption{XXX.}
+%   \label{tab:q:flevt_overview}
+% \end{table}
 
 
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+\newpage
+\begin{figure*}
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[Histograms of the vertex variables]
           {Histograms of the three vertex variables, \code{projet}, \code{bqvjet}, and \code{ptljet}, used as input variables in the b-tagging models. In blue colors the variables are shown for \textcolor{blue}{true b-jets}, in red for \textcolor{red}{true c-jets}, in green for \textcolor{green}{true g-jets}, and in orange for \textcolor{orange}{all of the jets} (including non q-matched). In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. Notice the logarithmic y-axis, that there are no g-jets for 2-jet events (as expected), and that all of the distributions are very similar not matter how many jets.
           } 
   \label{fig:q:vertex_variables}
-\end{figure}
+\end{figure*}
 
 
 

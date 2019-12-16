@@ -48,6 +48,7 @@
         "fancyvrb",
         "fontsite",
         "quantiles",
+        "rccccc",
         "sidenotes",
         "subcaption",
         "subdetectors",
@@ -55,6 +56,7 @@
         "subfigure",
         "subproject",
         "textcolor",
+        "textsuperscript",
         "titleclass",
         "titleformat"
     ]

@@ -2,11 +2,35 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The Standard Model}}{8}{section.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Feynman diagram for the jet production at LEP}}{9}{section.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Quark Splitting}}{9}{section.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Quark splitting}}{9}{section.2.2}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Hadronization process}}{10}{equation.2.2.1}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces The ALEPH detector}}{11}{section.2.3}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Polar Angle}}{11}{section.2.3}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Azimuthal Angle}}{11}{section.2.3}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Polar angle}}{11}{section.2.3}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Azimuthal angle}}{11}{section.2.3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Histograms of the vertex variables}}{19}{section.3.2}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces UMAP vizualisation of vertex variables}}{20}{section.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces b-tag scores in 3-jet events}}{20}{section.3.2}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces ROC curve for b-tag in 4-jet events}}{20}{section.3.2}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces g-tag scores in 4-jet events}}{21}{section.3.2}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces g-tag scores in 4-jet events for signal and background}}{21}{section.3.2}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces ROC curve for g-tag in 4-jet events}}{21}{section.3.2}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces 1D Sum Model Cuts for 4-jets}}{22}{section.3.2}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets}}{22}{section.3.2}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Hyperparameter Optimization of b- and g-tagging}}{22}{section.3.2}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Overview of Hyperparamaters of g-tagging for 3-jet shuffled events}}{22}{section.3.2}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces SHAP Prediction Explanation for b-like jet}}{23}{section.3.2}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Monte Carlo -- Data bias for b-tags and jet energy}}{23}{section.3.2}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces b-Tagging Efficiency $\varepsilon _b^{b\mathrm {-sig}}$ as a function of jet energy}}{23}{section.3.2}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces b-Tagging Efficiency $\varepsilon _b^{g\mathrm {-sig}}$ as a function of jet energy}}{23}{section.3.2}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces b-Tagging Efficiency $\varepsilon _g^{g\mathrm {-sig}}$ as a function of jet energy}}{24}{section.3.2}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces b-Tagging Efficiency $\varepsilon _g^{b\mathrm {-sig}}$ as a function of jet energy}}{24}{section.3.2}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces g-Tagging proxy efficiency for $b\bar {b}g$-events as function of the mean invariant mass}}{24}{section.3.2}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces g-Tagging proxy efficiency for $b\bar {b}g$-events as function of g-tag}}{24}{section.3.2}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference}}{25}{section.3.2}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference}}{25}{section.3.2}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces R kt CA overview XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{25}{section.3.2}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces R kt CA cut region A XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{25}{section.3.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 

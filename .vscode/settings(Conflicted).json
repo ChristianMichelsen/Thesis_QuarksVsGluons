@@ -37,6 +37,8 @@
         "Bembo",
         "Domingos",
         "Gudiksen",
+        "Hlavacek",
+        "Inkscape",
         "Matplotlib",
         "Scikit",
         "Scipy",
@@ -46,10 +48,15 @@
         "fancyvrb",
         "fontsite",
         "quantiles",
+        "sidenotes",
         "subcaption",
+        "subdetectors",
         "subfields",
         "subfigure",
         "subproject",
-        "textcolor"
+        "textcolor",
+        "textsuperscript",
+        "titleclass",
+        "titleformat"
     ]
 }
