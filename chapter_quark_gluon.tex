@@ -8,7 +8,7 @@ As any dedicated reader can clearly see, the Ideal of practical reason is a repr
 \section{Data Preprocessing}
 \label{sec:q:data_preprocessing}
 
-The data consists of \num{43} data files taken between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$-quark events (MCb) simulated (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $\vec{p}$ in each event is $\SI{32}{\GeV} \leq p$ to remove any $Z \rightarrow \tau^+ \tau^-$ events since XXX. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having \num{7} TPC hits and $\geq$ 1 silicon hit. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since the detector performance worsens significantly in that region. These cuts were standard requirements for the ALEPH experiment.
+The data consists of \num{43} data files taken between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$-quark events (MCb) simulated (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $p_\mathrm{sum}$ in each event is $\SI{32}{\GeV} \leq p_\mathrm{sum}$ to remove any $Z \rightarrow \tau^+ \tau^-$ events. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having \num{7} TPC hits and $\geq$ 1 silicon hit. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since the detector performance worsens significantly in that region. These cuts were standard requirements for the ALEPH experiment.
 % (P. Hansen, personal communication, December, 2019, XXX).
 
 One last cut which was experimented with was the threshold value for \emph{jet matching}. The jet matching is the process of matching the jet with one of the final state quarks. The jet is said to be matched if the dot product of between the final quark momentum and the jet momentum is more than then threshold value. Higher thresholds means cleaner jets but at the expense of less statistics. A jet matching threshold of \num{0.90} was found to be a good compromise between purity and quantity where \SI{97.8}{\percent} of all 2-jet events are matched and \SI{96.7}{\percent} of all other jets were matched\sidenote{Compare this to \SI{98.5}{\percent} and \SI{97.8}{\percent} for a threshold of \num{0.85} or \SI{95.9}{\percent} and \SI{93.9}{\percent} for a threshold of \num{0.95}.}.  
@@ -67,52 +67,67 @@ Since the machine learning models are only trained on the three vertex variables
   % \label{tab:q:flevt}
 \end{table}
 
-In addition to knowing the correct flavor, we define that an event is \emph{$q$-matched} if one, and only one, of the jets are assigned to one of the quarks, one, and only one, of the jets are assigned to the other quark, and no other jets are matched to any of the quarks. We can then define what constitutes a $b$-jet: if it has \code{flevt} $= 5$, the entire event is $q$-matched, and the jet is matched to on of the quarks. Similarly we define $c$-jets only with the change that \code{flevt} $= 5$, and $uds$-jets with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined as an any-flavor event which is $q$-matched but the jet is not assigned to any of the quarks. Strictly speaking, this means that $g$-jet is not \SI{100}{\percent} certain of being a gluon, however, since the MC simulation does not contain this information this is the only option. Due to the $q$-match criterion this also means that some jets are assigned the label \q{non-$q$-matched} which is regarded as background. 
+In addition to knowing the correct flavor, we define that an event is \emph{$q$-matched} if one, and only one, of the jets are assigned to one of the quarks, one, and only one, of the jets are assigned to the other quark, and no other jets are matched to any of the quarks. We can then define what constitutes a $b$-jet: if it has \code{flevt} $= 5$, the entire event is $q$-matched, and the jet is matched to one of the quarks. Similarly we define $c$-jets only with the change that \code{flevt} $= 5$, and $uds$-jets with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined as an any-flavor event which is $q$-matched but the jet is not assigned to any of the quarks. Strictly speaking, this means that $g$-jet is not \SI{100}{\percent} certain of being a gluon, however, since the MC simulation does not contain this information this is the only option. Due to the $q$-match criterion this also means that some jets are assigned the label \q{non-$q$-matched} which is regarded as background. The distribution of different types of jets can be seen in Table~\ref{tab:q:flevt_overview} and shown as relative numbers in Table~\ref{tab:q:flevt_overview_percent_relative} in the appendix.
 
-\begin{table}
+\begin{table}[h!]
   \centering
   \begin{tabular}{@{}rrrrrr@{}}
-    {}    & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{$c$} & \multicolumn{1}{c}{$g$} & non-$q$-matched & \multicolumn{1}{c}{$uds$}    \\ 
+    {}    & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{$c$} & \multicolumn{1}{c}{$uds$} & \multicolumn{1}{c}{$g$} & non-$q$-matched    \\ 
     \midrule
-    2     & \num{2713454} &  \num{944380} &       \num{0} & \num{1509860} & \num{2125900}  \\
-    3     & \num{2433878} &  \num{964212} & \num{3365969} & \num{1887613} & \num{2129218}  \\
-    4     &  \num{326264} &  \num{156332} & \num{1012198} &  \num{410566} &  \num{336548}  \\
-    5     &   \num{10332} &    \num{5960} &   \num{54525} &   \num{20335} &   \num{12668}  \\
-    6     &      \num{42} &      \num{26} &     \num{320} &     \num{148} &      \num{52}  \\
+    2     & \num{2713454} &  \num{944380} & \num{2125900} &       \num{0} & \num{1509860} \\
+    3     & \num{2433878} &  \num{964212} & \num{2129218} & \num{3365969} & \num{1887613} \\
+    4     &  \num{326264} &  \num{156332} &  \num{336548} & \num{1012198} &  \num{410566} \\
+    5     &   \num{10332} &    \num{5960} &   \num{12668} &   \num{54525} &   \num{20335} \\
+    6     &      \num{42} &      \num{26} &      \num{52} &     \num{320} &     \num{148} \\
     \midrule
-    Total & \num{5483970} & \num{2070910} & \num{4433012} & \num{3828522} & \num{4604386}  \\
+    Total & \num{5483970} & \num{2070910} & \num{4433012} & \num{4604386} & \num{3828522} \\
   \end{tabular}
-  \caption{Number of jets for MC and MCb.}
+  \caption{Number of different types of jets for MC and MCb. See also Table~\ref{tab:q:flevt_overview_percent_relative} in the appendix for relative numbers.}
   \label{tab:q:flevt_overview}
 \end{table}
 
+With the criteria defined above for what constitutes a specific type of jet the 1D-distributions for the three vertex variables is plotted in Figure~\ref{fig:q:vertex_variables}. For all three subplots the histograms are show with a logarithmic $y$-axis, all $b$-jets in blue, $c$-jets in red, $g$-jets in green and all jets in orange. In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. In the left subplot the \code{projet} variable is plotted where it can be seen that high values of \code{projet} tend to indicate $b$-jets. In the middle subplot \code{bqvjet} is plotted which shares many similarities with the \code{projet}-variables, including that high values indicate $b$-jets. In the right subplot the \code{ptljet} is plotted. This variable has many zeros in it which correlates with mostly with gluon\sidenote{Around \SI{98}{\percent} of all $g$-jets are zeros compared to $\sim \SI{82}{\percent}$ for $c$-jets and $\sim \SI{70}{\percent}$ for $b$-jets.} and large values are mostly due to $b$-jets. In general it is clear to se how the differences in distribution between the \num{2}-, \num{3}-, and \num{4}-jet events are minor, with the one exception of \num{2}-jet events which does not contain any gluons at all. 
 
-reft Table~\ref{tab:q:flevt_overview_percent_relative}. in appendix. 
+\begin{figure}
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Histograms of the vertex variables]
+          {Normalized histograms of the three vertex variables: \code{projet}, \code{bqvjet}, and \code{ptljet}. In blue colors the variables are shown for \textcolor{blue}{true b-jets}, in red for \textcolor{red}{true c-jets}, in green for \textcolor{green}{true g-jets}, and in orange for \textcolor{orange}{all of the jets} (including non q-matched). In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. Notice the logarithmic y-axis, that there are no g-jets for 2-jet events (as expected), and that all of the distributions are very similar not matter how many jets.
+          } 
+  \label{fig:q:vertex_variables}
+\end{figure}
 
+Even though there are only three vertex variables, it is difficult to properly get an intuition about how easily separated they different types of jets are. Since there are millions of points a single 3D scatter plot quickly becomes overcrowded in one wants to plot all jets. We apply dimensionality reduction from the three dimensions down to two dimensions by using the UMAP algorithm \autocite{mcinnesUMAPUniformManifold2018}. Within recent years the field of dimensionality reduction algorithms has grown a lot from just the typical (linear) principal component analysis to also include non-linear algorithms. The t-SNE algorithm \autocite{maatenVisualizingDataUsing2008} deserves an honorable mention since this algorithm revolutionized the usage of (nonlinear) dimensionality reduction algorithms in e.g. bioinformatics \citep{toghieshghiQuantitativeComparisonConventional2019, wallachProteinSmallmoleculeDatabase2009}  yet its mathematical foundation has strongly been improved with the never, faster UMAP algorithm \autocite{mcinnesUMAPUniformManifold2018} which usage is also expanding \citep{bechtEvaluationUMAPAlternative2018, bechtDimensionalityReductionVisualizing2019, diaz-papkovichUMAPRevealsCryptic2019}.
+
+The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to correctly identify and preserve the structure, or topology, of the high-dimensional feature space in a lower-dimensional output space. It does so by trying to stitch together local manifolds in the high-dimensional feature space such that the difference between the high- and low-dimensional representations is minimized according to the cross-entropy such that both global structure and local structure is preserved \citep{mcinnesUMAPUniformManifold2018}. Compared to t-SNE the approach in UMAP has an algebraic topological background compared to the more heuristic approach taken by t-SNE. Note that the UMAP algorithm is not provided any information about which jets are which types. 
+
+\begin{marginfigure}
+  \includegraphics[width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf}
+  \caption[UMAP visualization of vertex variables]
+          {Visualization of the vertex variables for the different categories: \textcolor{blue}{true b-jets} in blue, \textcolor{red}{true c-jets} in red, \textcolor{green}{true uds-jets} in green, \textcolor{orange}{true g-jets} in orange, and \textcolor{purple}{non q-matched} events in purple. The clustering is performed with the UMAP algorithm which outputs a 2D-projection. This projection is then visualized using the Datashader which takes takes care of point size, avoids over and underplotting, and color intensity.} 
+  \label{fig:q:UMAP_vertex_2j}
+\end{marginfigure}
+
+\begin{marginfigure}
+  \includegraphics[width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf}
+  \caption[UMAP visualization of vertex variables for 3-jet events]
+          {UMAP visualization of vertex variables for 3-jet events.} 
+  \label{fig:q:UMAP_vertex_3j}
+\end{marginfigure}
+
+\begin{marginfigure}
+  \includegraphics[width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=729358-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=2_algorithm=UMAP_single.pdf}
+  \caption[UMAP visualization of vertex variables for 2-jet events]
+          {UMAP visualization of vertex variables for 2-jet events.} 
+  \label{fig:q:UMAP_vertex_2j}
+\end{marginfigure}
+
+The UMAP algorithm has several hyperparameters, where two of the most important ones are the number of neighbors \code{n_neighbors} which controls the priority between correctly preserving the global versus the local structure, and the \code{min_dist} which defines how tightly together UMAP is allowed to cluster the points in the low-dimensional representation. To properly choose the best combination of \code{n_neighbors} and \code{min_dist} a grid search with \code{n_neighbors}~$\in \{10, 50, 100, 250 \}$ and \code{min_dist}~$\in \{0, 0.2, 0.5\}$ is performed. This is shown for 4-jet events in Figure~\ref{fig:q:UMAP_vertex_all} in the appendix. In this case the choice of best combination of \code{n_neighbors} and \code{min_dist} is subjective at best, but it was judged by the author that \code{n_neighbors}~$=250$ and \code{min_dist}~$0.2$ gave the best compromise between preserving local and global structure. The results of running UMAP on 4-jet events can be seen in Figure~\ref{fig:q:UMAP_vertex_2j}. Here the millions of points are plotted using Datashader \autocite{bednarDatashaderRevealingStructure2019} to avoid overplotting and colored according to the jet type. From the figure it is seen how there are some clear, blue $b$-jet clusters, however, most of the data seem to be a mix of $g$- and $uds$-jets. The plots with the same UMAP parameters for 3-jet and 2-jet events are seen in Figure~\ref{fig:q:UMAP_vertex_3j} and \ref{fig:q:UMAP_vertex_2j}. 
+
+These figures suggests that it should be possible to discriminate the $b$-jets from the other jets somewhat, however, no clear separation is expected.
 
 
 
 \newpage
-\begin{figure*}
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Histograms of the vertex variables]
-          {Histograms of the three vertex variables, \code{projet}, \code{bqvjet}, and \code{ptljet}, used as input variables in the b-tagging models. In blue colors the variables are shown for \textcolor{blue}{true b-jets}, in red for \textcolor{red}{true c-jets}, in green for \textcolor{green}{true g-jets}, and in orange for \textcolor{orange}{all of the jets} (including non q-matched). In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. Notice the logarithmic y-axis, that there are no g-jets for 2-jet events (as expected), and that all of the distributions are very similar not matter how many jets.
-          } 
-  \label{fig:q:vertex_variables}
-\end{figure*}
-
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=20 20 50 50, clip]{figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf}
-  \caption[UMAP vizualisation of vertex variables]
-          {Vizualisation of the vertex variables for the different categories: \textcolor{blue}{true b-jets} in blue, \textcolor{red}{true c-jets} in red, \textcolor{green}{true uds-jets} in green, \textcolor{orange}{true g-jets} in orange, and \textcolor{purple}{non q-matched}. The clustering is performed with the UMAP algorithm which outputs a 2D-projection. This projection is then visualized using the Datashader which takes takes care of point size, avoids over- and under-plotting, and color intensity. 
-          } 
-  \label{fig:q:UMAP_vertex}
-\end{figure}
-
-
-
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[b-tag scores in 3-jet events]

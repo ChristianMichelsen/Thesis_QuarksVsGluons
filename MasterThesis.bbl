@@ -1,5 +1,5 @@
 \ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi
-\begin{thebibliography}{64}
+\begin{thebibliography}{71}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -114,6 +114,27 @@ W.~Bartel et~al.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/0370269381905050}.
 
+\bibitem[Becht et~al.({\natexlab{a}})Becht, Dutertre, Kwok, Ng, Ginhoux, and
+  Newell]{bechtEvaluationUMAPAlternative2018}
+E.~Becht, C.-A. Dutertre, I.~W.~H. Kwok, L.~G. Ng, F.~Ginhoux, and E.~W.
+  Newell.
+\newblock Evaluation of {{UMAP}} as an alternative to t-{{SNE}} for single-cell
+  data.
+\newblock page 298430, {\natexlab{a}}.
+\newblock \doi{10.1101/298430}.
+\newblock URL \url{https://www.biorxiv.org/content/10.1101/298430v1}.
+
+\bibitem[Becht et~al.({\natexlab{b}})Becht, McInnes, Healy, Dutertre, Kwok, Ng,
+  Ginhoux, and Newell]{bechtDimensionalityReductionVisualizing2019}
+E.~Becht, L.~McInnes, J.~Healy, C.-A. Dutertre, I.~W.~H. Kwok, L.~G. Ng,
+  F.~Ginhoux, and E.~W. Newell.
+\newblock Dimensionality reduction for visualizing single-cell data using
+  {{UMAP}}.
+\newblock 37\penalty0 (1):\penalty0 38--44, {\natexlab{b}}.
+\newblock ISSN 1546-1696.
+\newblock \doi{10.1038/nbt.4314}.
+\newblock URL \url{https://www.nature.com/articles/nbt.4314}.
+
 \bibitem[Bergstra and Bengio()]{bergstraRandomSearchHyperparameter2012}
 J.~Bergstra and Y.~Bengio.
 \newblock Random {{Search}} for {{Hyper}}-parameter {{Optimization}}.
@@ -199,6 +220,16 @@ T.~A. Collaboration.
 \newblock ISSN 03702693.
 \newblock \doi{10.1016/j.physletb.2012.08.020}.
 \newblock URL \url{http://arxiv.org/abs/1207.7214}.
+
+\bibitem[Diaz-Papkovich et~al.()Diaz-Papkovich, Anderson-Trocmé, Ben-Eghan,
+  and Gravel]{diaz-papkovichUMAPRevealsCryptic2019}
+A.~Diaz-Papkovich, L.~Anderson-Trocmé, C.~Ben-Eghan, and S.~Gravel.
+\newblock {{UMAP}} reveals cryptic population structure and phenotype
+  heterogeneity in large genomic cohorts.
+\newblock 15\penalty0 (11).
+\newblock ISSN 1553-7390.
+\newblock \doi{10.1371/journal.pgen.1008432}.
+\newblock URL \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6853336/}.
 
 \bibitem[DST()]{dstPriceIndexEJ14}
 S.~D. DST.
@@ -333,6 +364,12 @@ S.~M. Lundberg, G.~G. Erion, and S.-I. Lee.
 \newblock {\natexlab{b}}.
 \newblock URL \url{http://arxiv.org/abs/1802.03888}.
 
+\bibitem[McInnes and Healy()]{mcinnesUMAPUniformManifold2018}
+L.~McInnes and J.~Healy.
+\newblock {{UMAP}}: {{Uniform Manifold Approximation}} and {{Projection}} for
+  {{Dimension Reduction}}.
+\newblock URL \url{http://arxiv.org/abs/1802.03426}.
+
 \bibitem[Mulalic et~al.()Mulalic, Rasmussen, Rouwendal, and
   Woltmann]{mulalicFinancialCrisisDiverging2017}
 I.~Mulalic, H.~Rasmussen, J.~Rouwendal, and H.~H. Woltmann.
@@ -439,6 +476,19 @@ A.~Tikhonov.
 \newblock \emph{On the Stability of Inverse Problems}, volume vol. 39 of
   \emph{Doklady {{Akademii Nauk SSSR}}}.
 
+\bibitem[Toghi~Eshghi et~al.()Toghi~Eshghi, Au-Yeung, Takahashi, Bolen,
+  Nyachienga, Lear, Green, Mathews, and
+  O'Gorman]{toghieshghiQuantitativeComparisonConventional2019}
+S.~Toghi~Eshghi, A.~Au-Yeung, C.~Takahashi, C.~R. Bolen, M.~N. Nyachienga,
+  S.~P. Lear, C.~Green, W.~R. Mathews, and W.~E. O'Gorman.
+\newblock Quantitative {{Comparison}} of {{Conventional}} and t-{{SNE}}-guided
+  {{Gating Analyses}}.
+\newblock 10.
+\newblock ISSN 1664-3224.
+\newblock \doi{10.3389/fimmu.2019.01194}.
+\newblock URL
+  \url{https://www.frontiersin.org/articles/10.3389/fimmu.2019.01194/full}.
+
 \bibitem[{van} et~al.(){van}, Polley, and Hubbard]{vanSuperLearner2007}
 d.~L. M.~J. {van}, E.~C. Polley, and A.~E. Hubbard.
 \newblock Super {{Learner}}.
@@ -447,6 +497,13 @@ d.~L. M.~J. {van}, E.~C. Polley, and A.~E. Hubbard.
 \newblock \doi{10.2202/1544-6115.1309}.
 \newblock URL
   \url{https://www.degruyter.com/view/j/sagmb.2007.6.issue-1/sagmb.2007.6.1.1309/sagmb.2007.6.1.1309.xml}.
+
+\bibitem[van~der Maaten and Hinton()]{maatenVisualizingDataUsing2008}
+L.~van~der Maaten and G.~Hinton.
+\newblock Visualizing {{Data}} using t-{{SNE}}.
+\newblock 9:\penalty0 2579--2605.
+\newblock ISSN ISSN 1533-7928.
+\newblock URL \url{http://www.jmlr.org/papers/v9/vandermaaten08a.html}.
 
 \bibitem[van Veen()]{veenNeuralNetworkZoo2016}
 F.~van Veen.
@@ -480,6 +537,16 @@ P.~Virtanen, R.~Gommers, T.~E. Oliphant, M.~Haberland, T.~Reddy, D.~Cournapeau,
 \newblock page arXiv:1907.10121.
 \newblock URL
   \url{https://ui.adsabs.harvard.edu/abs/2019arXiv190710121V/abstract}.
+
+\bibitem[Wallach and Lilien()]{wallachProteinSmallmoleculeDatabase2009}
+I.~Wallach and R.~Lilien.
+\newblock The protein–small-molecule database, a non-redundant structural
+  resource for the analysis of protein-ligand binding.
+\newblock 25\penalty0 (5):\penalty0 615--620.
+\newblock ISSN 1367-4803.
+\newblock \doi{10.1093/bioinformatics/btp035}.
+\newblock URL
+  \url{https://academic.oup.com/bioinformatics/article/25/5/615/183421}.
 
 \bibitem[Weinberg()]{weinbergModelLeptons1967}
 S.~Weinberg.

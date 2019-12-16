@@ -430,18 +430,26 @@ The second part of this thesis deals with particle physics and the discriminator
 \begin{table}
   \centering
   \begin{tabular}{@{}rrrrrr@{}}
-    {}    & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{$c$} & \multicolumn{1}{c}{$g$} & non-$q$-matched & \multicolumn{1}{c}{$uds$}    \\ 
+    {}    & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{$c$} & \multicolumn{1}{c}{$uds$} & \multicolumn{1}{c}{$g$} & non-$q$-matched     \\ 
     \midrule
-    2 & \SI{37.2}{\percent}  & \SI{12.9}{\percent}  &  \SI{0.0}{\percent}  & \SI{20.7}{\percent}  & \SI{29.1}{\percent}  \\
-    3 & \SI{22.6}{\percent}  &  \SI{8.9}{\percent}  & \SI{31.2}{\percent}  & \SI{17.5}{\percent}  & \SI{19.7}{\percent}  \\
-    4 & \SI{14.6}{\percent}  &  \SI{7.0}{\percent}  & \SI{45.1}{\percent}  & \SI{18.3}{\percent}  & \SI{15.0}{\percent}  \\
-    5 & \SI{10.0}{\percent}  &  \SI{5.7}{\percent}  & \SI{52.5}{\percent}  & \SI{19.6}{\percent}  & \SI{12.2}{\percent}  \\
-    6 &  \SI{7.1}{\percent}  &  \SI{4.4}{\percent}  & \SI{54.4}{\percent}  & \SI{25.2}{\percent}  &  \SI{8.8}{\percent}  \\
+    2 & \SI{37.2}{\percent}  & \SI{12.9}{\percent}  & \SI{29.1}{\percent} &  \SI{0.0}{\percent} & \SI{20.7}{\percent}  \\
+    3 & \SI{22.6}{\percent}  &  \SI{8.9}{\percent}  & \SI{19.7}{\percent} & \SI{31.2}{\percent} & \SI{17.5}{\percent}  \\
+    4 & \SI{14.6}{\percent}  &  \SI{7.0}{\percent}  & \SI{15.0}{\percent} & \SI{45.1}{\percent} & \SI{18.3}{\percent}  \\
+    5 & \SI{10.0}{\percent}  &  \SI{5.7}{\percent}  & \SI{12.2}{\percent} & \SI{52.5}{\percent} & \SI{19.6}{\percent}  \\
+    6 &  \SI{7.1}{\percent}  &  \SI{4.4}{\percent}  &  \SI{8.8}{\percent} & \SI{54.4}{\percent} & \SI{25.2}{\percent}  \\
   \end{tabular}
-  \caption{Number of jets for MC and MCb.}
+  \caption{Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI{100}{\percent}. See also Table~\ref{tab:q:flevt_overview}.}
   \label{tab:q:flevt_overview_percent_relative}
 \end{table}
 
+
+\newpage
+\begin{figure*}
+  \includegraphics[width=0.99\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf}
+  \caption[UMAP Parameter Grid Seach]
+          {Grid search of the two parameters \code{n_neighbors} and \code{min_dist} for the UMAP algorithm. For an explanation of these, see \autoref{sec:q:EDA}.} 
+  \label{fig:q:UMAP_vertex_all}
+\end{figure*}
 
 \backmatter
 

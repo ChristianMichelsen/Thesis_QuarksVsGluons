@@ -35,11 +35,13 @@
     ],
     "cSpell.words": [
         "Bembo",
+        "Datashader",
         "Domingos",
         "Gudiksen",
         "Hlavacek",
         "Inkscape",
         "Matplotlib",
+        "Ntuples",
         "Scikit",
         "Scipy",
         "Tufte",
@@ -48,6 +50,7 @@
         "fancyvrb",
         "fontsite",
         "lrrrrrr",
+        "overplotting",
         "quantiles",
         "rccccc",
         "sidenotes",
@@ -59,6 +62,7 @@
         "textcolor",
         "textsuperscript",
         "titleclass",
-        "titleformat"
+        "titleformat",
+        "underplotting"
     ]
 }

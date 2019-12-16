@@ -16,33 +16,33 @@ Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
 Warning--entry type for "hviidWorkingPaperRegional2017" isn't style-file defined
 --line 1346 of file My_Library.bib
 Warning--entry type for "LargeElectronPositronCollider" isn't style-file defined
---line 2947 of file My_Library.bib
+--line 2911 of file My_Library.bib
 Warning--entry type for "AdvancedTopicsMachine" isn't style-file defined
---line 2972 of file My_Library.bib
+--line 2936 of file My_Library.bib
 Warning--entry type for "AllstateClaimsSeverity" isn't style-file defined
---line 3020 of file My_Library.bib
+--line 2984 of file My_Library.bib
 Warning--entry type for "HEPMeetsML" isn't style-file defined
---line 3073 of file My_Library.bib
+--line 3037 of file My_Library.bib
 Warning--entry type for "DmlcXgboost" isn't style-file defined
---line 3082 of file My_Library.bib
+--line 3046 of file My_Library.bib
 Warning--entry type for "dstPriceIndexEJ14" isn't style-file defined
---line 3177 of file My_Library.bib
+--line 3141 of file My_Library.bib
 Warning--entry type for "oisWwwOISDk" isn't style-file defined
---line 3204 of file My_Library.bib
+--line 3168 of file My_Library.bib
 Warning--entry type for "bednarDatashaderRevealingStructure2019" isn't style-file defined
---line 3252 of file My_Library.bib
+--line 3216 of file My_Library.bib
 Warning--entry type for "bolighedBolighedUsikkerhedDatavurderingen" isn't style-file defined
---line 3332 of file My_Library.bib
+--line 3296 of file My_Library.bib
 Warning--entry type for "purcellGoParticleQuest2012" isn't style-file defined
---line 3441 of file My_Library.bib
+--line 3405 of file My_Library.bib
 Warning--entry type for "burgardStandardModelPhysics" isn't style-file defined
---line 3453 of file My_Library.bib
+--line 3417 of file My_Library.bib
 Warning--entry type for "bierlichRopeHadronizationGeometry2016" isn't style-file defined
---line 3482 of file My_Library.bib
+--line 3446 of file My_Library.bib
 Warning--entry type for "Armstrong1998hy" isn't style-file defined
---line 3493 of file My_Library.bib
+--line 3457 of file My_Library.bib
 Warning--entry type for "ScikithepUproot2019" isn't style-file defined
---line 3652 of file My_Library.bib
+--line 3616 of file My_Library.bib
 Warning--I didn't find a database entry for "["
 Warning--to sort, need author or key in LargeElectronPositronCollider
 Warning--to sort, need author or key in AdvancedTopicsMachine
@@ -81,6 +81,10 @@ Warning--empty year in barronGeneralAdaptiveRobust2017
 Warning--empty journal in bartelExperimentalStudyJets1981
 Warning--empty year in bartelExperimentalStudyJets1981
 Warning--empty year in bartelExperimentalStudyJets1981
+Warning--empty journal in bechtEvaluationUMAPAlternative2018
+Warning--empty year in bechtEvaluationUMAPAlternative2018
+Warning--empty journal in bechtDimensionalityReductionVisualizing2019
+Warning--empty year in bechtDimensionalityReductionVisualizing2019
 Warning--empty journal in bergstraRandomSearchHyperparameter2012
 Warning--empty year in bergstraRandomSearchHyperparameter2012
 Warning--empty year in bergstraRandomSearchHyperparameter2012
@@ -108,6 +112,9 @@ Warning--empty year in chenXGBoostScalableTree2016
 Warning--empty journal in theatlascollaborationObservationNewParticle2012
 Warning--empty year in theatlascollaborationObservationNewParticle2012
 Warning--empty year in theatlascollaborationObservationNewParticle2012
+Warning--empty journal in diaz-papkovichUMAPRevealsCryptic2019
+Warning--empty year in diaz-papkovichUMAPRevealsCryptic2019
+Warning--empty year in diaz-papkovichUMAPRevealsCryptic2019
 Warning--empty year in dstPriceIndexEJ14
 Warning--empty journal in buskulicPreciseMeasurementGZ1993
 Warning--empty year in buskulicPreciseMeasurementGZ1993
@@ -145,6 +152,9 @@ Warning--empty journal in lundbergConsistentIndividualizedFeature2018
 Warning--empty year in lundbergConsistentIndividualizedFeature2018
 Warning--empty journal in lundbergConsistentIndividualizedFeature2019
 Warning--empty year in lundbergConsistentIndividualizedFeature2019
+Warning--empty journal in mcinnesUMAPUniformManifold2018
+Warning--empty year in mcinnesUMAPUniformManifold2018
+Warning--empty year in mcinnesUMAPUniformManifold2018
 Warning--empty journal in mulalicFinancialCrisisDiverging2017
 Warning--empty year in mulalicFinancialCrisisDiverging2017
 Warning--empty year in mulalicFinancialCrisisDiverging2017
@@ -187,60 +197,69 @@ Warning--can't use both volume and number fields in tikhonovStabilityInverseProb
 Warning--empty publisher in tikhonovStabilityInverseProblems1943
 Warning--empty year in tikhonovStabilityInverseProblems1943
 Warning--empty year in tikhonovStabilityInverseProblems1943
+Warning--empty journal in toghieshghiQuantitativeComparisonConventional2019
+Warning--empty year in toghieshghiQuantitativeComparisonConventional2019
+Warning--empty year in toghieshghiQuantitativeComparisonConventional2019
 Warning--empty journal in vanSuperLearner2007
 Warning--empty year in vanSuperLearner2007
 Warning--empty year in vanSuperLearner2007
+Warning--empty journal in maatenVisualizingDataUsing2008
+Warning--empty year in maatenVisualizingDataUsing2008
+Warning--empty year in maatenVisualizingDataUsing2008
 Warning--empty year in veenNeuralNetworkZoo2016
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
 Warning--empty year in vapnikPrinciplesRiskMinimization1991
 Warning--empty journal in virtanenSciPyFundamentalAlgorithms2019
 Warning--empty year in virtanenSciPyFundamentalAlgorithms2019
 Warning--empty year in virtanenSciPyFundamentalAlgorithms2019
+Warning--empty journal in wallachProteinSmallmoleculeDatabase2009
+Warning--empty year in wallachProteinSmallmoleculeDatabase2009
+Warning--empty year in wallachProteinSmallmoleculeDatabase2009
 Warning--empty journal in weinbergModelLeptons1967
 Warning--empty year in weinbergModelLeptons1967
 Warning--empty year in weinbergModelLeptons1967
 Warning--empty journal in JSSv059i10
 Warning--empty year in JSSv059i10
 Warning--empty year in JSSv059i10
-You've used 64 entries,
+You've used 71 entries,
             2773 wiz_defined-function locations,
-            1059 strings with 21037 characters,
-and the built_in function-call counts, 31214 in all, are:
-= -- 2769
-> -- 1818
-< -- 53
-+ -- 630
-- -- 565
-* -- 2648
-:= -- 4676
-add.period$ -- 287
-call.type$ -- 64
-change.case$ -- 371
-chr.to.int$ -- 63
-cite$ -- 293
-duplicate$ -- 1341
-empty$ -- 2431
-format.name$ -- 651
-if$ -- 6545
-int.to.chr$ -- 2
+            1113 strings with 23365 characters,
+and the built_in function-call counts, 35358 in all, are:
+= -- 3132
+> -- 2136
+< -- 57
++ -- 737
+- -- 664
+* -- 3038
+:= -- 5329
+add.period$ -- 324
+call.type$ -- 71
+change.case$ -- 425
+chr.to.int$ -- 69
+cite$ -- 326
+duplicate$ -- 1495
+empty$ -- 2684
+format.name$ -- 763
+if$ -- 7388
+int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 53
-newline$ -- 416
-num.names$ -- 234
-pop$ -- 1017
+missing$ -- 60
+newline$ -- 467
+num.names$ -- 262
+pop$ -- 1143
 preamble$ -- 2
-purify$ -- 310
+purify$ -- 357
 quote$ -- 0
-skip$ -- 981
+skip$ -- 1095
 stack$ -- 0
-substring$ -- 871
-swap$ -- 148
-text.length$ -- 12
+substring$ -- 960
+swap$ -- 163
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 679
-warning$ -- 158
-while$ -- 217
+type$ -- 756
+warning$ -- 177
+while$ -- 242
 width$ -- 0
-write$ -- 908
-(There were 175 warnings)
+write$ -- 1019
+(There were 194 warnings)
