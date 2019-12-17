@@ -44,7 +44,7 @@
 \contentsline {section}{\numberline {6.1}Data Preprocessing}{65}{section.6.1}
 \contentsline {section}{\numberline {6.2}Explanatory Data Analysis}{66}{section.6.2}
 \contentsline {section}{\numberline {6.3}Loss and Evaluation Function}{69}{section.6.3}
-\contentsline {section}{\numberline {6.4}b-Tagging Analysis}{69}{section.6.4}
+\contentsline {section}{\numberline {6.4}b-Tagging Analysis}{70}{section.6.4}
 \contentsline {chapter}{\numberline {7}Discussion and Outlook}{75}{chapter.7}
 \contentsline {chapter}{\numberline {8}Conclusion}{77}{chapter.8}
 \contentsline {section}{\numberline {8.1}Tufte-\LaTeX \xspace Website}{77}{section.8.1}

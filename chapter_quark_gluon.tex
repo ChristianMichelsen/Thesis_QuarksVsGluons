@@ -101,6 +101,7 @@ Even though there are only three vertex variables, it is difficult to properly g
 The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to correctly identify and preserve the structure, or topology, of the high-dimensional feature space in a lower-dimensional output space. It does so by trying to stitch together local manifolds in the high-dimensional feature space such that the difference between the high- and low-dimensional representations is minimized according to the cross-entropy such that both global structure and local structure is preserved \citep{mcinnesUMAPUniformManifold2018}. Compared to t-SNE the approach in UMAP has an algebraic topological background compared to the more heuristic approach taken by t-SNE. Note that the UMAP algorithm is not provided any information about which jets are which types. 
 
 \begin{marginfigure}
+  \centerfloat
   \includegraphics[draft=true, width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf}
   \caption[UMAP visualization of vertex variables for 4-jet events]
           {Visualization of the vertex variables for the different categories: \textcolor{blue}{true b-jets} in blue, \textcolor{red}{true c-jets} in red, \textcolor{green}{true uds-jets} in green, \textcolor{orange}{true g-jets} in orange, and \textcolor{purple}{non q-matched} events in purple. The clustering is performed with the UMAP algorithm which outputs a 2D-projection. This projection is then visualized using the Datashader which takes takes care of point size, avoids over and underplotting, and color intensity.} 
@@ -108,6 +109,7 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
 \end{marginfigure}
 
 \begin{marginfigure}
+  \centerfloat
   \includegraphics[draft=true, width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf}
   \caption[UMAP visualization of vertex variables for 3-jet events]
           {UMAP visualization of vertex variables for 3-jet events.} 
@@ -115,6 +117,7 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
 \end{marginfigure}
 
 \begin{marginfigure}
+  \centerfloat
   \includegraphics[draft=true, width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=729358-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=2_algorithm=UMAP_single.pdf}
   \caption[UMAP visualization of vertex variables for 2-jet events]
           {UMAP visualization of vertex variables for 2-jet events.} 
@@ -163,7 +166,27 @@ The correlation between the vertex variables can be seen in Figure~\ref{fig:q:co
 \section{Loss and Evaluation Function}
 \label{sec:q:loss_evaluation_function}
 
-In contrary to the housing prices subproject the goal is to predict the class of particles. The combination of this being a \emph{classification} problem (compared to a regression problem) along with the fact all the variables are actual measurements from a particle physics accelerator means that the issue of outliers is negligible. This also means that the problem of finding a robust loss function is non-existent since the in classification loss is already bounded in the $[0, 1]$-interval, where \num{0} is attributed to so-called \emph{signal} observations\sidenote{Often called signal events, however, since requires that each event constitutes a single data point which it does not here.} and background observations.  
+In contrary to the housing prices subproject the goal in this project is to predict the class of particles, or the types of jets, where the so-called \emph{signal} observations\sidenote{Often called \emph{signal events}, however, this term would require that each event constitutes a single data point in the dataset which it does not here.} are often assigned the label \num{1} and \emph{background} observations \num{0}.  
+The combination of this being a \emph{classification} problem (compared to a regression problem) along with the fact all the variables are actual measurements from a particle physics accelerator means that the issue of outliers is negligible. This also means that the problem of finding a robust loss function is non-existent since the in classification loss is already bounded in the $[0, 1]$-interval. 
+
+Classically \emph{accuracy} is often used as loss function for classification which is simply the fraction of correct predictions, however, accuracy as a metric suffers a lot when handling \emph{imbalanced} data: when the ratio between the number of instances of each class is not approximately $(50:50)\si{\percent}$. The problem is that if the sample contains \SI{90}{\percent} background and only \SI{10}{\percent} signal, then a simple model which simply predicts everything to be background will have a \SI{90}{\percent} accuracy.
+
+To circumvent this issue, the area under the ROC curve (AUC) is used, where the ROC\sidenote{Receiver Operating Characteristic.} curve is the the \emph{signal efficiency} $\varepsilon_\mathrm{sig}$ of the ML model plotted as a function of the \emph{background efficiency} $\varepsilon_\mathrm{bkg}$. The definition of these two measures are:
+\begin{equation}
+  \varepsilon_\mathrm{sig} = \frac{S_\mathrm{sel}}{S_\mathrm{tot}}\,, \qquad \varepsilon_\mathrm{bkg} = \frac{B_\mathrm{sel}}{B_\mathrm{tot}}\,,
+\end{equation}
+where $S_\mathrm{sel}$ are signal events that were also selected (predicted) as signal by the ML model, $S_\mathrm{tot}=S_\mathrm{sel}+S_\mathrm{rej}$ is the total number of signal events (the selected and rejected), and likewise for background events $B$. Within the machine learning community the signal efficiency is called the true positive rate (TPR) and the background efficiency the false positive rate (FPR). For the rest of this project, the AUC will be the evaluation function $f_\mathrm{eval} = \mathrm{AUC}$, however, since this metric does not work on single observations it cannot be used as the loss function. Instead we will use the \emph{log-loss} as the loss function\sidenote{In the context of machine learning this is the same as the \emph{cross entropy}.} which not not only is differentiable for single predictions, compared to AUC, but also takes the certainty of the prediction into account. When using tree-based algorithms or neural networks one can extract not only whether or not a single observation is classified as signal or background but also a prediction score. This is a number in the $[0, 1]$-interval and the closer to \num{1} the score is, the more certain the model is of the prediction being signal. Given the prediction score $\hat{y}$ and the true label $y$, the log-loss $\ell_\mathrm{log}$ is calculated as:
+\begin{equation}
+    \ell_\mathrm{log} = -y \log{\hat{y}} - (1-y) \log{(1-\hat{y})}.
+\end{equation}
+This is visualized in Figure~\ref{fig:q:logloss}. Here it can be seen how the loss changes as a function of the prediction score. Notice that when $y=0$ the loss for $\hat{y}=1$ diverges towards $\infty$ and likewise with $y=1$ and $\hat{y}=0$ (since $\log 0$ diverges to $-\infty$).
+
+\begin{marginfigure}
+  \includegraphics[draft=false, width=0.9\textwidth]{figures/log_loss_cross_entropy/logloss.pdf}
+  \caption[Plot of the log-loss $\ell_\mathrm{log}$]
+          {Plot of the log-loss $\ell_\mathrm{log}$.} 
+  \label{fig:q:logloss}
+\end{marginfigure}
 
 
 \FloatBarrier
