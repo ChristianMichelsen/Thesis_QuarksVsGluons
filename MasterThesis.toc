@@ -45,14 +45,14 @@
 \contentsline {section}{\numberline {6.2}Explanatory Data Analysis}{66}{section.6.2}
 \contentsline {section}{\numberline {6.3}Loss and Evaluation Function}{69}{section.6.3}
 \contentsline {section}{\numberline {6.4}b-Tagging Analysis}{70}{section.6.4}
-\contentsline {chapter}{\numberline {7}Discussion and Outlook}{75}{chapter.7}
-\contentsline {chapter}{\numberline {8}Conclusion}{77}{chapter.8}
-\contentsline {section}{\numberline {8.1}Tufte-\LaTeX \xspace Website}{77}{section.8.1}
-\contentsline {section}{\numberline {8.2}Tufte-\LaTeX \xspace Mailing Lists}{77}{section.8.2}
-\contentsline {paragraph}{Discussion list}{77}{paragraph*.8}
-\contentsline {paragraph}{Commits list}{77}{paragraph*.9}
-\contentsline {section}{\numberline {8.3}Getting Help}{77}{section.8.3}
-\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{79}{appendix.A}
-\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{105}{appendix.B}
-\contentsline {chapter}{Index}{115}{appendix*.7}
+\contentsline {chapter}{\numberline {7}Discussion and Outlook}{77}{chapter.7}
+\contentsline {chapter}{\numberline {8}Conclusion}{79}{chapter.8}
+\contentsline {section}{\numberline {8.1}Tufte-\LaTeX \xspace Website}{79}{section.8.1}
+\contentsline {section}{\numberline {8.2}Tufte-\LaTeX \xspace Mailing Lists}{79}{section.8.2}
+\contentsline {paragraph}{Discussion list}{79}{paragraph*.8}
+\contentsline {paragraph}{Commits list}{79}{paragraph*.9}
+\contentsline {section}{\numberline {8.3}Getting Help}{79}{section.8.3}
+\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{81}{appendix.A}
+\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{107}{appendix.B}
+\contentsline {chapter}{Index}{117}{appendix*.11}
 \contentsfinish 

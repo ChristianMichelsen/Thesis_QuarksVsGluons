@@ -179,7 +179,7 @@ where $S_\mathrm{sel}$ are signal events that were also selected (predicted) as 
 \begin{equation}
     \ell_\mathrm{log} = -y \log{\hat{y}} - (1-y) \log{(1-\hat{y})}.
 \end{equation}
-This is visualized in Figure~\ref{fig:q:logloss}. Here it can be seen how the loss changes as a function of the prediction score. Notice that when $y=0$ the loss is undefined for $\hat{y}=1$ and likewise with $y=1$ and $\hat{y}=0$ (since $\log 0$ is undefined).
+This is visualized in Figure~\ref{fig:q:logloss}. Here it can be seen how the loss changes as a function of the prediction score. Notice that when $y=0$ the loss for $\hat{y}=1$ diverges towards $\infty$ and likewise with $y=1$ and $\hat{y}=0$ (since $\log 0$ diverges to $-\infty$).
 
 \begin{marginfigure}
   \includegraphics[draft=false, width=0.9\textwidth]{figures/log_loss_cross_entropy/logloss.pdf}
@@ -196,6 +196,8 @@ This is visualized in Figure~\ref{fig:q:logloss}. Here it can be seen how the lo
 The ability to discriminate between the different types of particles produced in a collision is obviously import to understand the results. Today much work go into tagging algorithms from $b$-tagging in ATLAS and CMS \autocite{scodellaroTaggingATLASCMS2017} but this work started even decades ago. That $b$-quarks are tagged specifically is both due to $b$-quarks having more unique characteristics compared to e.g. $c$-quarks and are thus easier to tag, but also the fact that $b$-quarks are the second-heaviest of the quarks and are measured to better understand CP\sidenote{Short for charge-parity.}-violation at LHC-b, contributes to the choice of tagging $b$-quarks. In ALEPH \citet{proriolTAGGINGQUARKEVENTS1991} started the work of comparing different methods for $b$-tagging already in \num{1991}. They concluded that a neural network had the best performance compared to e.g. a linear (Fisher) discriminant. The neural network used was a 3-layer neural network (NN) trained on nine variables and the output \code{nnbjet}. For this of this project this pre-trained network will be called NNB. 
 
 The data are split\sidenote{After removing all low-energy jets such that all events that contain any jets with an energy of less than \SI{4}{\GeV} are removed.} into training and test sets in such a way that the individual jets in an event are not split. As such, the splitting is performed at event-scale in a $(80:20)\si{\percent}$ train-test ratio. 
+
+Compared to the housing prices dataset, the number of observations $N$ is a lot larger, although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian 
 
 \newpage
 \begin{figure}
