@@ -123,13 +123,56 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
 
 The UMAP algorithm has several hyperparameters, where two of the most important ones are the number of neighbors \code{n_neighbors} which controls the priority between correctly preserving the global versus the local structure, and the \code{min_dist} which defines how tightly together UMAP is allowed to cluster the points in the low-dimensional representation. To properly choose the best combination of \code{n_neighbors} and \code{min_dist} a grid search with \code{n_neighbors}~$\in \{10, 50, 100, 250 \}$ and \code{min_dist}~$\in \{0, 0.2, 0.5\}$ is performed. This is shown for 4-jet events in Figure~\ref{fig:q:UMAP_vertex_all} in the appendix. In this case the choice of best combination of \code{n_neighbors} and \code{min_dist} is subjective at best, but it was judged by the author that \code{n_neighbors}~$=250$ and \code{min_dist}~$0.2$ gave the best compromise between preserving local and global structure. The results of running UMAP on 4-jet events can be seen in Figure~\ref{fig:q:UMAP_vertex_2j}. Here the millions of points are plotted using Datashader \autocite{bednarDatashaderRevealingStructure2019} to avoid overplotting and colored according to the jet type. From the figure it is seen how there are some clear, blue $b$-jet clusters, however, most of the data seem to be a mix of $g$- and $uds$-jets. The plots with the same UMAP parameters for 3-jet and 2-jet events are seen in Figure~\ref{fig:q:UMAP_vertex_3j} and \ref{fig:q:UMAP_vertex_2j}. 
 
-These figures suggests that it should be possible to discriminate the $b$-jets from the other jets somewhat, however, no clear separation is expected.
+These figures suggests that it should be possible to discriminate the $b$-jets from the other jets somewhat, however, no clear separation is expected. The t-SNE algorithm was also tested but showed inferior performance compared to UMAP, see Figure~\ref{fig:q:tsne_vertex} in the appendix for an example of this.
 
+
+
+The correlation between the vertex variables can be seen in Figure~\ref{fig:q:correlation_vertex_all}, where the upper diagonal shows the linear correlation $\rho$ and the lower diagonal shows the (estimate of the) MIC non-linear correlation $\mathrm{MIC}_e$. Here it ca be seen that \code{projet} and \code{bqvjet} correlate mostly whereas the other variables correlate a lot less. Had they all correlated a lot, it would be more difficult to extract any meaningful insights from the system at it would contain less information. 
+
+\begin{figure}%
+  \centering
+  \subfloat[2-jet events]{{\includegraphics[width=0.31\textwidth]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf}}}%
+  \;
+  \subfloat[3-jet events]{{\includegraphics[width=0.31\textwidth]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf} }}%
+  \subfloat[4-jet events]{{\includegraphics[width=0.31\textwidth]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf} }}%
+  \caption[Correlation of Vertex Variables]{Correlation of the three vertex variables for 2-, 3- and 4-jet events.}%
+  \label{fig:q:correlation_vertex_all}%
+\end{figure}
+\vspace{0.5cm}
+
+% \begin{figure}
+%   \centering
+%   % \vspace*{-\abovecaptionskip}
+%   \subfloat[\label{fig:q:correlation_vertex_2j}]{\;}
+%   \subfloat[\label{fig:q:correlation_vertex_2j}]{\;}
+%   \includegraphics[width=0.28\textwidth]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf}\hfil
+%   \subfloat[\label{fig:q:correlation_vertex_3j}]{\;}
+%   \includegraphics[width=0.28\textwidth]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf}\hfil
+%   \subfloat[\label{fig:q:correlation_vertex_4j}]{\;}
+%   \includegraphics[width=0.28\textwidth]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf}\hfil
+%   \caption[Correlation of Vertex Variables]{Correlation of the three vertex variables for . 
+%            Subplot ~\protect\subref{fig:q:correlation_vertex_2j} shows the date of the sale, 
+%            Subplot ~\protect\subref{fig:q:correlation_vertex_3j} shows the type of residence,
+%            Subplot ~\protect\subref{fig:q:correlation_vertex_4j} shows the area og the house.}
+%   \label{fig:q:correlation_vertex_all}
+%   \vspace{\abovecaptionskip}
+% \end{figure}
+
+
+\FloatBarrier
+\section{Loss and Evaluation Function}
+\label{sec:q:loss_evaluation_function}
+
+In contrary to the housing prices subproject the goal is to predict the class of particles. The combination of this being a \emph{classification} problem (compared to a regression problem) along with the fact all the variables are actual measurements from a particle physics accelerator means that the issue of outliers is negligible. This also means that the problem of finding a robust loss function is non-existent since the in classification loss is already bounded in the $[0, 1]$-interval, where \num{0} is attributed to so-called \emph{signal} observations\sidenote{Often called signal events, however, since requires that each event constitutes a single data point which it does not here.} and background observations.  
+
+
+\FloatBarrier
 \section[b-Tagging Analysis]{$b$-Tagging Analysis}
 \label{sec:q:b_tagging_analysis}
 
+The ability to discriminate between the different types of particles produced in a collision is obviously import to understand the results. Today much work go into tagging algorithms from $b$-tagging in ATLAS and CMS \autocite{scodellaroTaggingATLASCMS2017} but this work started even decades ago. That $b$-quarks are tagged specifically is both due to $b$-quarks having more unique characteristics compared to e.g. $c$-quarks and are thus easier to tag, but also the fact that $b$-quarks are the second-heaviest of the quarks and are measured to better understand CP\sidenote{Short for charge-parity.}-violation at LHC-b, contributes to the choice of tagging $b$-quarks. In ALEPH \citet{proriolTAGGINGQUARKEVENTS1991} started the work of comparing different methods for $b$-tagging already in \num{1991}. They concluded that a neural network had the best performance compared to e.g. a linear (Fisher) discriminant. The neural network used was a 3-layer neural network (NN) trained on nine variables and the output \code{nnbjet}. For this of this project this pre-trained network will be called NNB. 
 
-
+The data are split\sidenote{After removing all low-energy jets such that all events that contain any jets with an energy of less than \SI{4}{\GeV} are removed.} into training and test sets in such a way that the individual jets in an event are not split. As such, the splitting is performed at event-scale in a $(80:20)\si{\percent}$ train-test ratio. 
 
 \newpage
 \begin{figure}

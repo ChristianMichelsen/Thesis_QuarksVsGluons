@@ -1,5 +1,5 @@
 \ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi
-\begin{thebibliography}{71}
+\begin{thebibliography}{73}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -401,6 +401,14 @@ E.~Polley and M.~van~der Laan.
 \newblock Super {{Learner In Prediction}}.
 \newblock URL \url{https://biostats.bepress.com/ucbbiostat/paper266}.
 
+\bibitem[Proriol et~al.()Proriol, Jousset, Guicheney, Falvard, Henrard, Pallin,
+  Perret, and Brandl]{proriolTAGGINGQUARKEVENTS1991}
+J.~Proriol, J.~Jousset, C.~Guicheney, A.~Falvard, P.~Henrard, D.~Pallin,
+  P.~Perret, and B.~Brandl.
+\newblock {{TAGGING B QUARK EVENTS IN ALEPH WITH NEURAL NETWORKS}} (comparison
+  of different methods : {{Neural Networks}} and {{Discriminant Analysis}}).
+\newblock page~27.
+
 \bibitem[Purcell()]{purcellGoParticleQuest2012}
 A.~Purcell.
 \newblock Go on a particle quest at the first {{CERN}} webfest.
@@ -435,6 +443,11 @@ A.~Salam.
 \newblock \doi{10.1142/9789812795915_0034}.
 \newblock URL
   \url{https://www.worldscientific.com/doi/abs/10.1142/9789812795915_0034}.
+
+\bibitem[Scodellaro()]{scodellaroTaggingATLASCMS2017}
+L.~Scodellaro.
+\newblock B tagging in {{ATLAS}} and {{CMS}}.
+\newblock URL \url{http://arxiv.org/abs/1709.01290}.
 
 \bibitem[Shapley()]{Shapley1953}
 L.~Shapley.

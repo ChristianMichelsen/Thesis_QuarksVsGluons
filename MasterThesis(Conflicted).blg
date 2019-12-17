@@ -1,0 +1,265 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: MasterThesis.aux
+The style file: abbrvnat.bst
+A level-1 auxiliary file: chapter_introduction.aux
+A level-1 auxiliary file: chapter_machine_learning_theory.aux
+A level-1 auxiliary file: chapter_housing_prices.aux
+A level-1 auxiliary file: chapter_particle_physics_theory.aux
+A level-1 auxiliary file: chapter_quark_gluon.aux
+A level-1 auxiliary file: chapter_discussion.aux
+A level-1 auxiliary file: chapter_conclusion.aux
+A level-1 auxiliary file: chapter_appendix_housing.aux
+Database file #1: My_Library.bib
+Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
+--line 1266 of file My_Library.bib
+Warning--entry type for "hviidWorkingPaperRegional2017" isn't style-file defined
+--line 1346 of file My_Library.bib
+Warning--entry type for "LargeElectronPositronCollider" isn't style-file defined
+--line 2912 of file My_Library.bib
+Warning--entry type for "AdvancedTopicsMachine" isn't style-file defined
+--line 2937 of file My_Library.bib
+Warning--entry type for "AllstateClaimsSeverity" isn't style-file defined
+--line 2985 of file My_Library.bib
+Warning--entry type for "HEPMeetsML" isn't style-file defined
+--line 3038 of file My_Library.bib
+Warning--entry type for "DmlcXgboost" isn't style-file defined
+--line 3047 of file My_Library.bib
+Warning--entry type for "dstPriceIndexEJ14" isn't style-file defined
+--line 3142 of file My_Library.bib
+Warning--entry type for "oisWwwOISDk" isn't style-file defined
+--line 3169 of file My_Library.bib
+Warning--entry type for "bednarDatashaderRevealingStructure2019" isn't style-file defined
+--line 3217 of file My_Library.bib
+Warning--entry type for "bolighedBolighedUsikkerhedDatavurderingen" isn't style-file defined
+--line 3297 of file My_Library.bib
+Warning--entry type for "purcellGoParticleQuest2012" isn't style-file defined
+--line 3406 of file My_Library.bib
+Warning--entry type for "burgardStandardModelPhysics" isn't style-file defined
+--line 3418 of file My_Library.bib
+Warning--entry type for "bierlichRopeHadronizationGeometry2016" isn't style-file defined
+--line 3447 of file My_Library.bib
+Warning--entry type for "Armstrong1998hy" isn't style-file defined
+--line 3458 of file My_Library.bib
+Warning--entry type for "ScikithepUproot2019" isn't style-file defined
+--line 3617 of file My_Library.bib
+Warning--I didn't find a database entry for "["
+Warning--to sort, need author or key in LargeElectronPositronCollider
+Warning--to sort, need author or key in AdvancedTopicsMachine
+Warning--to sort, need author or key in AllstateClaimsSeverity
+Warning--to sort, need author or key in DmlcXgboost
+Warning--to sort, need author or key in HEPMeetsML
+Warning--to sort, need author or key in bednarDatashaderRevealingStructure2019
+Warning--to sort, need author or key in ScikithepUproot2019
+Warning--empty year in AdvancedTopicsMachine
+Warning--empty year in AllstateClaimsSeverity
+Warning--empty year in DmlcXgboost
+Warning--empty year in HEPMeetsML
+Warning--empty year in LargeElectronPositronCollider
+Warning--empty year in ScikithepUproot2019
+Warning--empty year in bednarDatashaderRevealingStructure2019
+Warning--empty year in oisWwwOISDk
+Warning--empty year in abu-mostafaLearningData2012
+Warning--empty year in abu-mostafaLearningData2012
+Warning--empty journal in albanesePracticalToolMaximal2018a
+Warning--empty year in albanesePracticalToolMaximal2018a
+Warning--empty year in albanesePracticalToolMaximal2018a
+Warning--empty journal in andersonSpeciesProblemIris1936a
+Warning--empty year in andersonSpeciesProblemIris1936a
+Warning--empty year in andersonSpeciesProblemIris1936a
+Warning--empty journal in anderssonPartonFragmentationString1983
+Warning--empty year in anderssonPartonFragmentationString1983
+Warning--empty year in anderssonPartonFragmentationString1983
+Warning--empty year in Armstrong1998hy
+Warning--empty year in awadSupportVectorRegression2015
+Warning--empty year in awadSupportVectorRegression2015
+Warning--empty year in Barlow:0471922951
+Warning--empty year in Barlow:0471922951
+Warning--empty journal in barronGeneralAdaptiveRobust2017
+Warning--empty year in barronGeneralAdaptiveRobust2017
+Warning--empty year in barronGeneralAdaptiveRobust2017
+Warning--empty journal in bartelExperimentalStudyJets1981
+Warning--empty year in bartelExperimentalStudyJets1981
+Warning--empty year in bartelExperimentalStudyJets1981
+Warning--empty journal in bechtEvaluationUMAPAlternative2018
+Warning--empty year in bechtEvaluationUMAPAlternative2018
+Warning--empty journal in bechtDimensionalityReductionVisualizing2019
+Warning--empty year in bechtDimensionalityReductionVisualizing2019
+Warning--empty journal in bergstraRandomSearchHyperparameter2012
+Warning--empty year in bergstraRandomSearchHyperparameter2012
+Warning--empty year in bergstraRandomSearchHyperparameter2012
+Warning--empty year in bierlichRopeHadronizationGeometry2016
+Warning--empty year in bolighedBolighedUsikkerhedDatavurderingen
+Warning--empty journal in breimanRandomForests2001
+Warning--empty year in breimanRandomForests2001
+Warning--empty year in breimanRandomForests2001
+Warning--empty journal in brochuTutorialBayesianOptimization2010
+Warning--empty year in brochuTutorialBayesianOptimization2010
+Warning--empty year in brochuTutorialBayesianOptimization2010
+Warning--empty journal in brunROOTObjectOriented1997
+Warning--empty year in brunROOTObjectOriented1997
+Warning--empty year in brunROOTObjectOriented1997
+Warning--empty journal in buckleyGeneralpurposeEventGenerators2011
+Warning--empty year in buckleyGeneralpurposeEventGenerators2011
+Warning--empty year in buckleyGeneralpurposeEventGenerators2011
+Warning--empty year in burgardStandardModelPhysics
+Warning--empty journal in buskulicInvestigationBd0Bs01994
+Warning--empty year in buskulicInvestigationBd0Bs01994
+Warning--empty year in buskulicInvestigationBd0Bs01994
+Warning--empty journal in chenXGBoostScalableTree2016
+Warning--empty year in chenXGBoostScalableTree2016
+Warning--empty year in chenXGBoostScalableTree2016
+Warning--empty journal in theatlascollaborationObservationNewParticle2012
+Warning--empty year in theatlascollaborationObservationNewParticle2012
+Warning--empty year in theatlascollaborationObservationNewParticle2012
+Warning--empty journal in diaz-papkovichUMAPRevealsCryptic2019
+Warning--empty year in diaz-papkovichUMAPRevealsCryptic2019
+Warning--empty year in diaz-papkovichUMAPRevealsCryptic2019
+Warning--empty year in dstPriceIndexEJ14
+Warning--empty journal in buskulicPreciseMeasurementGZ1993
+Warning--empty year in buskulicPreciseMeasurementGZ1993
+Warning--empty year in buskulicPreciseMeasurementGZ1993
+Warning--empty journal in fisherUseMultipleMeasurements1936
+Warning--empty year in fisherUseMultipleMeasurements1936
+Warning--empty year in fisherUseMultipleMeasurements1936
+Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
+Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
+Warning--empty journal in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty booktitle in harveyEstimationProceduresStructural1990
+Warning--empty year in harveyEstimationProceduresStructural1990
+Warning--empty year in harveyEstimationProceduresStructural1990
+Warning--empty journal in hastieGeneralizedAdditiveModels1987
+Warning--empty year in hastieGeneralizedAdditiveModels1987
+Warning--empty year in hastieGeneralizedAdditiveModels1987
+Warning--empty year in hastieElementsStatisticalLearning2009
+Warning--empty year in hastieElementsStatisticalLearning2009
+Warning--empty year in huber2011robust
+Warning--empty year in huber2011robust
+Warning--empty year in hviidWorkingPaperRegional2017
+Warning--empty journal in 1975CoPhC..10..343J
+Warning--empty year in 1975CoPhC..10..343J
+Warning--empty year in 1975CoPhC..10..343J
+Warning--empty year in keLightGBMHighlyEfficient2017
+Warning--empty year in keLightGBMHighlyEfficient2017
+Warning--empty journal in leysDetectingOutliersNot2013
+Warning--empty year in leysDetectingOutliersNot2013
+Warning--empty year in leysDetectingOutliersNot2013
+Warning--empty year in Lundberg:2017
+Warning--empty year in Lundberg:2017
+Warning--empty journal in lundbergConsistentIndividualizedFeature2018
+Warning--empty year in lundbergConsistentIndividualizedFeature2018
+Warning--empty journal in lundbergConsistentIndividualizedFeature2019
+Warning--empty year in lundbergConsistentIndividualizedFeature2019
+Warning--empty journal in mcinnesUMAPUniformManifold2018
+Warning--empty year in mcinnesUMAPUniformManifold2018
+Warning--empty year in mcinnesUMAPUniformManifold2018
+Warning--empty journal in mulalicFinancialCrisisDiverging2017
+Warning--empty year in mulalicFinancialCrisisDiverging2017
+Warning--empty year in mulalicFinancialCrisisDiverging2017
+Warning--empty journal in particledatagroupReviewParticlePhysics2018
+Warning--empty year in particledatagroupReviewParticlePhysics2018
+Warning--empty year in particledatagroupReviewParticlePhysics2018
+Warning--empty journal in scikit-learn
+Warning--empty year in scikit-learn
+Warning--empty year in scikit-learn
+Warning--empty journal in polleySuperLearnerPrediction2010
+Warning--empty year in polleySuperLearnerPrediction2010
+Warning--empty year in polleySuperLearnerPrediction2010
+Warning--empty year in purcellGoParticleQuest2012
+Warning--empty journal in reshefDetectingNovelAssociations2011
+Warning--empty year in reshefDetectingNovelAssociations2011
+Warning--empty year in reshefDetectingNovelAssociations2011
+Warning--empty journal in rousseeuwAlternativesMedianAbsolute1993
+Warning--empty year in rousseeuwAlternativesMedianAbsolute1993
+Warning--empty year in rousseeuwAlternativesMedianAbsolute1993
+Warning--can't use both volume and number fields in salamWeakElectromagneticInteractions1994
+Warning--empty year in salamWeakElectromagneticInteractions1994
+Warning--empty year in salamWeakElectromagneticInteractions1994
+Warning--can't use both volume and number fields in Shapley1953
+Warning--empty publisher in Shapley1953
+Warning--empty year in Shapley1953
+Warning--empty year in Shapley1953
+Warning--empty journal in sjostrandIntroductionPYTHIA2015
+Warning--empty year in sjostrandIntroductionPYTHIA2015
+Warning--empty year in sjostrandIntroductionPYTHIA2015
+Warning--empty journal in taylorForecastingScale
+Warning--empty year in taylorForecastingScale
+Warning--empty year in taylorForecastingScale
+Warning--empty journal in iminuit
+Warning--empty year in iminuit
+Warning--empty year in iminuit
+Warning--empty journal in tibshiraniRegressionShrinkageSelection1996
+Warning--empty year in tibshiraniRegressionShrinkageSelection1996
+Warning--empty year in tibshiraniRegressionShrinkageSelection1996
+Warning--can't use both volume and number fields in tikhonovStabilityInverseProblems1943
+Warning--empty publisher in tikhonovStabilityInverseProblems1943
+Warning--empty year in tikhonovStabilityInverseProblems1943
+Warning--empty year in tikhonovStabilityInverseProblems1943
+Warning--empty journal in toghieshghiQuantitativeComparisonConventional2019
+Warning--empty year in toghieshghiQuantitativeComparisonConventional2019
+Warning--empty year in toghieshghiQuantitativeComparisonConventional2019
+Warning--empty journal in vanSuperLearner2007
+Warning--empty year in vanSuperLearner2007
+Warning--empty year in vanSuperLearner2007
+Warning--empty journal in maatenVisualizingDataUsing2008
+Warning--empty year in maatenVisualizingDataUsing2008
+Warning--empty year in maatenVisualizingDataUsing2008
+Warning--empty year in veenNeuralNetworkZoo2016
+Warning--empty year in vapnikPrinciplesRiskMinimization1991
+Warning--empty year in vapnikPrinciplesRiskMinimization1991
+Warning--empty journal in virtanenSciPyFundamentalAlgorithms2019
+Warning--empty year in virtanenSciPyFundamentalAlgorithms2019
+Warning--empty year in virtanenSciPyFundamentalAlgorithms2019
+Warning--empty journal in wallachProteinSmallmoleculeDatabase2009
+Warning--empty year in wallachProteinSmallmoleculeDatabase2009
+Warning--empty year in wallachProteinSmallmoleculeDatabase2009
+Warning--empty journal in weinbergModelLeptons1967
+Warning--empty year in weinbergModelLeptons1967
+Warning--empty year in weinbergModelLeptons1967
+Warning--empty journal in JSSv059i10
+Warning--empty year in JSSv059i10
+Warning--empty year in JSSv059i10
+You've used 71 entries,
+            2773 wiz_defined-function locations,
+            1113 strings with 23365 characters,
+and the built_in function-call counts, 35358 in all, are:
+= -- 3132
+> -- 2136
+< -- 57
++ -- 737
+- -- 664
+* -- 3038
+:= -- 5329
+add.period$ -- 324
+call.type$ -- 71
+change.case$ -- 425
+chr.to.int$ -- 69
+cite$ -- 326
+duplicate$ -- 1495
+empty$ -- 2684
+format.name$ -- 763
+if$ -- 7388
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 60
+newline$ -- 467
+num.names$ -- 262
+pop$ -- 1143
+preamble$ -- 2
+purify$ -- 357
+quote$ -- 0
+skip$ -- 1095
+stack$ -- 0
+substring$ -- 960
+swap$ -- 163
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 756
+warning$ -- 177
+while$ -- 242
+width$ -- 0
+write$ -- 1019
+(There were 194 warnings)

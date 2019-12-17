@@ -444,12 +444,26 @@ The second part of this thesis deals with particle physics and the discriminator
 
 
 \newpage
-\begin{figure*}
-  \includegraphics[width=0.99\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf}
-  \caption[UMAP Parameter Grid Seach]
-          {Grid search of the two parameters \code{n_neighbors} and \code{min_dist} for the UMAP algorithm. For an explanation of these, see \autoref{sec:q:EDA}.} 
+\begin{figure*}[h!]
+  \centerfloat
+  \includegraphics[draft=true, width=0.98\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf}
+  \caption[UMAP Parameter Grid Search]
+          {Grid search of the two parameters \code{n_neighbors} and \code{min_dist} for the UMAP algorithm run on 4-jet events. For an explanation of these, see \autoref{sec:q:EDA}.} 
   \label{fig:q:UMAP_vertex_all}
 \end{figure*}
+
+\vspace{2cm}
+
+\begin{figure*}[h!]
+  \centerfloat
+  \includegraphics[draft=true, width=0.98\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_TSNE_MULTI_test_0.5_input2b_njet=4_algorithm=tsne_multi.pdf}
+  \caption[Visualization of the t-SNE algorithm]
+          {Visualization of the t-SNE algorithm as a function of the \code{perplexity} parameters for 4-jet events.} 
+  \label{fig:q:tsne_vertex}
+\end{figure*}
+
+\FloatBarrier
+\newpage
 
 \backmatter
 
