@@ -17,9 +17,10 @@
 \contentsline {table}{\numberline {4.13}{\ignorespaces XXX villa}}{45}{equation.4.6.9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces The dimensions of the dataset for the actual Data. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}}{66}{section.6.1}
-\contentsline {table}{\numberline {6.2}{\ignorespaces The dimensions for the MC and MCb datasets.}}{66}{section.6.1}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Dimensions of dataset for Data}}{66}{section.6.1}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Dimensions of dataset for MC and MCb}}{66}{section.6.1}
 \contentsline {table}{\numberline {6.3}{\ignorespaces Number of different types of jets for MC and MCb. See also Table\nobreakspace {}\ref {tab:q:flevt_overview_percent_relative} in the appendix for relative numbers.}}{67}{section.6.2}
+\contentsline {table}{\numberline {6.4}{\ignorespaces Random Search PDFs for LGB}}{70}{section.6.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -38,5 +39,6 @@
 \contentsline {table}{\numberline {A.13}{\ignorespaces XXX villa tight}}{106}{subfigure.A.15.10}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {B.1}{\ignorespaces Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI {100}{\percent }. See also Table\nobreakspace {}\ref {tab:q:flevt_overview}.}}{107}{appendix.B}
+\contentsline {table}{\numberline {B.2}{\ignorespaces Random Search PDFs for XGB}}{109}{appendix.B}
 \addvspace {10\p@ }
 \contentsfinish 

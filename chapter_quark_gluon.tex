@@ -30,7 +30,7 @@ The number of events for each number of jets can be seen in Table~\ref{tab:q:dat
   Total       &  \num{6886649} &  \num{2610523} \\  
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption{The dimensions of the dataset for the actual Data. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
+  \caption[Dimensions of dataset for Data]{The dimensions of the dataset for the actual Data. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
   \label{tab:q:datasize_data}
 \end{margintable}
 
@@ -47,7 +47,7 @@ The number of events for each number of jets can be seen in Table~\ref{tab:q:dat
   Total       &  \num{20420800} &  \num{7821766} \\  
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption{The dimensions for the MC and MCb datasets.}
+  \caption[Dimensions of dataset for MC and MCb]{The dimensions for the MC and MCb datasets.}
   \label{tab:q:datasize_MC}
 \end{margintable}
 
@@ -188,7 +188,6 @@ This is visualized in Figure~\ref{fig:q:logloss}. Here it can be seen how the lo
   \label{fig:q:logloss}
 \end{marginfigure}
 
-
 \FloatBarrier
 \section[b-Tagging Analysis]{$b$-Tagging Analysis}
 \label{sec:q:b_tagging_analysis}
@@ -197,27 +196,117 @@ The ability to discriminate between the different types of particles produced in
 
 The data are split\sidenote{After removing all low-energy jets such that all events that contain any jets with an energy of less than \SI{4}{\GeV} are removed.} into training and test sets in such a way that the individual jets in an event are not split. As such, the splitting is performed at event-scale in a $(80:20)\si{\percent}$ train-test ratio. 
 
-Compared to the housing prices dataset, the number of observations $N$ is a lot larger, although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian optimization (BO) did not show any performance gains compared to RS. 
+\begin{margintable}[1cm]
+  \centerfloat
+  % \vspace{3mm}
+  \begin{tabular}{@{}ll@{}}
+  Hyperparameter          &  Range                                  \\ \midrule
+  \code{subsample}        & $\mathcal{U}(0.4, 1)$                   \\
+  \code{colsample_bytree} & $\mathcal{U}_\mathrm{trunc}(0.4, 1, 2)$ \\
+  \code{max_depth}        & $\mathcal{U}_\mathrm{int}(-5, 63)$      \\
+  \code{num_leaves}       & $\mathcal{U}_\mathrm{int}(7, 4095)$     \\
+  \end{tabular}
+  % \vspace{\abovecaptionskip}
+  \vspace{3mm}
+  \caption[Random Search PDFs for LGB]{\label{tab:q:hpo_ranges_lgb}Probability Density Functions for the random search hyperparameter optimization process for the LightGBM model. For an explanation of $\mathcal{U}_\mathrm{trunc}$, see \autoref{sec:q:trunc_uniform}. All negative values of \code{max_depth} are interpreted as no max depth by both LGB and XGB.}
+\end{margintable}
 
-\newpage
+Compared to the housing prices dataset, the number of observations $N$ is a lot larger, although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially since their performance in the housing dataset was very similar but LightGBM was expected to quite a lot faster on this dataset, which also turned out to be the case. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian optimization (BO) did not show any performance gains compared to RS. The PDFs for the random search for the LightGBM model can be seen in Table~\ref{tab:q:hpo_ranges_lgb}, and the ones for XGBoost in Table~\ref{tab:q:hpo_ranges_xgb} in the appendix. The random search has been run with \num{100} iterations for LightGBM and only \num{10} for XGBoost since XGBoost is slow at fitting datasets of this size\sidenote{XXX here timing informstion}. The results of the HPO for 3-jet and 4-jet events can be seen in Figure~\ref{fig:q:CV_res_iterations_b_tagging}. For 3-jets it can be seen how most of the iterations share about the same performance within $1\sigma$, however some iterations have a significantly decrease in performance. For 4-jets there are not any iterations which share the same bad performance relative to the others as some of the 3-jets. 
+
+\begin{figure*}%
+  \centering
+  \subfloat{{\includegraphics[width=0.48\textwidth, trim=50 600 870 100, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}}}%
+  \;
+  \subfloat{{\includegraphics[width=0.48\textwidth, trim=50 60 870 640, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf} }}%
+  \vspace{2mm}
+  \caption[Hyperparameter Optimization of $b$-tagging]{
+    Hyperparameter Optimization results of $b$-tagging with random search. From left to right, we have A) \num{100} iterations of RS with LGB on 3-jets, B) \num{10} iterations of RS with XGB on 3-jets, C) \num{100} iterations of RS with LGB on 4-jets, D) \num{10} iterations of RS with XGB on 4-jets. Notice the different ranges on the y-axes.}
+  \label{fig:q:CV_res_iterations_b_tagging}%
+\end{figure*}
+\vspace{0.5cm}
+
+The relationship between the different hyperparameters in 4-jet events can be seen in the parallel coordinate plot in Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j}. First of all the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{sec:q:trunc_uniform} for a deeper discussion about the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are notably less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j} in the appendix.
+
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-tag scores in 3-jet events]
-          {Histogram of b-tag scores (model prediction) in 3-jet events for \textcolor{blue}{NNB} (the neural network trained by ATLAS, also called \code{nnbjet}) in blue, \textcolor{red}{XGB} in red, and \textcolor{green}{XGB} in green. We see that the XGB predictions closely match those of NNB which is a good confirmation of a successful fit.  
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Parallel Plot of HPO Results for 4-Jet $b$-Tagging]
+          {Hyperparameter optimization results of $b$-tagging for 4-jet events. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by AUC from \textcolor{viridis-dark}{highest} AUC in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. 
           } 
-  \label{fig:q:btag_scores_3j}
+  \label{fig:q:initial_CV_res_parallel_coords_4j}
 \end{figure}
 
+The prediction score for the $b$-tagging models is usually called the $b$-tag and will be written as $\beta_\mathrm{tag}$. The distribution of $\beta_\mathrm{tag}$ for the two HPO-optimized models, LGB and XGB, together with the pre-trained neural network NNB can be seen in Figure~\ref{fig:q:btag_scores_4j} for 4-jet events and in \ref{fig:q:btag_scores_3j} in the appendix for 3-jet events. Notice the strong match between the NNB and LGB models. The XGB model has almost no high $b$-tags $\beta_\mathrm{tag} > 0.8$, but a majority of $b$-tags in the very low end. This indicates that the XGBoost has focussed on the background events compared to the signal events, whereas the NNB and LGB models have focused more on the signal events. 
 
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[$b$-Tag Scores in 4-Jet Events]
+          {Histogram of $b$-tag scores $\beta_\mathrm{tag}$ in 4-jet events for \textcolor{blue}{NNB} (the neural network pre-trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. 
+          } 
+  \label{fig:q:btag_scores_4j}
+\end{figure}
 
+Even though the distributions of $b$-tags are different between the three models, the real performance plot for classification is the ROC curve seen in Figure~\ref{fig:q:roc_btag_4j} for 4-jet events
+
+Figure~\ref{fig:q:roc_btag_3j} in the appendix for 3-jet events.
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[ROC curve for b-tag in 4-jet events]
-          {ROC curve of the three b-tag models in 3-jet events for \textcolor{blue}{NNB} (the neural network trained by ATLAS, also called \code{nnbjet}) in blue, \textcolor{red}{XGB} in red, and \textcolor{green}{XGB} in green. In the legend the Area Under Curve (AUC) is also shown. Notice that the XGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. In the particle physics community False Positive Rate (FPR) is sometimes better known as background efficiency and True Positive Rate (TPR) as signal efficiency.  
+  \caption[ROC curve for 4-jet $b$-tagging]
+          {ROC curve of the three $b$-tag models in 4-jet events for \textcolor{blue}{NNB} (the pre-trained neural network trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the area under curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. In the machine learning community the background efficiency $\varepsilon_\mathrm{bkg}$ is sometimes know as the false positive rate (FPR) and the signal efficiency $\varepsilon_\mathrm{sig}$ as the true positive rate (TPR).  
           } 
   \label{fig:q:roc_btag_4j}
 \end{figure}
+
+
+
+
+
+
+\newpage
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf}
+  \caption[SHAP Prediction Explanation for b-like jet]
+          {Model explanation for the 3-jet b-tagging model for a b-like jet. The first column is the bias of the training set which acts as the naive prediction baseline, the rest are the input data variables. On the right hand side of the plot is the model prediction shown. The left part of the plot is shown in log-odds space, the right part in probability space. The model prediction is the sum of the log-odds (5.09 in this example) transformed into probability space. The \textcolor{red}{negative} log-odd values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
+          } 
+  \label{fig:q:shap_signal}
+\end{figure}
+
+
+
+\section{Truncated Uniform PDF}
+\label{sec:q:trunc_uniform}
+
+Initially when plotting the HPO performance as a function of iteration, it was seen how there were three significant plateaus, where the highest plateau (i.e. highest AUC value and thus best score) was only seen in the very first iteration. It was quickly realized that this was due to the very first iteration was being run with the default values of the LGB and XGB models in the custom implementation by the author. However, what was not understood was why this value was performing so much better than random sets of hyperparameters\sidenote{LightGBM and XGBoost of course have chosen their default parameters smartly, however, it one would not expect them to outperform other sets of hyperparameters that clearly.}. During the debugging process the column downsampling \code{colsample_bytree} was diagnosed to be the culprit. The default value is \code{colsample_bytree}$=1$, however, the probability density function (PDF) used in RS for this parameter was $\mathcal{U}(0.4, 1)$ which was expected to give the same performance as the default value for large values of \code{colsample_bytree}. By inspecting the source code of LightGBM it was realized that the model takes the integer of the column downsampling multiplied with the total number of features if the column downsampling is less than \num{1} \autocite{MicrosoftLightGBM}. This means that no matter how close to \num{1} the column downsampling get, the integer value of the total number of columns get floored to \num{2} at max, compared to when the column downsampling is exactly \num{1} which it only is for the default values.
+
+To deal with this problem a new PDF was developed on top of the existing ones in Scipy: $\mathcal{U}_\mathrm{trunc}(a, b, c)$. This PDF first generates a random number $x$ from a uniform distribution between $a$ and $c$. Then if $x$ is larger than $b$ it is floored to $b$. In this way, it is possible to both get values of $x$ in the interval $[a, b]$ but also values exactly equal to $b$. The value of $c$ controls how often these \q{overflow} values of $x$ are generated.
+
+
+
+
+
+
+
+
+\FloatBarrier
+\section[g-Tagging Analysis]{$g$-Tagging Analysis}
+\label{sec:q:g_tagging_analysis}
+
+\begin{figure*}%
+  \centering
+  \subfloat{{\includegraphics[width=0.48\textwidth, trim=860 600 50 70, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}}}%
+  \;
+  \subfloat{{\includegraphics[width=0.48\textwidth, trim=870 60 40 610, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf} }}%
+  \vspace{2mm}
+  \caption[Hyperparameter Optimization of $b$-tagging]{
+    Hyperparameter Optimization results of $b$-tagging with random search. From left to right, we have A) \num{100} iterations of RS with LGB on 3-jets, B) \num{10} iterations of RS with XGB on 3-jets, C) \num{100} iterations of RS with LGB on 4-jets, D) \num{10} iterations of RS with XGB on 4-jets. Notice the different ranges on the y-axes.}
+  \label{fig:q:CV_res_iterations_g_tagging}%
+\end{figure*}
+\vspace{0.5cm}
+
+
+
 
 
 
@@ -277,32 +366,8 @@ Compared to the housing prices dataset, the number of observations $N$ is a lot 
 
 
 
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 60, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Hyperparameter Optimization of b- and g-tagging]
-          {Hyperparameter Optimization (HPO) results after running 100 iterations of Random Search (only 10 for XGB). In the top row are the results of the 3-jet models and in the bottom row the results of the 4-jet models. From left to right, we have first) the b-tagging results of XGB, second) the b-tagging results of XGB using only 10 iterations of RS, third) the g-tagging results of XGB fit on the Energy Ordered b-tags, and forth) the g-tagging results of XGB fit on the shuffled b-tags. Notice the different ranges on the y-axes.
-          } 
-  \label{fig:q:CV_res_iterations}
-\end{figure}
 
 
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Overview of Hyperparamaters of g-tagging for 3-jet shuffled events]
-          {Hyperparameter optimization results of g-tagging for 3-jet shuffled events. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by AUC from \textcolor{viridis-dark}{highest} AUC in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. 
-          } 
-  \label{fig:q:initial_CV_res_parallel_coords}
-\end{figure}
-
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf}
-  \caption[SHAP Prediction Explanation for b-like jet]
-          {Model explanation for the 3-jet b-tagging model for a b-like jet. The first column is the bias of the training set which acts as the naive prediction baseline, the rest are the input data variables. On the right hand side of the plot is the model prediction shown. The left part of the plot is shown in log-odds space, the right part in probability space. The model prediction is the sum of the log-odds (5.09 in this example) transformed into probability space. The \textcolor{red}{negative} log-odd values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
-          } 
-  \label{fig:q:shap_signal}
-\end{figure}
 
 
 \begin{figure}
