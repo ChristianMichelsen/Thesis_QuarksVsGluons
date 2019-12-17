@@ -353,8 +353,9 @@
 % \includeonly{chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing}
 
 % \includeonly{chapter_particle_physics_theory,chapter_quark_gluon}
-\includeonly{chapter_quark_gluon}
+% \includeonly{chapter_quark_gluon}
 
+\includeonly{chapter_introduction,chapter_machine_learning_theory}
 
 \begin{document}
 
@@ -363,6 +364,10 @@
 
 %  copyright page
 \input{copyright.tex}
+
+\chapter*{Abstract}
+Here will be a decent abstract at some point\textsuperscript{TM}.
+
 
 % r.5 contents
 \tableofcontents
@@ -376,22 +381,23 @@
 \cleardoublepage
 
 
-\chapter{Abstract}
-\pagenumbering{arabic}
-
-Here will be a decent abstract at some point\textsuperscript{TM}.
 
 %%
+%  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+\chapter*{Background for the thesis}
+
+The background for this masters's thesis, is that it is part of a so-called 4+4 Ph.D. project (also known as an integrated Ph.D.). The Ph.D. dissertation is about the use of machine learning and deep learning in the field of ancient genomics. Here ancient DNA is sampled and analysed with the hope of finding patterns, structure, in the genome which were previously unknown. The overall goal is two-fold. On the big scale it is the better understand human history in the broadest sense of the word history. Where did we come from, where did we go. On a much smaller scale, the goal is to understand local history and migration patterns; how did we end up where we did. It is with this background that this project should be seen: as an introduction to the general use of applied machine learning.
+
 % Start the main matter (normal chapters)
 \mainmatter
 
-
-%  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+\pagenumbering{arabic}
 
 \include{chapter_introduction}
 
 \chapter*{Part I}
-The first part of this thesis deals with the introductory theory of machine learning and its predictive power in estimating Danish housing prices.
+The first part of this thesis deals with the introductory theory of machine learning and its predictive power in estimating Danish housing prices.  
 
 \include{chapter_machine_learning_theory}
 
