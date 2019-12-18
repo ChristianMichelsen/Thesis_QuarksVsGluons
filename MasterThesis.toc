@@ -44,8 +44,8 @@
 \contentsline {section}{\numberline {5.2}Explanatory Data Analysis}{64}{section.5.2}
 \contentsline {section}{\numberline {5.3}Loss and Evaluation Function}{67}{section.5.3}
 \contentsline {section}{\numberline {5.4}b-Tagging Analysis}{68}{section.5.4}
-\contentsline {section}{\numberline {5.5}Truncated Uniform PDF}{70}{section.5.5}
-\contentsline {section}{\numberline {5.6}g-Tagging Analysis}{71}{section.5.6}
+\contentsline {section}{\numberline {5.5}Truncated Uniform PDF}{72}{section.5.5}
+\contentsline {section}{\numberline {5.6}g-Tagging Analysis}{72}{section.5.6}
 \contentsline {chapter}{\numberline {6}Discussion and Outlook}{77}{chapter.6}
 \contentsline {chapter}{\numberline {7}Conclusion}{79}{chapter.7}
 \contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{79}{section.7.1}
@@ -55,5 +55,5 @@
 \contentsline {section}{\numberline {7.3}Getting Help}{79}{section.7.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{81}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{107}{appendix.B}
-\contentsline {chapter}{Index}{119}{appendix*.13}
+\contentsline {chapter}{Index}{119}{appendix*.9}
 \contentsfinish 

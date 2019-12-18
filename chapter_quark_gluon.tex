@@ -237,7 +237,8 @@ The relationship between the different hyperparameters in 4-jet events can be se
 
 The prediction score for the $b$-tagging models is usually called the $b$-tag and will be written as $\beta_\mathrm{tag}$. The distribution of $\beta_\mathrm{tag}$ for the two HPO-optimized models, LGB and XGB, together with the pre-trained neural network NNB can be seen in Figure~\ref{fig:q:btag_scores_4j} for 4-jet events and in \ref{fig:q:btag_scores_3j} in the appendix for 3-jet events. Notice the strong match between the NNB and LGB models. The XGB model has almost no high $b$-tags $\beta_\mathrm{tag} > 0.8$, but a majority of $b$-tags in the very low end. This indicates that the XGBoost has focussed on the background events compared to the signal events, whereas the NNB and LGB models have focused more on the signal events. 
 
-\begin{figure}
+\begin{figure}[h!]
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[$b$-Tag Scores in 4-Jet Events]
           {Histogram of $b$-tag scores $\beta_\mathrm{tag}$ in 4-jet events for \textcolor{blue}{NNB} (the neural network pre-trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. 
@@ -245,11 +246,10 @@ The prediction score for the $b$-tagging models is usually called the $b$-tag an
   \label{fig:q:btag_scores_4j}
 \end{figure}
 
-Even though the distributions of $b$-tags are different between the three models, the real performance plot for classification is the ROC curve seen in Figure~\ref{fig:q:roc_btag_4j} for 4-jet events
+Even though the distributions of $b$-tags are different between the three models, the real performance plot for classification is the ROC curve seen in Figure~\ref{fig:q:roc_btag_4j} for 4-jet events. Here the signal efficiency $\varepsilon_\mathrm{sig}$ is plotted as a function of the background efficiency $\varepsilon_\mathrm{sig}$ with the AUC shown in the bottom right corner. The LGB and XGB models performs similarly well with an $\mathrm{AUC}=0.896$ compared to the NNB with $\mathrm{AUC}=0.884$. The differences between the models are even smaller for 3-jet events seen in Figure~\ref{fig:q:roc_btag_3j} in the appendix. In general the LGB and XGB models are so similar that they cannot be distinguished from another in any of the plots and their difference in AUC is on the forth decimal point. However, the LGB model is several times faster than the XGB model. In comparison, \num{10} iterations of HPO using RS on 3-jet events with XGB took more almost \num{34} hours on HEP\sidenote{The local computing cluster.} compared to just \num{23} hours for \num{100} iterations for LGB. The same performance difference was seen in 4-jet events where the timings were \num{4} hours for XGB compared to \num{2.5} hours for LGB, and thus XGB is dropped in all subsequent analysis. 
 
-Figure~\ref{fig:q:roc_btag_3j} in the appendix for 3-jet events.
-
-\begin{figure}
+\begin{figure}[h!]
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[ROC curve for 4-jet $b$-tagging]
           {ROC curve of the three $b$-tag models in 4-jet events for \textcolor{blue}{NNB} (the pre-trained neural network trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the area under curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. In the machine learning community the background efficiency $\varepsilon_\mathrm{bkg}$ is sometimes know as the false positive rate (FPR) and the signal efficiency $\varepsilon_\mathrm{sig}$ as the true positive rate (TPR).  
@@ -257,20 +257,55 @@ Figure~\ref{fig:q:roc_btag_3j} in the appendix for 3-jet events.
   \label{fig:q:roc_btag_4j}
 \end{figure}
 
+To get a better understanding of the trained LGB model, the global SHAP feature importances can be seen in Figure~\ref{fig:q:shap_btag_global_4j} for 4-jet events. First of all it is noted that the \code{projet} has global feature importance of \SI{57.32}{\percent}, \code{bqvjet} \SI{29.16}{\percent}, and \code{ptljet} \SI{13.52}{\percent}. For all three variables it is seen how most of the points have many small feature values which has a negative impact on the model output however small. Especially the \code{ptljet} has many features with a low value (\num{0} in fact) yet this does not pull the model too much towards background events compared to if a jet has a high value of \code{ptljet} which has a strong, positive impact on the output prediction.
 
-
-
-
-
-\newpage
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf}
-  \caption[SHAP Prediction Explanation for b-like jet]
-          {Model explanation for the 3-jet b-tagging model for a b-like jet. The first column is the bias of the training set which acts as the naive prediction baseline, the rest are the input data variables. On the right hand side of the plot is the model prediction shown. The left part of the plot is shown in log-odds space, the right part in probability space. The model prediction is the sum of the log-odds (5.09 in this example) transformed into probability space. The \textcolor{red}{negative} log-odd values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.98\textwidth, trim=10 10 20 10, clip]{figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Global Feature Importances for the LGB $b$-Tagging Algorithm on 4-Jet Events]
+          {Global feature importances for the LGB $b$-tagging algorithm on 4-jet events. The normalized feature importance is shown in the parenthesis and the each dot is an observation showing the dependance between the SHAP value and the feature's value. 
           } 
-  \label{fig:q:shap_signal}
+  \label{fig:q:shap_btag_global_4j}
+\end{figure}
+
+\begin{marginfigure}[-0.5cm]
+  \centerfloat
+  \includegraphics[width=0.8\textwidth]{figures/logit_expit/expit.pdf}
+  \caption[The expit Function]
+          {The expit function.} 
+  \label{fig:q:expit}
+\end{marginfigure}
+
+\begin{marginfigure}[0.5cm]
+  \centerfloat
+  \includegraphics[width=0.8\textwidth]{figures/logit_expit/logit.pdf}
+  \caption[The logit Function]
+          {The logit function.} 
+  \label{fig:q:logit}
+\end{marginfigure}
+
+In regression, the model output is a continuous prediction ${\hat{y}_\mathrm{reg} \in \mathbb{R}}$. In classification what is actually happening under the hood is that the model predicts a value $\tilde{y} \in \mathbb{R}$ which is transformed to a number in the $[0, 1]$-interval via the \emph{expit} function:
+\begin{equation}
+    \label{eq:q:expit}
+    \mathrm{expit(\tilde{y})} = \frac{e^{\tilde{y}}}{1+e^{\tilde{y}}} \equiv p,
+\end{equation}
+where $p$ is a number in the $[0, 1]$-interval. The expit function is also sometimes known as the logistic function and is visualized in Figure~\ref{fig:q:expit}. Its inverse is the \emph{logit} function:
+\begin{equation}
+  \label{eq:q:logit}
+  \mathrm{logit}(p) = \log \left( \frac{p}{1-p}  \right) = \tilde{y},
+\end{equation}
+ which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. It is in this log-odds space that LightGBM makes its predictions and the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space. The additivity\sidenote{See also \autoref{sec:ml:feature_importance}.} of SHAP is in this log-odds space. 
+
+With this in mind, single predictions of the LGB $b$-tagging model can be understood with SHAP which Figure~\ref{fig:q:shap_single_prediction_3j} is an example of. This figure shows the logic behind the models prediction for this particular jet. That the bias is negative reflects that there is a majority of background compared to signal\sidenote{There are \SI{22.1}{\percent} $b$-jets in the 3-jet training set.}. This particular event has \code{projet}$=1.003$, \code{bqvjet}$=0.529$, and \code{ptljet}$=0$. In the plot it is seen how this high value of \code{projet} has the greatest impact on the model prediction, while the medium value of \code{bqvjet} also pushes the model prediction towards a signal-prediction. The four bars in the left part of the plot are all in log-odds space and their sum is shown as the blue bar to right, where the right $y$-axis shows the value in probability space $p\in [0,1]$. This jet was in fact a $b$-jet.
+% , so the model predicted this one correctly. 
+
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf}
+  \caption[SHAP 3-Jet Model Explanation for $b$-like Jet]
+          {Model explanation for the 3-jet $b$-tagging LGB model for a $b$-like jet. The first column is the bias of the training set which acts as the naive prediction baseline, the rest are the input data variables. On the right hand side of the plot is the model prediction shown. The left part of the plot is shown in log-odds space, the right part in probability space. The \textcolor{red}{negative} log-odd values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction} value in blue. 
+          } 
+  \label{fig:q:shap_single_prediction_3j}
 \end{figure}
 
 
