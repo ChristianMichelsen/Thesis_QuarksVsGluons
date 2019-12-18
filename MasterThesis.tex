@@ -91,6 +91,9 @@
 % \usepackage{slashed}
 \usepackage{centernot}
 
+% ignore overfull up to 5pt
+\hfuzz=5.002pt 
+
 \newcommand{\Independent}{\mathrel{\perp\mspace{-10mu}\perp}}
 \newcommand{\NotIndependent}{\centernot{\Independent}}
 
@@ -368,6 +371,8 @@
 % \includeonly{chapter_quark_gluon}
 
 % \includeonly{chapter_introduction,chapter_machine_learning_theory}
+% \includeonly{chapter_housing_prices,chapter_appendix_housing}
+
 
 \begin{document}
 
@@ -381,8 +386,12 @@
 \addcontentsline{toc}{chapter}{Abstract}
 Here will be a decent abstract at some point\textsuperscript{TM}.
 
-% r.5 contents
+
+% Needed for proper numbering of TOC
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{Table of Contents}
+
 \tableofcontents
 
 % r.9 introduction
@@ -406,6 +415,8 @@ The background for this masters's thesis, is that it is part of a so-called 4+4 
 
 \chapter*{Part I}
 The first part of this thesis deals with the introductory theory of machine learning and its predictive power in estimating Danish housing prices.  
+
+This subproject was done in collaboration with Boligsiden without whom it would not have been possible. During this project, common python data science tools from the SciPy ecosystem\autocite{virtanenSciPyFundamentalAlgorithms2019} such as NumPy, Matplotlib, Pandas, Scikit-Learn, Scipy has been used extensively and should thus also be mentioned. 
 
 \include{chapter_machine_learning_theory}
 

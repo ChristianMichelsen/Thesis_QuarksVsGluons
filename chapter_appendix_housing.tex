@@ -34,6 +34,39 @@
 
 
 
+\begin{table}
+  \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+  % \begin{tabular}{lr}
+  Energy rating label    & Code \\ \midrule
+  A2020                  & 2 \\
+  A2015 & 4  \\
+  A2010 & 6 \\
+  A2 & 8 \\
+  A1 & 10 \\
+  A &  12 \\
+  B  & 20 \\
+  C  & 30 \\
+  D  & 40 \\
+  E  & 50 \\
+  F2  & 60 \\
+  F1  & 62 \\
+  F  & 64 \\
+  G2  & 70 \\
+  G1  & 72 \\
+  G  & 74 \\
+  H, I, J, K, M  & 90 \\
+  NAN  & 100
+  \end{tabular*}
+  % \end{tabular}
+  \vspace{3mm}
+  \caption[Energy Rating Mapping]{Energy rating mapping. If the energy rating is e.g. \q{A2} this gets the code \num{8}.}
+  \label{tab:h:energy_code}
+  \vspace{3mm}
+\end{table}
+
+
+
+
 \begin{figure}[h!]
   \includegraphics[draft, width=0.9\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_forecast.png}
   \caption[Prophet Forecast for apartments]

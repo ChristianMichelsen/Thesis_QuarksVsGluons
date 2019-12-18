@@ -3,34 +3,32 @@
 \label{ch:housing_price_analysis}
 \epigraph{\textit{``Buy land, they’re not making it anymore.''}}{--- Mark Twain}
 % \epigraph{\textit{``It’s tangible, it’s solid, it’s beautiful. It’s artistic, from my standpoint, and I just love real estate.''}}{--- Donald Trump}
-\newthought{Housing markets} have always been a playing field for economists, property speculators, real estate agents, and realtors. The author of this thesis is by no metric any of these, not even close to, yet, when the issue of estimating Danish housing prices came up, it was too much of a challenge just lying there to let it go. Estimating housing prices is a classical economical discipline with papers from the Danish National Bank developing a regional model of the Danish housing market \autocite{hviidWorkingPaperRegional2017} to analysis of the financial crisis in 2008-2009 and its effects on the Copenhagen metropolitan area \autocite{mulalicFinancialCrisisDiverging2017}. 
+\newthought{Housing markets} have always been a playing field for economists, property speculators, real estate agents, and realtors. The author of this thesis is by no metric any of these, not even close to, yet, when the issue of estimating Danish housing prices came up, it was too much of a challenge just lying there to let it go. Estimating housing prices is a classical economical discipline as seen in papers from the Danish National Bank developing a regional model of the Danish housing market \autocite{hviidWorkingPaperRegional2017} to an analysis of the financial crisis in \num{2008}-\num{2009} and its effects on the Copenhagen metropolitan area \autocite{mulalicFinancialCrisisDiverging2017}. 
 
 \begin{figure}
-  \includegraphics[width=0.98\textwidth, trim=10 20 10 10, clip]{figures/housing_price_index_dst/housingindex_wide.pdf}
+  \includegraphics[width=0.98\textwidth, trim=10 15 10 10, clip]{figures/housing_price_index_dst/housingindex_wide.pdf}
   \caption[Danish Housing Price Index]
           {Price Index of the Danish housing market. Prince index of Danish one-family houses and owner-occupied apartments where \textcolor{red}{houses} are shown in red and \textcolor{blue}{apartments} in blue, where full lines are for the entirety of Denmark and dashed lines are only for Copenhagen. Errorbars (scaled up with a factor of 2) are shown as colored bands. The price index and its uncertainty is based on numbers from \citet{dstPriceIndexEJ14}, however, rescaled to 100 in 2000 (instead of 2006 as it was in the data).}
   \label{fig:h:price_index}
 \end{figure}
 
-If one takes a look at the time development of the Danish housing\sidenote[][1cm]{\q{Housing} means both actual houses and privately owned apartments in this project.} market, the Danish governmental organization for statistics, Statistics Denmark, releases a price index \citep{dstPriceIndexEJ14} for both one-family houses (OFH) and owner-occupied apartments (OOA) quarterly, this is shown in Figure~\ref{fig:h:price_index}. Here it is easy to see the effect of the financial crisis around 2008, but also the steady increase in the housing market since then in both Copenhagen and the entire country. 
+If one takes a look at the time development of the Danish housing market, the Danish governmental organization for statistics, Statistics Denmark, releases a price index \citep{dstPriceIndexEJ14} for both one-family houses (OFH) and owner-occupied apartments (OOA) quarterly, see Figure~\ref{fig:h:price_index}. Here it is easy to see the effect of the financial crisis around 2008, but also the steady increase in the housing market in both Copenhagen and the entire country since then. Housing in this context means both actual houses and privately owned apartments, and will be called residences in general in this project. 
 
-The goal of this subproject\sidenote{The housing price estimation subproject.} is not to predict any future collapse as the financial markets as we saw upwards of 10 years ago. Instead, it is to learn patterns in the price of houses in steady times. The goal is training a computer\sidenote{In contrary to \citet{hviidWorkingPaperRegional2017, mulalicFinancialCrisisDiverging2017} and others who base their models on macro-economic principles.} to automatically to find these patterns and see if we can improve this model.
+The goal of this subproject is not to predict any future collapse as the financial markets as we saw upwards of 10 years ago. Instead, it is to learn patterns in the price of houses in steady times. The goal is training a computer to automatically find these patterns and see if we can improve this model\sidenote{In contrary to \citet{hviidWorkingPaperRegional2017, mulalicFinancialCrisisDiverging2017} and others who base their models on macro-economic principles.}.
 
-In chapter XXX I will introduce the data, do EDA and so on. Then I will introduce the models in XXX, start the HPO in chapter XXX, and talk about the results in XXX, the SHAP values in XXX and the time predictions in XXX. 
-
-This subproject was done in collaboration with Boligsiden without whom it would not have been possible. During this project, common python data science tools from the SciPy ecosystem\autocite{virtanenSciPyFundamentalAlgorithms2019} such as NumPy, Matplotlib, Pandas, Scikit-Learn, Scipy has been used extensively and should thus also be mentioned. 
+In \autoref{sec:h:data_cleaning} the data will be introduced and feature augmented in \autoref{sec:h:feature_augmentation}.  The evaluation functions will be discussed in \autoref{sec:h:evaluation_function} and the choice of loss function decided in \autoref{sec:h:initial_hyperparameter_optimization}. The model is fitted and optimized in \autoref{sec:h:hyperparamater_optimization} and the results presented in \autoref{sec:h:results}. Finally the model will be further understood in \autoref{sec:h:model_inspection}, some additional models presented in \autoref{sec:h:multiple_models} and at last the models will be discussed in \autoref{sec:h:discussion}.
 
 \section{Data Preparation and Exploratory Data Analysis}
 \label{sec:h:data_cleaning}
 \epigraph{\textit{``\SI{80}{\percent} of data science is cleaning the data and \SI{20}{\percent} is complaining about cleaning the data.''}}{--- Anthony Goldbloom, Kaggle}
 
 
-The first part of any data science project is actually getting the data and being able to read it. This has been an iterative process that has improved over time. The last data transfer we got was September \nth{3} 2019 and consisted of a \SI{522.4}{\mega\byte} CSV file with dimensions $(\num{711212}, \num{171})$. This section will go through the data cleaning process.
+The first part of any data science project is actually getting the data and being able to read it. This has been an iterative process that has improved over time. The last data transfer we got was September \nth{3} 2019 which consisted of a \SI{522.4}{\mega\byte} CSV file with dimensions $(\num{711212}, \num{171})$. This section will go through the data cleaning process.
 
-Before any further data analysis is performed, all of the data is loaded, except three columns which only contain internal information for Boligsiden\sidenote{The variables are \code{Sag_Kvhx}, \code{Enhed_GOP_BoligtypeKode}, and \code{Bygning_GOP_Matrikelnr}.}. To get a better understanding of all of the variables, histograms showing the one-dimensional distributions of all of the variables were made.
+Before any further data analysis is performed, all of the data is loaded, except columns which only contain internal information for Boligsiden\sidenote{The variables \code{Sag_Kvhx}, \code{Enhed_GOP_BoligtypeKode}, and \code{Bygning_GOP_Matrikelnr}.}. To get a better understanding of all of the variables, histograms showing the one-dimensional distributions of all of the variables were made.
 
 Four particularly interesting ones are seen in Figure~\ref{fig:h:variable_overview}: 
-the distribution of the date of the sale \code{SalgsPris} in subfigure~\subref{fig:h:variable_overview_date},  
+the distribution of the date of the sale \code{SalgsDato} in subfigure~\subref{fig:h:variable_overview_date},  
 the distribution of the type of residence \code{SagtypeNr} in subfigure~\subref{fig:h:variable_overview_type},
 the distribution of the longitude of the residence \code{GisX_WGS84} in subfigure~\subref{fig:h:variable_overview_longitude}, and
 the distribution of the area of the residence \code{ArealBolig} in subfigure~\subref{fig:h:variable_overview_area}.
@@ -46,7 +44,7 @@ the distribution of the area of the residence \code{ArealBolig} in subfigure~\su
   \includegraphics[width=0.45\textwidth, page=20, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}\hfil
   \subfloat[\label{fig:h:variable_overview_area}]{\qquad}
   \includegraphics[width=0.45\textwidth, page=23, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
-  \caption[Distributions for the housing price dataset]{Distributions of four out of the 168 input variables. 
+  \caption[Distributions for the housing price dataset]{Distributions of four out of the \num{168} input variables. 
            Subplot ~\protect\subref{fig:h:variable_overview_date} shows the date of the sale, 
            Subplot ~\protect\subref{fig:h:variable_overview_type} shows the type of residence,
            Subplot ~\protect\subref{fig:h:variable_overview_longitude} shows the longitude,
@@ -55,7 +53,7 @@ the distribution of the area of the residence \code{ArealBolig} in subfigure~\su
   \vspace{\abovecaptionskip}
 \end{figure*}
 
-The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_date}, is an interesting variable because it shows how Boligsiden has been collecting more and more data over time. Here 2007 and 2019 are clear outliers since their current database only contains sales from the end of 2007, and 2019 only contains data from the first eight months of the year. The type of residence is a discrete code that Boligsiden uses to differentiate between different types of residences. The mapping between code and description can be seen in Table~\ref{tab:h:salgstype}. 
+The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_date}, is an interesting variable because it shows how Boligsiden has been collecting more and more data over time. Here \num{2007} and \num{2019} are clear outliers since their current database only contains sales from the end of \num{2007}, and \num{2019} only contains data from the first eight months of the year. The \code{SagTypeNr} is a discrete code that Boligsiden uses to differentiate between different types of residences. The mapping between code and description can be seen in Table~\ref{tab:h:salgstype}. 
 
 \begin{margintable}
   \centering
@@ -82,13 +80,13 @@ The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subr
   % \bottomrule
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption{XXX \TODO.}
+  \caption{Mapping between the code in \code{SagTypeNr} and the type of residence. The two important types of residences are villa (one-family houses) and ejerlejlighed (owner-occupied apartments).}
   \label{tab:h:salgstype}
 \end{margintable}
 
-In this project only one-family houses -- \q{Villas} in Danish -- with code \num{100} and owner-occupied apartments -- \q{Ejerlejlighed} in Danish -- with code 300 are considered. As can be seen from Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_type} these two types of residences are also the most frequent sales with close to \num{400000} and \num{150000} sales in total. The longitude distribution, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_longitude}, is mostly interesting due to fact that it clearly shows how the Great Belt and especially the Baltic Sea separates Denmark into three parts; the Western part, the Eastern part, and then Bornholm. Note that more than \SI{5}{\percent} of the residences' locations are unknown values: Not A Number \q{NANs}. The distribution of the area, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_area}, shows that most residences are between \SI{50}{\meter^2} and \SI{200}{\meter^2}, as expected in Denmark. However, a relatively large part of the residences, \SI{2.5}{\percent}, are listed as having an area of \SI{0}{\meter^2}. All of the 1D-distributions can be seen in Figure~\ref{fig:h:variable_overview_all_1}--\ref{fig:h:variable_overview_all_14}. 
+In this project only one-family houses -- \q{Villas} in Danish -- with code \num{100} and owner-occupied apartments -- \q{Ejerlejlighed} in Danish -- with code \num{300} are considered. As can be seen from Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_type} these two types of residences are also the most frequent sales with close to \num{400000} and \num{150000} sales in total. The longitude distribution, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_longitude}, is mostly interesting due to fact that it clearly shows how the Great Belt and especially the Baltic Sea separates Denmark into three parts; the Western part, the Eastern part, and then Bornholm. Note that more than \SI{5}{\percent} of the residences' locations are unknown values, so-called \q{Not A Number}s (NANs). The distribution of the area, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_area}, shows that most residences are between \SI{50}{\meter^2} and \SI{200}{\meter^2}, as expected in Denmark. However, a relatively large part of the residences, \SI{2.5}{\percent}, are listed as having an area of \SI{0}{\meter^2} which are obviously erroneous entries. All of the 1D-distributions can be seen in Figure~\ref{fig:h:variable_overview_all_1}--\ref{fig:h:variable_overview_all_14}. 
 
-The geographic distribution of sales can be seen in Figure~\ref{fig:h:geo_overview}. The residences are coloured according the square meter price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sqm_price} and according to the sales price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sales_price}. Notice the strong correlation between the distance to water and the square meter price, a correlation that is less visible when looking at the sales price. Since these plots each contain \num{674647} points\sidenote{Only sales with a valid GPS-coordinate and area of residence are shown}, over-plotting quickly becomes an issue. To circumvent this, the great software package called DataShader was used \autocite{bednarDatashaderRevealingStructure2019} which in a simple, consistent, and not at least fast manner allows one to plot big data.
+The geographic distribution of sales can be seen in Figure~\ref{fig:h:geo_overview}. The residences are coloured according the square meter price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sqm_price} and according to the sales price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sales_price}. Notice the strong correlation between the distance to water and the square meter price, a correlation that is less visible when looking at the sales price. Since these plots each contain \num{674647} points\sidenote{Only sales with a valid GPS-coordinate and area of residence are shown}, over-plotting quickly becomes an issue. To circumvent this the software package called DataShader \autocite{bednarDatashaderRevealingStructure2019} was used which in a simple, consistent, and not at least computationally efficient manner allows one to plot big data.
 % \begin{figure}
 %   \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Denmark_Overview_SqmPrice.png}
 %   \caption[Geographic overview of square meter price in Denmark]
@@ -96,22 +94,21 @@ The geographic distribution of sales can be seen in Figure~\ref{fig:h:geo_overvi
 %   \label{fig:h:geo_overview}
 % \end{figure}
 
-\begin{figure}
+\begin{figure*}
   \centering
   % \vspace*{-\abovecaptionskip}
-  \subfloat[\label{fig:h:geo_overview_sqm_price}]{\qquad}
+  \subfloat[\label{fig:h:geo_overview_sqm_price}]{\,}
   \includegraphics[draft=false, width=0.4\textwidth]{figures/housing/Denmark_Overview_SqmPrice.png}\hfil
-  \subfloat[\label{fig:h:geo_overview_sales_price}]{\qquad}
+  \subfloat[\label{fig:h:geo_overview_sales_price}]{\,}
   \includegraphics[draft=false, width=0.4\textwidth]{figures/housing/Denmark_Overview_SalesPrice.png}
   \caption[Distributions for the housing price dataset]{Geographic distribution of the sold residences. 
            In subplot ~\protect\subref{fig:h:geo_overview_sqm_price} the sales are colored according to their square meter price and in subplot ~\protect\subref{fig:h:geo_overview_sales_price} according to the sales price. 
            }
   \label{fig:h:geo_overview}
   \vspace{\abovecaptionskip}
-\end{figure}
+\end{figure*}
 
-
-The most important of the features is the sales price, called \code{SalgsPris} in the dataset, and its distribution shown in Figure~\ref{fig:h:price_overview_price}. This is a positively skewed distribution that shares visual similarities with a log-normal distribution. The mode of the distribution is \SI{1.1}{\Mkr} and the median\sidenote{The mean is \SI{2.0}{\Mkr} but this value is heavily influenced by a few very high values.} is \SI{1.6}{\Mkr}, but remember that this variables is shown for all types of residences.  
+The most important of the features is the sales price, called \code{SalgsPris} in the dataset. Its distribution is shown in Figure~\ref{fig:h:price_overview_price}. This is a positively skewed distribution that shares visual similarities with a log-normal distribution. The mode\sidenote{Measured in millions DKK, \si{\Mkr}} of the all sales prices is \SI{1.1}{\Mkr} and the median is \SI{1.6}{\Mkr} The mean is \SI{2.0}{\Mkr} but this value is heavily influenced by a few very high values. 
 
 \begin{figure}
   \includegraphics[width=0.98\textwidth, page=1, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
@@ -124,30 +121,31 @@ The most important of the features is the sales price, called \code{SalgsPris} i
 
 Having shown the \num{1}D-distributions of all the different variables in the previous section, the next step would be to look at the correlations between the variables. Since there are \num{168} input variables, it is almost impossible to understand every inter-variable correlation, however, it is tried in Figure~\ref{fig:h:correlations_all_lin} in the appendix. Here the correlation between all numerical variables that are not obviously related to other variables (like the GPS-coordinates that are in both lattitude-longitude and ETRS89\sidenote{European Terrestrial Reference System \num{1989}.} format), and with the condition that it has to have one inter-variable correlation higher than $|\rho| > \SI{30}{\percent}$, are plotted as a $(86 \times 86)$-dimensional heatmap.
 
-Even though inter-variable correlations are important in the exploratory data analysis (EDA) phase, what is more important is to get a better understanding of how the input variables correlate with the output variables; the sales price. This is shown in Figure~\ref{fig:h:corr_lin} for the variables where $\abs{\rho} > \SI{10}{\percent}$. It is the previous property evaluations, \code{EjdVurdering_EjendomsVaerdi} that are positively correlated the most with the sales price, which does not come as any huge surprise. Other positively correlated variables are the cost of ownership\sidenote{This a great example of the fact that correlation does not imply causation}, area, number of bathrooms, its longitude, and distance to nearest wind mill. In the other end, the local income tax, \code{Kommune_SkatteProcent}, is the variable that is the most negatively correlated to the sales price, followed by the geographical variables related to province, municipality, and postcode.
+Even though inter-variable correlations are important in the exploratory data analysis (EDA) phase, what is more important is to get a better understanding of how the input variables correlate with the output variable; the sales price. This is shown in Figure~\ref{fig:h:corr_lin} for the variables where $\abs{\rho} > \SI{10}{\percent}$. It is the previous property evaluation, \code{EjdVurdering_EjendomsVaerdi} that is correlated the most with the sales price, which does not come as any huge surprise. Other positively correlated variables are the cost of ownership\sidenote{This a great example of the fact that correlation does not imply causation}, area, number of bathrooms, its longitude, and distance to nearest wind mill. In the other end, the local income tax, \code{Kommune_SkatteProcent}, is the variable that is the most negatively correlated to the sales price, followed by the geographical variables related to province, municipality, and postcode.
 
 \begin{figure*}
   \centerfloat
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 40, clip]{figures/housing/lin_correlation.pdf}
+  \includegraphics[width=0.99\textwidth, trim=20 10 0 40, clip]{figures/housing/lin_correlation.pdf}
   \caption[Linear correlation between variables and price]
           {Linear correlation between variables and price for variables where the correlation coefficient $\rho$ is $\abs{\rho} > \SI{10}{\percent}$.}
   \label{fig:h:corr_lin}
 \end{figure*}
 
-The correlation $\rho$ used above is the linear correlation which thus only captures linear relationships between variables. All modern machine learning algorithms, however, are also able to capture higher-order correlations and thus a higher-order correlation measure is needed. The maximal information coefficient (MIC), which is a value between \num{0} and \num{1}, is such a non-linear measure. It finds correlation based on the intuition that if two variables are correlated, it should be possible to split the data up into smaller grids where, if they are correlated, the grid that contain points should contain many points and the rest of the grids should be (relatively) empty \autocite{reshefDetectingNovelAssociations2011}. This is in comparison to two uncorrelated variables which would simply display noisy behavior and only have few grids with many points in. \citet{albanesePracticalToolMaximal2018a} extended on this idea and developed the computationally efficient algorithm called \code{MICtools} which computes the estimator for MIC: $\mathrm{MIC}_e$. An example of this tool non-linear correlation is seen in Figure~\ref{fig:h:MIC_example_small}. Here the relationship between the normal linear correlation $\rho$ and $\mathrm{MIC}_e$ can be seen for four synthetic datasets. Notice that $\mathrm{MIC}_e$ does it particularly well for the sine wave, and decent for the line and parabola, but only slightly captures the relationship for the exponential growth. The influence of noise on $\rho$ and $\mathrm{MIC}_e$ can be see in Figure~\ref{fig:h:MIC_example} in the appendix. 
+The correlation $\rho$ used above is the linear correlation which only captures linear relationships between variables. All modern machine learning algorithms, however, are also able to capture higher-order correlations and thus a higher-order correlation measure is needed. The maximal information coefficient (MIC), which is a value between \num{0} and \num{1}, is such a non-linear measure. It finds correlation based on the intuition that if two variables are correlated, it should be possible to split the data up into smaller grids where, if they are correlated, the grid that contain points should contain many points and the rest of the grids should be (relatively) empty \autocite{reshefDetectingNovelAssociations2011}. This is in comparison to two uncorrelated variables which would simply display noisy behavior and only have few grids with many points in. \citet{albanesePracticalToolMaximal2018a} extended on this idea and developed the computationally efficient algorithm called MICtools which computes the estimator for MIC: $\mathrm{MIC}_e$. An example of this non-linear correlation is seen in Figure~\ref{fig:h:MIC_example_small}. Here the relationship between the normal linear correlation $\rho$ and $\mathrm{MIC}_e$ can be seen for four synthetic datasets. Notice that $\mathrm{MIC}_e$ does it particularly well for the sine wave, and decent for the line and parabola, but only slightly captures the relationship for the exponential growth. The influence of noise on $\rho$ and $\mathrm{MIC}_e$ can be see in Figure~\ref{fig:h:MIC_example} in the appendix. 
 
 \begin{figure}
-  \centering
+  \centerfloat
   \includegraphics[width=0.99\textwidth, trim=10 10 10 10, clip]{figures/housing/MIC_test_small.pdf}
-  \caption[MIC non-linear correlation.]
-          {MIC non-linear correlation. XXX \TODO}
+  \caption[Comparison of the Linear Correlation $\rho$ and the Non-Linear MIC.]
+          {Comparison of the linear correlation $\rho$ and the non-linear MIC for a straight line, a parabola, an exponential, and a sine wave, all with noise added. See also Figure~\ref{fig:h:MIC_example} in the appendix.}
   \label{fig:h:MIC_example_small}
 \end{figure}
 
-Using $\mathrm{MIC}_e$ as the correlation measure between the numerical variables and the sales prices, the variables with a $\mathrm{MIC}_e$-score higher than \SI{10}{\percent} can be seen in Figure~\ref{fig:h:corr_MIC}. Again, the previous property evaluations are the most correlated features to the sales price followed by the parish code, \code{SogneKode}. In general the geographical variables score high here, with also the post code, municipality number, and longitude. 
+Using $\mathrm{MIC}_e$ as the correlation measure between the numerical variables and the sales prices, the variables with a $\mathrm{MIC}_e$-score higher than \SI{10}{\percent} can be seen in Figure~\ref{fig:h:corr_MIC}. Again, the previous property evaluations are the most correlated features to the sales price followed by the parish code, \code{SogneKode}. In general the geographical variables score high here with also the post code, municipality number, and longitude. 
 
 \begin{figure*}
-  \includegraphics[width=0.9\textwidth, trim=0 0 0 40, clip]{figures/housing/MIC_plot.pdf}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=10 10 0 40, clip]{figures/housing/MIC_plot.pdf}
   \caption[Non-linear correlation between variables and price]
           {Non-linear correlation between variables and price using Maximal Information Coefficient (MIC) for variables where $\text{MIC}>10\%$.}
   \label{fig:h:corr_MIC}
@@ -155,29 +153,32 @@ Using $\mathrm{MIC}_e$ as the correlation measure between the numerical variable
 
 \subsection{Validity of input variables}
 
-The fact that some of the variables contains considerable amount of invalid values, NANs, requires this to be taken into account before any further analysis. The validity, defined as the percentage of valid observations, of every variable is shown in Figure~\ref{fig:h:nans}. Here the 168 variables variables are grouped together into 25 variables where each group share the same validity. An example of this are all of the 16 different distance-variables\sidenote{Distance to: Fængsel, Hede, Højspaendingsledning, Industri, JernbaneSynlig, Kirke, Kirkegård, Kyst, Landingsbane, Motorvej, MotorvejTilFraKørsel, RekreativtOmråde, Rigsgrænse, Sportsanlæg, Strand, Vindmølle}. We see that most of the variables have validities around more than 
+The fact that some of the variables contains considerable amount of invalid values, NANs, requires this to be taken into account before any further analysis. The validity, defined as the percentage of valid observations, of every variable is shown in Figure~\ref{fig:h:nans}. Here the \num{168} variables variables are grouped together into \num{25} variables where each group share the same validity. An example of this are all of the \num{16} different distance-variables\sidenote{Distance to: prison, heath, high-voltage transmission line, industri, visible railroad, church, churchyard, coast, landing strip, motorway, access to motorway, recreational area, border, sports centre, beach, and windmill.}. We see that most of the variables have validities around more than 
 \SI{85}{\percent}, however, a few of the variables, especially information about the building, \code{BygningsInfo}, have validities less than \SI{20}{\percent}. 
 
-\begin{figure}
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/housing/missing_bar.pdf}
+% \sidenote{Distance to: Fængsel, Hede, Højspaendingsledning, Industri, JernbaneSynlig, Kirke, Kirkegård, Kyst, Landingsbane, Motorvej, MotorvejTilFraKørsel, RekreativtOmråde, Rigsgrænse, Sportsanlæg, Strand, Vindmølle}
+
+\begin{figure*}
+  \centerfloat
+  \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/missing_bar.pdf}
   \caption[Validity of input features]
           {Percentage of valid counts for each variable grouped together in categories.}
   \label{fig:h:nans}
-\end{figure}
+\end{figure*}
 
-To see how closely related the different validity groups are, one can look at the dendrogram in Figure~\ref{fig:h:nans_dendrogram}. The dendrogram is based on a hierarchical clustering algorithm \citep{virtanenSciPyFundamentalAlgorithms2019} where the different groups are clustered according to their linear correlation. This diagram is supposed to be read in a top-down approach, where it can be see that the name of the street, \code{Vejnavn}, and the number of the residence, \code{HusNr}, correlate a lot and are thus clustered very early. The year of the last time the residence was rebuilt or greatly modified, \code{OmbygningsAAr}, does not correlate strongly with any of the other variables and is thus the last variable to be clustered together. 
+To see how closely related the different validity groups are, one can look at the dendrogram in Figure~\ref{fig:h:nans_dendrogram}. The dendrogram is based on a hierarchical clustering algorithm \citep{virtanenSciPyFundamentalAlgorithms2019} where the different groups are clustered according to the linear correlation of their validity. This diagram is supposed to be read in a top-down approach, where it can be see that the name of the street, \code{Vejnavn}, and the number of the residence, \code{HusNr}, correlate a lot and are thus clustered very early. The year of the last time the residence was rebuilt or greatly modified, \code{OmbygningsAAr}, does not correlate strongly with any of the other variables and is thus the last variable to be clustered together. 
 
 \begin{figure}
   \includegraphics[width=0.98\textwidth, trim=35 10 0 10, clip]{figures/housing/missing_dendrogram.pdf}
   \caption[Validity Dendrogram]
-          {Validity Dendrogram \TODO.}
+          {Validity Dendrogram based on hierarchical clustering of the linear correlation of validity for the housing price variables clustered together.}
   \label{fig:h:nans_dendrogram}
 \end{figure}
 
 To see a heatmap of the inter-variable correlations, see Figure~\ref{fig:h:nans_heatmap} in the appendix. 
 
 \subsection{Cuts}
-Given the 1D input variable distributions and their validity, we apply some very basic cuts before any further analysis. These cuts are seen in Table \ref{tab:h:initial_cuts}. Sales type, \code{OISSalgsType}, is a OIS\sidenote{OIS is short for \q{Den Offentlige Informationsserver}, the Danish public information server, and it collects information about Danish residences \autocite{oisWwwOISDk}.} code which describes what type of sale it is: when it is \num{1} it is considered a normal sale, compared e.g. forced sales. These cuts are seen as the minimum requirements for what constitutes a curated dataset with no obvious outliers. The reason why the time requirement is applied, is to reduce the effect of the financial crisis to creep into the model. 
+Given the 1D input variable distributions and their validity, we apply some very basic cuts before any further analysis. These cuts are seen in Table \ref{tab:h:initial_cuts}. Sales type, \code{OISSalgsType}, is a OIS\sidenote{OIS is short for \q{Den Offentlige Informationsserver}, the Danish public information server, and it collects information about Danish residences \autocite{oisWwwOISDk}.} code which describes what type of sale it is: when it is \num{1} it is considered a normal sale, compared to e.g. forced sales. These cuts are seen as the minimum requirements for what constitutes a curated dataset with no obvious outliers. The reason why the time requirement is applied is to reduce the effect of the financial crisis to creep into the model. 
 
 \begin{table}[h]
   \begin{tabular}{@{}llcr@{}}
@@ -193,7 +194,7 @@ Given the 1D input variable distributions and their validity, we apply some very
   \bottomrule
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption{XXX \TODO.}
+  \caption[Basic Cuts]{Overview of the basic cuts which define the minimum information needed to preditct the price of a sale.}
   \label{tab:h:initial_cuts}
 \end{table}
 
@@ -205,69 +206,41 @@ Given the 1D input variable distributions and their validity, we apply some very
   \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} lr}
   % \toprule
   String & Explanation  & Code \\ \midrule
-  NAN    & No side door & 0    \\
-  TH, TV & Right, left  & 11   \\
-  MF     & Center       & 12   \\
-  --     & The rest         & 15 
+  NAN    & No side door & \num{0}    \\
+  TH, TV & Right, left  & \num{11}   \\
+  MF     & Center       & \num{12}   \\
+  --     & The rest     & \num{15} 
   \end{tabular*}
-  \vspace{3mm}
-  \caption{XXX \TODO.}
+  \vspace{1mm}
+  \caption[Side Door Mapping.]{Side door mapping. If the side door string contains e.g. \q{TH} this gets the code \num{11}.}
   \label{tab:h:sidedoor_code}
   \vspace{3mm}
 \end{margintable}
+
 
 \begin{margintable}
   % \vspace{\abovecaptionskip}
   % \begin{tabular}{llr}
   \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} lr}
   Contains   & Explanation  & Code \\ \midrule
-  Vej        & Road       & 0    \\
-  Gade       & Street     & 1    \\
-  Alle, Allé & Avenue     & 2    \\
-  Boulevard  & Boulevard  & 3    \\
-  --         & The rest   & -1  
+  Vej        & Road       & \num{0}    \\
+  Gade       & Street     & \num{1}    \\
+  Alle, Allé & Avenue     & \num{2}    \\
+  Boulevard  & Boulevard  & \num{3}    \\
+  --         & The rest   & \num{-1}  
   \end{tabular*}
-  \vspace{3mm}
-  \caption{XXX \TODO.}
+  \vspace{1mm}
+  \caption[Street Mapping]{Street mapping. If the street name contains e.g. \q{Vej} this gets the code \num{0}.}
   \label{tab:h:road_code}
   \vspace{3mm}
 \end{margintable}
 
-\begin{margintable}
-  \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
-  % \begin{tabular}{lr}
-  Energy rating label    & Code \\ \midrule
-  A2020                  & 2 \\
-  A2015 & 4  \\
-  A2010 & 6 \\
-  A2 & 8 \\
-  A1 & 10 \\
-  A &  12 \\
-  B  & 20 \\
-  C  & 30 \\
-  D  & 40 \\
-  E  & 50 \\
-  F2  & 60 \\
-  F1  & 62 \\
-  F  & 64 \\
-  G2  & 70 \\
-  G1  & 72 \\
-  G  & 74 \\
-  H, I, J, K, M  & 90 \\
-  NAN  & 100
-  \end{tabular*}
-  % \end{tabular}
-  \vspace{3mm}
-  \caption{XXX \TODO.}
-  \label{tab:h:energy_code}
-  \vspace{3mm}
-\end{margintable}
 
-Until now all of the analysis have dealt with different types of residences all together. From now on, the rest of the analysis will be applied on single-family houses and owner-occupied apartments independently. 
+Until now the analysis have dealt with different types of residences all together. From now on, the rest of the analysis will be applied on single-family houses and owner-occupied apartments independently. 
 
-First invalid counts are dropped, such that variables which contain more than \SI{10}{\percent} NANs are dropped, and duplicate rows are also removed. Then some manual features are added based on the day of the month, the month, and the year are extracted from the sales date and the sales date is also represented as both a float and as the numbers of days since January \nth{1}, \num{2009}. From the number of the house, \code{HusNr}, the number is extracted along with a boolean flag indicating whether or not it includes a letter (eg. \q{27B}). The number of the side door, \code{SidedoerNr}, is formatted according to Table~\ref{tab:h:sidedoor_code} and the road name is according to  Table~\ref{tab:h:road_code}. The age of the house is added\sidenote{In addition to only having the year the house was was built} and the amount of time (in year) since last major modification. The energy rating label, \code{EnergiMaerke}, is also converted from strings to values according to  Table~\ref{tab:h:energy_code} 
+First invalid counts are dropped such that variables which contain more than \SI{10}{\percent} NANs are dropped, and duplicate rows are also removed. Then some manual features are added based on existing features. The day of the month, the month, and the year are extracted from the sales date and the sales date is also represented as the numbers of days since January \nth{1}, \num{2009}. From the number of the house, \code{HusNr}, the number is extracted along with a boolean flag indicating whether or not it includes a letter (eg. \q{27B}). The number of the side door, \code{SidedoerNr}, is formatted according to Table~\ref{tab:h:sidedoor_code} and the road name is according to  Table~\ref{tab:h:road_code}. The age of the house is added\sidenote{In addition to only having the year the house was was built.} and the amount of time (in years) since last major modification. The energy rating label, \code{EnergiMaerke}, is also converted from strings to values according to Table~\ref{tab:h:energy_code} in the appendix.
 
-Finally, some of the variables in the dataset are not suitable for machine learning or simply transformations of other varibles. These are variables such as the ID, when the house was deleted at Boligsiden, or the cash price, since we want the model to learn the price of the house and not simply the efficiency of the realtor.
+Finally, some of the variables in the dataset are not suitable for machine learning or simply transformations of other variables. These are variables such as the ID, when the house was deleted at Boligsiden, or the cash price. They are dropped since we do not want the model to learn the price of the residence using these variables.
 
 \subsection{Time-Dependent Price Index}
 
@@ -275,14 +248,15 @@ In addition to the manual data augmentation in \autoref{sec:h:feature_augmentati
 \begin{equation}
   y_\mathrm{Prophet}(t) = g(t) + s(t) + \epsilon_t,
 \end{equation}
-where $\epsilon_t$ is a normally distributed error term. \citet{taylorForecastingScale} fit this equation with a generalized additive model (GAM) \autocite{hastieGeneralizedAdditiveModels1987} which they argue has several practical advantages compared to ARIMA models\sidenote{AutoRegressive Integrated Moving Average}. 
+where $\epsilon_t$ is a normally distributed error term. \citet{taylorForecastingScale} fit this equation with a generalized additive model (GAM) \autocite{hastieGeneralizedAdditiveModels1987} which they argue has several practical advantages compared to ARIMA \sidenote{AutoRegressive Integrated Moving Average.} models which commonly used in economics \autocite{nla.cat-vn1067782}. 
 
-We fit the Prophet model on the weekly median price pr. square meter (PPSM) up until (and including) \num{2017}. The results of the prophet model fitted on OOAs are seen in Figure~\ref{fig:h:prophet_forecast} and Figure~\ref{fig:h:prophet_trends}. In Figure~\ref{fig:h:prophet_forecast} the weakly median price pr. square meter for OOAs are shown as black dots with the fitted Prophet model shown in blue. The $1\sigma$ uncertainty intervals are shown as the transparent blue band. The Prophet model not only allows predicting previous and future PPSMs, it also return the uncertainty of this prediction. The future predictions for the PPSM are the values after 2018. The trend and seasonality of the model are shown in Figure~\ref{fig:h:prophet_trends} where the top plot is the overall trend $g(t)$ and the bottom plot is the seasonality $s(t)$. Whereas the trend just continues to rise, the seasonality shows that residences are generally sold for a higher price in the Summer months compared to the Winter months. 
+We fit the Prophet model on the weekly median price pr. square meter (PPSM) up until (and including) \num{2017}. The results of the prophet model fitted on (owner-occupied) apartments are seen in Figure~\ref{fig:h:prophet_forecast} and Figure~\ref{fig:h:prophet_trends}. In Figure~\ref{fig:h:prophet_forecast} the weakly median price pr. square meter for apartments are shown as black dots with the fitted Prophet model shown in blue. The $1\sigma$ uncertainty intervals are shown as the transparent blue band. The Prophet model not only allows predicting previous and future PPSMs, it also return the uncertainty of this prediction. The future predictions for the PPSM are the values after 2018. The trend and seasonality of the model are shown in Figure~\ref{fig:h:prophet_trends} where the top plot is the overall trend $g(t)$ and the bottom plot is the seasonality $s(t)$. Whereas the trend just continues to rise, the seasonality shows that residences are generally sold for a higher price in the Summer months compared to the Winter months. 
+The Prophet model plots for one-family houses can be seen in Figure~\ref{fig:h:prophet_forecast_villa} and \ref{fig:h:prophet_trends_villa} in the appendix. 
 
 \begin{figure}
   \includegraphics[draft=false, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
   \caption[Prophet Forecast for apartments]
-          {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the \num{1}-$\sigma$ confidence interval.
+          {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the $1\sigma$ confidence interval.
           }
   \label{fig:h:prophet_forecast}
 \end{figure}
@@ -294,8 +268,6 @@ We fit the Prophet model on the weekly median price pr. square meter (PPSM) up u
           }
   \label{fig:h:prophet_trends}
 \end{figure}
-
-The Prophet model plots for OFHs can be seen in Figure~\ref{fig:h:prophet_forecast_villa} and Figure~\ref{fig:h:prophet_trends_villa} in the appendix. 
 
 Using the Prophet model, we define the price index (PI) to be the Prophet-predicted PPSM, $y_\mathrm{Prophet}$, for each residence normalized by the mean to give values around \num{1}:
 \begin{equation}
@@ -313,30 +285,32 @@ where $\langle \boldsymbol{\cdot} \rangle$ refers to the average. The price inde
 % \end{figure}
 
 \section{Evaluation Function}
+\label{sec:h:evaluation_function}
 
 The choice of evaluation function $f_\mathrm{eval}$ is an important decision. The evaluation function will be based on the relative prediction $z$: 
 \begin{equation}
   z = \frac{\hat{y}-y}{y},
 \end{equation}
-where $y$ is true price and $\hat{y}$ the predicted one. The relative prediction is defined such that it is positive when $\hat{y}>y$, due to the outlier cuts made earlier the denominator is made sure to always be positive (and never \num{0}), and $z$ is expected to approximately follow a normal distribution. Initially the mean of $z$ was considered as the choice of $f_\mathrm{eval}$ though this only ensures a minimum of bias, not necessarily a low spread. This lead the discussion on to look at the standard deviation of $z$ as $f_\mathrm{eval}$. The mean and the standard deviation, however, are not a very robust estimators since they are heavily influenced by outliers. The mean (and thus also the standard deviation) has a \emph{asymptotic breakdown point} at \SI{0}{\percent}, where the breakdown point is defined as the smallest fraction\sidenote{Where the \q{asymptotic} in \q{asymptotic breakdown point} refers to when the number of samples goes to infinity.} of bad observations that can cause an estimator to become arbitrarily small or large: a single outlier with an arbitrarily large value may cause the mean to diverge to that large value \autocite{huber2011robust}. In comparison, the median has an asymptotic breakdown point of \SI{50}{\percent} and is thus a more robust estimator of centrality. A robust measure of the variability or dispersion of a sample $\vec{x}$ -- compared to e.g. the standard deviation $\sigma$ -- is the median absolute deviation (MAD) written as:
+where $y$ is true price and $\hat{y}$ the predicted one. The relative prediction is defined such that it is positive when $\hat{y}>y$, due to the outlier cuts made earlier the denominator is made sure to always be positive (and never \num{0}), and $\vec{z}$ is expected to approximately follow a normal distribution\sidenote{Where $\vec{z}$ is the vector of all relative predictions $\vec{z} \in \mathbb{R}^N$.}. Initially the mean of $\vec{z}$ was considered as the choice of evaluation function $f_\mathrm{eval}\stackrel{?}{=} \mathrm{mean}(\vec{z})$ though this only ensures a minimum of bias, not necessarily a low spread. This lead the discussion on to look at the standard deviation of $z$ as $f_\mathrm{eval}\stackrel{?}{=} \mathrm{std}(\vec{z})$. The mean and the standard deviation, however, are not a very robust estimators since they are heavily influenced by outliers. The mean (and thus also the standard deviation) has a \emph{asymptotic breakdown point} at \SI{0}{\percent}, where the breakdown point is defined as the smallest fraction\sidenote{Where the \q{asymptotic} in \q{asymptotic breakdown point} refers to when the number of samples goes to infinity.} of bad observations that can cause an estimator to become arbitrarily small or large: a single outlier with an arbitrarily large value may cause the mean to diverge to that large value \autocite{huber2011robust}. In comparison, the median has an asymptotic breakdown point of \SI{50}{\percent} and is thus a more robust estimator of centrality. A robust measure of the variability or dispersion of a sample $\vec{x}$ -- compared to e.g. the standard deviation $\sigma$ -- is the median absolute deviation (MAD) written as:
 \begin{equation}
   \mathrm{MAD}(\vec{x}) = c \cdot \mathrm{median} \left( \abs{\vec{x} - \mathrm{median}(\vec{x})} \right), \quad c = \frac{1}{\Phi^{-1}(\frac{3}{4})},
   \label{eq:h:MAD}
 \end{equation}
 where $c$ is a normalization constant to make MAD a consistent estimator of the standard deviation $\sigma$ assuming normally distributed data and $\Phi^{-1}$ is the percent point function\sidenote{Inverse of the cumulative distribution function.} \autocite{leysDetectingOutliersNot2013}.
-The MAD is thus the median of the absolute differences between the data and the median of the data. We are, however, not just interested in having the distribution of the (relative) predictions as narrow as possible, we also want it centered around \num{0}. We thus continue with the following evaluation function:
+The MAD is thus the median of the absolute differences between the data and the median of the data. We are, however, not just interested in having the distribution of $\vec{z}$ as narrow as possible, we also want it centered around \num{0}. We thus continue with the following evaluation function:
 \begin{equation}
   \begin{split}
     \mathrm{MAD}_0(\vec{x})  &\equiv c \cdot  \mathrm{median} \left( \abs{\vec{x} - 0} \right) = c \cdot \mathrm{median} \left( \abs{\vec{x}} \right) \\
     f_\mathrm{eval}(\vec{z}) &\equiv \mathrm{MAD}_0(\vec{z}) = c \cdot  \mathrm{median} \left( \abs{\vec{z}} \right).
   \end{split}
 \end{equation}
-Here $\vec{z} \in \mathbb{R}^N$ is the vector of all relative price predictions. To get an intuition about the size of a \q{good} value of $\mathrm{MAD}_0$, one could calculate it comparing the asking price with the actual sales price. Doing so, one finds: $f_\mathrm{eval}(\vec{z}_\mathrm{OFH}) = \SI{11.35}{\percent}$ for houses and $f_\mathrm{eval}(\vec{z}_\mathrm{OOA}) = \SI{5.72}{\percent}$ for apartments. In some cases $f_\mathrm{eval}$ will still be referred to as MAD, however, it will be mentioned explicatly if the form in equation \eqref{eq:h:MAD} is meant. 
+To get an intuition about the size of a \q{good} value of $\mathrm{MAD}_0$, one could calculate it comparing the asking price with the actual sales price. Doing so, one finds: $f_\mathrm{eval}(\vec{z}_\mathrm{OFH}) = \SI{11.35}{\percent}$ for houses and $f_\mathrm{eval}(\vec{z}_\mathrm{OOA}) = \SI{5.72}{\percent}$ for apartments. In some cases $f_\mathrm{eval}$ will still be referred to as MAD and it will be mentioned explicably if the form in equation \eqref{eq:h:MAD} is meant. 
 
 \marginnote[-2cm]{The MAD is assuming symmetric distributions and thus non-symmetric robust measures of the variability of a sample have been developed. See \citet{rousseeuwAlternativesMedianAbsolute1993} for more details.}
 
 
 \section{Initial Hyperparameter Optimization}
+\label{sec:h:initial_hyperparameter_optimization}
 
 With the initial cleaning and feature adding done, the shapes of the ML-ready datasets are: (\num{291317}, \num{144}) for houses (OFHs) and (\num{114166}, \num{144}) for apartments (OOA), both sharing the same variables. All of the variables which are used from this point on can be seen in Table~\ref{tab:h:all_variables} in the appendix. 
 The data are split intro training and test sets such that training is defined as every sale from before \num{2018}, every sale from \num{2018} is the test set, and since more data came since the project started, \num{2019} is a small extra test set. 
@@ -526,6 +500,7 @@ The rest of the machine learning models thus continue with the following hyperpa
 
 \FloatBarrier
 \section{Hyperparameter Optimization}
+\label{sec:h:hyperparamater_optimization}
 With the initial HPO set, the actual training of the models was started. An XGBoost model was fitted to the each of the two training sets, one for apartments and one for houses, where the hyperparameters were optimized using both random search and Bayesian optimization each run for \num{100} iteratations with \num{5}-fold cross validation and early stopping\sidenote{This takes around 6 hours for both RS and GS for the apartments when run with 15 cores on HEP. XXX}. The hyperparameters to be optimzed where the following:
 \begin{itemize}
   \item[] The \code{subsample} varible controls the row-subsampling and is a number between \num{0} and \num{1}. 
@@ -595,6 +570,7 @@ The best of the RS and GS models are chosen for subsequent analysis by first red
 
 \FloatBarrier
 \section{Results}
+\label{sec:h:results}
 
 The performances of the different models, the RS-optimized, the BO-optimised and the best of the two $\eta$-optimized with ES, are shown in Figure~\ref{fig:h:CV_res_performance_ejer}. Here the distribution of the relative price prediction $\vec{z}$ of the model evaluated on the test set, apartments sold in \num{2018}, is shown for the three models. In addition to the distributions, also the performance metrics are shown: the value of the evaluation function\sidenote{Written as \code{MAD}} along with the fraction of $z$ that are within the specified percentage. In this particular instance it is seen that \SI{41.3}{\percent} of the predictions by the final ES model are less than $\pm\SI{5}{\percent}$ wrong, \SI{69.8}{\percent} within $\pm\SI{10}{\percent}$, and \SI{91.9}{\percent} within $\pm\SI{20}{\percent}$. Note that the difference between the three models are minor and that they distributions almost cannot be distinguished between each other. 
 
@@ -686,6 +662,7 @@ The final results for the model is seen in Table~\ref{tab:h:results_ejer} for ow
 
 \FloatBarrier
 \section{Model Inspection}
+\label{sec:h:model_inspection}
 
 One of the most important aspects of applying advanced machine learning methods, in addition to getting accurate predictions, is understanding the model. As mentioned in \autoref{sec:ml:feature_importance}, it is possible to use SHAP values to inspect the trained model for both local predictions and for global feature importances $\phi_i^\mathrm{tot}$. An example of how to use SHAP to better understand a local prediction is seen in Figure~\ref{fig:h:shap_single_apartment}. Here the SHAP values for a particular sale are visualized as a bar chart where the green colors are positive values, red values negative values and the blue is the final prediction $\hat{y}$. Remember that for SHAP values the prediction is the sum of all of the SHAP values, see equation \eqref{eq:ml:additive_feature_attribution_method}. Here $\phi_0$ is the expectation value denoted as \code{Bias} in the plot. To show all \num{143} variables would make the figure excessively large, so two extra bins have been added: the \code{Overflow} bar which is the sum of the remaining positive SHAP values and likewise with \code{Underflow} for negative values. The sum of all the green and red bars adds up to $\hat{y}=\SI{6.86}{\Mkr}$ in this particular instance and the actual sold value was $y=\SI{6.35}{\Mkr}$. Thus, in cases where there is a large discrepancy between the predicted and actual sales prices, one use can use this tool to better understand why the prediction was estimated as it was. 
 
@@ -721,6 +698,7 @@ The SHAP-package\citep{lundbergConsistentIndividualizedFeature2018} not only all
 
 \FloatBarrier
 \section{Multiple Models}
+\label{sec:h:multiple_models}
 
 In addition to the XGBoost \autocite{chenXGBoostScalableTree2016} (XGB) BDT model, several other models were also tested. During the sub-project the LightGBM \autocite{keLightGBMHighlyEfficient2017} (LGB), also a BDT model, was released and started gaining traction in the ML community, especially for large-scale data analysis (Big Data). In comparison to XGBoost, LightGBM implements some extra binning and categorical assumptions that greatly speeds up the fitting process. It was trained in the same was as the XGBoost model with the same HPO-process and range for the hyperparameters. 
 
@@ -759,6 +737,7 @@ The fact that it sums to more than \num{1} just corresponds to an overall scalin
 The paragraphs above refer to apartments, however, the intermediate results for houses showed the same pattern. The combined model along with their performance can be seen in Fig XXX in the appendix. 
 
 \section{Discussion}
+\label{sec:h:discussion}
 
 The subproject of estimating housing prices has focussed a lot on experimenting with different machine learning models and how to optimize them. As it can be seen in the previous sections, the choice of ML model is by far the most important. Actually, the gain from HPO is quite small, especially considering the amount of time spent on it\sidenote{Not only user-time programming it, but also computational ressources used.}. With the dataset at hand, decent results were made, however, nowhere near the performance of the realtors'. There are two main resons for this, the first being that realtors are educated within this field and thus has developed the skills required for estimating the price of a house over many years of hard work. The second reason is the fact that the realtor has acces to a lot more data than ML models have. We are not in possesion of any \emph{indoor} variables as we call it. The area of the house, the number of rooms, the name of the street, and the distance to a highway are all varibles that are in the data set but none of them describe the overall quality of the house, the maintenance level, the the age of the kitchen or bathroom. These features are invisble to the ML model. 
 

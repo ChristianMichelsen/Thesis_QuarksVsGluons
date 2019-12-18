@@ -26,14 +26,14 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}{subfigure.3.2}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram of prices of houses and apartments sold in Denmark}}{30}{subfigure.3.3.2}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Linear correlation between variables and price}}{31}{subsection.3.1.1}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces MIC non-linear correlation.}}{31}{subsection.3.1.1}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Comparison of the Linear Correlation $\rho $ and the Non-Linear MIC.}}{31}{subsection.3.1.1}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Non-linear correlation between variables and price}}{32}{subsection.3.1.1}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Validity of input features}}{32}{subsection.3.1.2}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Validity Dendrogram}}{33}{subsection.3.1.2}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for apartments}}{34}{equation.3.2.1}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for apartments}}{35}{equation.3.2.1}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Prophet Trends}}{35}{equation.3.2.1}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces XXX }}{36}{equation.3.4.6}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Overview of initial hyperparamater optimization of the housing model for apartments}}{37}{equation.3.4.7}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces XXX }}{37}{equation.3.4.6}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Overview of initial hyperparamater optimization of the housing model for apartments}}{38}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.14}{\ignorespaces XXX}}{38}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.15}{\ignorespaces XXX}}{38}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.16}{\ignorespaces XXX}}{39}{section.3.5}
@@ -41,9 +41,9 @@
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Early Stopping results}}{40}{section.3.5}
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Performance of XGB-model on apartment prices}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.20}{\ignorespaces 2018 XGB Forecast}}{41}{section.3.6}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces 2018 XGB Forecast}}{42}{equation.3.6.9}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces 2018 XGB Forecast}}{43}{equation.3.6.9}
 \contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for apartment}}{44}{section.3.7}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of apartments prices using XGB}}{44}{section.3.7}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of apartments prices using XGB}}{45}{section.3.7}
 \contentsline {figure}{\numberline {3.24}{\ignorespaces Feature importance of apartments prices using XGB XXX}}{45}{section.3.7}
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Multiple Models XXX}}{46}{section.3.8}
 \contentsline {figure}{\numberline {3.26}{\ignorespaces SHAP plot villa TFIDF XXX}}{48}{section.3.9}
@@ -109,30 +109,30 @@
 \contentsline {figure}{\numberline {A.15}{\ignorespaces Distributions for the housing price dataset}}{99}{subfigure.A.15.10}
 \contentsline {figure}{\numberline {A.16}{\ignorespaces Linear Correlations}}{101}{subfigure.A.15.10}
 \contentsline {figure}{\numberline {A.17}{\ignorespaces MIC non-linear correlation}}{102}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.18}{\ignorespaces Prophet Forecast for apartments}}{102}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.19}{\ignorespaces Prophet Trends}}{102}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.20}{\ignorespaces Overview of initial hyperparamater optimization of the housing model for houses}}{106}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.21}{\ignorespaces XXX}}{107}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.22}{\ignorespaces XXX}}{107}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.23}{\ignorespaces XXX}}{107}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.24}{\ignorespaces XXX}}{108}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.25}{\ignorespaces XXX}}{108}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.26}{\ignorespaces XXX}}{108}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.27}{\ignorespaces Performance of XGB-model on apartment prices}}{109}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.18}{\ignorespaces Prophet Forecast for apartments}}{103}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.19}{\ignorespaces Prophet Trends}}{103}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.20}{\ignorespaces Overview of initial hyperparamater optimization of the housing model for houses}}{107}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.21}{\ignorespaces XXX}}{108}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.22}{\ignorespaces XXX}}{108}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.23}{\ignorespaces XXX}}{108}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.24}{\ignorespaces XXX}}{109}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.25}{\ignorespaces XXX}}{109}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.26}{\ignorespaces XXX}}{109}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.27}{\ignorespaces Performance of XGB-model on apartment prices}}{110}{subfigure.A.15.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces UMAP Parameter Grid Search}}{112}{appendix.B}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Visualization of the t-SNE algorithm}}{112}{appendix.B}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Parallel Plot of HPO results for 3-jet $b$-Tagging}}{113}{appendix.B}
-\contentsline {figure}{\numberline {B.4}{\ignorespaces b-tag scores in 3-jet events}}{113}{appendix.B}
-\contentsline {figure}{\numberline {B.5}{\ignorespaces ROC curve for 3-jet $b$-tagging}}{114}{appendix.B}
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events}}{114}{appendix.B}
-\contentsline {figure}{\numberline {B.7}{\ignorespaces Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets}}{114}{appendix.B}
-\contentsline {figure}{\numberline {B.8}{\ignorespaces Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets}}{114}{appendix.B}
-\contentsline {figure}{\numberline {B.9}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets}}{115}{appendix.B}
-\contentsline {figure}{\numberline {B.10}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets}}{115}{appendix.B}
-\contentsline {figure}{\numberline {B.11}{\ignorespaces PermNet Architecture}}{115}{appendix.B}
-\contentsline {figure}{\numberline {B.12}{\ignorespaces 1D LGB Model Cuts for 4-jets events}}{116}{appendix.B}
-\contentsline {figure}{\numberline {B.13}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 3-jets events}}{116}{appendix.B}
-\contentsline {figure}{\numberline {B.14}{\ignorespaces 1D LGB Model Cuts for 3-jets events}}{116}{appendix.B}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces UMAP Parameter Grid Search}}{114}{appendix.B}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Visualization of the t-SNE algorithm}}{114}{appendix.B}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Parallel Plot of HPO results for 3-jet $b$-Tagging}}{115}{appendix.B}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces b-tag scores in 3-jet events}}{115}{appendix.B}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces ROC curve for 3-jet $b$-tagging}}{116}{appendix.B}
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events}}{116}{appendix.B}
+\contentsline {figure}{\numberline {B.7}{\ignorespaces Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets}}{116}{appendix.B}
+\contentsline {figure}{\numberline {B.8}{\ignorespaces Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets}}{116}{appendix.B}
+\contentsline {figure}{\numberline {B.9}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets}}{117}{appendix.B}
+\contentsline {figure}{\numberline {B.10}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets}}{117}{appendix.B}
+\contentsline {figure}{\numberline {B.11}{\ignorespaces PermNet Architecture}}{117}{appendix.B}
+\contentsline {figure}{\numberline {B.12}{\ignorespaces 1D LGB Model Cuts for 4-jets events}}{118}{appendix.B}
+\contentsline {figure}{\numberline {B.13}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 3-jets events}}{118}{appendix.B}
+\contentsline {figure}{\numberline {B.14}{\ignorespaces 1D LGB Model Cuts for 3-jets events}}{118}{appendix.B}
 \addvspace {10\p@ }
 \contentsfinish 
