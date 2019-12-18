@@ -378,26 +378,23 @@
 \input{copyright.tex}
 
 \chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 Here will be a decent abstract at some point\textsuperscript{TM}.
 
 
 % r.5 contents
 \tableofcontents
-
-\listoffigures
-
-\listoftables
-
+\addcontentsline{toc}{chapter}{Table of Contents}
 
 % r.9 introduction
 \cleardoublepage
 
 
-
 %%
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-\chapter*{Background for the thesis}
+\chapter*{Foreword}
+\addcontentsline{toc}{chapter}{Foreword}
 
 The background for this masters's thesis, is that it is part of a so-called 4+4 Ph.D. project (also known as an integrated Ph.D.). The Ph.D. dissertation is about the use of machine learning and deep learning in the field of ancient genomics. Here ancient DNA is sampled and analysed with the hope of finding patterns, structure, in the genome which were previously unknown. The overall goal is two-fold. On the big scale it is the better understand human history in the broadest sense of the word history. Where did we come from, where did we go. On a much smaller scale, the goal is to understand local history and migration patterns; how did we end up where we did. It is with this background that this project should be seen: as an introduction to the general use of applied machine learning.
 
@@ -587,10 +584,49 @@ The second part of this thesis deals with particle physics and the discriminator
   \label{fig:q:permnet_architecture}
 \end{figure}
 
+\FloatBarrier
+\newpage
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[1D LGB Model Cuts for 4-jets events]
+          {Histogram of the distribution of \textcolor{blue}{signal} in blue and \textcolor{red}{background} in red for the 1-dimensional sum of $b$-tags for 4-jet events. A histogram of the \textcolor{green}{cut values} from the LGB model trained on this data is shown in green together with a rug plot of the cut values in black. Notice how most of the cuts match up with the signal peak at around a $\sum \beta_i \sim 2.1$.
+          } 
+  \label{fig:q:1d_sum_model_cuts_4j}
+\end{figure}
+
+
+
+
+
+
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 10, clip]{figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[1D Sum Models Predictions and Signal Fraction for 3-jets events]
+          {Plot of the (1D) $g$-tag scores for 3-jet events as a function of $\sum \beta_i$ for the \textcolor{blue}{LGB} model in blue and the \textcolor{red}{PermNet} model in red. The signal fraction (based on the signal and background histograms in \figref{fig:q:1d_sum_model_cuts_3j}) is plotted as black error bars where the size of the error bars is based on the propagated uncertainties of the signal and background histogram assuming Poissonian statistics. } 
+  \label{fig:q:1d_sum_models_signal_fraction_3j}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[1D LGB Model Cuts for 3-jets events]
+          {Histogram of the distribution of \textcolor{blue}{signal} in blue and \textcolor{red}{background} in red for the 1-dimensional sum of $b$-tags for 3-jet events. A histogram of the \textcolor{green}{cut values} from the LGB model trained on this data is shown in green together with a rug plot of the cut values in black. Notice how most of the cuts match up with the signal peak at around a $\sum \beta_i \sim 2.1$.
+          } 
+  \label{fig:q:1d_sum_model_cuts_3j}
+\end{figure}
 
 
 
 \backmatter
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
 
 \bibliography{My_Library}
 % \bibliographystyle{plainnat}

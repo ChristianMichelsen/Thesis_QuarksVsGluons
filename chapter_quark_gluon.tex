@@ -370,14 +370,18 @@ for suitable transformations $\rho$ and $\phi$ (which the neural network learns\
 \subsection{1D Comparison of LGB and PermNet}
 \label{subsec:q:lgb_permnet_comparison}
 
-To better understand the difference between the difference between the LGB and PermNet models, a small comparison was made. This comparison was constructed by summing the $b$-tag scores in the $n$-jet event together $\sum_i^n \beta_{\mathrm{tag}_i}$.
+To better understand the difference between the difference between the LGB and PermNet models, a small comparison was made. This comparison was constructed by summing the $b$-tag scores in the $n$-jet event together $\sum_i^n \beta_{\mathrm{tag}_i}$. The $\beta_{\mathrm{tag}_i}$ are summed together since this turns the problem into a \num{1}D problem that is easy to visualize, the sum of numbers is a permutation invariant function, and is similar to the simplest functions of $\rho$ and $\phi$ in equation \eqref{eq:q:deep_sets}: the identity function. The 1D models are fit to the training events and then a linear scan from $\sum_i^n \beta_{\mathrm{tag}_i}=0.4$ to $3.1$ is made to see how the predicted $g$-tags $\gamma_\mathrm{tag}$ distribute. This is shown in Figure~\ref{fig:q:1d_sum_models_signal_fraction_4j} for 4-jet events. Here the value of $\gamma_\mathrm{tag}$ is shown for the two models together with the fraction of signal to background in each bin. If the $g$-tag score should resemble a true probability it would be expected to follow the signal ratio, e.g. a model should predict $\gamma_\mathrm{tag}=0.9$ if there is \SI{90}{\percent} signal in that bin. In the figure it is seen how the PermNet does a great job at fitting the signal fraction, however, the LGB model also does a decent job. Remember that none of these models were shown the signal fraction explicitly, only the $b$-tag sum and a signal-or-background label. The distribution of signal and background together with the distribution of cuts made by the LGB model can be seen in Figure~\ref{fig:q:1d_sum_model_cuts_4j} in the appendix. The similar plots for 3-jet events are plotted in Figure~\ref{fig:q:1d_sum_models_signal_fraction_3j} and \ref{fig:q:1d_sum_model_cuts_3j}, both in the appendix.
 
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[1D Sum Models Predictions and Signal Fraction for 4-jets events]
+          {Plot of the (1D) $g$-tag scores for 4-jet events as a function of $\sum \beta_i$ for the \textcolor{blue}{LGB} model in blue and the \textcolor{red}{PermNet} model in red. The signal fraction (based on the signal and background histograms in \figref{fig:q:1d_sum_model_cuts_4j}) is plotted as black error bars where the size of the error bars is based on the propagated uncertainties of the signal and background histogram assuming Poissonian statistics. } 
+  \label{fig:q:1d_sum_models_signal_fraction_4j}
+\end{figure}
 
+It can be concluded, at least in 1D, that both LGB and PermNet are able to capture the inherent structure in the (1D) data.
 
-
-
-
-
+\subsection{$g$-Tagging Results}
 
 
 
@@ -428,24 +432,6 @@ To better understand the difference between the difference between the LGB and P
 
 
 
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[1D Sum Model Cuts for 4-jets]
-          {Histogram of the distribution of \textcolor{blue}{signal} in blue and \textcolor{red}{background} in red for 1-dimensional sum of b-tags training data. A histogram of the \textcolor{green}{cut values} from the XGB model trained on this data is shown in green together with a rug plot of the cut values in black. Notice how most of the cuts match up with the signal peak at around a $\sum \beta_i \sim 2.1$, however, there are also quite a lot of cuts around $\sum \beta_i \sim 0.5$.
-          } 
-  \label{fig:q:1d_sum_model_cuts_4j}
-\end{figure}
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[1D Sum Models Predictions and Signal Fraction for 4-jets]
-          {Plot of the (1D) g-tag scores as a function of $\sum \beta_i$ for the \textcolor{blue}{XGB} model in blue and the \textcolor{red}{PermNet} model in red. Here the g-tag scores are just the models' output values when input a uniformly spaced grid of $\sum \beta_i$ values between 0 and 4. The signal fraction (based on the signal and background histograms in \figref{fig:q:1d_sum_model_cuts_4j}) is plotted as black error bars where the size of the error bars is based on the propagated uncertainties of the signal and background histogram assuming Poissonian statistics. Notice how both models capture the overall trend of the signal fraction with the PermNet being particularly close. 
-          } 
-  \label{fig:q:1d_sum_models_signal_fraction_4j}
-\end{figure}
 
 
 
