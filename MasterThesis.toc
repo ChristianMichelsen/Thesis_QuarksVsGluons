@@ -15,8 +15,8 @@
 \contentsline {subsection}{\numberline {2.5.1}Evaluation Function}{16}{subsection.2.5.1}
 \contentsline {section}{\numberline {2.6}Decision Trees}{16}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Ensembles of Decision Trees}{17}{subsection.2.6.1}
-\contentsline {subsubsection}{Random Forests}{17}{subsubsection*.7}
-\contentsline {subsubsection}{Boosted Decision Trees}{18}{subsubsection*.8}
+\contentsline {subsubsection}{Random Forests}{17}{subsubsection*.5}
+\contentsline {subsubsection}{Boosted Decision Trees}{18}{subsubsection*.6}
 \contentsline {section}{\numberline {2.7}Hyperparamater Optimization}{19}{section.2.7}
 \contentsline {subsection}{\numberline {2.7.1}Grid Search}{20}{subsection.2.7.1}
 \contentsline {subsection}{\numberline {2.7.2}Random Search}{20}{subsection.2.7.2}
@@ -57,16 +57,16 @@
 \contentsline {subsection}{\numberline {5.6.3}PermNet}{74}{subsection.5.6.3}
 \contentsline {subsection}{\numberline {5.6.4}1D Comparison of LGB and PermNet}{74}{subsection.5.6.4}
 \contentsline {subsection}{\numberline {5.6.5}$g$-Tagging Results}{75}{subsection.5.6.5}
-\contentsline {chapter}{\numberline {6}Discussion and Outlook}{77}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusion}{79}{chapter.7}
-\contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{79}{section.7.1}
-\contentsline {section}{\numberline {7.2}Tufte-\LaTeX \xspace Mailing Lists}{79}{section.7.2}
-\contentsline {paragraph}{Discussion list}{79}{paragraph*.10}
-\contentsline {paragraph}{Commits list}{79}{paragraph*.11}
-\contentsline {section}{\numberline {7.3}Getting Help}{79}{section.7.3}
-\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{81}{appendix.A}
-\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{107}{appendix.B}
-\contentsline {chapter}{List of Figures}{115}{appendix*.6}
-\contentsline {chapter}{List of Tables}{117}{appendix*.7}
-\contentsline {chapter}{Index}{127}{appendix*.9}
+\contentsline {chapter}{\numberline {6}Discussion and Outlook}{81}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusion}{83}{chapter.7}
+\contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{83}{section.7.1}
+\contentsline {section}{\numberline {7.2}Tufte-\LaTeX \xspace Mailing Lists}{83}{section.7.2}
+\contentsline {paragraph}{Discussion list}{83}{paragraph*.8}
+\contentsline {paragraph}{Commits list}{83}{paragraph*.9}
+\contentsline {section}{\numberline {7.3}Getting Help}{83}{section.7.3}
+\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{85}{appendix.A}
+\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{111}{appendix.B}
+\contentsline {chapter}{List of Figures}{119}{appendix*.10}
+\contentsline {chapter}{List of Tables}{121}{appendix*.11}
+\contentsline {chapter}{Index}{131}{appendix*.13}
 \contentsfinish 
