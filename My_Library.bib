@@ -1005,21 +1005,6 @@ which allows it to deal with the bias-variance tradeoff even more carefully.},
   file = {/Users/michelsen/Zotero/storage/PUQ72MDG/a-conceptual-explanation-of-bayesian-model-based-hyperparameter-optimization-for-machine-learni.html}
 }
 
-@article{bottouOptimizationMethodsLargeScale2016a,
-  archivePrefix = {arXiv},
-  eprinttype = {arxiv},
-  eprint = {1606.04838},
-  primaryClass = {cs, math, stat},
-  title = {Optimization {{Methods}} for {{Large}}-{{Scale Machine Learning}}},
-  url = {http://arxiv.org/abs/1606.04838},
-  abstract = {This paper provides a review and commentary on the past, present, and future of numerical optimization algorithms in the context of machine learning applications. Through case studies on text classification and the training of deep neural networks, we discuss how optimization problems arise in machine learning and what makes them challenging. A major theme of our study is that large-scale machine learning represents a distinctive setting in which the stochastic gradient (SG) method has traditionally played a central role while conventional gradient-based nonlinear optimization techniques typically falter. Based on this viewpoint, we present a comprehensive theory of a straightforward, yet versatile SG algorithm, discuss its practical behavior, and highlight opportunities for designing algorithms with improved performance. This leads to a discussion about the next generation of optimization methods for large-scale machine learning, including an investigation of two main streams of research on techniques that diminish noise in the stochastic directions and methods that make use of second-order derivative approximations.},
-  urldate = {2019-01-03},
-  date = {2016-06-15},
-  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning,Mathematics - Optimization and Control,optimization,gradient descent},
-  author = {Bottou, Léon and Curtis, Frank E. and Nocedal, Jorge},
-  file = {/Users/michelsen/Zotero/storage/MG8LF7UP/Bottou et al. - 2016 - Optimization Methods for Large-Scale Machine Learn.pdf;/Users/michelsen/Zotero/storage/TGLKZ2Q8/1606.html}
-}
-
 @article{sculleyPACEPROGRESSEMPIRICAL2018,
   langid = {english},
   title = {{{ON PACE}}, {{PROGRESS}}, {{AND EMPIRICAL RIGOR}}},
@@ -2196,22 +2181,6 @@ Supplementary data are available at Bioinformatics online.},
   title = {The {{Next Level}} of {{Data Visualization}} in {{Python}} – {{Towards Data Science}}},
   url = {https://towardsdatascience.com/the-next-level-of-data-visualization-in-python-dd6e99039d5e},
   urldate = {2019-02-13}
-}
-
-@article{kingmaAdamMethodStochastic2014a,
-  archivePrefix = {arXiv},
-  eprinttype = {arxiv},
-  eprint = {1412.6980},
-  primaryClass = {cs},
-  title = {Adam: {{A Method}} for {{Stochastic Optimization}}},
-  url = {http://arxiv.org/abs/1412.6980},
-  shorttitle = {Adam},
-  abstract = {We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss AdaMax, a variant of Adam based on the infinity norm.},
-  urldate = {2019-02-13},
-  date = {2014-12-22},
-  keywords = {Computer Science - Machine Learning,optimization,adam,OP,stochastic},
-  author = {Kingma, Diederik P. and Ba, Jimmy},
-  file = {/Users/michelsen/Zotero/storage/N6QZ67UM/Kingma and Ba - 2014 - Adam A Method for Stochastic Optimization.pdf;/Users/michelsen/Zotero/storage/YTSSN4HH/1412.html}
 }
 
 @article{bakerClarificationUseCHIsquare1984a,
@@ -3675,7 +3644,7 @@ Supplementary material is available at Bioinformatics online.},
   abstract = {Many physics signals presently studied at the high energy collision experiments lead to final states with jets originating from heavy flavor quarks. This report reviews the algorithms for heavy flavor jets identification developed by the ATLAS and CMS Collaborations in view of the Run2 data taking period at the Large Hadron Collider. The improvements of the algorithms used in 2015 and 2016 data analyses with respect to previous data taking periods are discussed, as well as the ongoing developments in view of the next years of data taking. The measurements of the performance of the algorithms on data as well as the dedicated techniques for the identification of heavy flavor jets in events with boosted topologies are also presented. Finally, the effectiveness of heavy flavor jet identification in the complex environment expected during the high luminosity LHC phase is discussed.},
   urldate = {2019-12-17},
   date = {2017-09-05},
-  keywords = {b-tagging,High Energy Physics - Experiment},
+  keywords = {High Energy Physics - Experiment,b-tagging},
   author = {Scodellaro, Luca},
   file = {/Users/michelsen/Zotero/storage/57UTH3LH/Scodellaro - 2017 - b tagging in ATLAS and CMS.pdf;/Users/michelsen/Zotero/storage/8HTQJTZQ/1709.html}
 }
@@ -3689,6 +3658,100 @@ Supplementary material is available at Bioinformatics online.},
   urldate = {2019-12-17},
   keywords = {colsample_bytree,feature_fraction},
   file = {/Users/michelsen/Zotero/storage/GYKZ5DEE/serial_tree_learner.html}
+}
+
+@article{saitoPrecisionRecallPlotMore2015a,
+  title = {The {{Precision}}-{{Recall Plot Is More Informative}} than the {{ROC Plot When Evaluating Binary Classifiers}} on {{Imbalanced Datasets}}},
+  volume = {10},
+  issn = {1932-6203},
+  url = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4349800/},
+  doi = {10.1371/journal.pone.0118432},
+  abstract = {Binary classifiers are routinely evaluated with performance measures such as sensitivity and specificity, and performance is frequently illustrated with Receiver Operating Characteristics (ROC) plots. Alternative measures such as positive predictive value (PPV) and the associated Precision/Recall (PRC) plots are used less frequently. Many bioinformatics studies develop and evaluate classifiers that are to be applied to strongly imbalanced datasets in which the number of negatives outweighs the number of positives significantly. While ROC plots are visually appealing and provide an overview of a classifier's performance across a wide range of specificities, one can ask whether ROC plots could be misleading when applied in imbalanced classification scenarios. We show here that the visual interpretability of ROC plots in the context of imbalanced datasets can be deceptive with respect to conclusions about the reliability of classification performance, owing to an intuitive but wrong interpretation of specificity. PRC plots, on the other hand, can provide the viewer with an accurate prediction of future classification performance due to the fact that they evaluate the fraction of true positives among positive predictions. Our findings have potential implications for the interpretation of a large number of studies that use ROC plots on imbalanced datasets.},
+  number = {3},
+  journaltitle = {PLoS ONE},
+  shortjournal = {PLoS One},
+  urldate = {2019-12-17},
+  date = {2015-03-04},
+  keywords = {roc},
+  author = {Saito, Takaya and Rehmsmeier, Marc},
+  file = {/Users/michelsen/Zotero/storage/4X5H6REW/Saito and Rehmsmeier - 2015 - The Precision-Recall Plot Is More Informative than.pdf},
+  eprinttype = {pmid},
+  eprint = {25738806},
+  pmcid = {PMC4349800}
+}
+
+@online{ChristianStentoftMichelsen,
+  title = {Christian {{Stentoft Michelsen}} - {{Outlook Web App}}},
+  url = {https://webmail.ku.dk/owa/},
+  urldate = {2019-12-18},
+  file = {/Users/michelsen/Zotero/storage/3SIMF3SA/owa.html}
+}
+
+@article{ravanbakhshDeepLearningSets2017,
+  archivePrefix = {arXiv},
+  eprinttype = {arxiv},
+  eprint = {1611.04500},
+  primaryClass = {cs, stat},
+  title = {Deep {{Learning}} with {{Sets}} and {{Point Clouds}}},
+  url = {http://arxiv.org/abs/1611.04500},
+  abstract = {We introduce a simple permutation equivariant layer for deep learning with set structure.This type of layer, obtained by parameter-sharing, has a simple implementation and linear-time complexity in the size of each set. We use deep permutation-invariant networks to perform point-could classification and MNIST-digit summation, where in both cases the output is invariant to permutations of the input. In a semi-supervised setting, where the goal is make predictions for each instance within a set, we demonstrate the usefulness of this type of layer in set-outlier detection as well as semi-supervised learning with clustering side-information.},
+  urldate = {2019-12-18},
+  date = {2017-02-23},
+  keywords = {Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing,Statistics - Machine Learning},
+  author = {Ravanbakhsh, Siamak and Schneider, Jeff and Poczos, Barnabas},
+  file = {/Users/michelsen/Zotero/storage/TCMRGVBE/Ravanbakhsh et al. - 2017 - Deep Learning with Sets and Point Clouds.pdf;/Users/michelsen/Zotero/storage/24VKTFDH/1611.html}
+}
+
+@online{fayeFrederikFayeDeepcalo,
+  langid = {english},
+  title = {Frederik {{Faye}} / Deepcalo},
+  url = {https://gitlab.com/ffaye/deepcalo},
+  abstract = {Package for doing deep supervised learning on ATLAS data},
+  journaltitle = {GitLab},
+  urldate = {2019-12-18},
+  author = {Faye, Frederik},
+  file = {/Users/michelsen/Zotero/storage/XAFNK3ST/deepcalo.html}
+}
+
+@book{csajiConsultant,
+  title = {Consultant:},
+  shorttitle = {Consultant},
+  abstract = {Contents:},
+  author = {Csáji, Balázs Csanád and Eikelder, Huub Ten},
+  file = {/Users/michelsen/Zotero/storage/JHJ84QZU/Csáji and Eikelder - Consultant.pdf;/Users/michelsen/Zotero/storage/FLVVE6NB/summary.html}
+}
+
+@article{hornikApproximationCapabilitiesMultilayer1991,
+  langid = {english},
+  title = {Approximation Capabilities of Multilayer Feedforward Networks},
+  volume = {4},
+  issn = {0893-6080},
+  url = {http://www.sciencedirect.com/science/article/pii/089360809190009T},
+  doi = {10.1016/0893-6080(91)90009-T},
+  abstract = {We show that standard multilayer feedforward networks with as few as a single hidden layer and arbitrary bounded and nonconstant activation function are universal approximators with respect to Lp(μ) performance criteria, for arbitrary finite input environment measures μ, provided only that sufficiently many hidden units are available. If the activation function is continuous, bounded and nonconstant, then continuous mappings can be learned uniformly over compact input sets. We also give very general conditions ensuring that networks with sufficiently smooth activation functions are capable of arbitrarily accurate approximation to a function and its derivatives.},
+  number = {2},
+  journaltitle = {Neural Networks},
+  shortjournal = {Neural Networks},
+  urldate = {2019-12-18},
+  date = {1991-01-01},
+  pages = {251-257},
+  keywords = {() approximation,Activation function,Input environment measure,Multilayer feedforward networks,Smooth approximation,Sobolev spaces,Uniform approximation,Universal approximation capabilities},
+  author = {Hornik, Kurt},
+  file = {/Users/michelsen/Zotero/storage/TVZK6GEQ/Hornik - 1991 - Approximation capabilities of multilayer feedforwa.pdf;/Users/michelsen/Zotero/storage/F43K4SZM/089360809190009T.html}
+}
+
+@article{tensorflow2015-whitepaper,
+  title = {{{TensorFlow}}: Large-Scale Machine Learning on Heterogeneous Systems},
+  url = {http://tensorflow.org/},
+  date = {2015},
+  author = {Abadi, Martín and others}
+}
+
+@inproceedings{Maas2013RectifierNI,
+  title = {Rectifier Nonlinearities Improve Neural Network Acoustic Models},
+  date = {2013},
+  keywords = {leaky,leakyrelu,lrelu},
+  author = {Maas, Andrew L.}
 }
 
 @preamble{ "\ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi " }

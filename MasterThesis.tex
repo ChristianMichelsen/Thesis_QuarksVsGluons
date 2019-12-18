@@ -87,6 +87,14 @@
 % Prints a trailing space in a smart way.
 \usepackage{xspace}
 
+% % slashed symbols
+% \usepackage{slashed}
+\usepackage{centernot}
+
+\newcommand{\Independent}{\mathrel{\perp\mspace{-10mu}\perp}}
+\newcommand{\NotIndependent}{\centernot{\Independent}}
+
+
 % add numbers to chapters, sections, subsections
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
@@ -476,7 +484,7 @@ The second part of this thesis deals with particle physics and the discriminator
 \newpage
 
 
-\begin{margintable}
+\begin{table}
   \centerfloat
   \begin{tabular}{@{}ll@{}}
   Hyperparameter                &  Range                                  \\ \midrule
@@ -488,7 +496,7 @@ The second part of this thesis deals with particle physics and the discriminator
   % \vspace{\abovecaptionskip}
   \vspace{3mm}
   \caption[Random Search PDFs for XGB]{\label{tab:q:hpo_ranges_xgb}Probability Density Functions for the random search hyperparameter optimization process for the XGBoost model.}
-\end{margintable}
+\end{table}
 
 
 \begin{figure}
@@ -519,12 +527,64 @@ The second part of this thesis deals with particle physics and the discriminator
 
 
 
-\begin{figure}
+\begin{figure}[h!]
   \includegraphics[width=0.98\textwidth, trim=10 10 20 10, clip]{figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
   \caption[Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events]
           {Global feature importances for the LGB $b$-tagging algorithm on 3-jet events. The normalized feature importance is shown in the parenthesis and the each dot is an observation showing the dependance between the SHAP value and the feature's value. 
           } 
   \label{fig:q:shap_btag_global_3j}
+\end{figure}
+
+\newpage
+\FloatBarrier
+
+
+\begin{figure}[h!]
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets]
+          {Hyperparameter optimization results of $g$-tagging for 3-jet events for energy ordered jets. 
+          } 
+  \label{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets]
+          {Hyperparameter optimization results of $g$-tagging for 3-jet events for (row) shuffled jets. 
+          } 
+  \label{fig:q:CV_res_parallel_coords_g_tag_3j_shuffled}
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets]
+          {Hyperparameter optimization results of $g$-tagging for 4-jet events for energy ordered jets. 
+          } 
+  \label{fig:q:CV_res_parallel_coords_g_tag_4j_energy_ordered}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets]
+          {Hyperparameter optimization results of $g$-tagging for 4-jet events for (row) shuffled jets. 
+          } 
+  \label{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}
+\end{figure}
+
+\newpage
+\FloatBarrier
+
+
+
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.5\textwidth]{figures/quarks/TensorFlow_model.png}
+  \caption[PermNet Architecture]
+          {Architecture of the PermNet neural network. 
+          } 
+  \label{fig:q:permnet_architecture}
 \end{figure}
 
 

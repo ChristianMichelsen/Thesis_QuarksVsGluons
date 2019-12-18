@@ -12,39 +12,41 @@ A level-1 auxiliary file: chapter_conclusion.aux
 A level-1 auxiliary file: chapter_appendix_housing.aux
 Database file #1: My_Library.bib
 Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
---line 1266 of file My_Library.bib
+--line 1251 of file My_Library.bib
 Warning--entry type for "hviidWorkingPaperRegional2017" isn't style-file defined
---line 1346 of file My_Library.bib
+--line 1331 of file My_Library.bib
 Warning--entry type for "LargeElectronPositronCollider" isn't style-file defined
---line 2863 of file My_Library.bib
+--line 2832 of file My_Library.bib
 Warning--entry type for "AdvancedTopicsMachine" isn't style-file defined
---line 2888 of file My_Library.bib
+--line 2857 of file My_Library.bib
 Warning--entry type for "AllstateClaimsSeverity" isn't style-file defined
---line 2936 of file My_Library.bib
+--line 2905 of file My_Library.bib
 Warning--entry type for "HEPMeetsML" isn't style-file defined
---line 2989 of file My_Library.bib
+--line 2958 of file My_Library.bib
 Warning--entry type for "DmlcXgboost" isn't style-file defined
---line 2998 of file My_Library.bib
+--line 2967 of file My_Library.bib
 Warning--entry type for "dstPriceIndexEJ14" isn't style-file defined
---line 3093 of file My_Library.bib
+--line 3062 of file My_Library.bib
 Warning--entry type for "oisWwwOISDk" isn't style-file defined
---line 3120 of file My_Library.bib
+--line 3089 of file My_Library.bib
 Warning--entry type for "bednarDatashaderRevealingStructure2019" isn't style-file defined
---line 3168 of file My_Library.bib
+--line 3137 of file My_Library.bib
 Warning--entry type for "bolighedBolighedUsikkerhedDatavurderingen" isn't style-file defined
---line 3248 of file My_Library.bib
+--line 3217 of file My_Library.bib
 Warning--entry type for "purcellGoParticleQuest2012" isn't style-file defined
---line 3357 of file My_Library.bib
+--line 3326 of file My_Library.bib
 Warning--entry type for "burgardStandardModelPhysics" isn't style-file defined
---line 3369 of file My_Library.bib
+--line 3338 of file My_Library.bib
 Warning--entry type for "bierlichRopeHadronizationGeometry2016" isn't style-file defined
---line 3398 of file My_Library.bib
+--line 3367 of file My_Library.bib
 Warning--entry type for "Armstrong1998hy" isn't style-file defined
---line 3409 of file My_Library.bib
+--line 3378 of file My_Library.bib
 Warning--entry type for "ScikithepUproot2019" isn't style-file defined
---line 3568 of file My_Library.bib
+--line 3537 of file My_Library.bib
 Warning--entry type for "MicrosoftLightGBM" isn't style-file defined
---line 3683 of file My_Library.bib
+--line 3652 of file My_Library.bib
+Warning--entry type for "fayeFrederikFayeDeepcalo" isn't style-file defined
+--line 3705 of file My_Library.bib
 Warning--I didn't find a database entry for "["
 Warning--to sort, need author or key in LargeElectronPositronCollider
 Warning--to sort, need author or key in AdvancedTopicsMachine
@@ -63,6 +65,9 @@ Warning--empty year in MicrosoftLightGBM
 Warning--empty year in ScikithepUproot2019
 Warning--empty year in bednarDatashaderRevealingStructure2019
 Warning--empty year in oisWwwOISDk
+Warning--empty journal in tensorflow2015-whitepaper
+Warning--empty year in tensorflow2015-whitepaper
+Warning--empty year in tensorflow2015-whitepaper
 Warning--empty year in abu-mostafaLearningData2012
 Warning--empty year in abu-mostafaLearningData2012
 Warning--empty journal in albanesePracticalToolMaximal2018a
@@ -123,6 +128,7 @@ Warning--empty year in dstPriceIndexEJ14
 Warning--empty journal in buskulicPreciseMeasurementGZ1993
 Warning--empty year in buskulicPreciseMeasurementGZ1993
 Warning--empty year in buskulicPreciseMeasurementGZ1993
+Warning--empty year in fayeFrederikFayeDeepcalo
 Warning--empty journal in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
 Warning--empty year in fisherUseMultipleMeasurements1936
@@ -131,6 +137,9 @@ Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
 Warning--empty journal in glashowPartialsymmetriesWeakInteractions1961
 Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
 Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty journal in guttenbergPermutationequivariantNeuralNetworks2016
+Warning--empty year in guttenbergPermutationequivariantNeuralNetworks2016
+Warning--empty year in guttenbergPermutationequivariantNeuralNetworks2016
 Warning--empty booktitle in harveyEstimationProceduresStructural1990
 Warning--empty year in harveyEstimationProceduresStructural1990
 Warning--empty year in harveyEstimationProceduresStructural1990
@@ -139,6 +148,9 @@ Warning--empty year in hastieGeneralizedAdditiveModels1987
 Warning--empty year in hastieGeneralizedAdditiveModels1987
 Warning--empty year in hastieElementsStatisticalLearning2009
 Warning--empty year in hastieElementsStatisticalLearning2009
+Warning--empty journal in hornikApproximationCapabilitiesMultilayer1991
+Warning--empty year in hornikApproximationCapabilitiesMultilayer1991
+Warning--empty year in hornikApproximationCapabilitiesMultilayer1991
 Warning--empty year in huber2011robust
 Warning--empty year in huber2011robust
 Warning--empty year in hviidWorkingPaperRegional2017
@@ -147,6 +159,9 @@ Warning--empty year in 1975CoPhC..10..343J
 Warning--empty year in 1975CoPhC..10..343J
 Warning--empty year in keLightGBMHighlyEfficient2017
 Warning--empty year in keLightGBMHighlyEfficient2017
+Warning--empty journal in kingmaAdamMethodStochastic2014
+Warning--empty year in kingmaAdamMethodStochastic2014
+Warning--empty year in kingmaAdamMethodStochastic2014
 Warning--empty journal in leysDetectingOutliersNot2013
 Warning--empty year in leysDetectingOutliersNot2013
 Warning--empty year in leysDetectingOutliersNot2013
@@ -156,6 +171,9 @@ Warning--empty journal in lundbergConsistentIndividualizedFeature2018
 Warning--empty year in lundbergConsistentIndividualizedFeature2018
 Warning--empty journal in lundbergConsistentIndividualizedFeature2019
 Warning--empty year in lundbergConsistentIndividualizedFeature2019
+Warning--empty booktitle in Maas2013RectifierNI
+Warning--empty year in Maas2013RectifierNI
+Warning--empty year in Maas2013RectifierNI
 Warning--empty journal in mcinnesUMAPUniformManifold2018
 Warning--empty year in mcinnesUMAPUniformManifold2018
 Warning--empty year in mcinnesUMAPUniformManifold2018
@@ -175,6 +193,9 @@ Warning--empty journal in proriolTAGGINGQUARKEVENTS1991
 Warning--empty year in proriolTAGGINGQUARKEVENTS1991
 Warning--empty year in proriolTAGGINGQUARKEVENTS1991
 Warning--empty year in purcellGoParticleQuest2012
+Warning--empty journal in ravanbakhshDeepLearningSets2017
+Warning--empty year in ravanbakhshDeepLearningSets2017
+Warning--empty year in ravanbakhshDeepLearningSets2017
 Warning--empty journal in reshefDetectingNovelAssociations2011
 Warning--empty year in reshefDetectingNovelAssociations2011
 Warning--empty year in reshefDetectingNovelAssociations2011
@@ -231,45 +252,48 @@ Warning--empty year in weinbergModelLeptons1967
 Warning--empty journal in JSSv059i10
 Warning--empty year in JSSv059i10
 Warning--empty year in JSSv059i10
-You've used 74 entries,
+Warning--empty journal in zaheerDeepSets2017
+Warning--empty year in zaheerDeepSets2017
+Warning--empty year in zaheerDeepSets2017
+You've used 82 entries,
             2773 wiz_defined-function locations,
-            1127 strings with 24004 characters,
-and the built_in function-call counts, 36639 in all, are:
-= -- 3235
-> -- 2221
-< -- 59
-+ -- 767
-- -- 691
-* -- 3145
-:= -- 5512
-add.period$ -- 332
-call.type$ -- 74
-change.case$ -- 443
-chr.to.int$ -- 72
-cite$ -- 341
-duplicate$ -- 1555
-empty$ -- 2785
-format.name$ -- 792
-if$ -- 7656
+            1168 strings with 25538 characters,
+and the built_in function-call counts, 39942 in all, are:
+= -- 3505
+> -- 2427
+< -- 64
++ -- 838
+- -- 754
+* -- 3420
+:= -- 6029
+add.period$ -- 358
+call.type$ -- 82
+change.case$ -- 487
+chr.to.int$ -- 80
+cite$ -- 379
+duplicate$ -- 1710
+empty$ -- 3048
+format.name$ -- 866
+if$ -- 8322
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 62
-newline$ -- 481
-num.names$ -- 270
-pop$ -- 1201
+missing$ -- 69
+newline$ -- 523
+num.names$ -- 302
+pop$ -- 1335
 preamble$ -- 2
-purify$ -- 372
+purify$ -- 408
 quote$ -- 0
-skip$ -- 1140
+skip$ -- 1237
 stack$ -- 0
-substring$ -- 971
-swap$ -- 169
+substring$ -- 1008
+swap$ -- 171
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 789
-warning$ -- 185
-while$ -- 249
+type$ -- 877
+warning$ -- 207
+while$ -- 274
 width$ -- 0
-write$ -- 1050
-(There were 203 warnings)
+write$ -- 1142
+(There were 226 warnings)

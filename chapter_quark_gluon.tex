@@ -211,13 +211,15 @@ The data are split\sidenote{After removing all low-energy jets such that all eve
   \caption[Random Search PDFs for LGB]{\label{tab:q:hpo_ranges_lgb}Probability Density Functions for the random search hyperparameter optimization process for the LightGBM model. For an explanation of $\mathcal{U}_\mathrm{trunc}$, see \autoref{sec:q:trunc_uniform}. All negative values of \code{max_depth} are interpreted as no max depth by both LGB and XGB.}
 \end{margintable}
 
-Compared to the housing prices dataset, the number of observations $N$ is a lot larger, although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially since their performance in the housing dataset was very similar but LightGBM was expected to quite a lot faster on this dataset, which also turned out to be the case. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian optimization (BO) did not show any performance gains compared to RS. The PDFs for the random search for the LightGBM model can be seen in Table~\ref{tab:q:hpo_ranges_lgb}, and the ones for XGBoost in Table~\ref{tab:q:hpo_ranges_xgb} in the appendix. The random search has been run with \num{100} iterations for LightGBM and only \num{10} for XGBoost since XGBoost is slow at fitting datasets of this size\sidenote{XXX here timing informstion}. The results of the HPO for 3-jet and 4-jet events can be seen in Figure~\ref{fig:q:CV_res_iterations_b_tagging}. For 3-jets it can be seen how most of the iterations share about the same performance within $1\sigma$, however some iterations have a significantly decrease in performance. For 4-jets there are not any iterations which share the same bad performance relative to the others as some of the 3-jets. 
+\subsection{$b$-Tagging Hyperparameter Optimization}
+
+Compared to the housing prices dataset, the number of observations $N$ is a lot larger, although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially since their performance in the housing dataset was very similar but LightGBM was expected to quite a lot faster on this dataset, which also turned out to be the case. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian optimization (BO) did not show any performance gains compared to RS. They were run with $5$-fold cross validation and early stopping with a patience of \num{100}. The PDFs for the random search for the LightGBM model can be seen in Table~\ref{tab:q:hpo_ranges_lgb}, and the ones for XGBoost in Table~\ref{tab:q:hpo_ranges_xgb} in the appendix. The random search has been run with \num{100} iterations for LightGBM and only \num{10} for XGBoost since XGBoost is slow at fitting datasets of this size\sidenote{See page \pageref{page:q:timings_b_tag} for a discussion of the timings.}. The results of the HPO for 3-jet and 4-jet events can be seen in Figure~\ref{fig:q:CV_res_iterations_b_tagging}. For 3-jets it can be seen how most of the iterations share about the same performance within $1\sigma$, however some iterations have a significantly decrease in performance. For 4-jets there are not any iterations which share the same bad performance relative to the others as some of the 3-jets. 
 
 \begin{figure*}%
   \centering
-  \subfloat{{\includegraphics[width=0.48\textwidth, trim=50 600 870 100, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}}}%
+  \subfloat{{\includegraphics[width=0.48\textwidth, trim=50 580 870 110, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}}}%
   \;
-  \subfloat{{\includegraphics[width=0.48\textwidth, trim=50 60 870 640, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf} }}%
+  \subfloat{{\includegraphics[width=0.48\textwidth, trim=50 40 870 650, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf} }}%
   \vspace{2mm}
   \caption[Hyperparameter Optimization of $b$-tagging]{
     Hyperparameter Optimization results of $b$-tagging with random search. From left to right, we have A) \num{100} iterations of RS with LGB on 3-jets, B) \num{10} iterations of RS with XGB on 3-jets, C) \num{100} iterations of RS with LGB on 4-jets, D) \num{10} iterations of RS with XGB on 4-jets. Notice the different ranges on the y-axes.}
@@ -235,6 +237,8 @@ The relationship between the different hyperparameters in 4-jet events can be se
   \label{fig:q:initial_CV_res_parallel_coords_4j}
 \end{figure}
 
+\subsection{$b$-Tagging Results}
+
 The prediction score for the $b$-tagging models is usually called the $b$-tag and will be written as $\beta_\mathrm{tag}$. The distribution of $\beta_\mathrm{tag}$ for the two HPO-optimized models, LGB and XGB, together with the pre-trained neural network NNB can be seen in Figure~\ref{fig:q:btag_scores_4j} for 4-jet events and in \ref{fig:q:btag_scores_3j} in the appendix for 3-jet events. Notice the strong match between the NNB and LGB models. The XGB model has almost no high $b$-tags $\beta_\mathrm{tag} > 0.8$, but a majority of $b$-tags in the very low end. This indicates that the XGBoost has focussed on the background events compared to the signal events, whereas the NNB and LGB models have focused more on the signal events. 
 
 \begin{figure}[h!]
@@ -246,7 +250,8 @@ The prediction score for the $b$-tagging models is usually called the $b$-tag an
   \label{fig:q:btag_scores_4j}
 \end{figure}
 
-Even though the distributions of $b$-tags are different between the three models, the real performance plot for classification is the ROC curve seen in Figure~\ref{fig:q:roc_btag_4j} for 4-jet events. Here the signal efficiency $\varepsilon_\mathrm{sig}$ is plotted as a function of the background efficiency $\varepsilon_\mathrm{sig}$ with the AUC shown in the bottom right corner. The LGB and XGB models performs similarly well with an $\mathrm{AUC}=0.896$ compared to the NNB with $\mathrm{AUC}=0.884$. The differences between the models are even smaller for 3-jet events seen in Figure~\ref{fig:q:roc_btag_3j} in the appendix. In general the LGB and XGB models are so similar that they cannot be distinguished from another in any of the plots and their difference in AUC is on the forth decimal point. However, the LGB model is several times faster than the XGB model. In comparison, \num{10} iterations of HPO using RS on 3-jet events with XGB took more almost \num{34} hours on HEP\sidenote{The local computing cluster.} compared to just \num{23} hours for \num{100} iterations for LGB. The same performance difference was seen in 4-jet events where the timings were \num{4} hours for XGB compared to \num{2.5} hours for LGB, and thus XGB is dropped in all subsequent analysis. 
+Even though the distributions of $b$-tags are different between the three models, the real performance plot for classification is the ROC curve seen in Figure~\ref{fig:q:roc_btag_4j} for 4-jet events. Here the signal efficiency $\varepsilon_\mathrm{sig}$ is plotted as a function of the background efficiency $\varepsilon_\mathrm{sig}$ with the AUC shown in the bottom right corner. The LGB and XGB models performs similarly well with an $\mathrm{AUC}=0.896$ compared to the NNB with $\mathrm{AUC}=0.884$. The differences between the models are even smaller for 3-jet events seen in Figure~\ref{fig:q:roc_btag_3j} in the appendix. In general the LGB and XGB models are so similar that they cannot be distinguished from another in any of the plots and their difference in AUC is on the forth decimal point. \label{page:q:timings_b_tag}
+However, the LGB model is several times faster than the XGB model. In comparison, \num{10} iterations of HPO using RS on 3-jet events with XGB took more almost \num{34} hours on HEP\sidenote{The local computing cluster.} compared to just \num{23} hours for \num{100} iterations for LGB. The same performance difference was seen in 4-jet events where the timings were \num{4} hours for XGB compared to \num{2.5} hours for LGB, and thus XGB is dropped in all subsequent analysis. 
 
 \begin{figure}[h!]
   \centerfloat
@@ -256,6 +261,8 @@ Even though the distributions of $b$-tags are different between the three models
           } 
   \label{fig:q:roc_btag_4j}
 \end{figure}
+
+\subsection{$b$-Tagging Model Inspection}
 
 To get a better understanding of the trained LGB model, the global SHAP feature importances can be seen in Figure~\ref{fig:q:shap_btag_global_4j} for 4-jet events. First of all it is noted that the \code{projet} has global feature importance of \SI{57.32}{\percent}, \code{bqvjet} \SI{29.16}{\percent}, and \code{ptljet} \SI{13.52}{\percent}. For all three variables it is seen how most of the points have many small feature values which has a negative impact on the model output however small. Especially the \code{ptljet} has many features with a low value (\num{0} in fact) yet this does not pull the model too much towards background events compared to if a jet has a high value of \code{ptljet} which has a strong, positive impact on the output prediction.
 
@@ -294,7 +301,7 @@ where $p$ is a number in the $[0, 1]$-interval. The expit function is also somet
   \label{eq:q:logit}
   \mathrm{logit}(p) = \log \left( \frac{p}{1-p}  \right) = \tilde{y},
 \end{equation}
- which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. It is in this log-odds space that LightGBM makes its predictions and the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space. The additivity\sidenote{See also \autoref{sec:ml:feature_importance}.} of SHAP is in this log-odds space. 
+ which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. It is in this log-odds space that LightGBM makes its predictions and the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space. The additivity\sidenote[][0.5cm]{See also \autoref{sec:ml:feature_importance}.} of SHAP is in this log-odds space. 
 
 With this in mind, single predictions of the LGB $b$-tagging model can be understood with SHAP which Figure~\ref{fig:q:shap_single_prediction_3j} is an example of. This figure shows the logic behind the models prediction for this particular jet. That the bias is negative reflects that there is a majority of background compared to signal\sidenote{There are \SI{22.1}{\percent} $b$-jets in the 3-jet training set.}. This particular event has \code{projet}$=1.003$, \code{bqvjet}$=0.529$, and \code{ptljet}$=0$. In the plot it is seen how this high value of \code{projet} has the greatest impact on the model prediction, while the medium value of \code{bqvjet} also pushes the model prediction towards a signal-prediction. The four bars in the left part of the plot are all in log-odds space and their sum is shown as the blue bar to right, where the right $y$-axis shows the value in probability space $p\in [0,1]$. This jet was in fact a $b$-jet.
 % , so the model predicted this one correctly. 
@@ -315,11 +322,7 @@ With this in mind, single predictions of the LGB $b$-tagging model can be unders
 
 Initially when plotting the HPO performance as a function of iteration, it was seen how there were three significant plateaus, where the highest plateau (i.e. highest AUC value and thus best score) was only seen in the very first iteration. It was quickly realized that this was due to the very first iteration was being run with the default values of the LGB and XGB models in the custom implementation by the author. However, what was not understood was why this value was performing so much better than random sets of hyperparameters\sidenote{LightGBM and XGBoost of course have chosen their default parameters smartly, however, it one would not expect them to outperform other sets of hyperparameters that clearly.}. During the debugging process the column downsampling \code{colsample_bytree} was diagnosed to be the culprit. The default value is \code{colsample_bytree}$=1$, however, the probability density function (PDF) used in RS for this parameter was $\mathcal{U}(0.4, 1)$ which was expected to give the same performance as the default value for large values of \code{colsample_bytree}. By inspecting the source code of LightGBM it was realized that the model takes the integer of the column downsampling multiplied with the total number of features if the column downsampling is less than \num{1} \autocite{MicrosoftLightGBM}. This means that no matter how close to \num{1} the column downsampling get, the integer value of the total number of columns get floored to \num{2} at max, compared to when the column downsampling is exactly \num{1} which it only is for the default values.
 
-To deal with this problem a new PDF was developed on top of the existing ones in Scipy: $\mathcal{U}_\mathrm{trunc}(a, b, c)$. This PDF first generates a random number $x$ from a uniform distribution between $a$ and $c$. Then if $x$ is larger than $b$ it is floored to $b$. In this way, it is possible to both get values of $x$ in the interval $[a, b]$ but also values exactly equal to $b$. The value of $c$ controls how often these \q{overflow} values of $x$ are generated.
-
-
-
-
+To deal with this problem a new PDF was developed on top of the existing ones in Scipy, the truncated uniform PDF: $\mathcal{U}_\mathrm{trunc}(a, b, c)$. This PDF first generates a random number $x$ from a uniform distribution between $a$ and $c$. Then if $x$ is larger than $b$ it is floored to $b$. In this way, it is possible to both get values of $x$ in the interval $[a, b]$ but also values exactly equal to $b$. The value of $c$ controls how often these \q{overflow} values of $x$ are generated.
 
 
 
@@ -328,16 +331,62 @@ To deal with this problem a new PDF was developed on top of the existing ones in
 \section[g-Tagging Analysis]{$g$-Tagging Analysis}
 \label{sec:q:g_tagging_analysis}
 
+The trained $b$-tagging LGB model is a jet-based model which provides a $b$-tag score $\beta_\mathrm{tag}$ to a jet. This also means that each of the jets e.g. a 4-jet event can get a $b$-tag: $\bm{\beta}_\mathrm{tag}=[\beta_{\mathrm{tag}_1}, \beta_{\mathrm{tag}_2}, \beta_{\mathrm{tag}_3}, \beta_{\mathrm{tag}_4}]$. Using $\bm{\beta}_\mathrm{tag}$ one can train a new model on the events, compared to individual jets, where signal events are defined to be $q$-matched events where the gluons are assigned the $n-2$ lowest $b$-tag scores for $n$-jet events; e.g. $\bm{\beta}_\mathrm{tag}=[0.95, 0.89, 0.15, 0.07]^\top$ for the four jets $[b, \bar{b}, g, g]$. This event-based process will be called $g$-tagging and the trained model will return a $g$-tag score written as $\gamma_\mathrm{tag}$. Compared to the $b$-tagging LGB model, this model will allow one to extract entire events which contains a clear identification of gluons versus non-gluons.
+
+\subsection{Permutation Invariance}
+\label{subsec:q:permutation_invariance}
+
+Since the $b$-tags are only based on the vertex variables, the goal of the $g$-tag is to also be constructed in an un-biased way with respect to the jet energy $E_\mathrm{jet}$. However, even though $\beta_\mathrm{tag} \Independent E_\mathrm{jet}$ and $\gamma_\mathrm{tag} = f(\beta_\mathrm{tag})$, it turned out that $\gamma_\mathrm{tag} \NotIndependent E_\mathrm{jet}$, where $a \Independent b$ is defined to mean that $a$ is independent\sidenote{And $\NotIndependent$ means not independent.} of $b$ and $f$ is an unknown function. This was because the ordering of the jets within the event was energy-dependent: they sorted according to their $E_\mathrm{jet}$. 
+
+This meant that the different components in $\bm{\beta}_\mathrm{tag}$ had different importances, even though they should be equally important. Instead of defining $\bm{\beta}_\mathrm{tag}$ as a vector it should instead be seen as a set\sidenote{Since sets have no inherent order.} $\bm{\beta}_\mathrm{tag}=\{\beta_{\mathrm{tag}_1}, \dots, \beta_{\mathrm{tag}_n}\}$. The $g$-tagging model trained on the events should thus be \emph{permutation invariant}\sidenote{$f(\vec{x}) = f(\tau(\vec{x}))$ for any permutation $\tau$ on an input vector $\vec{x}$.} with regards to the input variables. The category of permutation invariant (and equivariant\sidenote{$\tau(f(\vec{x})) = f(\tau(\vec{x}))$ for any permutation $\tau$ on an input vector $\vec{x}$.}) neural networks in the deep learning community has seen an huge development within recent years where the paper from \citet{zaheerDeepSets2017} in 2017 was quite influential, however also other examples exists \autocite{ravanbakhshDeepLearningSets2017, guttenbergPermutationequivariantNeuralNetworks2016}. Yet, the same development cannot be said to have happened within the more classic machine learning field.
+
+Although not being a novel software-technical solution, the problem was circumvented by two simple, different approaches: 1) by simply shuffling the inputs variables independently for each observation (row) in the dataset, and 2) training on all possible permutations of the variables in the dataset. The second approach can be seen as a feature augmentation technique where the data is artificially increased with factor of $n$ factorial: $N \rightarrow n!\cdot N$ where $N$ is the number of observations (rows) and $n$ is the number of jets. These two methods were tested along with the original order of the dataset. 
+
+\subsection{$g$-Tagging Hyperparameter Optimization}
+
+Four LightGBM models, two for 3-jet events and two for 4-jet events, were trained and hyperparameter optimized for both the the energy ordered and shuffled\sidenote[][2cm]{The method with all permutations was trained using the same hyperparameters as the best ones for the shuffled model.} data sets with \num{100} iterations of random search with the same PDFs as for the $b$-tagging, see Table~\ref{tab:q:hpo_ranges_lgb}, and $5$-fold cross validation and early stopping with a patience of \num{100}. The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagging}. Here the two 3-jets models are seen in the two plots to the left, and the two 4-jets to the right. The very left plot shows the 3-jet energy-ordered (no permutation) performance as a function of iteration number, which was also where the issues mentioned in \autoref{sec:q:trunc_uniform} were first discovered. Here the difference between the how many of the three variables, the three $b$-tags, are included is seen as three clear plateaus. The three plateaus are also seen in the 3-jet events that were shuffled, however, with more variation in each plateau, along with a drop in performance. For the 4-jet events the plateaus are not as apparent but it can still be seen how some of the iterations how a significantly lower score than others. The parallel plots for the four fits can be seen in Figure~\ref{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}--\ref{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled} in the appendix.
+
 \begin{figure*}%
   \centering
-  \subfloat{{\includegraphics[width=0.48\textwidth, trim=860 600 50 70, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}}}%
+  \subfloat{{\includegraphics[draft=false, width=0.48\textwidth, trim=860 580 50 70, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}}}%
   \;
-  \subfloat{{\includegraphics[width=0.48\textwidth, trim=870 60 40 610, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf} }}%
+  \subfloat{{\includegraphics[draft=false, width=0.48\textwidth, trim=870 40 40 610, clip]{figures/quarks/cv_res_lgb-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf} }}%
   \vspace{2mm}
-  \caption[Hyperparameter Optimization of $b$-tagging]{
-    Hyperparameter Optimization results of $b$-tagging with random search. From left to right, we have A) \num{100} iterations of RS with LGB on 3-jets, B) \num{10} iterations of RS with XGB on 3-jets, C) \num{100} iterations of RS with LGB on 4-jets, D) \num{10} iterations of RS with XGB on 4-jets. Notice the different ranges on the y-axes.}
+  \caption[Hyperparameter Optimization of $g$-tagging]{
+    Hyperparameter Optimization results of $g$-tagging with \num{100} iterations of random search with LGB. From left to right, we have A) 3-jet events energy-ordered (no permutations), B) 3-jet events row-shuffled, C) 4-jet events energy-ordered, D) 4-jet events row-shuffled. Notice the different ranges on the y-axes.}
   \label{fig:q:CV_res_iterations_g_tagging}%
 \end{figure*}
+
+\subsection{PermNet}
+\label{subsec:q:permnet}
+
+In addition to the LGB models, a permutation invariant neural network called PermNet based on the Deep Sets paper \autocite{zaheerDeepSets2017} implemented in Tensorflow \citep{tensorflow2015-whitepaper} by \citet{fayeFrederikFayeDeepcalo} was also tested. \citet{zaheerDeepSets2017} showed that $f(X)$ is permutation invariant if and only if it can be decomposed in the following way:
+\begin{equation}
+  \label{eq:q:deep_sets}
+  f(X)=\rho\left(\sum_{x\in X} \phi(x) \right).
+\end{equation}
+for suitable transformations $\rho$ and $\phi$ (which the neural network learns\sidenote{This is possible since neural networks are universal function approximators \autocite{hornikApproximationCapabilitiesMultilayer1991}.}). The PermNet was trained using three layers\sidenote{Where the two hidden layers have \num{128} and \num{64} neurons in each.} with leaky ReLU \autocite{Maas2013RectifierNI} as the activation function and ADAM \autocite{kingmaAdamMethodStochastic2014} as the optimizer optimizing the log-loss. The network was trained with early stopping with a patience of \num{50} epochs and a batch size of \num{128}. A visual overview of the PermNet architecture can be seen in Figure~\ref{fig:q:permnet_architecture} in the appendix.
+
+\subsection{1D Comparison of LGB and PermNet}
+\label{subsec:q:lgb_permnet_comparison}
+
+To better understand the difference between the difference between the LGB and PermNet models, a small comparison was made. This comparison was constructed by summing the $b$-tag scores in the $n$-jet event together $\sum_i^n \beta_{\mathrm{tag}_i}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
 \vspace{0.5cm}
 
 
