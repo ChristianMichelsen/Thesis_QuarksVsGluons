@@ -264,6 +264,18 @@ However, the LGB model is several times faster than the XGB model. In comparison
   \label{fig:q:roc_btag_4j}
 \end{figure}
 
+The distribution of $b$-tag scores $\beta_\mathrm{tag}$ from the $b$-tag LGB model for 4-jet events can be seen in Figure~\ref{fig:q:btag_histogram_4j}. In the figure it can be seen how the separation between the heavier quarks and light quarks (and gluons) is clear at high values of $\beta_\mathrm{tag}$, however, a lot of $c$-quarks also get a high $b$-tag score. The same is seen for 3-jet events in Figure~\ref{fig:q:btag_histogram_3j} in the appendix. 
+
+
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=15 15 15 50, clip]{figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Distribution of $b$-Tags in 4-Jet Events]
+          {Distribution of $b$-tags in 4-jet events for \textcolor{blue}{$b$-jets} in blue, \textcolor{red}{$c$-jets} in red, \textcolor{green}{$uds$} in green and \textcolor{orange}{$g$} in orange.} 
+  \label{fig:q:btag_histogram_4j}
+\end{figure}
+
+
 \subsection{$b$-Tagging Model Inspection}
 
 To get a better understanding of the trained LGB model, the global SHAP feature importances can be seen in Figure~\ref{fig:q:shap_btag_global_4j} for 4-jet events. First of all it is noted that the \code{projet} has global feature importance of \SI{57.32}{\percent}, \code{bqvjet} \SI{29.16}{\percent}, and \code{ptljet} \SI{13.52}{\percent}. For all three variables it is seen how most of the points have many small feature values which has a negative impact on the model output however small. Especially the \code{ptljet} has many features with a low value (\num{0} in fact) yet this does not pull the model too much towards background events compared to if a jet has a high value of \code{ptljet} which has a strong, positive impact on the output prediction.
@@ -333,7 +345,7 @@ To deal with this problem a new PDF was developed on top of the existing ones in
 \section[g-Tagging Analysis]{$g$-Tagging Analysis}
 \label{sec:q:g_tagging_analysis}
 
-The trained $b$-tagging LGB model is a jet-based model which provides a $b$-tag score $\beta_\mathrm{tag}$ to a jet. This also means that each of the jets e.g. a 4-jet event can get a $b$-tag: $\bm{\beta}_\mathrm{tag}=[\beta_{\mathrm{tag}_1}, \beta_{\mathrm{tag}_2}, \beta_{\mathrm{tag}_3}, \beta_{\mathrm{tag}_4}]$. Using $\bm{\beta}_\mathrm{tag}$ one can train a new model on the events, compared to individual jets, where signal events are defined to be $q$-matched events where the gluons are assigned the $n-2$ lowest $b$-tag scores for $n$-jet events; e.g. $\bm{\beta}_\mathrm{tag}=[0.95, 0.89, 0.15, 0.07]^\top$ for the four jets $[b, \bar{b}, g, g]$. This event-based process will be called $g$-tagging and the trained model will return a $g$-tag score written as $\gamma_\mathrm{tag}$. Compared to the $b$-tagging LGB model, this model will allow one to extract entire events which contains a clear identification of gluons versus non-gluons.
+The trained $b$-tagging LGB model is a jet-based model which provides a $b$-tag score $\beta_\mathrm{tag}$ to a jet. This also means that each of the jets in e.g. a 4-jet event can get a $b$-tag: $\bm{\beta}_\mathrm{tag}=[\beta_{\mathrm{tag}_1}, \beta_{\mathrm{tag}_2}, \beta_{\mathrm{tag}_3}, \beta_{\mathrm{tag}_4}]$. Using $\bm{\beta}_\mathrm{tag}$ one can train a new model on the events, compared to individual jets, where signal events are defined to be $q$-matched events\sidenote{Remember that $q$-matched events are events with one, and only one, jet that is $q$-matched to one of the quark-jets, and one, and only one of the jets is $q$-matched to the other quark-jet.} where the non-$q$-matched jets are assigned the $n-2$ lowest $b$-tag scores for $n$-jet events; e.g. $\bm{\beta}_\mathrm{tag}=[0.95, 0.89, 0.15, 0.07]^\top$ for the four jets $[b, \bar{b}, g, g]$. This event-based process will be called $g$-tagging and the trained model will return a $g$-tag score written as $\gamma_\mathrm{tag}$. Compared to the $b$-tagging LGB model, this model will allow one to extract entire events which contains a clear identification of gluons versus non-gluons.
 
 \subsection{Permutation Invariance}
 \label{subsec:q:permutation_invariance}
@@ -375,6 +387,7 @@ for suitable transformations $\rho$ and $\phi$ (which the neural network learns\
 To better understand the difference between the difference between the LGB and PermNet models, a small comparison was made. This comparison was constructed by summing the $b$-tag scores in the $n$-jet event together $\sum_i^n \beta_{\mathrm{tag}_i}$. The $\beta_{\mathrm{tag}_i}$ are summed together since this turns the problem into a \num{1}D problem that is easy to visualize, the sum of numbers is a permutation invariant function, and is similar to the simplest functions of $\rho$ and $\phi$ in equation \eqref{eq:q:deep_sets}: the identity function. The 1D models are fit to the training events and then a linear scan from $\sum_i^n \beta_{\mathrm{tag}_i}=0.4$ to $3.1$ is made to see how the predicted $g$-tags $\gamma_\mathrm{tag}$ distribute. This is shown in Figure~\ref{fig:q:1d_sum_models_signal_fraction_4j} for 4-jet events. Here the value of $\gamma_\mathrm{tag}$ is shown for the two models together with the fraction of signal to background in each bin. If the $g$-tag score should resemble a true probability it would be expected to follow the signal ratio, e.g. a model should predict $\gamma_\mathrm{tag}=0.9$ if there is \SI{90}{\percent} signal in that bin. In the figure it is seen how the PermNet does a great job at fitting the signal fraction, however, the LGB model also does a decent job. Remember that none of these models were shown the signal fraction explicitly, only the $b$-tag sum and a signal-or-background label. The distribution of signal and background together with the distribution of cuts made by the LGB model can be seen in Figure~\ref{fig:q:1d_sum_model_cuts_4j} in the appendix. The similar plots for 3-jet events are plotted in Figure~\ref{fig:q:1d_sum_models_signal_fraction_3j} and \ref{fig:q:1d_sum_model_cuts_3j}, both in the appendix.
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[1D Sum Models Predictions and Signal Fraction for 4-jets events]
           {Plot of the (1D) $g$-tag scores for 4-jet events as a function of $\sum \beta_i$ for the \textcolor{blue}{LGB} model in blue and the \textcolor{red}{PermNet} model in red. The signal fraction (based on the signal and background histograms in \figref{fig:q:1d_sum_model_cuts_4j}) is plotted as black error bars where the size of the error bars is based on the propagated uncertainties of the signal and background histogram assuming Poissonian statistics. } 
@@ -385,58 +398,68 @@ It can be concluded, at least in 1D, that both LGB and PermNet are able to captu
 
 \subsection{$g$-Tagging Results}
 
-The distribution of $g$-tag scores in 4-jet events can be seen in Figure~\ref{fig:q:gtag_scores_4j} for the eight combinations of the two models (LGB and PermNet) and the four data sorting methods (energy ordered, (row) shuffled, all permutations, and the (1D) sum.). 
+The distribution of $g$-tag scores in 4-jet (training) events the can be seen in Figure~\ref{fig:q:gtag_scores_4j} for the eight combinations of the two models (LGB and PermNet) and the four data sorting methods (energy ordered, (row) shuffled, all permutations, and the (1D) sum.). At first the increased number of events (a factor of \num{24} for 4-jet events) with the all-permutation scheme is seen separating the two light green curves from the rest. The energy ordered LGB model is the combination which utilizes most of the $\gamma_\mathrm{tag}$-range, while the two 1D sum models have the most limited range, indicating that the models are more uncertain about their predictions. The energy ordered and shuffled PermNet models can more or less only be distinguished because the latter is plotted with dashed lines. This makes sense, since they are also expected to make the same predictions were they really permutation invariant\sidenote{It is only because of the stochasticity in the optimization process of the two networks that they did not converge to the completely same predictions.}. When plotted with normalized counts it is seen how the shuffled and all-permuted LGB models also follow each other very closely, which can still be partly seen in this plot by comparing the two distributions. The distribution of $g$-tags in 3-jet training events can be seen in Figure~\ref{fig:q:gtag_scores_4j} in the appendix. 
 
-\begin{figure}
+\begin{figure}[h!]
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=10 10 10 45, clip]{figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[$g$-Tag Scores in 4-Jet Events]
-          {Histogram of $g$-tag scores in 4-jet events for \textcolor{blue}{LGB: Energy Ordered} in blue, \textcolor{red}{LGB: Shuffled} in red, \textcolor{green}{LGB: All Permutations} in green, \textcolor{orange}{LGB: Sum 1D} in orange, \textcolor{purple}{PermNet: Energy Ordered} in purple, \textcolor{light-blue}{PermNet: Shuffled} in light-blue, \textcolor{light-green}{PermNet: All Permutations} in light-green, \textcolor{light-purple}{PermNet: Sum 1D} in light-purple.  Here LGB and PermNet are the two different type of models and \q{Energy Ordered}, \q{Shuffled}, \q{All Permutations}, and \q{Sum 1D} are the different methods used for making the input data permutation invariant (except energy ordered). 
-          }   
+          {Distribution of $g$-tag scores in 4-jet events shown with a logarithmic $y$-scale for \textcolor{blue}{LGB: Energy Ordered} in blue, \textcolor{red}{LGB: Shuffled} in red, \textcolor{green}{LGB: All Permutations} in green, \textcolor{orange}{LGB: Sum 1D} in orange, \textcolor{purple}{PermNet: Energy Ordered} in purple, \textcolor{light-blue}{PermNet: Shuffled} in light-blue, \textcolor{light-green}{PermNet: All Permutations} in light-green, \textcolor{light-purple}{PermNet: Sum 1D} in light-purple.  Here LGB and PermNet are the two different type of models and \q{Energy Ordered}, \q{Shuffled}, \q{All Permutations}, and \q{Sum 1D} are the different methods used for making the input data permutation invariant (except energy ordered).}   
   \label{fig:q:gtag_scores_4j}
 \end{figure}
 
+To see the performance of the different combinations, see the ROC curve in Figure~\ref{fig:q:gtag_scores_4j} which shows the performance on 4-jet events with the AUC shown in the legend. First of all it is easy to see that the energy ordered LGB model is significantly higher-performing than the rest of the models, however, this model is also energy-biased by not being permutation invariant in the $b$-tags and is only included to see how large a performance drop the permutation invariance criterion causes. The worst performing models are the two 1D sum models, as expected since they only have a single dimension to learn from, compared to the four dimensions that the other models have. In general it can be seen that the rest of the models are performing almost identically, with the LGB model trained on all permutations to be the highest-performing of them all by a small margin. 
+For 3-jet events the same overall picture is seen, see Figure~\ref{fig:q:gtag_scores_4j} in the appendix, however, here LGB model trained on the shuffled events performs the best, yet this performance improvement is so small compared to the all-permutations LGB model that it is expected to be due to statistical fluctuations and not a real performance difference. 
 
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[ROC Curve for $g$-Tag in 4-Jet Events]
+          {ROC curve of the eight $g$-tag models in 4-jet. First one in dashed black is the ROC curve that you get by random chance. The colors are the same as in \figref{fig:q:gtag_scores_4j} and in the legend also the Area Under the ROC curve (AUC) is shown.} 
+  \label{fig:q:roc_gtag_4j}
+\end{figure}
 
-\newpage
+Based on the AUC scores seen in the ROC curves in Figure~\ref{fig:q:roc_gtag_4j} and \ref{fig:q:roc_gtag_3j}, the LGB-model trained on all permutations will be the $g$-tagging model choice. To see how this model's predictions of $\gamma_\mathrm{tag}$ distributive for different particle-types for signal and background events see Figure~\ref{fig:q:gtag_scores_4j_sig_bkg}. Here the distribution of $\gamma_\mathrm{tag}$ is shown for 4-jet signal events and background events. Remember that in $g$-tagging, the signal events are defined as events where the two jets with the highest $b$-tags are also the two $q$-matched jets (and the entire event is $q$-matched). In the figure it can be seen that at high values of $\gamma_\mathrm{tag}$ primarily $b\bar{b}gg$ events are tagged (signal $b$), but also with some $c\bar{c}gg$ (signal $c$) and $bgbg$-events\sidenote{Or any other permutation of $b$, $\bar{b}$, $g$, $g$ which is not $b\bar{b}gg$.} (background $b$) sorted according to their $b$-tags. At low values of $\gamma_\mathrm{tag}$ light quarks ($uds$) dominate. 
 
-\vspace{0.5cm}
-
-
-
-
-
-
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[g-tag scores in 4-jet events for signal and background]
-          {Histogram of g-tag scores (model prediction) from the XGB-model in 4-jet events for \textcolor{blue}{b signal} in blue, \textcolor{red}{c signal} in red, \textcolor{green}{l signal} in green, \textcolor{orange}{b background} in orange, \textcolor{purple}{c background} in purple, \textcolor{light-blue}{l background} in light-blue.
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 45, clip]{figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Distribution of $g$-Tag Scores in 4-Jet Events for Signal and Background]
+          {Histogram of $g$-tag scores from the LGB-model in 4-jet events for \textcolor{blue}{$b$ signal} in blue, \textcolor{red}{$c$ signal} in red, \textcolor{green}{$l$ ($uds$) signal} in green, \textcolor{orange}{$b$ background} in orange, \textcolor{purple}{$c$ background} in purple, \textcolor{light-blue}{$l$ ($uds$) background} in light-blue.
           } 
   \label{fig:q:gtag_scores_4j_sig_bkg}
 \end{figure}
 
+The similar plot for 3-jet events is seen in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg} in the appendix. This plot has some surprising bumps for mainly $l$-quark events which are not yet fully understood. When comparing $l$-quark events in the high-$\gamma_\mathrm{tag}$ bump with the ones getting a low $\gamma_\mathrm{tag}$-value, see Figure~\ref{fig:q:gtag_scores_3j_l_quarks}, one can see that $l$-quark events with high $\gamma_\mathrm{tag}$ has only two jets with high $b$-tags, compared to low-$\gamma_\mathrm{tag}$ $l$-quark events which more often has three jets with high $b$-tags. 
 
-
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[ROC curve for g-tag in 4-jet events]
-          {ROC curve of the eight g-tag models in 4-jet events. First one in dashed black is the ROC curve that you get by random chance. The colors are the same as in \figref{fig:q:gtag_scores_4j} and in the legend also the Area Under the ROC curve (AUC) is shown. 
-          Notice that the XGB model which uses the energy ordered data produced the best model, however, this model is not permutation invariant. Of the permutation invariant models (the rest), the XGB model trained on all permutations of the b-tags performs highest. The lowest performing models are the two models trained only on the 1-dimensional sum of b-tags, as expected, however, still with a better performance than expected by the author.  
-          } 
-  \label{fig:q:roc_gtag_4j}
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 10, clip]{figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Distribution of $b$-Tag Scores in 3-Jet $l$-Quark Events for Low and High $g$-Tag Values]
+          {Distribution of $b$-Tag Scores in 3-Jet $l$-Quark Events for low and high $g$-tags values. Here $l$-quark events with $0.75 < \gamma_\mathrm{tag} <  0.85$, so the high peak in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg}, are plotted in fully connected lines, and events with $\gamma_\mathrm{tag} <  0.3$ are plotted in dashed lines. For each of these two selection of events the value of the jet with the \textcolor{blue}{highest $\beta_\mathrm{tag}$} is shown in blue, the jet with the \textcolor{red}{middle $\beta_\mathrm{tag}$} in red, and the jet with the \textcolor{green}{lowest $\beta_\mathrm{tag}$} in green.} 
+  \label{fig:q:gtag_scores_3j_l_quarks}
 \end{figure}
 
 
 
+\begin{figure*}%
+  \centering
+  \subfloat{{\includegraphics[draft=false, width=0.42\textwidth]{figures/quarks/leptons_high_g_vs_low_1.png}}}%
+  \;
+  \subfloat{{\includegraphics[draft=false, width=0.48\textwidth]{figures/quarks/leptons_high_g_vs_low_2.png} }}%
+  \vspace{2mm}
+  \caption[XXX]{
+    XXX.}
+  \label{fig:q:gtag_scores_3j_l_quarks_3d}%
+\end{figure*}
 
 
 
 
 
 
+
+\newpage
 
 
 \begin{figure}
