@@ -364,13 +364,12 @@
 
 
 
-% \includeonly{chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing}
-% \includeonly{chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing}
+% \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
-% \includeonly{chapter_particle_physics_theory,chapter_quark_gluon}
+\includeonly{chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
 % \includeonly{chapter_quark_gluon}
 
-% \includeonly{chapter_introduction,chapter_machine_learning_theory}
+% \includeonly{chapter_machine_learning_theory}
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
 
 
@@ -404,7 +403,7 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 \chapter*{Foreword}
 \addcontentsline{toc}{chapter}{Foreword}
 
-The background for this masters's thesis, is that it is part of a so-called 4+4 Ph.D. project (also known as an integrated Ph.D.). The Ph.D. dissertation is about the use of machine learning and deep learning in the field of ancient genomics. Here ancient DNA is sampled and analysed with the hope of finding patterns, structure, in the genome which were previously unknown. The overall goal is two-fold. On the big scale it is the better understand human history in the broadest sense of the word history. Where did we come from, where did we go. On a much smaller scale, the goal is to understand local history and migration patterns; how did we end up where we did. It is with this background that this project should be seen: as an introduction to the general use of applied machine learning.
+\include{chapter_foreword}
 
 % Start the main matter (normal chapters)
 \mainmatter
@@ -451,183 +450,7 @@ The second part of this thesis deals with particle physics and the discriminator
 
 \chapter{Quarks vs. Gluons Appendix}
 
-
-\begin{table}
-  \centering
-  \begin{tabular}{@{}rrrrrr@{}}
-    {}    & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{$c$} & \multicolumn{1}{c}{$uds$} & \multicolumn{1}{c}{$g$} & non-$q$-matched     \\ 
-    \midrule
-    2 & \SI{37.2}{\percent}  & \SI{12.9}{\percent}  & \SI{29.1}{\percent} &  \SI{0.0}{\percent} & \SI{20.7}{\percent}  \\
-    3 & \SI{22.6}{\percent}  &  \SI{8.9}{\percent}  & \SI{19.7}{\percent} & \SI{31.2}{\percent} & \SI{17.5}{\percent}  \\
-    4 & \SI{14.6}{\percent}  &  \SI{7.0}{\percent}  & \SI{15.0}{\percent} & \SI{45.1}{\percent} & \SI{18.3}{\percent}  \\
-    5 & \SI{10.0}{\percent}  &  \SI{5.7}{\percent}  & \SI{12.2}{\percent} & \SI{52.5}{\percent} & \SI{19.6}{\percent}  \\
-    6 &  \SI{7.1}{\percent}  &  \SI{4.4}{\percent}  &  \SI{8.8}{\percent} & \SI{54.4}{\percent} & \SI{25.2}{\percent}  \\
-  \end{tabular}
-  \caption{Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI{100}{\percent}. See also Table~\ref{tab:q:flevt_overview}.}
-  \label{tab:q:flevt_overview_percent_relative}
-\end{table}
-
-
-\newpage
-\begin{figure*}[h!]
-  \centerfloat
-  \includegraphics[draft=true, width=0.98\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf}
-  \caption[UMAP Parameter Grid Search]
-          {Grid search of the two parameters \code{n_neighbors} and \code{min_dist} for the UMAP algorithm run on 4-jet events. For an explanation of these, see \autoref{sec:q:EDA}.} 
-  \label{fig:q:UMAP_vertex_all}
-\end{figure*}
-
-\vspace{2cm}
-
-\begin{figure*}[h!]
-  \centerfloat
-  \includegraphics[draft=true, width=0.98\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_TSNE_MULTI_test_0.5_input2b_njet=4_algorithm=tsne_multi.pdf}
-  \caption[Visualization of the t-SNE algorithm]
-          {Visualization of the t-SNE algorithm as a function of the \code{perplexity} parameters for 4-jet events.} 
-  \label{fig:q:tsne_vertex}
-\end{figure*}
-
-\FloatBarrier
-\newpage
-
-
-\begin{table}
-  \centerfloat
-  \begin{tabular}{@{}ll@{}}
-  Hyperparameter                &  Range                                  \\ \midrule
-  \code{subsample}              & $\mathcal{U}(0.4, 1)$                   \\
-  \code{colsample_bytree}       & $\mathcal{U}_\mathrm{trunc}(0.4, 1, 2)$ \\
-  \code{max_depth}              & $\mathcal{U}_\mathrm{int}(1, 20)$       \\
-  \code{min_child_weight}       & $\mathcal{U}_\mathrm{int}(0, 10)$       \\
-  \end{tabular}
-  % \vspace{\abovecaptionskip}
-  \vspace{3mm}
-  \caption[Random Search PDFs for XGB]{\label{tab:q:hpo_ranges_xgb}Probability Density Functions for the random search hyperparameter optimization process for the XGBoost model.}
-\end{table}
-
-
-\begin{figure}
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO results for 3-jet $b$-Tagging]
-          {Hyperparameter optimization results of $b$-tagging for 3-jet events. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by AUC from \textcolor{viridis-dark}{highest} AUC in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. 
-          } 
-  \label{fig:q:initial_CV_res_parallel_coords_3j}
-\end{figure}
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-tag scores in 3-jet events]
-          {Histogram of $b$-tag scores $\beta_\mathrm{tag}$ in 3-jet events for \textcolor{blue}{NNB} (the neural network pre-trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. 
-          } 
-  \label{fig:q:btag_scores_3j}
-\end{figure}
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[ROC curve for 3-jet $b$-tagging]
-          {ROC curve of the three $b$-tag models in 3-jet events for \textcolor{blue}{NNB} (the pre-trained neural network trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the area under curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. In the machine learning community the background efficiency $\varepsilon_\mathrm{bkg}$ is sometimes know as the false positive rate (FPR) and the signal efficiency $\varepsilon_\mathrm{sig}$ as the true positive rate (TPR).  
-          } 
-  \label{fig:q:roc_btag_3j}
-\end{figure}
-
-
-
-\begin{figure}[h!]
-  \includegraphics[width=0.98\textwidth, trim=10 10 20 10, clip]{figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
-  \caption[Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events]
-          {Global feature importances for the LGB $b$-tagging algorithm on 3-jet events. The normalized feature importance is shown in the parenthesis and the each dot is an observation showing the dependance between the SHAP value and the feature's value. 
-          } 
-  \label{fig:q:shap_btag_global_3j}
-\end{figure}
-
-\newpage
-\FloatBarrier
-
-
-\begin{figure}[h!]
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets]
-          {Hyperparameter optimization results of $g$-tagging for 3-jet events for energy ordered jets. 
-          } 
-  \label{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}
-\end{figure}
-
-
-\begin{figure}[h!]
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets]
-          {Hyperparameter optimization results of $g$-tagging for 3-jet events for (row) shuffled jets. 
-          } 
-  \label{fig:q:CV_res_parallel_coords_g_tag_3j_shuffled}
-\end{figure}
-
-\begin{figure}[h!]
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets]
-          {Hyperparameter optimization results of $g$-tagging for 4-jet events for energy ordered jets. 
-          } 
-  \label{fig:q:CV_res_parallel_coords_g_tag_4j_energy_ordered}
-\end{figure}
-
-
-\begin{figure}[h!]
-  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets]
-          {Hyperparameter optimization results of $g$-tagging for 4-jet events for (row) shuffled jets. 
-          } 
-  \label{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}
-\end{figure}
-
-\newpage
-\FloatBarrier
-
-
-
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.5\textwidth]{figures/quarks/TensorFlow_model.png}
-  \caption[PermNet Architecture]
-          {Architecture of the PermNet neural network. 
-          } 
-  \label{fig:q:permnet_architecture}
-\end{figure}
-
-\FloatBarrier
-\newpage
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[1D LGB Model Cuts for 4-jets events]
-          {Histogram of the distribution of \textcolor{blue}{signal} in blue and \textcolor{red}{background} in red for the 1-dimensional sum of $b$-tags for 4-jet events. A histogram of the \textcolor{green}{cut values} from the LGB model trained on this data is shown in green together with a rug plot of the cut values in black. Notice how most of the cuts match up with the signal peak at around a $\sum \beta_i \sim 2.1$.
-          } 
-  \label{fig:q:1d_sum_model_cuts_4j}
-\end{figure}
-
-
-
-
-
-
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 10, clip]{figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[1D Sum Models Predictions and Signal Fraction for 3-jets events]
-          {Plot of the (1D) $g$-tag scores for 3-jet events as a function of $\sum \beta_i$ for the \textcolor{blue}{LGB} model in blue and the \textcolor{red}{PermNet} model in red. The signal fraction (based on the signal and background histograms in \figref{fig:q:1d_sum_model_cuts_3j}) is plotted as black error bars where the size of the error bars is based on the propagated uncertainties of the signal and background histogram assuming Poissonian statistics. } 
-  \label{fig:q:1d_sum_models_signal_fraction_3j}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 20, clip]{figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[1D LGB Model Cuts for 3-jets events]
-          {Histogram of the distribution of \textcolor{blue}{signal} in blue and \textcolor{red}{background} in red for the 1-dimensional sum of $b$-tags for 3-jet events. A histogram of the \textcolor{green}{cut values} from the LGB model trained on this data is shown in green together with a rug plot of the cut values in black. Notice how most of the cuts match up with the signal peak at around a $\sum \beta_i \sim 2.1$.
-          } 
-  \label{fig:q:1d_sum_model_cuts_3j}
-\end{figure}
-
-
+\include{chapter_appendix_quarks_gluons}
 
 \backmatter
 

@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: MasterThesis.aux
 The style file: abbrvnat.bst
+A level-1 auxiliary file: chapter_foreword.aux
 A level-1 auxiliary file: chapter_introduction.aux
 A level-1 auxiliary file: chapter_machine_learning_theory.aux
 A level-1 auxiliary file: chapter_housing_prices.aux
@@ -10,6 +11,7 @@ A level-1 auxiliary file: chapter_quark_gluon.aux
 A level-1 auxiliary file: chapter_discussion.aux
 A level-1 auxiliary file: chapter_conclusion.aux
 A level-1 auxiliary file: chapter_appendix_housing.aux
+A level-1 auxiliary file: chapter_appendix_quarks_gluons.aux
 Database file #1: My_Library.bib
 Warning--entry type for "veenNeuralNetworkZoo2016" isn't style-file defined
 --line 1251 of file My_Library.bib
@@ -259,7 +261,7 @@ Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 You've used 83 entries,
             2773 wiz_defined-function locations,
-            1175 strings with 25768 characters,
+            1177 strings with 25822 characters,
 and the built_in function-call counts, 40265 in all, are:
 = -- 3532
 > -- 2437

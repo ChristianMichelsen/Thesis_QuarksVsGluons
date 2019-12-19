@@ -1,6 +1,8 @@
 
 \chapter{Quark Gluon Analysis}
 \label{ch:quark_gluon_analysis}
+\epigraph{\textit{``Research is what I am doing I don't know know what I'm doing.''}}{---  Wernher von Braun}
+
 
 \newthought{As any dedicated reader} can clearly see, the Ideal of practical reason is a representation of, as far as I know, the things in themselves; as I have shown elsewhere, the phenomena should only be used as a canon for our understanding. The paralogisms of practical reason are what first give rise to the architectonic of practical reason. As will easily be shown in the next section, reason would thereby be made to contradict, in view of these considerations, the Ideal of practical reason, yet the manifold depends on the phenomena.
 
@@ -52,7 +54,7 @@ The number of events for each number of jets can be seen in Table~\ref{tab:q:dat
 \end{margintable}
 
 \FloatBarrier
-\section{Explanatory Data Analysis} \label{sec:q:EDA}
+\section{Exploratory Data Analysis} \label{sec:q:EDA}
 
 Since the machine learning models are only trained on the three vertex variables \code{projet}, \code{bqvjet}, and \code{ptljet} -- see \autoref{ch:hep:particle_physcis_LEP} for a deeper introduction to these variables -- these variables will be the primary focus of this section. Given the fact that MC-simulated data exists, the truth of each simulated event is also known. This allows us visualize the difference between the different types of quarks. In the MC simulation each event are generated such that the type of quark, or \emph{flavor}, is known and assigned the variable \code{flevt}. The mapping from flavor to \code{flevt} is:
 \begin{table}[h!]
@@ -275,7 +277,7 @@ To get a better understanding of the trained LGB model, the global SHAP feature 
   \label{fig:q:shap_btag_global_4j}
 \end{figure}
 
-\begin{marginfigure}[-0.5cm]
+\begin{marginfigure}[3cm]
   \centerfloat
   \includegraphics[width=0.8\textwidth]{figures/logit_expit/expit.pdf}
   \caption[The expit Function]
@@ -283,7 +285,7 @@ To get a better understanding of the trained LGB model, the global SHAP feature 
   \label{fig:q:expit}
 \end{marginfigure}
 
-\begin{marginfigure}[0.5cm]
+\begin{marginfigure}
   \centerfloat
   \includegraphics[width=0.8\textwidth]{figures/logit_expit/logit.pdf}
   \caption[The logit Function]
@@ -301,7 +303,7 @@ where $p$ is a number in the $[0, 1]$-interval. The expit function is also somet
   \label{eq:q:logit}
   \mathrm{logit}(p) = \log \left( \frac{p}{1-p}  \right) = \tilde{y},
 \end{equation}
- which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. It is in this log-odds space that LightGBM makes its predictions and the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space. The additivity\sidenote[][0.5cm]{See also \autoref{sec:ml:feature_importance}.} of SHAP is in this log-odds space. 
+ which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. It is in this log-odds space that LightGBM makes its predictions and the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space. The additivity\sidenote[][0.1cm]{See also \autoref{sec:ml:feature_importance}.} of SHAP is in this log-odds space. 
 
 With this in mind, single predictions of the LGB $b$-tagging model can be understood with SHAP which Figure~\ref{fig:q:shap_single_prediction_3j} is an example of. This figure shows the logic behind the models prediction for this particular jet. That the bias is negative reflects that there is a majority of background compared to signal\sidenote{There are \SI{22.1}{\percent} $b$-jets in the 3-jet training set.}. This particular event has \code{projet}$=1.003$, \code{bqvjet}$=0.529$, and \code{ptljet}$=0$. In the plot it is seen how this high value of \code{projet} has the greatest impact on the model prediction, while the medium value of \code{bqvjet} also pushes the model prediction towards a signal-prediction. The four bars in the left part of the plot are all in log-odds space and their sum is shown as the blue bar to right, where the right $y$-axis shows the value in probability space $p\in [0,1]$. This jet was in fact a $b$-jet.
 % , so the model predicted this one correctly. 
@@ -379,13 +381,19 @@ To better understand the difference between the difference between the LGB and P
   \label{fig:q:1d_sum_models_signal_fraction_4j}
 \end{figure}
 
-It can be concluded, at least in 1D, that both LGB and PermNet are able to capture the inherent structure in the (1D) data.
+It can be concluded, at least in 1D, that both LGB and PermNet are able to capture the inherent structure in the (1D) data. First of all it is seen that the two 1D models follow each other relatively close and only predicts $\gamma_\mathrm{tag}$s in a quite limited range. The three other PermNet curves follow each other in such an extent that it is almost difficult to separated them, which is also expected since they should not be able to distinguish between the energy ordered and the shuffled events. The LGB models for the shuffled and all-permuted events 
 
 \subsection{$g$-Tagging Results}
 
+The distribution of $g$-tag scores in 4-jet events can be seen in Figure~\ref{fig:q:gtag_scores_4j} for the eight combinations of the two models (LGB and PermNet) and the four data sorting methods (energy ordered, (row) shuffled, all permutations, and the (1D) sum.). 
 
-
-
+\begin{figure}
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 45, clip]{figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[$g$-Tag Scores in 4-Jet Events]
+          {Histogram of $g$-tag scores in 4-jet events for \textcolor{blue}{LGB: Energy Ordered} in blue, \textcolor{red}{LGB: Shuffled} in red, \textcolor{green}{LGB: All Permutations} in green, \textcolor{orange}{LGB: Sum 1D} in orange, \textcolor{purple}{PermNet: Energy Ordered} in purple, \textcolor{light-blue}{PermNet: Shuffled} in light-blue, \textcolor{light-green}{PermNet: All Permutations} in light-green, \textcolor{light-purple}{PermNet: Sum 1D} in light-purple.  Here LGB and PermNet are the two different type of models and \q{Energy Ordered}, \q{Shuffled}, \q{All Permutations}, and \q{Sum 1D} are the different methods used for making the input data permutation invariant (except energy ordered). 
+          }   
+  \label{fig:q:gtag_scores_4j}
+\end{figure}
 
 
 
@@ -398,15 +406,6 @@ It can be concluded, at least in 1D, that both LGB and PermNet are able to captu
 
 
 
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[g-tag scores in 4-jet events]
-          {
-            Histogram of g-tag scores (model prediction) in 4-jet events for \textcolor{blue}{XGB: Energy Ordered} in blue, \textcolor{red}{XGB: Shuffled} in red, \textcolor{green}{XGB: All Permutations} in green, \textcolor{orange}{XGB: Sum 1D} in orange, \textcolor{purple}{PermNet: Energy Ordered} in purple, \textcolor{light-blue}{PermNet: Shuffled} in light-blue, \textcolor{light-green}{PermNet: All Permutations} in light-green, \textcolor{light-purple}{PermNet: Sum 1D} in light-purple.  Here XGB and PermNet are the two different type of models and \q{Energy Ordered}, \q{Shuffled}, \q{All Permutations}, and \q{Sum 1D} are the different methods used for making the input data permutation invariant.  
-          }   
-  \label{fig:q:gtag_scores_4j}
-\end{figure}
 
 
 \begin{figure}
