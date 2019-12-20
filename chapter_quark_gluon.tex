@@ -69,7 +69,7 @@ Since the machine learning models are only trained on the three vertex variables
   % \label{tab:q:flevt}
 \end{table}
 
-In addition to knowing the correct flavor, we define that an event is \emph{$q$-matched} if one, and only one, of the jets are assigned to one of the quarks, one, and only one, of the jets are assigned to the other quark, and no other jets are matched to any of the quarks. We can then define what constitutes a $b$-jet: if it has \code{flevt} $= 5$, the entire event is $q$-matched, and the jet is matched to one of the quarks. Similarly we define $c$-jets only with the change that \code{flevt} $= 5$, and $uds$-jets with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined as an any-flavor event which is $q$-matched but the jet is not assigned to any of the quarks. Strictly speaking, this means that $g$-jet is not \SI{100}{\percent} certain of being a gluon, however, since the MC simulation does not contain this information this is the only option. Due to the $q$-match criterion this also means that some jets are assigned the label \q{non-$q$-matched} which is regarded as background. The distribution of different types of jets can be seen in Table~\ref{tab:q:flevt_overview} and shown as relative numbers in Table~\ref{tab:q:flevt_overview_percent_relative} in the appendix.
+In addition to knowing the correct flavor, we define that an event is \emph{$q$-matched} if one, and only one, of the jets are assigned to one of the quarks, one, and only one, of the jets are assigned to the other quark, and no other jets are matched to any of the quarks. We can then define what constitutes a $b$-jet: if it has \code{flevt} $= 5$, the entire event is $q$-matched, and the jet is matched to one of the quarks. Similarly we define $c$-jets only with the change that \code{flevt} $= 5$, and $uds$-jets with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined as an any-flavor event which is $q$-matched but the jet is not assigned to any of the quarks. Strictly speaking, this means that $g$-jet is not \SI{100}{\percent} certain of being a gluon, however, since the MC simulation does not contain this information this is the only option. Due to the $q$-match criterion this also means that some jets are assigned the label \q{non-$q$-matched} which is regarded as background. The distribution of different types of jets can be seen in Table~\ref{tab:q:flevt_overview} and shown as relative numbers in Table~\ref{tab:q:flevt_overview_percent_relative}.
 
 \begin{table}[h!]
   \centering
@@ -84,7 +84,7 @@ In addition to knowing the correct flavor, we define that an event is \emph{$q$-
     \midrule
     Total & \num{5483970} & \num{2070910} & \num{4433012} & \num{4604386} & \num{3828522} \\
   \end{tabular}
-  \caption{Number of different types of jets for MC and MCb. See also Table~\ref{tab:q:flevt_overview_percent_relative} in the appendix for relative numbers.}
+  \caption{Number of different types of jets for MC and MCb. See also Table~\ref{tab:q:flevt_overview_percent_relative} for relative numbers.}
   \label{tab:q:flevt_overview}
 \end{table}
 
@@ -126,9 +126,9 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
   \label{fig:q:UMAP_vertex_2j}
 \end{marginfigure}
 
-The UMAP algorithm has several hyperparameters, where two of the most important ones are the number of neighbors \code{n_neighbors} which controls the priority between correctly preserving the global versus the local structure, and the \code{min_dist} which defines how tightly together UMAP is allowed to cluster the points in the low-dimensional representation. To properly choose the best combination of \code{n_neighbors} and \code{min_dist} a grid search with \code{n_neighbors}~$\in \{10, 50, 100, 250 \}$ and \code{min_dist}~$\in \{0, 0.2, 0.5\}$ is performed. This is shown for 4-jet events in Figure~\ref{fig:q:UMAP_vertex_all} in the appendix. In this case the choice of best combination of \code{n_neighbors} and \code{min_dist} is subjective at best, but it was judged by the author that \code{n_neighbors}~$=250$ and \code{min_dist}~$0.2$ gave the best compromise between preserving local and global structure. The results of running UMAP on 4-jet events can be seen in Figure~\ref{fig:q:UMAP_vertex_2j}. Here the millions of points are plotted using Datashader \autocite{bednarDatashaderRevealingStructure2019} to avoid overplotting and colored according to the jet type. From the figure it is seen how there are some clear, blue $b$-jet clusters, however, most of the data seem to be a mix of $g$- and $uds$-jets. The plots with the same UMAP parameters for 3-jet and 2-jet events are seen in Figure~\ref{fig:q:UMAP_vertex_3j} and \ref{fig:q:UMAP_vertex_2j}. 
+The UMAP algorithm has several hyperparameters, where two of the most important ones are the number of neighbors \code{n_neighbors} which controls the priority between correctly preserving the global versus the local structure, and the \code{min_dist} which defines how tightly together UMAP is allowed to cluster the points in the low-dimensional representation. To properly choose the best combination of \code{n_neighbors} and \code{min_dist} a grid search with \code{n_neighbors}~$\in \{10, 50, 100, 250 \}$ and \code{min_dist}~$\in \{0, 0.2, 0.5\}$ is performed. This is shown for 4-jet events in Figure~\ref{fig:q:UMAP_vertex_all}. In this case the choice of best combination of \code{n_neighbors} and \code{min_dist} is subjective at best, but it was judged by the author that \code{n_neighbors}~$=250$ and \code{min_dist}~$0.2$ gave the best compromise between preserving local and global structure. The results of running UMAP on 4-jet events can be seen in Figure~\ref{fig:q:UMAP_vertex_2j}. Here the millions of points are plotted using Datashader \autocite{bednarDatashaderRevealingStructure2019} to avoid overplotting and colored according to the jet type. From the figure it is seen how there are some clear, blue $b$-jet clusters, however, most of the data seem to be a mix of $g$- and $uds$-jets. The plots with the same UMAP parameters for 3-jet and 2-jet events are seen in Figure~\ref{fig:q:UMAP_vertex_3j} and \ref{fig:q:UMAP_vertex_2j}. 
 
-These figures suggests that it should be possible to discriminate the $b$-jets from the other jets somewhat, however, no clear separation is expected. The t-SNE algorithm was also tested but showed inferior performance compared to UMAP, see Figure~\ref{fig:q:tsne_vertex} in the appendix for an example of this.
+These figures suggests that it should be possible to discriminate the $b$-jets from the other jets somewhat, however, no clear separation is expected. The t-SNE algorithm was also tested but showed inferior performance compared to UMAP, see Figure~\ref{fig:q:tsne_vertex} for an example of this.
 
 
 
@@ -215,7 +215,7 @@ The data are split\sidenote{After removing all low-energy jets such that all eve
 
 \subsection{$b$-Tagging Hyperparameter Optimization}
 
-Compared to the housing prices dataset, the number of observations $N$ is a lot larger, although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially since their performance in the housing dataset was very similar but LightGBM was expected to quite a lot faster on this dataset, which also turned out to be the case. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian optimization (BO) did not show any performance gains compared to RS. They were run with $5$-fold cross validation and early stopping with a patience of \num{100}. The PDFs for the random search for the LightGBM model can be seen in Table~\ref{tab:q:hpo_ranges_lgb}, and the ones for XGBoost in Table~\ref{tab:q:hpo_ranges_xgb} in the appendix. The random search has been run with \num{100} iterations for LightGBM and only \num{10} for XGBoost since XGBoost is slow at fitting datasets of this size\sidenote{See page \pageref{page:q:timings_b_tag} for a discussion of the timings.}. The results of the HPO for 3-jet and 4-jet events can be seen in Figure~\ref{fig:q:CV_res_iterations_b_tagging}. For 3-jets it can be seen how most of the iterations share about the same performance within $1\sigma$, however some iterations have a significantly decrease in performance. For 4-jets there are not any iterations which share the same bad performance relative to the others as some of the 3-jets. 
+Compared to the housing prices dataset, the number of observations $N$ is a lot larger, although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially since their performance in the housing dataset was very similar but LightGBM was expected to quite a lot faster on this dataset, which also turned out to be the case. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian optimization (BO) did not show any performance gains compared to RS. They were run with $5$-fold cross validation and early stopping with a patience of \num{100}. The PDFs for the random search for the LightGBM model can be seen in Table~\ref{tab:q:hpo_ranges_lgb}, and the ones for XGBoost in Table~\ref{tab:q:hpo_ranges_xgb}. The random search has been run with \num{100} iterations for LightGBM and only \num{10} for XGBoost since XGBoost is slow at fitting datasets of this size\sidenote{See page \pageref{page:q:timings_b_tag} for a discussion of the timings.}. The results of the HPO for 3-jet and 4-jet events can be seen in Figure~\ref{fig:q:CV_res_iterations_b_tagging}. For 3-jets it can be seen how most of the iterations share about the same performance within $1\sigma$, however some iterations have a significantly decrease in performance. For 4-jets there are not any iterations which share the same bad performance relative to the others as some of the 3-jets. 
 
 \begin{figure*}%
   \centering
@@ -229,7 +229,7 @@ Compared to the housing prices dataset, the number of observations $N$ is a lot 
 \end{figure*}
 \vspace{0.5cm}
 
-The relationship between the different hyperparameters in 4-jet events can be seen in the parallel coordinate plot in Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j}. First of all the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{sec:q:trunc_uniform} for a deeper discussion about the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are notably less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j} in the appendix.
+The relationship between the different hyperparameters in 4-jet events can be seen in the parallel coordinate plot in Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j}. First of all the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{sec:q:trunc_uniform} for a deeper discussion about the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are notably less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j}.
 
 \begin{figure}
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
@@ -241,7 +241,7 @@ The relationship between the different hyperparameters in 4-jet events can be se
 
 \subsection{$b$-Tagging Results}
 
-The prediction score for the $b$-tagging models is usually called the $b$-tag and will be written as $\beta_\mathrm{tag}$. The distribution of $\beta_\mathrm{tag}$ for the two HPO-optimized models, LGB and XGB, together with the pre-trained neural network NNB can be seen in Figure~\ref{fig:q:btag_scores_4j} for 4-jet events and in \ref{fig:q:btag_scores_3j} in the appendix for 3-jet events. Notice the strong match between the NNB and LGB models. The XGB model has almost no high $b$-tags $\beta_\mathrm{tag} > 0.8$, but a majority of $b$-tags in the very low end. This indicates that the XGBoost has focussed on the background events compared to the signal events, whereas the NNB and LGB models have focused more on the signal events. 
+The prediction score for the $b$-tagging models is usually called the $b$-tag and will be written as $\beta_\mathrm{tag}$. The distribution of $\beta_\mathrm{tag}$ for the two HPO-optimized models, LGB and XGB, together with the pre-trained neural network NNB can be seen in Figure~\ref{fig:q:btag_scores_4j} for 4-jet events and in \ref{fig:q:btag_scores_3j} for 3-jet events. Notice the strong match between the NNB and LGB models. The XGB model has almost no high $b$-tags $\beta_\mathrm{tag} > 0.8$, but a majority of $b$-tags in the very low end. This indicates that the XGBoost has focussed on the background events compared to the signal events, whereas the NNB and LGB models have focused more on the signal events. 
 
 \begin{figure}[h!]
   \centerfloat
@@ -252,7 +252,7 @@ The prediction score for the $b$-tagging models is usually called the $b$-tag an
   \label{fig:q:btag_scores_4j}
 \end{figure}
 
-Even though the distributions of $b$-tags are different between the three models, the real performance plot for classification is the ROC curve seen in Figure~\ref{fig:q:roc_btag_4j} for 4-jet events. Here the signal efficiency $\varepsilon_\mathrm{sig}$ is plotted as a function of the background efficiency $\varepsilon_\mathrm{sig}$ with the AUC shown in the bottom right corner. The LGB and XGB models performs similarly well with an $\mathrm{AUC}=0.896$ compared to the NNB with $\mathrm{AUC}=0.884$. The differences between the models are even smaller for 3-jet events seen in Figure~\ref{fig:q:roc_btag_3j} in the appendix. In general the LGB and XGB models are so similar that they cannot be distinguished from another in any of the plots and their difference in AUC is on the forth decimal point. \label{page:q:timings_b_tag}
+Even though the distributions of $b$-tags are different between the three models, the real performance plot for classification is the ROC curve seen in Figure~\ref{fig:q:roc_btag_4j} for 4-jet events. Here the signal efficiency $\varepsilon_\mathrm{sig}$ is plotted as a function of the background efficiency $\varepsilon_\mathrm{sig}$ with the AUC shown in the bottom right corner. The LGB and XGB models performs similarly well with an $\mathrm{AUC}=0.896$ compared to the NNB with $\mathrm{AUC}=0.884$. The differences between the models are even smaller for 3-jet events seen in Figure~\ref{fig:q:roc_btag_3j}. In general the LGB and XGB models are so similar that they cannot be distinguished from another in any of the plots and their difference in AUC is on the forth decimal point. \label{page:q:timings_b_tag}
 However, the LGB model is several times faster than the XGB model. In comparison, \num{10} iterations of HPO using RS on 3-jet events with XGB took more almost \num{34} hours on HEP\sidenote{The local computing cluster.} compared to just \num{23} hours for \num{100} iterations for LGB. The same performance difference was seen in 4-jet events where the timings were \num{4} hours for XGB compared to \num{2.5} hours for LGB, and thus XGB is dropped in all subsequent analysis. 
 
 \begin{figure}[h!]
@@ -264,7 +264,7 @@ However, the LGB model is several times faster than the XGB model. In comparison
   \label{fig:q:roc_btag_4j}
 \end{figure}
 
-The distribution of $b$-tag scores $\beta_\mathrm{tag}$ from the $b$-tag LGB model for 4-jet events can be seen in Figure~\ref{fig:q:btag_histogram_4j}. In the figure it can be seen how the separation between the heavier quarks and light quarks (and gluons) is clear at high values of $\beta_\mathrm{tag}$, however, a lot of $c$-quarks also get a high $b$-tag score. The same is seen for 3-jet events in Figure~\ref{fig:q:btag_histogram_3j} in the appendix. 
+The distribution of $b$-tag scores $\beta_\mathrm{tag}$ from the $b$-tag LGB model for 4-jet events can be seen in Figure~\ref{fig:q:btag_histogram_4j}. In the figure it can be seen how the separation between the heavier quarks and light quarks (and gluons) is clear at high values of $\beta_\mathrm{tag}$, however, a lot of $c$-quarks also get a high $b$-tag score. The same is seen for 3-jet events in Figure~\ref{fig:q:btag_histogram_3j}. 
 
 
 \begin{figure}[h!]
@@ -315,7 +315,7 @@ where $p$ is a number in the $[0, 1]$-interval. The expit function is also somet
   \label{eq:q:logit}
   \mathrm{logit}(p) = \log \left( \frac{p}{1-p}  \right) = \tilde{y},
 \end{equation}
- which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. It is in this log-odds space that LightGBM makes its predictions and the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space. The additivity\sidenote[][0.1cm]{See also \autoref{sec:ml:feature_importance}.} of SHAP is in this log-odds space. 
+ which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. It is in this log-odds space that LightGBM makes its predictions and the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space. The additivity\sidenote{See also \autoref{sec:ml:feature_importance}.} of SHAP is in this log-odds space. 
 
 With this in mind, single predictions of the LGB $b$-tagging model can be understood with SHAP which Figure~\ref{fig:q:shap_single_prediction_3j} is an example of. This figure shows the logic behind the models prediction for this particular jet. That the bias is negative reflects that there is a majority of background compared to signal\sidenote{There are \SI{22.1}{\percent} $b$-jets in the 3-jet training set.}. This particular event has \code{projet}$=1.003$, \code{bqvjet}$=0.529$, and \code{ptljet}$=0$. In the plot it is seen how this high value of \code{projet} has the greatest impact on the model prediction, while the medium value of \code{bqvjet} also pushes the model prediction towards a signal-prediction. The four bars in the left part of the plot are all in log-odds space and their sum is shown as the blue bar to right, where the right $y$-axis shows the value in probability space $p\in [0,1]$. This jet was in fact a $b$-jet.
 % , so the model predicted this one correctly. 
@@ -358,7 +358,7 @@ Although not being a novel software-technical solution, the problem was circumve
 
 \subsection{$g$-Tagging Hyperparameter Optimization}
 
-Four LightGBM models, two for 3-jet events and two for 4-jet events, were trained and hyperparameter optimized for both the the energy ordered and shuffled\sidenote[][2cm]{The method with all permutations was trained using the same hyperparameters as the best ones for the shuffled model.} data sets with \num{100} iterations of random search with the same PDFs as for the $b$-tagging, see Table~\ref{tab:q:hpo_ranges_lgb}, and $5$-fold cross validation and early stopping with a patience of \num{100}. The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagging}. Here the two 3-jets models are seen in the two plots to the left, and the two 4-jets to the right. The very left plot shows the 3-jet energy-ordered (no permutation) performance as a function of iteration number, which was also where the issues mentioned in \autoref{sec:q:trunc_uniform} were first discovered. Here the difference between the how many of the three variables, the three $b$-tags, are included is seen as three clear plateaus. The three plateaus are also seen in the 3-jet events that were shuffled, however, with more variation in each plateau, along with a drop in performance. For the 4-jet events the plateaus are not as apparent but it can still be seen how some of the iterations how a significantly lower score than others. The parallel plots for the four fits can be seen in Figure~\ref{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}--\ref{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled} in the appendix.
+Four LightGBM models, two for 3-jet events and two for 4-jet events, were trained and hyperparameter optimized for both the the energy ordered and shuffled\sidenote[][2cm]{The method with all permutations was trained using the same hyperparameters as the best ones for the shuffled model.} data sets with \num{100} iterations of random search with the same PDFs as for the $b$-tagging, see Table~\ref{tab:q:hpo_ranges_lgb}, and $5$-fold cross validation and early stopping with a patience of \num{100}. The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagging}. Here the two 3-jets models are seen in the two plots to the left, and the two 4-jets to the right. The very left plot shows the 3-jet energy-ordered (no permutation) performance as a function of iteration number, which was also where the issues mentioned in \autoref{sec:q:trunc_uniform} were first discovered. Here the difference between the how many of the three variables, the three $b$-tags, are included is seen as three clear plateaus. The three plateaus are also seen in the 3-jet events that were shuffled, however, with more variation in each plateau, along with a drop in performance. For the 4-jet events the plateaus are not as apparent but it can still be seen how some of the iterations how a significantly lower score than others. The parallel plots for the four fits can be seen in Figure~\ref{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}--\ref{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}.
 
 \begin{figure*}%
   \centering
@@ -371,6 +371,22 @@ Four LightGBM models, two for 3-jet events and two for 4-jet events, were traine
   \label{fig:q:CV_res_iterations_g_tagging}%
 \end{figure*}
 
+To make sure that each of the three trained LGB $g$-tagging models using where the data was either energy-ordered, shuffled, or with all permutations, the global SHAP feature importances $\phi^\mathrm{tot}_{\beta_\mathrm{i}}$ is computed. The results are seen in Figure~\ref{table:q:shap_g_taggging_global_4j} for 4-jet events and in Figure~\ref{table:q:shap_g_taggging_global_3j} for 3-jet events. Here it can be seen that the model trained on the energy ordered data learnt to attribute the highest weight to the first $b$-tag (variable), second highest weight to the second $b$-tag, and so on. In contrary, the weights are uniformly distributed between the different $b$-tags (variables) in both the shuffled and all-permuted datasets (within a few sigma). The same overall pattern is seen for the 3-jet events. It can thus be concluded that both the shuffling method and all-permuting method are valid methods for training ML models that attribute equal weight to the different variables, a trait that is essential for permutation invariance. 
+
+\begin{table}[]
+  \centerfloat
+  \begin{tabular}{@{}rccc@{}}
+  ${\beta_\mathrm{tag}}_i$  & Energy Ordered & Shuffled & All Permutations \\ \midrule
+  1 & $ 0.986 \pm 0.008 $  &  $ 0.474 \pm 0.005 $  &  $ 0.465 \pm 0.005 $  \\
+  2 & $ 0.609 \pm 0.006 $  &  $ 0.467 \pm 0.005 $  &  $ 0.464 \pm 0.005 $  \\
+  3 & $ 0.424 \pm 0.004 $  &  $ 0.461 \pm 0.005 $  &  $ 0.452 \pm 0.005 $  \\
+  4 & $ 0.244 \pm 0.002 $  &  $ 0.481 \pm 0.005 $  &  $ 0.466 \pm 0.005 $  \\ 
+  \end{tabular}
+  \caption[Global SHAP Feature Importances for the $g$-Tagging Models in 4-Jet Events]{Global SHAP feature importances $\phi^\mathrm{tot}_{\beta_\mathrm{i}}$ for the three $g$-Tagging Models in 4-Jet Events. Each $\phi^\mathrm{tot}_{\beta_\mathrm{i}}$ is shown for the three methods in the columns and the four $b$-tags as variables in the rows.}
+  \label{table:q:shap_g_taggging_global_4j}
+\end{table}
+
+
 \subsection{PermNet}
 \label{subsec:q:permnet}
 
@@ -379,12 +395,12 @@ In addition to the LGB models, a permutation invariant neural network called Per
   \label{eq:q:deep_sets}
   f(X)=\rho\left(\sum_{x\in X} \phi(x) \right).
 \end{equation}
-for suitable transformations $\rho$ and $\phi$ (which the neural network learns\sidenote{This is possible since neural networks are universal function approximators \autocite{hornikApproximationCapabilitiesMultilayer1991}.}). The PermNet was trained using three layers\sidenote{Where the two hidden layers have \num{128} and \num{64} neurons in each.} with leaky ReLU \autocite{Maas2013RectifierNI} as the activation function and ADAM \autocite{kingmaAdamMethodStochastic2014} as the optimizer optimizing the log-loss. The network was trained with early stopping with a patience of \num{50} epochs and a batch size of \num{128}. A visual overview of the PermNet architecture can be seen in Figure~\ref{fig:q:permnet_architecture} in the appendix.
+for suitable transformations $\rho$ and $\phi$ (which the neural network learns\sidenote{This is possible since neural networks are universal function approximators \autocite{hornikApproximationCapabilitiesMultilayer1991}.}). The PermNet was trained using three layers\sidenote{Where the two hidden layers have \num{128} and \num{64} neurons in each.} with leaky ReLU \autocite{Maas2013RectifierNI} as the activation function and ADAM \autocite{kingmaAdamMethodStochastic2014} as the optimizer optimizing the log-loss. The network was trained with early stopping with a patience of \num{50} epochs and a batch size of \num{128}. A visual overview of the PermNet architecture can be seen in Figure~\ref{fig:q:permnet_architecture}.
 
 \subsection{1D Comparison of LGB and PermNet}
 \label{subsec:q:lgb_permnet_comparison}
 
-To better understand the difference between the difference between the LGB and PermNet models, a small comparison was made. This comparison was constructed by summing the $b$-tag scores in the $n$-jet event together $\sum_i^n \beta_{\mathrm{tag}_i}$. The $\beta_{\mathrm{tag}_i}$ are summed together since this turns the problem into a \num{1}D problem that is easy to visualize, the sum of numbers is a permutation invariant function, and is similar to the simplest functions of $\rho$ and $\phi$ in equation \eqref{eq:q:deep_sets}: the identity function. The 1D models are fit to the training events and then a linear scan from $\sum_i^n \beta_{\mathrm{tag}_i}=0.4$ to $3.1$ is made to see how the predicted $g$-tags $\gamma_\mathrm{tag}$ distribute. This is shown in Figure~\ref{fig:q:1d_sum_models_signal_fraction_4j} for 4-jet events. Here the value of $\gamma_\mathrm{tag}$ is shown for the two models together with the fraction of signal to background in each bin. If the $g$-tag score should resemble a true probability it would be expected to follow the signal ratio, e.g. a model should predict $\gamma_\mathrm{tag}=0.9$ if there is \SI{90}{\percent} signal in that bin. In the figure it is seen how the PermNet does a great job at fitting the signal fraction, however, the LGB model also does a decent job. Remember that none of these models were shown the signal fraction explicitly, only the $b$-tag sum and a signal-or-background label. The distribution of signal and background together with the distribution of cuts made by the LGB model can be seen in Figure~\ref{fig:q:1d_sum_model_cuts_4j} in the appendix. The similar plots for 3-jet events are plotted in Figure~\ref{fig:q:1d_sum_models_signal_fraction_3j} and \ref{fig:q:1d_sum_model_cuts_3j}, both in the appendix.
+To better understand the difference between the difference between the LGB and PermNet models, a small comparison was made. This comparison was constructed by summing the $b$-tag scores in the $n$-jet event together $\sum_i^n \beta_{\mathrm{tag}_i}$. The $\beta_{\mathrm{tag}_i}$ are summed together since this turns the problem into a \num{1}D problem that is easy to visualize, the sum of numbers is a permutation invariant function, and is similar to the simplest functions of $\rho$ and $\phi$ in equation \eqref{eq:q:deep_sets}: the identity function. The 1D models are fit to the training events and then a linear scan from $\sum_i^n \beta_{\mathrm{tag}_i}=0.4$ to $3.1$ is made to see how the predicted $g$-tags $\gamma_\mathrm{tag}$ distribute. This is shown in Figure~\ref{fig:q:1d_sum_models_signal_fraction_4j} for 4-jet events. Here the value of $\gamma_\mathrm{tag}$ is shown for the two models together with the fraction of signal to background in each bin. If the $g$-tag score should resemble a true probability it would be expected to follow the signal ratio, e.g. a model should predict $\gamma_\mathrm{tag}=0.9$ if there is \SI{90}{\percent} signal in that bin. In the figure it is seen how the PermNet does a great job at fitting the signal fraction, however, the LGB model also does a decent job. Remember that none of these models were shown the signal fraction explicitly, only the $b$-tag sum and a signal-or-background label. The distribution of signal and background together with the distribution of cuts made by the LGB model can be seen in Figure~\ref{fig:q:1d_sum_model_cuts_4j}. The similar plots for 3-jet events are plotted in Figure~\ref{fig:q:1d_sum_models_signal_fraction_3j} and \ref{fig:q:1d_sum_model_cuts_3j}.
 
 \begin{figure}
   \centerfloat
@@ -398,7 +414,7 @@ It can be concluded, at least in 1D, that both LGB and PermNet are able to captu
 
 \subsection{$g$-Tagging Results}
 
-The distribution of $g$-tag scores in 4-jet (training) events the can be seen in Figure~\ref{fig:q:gtag_scores_4j} for the eight combinations of the two models (LGB and PermNet) and the four data sorting methods (energy ordered, (row) shuffled, all permutations, and the (1D) sum.). At first the increased number of events (a factor of \num{24} for 4-jet events) with the all-permutation scheme is seen separating the two light green curves from the rest. The energy ordered LGB model is the combination which utilizes most of the $\gamma_\mathrm{tag}$-range, while the two 1D sum models have the most limited range, indicating that the models are more uncertain about their predictions. The energy ordered and shuffled PermNet models can more or less only be distinguished because the latter is plotted with dashed lines. This makes sense, since they are also expected to make the same predictions were they really permutation invariant\sidenote{It is only because of the stochasticity in the optimization process of the two networks that they did not converge to the completely same predictions.}. When plotted with normalized counts it is seen how the shuffled and all-permuted LGB models also follow each other very closely, which can still be partly seen in this plot by comparing the two distributions. The distribution of $g$-tags in 3-jet training events can be seen in Figure~\ref{fig:q:gtag_scores_4j} in the appendix. 
+The distribution of $g$-tag scores in 4-jet (training) events the can be seen in Figure~\ref{fig:q:gtag_scores_4j} for the eight combinations of the two models (LGB and PermNet) and the four data sorting methods (energy ordered, (row) shuffled, all permutations, and the (1D) sum.). At first the increased number of events (a factor of \num{24} for 4-jet events) with the all-permutation scheme is seen separating the two light green curves from the rest. The energy ordered LGB model is the combination which utilizes most of the $\gamma_\mathrm{tag}$-range, while the two 1D sum models have the most limited range, indicating that the models are more uncertain about their predictions. The energy ordered and shuffled PermNet models can more or less only be distinguished because the latter is plotted with dashed lines. This makes sense, since they are also expected to make the same predictions were they really permutation invariant\sidenote{It is only because of the stochasticity in the optimization process of the two networks that they did not converge to the completely same predictions.}. When plotted with normalized counts it is seen how the shuffled and all-permuted LGB models also follow each other very closely, which can still be partly seen in this plot by comparing the two distributions. The distribution of $g$-tags in 3-jet training events can be seen in Figure~\ref{fig:q:gtag_scores_4j}. 
 
 \begin{figure}[h!]
   \centerfloat
@@ -409,7 +425,7 @@ The distribution of $g$-tag scores in 4-jet (training) events the can be seen in
 \end{figure}
 
 To see the performance of the different combinations, see the ROC curve in Figure~\ref{fig:q:gtag_scores_4j} which shows the performance on 4-jet events with the AUC shown in the legend. First of all it is easy to see that the energy ordered LGB model is significantly higher-performing than the rest of the models, however, this model is also energy-biased by not being permutation invariant in the $b$-tags and is only included to see how large a performance drop the permutation invariance criterion causes. The worst performing models are the two 1D sum models, as expected since they only have a single dimension to learn from, compared to the four dimensions that the other models have. In general it can be seen that the rest of the models are performing almost identically, with the LGB model trained on all permutations to be the highest-performing of them all by a small margin. 
-For 3-jet events the same overall picture is seen, see Figure~\ref{fig:q:gtag_scores_4j} in the appendix, however, here LGB model trained on the shuffled events performs the best, yet this performance improvement is so small compared to the all-permutations LGB model that it is expected to be due to statistical fluctuations and not a real performance difference. 
+For 3-jet events the same overall picture is seen, see Figure~\ref{fig:q:gtag_scores_4j}, however, here LGB model trained on the shuffled events performs the best, yet this performance improvement is so small compared to the all-permutations LGB model that it is expected to be due to statistical fluctuations and not a real performance difference. 
 
 \begin{figure}[h!]
   \centerfloat
@@ -430,7 +446,7 @@ Based on the AUC scores seen in the ROC curves in Figure~\ref{fig:q:roc_gtag_4j}
   \label{fig:q:gtag_scores_4j_sig_bkg}
 \end{figure}
 
-The similar plot for 3-jet events is seen in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg} in the appendix. This plot has some surprising bumps for mainly $l$-quark events which are not yet fully understood. When comparing $l$-quark events in the high-$\gamma_\mathrm{tag}$ bump with the ones getting a low $\gamma_\mathrm{tag}$-value, see Figure~\ref{fig:q:gtag_scores_3j_l_quarks}, one can see that $l$-quark events with high $\gamma_\mathrm{tag}$ has only two jets with high $b$-tags, compared to low-$\gamma_\mathrm{tag}$ $l$-quark events which more often has three jets with high $b$-tags. 
+The similar plot for 3-jet events is seen in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg}. This plot has some surprising bumps for mainly $l$-quark events which are not yet fully understood. When comparing $l$-quark events in the high-$\gamma_\mathrm{tag}$ bump with the ones getting a low $\gamma_\mathrm{tag}$-value, see Figure~\ref{fig:q:gtag_scores_3j_l_quarks}, one can see that $l$-quark events with high $\gamma_\mathrm{tag}$ has only two jets with high $b$-tags, compared to low-$\gamma_\mathrm{tag}$ $l$-quark events which more often has three jets with high $b$-tags. 
 
 \begin{figure}[h!]
   \centerfloat
@@ -440,7 +456,7 @@ The similar plot for 3-jet events is seen in Figure~\ref{fig:q:gtag_scores_3j_si
   \label{fig:q:gtag_scores_3j_l_quarks}
 \end{figure}
 
-This is even more visible once seen in a 3D scatter plot with the lowest $\beta_\mathrm{tag}$ on the $x$-axis, the middle on the $y$-axis, and highest on the $z$-axis. Three small views from the 3D visualization can be seen in Figure~\ref{fig:q:gtag_scores_3j_l_quarks_3d}. 
+This is even more visible once seen in a 3D scatter plot with the lowest $\beta_\mathrm{tag}$ on the $x$-axis, the middle on the $y$-axis, and highest on the $z$-axis. Three small views from the 3D visualization can be seen in Figure~\ref{fig:q:gtag_scores_3j_l_quarks_3d}. Here it is easily seen how the separating variable is the lowest $b$-tag: if three high $b$-tags are used as inputs to the $g$-tagging model if gives it a low $g$-tag compared to if all three jets have high $b$-tags.
 
 \begin{figure*}[h!]
   \centering
@@ -448,29 +464,58 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
   \subfloat{{\includegraphics[draft=false, width=0.35\textwidth]{figures/quarks/leptons_high_g_vs_low_3.png}}}%
   \subfloat{{\includegraphics[draft=false, width=0.34\textwidth]{figures/quarks/leptons_high_g_vs_low_2.png}}}%
   \vspace{2mm}
-  \caption[XXX]{
-    XXX.}
+  \caption[3D Scatter Plot of $\beta_\mathrm{tag}$-Values for High and Low $\gamma_\mathrm{tag}$ $l$-Quark Events]{
+    3D scatter plot of $\beta_\mathrm{tag}$-values for high and low $\gamma_\mathrm{tag}$ $l$-quark events. Here the $x$-axis is the lowest $b$-tag, the $y$-axis
+  the middle, and the $z$-axis the highest. Here the \textcolor{red}{high-$\gamma_\mathrm{tag}$ $l$-quark events} are plotted in red and the \textcolor{blue}{low ones} in blue.}
   \label{fig:q:gtag_scores_3j_l_quarks_3d}%
 \end{figure*}
 
+From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events and to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This corresponds to selecting \num{41117} 4-jet events in MC as gluon events with a signal efficiency of \SI{23.30}{\percent} and a signal purity of \SI{92.67}{\percent}. For 3-jets the cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of \SI{19.68}{\percent} and a signal purity is \SI{98.77}{\percent}. Here a gluon event is defined as an event with a $\gamma_\mathrm{cutoff} < \gamma_\mathrm{tag}$.
+
+\section{$b$-Tagging Efficiency}
+\label{sec:q:b_tagging_effiency}
+
+    
 
 
 
+\section{$g$-Tagging Efficiency}
+\label{sec:q:g_tagging_effiency}
 
 
 
 \newpage
 
+\section{Generalized Angularities}
+\label{sec:q:generalized_angularities}
+
+
+\begin{marginfigure}
+  \centerfloat
+  \includegraphics[width=0.9\textwidth]{figures/LHA/LHA.pdf}
+  \caption[Generalized Angularities]
+          {Generalized angularities.} 
+  \label{fig:q:LHA}
+\end{marginfigure}
+
+\begin{equation}
+  \lambda_\beta^\kappa = \sum_{i \in \mathrm{jet}} z_i^\kappa \theta_i^\beta
+\end{equation}
+
+
+\newpage
+
+
+% \begin{figure}
+%   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
+%   \caption[Monte Carlo -- Data bias for b-tags and jet energy]
+%           {Comparison of the b-tag and jet energy (\code{Ejet}) distributions for Monte Carlo (MC) versus data. In the top row the 2D-distributions are shown for MC on the left (without the extra MCb samples) and data on the right. In the bottom row the 1D marginal distrubtions are shown for the b-tag and the jet energy with \textcolor{red}{data} in red and \textcolor{blue}{Monte Carlo} ones in blue. Notice the the almost identical distributions in b-tag. 
+%           } 
+%   \label{fig:q:btag_Ejet_comparison}
+% \end{figure}
 
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
-  \caption[Monte Carlo -- Data bias for b-tags and jet energy]
-          {Comparison of the b-tag and jet energy (\code{Ejet}) distributions for Monte Carlo (MC) versus data. In the top row the 2D-distributions are shown for MC on the left (without the extra MCb samples) and data on the right. In the bottom row the 1D marginal distrubtions are shown for the b-tag and the jet energy with \textcolor{red}{data} in red and \textcolor{blue}{Monte Carlo} ones in blue. Notice the the almost identical distributions in b-tag. 
-          } 
-  \label{fig:q:btag_Ejet_comparison}
-\end{figure}
-
-\begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[b-Tagging Efficiency $\varepsilon_b^{b\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for b-jets in the b-signal region for 3-jet events, $\varepsilon_b^{b\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The b-signal region is defined as $\beta > 0.9$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
@@ -480,6 +525,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[b-Tagging Efficiency $\varepsilon_b^{g\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for b-jets in the g-signal region for 3-jet events, $\varepsilon_b^{g\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The g-signal region is defined as $\beta < 0.4$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
@@ -489,6 +535,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[b-Tagging Efficiency $\varepsilon_g^{g\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for g-jets in the g-signal region for 3-jet events, $\varepsilon_g^{g\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The g-signal region is defined as $\beta < 0.4$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
@@ -497,7 +544,8 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 35, clip]{figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[b-Tagging Efficiency $\varepsilon_g^{b\mathrm{-sig}}$ as a function of jet energy]
           {Efficiency of the b-tags for g-jets in the b-signal region for 3-jet events, $\varepsilon_g^{b\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The b-signal region is defined as $\beta > 0.9$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis.  
           } 
@@ -506,6 +554,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of the mean invariant mass]
           {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\mathrm{-sig}} \cdot \varepsilon_{\bar{b}}^{b\mathrm{-sig}} \cdot  \varepsilon_g^{g\mathrm{-sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
@@ -515,6 +564,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of g-tag]
           {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the event's g-tag. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\mathrm{-sig}} \cdot \varepsilon_{\bar{b}}^{b\mathrm{-sig}} \cdot  \varepsilon_g^{g\mathrm{-sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
@@ -525,6 +575,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip, page=1]{figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
   \caption[g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference]
           {Efficiency of the g-tags for 4-jet events as a function of normalized gluon gluon jet energy difference in Monte Carlo. The efficiency is measured as the number of events with a g-tag higher than 0.8 ($\gamma > 0.8$) out of the total number and the normalized gluon gluon jet energy difference $A$ is $A=\frac{E_{g_\mathrm{max}}-E_{g_\mathrm{min}}}{E_{g_\mathrm{max}}+E_{g_\mathrm{min}}}$ where $E_{g_\mathrm{max}}$ ($E_{g_\mathrm{min}}$) refers to the energy of the gluon with the highest (lowest) energy. The efficiency is plotted for \textcolor{blue}{signal events} according to MC Truth in blue and \textcolor{red}{background events} according to MC Truth in red.
@@ -534,6 +585,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 65, clip, page=1]{figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
   \caption[Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference]
           {Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference. The corrected g-taggingg model is described in further detail in section XXX \TODO. In the top part of the plot the \textcolor{blue}{MC Truth} is shown in blue, the \textcolor{red}{corrected g-tagging model} \code{"PDF 2gg"} in red, the \textcolor{green}{g-signal distribution} in semi-transparent green and the \textcolor{orange}{g-sideband distribution} in semi-transparent orange. In the bottom part of the plot the ratio between MC Truth and the output of the corrected g-tagging model is shown. The normalized gluon gluon jet energy difference $A$ is $A=\frac{E_{g_\mathrm{max}}-E_{g_\mathrm{min}}}{E_{g_\mathrm{max}}+E_{g_\mathrm{min}}}$ where $E_{g_\mathrm{max}}$ ($E_{g_\mathrm{min}}$) refers to the energy of the gluon with the highest (lowest) energy.
@@ -543,6 +595,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 118, clip, page=1]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4}
   \caption[R kt CA overview  XXX \TODO]
           {R kt CA overview XXX \TODO
@@ -551,9 +604,20 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 \end{figure}
 
 \begin{figure}
+  \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip, page=2]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4}
   \caption[R kt CA cut region A  XXX \TODO]
           {R kt CA cut region A XXX \TODO
           } 
   \label{fig:q:R_kt_CA_cut_A}
+\end{figure}
+
+
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip, page=1]{figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Generalized Angularities \TODO]
+          {Generalized Angularities \TODO
+          }
+  \label{fig:q:genalized_angularities}
 \end{figure}
