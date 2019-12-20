@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.27)  19 DEC 2019 18:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.27)  20 DEC 2019 10:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1374,7 +1374,14 @@ Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 
 
 Writing index file MasterThesis.idx
-(/Users/michelsen/Master_Thesis/thesis/MasterThesis.aux (/Users/michelsen/Master_Thesis/thesis/chapter_foreword.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_introduction.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_machine_learning_theory.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_housing_prices.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_particle_physics_theory.aux
+(/Users/michelsen/Master_Thesis/thesis/MasterThesis.aux (/Users/michelsen/Master_Thesis/thesis/chapter_foreword.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_introduction.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_machine_learning_theory.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_housing_prices.aux
+
+LaTeX Warning: Label `1' multiply defined.
+
+
+LaTeX Warning: Label `2' multiply defined.
+
+) (/Users/michelsen/Master_Thesis/thesis/chapter_particle_physics_theory.aux
 
 LaTeX Warning: Label `1' multiply defined.
 
@@ -1457,19 +1464,94 @@ LaTeX Warning: Label `25' multiply defined.
 
 LaTeX Warning: Label `26' multiply defined.
 
+) (/Users/michelsen/Master_Thesis/thesis/chapter_discussion.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_conclusion.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_housing.aux
 
 LaTeX Warning: Label `27' multiply defined.
 
 
 LaTeX Warning: Label `28' multiply defined.
 
-) (/Users/michelsen/Master_Thesis/thesis/chapter_discussion.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_conclusion.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_housing.aux
+
+LaTeX Warning: Label `29' multiply defined.
+
+
+LaTeX Warning: Label `30' multiply defined.
+
+
+LaTeX Warning: Label `31' multiply defined.
+
+
+LaTeX Warning: Label `32' multiply defined.
+
 
 LaTeX Warning: Label `fig:h:CV_res_BO_parallel_coords_ejer' multiply defined.
 
 ) (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.aux
 
+LaTeX Warning: Label `33' multiply defined.
+
+
+LaTeX Warning: Label `34' multiply defined.
+
+
+LaTeX Warning: Label `35' multiply defined.
+
+
+LaTeX Warning: Label `36' multiply defined.
+
+
+LaTeX Warning: Label `37' multiply defined.
+
+
+LaTeX Warning: Label `38' multiply defined.
+
+
+LaTeX Warning: Label `39' multiply defined.
+
+
+LaTeX Warning: Label `40' multiply defined.
+
+
+LaTeX Warning: Label `41' multiply defined.
+
+
+LaTeX Warning: Label `42' multiply defined.
+
+
+LaTeX Warning: Label `43' multiply defined.
+
+
+LaTeX Warning: Label `44' multiply defined.
+
+
+LaTeX Warning: Label `45' multiply defined.
+
+
+LaTeX Warning: Label `46' multiply defined.
+
+
+LaTeX Warning: Label `47' multiply defined.
+
+
+LaTeX Warning: Label `48' multiply defined.
+
+
+LaTeX Warning: Label `49' multiply defined.
+
+
+LaTeX Warning: Label `50' multiply defined.
+
+
+LaTeX Warning: Label `51' multiply defined.
+
+
 LaTeX Warning: Label `fig:q:roc_gtag_4j' multiply defined.
+
+
+LaTeX Warning: Label `52' multiply defined.
+
+
+LaTeX Warning: Label `53' multiply defined.
 
 ))
 \openout1 = `MasterThesis.aux'.
@@ -3335,75 +3417,80 @@ File: figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_va
 <use figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 437.
 (pdftex.def)             Requested size: 289.22527pt x 170.22972pt.
-<figures/quarks/leptons_high_g_vs_low_1.png, id=1776, 865.2325pt x 909.3975pt>
+<figures/quarks/leptons_high_g_vs_low_1.png, id=1777, 865.2325pt x 909.3975pt>
 File: figures/quarks/leptons_high_g_vs_low_1.png Graphic file (type png)
 <use figures/quarks/leptons_high_g_vs_low_1.png>
 Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_1.png  used on input line 447.
-(pdftex.def)             Requested size: 196.68887pt x 206.72868pt.
-<figures/quarks/leptons_high_g_vs_low_2.png, id=1778, 955.57pt x 870.25125pt>
+(pdftex.def)             Requested size: 140.49959pt x 147.67126pt.
+<figures/quarks/leptons_high_g_vs_low_3.png, id=1779, 1157.32375pt x 973.6375pt>
+File: figures/quarks/leptons_high_g_vs_low_3.png Graphic file (type png)
+<use figures/quarks/leptons_high_g_vs_low_3.png>
+Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_3.png  used on input line 448.
+(pdftex.def)             Requested size: 163.91376pt x 137.89796pt.
+<figures/quarks/leptons_high_g_vs_low_2.png, id=1780, 955.57pt x 870.25125pt>
 File: figures/quarks/leptons_high_g_vs_low_2.png Graphic file (type png)
 <use figures/quarks/leptons_high_g_vs_low_2.png>
 Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_2.png  used on input line 449.
-(pdftex.def)             Requested size: 224.79227pt x 204.72153pt.
- [78 </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_vs_low_1.png> </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_vs_low_2.png>]
-<figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=1842, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 159.22238pt x 145.0061pt.
+ [78 </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_vs_low_1.png> </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_vs_low_3.png> </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_vs_low_2.png>]
+<figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=1846, 1011.78pt x 722.7pt>
 File: figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf Graphic file (type pdf)
 <use figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf>
 Package pdftex.def Info: figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf  used on input line 466.
 (pdftex.def)             Requested size: 289.22485pt x 195.11197pt.
-<figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1844, 867.24pt x 433.62pt>
+<figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1848, 867.24pt x 433.62pt>
 File: figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 474.
 (pdftex.def)             Requested size: 289.22044pt x 131.22035pt.
-<figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1846, 867.24pt x 433.62pt>
+<figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1850, 867.24pt x 433.62pt>
 File: figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 483.
 (pdftex.def)             Requested size: 289.22044pt x 131.22035pt.
-<figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1848, 867.24pt x 433.62pt>
+<figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1852, 867.24pt x 433.62pt>
 File: figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 492.
 (pdftex.def)             Requested size: 289.22044pt x 131.22035pt.
-<figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1850, 867.24pt x 433.62pt>
+<figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1854, 867.24pt x 433.62pt>
 File: figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 500.
 (pdftex.def)             Requested size: 289.22044pt x 134.56781pt.
-<figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1852, 1011.78pt x 578.16pt>
+<figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1856, 1011.78pt x 578.16pt>
 File: figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 509.
 (pdftex.def)             Requested size: 289.22485pt x 153.79413pt.
-<figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1854, 1011.78pt x 578.16pt>
+<figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=1858, 1011.78pt x 578.16pt>
 File: figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 518.
 (pdftex.def)             Requested size: 289.22485pt x 153.79413pt.
-<figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=1856, page=1, 1011.78pt x 505.89pt>
+<figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=1860, page=1, 1011.78pt x 505.89pt>
 File: figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, page 1>
 Package pdftex.def Info: figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf , page1 used on input line 528.
 (pdftex.def)             Requested size: 289.22485pt x 133.13521pt.
-<figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=1858, page=1, 1011.78pt x 578.16pt>
+<figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=1862, page=1, 1011.78pt x 578.16pt>
 File: figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, page 1>
 Package pdftex.def Info: figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf , page1 used on input line 537.
 (pdftex.def)             Requested size: 289.22485pt x 146.62088pt.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <8> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 542.
-<figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=1860, page=1, 1011.78pt x 505.89pt>
+<figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=1864, page=1, 1011.78pt x 505.89pt>
 File: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, page 1>
 Package pdftex.def Info: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf , page1 used on input line 546.
 (pdftex.def)             Requested size: 289.22485pt x 110.75467pt.
-<figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=1862, page=2, 1011.78pt x 578.16pt>
+<figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=1866, page=2, 867.24pt x 722.7pt>
 File: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, page 2>
 Package pdftex.def Info: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf , page2 used on input line 554.
-(pdftex.def)             Requested size: 289.22485pt x 156.66344pt.
-) [79 </Users/michelsen/Master_Thesis/thesis/figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [80 </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [81 </Users/michelsen/Master_Thesis/thesis/figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>] [112
+(pdftex.def)             Requested size: 289.22044pt x 230.97462pt.
+) [79 </Users/michelsen/Master_Thesis/thesis/figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [80 </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [81 </Users/michelsen/Master_Thesis/thesis/figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>] [114
 
 
 
@@ -3411,31 +3498,31 @@ Package pdftex.def Info: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-M
 
 ]
 Appendix B.
-[113]
+[115]
 \openout2 = `chapter_appendix_quarks_gluons.aux'.
 
- (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.tex [114
+ (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.tex [116
 
 ]
-<figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf, id=2804, 1336.88852pt x 1107.63469pt>
-<figures/quarks/viz_TSNE_MULTI_test_0.5_input2b_njet=4_algorithm=tsne_multi.pdf, id=2806, 1342.02025pt x 567.75209pt>
- [115]
-<figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2811, 1061.24446pt x 358.218pt>
+<figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf, id=2861, 1336.88852pt x 1107.63469pt>
+<figures/quarks/viz_TSNE_MULTI_test_0.5_input2b_njet=4_algorithm=tsne_multi.pdf, id=2863, 1342.02025pt x 567.75209pt>
+ [117]
+<figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2868, 1061.24446pt x 358.218pt>
 File: figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 57.
 (pdftex.def)             Requested size: 298.34473pt x 100.70483pt.
-<figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2813, 722.7pt x 361.35pt>
+<figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2870, 722.7pt x 361.35pt>
 File: figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 66.
 (pdftex.def)             Requested size: 289.21823pt x 132.55832pt.
-<figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2815, 722.7pt x 505.89pt>
+<figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2872, 722.7pt x 505.89pt>
 File: figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 75.
 (pdftex.def)             Requested size: 289.22527pt x 187.58319pt.
-<figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2817, 722.7pt x 361.35pt>
+<figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2874, 722.7pt x 361.35pt>
 File: figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 85.
@@ -3444,7 +3531,7 @@ Package pdftex.def Info: figures/quarks/btag_scores_histogram_-njet=3-down_sampl
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=2819, 578.16pt x 195.129pt>
+<figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=2876, 578.16pt x 195.129pt>
 File: figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf Graphic file (type pdf)
 <use figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf>
 Package pdftex.def Info: figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf  used on input line 95.
@@ -3452,13 +3539,13 @@ Package pdftex.def Info: figures/quarks/shap_global-down_sample=1.00-ML_vars=ver
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[116 </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
-<figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2908, 1055.30038pt x 358.218pt>
+[118 </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
+<figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2964, 1055.30038pt x 358.218pt>
 File: figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 107.
 (pdftex.def)             Requested size: 298.34836pt x 101.27328pt.
-<figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2910, 1055.30038pt x 358.218pt>
+<figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2966, 1055.30038pt x 358.218pt>
 File: figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 116.
@@ -3467,7 +3554,7 @@ Package pdftex.def Info: figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2912, 1081.69586pt x 358.218pt>
+<figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2968, 1081.69586pt x 358.218pt>
 File: figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 124.
@@ -3475,7 +3562,7 @@ Package pdftex.def Info: figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordere
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2914, 1081.69586pt x 358.218pt>
+<figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=2970, 1081.69586pt x 358.218pt>
 File: figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 133.
@@ -3483,46 +3570,46 @@ Package pdftex.def Info: figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[117 </Users/michelsen/Master_Thesis/thesis/figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
-<figures/quarks/TensorFlow_model.png, id=3121, 378.41376pt x 939.51pt>
+[119 </Users/michelsen/Master_Thesis/thesis/figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
+<figures/quarks/TensorFlow_model.png, id=3178, 378.41376pt x 939.51pt>
 File: figures/quarks/TensorFlow_model.png Graphic file (type png)
 <use figures/quarks/TensorFlow_model.png>
 Package pdftex.def Info: figures/quarks/TensorFlow_model.png  used on input line 147.
 (pdftex.def)             Requested size: 152.22316pt x 377.93336pt.
- [118 </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [119 </Users/michelsen/Master_Thesis/thesis/figures/quarks/TensorFlow_model.png>]
-<figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3259, 722.7pt x 361.35pt>
+ [120 </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [121 </Users/michelsen/Master_Thesis/thesis/figures/quarks/TensorFlow_model.png>]
+<figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3315, 722.7pt x 361.35pt>
 File: figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 159.
 (pdftex.def)             Requested size: 289.22527pt x 136.34903pt.
-<figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3261, 722.7pt x 361.35pt>
+<figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3317, 722.7pt x 361.35pt>
 File: figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 173.
 (pdftex.def)             Requested size: 289.22527pt x 140.48083pt.
-<figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3264, 722.7pt x 361.35pt>
+<figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3320, 722.7pt x 361.35pt>
 File: figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 180.
 (pdftex.def)             Requested size: 289.22527pt x 136.34903pt.
-<figures/quarks/gtag_y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3266, 722.7pt x 433.62pt>
+<figures/quarks/gtag_y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3322, 722.7pt x 433.62pt>
 File: figures/quarks/gtag_y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/gtag_y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 191.
 (pdftex.def)             Requested size: 289.22527pt x 155.76842pt.
- [120
+ [122
 
  </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_sum_method_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_sum_models_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_sum_method_njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
 File: figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 201.
 (pdftex.def)             Requested size: 289.22527pt x 157.83432pt.
-<figures/quarks/gtag_ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3442, 722.7pt x 433.62pt>
+<figures/quarks/gtag_ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3498, 722.7pt x 433.62pt>
 File: figures/quarks/gtag_ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
 Package pdftex.def Info: figures/quarks/gtag_ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 211.
 (pdftex.def)             Requested size: 289.22527pt x 157.83432pt.
-<figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=3445, 722.7pt x 361.35pt>
+<figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=3501, 722.7pt x 361.35pt>
 File: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf>
 Package pdftex.def Info: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf  used on input line 221.
@@ -3531,7 +3618,7 @@ Package pdftex.def Info: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-M
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [121 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [122 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf>] (/Users/michelsen/Master_Thesis/thesis/MasterThesis.lof
+) [123 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [124 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf>] (/Users/michelsen/Master_Thesis/thesis/MasterThesis.lof
 Overfull \hbox (30.00534pt too wide) in paragraph at lines 27--27
  [][] [][][]\T1/pplj/m/n/10 Histogram of prices of houses and apart-ments sold in Den-mark[][] 30 
  []
@@ -3542,9 +3629,24 @@ Overfull \hbox (38.27534pt too wide) in paragraph at lines 29--29
  []
 
 
+Overfull \hbox (5.1254pt too wide) in paragraph at lines 36--36
+ [][] [][][]\T1/pplj/m/n/10 Parallel Co-or-di-nate Plot of the Ini-tial Hy-per-pa-ram-e-ter Op-ti-miza-
+ []
+
+
+Overfull \hbox (17.80536pt too wide) in paragraph at lines 43--43
+ [][] [][][]\T1/pplj/m/n/10 Standard De-vi-a-tion and MAD of the Static and Dy-namic XGB Fore-
+ []
+
+
+Overfull \hbox (22.48535pt too wide) in paragraph at lines 44--44
+ [][] [][][]\T1/pplj/m/n/10 Market In-dex based on the Static and Dy-namic XGB Fore-casts[][] 43 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [123
+ [125
 
 
 
@@ -3588,14 +3690,14 @@ LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [124]
+ [126]
 Overfull \hbox (17.64523pt too wide) in paragraph at lines 133--133
  [][] [][][]\T1/pplj/m/n/10 Parallel Plot of HPO Re-sults for 3-Jet $\OML/zplm/m/it/10 g$\T1/pplj/m/n/10 -Tagging for En-ergy Or-dered
  []
 
 
 Overfull \hbox (36.45522pt too wide) in paragraph at lines 134--134
- [][] [][][]\T1/pplj/m/n/10 Parallel Plot of HPO Re-sults for 3-Jet $\OML/zplm/m/it/10 g$\T1/pplj/m/n/10 -Tagging for Shuf-fled Jets[][] 118 
+ [][] [][][]\T1/pplj/m/n/10 Parallel Plot of HPO Re-sults for 3-Jet $\OML/zplm/m/it/10 g$\T1/pplj/m/n/10 -Tagging for Shuf-fled Jets[][] 120 
  []
 
 
@@ -3605,27 +3707,27 @@ Overfull \hbox (17.64523pt too wide) in paragraph at lines 135--135
 
 
 Overfull \hbox (36.45522pt too wide) in paragraph at lines 136--136
- [][] [][][]\T1/pplj/m/n/10 Parallel Plot of HPO Re-sults for 4-Jet $\OML/zplm/m/it/10 g$\T1/pplj/m/n/10 -Tagging for Shuf-fled Jets[][] 118 
+ [][] [][][]\T1/pplj/m/n/10 Parallel Plot of HPO Re-sults for 4-Jet $\OML/zplm/m/it/10 g$\T1/pplj/m/n/10 -Tagging for Shuf-fled Jets[][] 120 
  []
 
 
 Overfull \hbox (36.93532pt too wide) in paragraph at lines 139--139
- [][] [][][]\T1/pplj/m/n/10 1D Sum Mod-els Pre-dic-tions and Sig-nal Frac-tion for 3-jets events[][] 120 
+ [][] [][][]\T1/pplj/m/n/10 1D Sum Mod-els Pre-dic-tions and Sig-nal Frac-tion for 3-jets events[][] 122 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [125]
+ [127]
 Overfull \hbox (64.32516pt too wide) in paragraph at lines 144--144
- [][] [][][]\T1/pplj/m/n/10 Distribution of $\OML/zplm/m/it/10 g$\T1/pplj/m/n/10 -Tag Scores in 3-Jet Events for Sig-nal and Back-ground[][] 122 
+ [][] [][][]\T1/pplj/m/n/10 Distribution of $\OML/zplm/m/it/10 g$\T1/pplj/m/n/10 -Tag Scores in 3-Jet Events for Sig-nal and Back-ground[][] 124 
  []
 
 )
 \tf@lof=\write9
 \openout9 = `MasterThesis.lof'.
 
- [126] (/Users/michelsen/Master_Thesis/thesis/MasterThesis.lot
+ [128] (/Users/michelsen/Master_Thesis/thesis/MasterThesis.lot
 Overfull \hbox (21.27869pt too wide) in paragraph at lines 4--4
  [][] [][][]\T1/pplj/m/n/10 Mapping be-tween the code in [][][][][][] and the type of res-i-dence.
  []
@@ -3633,6 +3735,21 @@ Overfull \hbox (21.27869pt too wide) in paragraph at lines 4--4
 
 Overfull \hbox (16.57532pt too wide) in paragraph at lines 4--4
  \T1/pplj/m/n/10 The two im-por-tant types of res-i-dences are villa (one-family houses)
+ []
+
+
+Overfull \hbox (7.04526pt too wide) in paragraph at lines 9--9
+ [][] [][][]\T1/pplj/m/n/10 Number of Ob-ser-va-tions in the Hous-ing Dataset for the Tight Se-
+ []
+
+
+Overfull \hbox (8.04533pt too wide) in paragraph at lines 10--10
+ [][] [][][]\T1/pplj/m/n/10 Results of the ini-tial hy-per-pa-ram-e-ter op-ti-miza-tion for apart-ments
+ []
+
+
+Overfull \hbox (13.44533pt too wide) in paragraph at lines 14--14
+ [][] [][][]\T1/pplj/m/n/10 Performance Met-rics for the Hous-ing Model on Apart-ments[][] 43 
  []
 
 
@@ -3647,26 +3764,26 @@ Overfull \hbox (6.33536pt too wide) in paragraph at lines 40--40
 
 
 Overfull \hbox (48.38231pt too wide) in paragraph at lines 40--40
- \T1/pplj/m/n/10 a-tive num-bers such that each row sum to [][]. See also Ta-ble [][]5.3[][].[][] 114 
+ \T1/pplj/m/n/10 a-tive num-bers such that each row sum to [][]. See also Ta-ble [][]5.3[][].[][] 116 
  []
 
-)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [129
+
+])
 \tf@lot=\write10
 \openout10 = `MasterThesis.lot'.
 
- (/Users/michelsen/Master_Thesis/thesis/MasterThesis.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [127
-
-] [128
-
-]
+ (/Users/michelsen/Master_Thesis/thesis/MasterThesis.bbl [130]
 Underfull \hbox (badness 2027) in paragraph at lines 26--29
 []\T1/pplj/m/n/10 The Large Electron-Positron Col-lider | CERN. 
  []
 
-[129]
+[131
+
+]
 Underfull \hbox (badness 1286) in paragraph at lines 106--113
 \T1/pplj/m/it/10 Se-ries)\T1/pplj/m/n/10 .  Wi-ley-Black-well, reprint edi-tion.  ISBN 
  []
@@ -3676,7 +3793,7 @@ Underfull \hbox (badness 1112) in paragraph at lines 106--113
 \T1/pplj/m/n/10 0-471-92295-1.  URL [][]$\T1/fvm/m/n/10 http : / / www . amazon . co . uk / 
  []
 
-[130] [131]
+[132] [133]
 Underfull \hbox (badness 2735) in paragraph at lines 348--353
 \T1/pplj/m/n/10 of the Dan-ish hous-ing mar-ket.  URL [][]$\T1/fvm/m/n/10 http : 
  []
@@ -3686,12 +3803,12 @@ Overfull \hbox (29.73763pt too wide) in paragraph at lines 348--353
 \T1/fvm/m/n/10 Working-[]Paper-[]A-[]regional-[]model-[]of-[]the-[]Danish-[]housing-[]market . 
  []
 
-[132]
+[134]
 Overfull \hbox (54.8228pt too wide) in paragraph at lines 368--376
 \T1/fvm/m/n/10 6907-[]lightgbm-[]a-[]highly-[]efficient-[]gradient-[]boosting-[]decision-[]tree . 
  []
 
-[133] [134] [135]) (/Users/michelsen/Master_Thesis/thesis/MasterThesis.ind [136]) [137
+[135] [136] [137]) (/Users/michelsen/Master_Thesis/thesis/MasterThesis.ind [138]) [139
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 470.
@@ -3712,10 +3829,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 470.
  ) 
 Here is how much of TeX's memory you used:
- 41134 strings out of 492646
- 799355 string characters out of 6129563
- 918188 words of memory out of 5000000
- 43943 multiletter control sequences out of 15000+600000
+ 41114 strings out of 492646
+ 799196 string characters out of 6129563
+ 918180 words of memory out of 5000000
+ 43922 multiletter control sequences out of 15000+600000
  687760 words of font info for 319 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,15n,96p,1915b,1396s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3848,10 +3965,10 @@ pdfTeX warning (dest): name{chapter.2} has been referenced but does not exist, r
 pdfTeX warning (dest): name{chapter.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/michelsen/Master_Thesis/thesis/MasterThesis.pdf (68 pages, 3619235 bytes).
+Output written on /Users/michelsen/Master_Thesis/thesis/MasterThesis.pdf (68 pages, 3757256 bytes).
 PDF statistics:
- 4202 PDF objects out of 4296 (max. 8388607)
- 1880 compressed objects within 19 object streams
- 269 named destinations out of 1000 (max. 500000)
- 3297 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4263 PDF objects out of 4296 (max. 8388607)
+ 1910 compressed objects within 20 object streams
+ 270 named destinations out of 1000 (max. 500000)
+ 3302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
