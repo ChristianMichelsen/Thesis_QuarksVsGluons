@@ -517,10 +517,10 @@ From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_
 
 These efficiencies are only possible for MC-generated data as the truth labels are required.  
 
-
+\newpage
 Her beskriv pseudo $g$-tag efficiency
 
-\begin{figure}
+\begin{figure}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of g-tag]
@@ -529,17 +529,19 @@ Her beskriv pseudo $g$-tag efficiency
   \label{fig:q:effiency_btag_bbg_gtag}
 \end{figure}
 
-\begin{figure}
+Argumenter for at man kan stole på $g$-tagging model da kun lille forskel mellem MC og Data, right? Eller hvad bruger vi virkelig $\varepsilon_{b\bar{b}g}$ til? 
+
+
+\begin{figure}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of the mean invariant mass]
-          {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}} \cdot \varepsilon_{\bar{b}}^{b\dash\mathrm{sig}} \cdot  \varepsilon_g^{g\dash\mathrm{sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
-          } 
+  % \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of the mean invariant mass]
+  %         {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}} \cdot \varepsilon_{\bar{b}}^{b\dash\mathrm{sig}} \cdot  \varepsilon_g^{g\dash\mathrm{sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
+  %         } 
   \label{fig:q:effiency_btag_bbg_m_mean}
 \end{figure}
 
-
-argumentere for at man kan stole på $g$-tagging model da kun lille forskel mellem MC og Data
+Hvorfor egentligt plotte som funktion af $m_{bg}+m_{m_{\bar{b}g}}$?
 
 
 \newpage
@@ -549,7 +551,7 @@ argumentere for at man kan stole på $g$-tagging model da kun lille forskel mell
 \label{sec:q:generalized_angularities}
 
 
-argumentere for at 3-jet er nemmere end 4-jet til at finde single gluons, measure how gluons "look"
+Argumentere for at 3-jet er nemmere end 4-jet til at finde single gluons, measure how gluons "look"
 
 \begin{marginfigure}
   \centerfloat
@@ -581,11 +583,11 @@ argumentere for at 3-jet er nemmere end 4-jet til at finde single gluons, measur
 
 \subsection{Variables}
 
-først komme ind på variable used.
+først komme ind på variable used, forklare kT, CA og sådan.
 
-Så kigge på effieciency af gtag på de forskellige variable:
 
 \subsection{Efficiencies}
+Så kigge på efficiency af $g$-tag på de forskellige variable:
 
 \begin{figure}
   \centerfloat
@@ -598,7 +600,9 @@ Så kigge på effieciency af gtag på de forskellige variable:
 
 \subsection{Closure Test}
 
-Dernæst closure test 
+Dernæst closure test og beskrivelse af denne. 
+
+Hvad bruges closure test egentligt til? TIl at sige at vi godt kan beskrive data ud fra MC?
 
 
 \begin{figure}
@@ -630,4 +634,10 @@ Dernæst closure test
           } 
   \label{fig:q:R_kt_CA_cut_A}
 \end{figure}
+
+Burde de her plots have været corrected ligesom i Closure? 
+
+\section{Un-folding}
+
+And then lastly they should be unfolded? Or it should at least be mentioned?
 
