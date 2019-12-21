@@ -49,7 +49,6 @@ Warning--entry type for "MicrosoftLightGBM" isn't style-file defined
 --line 3652 of file My_Library.bib
 Warning--entry type for "fayeFrederikFayeDeepcalo" isn't style-file defined
 --line 3705 of file My_Library.bib
-Warning--I didn't find a database entry for "["
 Warning--to sort, need author or key in LargeElectronPositronCollider
 Warning--to sort, need author or key in AdvancedTopicsMachine
 Warning--to sort, need author or key in AllstateClaimsSeverity
@@ -171,6 +170,9 @@ Warning--empty year in keLightGBMHighlyEfficient2017
 Warning--empty journal in kingmaAdamMethodStochastic2014
 Warning--empty year in kingmaAdamMethodStochastic2014
 Warning--empty year in kingmaAdamMethodStochastic2014
+Warning--empty journal in klambauerSelfNormalizingNeuralNetworks2017
+Warning--empty year in klambauerSelfNormalizingNeuralNetworks2017
+Warning--empty year in klambauerSelfNormalizingNeuralNetworks2017
 Warning--empty journal in leysDetectingOutliersNot2013
 Warning--empty year in leysDetectingOutliersNot2013
 Warning--empty year in leysDetectingOutliersNot2013
@@ -268,45 +270,45 @@ Warning--empty year in JSSv059i10
 Warning--empty journal in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
-You've used 87 entries,
+You've used 88 entries,
             2773 wiz_defined-function locations,
-            1203 strings with 28055 characters,
-and the built_in function-call counts, 45934 in all, are:
-= -- 3922
-> -- 3226
+            1207 strings with 28286 characters,
+and the built_in function-call counts, 46409 in all, are:
+= -- 3959
+> -- 3265
 < -- 68
-+ -- 1108
-- -- 1018
-* -- 4061
-:= -- 7063
-add.period$ -- 382
-call.type$ -- 87
-change.case$ -- 588
-chr.to.int$ -- 84
-cite$ -- 400
-duplicate$ -- 1811
-empty$ -- 3228
-format.name$ -- 1135
-if$ -- 9453
++ -- 1121
+- -- 1030
+* -- 4107
+:= -- 7139
+add.period$ -- 385
+call.type$ -- 88
+change.case$ -- 595
+chr.to.int$ -- 85
+cite$ -- 405
+duplicate$ -- 1831
+empty$ -- 3259
+format.name$ -- 1148
+if$ -- 9546
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 76
-newline$ -- 557
-num.names$ -- 322
-pop$ -- 1561
+missing$ -- 77
+newline$ -- 562
+num.names$ -- 326
+pop$ -- 1581
 preamble$ -- 2
-purify$ -- 506
+purify$ -- 512
 quote$ -- 0
-skip$ -- 1364
+skip$ -- 1376
 stack$ -- 0
-substring$ -- 1069
+substring$ -- 1071
 swap$ -- 175
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 922
-warning$ -- 218
-while$ -- 292
+type$ -- 933
+warning$ -- 221
+while$ -- 295
 width$ -- 0
-write$ -- 1217
-(There were 237 warnings)
+write$ -- 1228
+(There were 239 warnings)
