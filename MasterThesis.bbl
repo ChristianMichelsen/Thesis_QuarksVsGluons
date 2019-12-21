@@ -1,5 +1,5 @@
 \ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi
-\begin{thebibliography}{85}
+\begin{thebibliography}{87}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -66,6 +66,41 @@ D.~Albanese, S.~Riccadonna, C.~Donati, and P.~Franceschi.
 \newblock ISSN 2047-217X.
 \newblock \doi{10.1093/gigascience/giy032}.
 \newblock URL \url{https://doi.org/10.1093/gigascience/giy032}.
+
+\bibitem[Albrecht et~al.()Albrecht, Ehrlichmann, Hamacher, Hofmann, Kirchhoff,
+  Nau, Nowak, Schröder, Schulz, Walter, Wurth, Hast, Kolanoski, Kosche, Lange,
+  Lindner, Mankel, Schieber, Siegmund, Spaan, Thurn, Töpfer, Wegener, Bittner,
+  Eckstein, Paulini, Reim, Wegener, Eckmann, Mundt, Oest, Reiner,
+  Schmidt-Parzefall, Funk, Stiewe, Werner, Ehret, Hofmann, Hüpper, Khan,
+  Knöpfle, Seeger, Spengler, Britton, Charlesworth, Edwards, Hyatt, Kapitza,
+  Krieger, MacFarlane, Patel, Prentice, Saull, Tzamariudaki, Van~de Water,
+  Yoon, Reßing, Schmidtler, Schneider, Schubert, Strahl, Waldi, Weseler,
+  Kernel, Križnič, Podobnik, Živko, Balagura, Belyaev, Chechelnitsky,
+  Danilov, Droutskoy, Gershtein, Golutvin, Kostina, Litvintsev, Lubimov,
+  Pakhlov, Ratnikov, Semenov, Snizhko, Soloshenko, Tichomirov, and
+  Zaitsev]{albrechtModelindependentDeterminationInclusive1993}
+H.~Albrecht, H.~Ehrlichmann, T.~Hamacher, R.~P. Hofmann, T.~Kirchhoff, A.~Nau,
+  S.~Nowak, H.~Schröder, H.~D. Schulz, M.~Walter, R.~Wurth, C.~Hast,
+  H.~Kolanoski, A.~Kosche, A.~Lange, A.~Lindner, R.~Mankel, M.~Schieber,
+  T.~Siegmund, B.~Spaan, H.~Thurn, D.~Töpfer, D.~Wegener, M.~Bittner,
+  P.~Eckstein, M.~Paulini, K.~Reim, H.~Wegener, R.~Eckmann, R.~Mundt, T.~Oest,
+  R.~Reiner, W.~Schmidt-Parzefall, W.~Funk, J.~Stiewe, S.~Werner, K.~Ehret,
+  W.~Hofmann, A.~Hüpper, S.~Khan, K.~T. Knöpfle, M.~Seeger, J.~Spengler,
+  D.~I. Britton, C.~E.~K. Charlesworth, K.~W. Edwards, E.~R.~F. Hyatt,
+  H.~Kapitza, P.~Krieger, D.~B. MacFarlane, P.~M. Patel, J.~D. Prentice,
+  P.~R.~B. Saull, K.~Tzamariudaki, R.~G. Van~de Water, T.~S. Yoon, D.~Reßing,
+  M.~Schmidtler, M.~Schneider, K.~R. Schubert, K.~Strahl, R.~Waldi, S.~Weseler,
+  G.~Kernel, P.~Križnič, T.~Podobnik, T.~Živko, V.~Balagura, I.~Belyaev,
+  S.~Chechelnitsky, M.~Danilov, A.~Droutskoy, Y.~Gershtein, A.~Golutvin,
+  G.~Kostina, D.~Litvintsev, V.~Lubimov, P.~Pakhlov, F.~Ratnikov, S.~Semenov,
+  A.~Snizhko, V.~Soloshenko, I.~Tichomirov, and Y.~Zaitsev.
+\newblock A model-independent determination of the inclusive semileptonic decay
+  fraction of {{B}} mesons.
+\newblock 318\penalty0 (2):\penalty0 397--404.
+\newblock ISSN 0370-2693.
+\newblock \doi{10.1016/0370-2693(93)90146-9}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/0370269393901469}.
 
 \bibitem[Anderson()]{andersonSpeciesProblemIris1936a}
 E.~Anderson.
@@ -491,6 +526,12 @@ D.~N. Reshef, Y.~A. Reshef, H.~K. Finucane, S.~R. Grossman, G.~McVean, P.~J.
 \newblock ISSN 0036-8075, 1095-9203.
 \newblock \doi{10.1126/science.1205438}.
 \newblock URL \url{http://science.sciencemag.org/content/334/6062/1518}.
+
+\bibitem[Rohlf()]{Rohlf:1994wy}
+J.~W. Rohlf.
+\newblock \emph{Modern {{Physics}} from {{A}} to {{Z}}}.
+\newblock {John Wiley and Sons}.
+\newblock ISBN 978-0-471-57270-1.
 
 \bibitem[Rousseeuw and Croux()]{rousseeuwAlternativesMedianAbsolute1993}
 P.~J. Rousseeuw and C.~Croux.

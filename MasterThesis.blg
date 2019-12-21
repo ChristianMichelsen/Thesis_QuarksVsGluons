@@ -75,6 +75,9 @@ Warning--empty year in abu-mostafaLearningData2012
 Warning--empty journal in albanesePracticalToolMaximal2018a
 Warning--empty year in albanesePracticalToolMaximal2018a
 Warning--empty year in albanesePracticalToolMaximal2018a
+Warning--empty journal in albrechtModelindependentDeterminationInclusive1993
+Warning--empty year in albrechtModelindependentDeterminationInclusive1993
+Warning--empty year in albrechtModelindependentDeterminationInclusive1993
 Warning--empty journal in andersonSpeciesProblemIris1936a
 Warning--empty year in andersonSpeciesProblemIris1936a
 Warning--empty year in andersonSpeciesProblemIris1936a
@@ -207,6 +210,8 @@ Warning--empty year in ravanbakhshDeepLearningSets2017
 Warning--empty journal in reshefDetectingNovelAssociations2011
 Warning--empty year in reshefDetectingNovelAssociations2011
 Warning--empty year in reshefDetectingNovelAssociations2011
+Warning--empty year in Rohlf:1994wy
+Warning--empty year in Rohlf:1994wy
 Warning--empty journal in rousseeuwAlternativesMedianAbsolute1993
 Warning--empty year in rousseeuwAlternativesMedianAbsolute1993
 Warning--empty year in rousseeuwAlternativesMedianAbsolute1993
@@ -263,45 +268,45 @@ Warning--empty year in JSSv059i10
 Warning--empty journal in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
-You've used 85 entries,
+You've used 87 entries,
             2773 wiz_defined-function locations,
-            1189 strings with 26223 characters,
-and the built_in function-call counts, 41035 in all, are:
-= -- 3605
-> -- 2457
-< -- 67
-+ -- 851
-- -- 763
-* -- 3501
-:= -- 6201
-add.period$ -- 372
-call.type$ -- 85
-change.case$ -- 498
-chr.to.int$ -- 82
-cite$ -- 391
-duplicate$ -- 1770
-empty$ -- 3155
-format.name$ -- 878
-if$ -- 8550
+            1203 strings with 28055 characters,
+and the built_in function-call counts, 45934 in all, are:
+= -- 3922
+> -- 3226
+< -- 68
++ -- 1108
+- -- 1018
+* -- 4061
+:= -- 7063
+add.period$ -- 382
+call.type$ -- 87
+change.case$ -- 588
+chr.to.int$ -- 84
+cite$ -- 400
+duplicate$ -- 1811
+empty$ -- 3228
+format.name$ -- 1135
+if$ -- 9453
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 73
-newline$ -- 543
-num.names$ -- 314
-pop$ -- 1370
+missing$ -- 76
+newline$ -- 557
+num.names$ -- 322
+pop$ -- 1561
 preamble$ -- 2
-purify$ -- 417
+purify$ -- 506
 quote$ -- 0
-skip$ -- 1263
+skip$ -- 1364
 stack$ -- 0
-substring$ -- 1044
-swap$ -- 174
+substring$ -- 1069
+swap$ -- 175
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 905
-warning$ -- 213
-while$ -- 285
+type$ -- 922
+warning$ -- 218
+while$ -- 292
 width$ -- 0
-write$ -- 1187
-(There were 232 warnings)
+write$ -- 1217
+(There were 237 warnings)
