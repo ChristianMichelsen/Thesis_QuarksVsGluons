@@ -50,16 +50,21 @@
 \contentsline {subsection}{\numberline {5.4.1}$b$-Tagging Hyperparameter Optimization}{68}{subsection.5.4.1}
 \contentsline {subsection}{\numberline {5.4.2}$b$-Tagging Results}{69}{subsection.5.4.2}
 \contentsline {subsection}{\numberline {5.4.3}$b$-Tagging Model Inspection}{71}{subsection.5.4.3}
-\contentsline {section}{\numberline {5.5}Truncated Uniform PDF}{72}{section.5.5}
-\contentsline {section}{\numberline {5.6}g-Tagging Analysis}{73}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Permutation Invariance}{73}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}$g$-Tagging Hyperparameter Optimization}{74}{subsection.5.6.2}
-\contentsline {subsection}{\numberline {5.6.3}PermNet}{75}{subsection.5.6.3}
-\contentsline {subsection}{\numberline {5.6.4}1D Comparison of LGB and PermNet}{75}{subsection.5.6.4}
-\contentsline {subsection}{\numberline {5.6.5}$g$-Tagging Results}{76}{subsection.5.6.5}
-\contentsline {section}{\numberline {5.7}$b$-Tagging Efficiency}{79}{section.5.7}
-\contentsline {section}{\numberline {5.8}$g$-Tagging Efficiency}{79}{section.5.8}
-\contentsline {section}{\numberline {5.9}Generalized Angularities}{80}{section.5.9}
+\contentsline {section}{\numberline {5.5}b-Tagging Efficiency}{72}{section.5.5}
+\contentsline {section}{\numberline {5.6}g-Tagging Analysis}{74}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Permutation Invariance}{74}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Truncated Uniform PDF}{75}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}$g$-Tagging Hyperparameter Optimization}{76}{subsection.5.6.3}
+\contentsline {subsection}{\numberline {5.6.4}PermNet}{77}{subsection.5.6.4}
+\contentsline {subsection}{\numberline {5.6.5}1D Comparison of LGB and PermNet}{77}{subsection.5.6.5}
+\contentsline {subsection}{\numberline {5.6.6}$g$-Tagging Results}{78}{subsection.5.6.6}
+\contentsline {section}{\numberline {5.7}g-Tagging Efficiency}{81}{section.5.7}
+\contentsline {section}{\numberline {5.8}Generalized Angularities in 3-jet events}{82}{section.5.8}
+\contentsline {section}{\numberline {5.9}Gluon splitting}{83}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}Variables}{83}{subsection.5.9.1}
+\contentsline {subsection}{\numberline {5.9.2}Efficiencies}{83}{subsection.5.9.2}
+\contentsline {subsection}{\numberline {5.9.3}Closure Test}{83}{subsection.5.9.3}
+\contentsline {subsection}{\numberline {5.9.4}4-jet results}{83}{subsection.5.9.4}
 \contentsline {chapter}{\numberline {6}Discussion and Outlook}{85}{chapter.6}
 \contentsline {chapter}{\numberline {7}Conclusion}{87}{chapter.7}
 \contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{87}{section.7.1}
@@ -69,7 +74,7 @@
 \contentsline {section}{\numberline {7.3}Getting Help}{87}{section.7.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{89}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{117}{appendix.B}
-\contentsline {chapter}{List of Figures}{130}{appendix*.11}
-\contentsline {chapter}{List of Tables}{132}{appendix*.12}
-\contentsline {chapter}{Index}{143}{appendix*.14}
+\contentsline {chapter}{List of Figures}{130}{appendix*.7}
+\contentsline {chapter}{List of Tables}{132}{appendix*.8}
+\contentsline {chapter}{Index}{143}{appendix*.10}
 \contentsfinish 

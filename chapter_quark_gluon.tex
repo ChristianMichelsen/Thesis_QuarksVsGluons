@@ -19,7 +19,7 @@ The data structure is quite differently structured in the Ntuples compared to no
 
 The number of events for each number of jets can be seen in Table~\ref{tab:q:datasize_data} for the Data and in Figure~\ref{tab:q:datasize_MC} for the MC and MCb. 
 
-\begin{margintable}
+\begin{margintable}[1cm]
   \centering
   \begin{tabular}{@{}rrr@{}}
   {} &       jets &     events \\
@@ -34,6 +34,7 @@ The number of events for each number of jets can be seen in Table~\ref{tab:q:dat
   \vspace{\abovecaptionskip}
   \caption[Dimensions of dataset for Data]{The dimensions of the dataset for the actual Data. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
   \label{tab:q:datasize_data}
+  \vspace{\abovecaptionskip}
 \end{margintable}
 
 \begin{margintable}
@@ -210,7 +211,7 @@ The data are split\sidenote{After removing all low-energy jets such that all eve
   \end{tabular}
   % \vspace{\abovecaptionskip}
   \vspace{3mm}
-  \caption[Random Search PDFs for LGB]{\label{tab:q:hpo_ranges_lgb}Probability Density Functions for the random search hyperparameter optimization process for the LightGBM model. For an explanation of $\mathcal{U}_\mathrm{trunc}$, see \autoref{sec:q:trunc_uniform}. All negative values of \code{max_depth} are interpreted as no max depth by both LGB and XGB.}
+  \caption[Random Search PDFs for LGB]{\label{tab:q:hpo_ranges_lgb}Probability Density Functions for the random search hyperparameter optimization process for the LightGBM model. For an explanation of $\mathcal{U}_\mathrm{trunc}$, see \autoref{subsec:q:trunc_uniform}. All negative values of \code{max_depth} are interpreted as no max depth by both LGB and XGB.}
 \end{margintable}
 
 \subsection{$b$-Tagging Hyperparameter Optimization}
@@ -229,7 +230,7 @@ Compared to the housing prices dataset, the number of observations $N$ is a lot 
 \end{figure*}
 \vspace{0.5cm}
 
-The relationship between the different hyperparameters in 4-jet events can be seen in the parallel coordinate plot in Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j}. First of all the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{sec:q:trunc_uniform} for a deeper discussion about the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are notably less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j}.
+The relationship between the different hyperparameters in 4-jet events can be seen in the parallel coordinate plot in Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j}. First of all the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{subsec:q:trunc_uniform} for a deeper discussion about the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are notably less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j}.
 
 \begin{figure}
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
@@ -331,15 +332,46 @@ With this in mind, single predictions of the LGB $b$-tagging model can be unders
 
 
 
-\section{Truncated Uniform PDF}
-\label{sec:q:trunc_uniform}
+\section[b-Tagging Efficiency]{$b$-Tagging Efficiency}
+\label{sec:q:b_tagging_effiency}
 
-Initially when plotting the HPO performance as a function of iteration, it was seen how there were three significant plateaus, where the highest plateau (i.e. highest AUC value and thus best score) was only seen in the very first iteration. It was quickly realized that this was due to the very first iteration was being run with the default values of the LGB and XGB models in the custom implementation by the author. However, what was not understood was why this value was performing so much better than random sets of hyperparameters\sidenote{LightGBM and XGBoost of course have chosen their default parameters smartly, however, it one would not expect them to outperform other sets of hyperparameters that clearly.}. During the debugging process the column downsampling \code{colsample_bytree} was diagnosed to be the culprit. The default value is \code{colsample_bytree}$=1$, however, the probability density function (PDF) used in RS for this parameter was $\mathcal{U}(0.4, 1)$ which was expected to give the same performance as the default value for large values of \code{colsample_bytree}. By inspecting the source code of LightGBM it was realized that the model takes the integer of the column downsampling multiplied with the total number of features if the column downsampling is less than \num{1} \autocite{MicrosoftLightGBM}. This means that no matter how close to \num{1} the column downsampling get, the integer value of the total number of columns get floored to \num{2} at max, compared to when the column downsampling is exactly \num{1} which it only is for the default values.
+Before any further analysis can be done, the efficiency of the $b$-Tagging model has to be measured. The efficiency $\varepsilon$ is defined as the number of particles, events, jets, or any other countable measure $N_\mathrm{sel}$ that are selected by the algorithm divided by the \emph{true} number $N_\mathrm{truth}$:
+\begin{equation}
+  \varepsilon = \frac{N_\mathrm{sel}}{N_\mathrm{truth}}. 
+\end{equation}
+Of course, the truth is never known in Nature, however, it is for simulated MC events. The efficiency is used to estimate how many particles (e.g.) that were generated even though only a subset of the particles were detected. Imagine a hypothetical experiment where \num{21} particles were observed and the efficiency of the experiment was $\varepsilon=\SI{50}{\percent}$, established by some other method. This means that there were generated $21 / \varepsilon = 42$ particles in the experiment.
 
-To deal with this problem a new PDF was developed on top of the existing ones in Scipy, the truncated uniform PDF: $\mathcal{U}_\mathrm{trunc}(a, b, c)$. This PDF first generates a random number $x$ from a uniform distribution between $a$ and $c$. Then if $x$ is larger than $b$ it is floored to $b$. In this way, it is possible to both get values of $x$ in the interval $[a, b]$ but also values exactly equal to $b$. The value of $c$ controls how often these \q{overflow} values of $x$ are generated.
+For measuring the $b$-tagging efficiency we apply a Tag-Tag-Probe (TTP) method based on the $b$-tags. In 3-jet events two of the jets will serve as tags and the last one as probe. The tags are jets where, if they are known, the probe is also known (with high probability). One can then apply the cut to the probe and see if it would have passed the cut or not. This method provides a clean and unbiased sample of probe and since (with high probability) the \q{truth} of the probe jet is known, the efficiency can be measured in this way \autocite{atlascollaborationElectronEfficiencyMeasurements2017}. Since the TTP method does not depend on real truth, it can be used on both MC and Data.
 
+To measure the $b$-tagging efficiency we make use of the characteristic signature of the $Z$ decay that the clear majority\sidenote{The fraction of $Z \rightarrow ggg$ events are $<\SI{1.1}{\percent}$ \autocite{particledatagroupReviewParticlePhysics2018}.} of 3-jet decays are $Z \rightarrow q\bar{q}g$. This means that if one of the jets get a high $b$-tag, and is thus likely to be a $b$-jet, and another one of the jets gets a low $b$-tag, and is thus likely to be a $g$-jet, then it is quite sure that the remaining jet is a $b$-jet. To formalize this, for any 3-jet sort the jets after their $b$-tags values from high to low such that $\beta_{\mathrm{tag}_3} < \beta_{\mathrm{tag}_2} < \beta_{\mathrm{tag}_1}$ for the jets $\vec{J}=[J_1, J_2, J_3]=[T_b, P, T_g]$ where $J_i$ has $b$-tag 
+$\beta_{\mathrm{tag}_i}$. If the two probes $T_b$ and $T_g$ passes the cuts $\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_1}$ and $\beta_{\mathrm{tag}_3} < \beta_{g\dash\mathrm{cut}}$, then the probe is selected $P=J_2$. If the probe is selected, then the last cut $\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_2}$ is the one that the efficiency is based on.
 
+Based on Figure~\ref{fig:q:btag_histogram_4j} we define the threshold for the $b$-jet tag to be $\beta_{b\dash\mathrm{cut}}=0.9$ and for the $g$-jet to be $\beta_{g\dash\mathrm{cut}} = 0.4$ and the $b$-signal region is thus $0.9 < \beta$. With these cuts the efficiency, denoted $\varepsilon_b^{b\dash\mathrm{sig}}$, of the $b$-jets being tagged as $b$-signal is computed. The TTP method is applied to both Data (Data TTP) and MC (MC TTP), along with a measurement of the efficiency when measured using MC truth (MC Truth) and a measurement based on the probes that were actual $b$-jets according to truth (MC Truth TTP). The efficiency is measured as a function of jet energy $E_\mathrm{jet}$ to gauge the energy dependence of the efficiency, i.e. computed in a bin-by-bin basis split according to the jet energy (of the probe). The efficiencies can be seen in Figure~\ref{fig:q:effiency_btag_bjet_bsig}. 
 
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[$b$-Tagging Efficiency $\varepsilon_b^{b\dash\mathrm{sig}}$ as a Function of Jet Energy]
+          {$b$-tag efficiency for $b$-jets in the $b$-signal region for 3-jet events, $\varepsilon_b^{b\dash\mathrm{sig}}$, as a function of jet energy $E_\mathrm{jet}$. In the plot the efficiencies are shown for \textcolor{blue}{MC TTP} in blue, \textcolor{red}{Data TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{MC Truth TTP} in orange. The efficiencies (the errorbars) can be read off on the left $y$-axis and the counts (histograms) on the right $y$-axis. Notice how both MC TTP and Data TTP follow each other closely.} 
+  \label{fig:q:effiency_btag_bjet_bsig}
+\end{figure}
+
+The efficiency $\varepsilon_b^{b\dash\mathrm{sig}}$ as a function of jet energy $E_\mathrm{jet}$ can be seen on the left $y$-axis, whereas the number of probes in each bin $N_\mathrm{truth}$ can be seen on the right $y$-axis. The efficiencies increase as a function of energy and reaches a plateau at $E_\mathrm{jet} \sim \SI{30}{\GeV}$: high-energy $b$-jets are easier to classify than low-energy ones. 
+Even though the efficiencies of the MC TTP and Data TTP methods are lower than the MC Truth and MC Truth TTP, the important thing to notice is that they follow each other closely, an indicator of the trained $b$-tagging model working equally well on both MC and Data (as hoped).  
+
+The $b$-tag efficiency of $g$-jets in the $g$-jet signal region $\varepsilon_g^{g\dash\mathrm{sig}}$ can be measured in a similar manner. Again TTP is used, however, now the two $b$-jets are the tags and the $g$-jet is the probe. The cuts are the same as before, however, now it is required that ${\beta_{b\dash\mathrm{cut}} = 0.9 < \beta_{\mathrm{tag}_1}}$ and ${\beta_{b\dash\mathrm{cut}} = 0.9 < \beta_{\mathrm{tag}_2}}$ before the probe is selected $P=J_3$. The efficiency is then based on $\beta_{\mathrm{tag}_3} < 0.4 = \beta_{g\dash\mathrm{cut}}$. The efficiency $\varepsilon_b^{b\dash\mathrm{sig}}$ is plotted in Figure~\ref{fig:q:effiency_btag_gjet_gsig}. Here the MC TTP and Data TTP also follow each other, this time to around $\sim \SI{25}{\GeV}$.
+
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[$b$-Tagging Efficiency $\varepsilon_g^{g\dash\mathrm{sig}}$ as a Function of Jet Energy]
+          {$b$-tag efficiency for $g$-jets in the $g$-signal region for 3-jet events, $\varepsilon_g^{g\dash\mathrm{sig}}$, as a function of jet energy $E_\mathrm{jet}$. In the plot the efficiencies are shown for \textcolor{blue}{MC TTP} in blue, \textcolor{red}{Data TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{MC Truth TTP} in orange. The efficiencies (the errorbars) can be read off on the left $y$-axis and the counts (histograms) on the right $y$-axis. Notice how both MC TTP and Data TTP follow each other closely until $\sim \SI{25}{\GeV}$.} 
+  \label{fig:q:effiency_btag_gjet_gsig}
+\end{figure}
+
+Both of the efficiencies so far, $\varepsilon_b^{b\dash\mathrm{sig}}$ and $\varepsilon_g^{g\dash\mathrm{sig}}$, can be seen as signal efficiencies. Likewise, there are two background efficiencies, one for $b$-jets in the $g$-signal region $\varepsilon_b^{g\dash\mathrm{sig}}$ seen in Figure~\ref{fig:q:effiency_btag_bjet_gsig} and one for $g$-jets in the $b$-signal region $\varepsilon_g^{b\dash\mathrm{sig}}$ seen in Figure~\ref{fig:q:effiency_btag_gjet_bsig}.
+
+This section shows that the $b$-tagging efficiencies of the XGB $b$-tagging model shows comparable performance on both MC and Data. This is a good indication of it being un-biased and can thus be used for the further analysis. 
 
 \FloatBarrier
 \section[g-Tagging Analysis]{$g$-Tagging Analysis}
@@ -356,9 +388,16 @@ This meant that the different components in $\bm{\beta}_\mathrm{tag}$ had differ
 
 Although not being a novel software-technical solution, the problem was circumvented by two simple, different approaches: 1) by simply shuffling the inputs variables independently for each observation (row) in the dataset, and 2) training on all possible permutations of the variables in the dataset. The second approach can be seen as a feature augmentation technique where the data is artificially increased with factor of $n$ factorial: $N \rightarrow n!\cdot N$ where $N$ is the number of observations (rows) and $n$ is the number of jets. These two methods were tested along with the original order of the dataset. 
 
+\subsection{Truncated Uniform PDF}
+\label{subsec:q:trunc_uniform}
+
+Initially when plotting the HPO performance as a function of iteration, it was seen how there were some very clear plateaus, where the highest plateau (i.e. highest AUC value and thus best score) was only seen in the very first iteration. It was quickly realized that this was due to the very first iteration was being run with the default values of the LGB in my HPO setup. However, what was not understood was why this value was performing so much better than the random sets of hyperparameters in the random search. LightGBM of course have chosen their default parameters smartly, however, it one would not expect them to outperform other sets of hyperparameters that clearly. During the debugging process the column downsampling \code{colsample_bytree} was diagnosed to be the culprit. The default value is \code{colsample_bytree}$=1$, however, the probability density function (PDF) used in random search for this parameter was $\mathcal{U}(0.4, 1)$ which was expected to give the same performance as the default value \code{colsample_bytree=1}, at least for values of \code{colsample_bytree} close to \num{1}. By inspecting the source code of LightGBM it was realized that if the column downsampling is less than \num{1} the model takes the integer of the column downsampling multiplied with the total number of features \autocite{MicrosoftLightGBM}. This means that no matter how close to \num{1} the column downsampling get, the integer value of the total number of columns get floored to {maximally} \num{2} in 3-jet events, compared to when the column downsampling is exactly \num{1} which it only is for the default values.
+
+To deal with this problem I developed a new PDF\sidenote{Not strictly a PDF since it is not normalized, but otherwise behaves as one.} on top of the existing ones in Scipy: the truncated uniform PDF $\mathcal{U}_\mathrm{trunc}(a, b, c)$. This PDF first generates a random number $x$ from a uniform distribution between $a$ and $c$. Then if $x$ is larger than $b$ it is floored to $b$. In this way, it is possible to both get values of $x$ in the interval $[a, b]$ but also values exactly equal to $b$. The value of $c$ controls how often these \q{overflow} values of $x$ are generated.
+
 \subsection{$g$-Tagging Hyperparameter Optimization}
 
-Four LightGBM models, two for 3-jet events and two for 4-jet events, were trained and hyperparameter optimized for both the the energy ordered and shuffled\sidenote[][2cm]{The method with all permutations was trained using the same hyperparameters as the best ones for the shuffled model.} data sets with \num{100} iterations of random search with the same PDFs as for the $b$-tagging, see Table~\ref{tab:q:hpo_ranges_lgb}, and $5$-fold cross validation and early stopping with a patience of \num{100}. The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagging}. Here the two 3-jets models are seen in the two plots to the left, and the two 4-jets to the right. The very left plot shows the 3-jet energy-ordered (no permutation) performance as a function of iteration number, which was also where the issues mentioned in \autoref{sec:q:trunc_uniform} were first discovered. Here the difference between the how many of the three variables, the three $b$-tags, are included is seen as three clear plateaus. The three plateaus are also seen in the 3-jet events that were shuffled, however, with more variation in each plateau, along with a drop in performance. For the 4-jet events the plateaus are not as apparent but it can still be seen how some of the iterations how a significantly lower score than others. The parallel plots for the four fits can be seen in Figure~\ref{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}--\ref{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}.
+Four LightGBM models, two for 3-jet events and two for 4-jet events, were trained and hyperparameter optimized for both the the energy ordered and shuffled\sidenote{The method with all permutations was trained using the same hyperparameters as the best ones for the shuffled model.} data sets with \num{100} iterations of random search with the same PDFs as for the $b$-tagging, see Table~\ref{tab:q:hpo_ranges_lgb}, and $5$-fold cross validation and early stopping with a patience of \num{100}. The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagging}. Here the two 3-jets models are seen in the two plots to the left, and the two 4-jets to the right. The very left plot shows the 3-jet energy-ordered (no permutation) performance as a function of iteration number, which was also where the issues mentioned in \autoref{subsec:q:trunc_uniform} were first discovered. Here the difference between the how many of the three variables, the three $b$-tags, are included is seen as three clear plateaus. The three plateaus are also seen in the 3-jet events that were shuffled, however, with more variation in each plateau, along with a drop in performance. For the 4-jet events the plateaus are not as apparent but it can still be seen how some of the iterations how a significantly lower score than others. The parallel plots for the four fits can be seen in Figure~\ref{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}--\ref{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}.
 
 \begin{figure*}%
   \centering
@@ -470,25 +509,47 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
   \label{fig:q:gtag_scores_3j_l_quarks_3d}%
 \end{figure*}
 
-From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events and to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This corresponds to selecting \num{41117} 4-jet events in MC as gluon events with a signal efficiency of \SI{23.30}{\percent} and a signal purity of \SI{92.67}{\percent}. For 3-jets the cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of \SI{19.68}{\percent} and a signal purity is \SI{98.77}{\percent}. Here a gluon event is defined as an event with a $\gamma_\mathrm{cutoff} < \gamma_\mathrm{tag}$.
 
-\section{$b$-Tagging Efficiency}
-\label{sec:q:b_tagging_effiency}
-
-
-
-
-
-\section{$g$-Tagging Efficiency}
+\section[g-Tagging Efficiency]{$g$-Tagging Efficiency}
 \label{sec:q:g_tagging_effiency}
 
+From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events and to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This corresponds to selecting \num{41117} 4-jet events in MC as gluon events with a signal efficiency of \SI{23.30}{\percent} and a signal purity of \SI{92.67}{\percent}. For 3-jets the cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of \SI{19.68}{\percent} and a signal purity is \SI{98.77}{\percent}. Here a gluon event is defined as an event with a $\gamma_\mathrm{cutoff} < \gamma_\mathrm{tag}$. 
+
+These efficiencies are only possible for MC-generated data as the truth labels are required.  
+
+
+Her beskriv pseudo $g$-tag efficiency
+
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of g-tag]
+          {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the event's g-tag. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}} \cdot \varepsilon_{\bar{b}}^{b\dash\mathrm{sig}} \cdot  \varepsilon_g^{g\dash\mathrm{sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
+          } 
+  \label{fig:q:effiency_btag_bbg_gtag}
+\end{figure}
+
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of the mean invariant mass]
+          {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}} \cdot \varepsilon_{\bar{b}}^{b\dash\mathrm{sig}} \cdot  \varepsilon_g^{g\dash\mathrm{sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
+          } 
+  \label{fig:q:effiency_btag_bbg_m_mean}
+\end{figure}
+
+
+argumentere for at man kan stole på $g$-tagging model da kun lille forskel mellem MC og Data
 
 
 \newpage
 
-\section{Generalized Angularities}
+
+\section{Generalized Angularities in 3-jet events}
 \label{sec:q:generalized_angularities}
 
+
+argumentere for at 3-jet er nemmere end 4-jet til at finde single gluons, measure how gluons "look"
 
 \begin{marginfigure}
   \centerfloat
@@ -503,76 +564,28 @@ From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_
 \end{equation}
 
 
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip, page=1]{figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Generalized Angularities \TODO]
+          {Generalized Angularities \TODO
+          }
+  \label{fig:q:genalized_angularities}
+\end{figure}
+
+
 \newpage
 
-
-% \begin{figure}
-%   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/2d-histograms-ejet-btag-comparison-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
-%   \caption[Monte Carlo -- Data bias for b-tags and jet energy]
-%           {Comparison of the b-tag and jet energy (\code{Ejet}) distributions for Monte Carlo (MC) versus data. In the top row the 2D-distributions are shown for MC on the left (without the extra MCb samples) and data on the right. In the bottom row the 1D marginal distrubtions are shown for the b-tag and the jet energy with \textcolor{red}{data} in red and \textcolor{blue}{Monte Carlo} ones in blue. Notice the the almost identical distributions in b-tag. 
-%           } 
-%   \label{fig:q:btag_Ejet_comparison}
-% \end{figure}
-
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_b^{b\mathrm{-sig}}$ as a function of jet energy]
-          {Efficiency of the b-tags for b-jets in the b-signal region for 3-jet events, $\varepsilon_b^{b\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The b-signal region is defined as $\beta > 0.9$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
-          } 
-  \label{fig:q:effiency_btag_bjet_bsig}
-\end{figure}
+\section{Gluon splitting}
 
 
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_b_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_b^{g\mathrm{-sig}}$ as a function of jet energy]
-          {Efficiency of the b-tags for b-jets in the g-signal region for 3-jet events, $\varepsilon_b^{g\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The g-signal region is defined as $\beta < 0.4$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
-          } 
-  \label{fig:q:effiency_btag_bjet_gsig}
-\end{figure}
+\subsection{Variables}
 
+først komme ind på variable used.
 
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_g^{g\mathrm{-sig}}$ as a function of jet energy]
-          {Efficiency of the b-tags for g-jets in the g-signal region for 3-jet events, $\varepsilon_g^{g\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The g-signal region is defined as $\beta < 0.4$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis. Notice how both MC TTP and Data TTP follow each other closely.  
-          } 
-  \label{fig:q:effiency_btag_gjet_gsig}
-\end{figure}
+Så kigge på effieciency af gtag på de forskellige variable:
 
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 35, clip]{figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-Tagging Efficiency $\varepsilon_g^{b\mathrm{-sig}}$ as a function of jet energy]
-          {Efficiency of the b-tags for g-jets in the b-signal region for 3-jet events, $\varepsilon_g^{b\mathrm{-sig}}$, as a function of jet energy \code{Ejet}. The b-signal region is defined as $\beta > 0.9$. In the plot the efficiencies are shown for \textcolor{blue}{MC Truth} in blue, \textcolor{red}{MC TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{Data TTP} in orange. The efficiencies (the errorbars) can be read off on the left y-axis and the counts (histograms) on the right y-axis. The abbreviation TTP is short for \q{Tag, Tag, Probe} where two jets in a event are used as tags and the probe is then used for further analysis.  
-          } 
-  \label{fig:q:effiency_btag_gjet_bsig}
-\end{figure}
-
-
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of the mean invariant mass]
-          {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\mathrm{-sig}} \cdot \varepsilon_{\bar{b}}^{b\mathrm{-sig}} \cdot  \varepsilon_g^{g\mathrm{-sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
-          } 
-  \label{fig:q:effiency_btag_bbg_m_mean}
-\end{figure}
-
-
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[g-Tagging proxy efficiency for $b\bar{b}g$-events as function of g-tag]
-          {Proxy efficiency of the g-tags for $b\bar{b}g$ 3-jet events as a function of the event's g-tag. The proxy efficiency $\varepsilon_{b\bar{b}g}$ is measured by finding $b\bar{b}g$-events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\mathrm{-sig}} \cdot \varepsilon_{\bar{b}}^{b\mathrm{-sig}} \cdot  \varepsilon_g^{g\mathrm{-sig}} $. In the top plot $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right y-axis. In the bottom plot the ratio between Data and MC is shown.
-          } 
-  \label{fig:q:effiency_btag_bbg_gtag}
-\end{figure}
-
-
+\subsection{Efficiencies}
 
 \begin{figure}
   \centerfloat
@@ -583,6 +596,10 @@ From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_
   \label{fig:q:effiency_gtag_E_diff}
 \end{figure}
 
+\subsection{Closure Test}
+
+Dernæst closure test 
+
 
 \begin{figure}
   \centerfloat
@@ -592,6 +609,8 @@ From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_
           } 
   \label{fig:q:closure_E_diff}
 \end{figure}
+
+\subsection{4-jet results}
 
 
 \begin{figure}
@@ -612,12 +631,3 @@ From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_
   \label{fig:q:R_kt_CA_cut_A}
 \end{figure}
 
-
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip, page=1]{figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Generalized Angularities \TODO]
-          {Generalized Angularities \TODO
-          }
-  \label{fig:q:genalized_angularities}
-\end{figure}
