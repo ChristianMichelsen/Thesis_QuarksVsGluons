@@ -550,22 +550,54 @@ These two figures strengthens the claim that the trained $b$-tagging and $g$-tag
 \section{Generalized Angularities in 3-jet events}
 \label{sec:q:generalized_angularities}
 
-To measure how gluon 
-
-
-Argumentere for at 3-jet er nemmere end 4-jet til at finde single gluons, measure how gluons "look"
+To measure how gluon jet \q{looks}, i.e. there jet distributions, number of tracks, etc., the \emph{generalized angularities} provide an overall framework for doing so. The generalized angularities is a two-parameter family of variables depending on the angular weighting $\beta \leq 0$ and an energy weighting factor $\kappa \leq 0$:
+\begin{equation}
+  \lambda_\beta^\kappa = \sum_{i \in \mathrm{jet}} z_i^\kappa \theta_i^\beta,
+\end{equation}
+where $z_i \equiv E_i / E_\mathrm{jet}$ is a momentum fraction, i.e. $0 \leq z_i \leq 1$, $\theta_i \equiv \Omega_i / R$ is a normalized angle with respect to the jet axis where the $R$ is the jet radius such that $0 \leq \theta_i \leq 1$, and $i$ runs over all the jet constituents \citep{grasSystematicsQuarkGluon2017,larkoskiGainingMutualInformation2014}. Different values of ($\beta, \kappa$) probe different aspects of the (gluon) jet fragmentation, where we will limit the analysis to the five sets of ($\beta, \kappa$)-values shown in Figure~\ref{fig:q:LHA}, where each of the sets of variables are related to the following aspects:
 
 \begin{marginfigure}
   \centerfloat
   \includegraphics[width=0.9\textwidth]{figures/LHA/LHA.pdf}
   \caption[Generalized Angularities]
-          {Generalized angularities.} 
+          {Generalized angularities. Adapted from \citet{larkoskiGainingMutualInformation2014}. } 
   \label{fig:q:LHA}
 \end{marginfigure}
 
-\begin{equation}
-  \lambda_\beta^\kappa = \sum_{i \in \mathrm{jet}} z_i^\kappa \theta_i^\beta
-\end{equation}
+\begin{enumerate}[leftmargin=*,labelindent=16pt]
+  \item[($0, 0$):] Hadron Multiplicity.
+  \item[($0, 2$):] Transverse Momentum Distribution $p_T^D$: \\
+  $\lambda_0^2=\sum z_i^2 \equiv \left(p_T^D \right)^2$ \autocite{cmscollaborationSearchHiggsBoson2012}.
+  \item[($\frac{1}{2} , 1$):] Les Houches Angularity (LHA).
+  \item[($1, 1$):] Width or broadening \citep{cataniJetBroadeningMeasures1992a}.
+  \item[($2, 1$):] Mass.
+\end{enumerate}
+
+% \begin{enumerate}
+%   \item[($0, 0$):] Hadron Multiplicity.
+%   \item[($0, 2$):] Transverse Momentum Distribution $p_T^D$: $\lambda_0^2=\sum z_i^2 \equiv \left(p_T^D \right)^2$ \autocite{cmscollaborationSearchHiggsBoson2012}.
+%   \item[($\frac{1}{2} , 1$):] Les Houches Angularity (LHA).
+%   \item[($1, 1$):] Width or broadening \citep{cataniJetBroadeningMeasures1992a}.
+%   \item[($2, 1$):] Mass: $\lambda_2^1 $.
+% \end{enumerate}
+
+
+% \begin{table}
+%   \centering
+%   \begin{tabular}{@{}rl@{}}
+%   % ($\beta, \kappa$)    &    \\
+%   % \midrule
+%   ($0, 0$):            & Hadron Multiplicity. \\
+%   ($0, 2$):            & Transverse Momentum Distribution $p_T^D$: $\lambda_0^2=\sum z_i^2 \equiv \left(p_T^D \right)^2$ \autocite{cmscollaborationSearchHiggsBoson2012}. \\
+%   ($\frac{1}{2} , 1$): & Les Houches Angularity (LHA). \\
+%   ($1, 1$):            & Width or broadening \citep{cataniJetBroadeningMeasures1992a}. \\
+%   ($2, 1$):            & Mass: $\lambda_2^1 $.
+%   \end{tabular}
+%   % \vspace{\abovecaptionskip}
+%   % \caption[Dimensions of dataset for Data]{The dimensions of the dataset for the actual Data. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
+%   % \label{tab:q:datasize_data}
+%   % \vspace{\abovecaptionskip}
+% \end{table}
 
 
 \begin{figure}

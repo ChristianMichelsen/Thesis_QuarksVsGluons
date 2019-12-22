@@ -119,11 +119,16 @@ Warning--empty year in burgardStandardModelPhysics
 Warning--empty journal in buskulicInvestigationBd0Bs01994
 Warning--empty year in buskulicInvestigationBd0Bs01994
 Warning--empty year in buskulicInvestigationBd0Bs01994
+Warning--empty journal in cataniJetBroadeningMeasures1992a
+Warning--empty year in cataniJetBroadeningMeasures1992a
+Warning--empty year in cataniJetBroadeningMeasures1992a
 Warning--empty journal in chenXGBoostScalableTree2016
 Warning--empty year in chenXGBoostScalableTree2016
 Warning--empty year in chenXGBoostScalableTree2016
 Warning--empty journal in atlascollaborationElectronEfficiencyMeasurements2017
 Warning--empty year in atlascollaborationElectronEfficiencyMeasurements2017
+Warning--empty journal in cmscollaborationSearchHiggsBoson2012
+Warning--empty year in cmscollaborationSearchHiggsBoson2012
 Warning--empty journal in theatlascollaborationObservationNewParticle2012
 Warning--empty year in theatlascollaborationObservationNewParticle2012
 Warning--empty journal in thecmscollaborationObservationNewBoson2012
@@ -144,6 +149,9 @@ Warning--empty year in freundDesiciontheoreticGeneralizationOnline1995
 Warning--empty journal in glashowPartialsymmetriesWeakInteractions1961
 Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
 Warning--empty year in glashowPartialsymmetriesWeakInteractions1961
+Warning--empty journal in grasSystematicsQuarkGluon2017
+Warning--empty year in grasSystematicsQuarkGluon2017
+Warning--empty year in grasSystematicsQuarkGluon2017
 Warning--empty journal in guttenbergPermutationequivariantNeuralNetworks2016
 Warning--empty year in guttenbergPermutationequivariantNeuralNetworks2016
 Warning--empty year in guttenbergPermutationequivariantNeuralNetworks2016
@@ -175,6 +183,9 @@ Warning--empty year in kingmaAdamMethodStochastic2014
 Warning--empty journal in klambauerSelfNormalizingNeuralNetworks2017
 Warning--empty year in klambauerSelfNormalizingNeuralNetworks2017
 Warning--empty year in klambauerSelfNormalizingNeuralNetworks2017
+Warning--empty journal in larkoskiGainingMutualInformation2014
+Warning--empty year in larkoskiGainingMutualInformation2014
+Warning--empty year in larkoskiGainingMutualInformation2014
 Warning--empty journal in leysDetectingOutliersNot2013
 Warning--empty year in leysDetectingOutliersNot2013
 Warning--empty year in leysDetectingOutliersNot2013
@@ -272,45 +283,45 @@ Warning--empty year in JSSv059i10
 Warning--empty journal in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
-You've used 89 entries,
+You've used 93 entries,
             2773 wiz_defined-function locations,
-            1216 strings with 28603 characters,
-and the built_in function-call counts, 46796 in all, are:
-= -- 3997
-> -- 3275
-< -- 69
-+ -- 1126
-- -- 1033
-* -- 4139
-:= -- 7200
-add.period$ -- 391
-call.type$ -- 89
-change.case$ -- 599
-chr.to.int$ -- 85
-cite$ -- 409
-duplicate$ -- 1851
-empty$ -- 3295
-format.name$ -- 1152
-if$ -- 9626
-int.to.chr$ -- 5
+            1247 strings with 29682 characters,
+and the built_in function-call counts, 48990 in all, are:
+= -- 4185
+> -- 3438
+< -- 70
++ -- 1182
+- -- 1084
+* -- 4357
+:= -- 7553
+add.period$ -- 413
+call.type$ -- 93
+change.case$ -- 628
+chr.to.int$ -- 88
+cite$ -- 428
+duplicate$ -- 1933
+empty$ -- 3438
+format.name$ -- 1207
+if$ -- 10063
+int.to.chr$ -- 6
 int.to.str$ -- 1
-missing$ -- 78
-newline$ -- 570
-num.names$ -- 330
-pop$ -- 1590
+missing$ -- 82
+newline$ -- 600
+num.names$ -- 346
+pop$ -- 1657
 preamble$ -- 2
-purify$ -- 515
+purify$ -- 540
 quote$ -- 0
-skip$ -- 1385
+skip$ -- 1435
 stack$ -- 0
-substring$ -- 1082
-swap$ -- 176
+substring$ -- 1123
+swap$ -- 177
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 944
-warning$ -- 223
-while$ -- 299
+type$ -- 988
+warning$ -- 234
+while$ -- 314
 width$ -- 0
-write$ -- 1246
-(There were 241 warnings)
+write$ -- 1311
+(There were 252 warnings)

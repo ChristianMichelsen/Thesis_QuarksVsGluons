@@ -1,5 +1,5 @@
 \ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi
-\begin{thebibliography}{89}
+\begin{thebibliography}{93}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -251,6 +251,13 @@ D.~Buskulic et~al.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/0370269394911770}.
 
+\bibitem[Catani et~al.()Catani, Turnock, and
+  Webber]{cataniJetBroadeningMeasures1992a}
+S.~Catani, G.~Turnock, and B.~R. Webber.
+\newblock Jet broadening measures in e+ e- annihilation.
+\newblock B295:\penalty0 269--276.
+\newblock \doi{10.1016/0370-2693(92)91565-Q}.
+
 \bibitem[Chen and Guestrin()]{chenXGBoostScalableTree2016}
 T.~Chen and C.~Guestrin.
 \newblock {{XGBoost}}: {{A Scalable Tree Boosting System}}.
@@ -267,20 +274,29 @@ A.~Collaboration.
 \newblock \doi{10.1140/epjc/s10052-017-4756-2}.
 \newblock URL \url{http://arxiv.org/abs/1612.01456}.
 
-\bibitem[Collaboration({\natexlab{b}})]{theatlascollaborationObservationNewParticle2012}
+\bibitem[Collaboration({\natexlab{b}})]{cmscollaborationSearchHiggsBoson2012}
+C.~Collaboration.
+\newblock Search for a {{Higgs}} boson in the decay channel {{H}} to {{ZZ}}(*)
+  to q qbar l-l+ in pp collisions at sqrt(s) = 7 {{TeV}}.
+\newblock 2012\penalty0 (4):\penalty0 36, {\natexlab{b}}.
+\newblock ISSN 1029-8479.
+\newblock \doi{10.1007/JHEP04(2012)036}.
+\newblock URL \url{http://arxiv.org/abs/1202.1416}.
+
+\bibitem[Collaboration({\natexlab{c}})]{theatlascollaborationObservationNewParticle2012}
 T.~A. Collaboration.
 \newblock Observation of a new particle in the search for the {{Standard Model
   Higgs}} boson with the {{ATLAS}} detector at the {{LHC}}.
-\newblock 716\penalty0 (1):\penalty0 1--29, {\natexlab{b}}.
+\newblock 716\penalty0 (1):\penalty0 1--29, {\natexlab{c}}.
 \newblock ISSN 03702693.
 \newblock \doi{10.1016/j.physletb.2012.08.020}.
 \newblock URL \url{http://arxiv.org/abs/1207.7214}.
 
-\bibitem[Collaboration({\natexlab{c}})]{thecmscollaborationObservationNewBoson2012}
+\bibitem[Collaboration({\natexlab{d}})]{thecmscollaborationObservationNewBoson2012}
 T.~C. Collaboration.
 \newblock Observation of a new boson at a mass of 125 {{GeV}} with the {{CMS}}
   experiment at the {{LHC}}.
-\newblock 716\penalty0 (1):\penalty0 30--61, {\natexlab{c}}.
+\newblock 716\penalty0 (1):\penalty0 30--61, {\natexlab{d}}.
 \newblock ISSN 03702693.
 \newblock \doi{10.1016/j.physletb.2012.08.021}.
 \newblock URL \url{http://arxiv.org/abs/1207.7235}.
@@ -342,6 +358,16 @@ S.~L. Glashow.
 \newblock \doi{10.1016/0029-5582(61)90469-2}.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/0029558261904692}.
+
+\bibitem[Gras et~al.()Gras, Höche, Kar, Larkoski, Lönnblad, Plätzer,
+  Siódmok, Skands, Soyez, and Thaler]{grasSystematicsQuarkGluon2017}
+P.~Gras, S.~Höche, D.~Kar, A.~Larkoski, L.~Lönnblad, S.~Plätzer,
+  A.~Siódmok, P.~Skands, G.~Soyez, and J.~Thaler.
+\newblock Systematics of quark/gluon tagging.
+\newblock 2017\penalty0 (7):\penalty0 91.
+\newblock ISSN 1029-8479.
+\newblock \doi{10.1007/JHEP07(2017)091}.
+\newblock URL \url{http://arxiv.org/abs/1704.03878}.
 
 \bibitem[Guttenberg et~al.()Guttenberg, Virgo, Witkowski, Aoki, and
   Kanai]{guttenbergPermutationequivariantNeuralNetworks2016}
@@ -428,6 +454,16 @@ D.~P. Kingma and J.~Ba.
 G.~Klambauer, T.~Unterthiner, A.~Mayr, and S.~Hochreiter.
 \newblock Self-{{Normalizing Neural Networks}}.
 \newblock URL \url{http://arxiv.org/abs/1706.02515}.
+
+\bibitem[Larkoski et~al.()Larkoski, Thaler, and
+  Waalewijn]{larkoskiGainingMutualInformation2014}
+A.~J. Larkoski, J.~Thaler, and W.~J. Waalewijn.
+\newblock Gaining ({{Mutual}}) {{Information}} about {{Quark}}/{{Gluon
+  Discrimination}}.
+\newblock 2014\penalty0 (11).
+\newblock ISSN 1029-8479.
+\newblock \doi{10.1007/JHEP11(2014)129}.
+\newblock URL \url{http://arxiv.org/abs/1408.3122}.
 
 \bibitem[Leys et~al.()Leys, Ley, Klein, Bernard, and
   Licata]{leysDetectingOutliersNot2013}
