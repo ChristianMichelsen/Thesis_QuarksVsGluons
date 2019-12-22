@@ -360,6 +360,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/units/nicefrac.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/makeidx.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/makeidx.sty
 OUTPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.idx
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/ncctools/extdash.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/ncctools/extdash.sty
 INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.aux
 INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.aux
 INPUT /Users/michelsen/Master_Thesis/thesis/chapter_foreword.aux
@@ -941,6 +943,7 @@ INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_gtag-down_sam
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplb9d.tfm
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
@@ -949,6 +952,8 @@ INPUT /Users/michelsen/Master_Thesis/thesis/figures/LHA/LHA.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/LHA/LHA.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/LHA/LHA.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/LHA/LHA.pdf
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplb9d.vf
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplbj8r.tfm
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
@@ -1066,9 +1071,6 @@ INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_g_bsig-down_sampl
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_g_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.lof
 INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.lof
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplb9d.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplb9d.vf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplbj8r.tfm
 OUTPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.lof
 INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.lot
 INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.lot

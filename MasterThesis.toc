@@ -47,19 +47,19 @@
 \contentsline {section}{\numberline {5.2}Exploratory Data Analysis}{64}{section.5.2}
 \contentsline {section}{\numberline {5.3}Loss and Evaluation Function}{67}{section.5.3}
 \contentsline {section}{\numberline {5.4}b-Tagging Analysis}{68}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}$b$-Tagging Hyperparameter Optimization}{68}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}$b$-Tagging Results}{69}{subsection.5.4.2}
-\contentsline {subsection}{\numberline {5.4.3}$b$-Tagging Model Inspection}{71}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.1}$b$\BarOrDash /Tagging Hyperparameter Optimization}{68}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}$b$\BarOrDash /Tagging Results}{69}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}$b$\BarOrDash /Tagging Model Inspection}{71}{subsection.5.4.3}
 \contentsline {section}{\numberline {5.5}b-Tagging Efficiency}{72}{section.5.5}
 \contentsline {section}{\numberline {5.6}g-Tagging Analysis}{74}{section.5.6}
 \contentsline {subsection}{\numberline {5.6.1}Permutation Invariance}{74}{subsection.5.6.1}
 \contentsline {subsection}{\numberline {5.6.2}Truncated Uniform PDF}{75}{subsection.5.6.2}
-\contentsline {subsection}{\numberline {5.6.3}$g$-Tagging Hyperparameter Optimization}{76}{subsection.5.6.3}
+\contentsline {subsection}{\numberline {5.6.3}$g$\BarOrDash /Tagging Hyperparameter Optimization}{76}{subsection.5.6.3}
 \contentsline {subsection}{\numberline {5.6.4}PermNet}{77}{subsection.5.6.4}
 \contentsline {subsection}{\numberline {5.6.5}1D Comparison of LGB and PermNet}{77}{subsection.5.6.5}
-\contentsline {subsection}{\numberline {5.6.6}$g$-Tagging Results}{78}{subsection.5.6.6}
+\contentsline {subsection}{\numberline {5.6.6}$g$\BarOrDash /Tagging Results}{78}{subsection.5.6.6}
 \contentsline {section}{\numberline {5.7}g-Tagging Efficiency}{81}{section.5.7}
-\contentsline {section}{\numberline {5.8}Generalized Angularities in 3-jet events}{83}{section.5.8}
+\contentsline {section}{\numberline {5.8}Generalized Angularities in 3-jet events}{82}{section.5.8}
 \contentsline {section}{\numberline {5.9}Gluon splitting}{84}{section.5.9}
 \contentsline {subsection}{\numberline {5.9.1}Variables}{84}{subsection.5.9.1}
 \contentsline {subsection}{\numberline {5.9.2}Efficiencies}{84}{subsection.5.9.2}
