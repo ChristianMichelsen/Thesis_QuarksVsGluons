@@ -249,6 +249,10 @@ Warning--empty year in taylorForecastingScale
 Warning--empty journal in iminuit
 Warning--empty year in iminuit
 Warning--empty year in iminuit
+Warning--empty journal in thalerReportHouchesQuark
+Warning--there's a number but no volume in thalerReportHouchesQuark
+Warning--empty year in thalerReportHouchesQuark
+Warning--empty year in thalerReportHouchesQuark
 Warning--empty journal in tibshiraniRegressionShrinkageSelection1996
 Warning--empty year in tibshiraniRegressionShrinkageSelection1996
 Warning--empty year in tibshiraniRegressionShrinkageSelection1996
@@ -283,45 +287,45 @@ Warning--empty year in JSSv059i10
 Warning--empty journal in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
-You've used 93 entries,
+You've used 94 entries,
             2773 wiz_defined-function locations,
-            1247 strings with 29682 characters,
-and the built_in function-call counts, 48990 in all, are:
-= -- 4185
-> -- 3438
-< -- 70
-+ -- 1182
-- -- 1084
-* -- 4357
-:= -- 7553
-add.period$ -- 413
-call.type$ -- 93
-change.case$ -- 628
-chr.to.int$ -- 88
-cite$ -- 428
-duplicate$ -- 1933
-empty$ -- 3438
-format.name$ -- 1207
-if$ -- 10063
+            1251 strings with 29801 characters,
+and the built_in function-call counts, 49328 in all, are:
+= -- 4212
+> -- 3448
+< -- 71
++ -- 1186
+- -- 1087
+* -- 4384
+:= -- 7604
+add.period$ -- 416
+call.type$ -- 94
+change.case$ -- 632
+chr.to.int$ -- 89
+cite$ -- 434
+duplicate$ -- 1953
+empty$ -- 3473
+format.name$ -- 1211
+if$ -- 10131
 int.to.chr$ -- 6
 int.to.str$ -- 1
-missing$ -- 82
-newline$ -- 600
-num.names$ -- 346
-pop$ -- 1657
+missing$ -- 83
+newline$ -- 605
+num.names$ -- 350
+pop$ -- 1671
 preamble$ -- 2
-purify$ -- 540
+purify$ -- 543
 quote$ -- 0
-skip$ -- 1435
+skip$ -- 1443
 stack$ -- 0
-substring$ -- 1123
+substring$ -- 1131
 swap$ -- 177
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 988
-warning$ -- 234
-while$ -- 314
+type$ -- 999
+warning$ -- 238
+while$ -- 318
 width$ -- 0
-write$ -- 1311
-(There were 252 warnings)
+write$ -- 1322
+(There were 256 warnings)

@@ -62,10 +62,10 @@
 \contentsline {section}{\numberline {5.8}Generalized Angularities in 3-jet events}{82}{section.5.8}
 \contentsline {section}{\numberline {5.9}Gluon splitting}{84}{section.5.9}
 \contentsline {subsection}{\numberline {5.9.1}Variables}{84}{subsection.5.9.1}
-\contentsline {subsection}{\numberline {5.9.2}Efficiencies}{84}{subsection.5.9.2}
-\contentsline {subsection}{\numberline {5.9.3}Closure Test}{84}{subsection.5.9.3}
-\contentsline {subsection}{\numberline {5.9.4}4-jet results}{85}{subsection.5.9.4}
-\contentsline {section}{\numberline {5.10}Un-folding}{86}{section.5.10}
+\contentsline {subsection}{\numberline {5.9.2}Efficiencies}{85}{subsection.5.9.2}
+\contentsline {subsection}{\numberline {5.9.3}Closure Test}{85}{subsection.5.9.3}
+\contentsline {subsection}{\numberline {5.9.4}4-jet results}{86}{subsection.5.9.4}
+\contentsline {section}{\numberline {5.10}Un-folding}{87}{section.5.10}
 \contentsline {chapter}{\numberline {6}Discussion and Outlook}{85}{chapter.6}
 \contentsline {chapter}{\numberline {7}Conclusion}{87}{chapter.7}
 \contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{87}{section.7.1}
@@ -75,7 +75,7 @@
 \contentsline {section}{\numberline {7.3}Getting Help}{87}{section.7.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{89}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{117}{appendix.B}
-\contentsline {chapter}{List of Figures}{130}{appendix*.7}
-\contentsline {chapter}{List of Tables}{132}{appendix*.8}
-\contentsline {chapter}{Index}{143}{appendix*.10}
+\contentsline {chapter}{List of Figures}{134}{appendix*.7}
+\contentsline {chapter}{List of Tables}{136}{appendix*.8}
+\contentsline {chapter}{Index}{147}{appendix*.10}
 \contentsfinish 

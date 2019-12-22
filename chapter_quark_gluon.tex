@@ -515,8 +515,6 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
 
 blablabla intro here XXX.
 
-From the plots in Figure~\ref{fig:q:gtag_scores_4j_sig_bkg} and \ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events and to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This corresponds to selecting \num{41117} 4-jet events in MC as gluon events with a signal efficiency of \SI{23.30}{\percent} and a signal purity of \SI{92.67}{\percent}. For 3-jets the cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of \SI{19.68}{\percent} and a signal purity is \SI{98.77}{\percent}. Here a gluon event is defined as an event with a $\gamma_\mathrm{cutoff} < \gamma_\mathrm{tag}$. 
-
 These efficiencies are only possible to measure for MC-generated data as the truth labels are required. The Tag-Tag-Probe (TTP) method in \autoref{sec:q:b_tagging_effiency} is not possible for whole events as every event is completely independent of the other and thus one event cannot work as a tag for another event. We can, however, construct a pseudo $g$\=/tagging efficiency based on the $b$\=/tagging efficiencies. This efficiency will be computed by looking at 3-jet events with two jets with a high $b$\=/tag and one jet with a low $b$\=/tag, i.e. events where two jets has $0.9 < \beta_\mathrm{tag}$ and one jet has $\beta_\mathrm{tag} < 0.4$. This indicates a $b\bar{b}g$ event where all of the jets have been correctly identified by the $b$\=/tagging algorithm. The pseudo efficiency $\varepsilon_{b\bar{b}g}$ is then defined as:
 \begin{equation}
   \varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}}\left( b \right) \cdot \varepsilon_b^{b\dash\mathrm{sig}}\left(\bar{b}\right) \cdot \varepsilon_g^{g\dash\mathrm{sig}}\left(g\right).
@@ -556,7 +554,7 @@ To measure how gluon jet \q{looks}, i.e. there jet distributions, number of trac
 \end{equation}
 where $z_i \equiv E_i / E_\mathrm{jet}$ is a momentum fraction, i.e. $0 \leq z_i \leq 1$, $\theta_i \equiv \Omega_i / R$ is a normalized angle with respect to the jet axis where the $R$ is the jet radius such that $0 \leq \theta_i \leq 1$, and $i$ runs over all the jet constituents \citep{grasSystematicsQuarkGluon2017,larkoskiGainingMutualInformation2014}. Different values of ($\beta, \kappa$) probe different aspects of the (gluon) jet fragmentation, where we will limit the analysis to the five sets of ($\beta, \kappa$)-values shown in Figure~\ref{fig:q:LHA}, where each of the sets of variables are related to the following aspects:
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
   \centerfloat
   \includegraphics[width=0.9\textwidth]{figures/LHA/LHA.pdf}
   \caption[Generalized Angularities]
@@ -565,48 +563,27 @@ where $z_i \equiv E_i / E_\mathrm{jet}$ is a momentum fraction, i.e. $0 \leq z_i
 \end{marginfigure}
 
 \begin{enumerate}[leftmargin=*,labelindent=16pt]
+  \item[($\beta, \kappa$)]
   \item[($0, 0$):] Hadron Multiplicity.
   \item[($0, 2$):] Transverse Momentum Distribution $p_T^D$: \\
   $\lambda_0^2=\sum z_i^2 \equiv \left(p_T^D \right)^2$ \autocite{cmscollaborationSearchHiggsBoson2012}.
-  \item[($\frac{1}{2} , 1$):] Les Houches Angularity (LHA).
+  \item[($\frac{1}{2} , 1$):] Les Houches Angularity (LHA) \autocite{thalerReportHouchesQuark}.
   \item[($1, 1$):] Width or broadening \citep{cataniJetBroadeningMeasures1992a}.
   \item[($2, 1$):] Mass.
 \end{enumerate}
 
-% \begin{enumerate}
-%   \item[($0, 0$):] Hadron Multiplicity.
-%   \item[($0, 2$):] Transverse Momentum Distribution $p_T^D$: $\lambda_0^2=\sum z_i^2 \equiv \left(p_T^D \right)^2$ \autocite{cmscollaborationSearchHiggsBoson2012}.
-%   \item[($\frac{1}{2} , 1$):] Les Houches Angularity (LHA).
-%   \item[($1, 1$):] Width or broadening \citep{cataniJetBroadeningMeasures1992a}.
-%   \item[($2, 1$):] Mass: $\lambda_2^1 $.
-% \end{enumerate}
+We will look at the generalized angularity distributions for gluons in 3-jet events. We do so by using the $g$-tag from the $g$-tagging model to select events with a high $g$-tag and then select the jet in the event with the lowest of the $b$-tags. From the plot in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{3\dash\mathrm{jet}} = \SI{19.68}{\percent}$ and a signal purity is $\rho_g^{3\dash\mathrm{jet}}=\SI{98.77}{\percent}$. Here a gluon event is defined as an event with a $\gamma_\mathrm{cutoff} < \gamma_\mathrm{tag}$. 
 
+The distribution of $\lambda_0^2$, related to the transverse momentum distribution, in gluon events is seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2}. Here the distribution of $\lambda_0^2$ is shown for MC Truth (actual gluons using truth-label), MC selected (gluons selected using the $g$-tag) and Data (gluons selected using the $g$-tag). The generalized angularities are computed for both charged and neutral jets, where this figure shows the charged jets. The MC Selected has been scaled to Data according to the fraction of the number of events in each: $w_\mathrm{MC} = N_\mathrm{Data} / N_\mathrm{MC}$. The MC Truth has been scaled with the same weight multiplied with the gluon efficiency $w_\mathrm{MC-Truth} = w_\mathrm{MC} \cdot \varepsilon_g^{3\dash\mathrm{jet}}$. The $\lambda_\beta^\kappa=0$ values has been removed before plotting for all sets of values of $(\beta, \kappa)$. 
 
-% \begin{table}
-%   \centering
-%   \begin{tabular}{@{}rl@{}}
-%   % ($\beta, \kappa$)    &    \\
-%   % \midrule
-%   ($0, 0$):            & Hadron Multiplicity. \\
-%   ($0, 2$):            & Transverse Momentum Distribution $p_T^D$: $\lambda_0^2=\sum z_i^2 \equiv \left(p_T^D \right)^2$ \autocite{cmscollaborationSearchHiggsBoson2012}. \\
-%   ($\frac{1}{2} , 1$): & Les Houches Angularity (LHA). \\
-%   ($1, 1$):            & Width or broadening \citep{cataniJetBroadeningMeasures1992a}. \\
-%   ($2, 1$):            & Mass: $\lambda_2^1 $.
-%   \end{tabular}
-%   % \vspace{\abovecaptionskip}
-%   % \caption[Dimensions of dataset for Data]{The dimensions of the dataset for the actual Data. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
-%   % \label{tab:q:datasize_data}
-%   % \vspace{\abovecaptionskip}
-% \end{table}
-
+In Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2} it is seen how MC Selected and Data distributions matches each other quite well. That the MC Truth and Data not matches equally well indicates that XXX \TODO. The rest of the plots can be seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2}--\ref{fig:q:generalized_angularities_neu_lambda_0_0}.
 
 \begin{figure}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip, page=1]{figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Generalized Angularities \TODO]
-          {Generalized Angularities \TODO
-          }
-  \label{fig:q:genalized_angularities}
+  \caption[Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda_0^2$]
+          {Distribution of the generalized angularity $\lambda_0^2$ for charged gluons jets in 3-jet events: $\lambda_0^2$. The distributions for \textcolor{red}{MC Truth} is shown in red, \textcolor{blue}{MC Truth} in blue, and \textcolor{green}{Data} in green in the top plot and in the bottom plot the ratio between \textcolor{red}{MC Selected and MC Truth} is shown in red and between \textcolor{green}{MC Selected and Data} in green. }
+  \label{fig:q:generalized_angularities_cha_lambda_0_2}
 \end{figure}
 
 
@@ -614,10 +591,60 @@ where $z_i \equiv E_i / E_\mathrm{jet}$ is a momentum fraction, i.e. $0 \leq z_i
 
 \section{Gluon splitting}
 
+XXX Intro here, 4 jet blab \TODO
+
+Figure \ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events and to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This corresponds to selecting \num{41117} 4-jet events in MC as gluon events with a signal efficiency of $\varepsilon_g^{4\dash\mathrm{jet}} = \SI{23.30}{\percent}$ and a signal purity is $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$
+
 
 \subsection{Variables}
 
 først komme ind på variable used, forklare kT, CA og sådan.
+
+\begin{enumerate}[leftmargin=*,labelindent=40pt]
+  
+  % \item[\textbf{Energy Assymetri}:]
+  \item[] \textbf{Energy Asymmetry} 
+  \item[$E_\mathrm{diff}$:] The relative difference in energy between the gluon with the highest and lowest jet energy: $E_\mathrm{diff} = \frac{E_\mathrm{max}-E_\mathrm{min}}{E_\mathrm{max}+E_\mathrm{min}}$.
+  \item[$E_{\mathrm{rel}_\mathrm{min}}$:] The relative energy of the gluon with the lowest jet energy and the sum: $E_{\mathrm{rel}_\mathrm{min}} = \frac{E_\mathrm{min}}{E_\mathrm{max}+E_\mathrm{min}}$.
+  \item[$E_\mathrm{rel}$:] The relative energy of the gluon with the lowest jet energy and the highest jet energy: $E_\mathrm{rel} = \frac{E_\mathrm{min}}{E_\mathrm{max}}$.
+
+  \item[] \textbf{Resolution Scale}
+  \item[$\Delta_\theta$:] The angle between the two gluon jets.   
+  \item[$m_{gg}$:] The invariant mass of the two gluon jets.
+
+  \item[] \textbf{Angle} 
+  \item[$\phi_\mathrm{\parallel}$:]  The angle between the plane spanned by the two $b$-jets and the plane spanned by the two gluon jets. Is the same angle as the angle between the $b$-jet cross product $\vec{p}_{b_1} \times \vec{p}_{b_2}$ and the gluon-jet cross product $\vec{p}_{g_1} \times \vec{p}_{g_2}$. 
+
+  \item[] \textbf{Peter Skands} 
+  \item[$\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$:] Logarithm of the ratio between the $k_T^2$ and the visible mass (squared).  
+  \item[$p^2_{\perp,\mathrm{A}}$:] The $p_T$ antenna defined as: 
+  \begin{fullwidth}
+    \begin{flalign}
+      p^2_{\perp,\mathrm{A}} = \widetilde{m}_{12}^2 \cdot \min \bigg( \frac{\min \big(\widetilde{m}_{b1}^2, \widetilde{m}_{b2}^2 \big) - m_b^2}{\widetilde{m}_{b12}^2 - m_b^2}, \; \frac{\min \big(\widetilde{m}_{\bar{b}1}^2, \widetilde{m}_{\bar{b}2}^2 \big) - m_b^2}{\widetilde{m}_{\bar{b}12}^2 - m_b^2}  \bigg), &&
+    \end{flalign}
+  \end{fullwidth}
+  where $\widetilde{m}^2 = m^2 \cdot m_Z^2 / m_\mathrm{vis}^2$.  
+
+  \item[] \textbf{Jet Clustering} 
+  \item[$R_{gg}^\mathrm{kT}$:]  
+  \item[$R_{gg}^\mathrm{CA}$:]  
+\end{enumerate}
+
+
+% d_variable_nicefy = {'E_diff': r"$E_\mathrm{diff}$", 
+%                      'E_min_rel': r"$E_{\mathrm{rel}_\mathrm{min}}$", 
+%                      'E_rel': r"$E_\mathrm{rel}$", 
+%                      'delta_theta': r"$\Delta_\theta$", 
+%                      'm_gg': r"$m_{gg}$", 
+%                      'phi_planes': r"$\phi_\mathrm{\parallel}$", 
+%                      'ln_kT_gg_m_viz': r"$\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$", 
+%                      'pT_antenna2': r"$p^2_{\perp,\mathrm{A}}$", 
+%                      'R_gg_kt': r"$R_{gg}^\mathrm{kt}$", 
+%                      'R_gg_CA': r"$R_{gg}^\mathrm{CA}$",  
+%                      'eff_E_2_max_E': r"$\varepsilon_{E_\mathrm{max}}$", 
+%                      'eff_E_2_max_b': r"$\varepsilon_{b_\mathrm{max}}$",
+%                      }
+
 
 
 \subsection{Efficiencies}
