@@ -1,4 +1,15 @@
+% \documentclass[a4paper, twoside, nobib, justified, nofonts]{tufte-book}
+% \documentclass[a4paper, twoside, nobib    , justified]{tufte-book}
 \documentclass[a4paper, twoside, nobib]{tufte-book}
+% right ragged (aligned right)
+% nofonts for using other fonts
+
+% \usepackage{palatino}
+% \usepackage{helvet}
+
+
+
+
 
 
 \hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
@@ -138,6 +149,7 @@
     \def\svgwidth{\columnwidth}
     \import{./figures/}{#1.pdf_tex}
 }
+
 
 
 %  units
@@ -302,6 +314,32 @@
 %   \end{fullwidth}
 % }
 
+% =============================================
+%Import symbols from font cmmi without importing the whole package
+% =============================================
+\DeclareFontFamily{U} {cmmi}{}
+
+\DeclareFontShape{U}{cmmi}{m}{n}{
+  <-6> cmmi5
+  <6-7> cmmi6
+  <7-8> cmmi7
+  <8-9> cmmi8
+  <9-10> cmmi9
+  <10-12> cmmi10
+  <12-> cmmi12}{}
+
+\DeclareSymbolFont{Xcmmi} {U} {cmmi}{m}{n}
+
+% \let\altxi\xi
+% \DeclareMathSymbol{\xi}{\mathord}{Xcmmi}{24}
+\let\altrho\rho
+\DeclareMathSymbol{\rho}{\mathord}{Xcmmi}{26}
+\let\altchi\chi
+\DeclareMathSymbol{\chi}{\mathord}{Xcmmi}{31}
+
+% =============================================
+
+
 % Inserts a blank page
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
 
@@ -387,7 +425,7 @@
 
 % \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
-% \includeonly{chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
+\includeonly{chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
 % \includeonly{chapter_particle_physics_theory}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
@@ -396,7 +434,10 @@
 \begin{document}
 
 % r.3 full title page
-\maketitle
+% \maketitle
+\begin{titlepage}
+  \includepdf{./frontpage/frontpage}
+\end{titlepage}
 
 %  copyright page
 \input{copyright.tex}
@@ -481,6 +522,10 @@ The second part of this thesis deals with particle physics and the discriminator
 \addcontentsline{toc}{chapter}{List of Tables}
 
 
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{My_Library}
 % \bibliographystyle{plainnat}
 
