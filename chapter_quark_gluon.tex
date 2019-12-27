@@ -597,17 +597,52 @@ In addition to the measuring how jets \q{look}, we are also interested in measur
 \label{subsec:q:gluon_splitting_variables}
 The variables we use to measure gluon splitting are defined in such a way as to probe the energy asymmetry, the resolution scale, the angle between the gluon-jets and the $b$-jets, and the jet clustering dependence. In addition to these, some extra variables were proposed by Peter Skands in private communication, e.g. the $p_\perp$\=/antenna variable. These \q{Peter Skands}\=/variables are aimed at XXX \TODO. The gluon splitting variables are all variables where current MC generators, such as Pythia \autocite{sjostrandIntroductionPYTHIA2015}, and Data show significant differences. Better measurements of these variables might lead to new theoretical insights that can reduce this discrepancy \autocite{skandsPeterSkands2019}.
 
-The jet clustering variables are based on the $k_t$ \citep{cataniLongitudinallyinvariantKtclusteringAlgorithms1993,ellisSuccessiveCombinationJet1993} and Cambridge/Aachen (CA) \citep{dokshitzerBetterJetClustering1997,wobischHadronizationCorrectionsJet1999} jet clustering algorithms for $e^+e^-$ collisions \autocite{cacciariFastJetUserManual2012}.
+The jet clustering variables are based on the $k_t$ \citep{cataniLongitudinallyinvariantKtclusteringAlgorithms1993,ellisSuccessiveCombinationJet1993} and Cambridge/Aachen (CA) \citep{dokshitzerBetterJetClustering1997,wobischHadronizationCorrectionsJet1999} jet clustering algorithms for $e^+e^-$ collisions. These two algorithms uses the following\sidenote{When using $R=1$ in eq. (9a) in Ref. \autocite{cacciariFastJetUserManual2012}.} \emph{jet distance measure}:
+\begin{equation}
+  \label{eq:q:kt_CA_distance_measure}
+  d_{ij}^2(p) = \min \left(E_i^{2p}, E_j^{2p} \right) \left(\frac{1-\cos \theta_{ij}}{2} \right), 
+\end{equation}
+where $E$ is the (pseudo)jet energy and $\theta_{ij}$ is the angle between (pseudo)jet $i$ and $j$ \autocite{cacciariFastJetUserManual2012}. For $p=1$ equation \eqref{eq:q:kt_CA_distance_measure} is called the $k_t$ algorithm and the Cambridge/Aachen for $p=0$. Both the $k_t$ and CA algorithms are newer jet clustering algorithms than JADE, see \autoref{sec:hep:jet_clustering}, and their distance measures are also pretty similar to JADE's. Based on the two algorithms, we define the ratio $R_{gg}$ between the two gluon jets $d^2_{gg}$ and the lowest value of $d^2_{ij}$ not including the two gluon jets:
+\begin{equation}
+  R_{gg}(p) \equiv \frac{d^2_{gg}(p)}{\min_{(i,j) \neq (g,g)} d^2_{ij}(p)}.
+\end{equation} 
+We further define $R_{gg}^{k_t} \equiv R_{gg}(p=1)$ and $R_{gg}^{CA} \equiv R_{gg}(p=0)$. 
 
+\begin{marginfigure}[-5cm]
+  \centerfloat
+  \includegraphics[width=0.99\textwidth]{figures/R_kt_CA/soft_wide_angle.pdf}
+  \caption[Soft Wide Angle Gluons in 4-Jet Events]
+          {Soft, wide angle gluons in 4-jet events.} 
+  \label{fig:q:kt_CA_soft_wide}
+\end{marginfigure}
 
+\begin{marginfigure}[1cm]
+  \centerfloat
+  \includegraphics[width=0.9\textwidth]{figures/R_kt_CA/soft_collinear.pdf}
+  \caption[Soft Collinear Gluons in 4-Jet Events]
+          {Soft, collinear gluons in 4-jet events.} 
+  \label{fig:q:kt_CA_soft_collinear}
+\end{marginfigure}
+
+\begin{marginfigure}[1cm]
+  \centerfloat
+  \includegraphics[width=0.9\textwidth]{figures/R_kt_CA/hard_non_g_to_gg.pdf}
+  \caption[Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events]
+          {Hard, non $g\rightarrow gg$ gluons in 4-jet events.} 
+  \label{fig:q:kt_CA_hard_non_g_to_gg}
+\end{marginfigure}
+
+Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, they describe different parts of the phase space. One example of this is the case of soft wide gluon jets illustrated in Figure~\ref{fig:q:kt_CA_soft_wide}. Here the two gluon jets are low-energy (soft) jets but with a high angle between them (wide). In this case the $k_t$ algorithm would probably cluster the two gluon jets but the CA algorithm would not meaning that $R_{gg}^{k_t}$ would be less than \num{1} since the distance measure between the two gluon jets would be the smallest of them all, compared to $R_{gg}^{CA} > 1$ since $d_{\bar{b}g} < d_{gg}$. In addition to the soft, wide angle gluon jets, we have the case of soft, collinear gluon jets which the two algorithms agree to cluster together, see Figure~\ref{fig:q:kt_CA_soft_collinear} or opposite case where the two algorithms both agree on not to cluster the gluon jets together, see Figure~\ref{fig:q:kt_CA_hard_non_g_to_gg}. These figures are just examples of to understand the $R_{gg}$ values.
+
+The gluon splitting variables are:
 
 \begin{enumerate}[leftmargin=*,labelindent=40pt]
   
   % \item[\textbf{Energy Assymetri}:]
   \item[] \textbf{Energy Asymmetry} 
-  \item[$E_\mathrm{diff}$:] The relative difference in energy between the gluon with the highest and lowest jet energy: $E_\mathrm{diff} = \frac{E_\mathrm{max}-E_\mathrm{min}}{E_\mathrm{max}+E_\mathrm{min}}$.
-  \item[$E_{\mathrm{rel}_\mathrm{min}}$:] The relative energy of the gluon with the lowest jet energy and the sum: $E_{\mathrm{rel}_\mathrm{min}} = \frac{E_\mathrm{min}}{E_\mathrm{max}+E_\mathrm{min}}$.
-  \item[$E_\mathrm{rel}$:] The relative energy of the gluon with the lowest jet energy and the highest jet energy: $E_\mathrm{rel} = \frac{E_\mathrm{min}}{E_\mathrm{max}}$.
+  \item[$E_\mathrm{diff}$:] The relative difference in energy between the gluon jet with the highest and lowest energy: $E_\mathrm{diff} = \frac{E_\mathrm{max}-E_\mathrm{min}}{E_\mathrm{max}+E_\mathrm{min}}$.
+  \item[$E_{\mathrm{rel}_\mathrm{min}}$:] The relative energy of the gluon jet with the lowest energy and the sum: $E_{\mathrm{rel}_\mathrm{min}} = \frac{E_\mathrm{min}}{E_\mathrm{max}+E_\mathrm{min}}$.
+  \item[$E_\mathrm{rel}$:] The relative energy of the gluon jet with the lowest energy and the highest energy: $E_\mathrm{rel} = \frac{E_\mathrm{min}}{E_\mathrm{max}}$.
 
   \item[] \textbf{Resolution Scale}
   \item[$\Delta_\theta$:] The angle between the two gluon jets.   
@@ -617,49 +652,36 @@ The jet clustering variables are based on the $k_t$ \citep{cataniLongitudinallyi
   \item[$\phi_\mathrm{\parallel}$:]  The angle between the plane spanned by the two $b$-jets and the plane spanned by the two gluon jets. Is the same angle as the angle between the $b$-jet cross product $\vec{p}_{b_1} \times \vec{p}_{b_2}$ and the gluon-jet cross product $\vec{p}_{g_1} \times \vec{p}_{g_2}$. 
 
   \item[] \textbf{Peter Skands} 
-  \item[$\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$:] Logarithm of the ratio between the $k_T^2$ and the visible mass (squared).  
+  \item[$\ln \left( k_t^2 / m_\mathrm{vis}^2 \right)$:] Logarithm of the ratio between the $k_t$ value of the two gluon jets and their visible mass.  
   \item[$p^2_{\perp,\mathrm{A}}$:] The $p_T$ antenna defined as: 
   \begin{fullwidth}
     \begin{flalign}
       p^2_{\perp,\mathrm{A}} = \widetilde{m}_{12}^2 \cdot \min \bigg( \frac{\min \big(\widetilde{m}_{b1}^2, \widetilde{m}_{b2}^2 \big) - m_b^2}{\widetilde{m}_{b12}^2 - m_b^2}, \; \frac{\min \big(\widetilde{m}_{\bar{b}1}^2, \widetilde{m}_{\bar{b}2}^2 \big) - m_b^2}{\widetilde{m}_{\bar{b}12}^2 - m_b^2}  \bigg), &&
     \end{flalign}
   \end{fullwidth}
-  where $\widetilde{m}^2 = m^2 \cdot m_Z^2 / m_\mathrm{vis}^2$.  
+  where $\widetilde{m}^2 = m^2  m_Z^2 / m_\mathrm{vis}^2$ and $m_Z$ is the mass of the $Z$ boson.  
 
   \item[] \textbf{Jet Clustering} 
-  \item[$R_{gg}^\mathrm{kT}$:]  
-  \item[$R_{gg}^\mathrm{CA}$:]  
+  \item[$R_{gg}^{k_t}$:] The ratio between the $k_t$ distance measure for the gluon jets and the minimum non-$gg$ jets: $R_{gg}^{k_t} \equiv R_{gg}(p=1)$, see equation \eqref{eq:q:kt_CA_distance_measure}.
+  \item[$R_{gg}^\mathrm{CA}$:] Same as above, however for the CA algorithm: $R_{gg}^{CA} \equiv R_{gg}(p=0)$. 
 \end{enumerate}
 
-
-% d_variable_nicefy = {'E_diff': r"$E_\mathrm{diff}$", 
-%                      'E_min_rel': r"$E_{\mathrm{rel}_\mathrm{min}}$", 
-%                      'E_rel': r"$E_\mathrm{rel}$", 
-%                      'delta_theta': r"$\Delta_\theta$", 
-%                      'm_gg': r"$m_{gg}$", 
-%                      'phi_planes': r"$\phi_\mathrm{\parallel}$", 
-%                      'ln_kT_gg_m_viz': r"$\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$", 
-%                      'pT_antenna2': r"$p^2_{\perp,\mathrm{A}}$", 
-%                      'R_gg_kt': r"$R_{gg}^\mathrm{kt}$", 
-%                      'R_gg_CA': r"$R_{gg}^\mathrm{CA}$",  
-%                      'eff_E_2_max_E': r"$\varepsilon_{E_\mathrm{max}}$", 
-%                      'eff_E_2_max_b': r"$\varepsilon_{b_\mathrm{max}}$",
-%                      }
-
-
+For each event with a good $g$-tag, $\gamma_\mathrm{tag} > 0.8$, I compute these variables. The efficiency of these are seen in the following subsection. 
 
 \subsection{Efficiencies}
 \label{subsec:q:gluon_splitting_efficiency}
-Så kigge på efficiency af $g$\=/tag på de forskellige variable:
+It is not possible to take advantage of the Tag-Tag-Probe method for whole events as it was for individual jets in the 3-jet case. As such, we are also unable to estimate the $g$-tagging efficiency in data of the gluon splitting variables defined in the previous subsection. However, it is still possible to do so for MC using the truth labels. The efficiencies for the gluon splitting variable $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:effiency_gtag_E_diff_non_appendix} for signal and background based on MC Truth.
 
 \begin{figure}
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip, page=1]{figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference]
-          {Efficiency of the g-tags for 4-jet events as a function of normalized gluon gluon jet energy difference in Monte Carlo. The efficiency is measured as the number of events with a g-tag higher than 0.8 ($\gamma > 0.8$) out of the total number and the normalized gluon gluon jet energy difference $A$ is $A=\frac{E_{g_\mathrm{max}}-E_{g_\mathrm{min}}}{E_{g_\mathrm{max}}+E_{g_\mathrm{min}}}$ where $E_{g_\mathrm{max}}$ ($E_{g_\mathrm{min}}$) refers to the energy of the gluon with the highest (lowest) energy. The efficiency is plotted for \textcolor{blue}{signal events} according to MC Truth in blue and \textcolor{red}{background events} according to MC Truth in red.
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 45, clip, page=1]{figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[$g$-Tagging Efficiency for 4-Jet Events in MC as a Function of the Normalized Gluon-Gluon Jet Energy Difference Asymmetry $E_\mathrm{diff}$]
+          {Efficiency of the $g$-tagging algorithm for 4-jet events as a function of normalized gluon-gluon jet energy difference (asymmetry) $E_\mathrm{diff}$  in MC. The efficiency is measured as the number of events with a $g$-tag higher than 0.8 ($\gamma > 0.8$) out of the total number. The efficiency is plotted for \textcolor{blue}{signal events} according to MC Truth in blue and \textcolor{red}{background events} according to MC Truth in red.
           } 
-  \label{fig:q:effiency_gtag_E_diff}
+  \label{fig:q:effiency_gtag_E_diff_non_appendix}
 \end{figure}
+
+The plot for the rest of the $g$-tagging efficiencies can be seen in Figure~\ref{fig:q:effiency_gtag_E_diff}--\ref{fig:q:effiency_gtag_R_gg_CA}. It can be concluded that XXX. 
 
 \subsection{Closure Test}
 \label{subsec:q:gluon_splitting_closure}
@@ -686,7 +708,7 @@ Hvad bruges closure test egentligt til? TIl at sige at vi godt kan beskrive data
 
 \begin{figure}[h!]
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 118, clip, page=1]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 118, clip]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
   \caption[R kt CA overview  XXX \TODO]
           {R kt CA overview XXX \TODO
           } 
@@ -695,7 +717,7 @@ Hvad bruges closure test egentligt til? TIl at sige at vi godt kan beskrive data
 
 \begin{figure}[h!]
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip, page=2]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
   \caption[R kt CA cut region A  XXX \TODO]
           {R kt CA cut region A XXX \TODO
           } 

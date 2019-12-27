@@ -88,10 +88,13 @@
 \contentsline {figure}{\numberline {5.26}{\ignorespaces $g$\BarOrDash /Tagging Proxy Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of The Mean Invariant Mass}}{82}{equation.5.7.8}
 \contentsline {figure}{\numberline {5.27}{\ignorespaces Generalized Angularities}}{83}{equation.5.8.9}
 \contentsline {figure}{\numberline {5.28}{\ignorespaces Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda _0^2$}}{84}{equation.5.8.9}
-\contentsline {figure}{\numberline {5.29}{\ignorespaces g-Tagging efficiency for 4-jet events in MC as a function of normalized gluon gluon jet energy difference}}{85}{subsection.5.9.2}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference}}{86}{subsection.5.9.3}
-\contentsline {figure}{\numberline {5.31}{\ignorespaces R kt CA overview XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{87}{subsection.5.9.4}
-\contentsline {figure}{\numberline {5.32}{\ignorespaces R kt CA cut region A XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{87}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Soft Wide Angle Gluons in 4-Jet Events}}{85}{equation.5.9.11}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{85}{equation.5.9.11}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{85}{equation.5.9.11}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of the Normalized Gluon-Gluon Jet Energy Difference Asymmetry $E_\mathrm {diff}$}}{86}{subsection.5.9.2}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference}}{87}{subsection.5.9.3}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces R kt CA overview XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{87}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces R kt CA cut region A XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{87}{subsection.5.9.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -154,5 +157,15 @@
 \contentsline {figure}{\numberline {B.29}{\ignorespaces Generalized Angularities for Neutral Gluons Jets in 3-Jet Events: $\lambda _1^1$}}{133}{appendix.B}
 \contentsline {figure}{\numberline {B.30}{\ignorespaces Generalized Angularities for Neutral Gluons Jets in 3-Jet Events: $\lambda _1^2$}}{133}{appendix.B}
 \contentsline {figure}{\numberline {B.31}{\ignorespaces Generalized Angularities for Neutral Gluons Jets in 3-Jet Events: $\lambda _0^0$}}{134}{appendix.B}
+\contentsline {figure}{\numberline {B.32}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {diff}$}}{135}{appendix.B}
+\contentsline {figure}{\numberline {B.33}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_{\mathrm {rel}_\mathrm {min}}$}}{135}{appendix.B}
+\contentsline {figure}{\numberline {B.34}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {rel}$}}{135}{appendix.B}
+\contentsline {figure}{\numberline {B.35}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\Delta _\theta $}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.36}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $m_{gg}$}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.37}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\phi _\mathrm {\parallel }$}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.38}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.39}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $p^2_{\perp ,\mathrm {A}}$}}{137}{appendix.B}
+\contentsline {figure}{\numberline {B.40}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $R_{gg}^\mathrm {k_t}$}}{137}{appendix.B}
+\contentsline {figure}{\numberline {B.41}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $R_{gg}^\mathrm {CA}$}}{137}{appendix.B}
 \addvspace {10\p@ }
 \contentsfinish 

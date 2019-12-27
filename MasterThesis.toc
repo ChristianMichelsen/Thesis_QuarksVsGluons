@@ -62,7 +62,7 @@
 \contentsline {section}{\numberline {5.8}Generalized Angularities in 3-jet events}{82}{section.5.8}
 \contentsline {section}{\numberline {5.9}Gluon splitting}{84}{section.5.9}
 \contentsline {subsection}{\numberline {5.9.1}Variables}{84}{subsection.5.9.1}
-\contentsline {subsection}{\numberline {5.9.2}Efficiencies}{85}{subsection.5.9.2}
+\contentsline {subsection}{\numberline {5.9.2}Efficiencies}{86}{subsection.5.9.2}
 \contentsline {subsection}{\numberline {5.9.3}Closure Test}{86}{subsection.5.9.3}
 \contentsline {subsection}{\numberline {5.9.4}4-jet results}{87}{subsection.5.9.4}
 \contentsline {section}{\numberline {5.10}Un-folding}{88}{section.5.10}
@@ -75,8 +75,8 @@
 \contentsline {section}{\numberline {7.3}Getting Help}{91}{section.7.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{93}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{121}{appendix.B}
-\contentsline {chapter}{List of Figures}{138}{appendix*.7}
-\contentsline {chapter}{List of Tables}{140}{appendix*.8}
-\contentsline {chapter}{Bibliography}{141}{section*.9}
-\contentsline {chapter}{Index}{151}{appendix*.11}
+\contentsline {chapter}{List of Figures}{142}{appendix*.7}
+\contentsline {chapter}{List of Tables}{144}{appendix*.8}
+\contentsline {chapter}{Bibliography}{145}{section*.9}
+\contentsline {chapter}{Index}{155}{appendix*.11}
 \contentsfinish 
