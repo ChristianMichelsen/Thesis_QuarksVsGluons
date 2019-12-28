@@ -748,7 +748,6 @@ The closure plot for $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:closure_E_d
 \end{margintable}
 
 
-
 The closure test shows that the $g$-tagging algorithm can also be trusted in the 4-jet case, however, with high systematic uncertainties for the $m_{gg}$ variable. 
 
 \subsection{4-jet results}
@@ -757,11 +756,11 @@ The closure test shows that the $g$-tagging algorithm can also be trusted in the
 \begin{margintable}[1cm]
   \centerfloat
   \begin{tabular}{@{}ccc@{}}
-  Region  & $R_{gg}^{k_t}$      & $R_{gg}^\mathrm{CA}$    \\ \addlinespace[0.1em] \midrule \addlinespace[0.4em]
-  A       & $[0, 1]$            & $[0, 1]$                \\ \addlinespace[0.4em]
-  B       & $[\frac{3}{5}, \frac{5}{3}]$        & $[\frac{3}{5}, \frac{5}{3}]$            \\ \addlinespace[0.4em]
-  C       & $[0, \frac{5}{3}]$          & $[1, \infty]$           \\ \addlinespace[0.4em]
-  D       & $[\frac{5}{3}, \infty]$     & $[\frac{5}{3}, \infty]$
+  Region  & $R_{gg}^{k_t}$                & $R_{gg}^\mathrm{CA}$    \\ \addlinespace[0.1em] \midrule \addlinespace[0.4em]
+  A       & $[0, 1]$                      & $[0, 1]$                \\ \addlinespace[0.4em]
+  B       & $[\frac{3}{5}, \frac{5}{3}]$  & $[\frac{3}{5}, \frac{5}{3}]$            \\ \addlinespace[0.4em]
+  C       & $[0, \frac{5}{3}]$            & $[1, \infty]$           \\ \addlinespace[0.4em]
+  D       & $[\frac{5}{3}, \infty]$       & $[\frac{5}{3}, \infty]$
   \end{tabular}
 \vspace{1mm}
 \caption[Area Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space]{\label{tab:q:gluon_splitting_area_definitions}Definitions of the four areas in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space.}
@@ -777,14 +776,14 @@ The comparison between the gluon splitting distributions will be done in four di
   \label{fig:q:R_kt_CA_overview}
 \end{figure}
 
-The distributions for the different gluons splitting variables for area A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A}. Here 
+The distributions for the different gluons splitting variables for area A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A_non_appendix} for both MC (scaled to Data) and Data. Area A contains \num{5022} events in the MC sample and \num{3111} in the Data sample, both for signal ($0.8 < \gamma_\mathrm{tag}$) events. Generally the distributions match pretty well between the MC and Data, however, there seems to small discrepancies in the energy assymetry variables, however, this might just be due to statistical fluctuations (notice the low bin count in each bin). Furthermore, there is a mismatch for the $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$ variable at around \num{16}. When looking at the the other areas, see Figure~\ref{fig:q:R_kt_CA_cut_A}--\ref{fig:q:R_kt_CA_cut_D}, the energy discrepancies seem to disappear, whereas the mismatch between MC and Data in $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$ continues to exist. 
 
 \begin{figure*}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
   \caption[Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A]
           {Comparison of the gluon splitting distributions in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A, see Table~\ref{tab:q:gluon_splitting_area_definitions}. The distribution for \textcolor{blue}{MC} (scaled to Data) is shown in blue and for \textcolor{red}{Data} in red. These eight distributions are for the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A which has \num{5022} events in the MC sample and \num{3111} in the Data sample. } 
-  \label{fig:q:R_kt_CA_cut_A}
+  \label{fig:q:R_kt_CA_cut_A_non_appendix}
 \end{figure*}
 
 \section{Un-folding}
