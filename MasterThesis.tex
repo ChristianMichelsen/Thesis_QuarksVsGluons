@@ -127,6 +127,12 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{axiom}{Axiom}
 
+% "Force" axioms to be on the same page if possible
+% https://tex.stackexchange.com/questions/30120/avoid-page-break-in-theorem
+\usepackage{etoolbox}% 
+\usepackage{needspace}% http://ctan.org/pkg/needspace
+\AtBeginEnvironment{axiom}{\Needspace{5\baselineskip}}% \break if fewer than 5\baselineskip is available on page
+
 % bold math
 \usepackage{bm}
 
@@ -425,10 +431,12 @@
 
 % \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
-\includeonly{chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
-% \includeonly{chapter_particle_physics_theory,chapter_appendix_quarks_gluons}
+% \includeonly{chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
+\includeonly{chapter_machine_learning_theory}
+
+
 
 
 \begin{document}
