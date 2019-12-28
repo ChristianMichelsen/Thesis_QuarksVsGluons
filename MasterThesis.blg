@@ -108,6 +108,8 @@ Warning--empty year in bolighedBolighedUsikkerhedDatavurderingen
 Warning--empty journal in breimanRandomForests2001
 Warning--empty year in breimanRandomForests2001
 Warning--empty year in breimanRandomForests2001
+Warning--empty year in Brent:113464
+Warning--empty year in Brent:113464
 Warning--empty journal in brochuTutorialBayesianOptimization2010
 Warning--empty year in brochuTutorialBayesianOptimization2010
 Warning--empty year in brochuTutorialBayesianOptimization2010
@@ -303,45 +305,45 @@ Warning--empty year in wobischHadronizationCorrectionsJet1999
 Warning--empty journal in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
-You've used 100 entries,
+You've used 101 entries,
             2773 wiz_defined-function locations,
-            1295 strings with 31174 characters,
-and the built_in function-call counts, 52172 in all, are:
-= -- 4467
-> -- 3608
-< -- 74
-+ -- 1241
-- -- 1135
-* -- 4645
-:= -- 8042
-add.period$ -- 444
-call.type$ -- 100
-change.case$ -- 666
-chr.to.int$ -- 94
-cite$ -- 460
-duplicate$ -- 2070
-empty$ -- 3697
-format.name$ -- 1269
-if$ -- 10716
+            1302 strings with 31358 characters,
+and the built_in function-call counts, 52494 in all, are:
+= -- 4495
+> -- 3618
+< -- 75
++ -- 1245
+- -- 1138
+* -- 4666
+:= -- 8095
+add.period$ -- 449
+call.type$ -- 101
+change.case$ -- 669
+chr.to.int$ -- 95
+cite$ -- 464
+duplicate$ -- 2090
+empty$ -- 3729
+format.name$ -- 1273
+if$ -- 10783
 int.to.chr$ -- 7
 int.to.str$ -- 1
-missing$ -- 88
-newline$ -- 645
-num.names$ -- 374
-pop$ -- 1756
+missing$ -- 90
+newline$ -- 651
+num.names$ -- 378
+pop$ -- 1769
 preamble$ -- 2
-purify$ -- 571
+purify$ -- 574
 quote$ -- 0
-skip$ -- 1515
+skip$ -- 1524
 stack$ -- 0
-substring$ -- 1224
-swap$ -- 180
+substring$ -- 1226
+swap$ -- 181
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1065
-warning$ -- 252
-while$ -- 340
+type$ -- 1071
+warning$ -- 254
+while$ -- 343
 width$ -- 0
-write$ -- 1410
-(There were 271 warnings)
+write$ -- 1424
+(There were 273 warnings)

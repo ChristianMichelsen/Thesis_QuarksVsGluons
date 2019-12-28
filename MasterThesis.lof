@@ -92,9 +92,9 @@
 \contentsline {figure}{\numberline {5.30}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{85}{equation.5.9.11}
 \contentsline {figure}{\numberline {5.31}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{85}{equation.5.9.11}
 \contentsline {figure}{\numberline {5.32}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of the Normalized Gluon-Gluon Jet Energy Difference Asymmetry $E_\mathrm {diff}$}}{86}{subsection.5.9.2}
-\contentsline {figure}{\numberline {5.33}{\ignorespaces Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference}}{87}{subsection.5.9.3}
-\contentsline {figure}{\numberline {5.34}{\ignorespaces R kt CA overview XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{87}{subsection.5.9.4}
-\contentsline {figure}{\numberline {5.35}{\ignorespaces R kt CA cut region A XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{87}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry}}{88}{equation.5.9.17}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces R kt CA overview XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{89}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces R kt CA cut region A XXX \leavevmode {\color {red}\bf TODO!}\xspace }}{90}{subsection.5.9.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -157,15 +157,31 @@
 \contentsline {figure}{\numberline {B.29}{\ignorespaces Generalized Angularities for Neutral Gluons Jets in 3-Jet Events: $\lambda _1^1$}}{133}{appendix.B}
 \contentsline {figure}{\numberline {B.30}{\ignorespaces Generalized Angularities for Neutral Gluons Jets in 3-Jet Events: $\lambda _1^2$}}{133}{appendix.B}
 \contentsline {figure}{\numberline {B.31}{\ignorespaces Generalized Angularities for Neutral Gluons Jets in 3-Jet Events: $\lambda _0^0$}}{134}{appendix.B}
-\contentsline {figure}{\numberline {B.32}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {diff}$}}{135}{appendix.B}
-\contentsline {figure}{\numberline {B.33}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_{\mathrm {rel}_\mathrm {min}}$}}{135}{appendix.B}
-\contentsline {figure}{\numberline {B.34}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {rel}$}}{135}{appendix.B}
-\contentsline {figure}{\numberline {B.35}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\Delta _\theta $}}{136}{appendix.B}
-\contentsline {figure}{\numberline {B.36}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $m_{gg}$}}{136}{appendix.B}
-\contentsline {figure}{\numberline {B.37}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\phi _\mathrm {\parallel }$}}{136}{appendix.B}
-\contentsline {figure}{\numberline {B.38}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{136}{appendix.B}
-\contentsline {figure}{\numberline {B.39}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $p^2_{\perp ,\mathrm {A}}$}}{137}{appendix.B}
-\contentsline {figure}{\numberline {B.40}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $R_{gg}^\mathrm {k_t}$}}{137}{appendix.B}
-\contentsline {figure}{\numberline {B.41}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $R_{gg}^\mathrm {CA}$}}{137}{appendix.B}
+\contentsline {figure}{\numberline {B.32}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $E_\mathrm {diff}$}}{135}{appendix.B}
+\contentsline {figure}{\numberline {B.33}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $E_{\mathrm {rel}_\mathrm {min}}$}}{135}{appendix.B}
+\contentsline {figure}{\numberline {B.34}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $E_\mathrm {rel}$}}{135}{appendix.B}
+\contentsline {figure}{\numberline {B.35}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $\Delta _\theta $}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.36}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $m_{gg}$}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.37}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $\phi _\mathrm {\parallel }$}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.38}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{136}{appendix.B}
+\contentsline {figure}{\numberline {B.39}{\ignorespaces Relationship Between the $g$-Tag Value $\gamma _\mathrm {tag}$ and the Gluon Splitting Variable $p^2_{\perp ,\mathrm {A}}$}}{137}{appendix.B}
+\contentsline {figure}{\numberline {B.40}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {diff}$}}{137}{appendix.B}
+\contentsline {figure}{\numberline {B.41}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_{\mathrm {rel}_\mathrm {min}}$}}{137}{appendix.B}
+\contentsline {figure}{\numberline {B.42}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {rel}$}}{138}{appendix.B}
+\contentsline {figure}{\numberline {B.43}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\Delta _\theta $}}{138}{appendix.B}
+\contentsline {figure}{\numberline {B.44}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $m_{gg}$}}{138}{appendix.B}
+\contentsline {figure}{\numberline {B.45}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\phi _\mathrm {\parallel }$}}{138}{appendix.B}
+\contentsline {figure}{\numberline {B.46}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{139}{appendix.B}
+\contentsline {figure}{\numberline {B.47}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $p^2_{\perp ,\mathrm {A}}$}}{139}{appendix.B}
+\contentsline {figure}{\numberline {B.48}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $R_{gg}^\mathrm {k_t}$}}{139}{appendix.B}
+\contentsline {figure}{\numberline {B.49}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $R_{gg}^\mathrm {CA}$}}{139}{appendix.B}
+\contentsline {figure}{\numberline {B.50}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_\mathrm {diff}$}}{140}{appendix.B}
+\contentsline {figure}{\numberline {B.51}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_{\mathrm {rel}_\mathrm {min}}$}}{140}{appendix.B}
+\contentsline {figure}{\numberline {B.52}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_\mathrm {rel}$}}{141}{appendix.B}
+\contentsline {figure}{\numberline {B.53}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\Delta _\theta $}}{141}{appendix.B}
+\contentsline {figure}{\numberline {B.54}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $m_{gg}$}}{141}{appendix.B}
+\contentsline {figure}{\numberline {B.55}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\phi _\mathrm {\parallel }$}}{142}{appendix.B}
+\contentsline {figure}{\numberline {B.56}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{142}{appendix.B}
+\contentsline {figure}{\numberline {B.57}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $p^2_{\perp ,\mathrm {A}}$}}{142}{appendix.B}
 \addvspace {10\p@ }
 \contentsfinish 

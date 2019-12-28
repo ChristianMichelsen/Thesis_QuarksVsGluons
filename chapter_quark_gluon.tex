@@ -666,11 +666,11 @@ The gluon splitting variables are:
   \item[$R_{gg}^\mathrm{CA}$:] Same as above, however for the CA algorithm: $R_{gg}^{CA} \equiv R_{gg}(p=0)$. 
 \end{enumerate}
 
-For each event with a good $g$-tag, $\gamma_\mathrm{tag} > 0.8$, I compute these variables. The efficiency of these are seen in the following subsection. 
+The variables are computed for each event, and their relationship with $\gamma_\mathrm{tag}$ is shown in Figure~\ref{fig:q:gtag_gluon_splitting_variable_E_diff}--\ref{fig:q:gtag_gluon_splitting_variable_pt_antenna}. From now on primarily events with with \q{good} $g$-tags, $\gamma_\mathrm{tag} > 0.8$, are used. The efficiency of these signal events are measured in the following subsection. 
 
 \subsection{Efficiencies}
 \label{subsec:q:gluon_splitting_efficiency}
-It is not possible to take advantage of the Tag-Tag-Probe method for whole events as it was for individual jets in the 3-jet case. As such, we are also unable to estimate the $g$-tagging efficiency in data of the gluon splitting variables defined in the previous subsection. However, it is still possible to do so for MC using the truth labels. The efficiencies for the gluon splitting variable $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:effiency_gtag_E_diff_non_appendix} for signal and background based on MC Truth.
+It is not possible to take advantage of the Tag-Tag-Probe method for whole events as it was for individual jets in the 3-jet case. As such, we are also unable to estimate the $g$-tagging efficiency in Data of the gluon splitting variables defined in the previous subsection. However, it is still possible to do so for MC using the truth labels. The efficiencies $\varepsilon_{gg}^{4\dash\mathrm{jet}}$ for the gluon splitting variable $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:effiency_gtag_E_diff_non_appendix} for signal and background based on MC Truth.
 
 \begin{figure}
   \centerfloat
@@ -686,43 +686,90 @@ The plot for the rest of the $g$-tagging efficiencies can be seen in Figure~\ref
 \subsection{Closure Test}
 \label{subsec:q:gluon_splitting_closure}
 
-Dernæst closure test og beskrivelse af denne. 
+To validate the $g$-tagging method used in this project a closure test is performed. This compares the developed method after applying the efficiencies found in the previous subsection to MC Truth. Any discrepancies can then be investigated and finally the closure test can gauge the systematic uncertainties of the analysis. 
 
-Hvad bruges closure test egentligt til? TIl at sige at vi godt kan beskrive data ud fra MC?
+The closure test is based on the distribution of the gluon splitting variables, see \autoref{subsec:q:gluon_splitting_variables}, for events in the \emph{signal region} or the so-called \emph{sideband region}. From Figure \ref{fig:q:gtag_scores_4j_sig_bkg}, the signal region was defined to be $0.8 < \gamma_\mathrm{tag}$ for 4-jet events. This region is expected to containing primarily signal events, according to the figure.  Remember, signal events are here defined to be events where the two quark jets are the jets with the highest $b$-tag values. The sideband region\sidenote{Also sometimes known as a control region.} is a region close to the signal region where the background is expected to behave approximately similar to the background in the signal region (and likewise for the signal). For 4-jet events, we the sideband region is defined to be $0.6 < \gamma_\mathrm{tag} < 0.8$. 
 
+The aim is to fully reconstruct the true distribution of the gluon splitting variable $x$, called $\mathcal{P}_{gg}(x)$. To first order, this is given by $\mathcal{P}_{gg} \approx \mathcal{P}_{\mathrm{sign}} / \varepsilon_{gg}^{4\dash\mathrm{jet}}$, where $\mathcal{P}_{\mathrm{sign}}(x)$ is the distribution of $x$ for all events in the signal region. However, this expression completely ignores the background events that are also found in the signal region. To correct for the assumption of no background, we introduce $\mathcal{P}_{\mathrm{bkg}}(x)$ which is the distribution of $x$ in background events:
+\begin{equation}
+  \label{eq:q:closure_P_gg_initial}
+  \mathcal{P}_{gg} = \frac{\mathcal{P}_{\mathrm{sign}} - \alpha \cdot \mathcal{P}_{\mathrm{bkg}} }{\varepsilon_{gg}^{4\dash\mathrm{jet}}}.
+\end{equation}
+Here $\alpha$ is the fraction of background events in the signal region $N_\mathrm{bkg}^\mathrm{sig}$ relative to the background events in the sideband $N_\mathrm{bkg}^\mathrm{side}$. Defining $f_{gg}^{\mathrm{sig}}$ to be the fraction of signal in the signal region, $f_{\mathrm{bkg}}^{\mathrm{side}}$ the fraction of background in the sideband region, $\alpha$ is defined as:
+\begin{equation}
+  \alpha = \frac{N_\mathrm{bkg}^\mathrm{sig}}{N_\mathrm{bkg}^\mathrm{side}} = \frac{\left(1-f_{gg}^{\mathrm{sig}}\right) \cdot N_\mathrm{sig}}{f_\mathrm{bkg}^{\mathrm{side}} \cdot N_\mathrm{side}}, 
+\end{equation}
+where $N_i$ is the number of events in region $i$ (either signal or sideband). The background distribution $\mathcal{P}_{\mathrm{bkg}}(x)$ itself can be approximated to be  $\mathcal{P}_{\mathrm{bkg}} \approx \mathcal{P}_{\mathrm{side}}$ if assuming no signal events in the sideband region, yet this assumption is also not satisfied and it is thus corrected for:
+% while still ignoring any third order correction terms\sidenote{XXX}:
+\begin{equation}
+  \label{eq:q:closure_P_bkg}
+  \mathcal{P}_{\mathrm{bkg}} = \mathcal{P}_{\mathrm{side}} - \beta \cdot \mathcal{P}_{gg} \varepsilon_{gg}^{4\dash\mathrm{jet}},
+\end{equation} 
+where $\beta$ is the fraction of signal events in the sideband region relative to the signal events in the signal region and is defined as:
+\begin{equation}
+  \beta = \frac{\left(1-f_\mathrm{bkg}^{\mathrm{side}}\right) \cdot N_\mathrm{side}}{f_{gg}^{\mathrm{sig}} \cdot N_\mathrm{sig}}.
+\end{equation}
+
+Plugging equation \eqref{eq:q:closure_P_bkg} into \eqref{eq:q:closure_P_gg_initial} and solving for $\mathcal{P}_{gg}$ yields:
+\begin{equation}
+  \label{eq:q:closure_P_gg}
+  \mathcal{P}_{gg} = \frac{\mathcal{P}_{\mathrm{sign}} - \alpha \cdot \mathcal{P}_{\mathrm{side}} }{\varepsilon_{gg}^{4\dash\mathrm{jet}} \cdot \left( 1+\alpha\beta \right)}.
+\end{equation}
+The advantage of this equation is that it is that only $\varepsilon_{gg}^{4\dash\mathrm{jet}}$ and the two constants\sidenote{Which are found to be: ${f_{gg}^{\mathrm{sig}} = \rho_g^{4\dash\mathrm{jet}} = \SI{92.67}{\percent}}$ and ${f_\mathrm{bkg}^\mathrm{side} = \SI{62.5}{\percent}}$.} $f_{gg}^{\mathrm{sig}}$ and $f_\mathrm{bkg}^\mathrm{side}$ depend on MC truth, the rest can be applied to data without any truth label. The assumptions equation \eqref{eq:q:closure_P_gg} are based on are that the signal distribution of $x$ is similar in the signal and sideband regions $\mathcal{P}_{gg}^\mathrm{sig}=\mathcal{P}_{gg}^\mathrm{side}$ and likewise for the background distributions $\mathcal{P}_{\mathrm{bkg}}^\mathrm{sig}=\mathcal{P}_{\mathrm{bkg}}^\mathrm{side}$.
+
+The distribution of $\mathcal{P}_{gg}$ in MC is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} together with $\mathcal{P}_{\mathrm{sig}}$, $\mathcal{P}_{\mathrm{side}}$, and the distribution for MC Truth $\mathcal{P}_{gg}^\mathrm{Truth}$. In this figure the distributions are shown for the gluon splitting variable $E_\mathrm{diff}$ with histograms shown in the top plot and a ratio plot between $\mathcal{P}_{gg}$ and $\mathcal{P}_{gg}^\mathrm{Truth}$ in the bottom part. By just looking at the distributions, it can be seen that the distributions in the signal and sideband regions follow each quite closely even though they start to differ at large values of $E_\mathrm{diff}$. Similarly, also $\mathcal{P}_{gg}$ and $\mathcal{P}_{gg}^\mathrm{Truth}$ follows quite closely, however, by looking at the ratio plot it can be seen that $\mathcal{P}_{gg}$ generally has fewer counts in each bin than $\mathcal{P}_{gg}^\mathrm{Truth}$. The errorbars in the ratio plot is fitted with both a constant $f(x)=b$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. In the text box \code{DOF} is the number of degrees of freedom, \code{P} is the $\chi^2$-probability\sidenote{ $P(\chi^2; N_\mathrm{DOF}) = \int_{\chi^2}^\infty f_{\chi^2}(x; N_\mathrm{DOF}) \mathop{dx}$, where $f_{\chi^2}(x; N_\mathrm{DOF})$ is the $\chi^2$ distribution with $N_\mathrm{DOF}$ degrees of freedom.}. I compute the systematic error $\sigma_\mathrm{sys}$ that would have to be added in quadrature to the standard deviation, $\sigma \rightarrow \sqrt{\sigma^2 + \sigma_\mathrm{sys}^2}$, such that the $\chi^2$-probability would be \SI{50}{\percent}. I do this using Brent's method \autocite{Brent:113464} and the systematic error is written as \code{sigma_sys} in the figure. 
 
 \begin{figure}
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 65, clip, page=1]{figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
-  \caption[Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference]
-          {Closure plot between MC Truth and the corrected g-tagging model in 4-jet events for the normalized gluon gluon jet energy difference. The corrected g-taggingg model is described in further detail in section XXX \TODO. In the top part of the plot the \textcolor{blue}{MC Truth} is shown in blue, the \textcolor{red}{corrected g-tagging model} \code{"PDF 2gg"} in red, the \textcolor{green}{g-signal distribution} in semi-transparent green and the \textcolor{orange}{g-sideband distribution} in semi-transparent orange. In the bottom part of the plot the ratio between MC Truth and the output of the corrected g-tagging model is shown. The normalized gluon gluon jet energy difference $A$ is $A=\frac{E_{g_\mathrm{max}}-E_{g_\mathrm{min}}}{E_{g_\mathrm{max}}+E_{g_\mathrm{min}}}$ where $E_{g_\mathrm{max}}$ ($E_{g_\mathrm{min}}$) refers to the energy of the gluon with the highest (lowest) energy.
+  \includegraphics[width=0.99\textwidth, trim=10 0 20 5, clip, page=1]{figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry]
+          {Closure plot comparing MC Truth and the efficiency corrected $g$-tagging model in 4-jet events for the normalized gluon gluon jet energy asymmetry $E_\mathrm{diff}$. In the top part of the plot \textcolor{blue}{$\mathcal{P}_{gg}^\mathrm{Truth}$} based on MC Truth is shown in blue, the \textcolor{red}{$\mathcal{P}_{gg}$} based on MC but without Truth in red, the distribution in the signal region \textcolor{green}{$\mathcal{P}_{\mathrm{sig}}$} in light green and the distribution in the sideband region \textcolor{orange}{$\mathcal{P}_{\mathrm{side}}$} in light orange. In the bottom part of the plot the ratio between $\mathcal{P}_{gg}$ and $\mathcal{P}_{gg}^\mathrm{Truth}$  is shown. 
           } 
-  \label{fig:q:closure_E_diff}
+  \label{fig:q:closure_E_diff_non_appendix}
 \end{figure}
 
-\newpage
+The closure plot for $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} and for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $g$-tagging algorithm perform well on the energy asymmetry variables with $\sigma_\mathrm{sys}(E) \approx \SI{3}{\percent}$, the angle-dependant variables, $\Delta_\theta$ and $\phi_\parallel$ with $\sigma_\mathrm{sys}(\Delta_\theta) \approx \SI{5}{\percent}$ and $\sigma_\mathrm{sys}(\phi_\parallel) \approx \SI{2}{\percent}$. When the mass enters in the variables, there is a much higher bias, however, still small for the $p_\perp$-antenna variable $\sigma_\mathrm{sys}(p^2_{\perp,\mathrm{A}}) \approx \SI{5}{\percent}$. Worst is the gluon-gluon invariant mass where $\sigma_\mathrm{sys}(m_{gg}) \approx \SI{23}{\percent}$.
+
+% \begin{margintable}[]
+%   \begin{tabular}{@{}lr@{}}
+%   {}                                                & $\sigma_\mathrm{sys}$ \\ \midrule
+%   $E_\mathrm{diff}$                                 & $\SI{3.5}{\percent}$  \\
+%   $E_{\mathrm{rel}_\mathrm{min}}$                   & $\SI{3.5}{\percent}$  \\
+%   $E_\mathrm{rel}$                                  & $\SI{3.2}{\percent}$  \\
+%   $\Delta_\theta$                                   & $\SI{5.6}{\percent}$  \\
+%   $m_{gg}$                                          & $\SI{22.6}{\percent}$ \\
+%   $\phi_\mathrm{\parallel}$                         & $\SI{1.7}{\percent}$  \\
+%   % $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$     & $\SI{12.9}{\percent}$ \\
+%   % $p^2_{\perp,\mathrm{A}}$                          & $\SI{5.0}{\percent}$  \\ %\bottomrule
+%   \end{tabular}
+% \end{margintable}
+
+
+The closure test shows that the $g$-tagging algorithm can also be trusted in the 4-jet case, however, with high systematic uncertainties for the $m_{gg}$ variable. 
 
 \subsection{4-jet results}
 \label{subsec:q:gluon_splitting_results}
 
+The comparison between the gluon splitting distributions will be done in four distinct areas of the $R_{gg}^{k_t}$-$R_{gg}$ phase space. 
+
 
 \begin{figure}[h!]
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 118, clip]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
   \caption[R kt CA overview  XXX \TODO]
           {R kt CA overview XXX \TODO
           } 
   \label{fig:q:R_kt_CA_overview}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
   \caption[R kt CA cut region A  XXX \TODO]
           {R kt CA cut region A XXX \TODO
           } 
   \label{fig:q:R_kt_CA_cut_A}
-\end{figure}
+\end{figure*}
 
 Burde de her plots have været corrected ligesom i Closure? 
 

@@ -1,5 +1,5 @@
 \ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi
-\begin{thebibliography}{100}
+\begin{thebibliography}{101}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -207,6 +207,12 @@ L.~Breiman.
 \newblock ISSN 1573-0565.
 \newblock \doi{10.1023/A:1010933404324}.
 \newblock URL \url{https://doi.org/10.1023/A:1010933404324}.
+
+\bibitem[Brent()]{Brent:113464}
+R.~P. Brent.
+\newblock \emph{Algorithms for Minimization without Derivatives}.
+\newblock Prentice-{{Hall}} Series in Automatic Computation. {Prentice-Hall}.
+\newblock URL \url{https://cds.cern.ch/record/113464}.
 
 \bibitem[Brochu et~al.()Brochu, Cora, and
   de~Freitas]{brochuTutorialBayesianOptimization2010}

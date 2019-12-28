@@ -63,9 +63,9 @@
 \contentsline {section}{\numberline {5.9}Gluon splitting}{84}{section.5.9}
 \contentsline {subsection}{\numberline {5.9.1}Variables}{84}{subsection.5.9.1}
 \contentsline {subsection}{\numberline {5.9.2}Efficiencies}{86}{subsection.5.9.2}
-\contentsline {subsection}{\numberline {5.9.3}Closure Test}{86}{subsection.5.9.3}
-\contentsline {subsection}{\numberline {5.9.4}4-jet results}{87}{subsection.5.9.4}
-\contentsline {section}{\numberline {5.10}Un-folding}{88}{section.5.10}
+\contentsline {subsection}{\numberline {5.9.3}Closure Test}{87}{subsection.5.9.3}
+\contentsline {subsection}{\numberline {5.9.4}4-jet results}{89}{subsection.5.9.4}
+\contentsline {section}{\numberline {5.10}Un-folding}{90}{section.5.10}
 \contentsline {chapter}{\numberline {6}Discussion and Outlook}{89}{chapter.6}
 \contentsline {chapter}{\numberline {7}Conclusion}{91}{chapter.7}
 \contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{91}{section.7.1}
@@ -75,8 +75,8 @@
 \contentsline {section}{\numberline {7.3}Getting Help}{91}{section.7.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{93}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{121}{appendix.B}
-\contentsline {chapter}{List of Figures}{142}{appendix*.7}
-\contentsline {chapter}{List of Tables}{144}{appendix*.8}
-\contentsline {chapter}{Bibliography}{145}{section*.9}
-\contentsline {chapter}{Index}{155}{appendix*.11}
+\contentsline {chapter}{List of Figures}{147}{appendix*.7}
+\contentsline {chapter}{List of Tables}{150}{appendix*.8}
+\contentsline {chapter}{Bibliography}{151}{section*.9}
+\contentsline {chapter}{Index}{161}{appendix*.11}
 \contentsfinish 
