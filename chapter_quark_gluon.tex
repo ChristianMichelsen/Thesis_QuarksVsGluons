@@ -728,21 +728,25 @@ The distribution of $\mathcal{P}_{gg}$ in MC is shown in Figure~\ref{fig:q:closu
   \label{fig:q:closure_E_diff_non_appendix}
 \end{figure}
 
-The closure plot for $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} and for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $g$-tagging algorithm perform well on the energy asymmetry variables with $\sigma_\mathrm{sys}(E) \approx \SI{3}{\percent}$, the angle-dependant variables, $\Delta_\theta$ and $\phi_\parallel$ with $\sigma_\mathrm{sys}(\Delta_\theta) \approx \SI{5}{\percent}$ and $\sigma_\mathrm{sys}(\phi_\parallel) \approx \SI{2}{\percent}$. When the mass enters in the variables, there is a much higher bias, however, still small for the $p_\perp$-antenna variable $\sigma_\mathrm{sys}(p^2_{\perp,\mathrm{A}}) \approx \SI{5}{\percent}$. Worst is the gluon-gluon invariant mass where $\sigma_\mathrm{sys}(m_{gg}) \approx \SI{23}{\percent}$.
+The closure plot for $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} and for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $g$-tagging algorithm perform well on the energy asymmetry variables with $\sigma_\mathrm{sys}(E) \approx \SI{3}{\percent}$, the angle-dependant variables, $\Delta_\theta$ and $\phi_\parallel$ with $\sigma_\mathrm{sys}(\Delta_\theta) \approx \SI{5}{\percent}$ and $\sigma_\mathrm{sys}(\phi_\parallel) \approx \SI{2}{\percent}$. When the mass enters in the variables, there is a much higher bias, however, still small for the $p_\perp$-antenna variable $\sigma_\mathrm{sys}(p^2_{\perp,\mathrm{A}}) \approx \SI{5}{\percent}$. Worst is the gluon-gluon invariant mass where $\sigma_\mathrm{sys}(m_{gg}) \approx \SI{23}{\percent}$, see Table~\ref{tab:q:gluon_splitting_systematic_errors} for all of the values. 
 
-% \begin{margintable}[]
-%   \begin{tabular}{@{}lr@{}}
-%   {}                                                & $\sigma_\mathrm{sys}$ \\ \midrule
-%   $E_\mathrm{diff}$                                 & $\SI{3.5}{\percent}$  \\
-%   $E_{\mathrm{rel}_\mathrm{min}}$                   & $\SI{3.5}{\percent}$  \\
-%   $E_\mathrm{rel}$                                  & $\SI{3.2}{\percent}$  \\
-%   $\Delta_\theta$                                   & $\SI{5.6}{\percent}$  \\
-%   $m_{gg}$                                          & $\SI{22.6}{\percent}$ \\
-%   $\phi_\mathrm{\parallel}$                         & $\SI{1.7}{\percent}$  \\
-%   % $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$     & $\SI{12.9}{\percent}$ \\
-%   % $p^2_{\perp,\mathrm{A}}$                          & $\SI{5.0}{\percent}$  \\ %\bottomrule
-%   \end{tabular}
-% \end{margintable}
+\begin{margintable}
+  \centerfloat
+  \begin{tabular}{@{}rr@{}}
+  {}                                                & $\sigma_\mathrm{sys}$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
+  $E_\mathrm{diff}$                                 & $\SI{3.5}{\percent}$  \\ \addlinespace[0.2em]
+  $E_{\mathrm{rel}_\mathrm{min}}$                   & $\SI{3.5}{\percent}$  \\\addlinespace[0.2em]
+  $E_\mathrm{rel}$                                  & $\SI{3.2}{\percent}$  \\\addlinespace[0.2em]
+  $\Delta_\theta$                                   & $\SI{5.6}{\percent}$  \\\addlinespace[0.2em]
+  $m_{gg}$                                          & $\SI{22.6}{\percent}$ \\\addlinespace[0.2em]
+  $\phi_\mathrm{\parallel}$                         & $\SI{1.7}{\percent}$  \\\addlinespace[0.2em]
+  $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$     & $\SI{12.9}{\percent}$ \\\addlinespace[0.2em]
+  $p^2_{\perp,\mathrm{A}}$                          & $\SI{5.0}{\percent}$  \\ %\bottomrule
+  \end{tabular}
+  \vspace{1mm}
+  \caption[Gluon Splitting Systemic Errors]{\label{tab:q:gluon_splitting_systematic_errors}Systematic errors for the gluon splitting variables based on the closure test, see \autoref{subsec:q:gluon_splitting_closure}.}
+\end{margintable}
+
 
 
 The closure test shows that the $g$-tagging algorithm can also be trusted in the 4-jet case, however, with high systematic uncertainties for the $m_{gg}$ variable. 
@@ -750,30 +754,39 @@ The closure test shows that the $g$-tagging algorithm can also be trusted in the
 \subsection{4-jet results}
 \label{subsec:q:gluon_splitting_results}
 
-The comparison between the gluon splitting distributions will be done in four distinct areas of the $R_{gg}^{k_t}$-$R_{gg}$ phase space. 
+\begin{margintable}[1cm]
+  \centerfloat
+  \begin{tabular}{@{}ccc@{}}
+  Region  & $R_{gg}^{k_t}$      & $R_{gg}^\mathrm{CA}$    \\ \addlinespace[0.1em] \midrule \addlinespace[0.4em]
+  A       & $[0, 1]$            & $[0, 1]$                \\ \addlinespace[0.4em]
+  B       & $[\frac{3}{5}, \frac{5}{3}]$        & $[\frac{3}{5}, \frac{5}{3}]$            \\ \addlinespace[0.4em]
+  C       & $[0, \frac{5}{3}]$          & $[1, \infty]$           \\ \addlinespace[0.4em]
+  D       & $[\frac{5}{3}, \infty]$     & $[\frac{5}{3}, \infty]$
+  \end{tabular}
+\vspace{1mm}
+\caption[Area Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space]{\label{tab:q:gluon_splitting_area_definitions}Definitions of the four areas in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space.}
+\end{margintable}
 
+The comparison between the gluon splitting distributions will be done in four distinct areas of the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. These four areas, A, B, C, and D, are defined in Table~\ref{tab:q:gluon_splitting_area_definitions}. Three of these regions have already been described, that is area A which is the soft, collinear region with an example shown in Figure~\ref{fig:q:kt_CA_soft_collinear}, area C which is the soft, wide angle region in Figure~\ref{fig:q:kt_CA_soft_wide}, and the hard non-$g\rightarrow gg$ area D in Figure~\ref{fig:q:kt_CA_hard_non_g_to_gg}. Area B is a region where neither the $k_t$ algorithm nor the CA algorithm is totally sure whether or not the two gluons should be clustered together or not. The four areas are visualized in Figure~\ref{fig:q:R_kt_CA_overview} for both MC and Data. Here each dot shown in the scatter plot is an event with $0.8 < \gamma_\mathrm{tag}$, with a total of \num{41117} events in the MC sample and \num{22473} events in the data sample. The number of events that fall into each of the four areas are shown in the figure. The events are split up into these four areas because they each concern different physical interactions, yet one also has to take the number of events in each area into account such that the statistical uncertainties does not prevent any conclusions to be drawn.
 
 \begin{figure}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[R kt CA overview  XXX \TODO]
-          {R kt CA overview XXX \TODO
-          } 
+  \caption[Overview of the Four Areas in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space]
+          {Overview of the four areas, A, B, C, and D, in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. The areas are shown as colored rectangles together with a scatter plot showing the 2D-distribution for signal gluon events ($0.8 < \gamma_\mathrm{tag}$). The left plot shows is for MC and the right one for Data.} 
   \label{fig:q:R_kt_CA_overview}
 \end{figure}
 
+The distributions for the different gluons splitting variables for area A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A}. Here 
+
 \begin{figure*}[h!]
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[R kt CA cut region A  XXX \TODO]
-          {R kt CA cut region A XXX \TODO
-          } 
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A]
+          {Comparison of the gluon splitting distributions in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A, see Table~\ref{tab:q:gluon_splitting_area_definitions}. The distribution for \textcolor{blue}{MC} (scaled to Data) is shown in blue and for \textcolor{red}{Data} in red. These eight distributions are for the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A which has \num{5022} events in the MC sample and \num{3111} in the Data sample. } 
   \label{fig:q:R_kt_CA_cut_A}
 \end{figure*}
 
-Burde de her plots have været corrected ligesom i Closure? 
-
-\newpage
 \section{Un-folding}
 
 And then lastly they should be unfolded? Or it should at least be mentioned?

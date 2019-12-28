@@ -267,6 +267,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/currfile/currfile.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/currfile/currfile.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/filehook/filehook.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/filehook/filehook.sty
+INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.sta
+INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.sta
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/gincltex/gincltex.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/gincltex/gincltex.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/gincltex/gincltex.sty
@@ -410,6 +412,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.sta
+INPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.sta
 OUTPUT /Users/michelsen/Master_Thesis/thesis/MasterThesis.sta
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
@@ -1001,13 +1005,14 @@ INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplb9d.tfm
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplb9d.vf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplbj8r.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
 OUTPUT /Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.aux
 INPUT /Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.tex
 INPUT /Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.tex
@@ -1204,10 +1209,6 @@ INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/efficiency_events-dow
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
 INPUT /Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf
