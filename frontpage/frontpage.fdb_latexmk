@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1577467289 "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.tex" "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.pdf" "frontpage" 1577467293
-  "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.aux" 1577467293 662 b2b94621371df8d9296b8bf5bec1b851 ""
+["pdflatex"] 1577600917 "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.tex" "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.pdf" "frontpage" 1577600918
+  "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.aux" 1577600918 662 b2b94621371df8d9296b8bf5bec1b851 ""
   "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.tex" 1577467283 606 f85584ae369a9640acfd91f2e73e08dd ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm" 1480098701 1300 63a6111ee6274895728663cf4b4e7e81 ""
@@ -61,16 +61,16 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1530091583 2849778 d20fd0a0d92d412ec9b4143de20d68a5 ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1530091624 4220583 e12e2b6955069f7d05654c816e0c6001 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "CustomFrontpage.png" 1577467254 4135269 117c966caeb7915d78220dbdd8030fd6 ""
+  "CustomFrontpage.pdf" 1577600896 843733 c2dbbf7a108dbbc0a079ea7abbf88014 ""
   "RkuEng.png" 1577432184 181944 035cab6d6e5142aa0176f1797dfa9e22 ""
-  "frontpage.aux" 1577467293 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "frontpage.out" 1577467289 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "frontpage.aux" 1577600918 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "frontpage.out" 1577600917 0 d41d8cd98f00b204e9800998ecf8427e ""
   "frontpage.tex" 1577467283 606 f85584ae369a9640acfd91f2e73e08dd ""
-  "nbi.sty" 1577442400 9804 e2066ed0c89486d1e613514d250215fd ""
+  "nbi.sty" 1577600783 9804 6fc0cac0e2dc61b0092324222c8a59d1 ""
   (generated)
-  "frontpage.aux"
-  "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.pdf"
-  "frontpage.out"
-  "frontpage.log"
   "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.log"
+  "frontpage.log"
+  "frontpage.out"
+  "/Users/michelsen/Master_Thesis/thesis/frontpage/frontpage.pdf"
   "frontpage.pdf"
+  "frontpage.aux"

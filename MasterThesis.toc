@@ -75,8 +75,8 @@
 \contentsline {section}{\numberline {7.3}Getting Help}{93}{section.7.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{95}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{123}{appendix.B}
-\contentsline {chapter}{List of Figures}{153}{appendix*.11}
-\contentsline {chapter}{List of Tables}{156}{appendix*.12}
-\contentsline {chapter}{Bibliography}{157}{section*.13}
-\contentsline {chapter}{Index}{167}{appendix*.15}
+\contentsline {chapter}{List of Figures}{153}{appendix*.7}
+\contentsline {chapter}{List of Tables}{156}{appendix*.8}
+\contentsline {chapter}{Bibliography}{157}{section*.9}
+\contentsline {chapter}{Index}{167}{appendix*.11}
 \contentsfinish 
