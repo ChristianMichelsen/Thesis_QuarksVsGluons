@@ -412,21 +412,62 @@
 \newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
 \newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
 
-% custom TOC table of contents
-\titlecontents{section}% FIXME
+
+
+% Custom TOC
+
+
+\titlecontents{part}%
   [0em] % distance from left margin
-  {\rmfamily} % above (global formatting of entry)
-  {\hspace*{2em}\textcolor{black}{\contentslabel{2em}}} % before w/label (label = ``2.6'')
+  {\vspace{0.8\baselineskip}\huge\rmfamily\itshape} % above (global formatting of entry)
+  {\hspace*{0em}\contentslabel{2em}} % before w/label (label = ``2'')
+  {\hspace*{0em}} % before w/o label
+  {\titlerule*[0.8em]{}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+  [\vspace{0.1\baselineskip}] % after
+
+\titlecontents{chapter}%
+  [0em] % distance from left margin
+  {\vspace{0.8\baselineskip}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+  {\hspace*{0em}\contentslabel{2em}} % before w/label (label = ``2'')
+  {\hspace*{0em}} % before w/o label
+  {\titlerule*[0.8em]{}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+  [\vspace{0.1\baselineskip}] % after
+
+\titlecontents{section}%
+  [0em] % distance from left margin
+  {\vspace{0.08\baselineskip}\Large\rmfamily\itshape} % above (global formatting of entry)
+  {\hspace*{2em}\contentslabel{2em}} % before w/label (label = ``2'')
   {\hspace*{2em}} % before w/o label
-  {\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
-  [] % after
-\titlecontents{subsection}% FIXME
-  [2em] % distance from left margin
-  {\rmfamily} % above (global formatting of entry)
-  {\hspace*{4em}\textcolor{black}{\contentslabel{4em}}} % before w/label (label = ``2.6'')
+  {\titlerule*[0.8em]{.}\large\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+  [\vspace{0.01\baselineskip}] % after
+
+\titlecontents{subsection}%
+  [0em] % distance from left margin
+  {\vspace{0.08\baselineskip}\normalsize\rmfamily\itshape} % above (global formatting of entry)
+  {\hspace*{4em}\contentslabel{3em}} % before w/label (label = ``2'')
   {\hspace*{4em}} % before w/o label
-  {\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
-  [] % after
+  {\titlerule*[0.8em]{.}\normalsize\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+  [\vspace{0.01\baselineskip}] % after
+
+
+
+
+% % custom TOC table of contents
+% \titlecontents{section}% FIXME
+%   [0em] % distance from left margin
+%   {\Large\rmfamily\itshape} % above (global formatting of entry)
+%   % {\ifnumgreater{\thecontentslabel}{1}{\addvspace{\baselineskip}}{}}
+%   {\hspace*{2em}\textcolor{black}{\contentslabel{2em}}} % before w/label (label = ``2.6'')
+%   {\hspace*{2em}} % before w/o label
+%   {\titlerule*[0.8em]{.}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+%   [] % after
+% \titlecontents{subsection}% FIXME
+%   [2em] % distance from left margin
+%   {\rmfamily} % above (global formatting of entry)
+%   {\hspace*{4em}\textcolor{black}{\contentslabel{3em}}} % before w/label (label = ``2.6'')
+%   {\hspace*{4em}} % before w/o label
+%   {\titlerule*[0.8em]{.}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+%   [] % after
 
   
 
@@ -458,10 +499,10 @@
 
 % \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
-\includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
+% \includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
-% \includeonly{chapter_machine_learning_theory}
+\includeonly{chapter_foreword}
 
 
 
@@ -486,7 +527,7 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 \phantomsection
 \addcontentsline{toc}{chapter}{Table of Contents}
 
-
+\vspace{-5cm}
 % \renewcommand\contentsname{Table of Content}
 \tableofcontents
 % \addtocontents{toc}{~\hfill\textbf{Page}\par}
@@ -508,8 +549,9 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 \include{chapter_introduction}
 
 \chapter*{Part I}
+% \part*{Part I}
 % \chapter[Chapter Title]{\centering Chapter Title}
-\addcontentsline{toc}{chapter}{Part I}
+\addcontentsline{toc}{part}{Part I}
 
 Part \RNum{1} of this thesis covers the introductory theory of machine learning in \autoref{ch:ML_theory} along with some extra technical aspects of it. In \autoref{ch:housing_price_analysis} machine learning is applied to estimate Danish housing prices as precisely and accurately as possible.  
 
@@ -520,8 +562,8 @@ Part \RNum{1} of this thesis covers the introductory theory of machine learning 
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 \chapter*{Part II}
-\addcontentsline{toc}{chapter}{Part II}
-Part \RNum{2} of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. In \autoref{ch:hep:particle_physcis_LEP} the theory of the Standard Model is introduced together with a description of the ALEPH detector. This is applied in \autoref{ch:quark_gluon_analysis} where the types of jets and events in each collision is analysed using machine learning to improve the understanding of how gluon jets look and behave. The results from this chapter are discussed in \autoref{ch:discussion_outlook} along with further work, and finally both Part \RNum{1} and Part \RNum{2} are concluded in \autoref{ch:conclusion}.
+\addcontentsline{toc}{part}{Part II}
+Part \RNum{2} of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. In \autoref{ch:hep:particle_physcis_LEP} the theory of the Standard Model is introduced together with a description of the ALEPH detector. This is applied in \autoref{ch:quark_gluon_analysis} where the types of jets and events in each collision is analysed using machine learning to improve the understanding of how gluon jets look and behave. 
 
 \include{chapter_particle_physics_theory}
 
@@ -529,6 +571,10 @@ Part \RNum{2} of this thesis deals with particle physics and the discriminatory 
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 \include{chapter_quark_gluon}
+
+\chapter*{Part III}
+\addcontentsline{toc}{part}{Part III}
+Part \RNum{3} of this thesis discusses and concludes the two subprojects.
 
 \include{chapter_discussion}
 
