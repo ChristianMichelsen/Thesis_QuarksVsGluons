@@ -69,20 +69,20 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Hyperparameter Optimization of $b$\BarOrDash /tagging}}{69}{subfigure.5.7.2}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $b$\BarOrDash /Tagging}}{69}{subfigure.5.7.2}
 \contentsline {figure}{\numberline {5.9}{\ignorespaces $b$\BarOrDash /Tag Scores in 4-Jet Events}}{70}{subsection.5.4.2}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces ROC curve for 4-jet $b$\BarOrDash /tagging}}{70}{subsection.5.4.2}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces ROC curve for 4-jet $b$\BarOrDash /tagging}}{71}{subsection.5.4.2}
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Distribution of $b$\BarOrDash /Tags in 4-Jet Events}}{71}{subsection.5.4.2}
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Global Feature Importances for the LGB $b$\BarOrDash /Tagging Algorithm on 4-Jet Events}}{71}{subsection.5.4.3}
 \contentsline {figure}{\numberline {5.13}{\ignorespaces The expit Function}}{71}{subsection.5.4.3}
 \contentsline {figure}{\numberline {5.14}{\ignorespaces The logit Function}}{71}{subsection.5.4.3}
 \contentsline {figure}{\numberline {5.15}{\ignorespaces SHAP 3-Jet Model Explanation for $b$\BarOrDash /like Jet}}{72}{equation.5.4.4}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{73}{equation.5.5.5}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
 \contentsline {figure}{\numberline {5.17}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _g^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Hyperparameter Optimization of $g$\BarOrDash /tagging}}{76}{subfigure.5.18.2}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Hyperparameter Optimization of $g$\BarOrDash /tagging}}{77}{subfigure.5.18.2}
 \contentsline {figure}{\numberline {5.19}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets events}}{78}{subsection.5.6.5}
 \contentsline {figure}{\numberline {5.20}{\ignorespaces $g$\BarOrDash /Tag Scores in 4-Jet Events}}{79}{subsection.5.6.6}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 4-Jet Events}}{79}{subsection.5.6.6}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 4-Jet Events}}{80}{subsection.5.6.6}
 \contentsline {figure}{\numberline {5.22}{\ignorespaces Distribution of $g$\BarOrDash /Tag Scores in 4-Jet Events for Signal and Background}}{80}{subsection.5.6.6}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Distribution of $b$\BarOrDash /Tag Scores in 3-Jet $l$\BarOrDash /Quark Events for Low and High $g$\BarOrDash /Tag Values}}{80}{subsection.5.6.6}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Distribution of $b$\BarOrDash /Tag Scores in 3-Jet $l$\BarOrDash /Quark Events for Low and High $g$\BarOrDash /Tag Values}}{81}{subsection.5.6.6}
 \contentsline {figure}{\numberline {5.24}{\ignorespaces 3D Scatter Plot of $\beta _\mathrm {tag}$\BarOrDash /Values for High and Low $\gamma _\mathrm {tag}$ $l$\BarOrDash /Quark Events}}{81}{subfigure.5.24.3}
 \contentsline {figure}{\numberline {5.25}{\ignorespaces $g$\BarOrDash /Tagging Proxy Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of $g$\BarOrDash /Tag}}{82}{equation.5.7.7}
 \contentsline {figure}{\numberline {5.26}{\ignorespaces $g$\BarOrDash /Tagging Proxy Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of The Mean Invariant Mass}}{82}{equation.5.7.8}
@@ -187,5 +187,4 @@
 \contentsline {figure}{\numberline {B.59}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space Area B}}{146}{appendix.B}
 \contentsline {figure}{\numberline {B.60}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space Area C}}{147}{appendix.B}
 \contentsline {figure}{\numberline {B.61}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space Area D}}{148}{appendix.B}
-\addvspace {10\p@ }
 \contentsfinish 

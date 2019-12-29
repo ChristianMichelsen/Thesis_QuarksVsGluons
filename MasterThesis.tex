@@ -202,6 +202,9 @@
   \parfillskip \z@skip}
 \makeatother
 
+% roman numerals
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
 
 %  maybe a smaller filesize
 \pdfminorversion=5 
@@ -431,7 +434,7 @@
 
 % \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
-\includeonly{chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
+\includeonly{chapter_foreword,chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
 % \includeonly{chapter_machine_learning_theory}
@@ -468,9 +471,6 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 %%
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-\chapter*{Foreword}
-\addcontentsline{toc}{chapter}{Foreword}
-
 \include{chapter_foreword}
 
 % Start the main matter (normal chapters)
@@ -481,9 +481,10 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 \include{chapter_introduction}
 
 \chapter*{Part I}
-The first part of this thesis deals with the introductory theory of machine learning and its predictive power in estimating Danish housing prices.  
+% \chapter[Chapter Title]{\centering Chapter Title}
+\addcontentsline{toc}{chapter}{Part I}
 
-This subproject was done in collaboration with Boligsiden without whom it would not have been possible. During this project, common python data science tools from the SciPy ecosystem\autocite{virtanenSciPyFundamentalAlgorithms2019} such as NumPy, Matplotlib, Pandas, Scikit-Learn, Scipy has been used extensively and should thus also be mentioned. 
+Part \RNum{1} of this thesis covers the introductory theory of machine learning in \autoref{ch:ML_theory} along with some extra technical aspects of it. In \autoref{ch:housing_price_analysis} machine learning is applied to estimate Danish housing prices as precisely and accurately as possible.  
 
 \include{chapter_machine_learning_theory}
 
@@ -492,7 +493,8 @@ This subproject was done in collaboration with Boligsiden without whom it would 
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 \chapter*{Part II}
-The second part of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. 
+\addcontentsline{toc}{chapter}{Part II}
+Part \RNum{2} of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. In \autoref{ch:hep:particle_physcis_LEP} the theory of the Standard Model is introduced together with a description of the ALEPH detector. This is applied in \autoref{ch:quark_gluon_analysis} where the types of jets and events in each collision is analysed using machine learning to improve the understanding of how gluon jets look and behave. The results from this chapter are discussed in \autoref{ch:discussion_outlook} along with further work, and finally both Part \RNum{1} and Part \RNum{2} are concluded in \autoref{ch:conclusion}.
 
 \include{chapter_particle_physics_theory}
 

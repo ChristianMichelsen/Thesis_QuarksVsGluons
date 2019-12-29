@@ -4,7 +4,7 @@
 \epigraph{\textit{``Research is what I am doing I don't know know what I'm doing.''}}{---  Wernher von Braun}
 
 
-\newthought{As any dedicated reader} can clearly see, the Ideal of practical reason is a representation of, as far as I know, the things in themselves; as I have shown elsewhere, the phenomena should only be used as a canon for our understanding. The paralogisms of practical reason are what first give rise to the architectonic of practical reason. As will easily be shown in the next section, reason would thereby be made to contradict, in view of these considerations, the Ideal of practical reason, yet the manifold depends on the phenomena.
+\newthought{The analysis} of the quarks and gluons that were introduced in the previous chapter is described here. The overall goal is to be able to discriminate between quark and gluon jets to better be able to describe the gluon jets. The gluon jet distributions are measured in 3-jet events and how they split in 4-jet events. This chapter is organized as follows. In \autoref{sec:q:data_preprocessing} the data are presented and the initial cuts are described and the variables are visualized in \autoref{sec:q:EDA}. The choices of loss and evaluation function are discussed in \autoref{sec:q:loss_evaluation_function}. In \autoref{sec:q:b_tagging_analysis} the first of the two overall models developed in this chapter is presented, the $b$-tagging model. The efficiency of this model is measured in \autoref{sec:q:b_tagging_effiency}. The second model, the $g$-tagging model is used for classification of entire events, compared to the $b$-tagging model which classifies individual jets, and is introduced in \autoref{sec:q:g_tagging_analysis} and its efficiency is measured in \autoref{sec:q:g_tagging_effiency}. The jet distributions in 3-jet events are analyzed in \autoref{sec:q:generalized_angularities_3j} and their the gluon splitting in 4-jet events in \autoref{sec:q:gluon_splitting_4j}
 
 
 \section{Data Preprocessing}
@@ -546,7 +546,7 @@ where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its mo
 These two figures strengthens the claim that the trained $b$-tagging and $g$-tagging models provide un-biased models that not only work in Data but also in MC. 
 
 \section{Generalized Angularities in 3-jet events}
-\label{sec:q:generalized_angularities}
+\label{sec:q:generalized_angularities_3j}
 
 To measure how gluon jet \q{looks}, i.e. there jet distributions, number of tracks, etc., the \emph{generalized angularities} provide an overall framework for doing so. The generalized angularities is a two-parameter family of variables depending on the angular weighting $\beta \leq 0$ and an energy weighting factor $\kappa \leq 0$:
 \begin{equation}
@@ -590,6 +590,7 @@ In Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} it is 
 \newpage
 
 \section{Gluon splitting}
+\label{sec:q:gluon_splitting_4j}
 
 In addition to the measuring how jets \q{look}, we are also interested in measuring how gluons split, that is $g \rightarrow gg$. We do so by looking at 4-jet events with high $g$-tag values and then identify the two gluon jets as the ones with the lowest $b$-tag values. From Figure \ref{fig:q:gtag_scores_4j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events. This corresponds to selecting \num{41117} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{4\dash\mathrm{jet}} = \SI{23.30}{\percent}$ and a signal purity of $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$. The variables related to measuring the gluon splitting will be introduced in \autoref{subsec:q:gluon_splitting_variables} and their efficiencies in MC will be computed in \autoref{subsec:q:gluon_splitting_efficiency}. The method will be tested with a closure test in \autoref{subsec:q:gluon_splitting_closure} and the results shown in \autoref{subsec:q:gluon_splitting_results}.
 
