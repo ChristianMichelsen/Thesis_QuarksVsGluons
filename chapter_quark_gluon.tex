@@ -11,7 +11,7 @@
 \label{sec:q:data_preprocessing}
 
 The data files were acquired from Prof. Peter Hansen (NBI) who worked on the ALEPH expiriment. The Data consists of \num{43} data files from between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$\=/quark events (MCb) (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using the Python package uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5-format. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $p_\mathrm{sum}$ in each event is $\SI{32}{\GeV} \leq p_\mathrm{sum}$ to remove any $Z \rightarrow \tau^+ \tau^-$ events. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having at least \num{7} TPC hits and 1 silicon hit or more. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since the detector performance worsens significantly in that region. These cuts were standard requirements for the ALEPH experiment.
-% (P. Hansen, personal communication, December, 2019, XXX).
+% (P. Hansen, personal communication, December, 2019).
 
 One last cut which was experimented with was the threshold value for \emph{jet matching}. The jet matching is the process of matching the jet with one of the final state quarks. The jet is said to be matched if the dot product between the final quark momentum and the jet momentum is more than then threshold value. Higher thresholds means cleaner jets but at the expense of less statistics. A jet matching threshold of \num{0.90} was found to be a good compromise between purity and quantity where \SI{97.8}{\percent} of all 2-jet events are matched and \SI{96.7}{\percent} of all other jets were matched\sidenote{Compare this to \SI{98.5}{\percent} and \SI{97.8}{\percent} for a threshold of \num{0.85} or \SI{95.9}{\percent} and \SI{93.9}{\percent} for a threshold of \num{0.95}.}.  
 
@@ -91,14 +91,15 @@ In addition to knowing the correct flavor, we define that an event is \emph{$q$\
 
 With the criteria defined above for what constitutes a specific type of jet the 1D-distributions for the three vertex variables are plotted in Figure~\ref{fig:q:vertex_variables}. For all three subplots the histograms are shown with logarithmic $y$\=/axes, all $b$\=/jets in blue, $c$\=/jets in red, $g$\=/jets in green, and all of the jets (no matter their type) are shown in orange. The distributions for 2-jet events are shown in fully opaque color, 3-jet events in dashed lines, and 4-jet events in lighter colors. In the left subplot the \code{projet} variable is plotted where it can be seen that high values of \code{projet} tend to indicate $b$\=/jets. In the middle subplot \code{bqvjet} is plotted which shares many similarities with the \code{projet} variables, including that high values indicate $b$\=/jets. In the right subplot the \code{ptljet} is plotted. This variable has many zeros in it which correlates with mostly with gluons\sidenote{Around \SI{98}{\percent} of all $g$\=/jets are zeros for the variable \code{ptljet} compared to $\sim \SI{82}{\percent}$ for $c$\=/jets and $\sim \SI{70}{\percent}$ for $b$\=/jets.} and large values are mostly due to $b$\=/jets. In general it is clear to see how the differences in distribution between the \num{2}-, \num{3}-, and \num{4}-jet events are minor, with the one exception of \num{2}-jet events which does not contain any gluons at all. 
 
-\begin{figure}
-  \includegraphics[width=0.98\textwidth, trim=10 10 5 5, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+\begin{figure}[h!]
+  \includegraphics[width=0.9\textwidth, trim=10 10 5 5, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[Histograms of the vertex variables]
           {Normalized histograms of the three vertex variables: \code{projet}, \code{bqvjet}, and \code{ptljet}. In blue colors the variables are shown for \textcolor{blue}{true b-jets}, in red for \textcolor{red}{true c-jets}, in green for \textcolor{green}{true g-jets}, and in orange for \textcolor{orange}{all of the jets} (including non q-matched). In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. Notice the logarithmic y-axis, that there are no g-jets for 2-jet events (as expected), and that all of the distributions are very similar not matter how many jets.
           } 
   \label{fig:q:vertex_variables}
 \end{figure}
 
+\FloatBarrier
 \subsection{Dimensionality Reduction}
 
 Even though there are only three vertex variables, it is difficult to properly get an intuition about how easily separated the different types of jets are. Since there are millions of points a single 3D scatter plot quickly becomes overcrowded if one plots all jets. We apply dimensionality reduction from the three dimensions down to two dimensions by using the UMAP algorithm \autocite{mcinnesUMAPUniformManifold2018}. Within recent years the field of dimensionality reduction algorithms has grown a lot from just the typical (linear) principal component analysis to also include nonlinear algorithms. The t-SNE algorithm \autocite{maatenVisualizingDataUsing2008} deserves an honorable mention since this algorithm revolutionized the usage of (nonlinear) dimensionality reduction algorithms in e.g. bioinformatics \citep{toghieshghiQuantitativeComparisonConventional2019, wallachProteinSmallmoleculeDatabase2009}  yet its mathematical foundation has strongly been improved with the newer, faster UMAP algorithm \autocite{mcinnesUMAPUniformManifold2018} which usage is also expanding \citep{bechtEvaluationUMAPAlternative2018, bechtDimensionalityReductionVisualizing2019, diaz-papkovichUMAPRevealsCryptic2019}.
@@ -210,15 +211,13 @@ Compared to the housing prices dataset, the number of observations $N$ is a lot 
 
 \begin{figure*}%
   \centerfloat
-  \includegraphics[width=1.1\textwidth, trim=0 0 0 0, clip]{figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \includegraphics[width=\textwidth, trim=0 0 0 0, clip]{figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \vspace{3mm}
   \caption[Hyperparameter Optimization of $b$\=/tagging]{
     Hyperparameter Optimization results of $b$\=/tagging with random search. From left to right, we have A) \num{100} iterations of RS with LGB on 3-jets, B) \num{10} iterations of RS with XGB on 3-jets, C) \num{100} iterations of RS with LGB on 4-jets, D) \num{10} iterations of RS with XGB on 4-jets. Notice the different ranges on the y-axes.}
   \label{fig:q:CV_res_iterations_b_tagging}%
 \end{figure*}
-
-
-
-
+\vspace{-3mm}
 
 The relationship between the different hyperparameters in 4-jet events can be seen in the parallel coordinate plot in Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j}. First of all the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{subsec:q:trunc_uniform} for a deeper discussion about the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j}.
 
@@ -285,21 +284,7 @@ To get a better understanding of the trained LGB model, the global SHAP feature 
   \label{fig:q:shap_btag_global_4j}
 \end{figure}
 
-\begin{marginfigure}[3cm]
-  \centerfloat
-  \includegraphics[width=0.8\textwidth]{figures/logit_expit/expit.pdf}
-  \caption[The expit Function]
-          {The expit function.} 
-  \label{fig:q:expit}
-\end{marginfigure}
 
-\begin{marginfigure}
-  \centerfloat
-  \includegraphics[width=0.8\textwidth]{figures/logit_expit/logit.pdf}
-  \caption[The logit Function]
-          {The logit function.} 
-  \label{fig:q:logit}
-\end{marginfigure}
 
 In regression, the model output is a continuous prediction ${\hat{y}_\mathrm{reg} \in \mathbb{R}}$. In classification what is actually happening under the hood is that the model predicts a value $\tilde{y} \in \mathbb{R}$ which is transformed to a number in the $[0, 1]$\=/interval via the \emph{expit} function:
 \begin{equation}
@@ -311,7 +296,24 @@ where $p$ is a number in the $[0, 1]$\=/interval. The expit function is also som
   \label{eq:q:logit}
   \mathrm{logit}(p) = \log \left( \frac{p}{1-p}  \right) = \tilde{y},
 \end{equation}
- which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. Because LightGBM makes its predictions in this log-odds space, the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space\sidenote{The additivity property of SHAP, see \autoref{sec:ml:feature_importance}, is thus also in this log-odds space.}. 
+
+\begin{marginfigure}
+  \centerfloat
+  \includegraphics[width=0.8\textwidth]{figures/logit_expit/expit.pdf}
+  \caption[The expit Function]
+          {The expit function.} 
+  \label{fig:q:expit}
+\end{marginfigure}
+
+ \begin{marginfigure}
+  \centerfloat
+  \includegraphics[width=0.8\textwidth]{figures/logit_expit/logit.pdf}
+  \caption[The logit Function]
+          {The logit function.} 
+  \label{fig:q:logit}
+\end{marginfigure}
+
+ \noindent which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. Because LightGBM makes its predictions in this log-odds space, the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space\sidenote{The additivity property of SHAP, see \autoref{sec:ml:feature_importance}, is thus also in this log-odds space.}. 
 
 With this in mind, single predictions of the LGB $b$\=/tagging model can be understood with SHAP which Figure~\ref{fig:q:shap_single_prediction_3j} is an example of. This plot, which is my own extension to Figure~\ref{fig:h:shap_single_apartment}, shows the logic behind the model's prediction for a particular jet in a particular 3-jet event. That the bias is negative reflects that there is a majority of background jets compared to signal jets\sidenote{Only around \SI{22}{\percent} of all the jets are $b$\=/jets.}. This particular event has \code{projet}$=1.003$, \code{bqvjet}$=0.529$, and \code{ptljet}$=0$. In the plot it is seen how this high value of \code{projet} has the greatest impact on the model prediction, while the medium value of \code{bqvjet} also pushes the model prediction towards a signal-prediction. The four red and green bars in the left part of the plot are all in log-odds space and their sum is shown as the blue bar to right, where the right $y$\=/axis shows the value in probability space $p\in [0,1]$. This jet was in fact a $b$\=/jet.
 % , so the model predicted this one correctly. 
@@ -395,11 +397,13 @@ To deal with this problem I developed a new PDF\sidenote{Not strictly a PDF sinc
 
 \subsection{$g$\=/Tagging Hyperparameter Optimization}
 
-Four LightGBM models\sidenote{The method with all permutations was trained using the same hyperparameters as the best ones founds in the HPO for the shuffled model to reduce time spent on HPO. The time performance is extra important for the method with all permutations as the dataset is \num{24} times larger the method with the shuffling for 4-jet events.}, two for 3-jet events and two for 4-jet events, were trained and hyperparameter optimized for both the the energy ordered and shuffled data sets with \num{100} iterations of random search. The same PDFs as for the $b$\=/tagging were used, see Table~\ref{tab:q:hpo_ranges_lgb}, and $5$\=/fold cross validation and early stopping was applied with a patience of \num{100}. The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagging}. Here the two 3-jets models are seen in the two plots to the left, and the two 4-jets to the right. The very left plot shows the performance as a function of iteration number for the 3-jet energy-ordered method (no permutation or shuffling). This was where the issues mentioned in \autoref{subsec:q:trunc_uniform} were first discovered. There are three very noticeable plateaus in this plot which corresponds to running column subsampling with zero, one, or two variables dropped. The three plateaus are also seen in the 3-jet events that were shuffled, however, with more variation in each plateau (along with a drop in performance). For the 4-jet events the plateaus are not as apparent but it can still be seen how some of the iteration show a significantly lower score than others. The parallel coordinate plots for the four plots can be seen in Figure~\ref{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}--\ref{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}.
+Four LightGBM models\sidenote{The method with all permutations was trained using the same hyperparameters as the best ones founds in the HPO for the shuffled model to reduce time spent on HPO. The time performance is extra important for the method with all permutations as the dataset is \num{24} times larger the method with the shuffling for 4-jet events.}, two for 3-jet events and two for 4-jet events, were trained and hyperparameter optimized for both the the energy ordered and shuffled data sets with \num{100} iterations of random search. The same PDFs as for the $b$\=/tagging were used, see Table~\ref{tab:q:hpo_ranges_lgb}, and $5$\=/fold cross validation and early stopping was applied with a patience of \num{100}. 
+
+The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagging}. Here the two 3-jets models are seen in the two plots to the left, and the two 4-jets to the right. The very left plot shows the performance as a function of iteration number for the 3-jet energy-ordered method (no permutation or shuffling). This was where the issues mentioned in \autoref{subsec:q:trunc_uniform} were first discovered. There are three very noticeable plateaus in this plot which corresponds to running column subsampling with zero, one, or two variables dropped. The three plateaus are also seen in the 3-jet events that were shuffled, however, with more variation in each plateau (along with a drop in performance). For the 4-jet events the plateaus are not as apparent but it can still be seen how some of the iteration show a significantly lower score than others. The parallel coordinate plots for the four plots can be seen in Figure~\ref{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}--\ref{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}.
 
 \begin{figure*}[h!]%
   \centerfloat
-  \includegraphics[width=1.1\textwidth, trim=0 0 0 0, clip]{figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \includegraphics[width=1\textwidth, trim=0 0 0 0, clip]{figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \vspace{3mm}
   \caption[Hyperparameter Optimization of $g$\=/tagging]{
     Hyperparameter Optimization results of $g$\=/tagging with \num{100} iterations of random search with LGB. From left to right, we have A) 3-jet events energy-ordered (no permutations), B) 3-jet events row-shuffled, C) 4-jet events energy-ordered, D) 4-jet events row-shuffled. Notice the different ranges on the y-axes.}
@@ -527,11 +531,11 @@ This is only a pseudo efficiency since this number is based on the jets in the e
   \label{fig:q:effiency_btag_bbg_gtag}
 \end{figure}
 
-Another event variable to look at is the mean of the two invariant masses\sidenote{The invariant masses between all three jets $m_{b\bar{b}g}$, which otherwise might have been the first intuition to use as the event variable, is non-informative (in this context) since this is just the total event energy which is kept (approximately) constant at $\sim \SI{91}{\GeV}$.} $m_{bg}$ and $m_{\bar{b}g}$. The invariant mass between two quantities\sidenote{When measured in natural units.} is:
+Another event variable to look at is the mean of the two invariant masses\sidenote[][-3cm]{The invariant masses between all three jets $m_{b\bar{b}g}$, which otherwise might have been the first intuition to use as the event variable, is non-informative (in this context) since this is just the total event energy which is kept (approximately) constant at $\sim \SI{91}{\GeV}$.} $m_{bg}$ and $m_{\bar{b}g}$. The invariant mass between two quantities\sidenote{When measured in natural units.} is:
 \begin{equation}
   m_{12} = \sqrt{\left(E_1 + E_2\right)^2 - \norm{\vec{p}_1 + \vec{p}_2}^2 },
 \end{equation} 
-where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its momentum. The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{\bar{b}g}$ in Figure~\ref{fig:q:effiency_btag_bbg_m_mean}. Here the overall correspondence between Data and MC is lower than in Figure~\ref{fig:q:effiency_btag_bbg_gtag}, especially for high values of the mean invariant mass. XXX is this a problem?.
+where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its momentum. The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{\bar{b}g}$ in Figure~\ref{fig:q:effiency_btag_bbg_m_mean}. Here the overall correspondence between Data and MC is lower than in Figure~\ref{fig:q:effiency_btag_bbg_gtag}, especially for high values of the mean invariant mass. XXX \TODO is this a problem?.
 
 \begin{figure}[h!]
   \centerfloat
@@ -679,7 +683,7 @@ It is not possible to take advantage of the Tag-Tag-Probe method for whole event
   \label{fig:q:effiency_gtag_E_diff_non_appendix}
 \end{figure}
 
-The plot for the rest of the $g$-tagging efficiencies can be seen in Figure~\ref{fig:q:effiency_gtag_E_diff}--\ref{fig:q:effiency_gtag_R_gg_CA}. It can be concluded that XXX. 
+The plot for the rest of the $g$-tagging efficiencies can be seen in Figure~\ref{fig:q:effiency_gtag_E_diff}--\ref{fig:q:effiency_gtag_R_gg_CA}. It can be concluded that XXX \TODO. 
 
 \subsection{Closure Test}
 \label{subsec:q:gluon_splitting_closure}
@@ -698,7 +702,6 @@ Here $\alpha$ is the fraction of background events in the signal region $N_\math
   \alpha = \frac{N_\mathrm{bkg}^\mathrm{sig}}{N_\mathrm{bkg}^\mathrm{side}} = \frac{\left(1-f_{gg}^{\mathrm{sig}}\right) \cdot N_\mathrm{sig}}{f_\mathrm{bkg}^{\mathrm{side}} \cdot N_\mathrm{side}}, 
 \end{equation}
 where $N_i$ is the number of events in region $i$ (either signal or sideband). The background distribution $\mathcal{P}_{\mathrm{bkg}}(x)$ itself can be approximated to be  $\mathcal{P}_{\mathrm{bkg}} \approx \mathcal{P}_{\mathrm{side}}$ if assuming no signal events in the sideband region, yet this assumption is also not satisfied and is thus corrected for:
-% while still ignoring any third order correction terms\sidenote{XXX}:
 \begin{equation}
   \label{eq:q:closure_P_bkg}
   \mathcal{P}_{\mathrm{bkg}} = \mathcal{P}_{\mathrm{side}} - \beta \cdot \mathcal{P}_{gg} \cdot \varepsilon_{gg}^{4\dash\mathrm{jet}},
@@ -728,7 +731,7 @@ The distribution of $\mathcal{P}_{gg}$ in MC is shown in Figure~\ref{fig:q:closu
 
 The closure plot for $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} and for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $g$-tagging algorithm perform well on the energy asymmetry variables with $\sigma_\mathrm{sys}(E) \approx \SI{3}{\percent}$, the angle-dependant variables, $\Delta_\theta$ and $\phi_\parallel$ with $\sigma_\mathrm{sys}(\Delta_\theta) \approx \SI{5}{\percent}$ and $\sigma_\mathrm{sys}(\phi_\parallel) \approx \SI{2}{\percent}$. When the mass enters in the variables, there is a much higher bias, however, still small for the $p_\perp$-antenna variable $\sigma_\mathrm{sys}(p^2_{\perp,\mathrm{A}}) \approx \SI{5}{\percent}$. Worst is the gluon-gluon invariant mass where $\sigma_\mathrm{sys}(m_{gg}) \approx \SI{23}{\percent}$, see Table~\ref{tab:q:gluon_splitting_systematic_errors} for all of the values. 
 
-\begin{margintable}
+\begin{margintable}[-3cm]
   \centerfloat
   \begin{tabular}{@{}rr@{}}
   {}                                                & $\sigma_\mathrm{sys}$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
@@ -773,6 +776,7 @@ The comparison between the gluon splitting distributions will be done in four di
           {Overview of the four areas, A, B, C, and D, in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. The areas are shown as colored rectangles together with a scatter plot showing the 2D-distribution for signal gluon events ($0.8 < \gamma_\mathrm{tag}$). The left plot shows is for MC and the right one for Data.} 
   \label{fig:q:R_kt_CA_overview}
 \end{figure*}
+\vspace{-3mm}
 
 The distributions for the different gluons splitting variables for area A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A_non_appendix} for both MC (scaled to Data) and Data. Area A contains \num{5022} events in the MC sample and \num{3111} in the Data sample. Generally the distributions match pretty well between the MC and Data, however, there seems to small discrepancies in the energy assymetry variables, however, this might just be due to statistical fluctuations (notice the low bin count in each bin). Furthermore, there is a mismatch for the $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$ variable at around \num{16}. When looking at the other areas, see Figure~\ref{fig:q:R_kt_CA_cut_A}--\ref{fig:q:R_kt_CA_cut_D}, the energy discrepancies seem to disappear, whereas the mismatch between MC and Data in $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$ continues to exist. 
 

@@ -72,8 +72,8 @@
 \contentsline {figure}{\numberline {5.10}{\ignorespaces ROC curve for 4-jet $b$\BarOrDash /tagging}}{70}{subsection.5.4.2}
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Distribution of $b$\BarOrDash /Tags in 4-Jet Events}}{71}{subsection.5.4.2}
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Global Feature Importances for the LGB $b$\BarOrDash /Tagging Algorithm on 4-Jet Events}}{71}{subsection.5.4.3}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces The expit Function}}{71}{subsection.5.4.3}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces The logit Function}}{71}{subsection.5.4.3}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces The expit Function}}{72}{equation.5.4.4}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces The logit Function}}{72}{equation.5.4.4}
 \contentsline {figure}{\numberline {5.15}{\ignorespaces SHAP 3-Jet Model Explanation for $b$\BarOrDash /like Jet}}{72}{equation.5.4.4}
 \contentsline {figure}{\numberline {5.16}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
 \contentsline {figure}{\numberline {5.17}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _g^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}

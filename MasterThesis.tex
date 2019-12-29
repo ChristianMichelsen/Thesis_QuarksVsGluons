@@ -1,6 +1,6 @@
 % \documentclass[a4paper, twoside, nobib, justified, nofonts]{tufte-book}
 % \documentclass[a4paper, twoside, nobib    , justified]{tufte-book}
-\documentclass[a4paper, twoside, nobib]{tufte-book}
+\documentclass[a4paper, twoside, nobib]{tufte-book} % notoc, justified,marginals=raggedouter
 % right ragged (aligned right)
 % nofonts for using other fonts
 
@@ -412,6 +412,24 @@
 \newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
 \newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
 
+% custom TOC table of contents
+\titlecontents{section}% FIXME
+  [0em] % distance from left margin
+  {\rmfamily} % above (global formatting of entry)
+  {\hspace*{2em}\textcolor{black}{\contentslabel{2em}}} % before w/label (label = ``2.6'')
+  {\hspace*{2em}} % before w/o label
+  {\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+  [] % after
+\titlecontents{subsection}% FIXME
+  [2em] % distance from left margin
+  {\rmfamily} % above (global formatting of entry)
+  {\hspace*{4em}\textcolor{black}{\contentslabel{4em}}} % before w/label (label = ``2.6'')
+  {\hspace*{4em}} % before w/o label
+  {\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+  [] % after
+
+  
+
 % Generates the index
 \usepackage{makeidx}
 \makeindex
@@ -468,7 +486,10 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 \phantomsection
 \addcontentsline{toc}{chapter}{Table of Contents}
 
+
+% \renewcommand\contentsname{Table of Content}
 \tableofcontents
+% \addtocontents{toc}{~\hfill\textbf{Page}\par}
 
 % r.9 introduction
 \cleardoublepage
