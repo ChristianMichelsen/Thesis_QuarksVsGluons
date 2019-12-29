@@ -2,7 +2,7 @@
 \contentsline {chapter}{Table of Contents}{v}{section*.2}
 \contentsline {chapter}{Foreword}{ix}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{Part I}{3}{chapter*.5}
+\contentsline {chapter}{Part I}{3}{chapter*.4}
 \contentsline {chapter}{\numberline {2}Machine Learning Theory}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Statistical Learning Theory}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Supervised Learning}{6}{section.2.2}
@@ -37,7 +37,7 @@
 \contentsline {section}{\numberline {3.7}Model Inspection}{44}{section.3.7}
 \contentsline {section}{\numberline {3.8}Multiple Models}{46}{section.3.8}
 \contentsline {section}{\numberline {3.9}Discussion}{48}{section.3.9}
-\contentsline {chapter}{Part II}{51}{chapter*.6}
+\contentsline {chapter}{Part II}{51}{chapter*.5}
 \contentsline {chapter}{\numberline {4}Particle Physics and LEP}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}The Standard Model}{53}{section.4.1}
 \contentsline {section}{\numberline {4.2}Quark Hadronization}{55}{section.4.2}
@@ -47,6 +47,8 @@
 \contentsline {chapter}{\numberline {5}Quark Gluon Analysis}{63}{chapter.5}
 \contentsline {section}{\numberline {5.1}Data Preprocessing}{63}{section.5.1}
 \contentsline {section}{\numberline {5.2}Exploratory Data Analysis}{64}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Dimensionality Reduction}{66}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Correlations}{67}{subsection.5.2.2}
 \contentsline {section}{\numberline {5.3}Loss and Evaluation Function}{67}{section.5.3}
 \contentsline {section}{\numberline {5.4}b-Tagging Analysis}{68}{section.5.4}
 \contentsline {subsection}{\numberline {5.4.1}$b$\BarOrDash /Tagging Hyperparameter Optimization}{68}{subsection.5.4.1}
@@ -58,16 +60,16 @@
 \contentsline {subsection}{\numberline {5.6.2}Truncated Uniform PDF}{75}{subsection.5.6.2}
 \contentsline {subsection}{\numberline {5.6.3}$g$\BarOrDash /Tagging Hyperparameter Optimization}{76}{subsection.5.6.3}
 \contentsline {subsection}{\numberline {5.6.4}PermNet}{77}{subsection.5.6.4}
-\contentsline {subsection}{\numberline {5.6.5}1D Comparison of LGB and PermNet}{77}{subsection.5.6.5}
+\contentsline {subsection}{\numberline {5.6.5}1D Comparison of LGB and PermNet}{78}{subsection.5.6.5}
 \contentsline {subsection}{\numberline {5.6.6}$g$\BarOrDash /Tagging Results}{78}{subsection.5.6.6}
-\contentsline {section}{\numberline {5.7}g-Tagging Efficiency}{80}{section.5.7}
+\contentsline {section}{\numberline {5.7}g-Tagging Efficiency}{81}{section.5.7}
 \contentsline {section}{\numberline {5.8}Generalized Angularities in 3-jet events}{82}{section.5.8}
 \contentsline {section}{\numberline {5.9}Gluon splitting}{84}{section.5.9}
 \contentsline {subsection}{\numberline {5.9.1}Variables}{84}{subsection.5.9.1}
 \contentsline {subsection}{\numberline {5.9.2}Efficiencies}{86}{subsection.5.9.2}
-\contentsline {subsection}{\numberline {5.9.3}Closure Test}{87}{subsection.5.9.3}
+\contentsline {subsection}{\numberline {5.9.3}Closure Test}{86}{subsection.5.9.3}
 \contentsline {subsection}{\numberline {5.9.4}4-jet results}{89}{subsection.5.9.4}
-\contentsline {section}{\numberline {5.10}Un-folding}{90}{section.5.10}
+\contentsline {section}{\numberline {5.10}Un-folding}{89}{section.5.10}
 \contentsline {chapter}{\numberline {6}Discussion and Outlook}{91}{chapter.6}
 \contentsline {chapter}{\numberline {7}Conclusion}{93}{chapter.7}
 \contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{93}{section.7.1}
@@ -77,7 +79,7 @@
 \contentsline {section}{\numberline {7.3}Getting Help}{93}{section.7.3}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{95}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{123}{appendix.B}
-\contentsline {chapter}{List of Figures}{153}{appendix*.7}
-\contentsline {chapter}{List of Tables}{156}{appendix*.8}
-\contentsline {chapter}{Bibliography}{157}{section*.9}
+\contentsline {chapter}{List of Figures}{153}{appendix*.6}
+\contentsline {chapter}{List of Tables}{156}{appendix*.7}
+\contentsline {chapter}{Bibliography}{157}{section*.8}
 \contentsfinish 

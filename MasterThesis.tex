@@ -228,7 +228,8 @@
 \definecolor{orange}{RGB}{255, 127, 0}
 \definecolor{purple}{RGB}{106, 61, 154}
 
-\definecolor{light-blue}{RGB}{166, 206, 227}
+% \definecolor{light-blue}{RGB}{166, 206, 227}  
+\definecolor{light-blue}{RGB}{133, 165, 182}
 \definecolor{light-green}{RGB}{178, 223, 138}
 \definecolor{light-purple}{RGB}{202, 178, 214}
 
@@ -339,12 +340,17 @@
 
 \DeclareSymbolFont{Xcmmi} {U} {cmmi}{m}{n}
 
+% http://www.ctex.org/documents/shredder/src/texbook.pdf
 % \let\altxi\xi
 % \DeclareMathSymbol{\xi}{\mathord}{Xcmmi}{24}
 \let\altrho\rho
 \DeclareMathSymbol{\rho}{\mathord}{Xcmmi}{26}
+\let\alttau\tau
+\DeclareMathSymbol{\tau}{\mathord}{Xcmmi}{28}
 \let\altchi\chi
 \DeclareMathSymbol{\chi}{\mathord}{Xcmmi}{31}
+\let\altphi\phi
+\DeclareMathSymbol{\phi}{\mathord}{Xcmmi}{30}
 
 % =============================================
 
@@ -434,7 +440,7 @@
 
 % \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
-\includeonly{chapter_foreword,chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_quarks_gluons}
+\includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
 % \includeonly{chapter_machine_learning_theory}
