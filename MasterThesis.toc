@@ -2,7 +2,7 @@
 \contentsline {chapter}{Table of Contents}{v}{section*.2}
 \contentsline {chapter}{Foreword}{ix}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {part}{Part I}{3}{chapter*.4}
+\contentsline {part}{Part I}{3}{chapter*.5}
 \contentsline {chapter}{\numberline {2}Machine Learning Theory}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Statistical Learning Theory}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Supervised Learning}{6}{section.2.2}
@@ -37,7 +37,8 @@
 \contentsline {section}{\numberline {3.7}Model Inspection}{43}{section.3.7}
 \contentsline {section}{\numberline {3.8}Multiple Models}{45}{section.3.8}
 \contentsline {section}{\numberline {3.9}Discussion}{47}{section.3.9}
-\contentsline {part}{Part II}{51}{chapter*.5}
+\contentsline {section}{\numberline {3.10}Conclusion}{49}{section.3.10}
+\contentsline {part}{Part II}{51}{chapter*.8}
 \contentsline {chapter}{\numberline {4}Particle Physics and LEP}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}The Standard Model}{53}{section.4.1}
 \contentsline {section}{\numberline {4.2}Quark Hadronization}{54}{section.4.2}
@@ -69,18 +70,11 @@
 \contentsline {subsection}{\numberline {5.9.2}Efficiencies}{86}{subsection.5.9.2}
 \contentsline {subsection}{\numberline {5.9.3}Closure Test}{87}{subsection.5.9.3}
 \contentsline {subsection}{\numberline {5.9.4}4-jet results}{89}{subsection.5.9.4}
-\contentsline {section}{\numberline {5.10}Quark-Gluon Discussion}{90}{section.5.10}
-\contentsline {part}{Part III}{93}{chapter*.6}
-\contentsline {chapter}{\numberline {6}Discussion and Outlook}{93}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusion}{95}{chapter.7}
-\contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{95}{section.7.1}
-\contentsline {section}{\numberline {7.2}Tufte-\LaTeX \xspace Mailing Lists}{95}{section.7.2}
-\contentsline {paragraph}{Discussion list}{95}{paragraph*.10}
-\contentsline {paragraph}{Commits list}{95}{paragraph*.11}
-\contentsline {section}{\numberline {7.3}Getting Help}{95}{section.7.3}
-\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{97}{appendix.A}
-\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{125}{appendix.B}
-\contentsline {chapter}{List of Figures}{156}{appendix*.7}
-\contentsline {chapter}{List of Tables}{158}{appendix*.8}
-\contentsline {chapter}{Bibliography}{159}{section*.9}
+\contentsline {section}{\numberline {5.10}Discussion}{90}{section.5.10}
+\contentsline {section}{\numberline {5.11}Conclusion}{90}{section.5.11}
+\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{93}{appendix.A}
+\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{121}{appendix.B}
+\contentsline {chapter}{List of Figures}{152}{appendix*.9}
+\contentsline {chapter}{List of Tables}{154}{appendix*.10}
+\contentsline {chapter}{Bibliography}{155}{section*.11}
 \contentsfinish 

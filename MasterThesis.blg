@@ -8,8 +8,6 @@ A level-1 auxiliary file: chapter_machine_learning_theory.aux
 A level-1 auxiliary file: chapter_housing_prices.aux
 A level-1 auxiliary file: chapter_particle_physics_theory.aux
 A level-1 auxiliary file: chapter_quark_gluon.aux
-A level-1 auxiliary file: chapter_discussion.aux
-A level-1 auxiliary file: chapter_conclusion.aux
 A level-1 auxiliary file: chapter_appendix_housing.aux
 A level-1 auxiliary file: chapter_appendix_quarks_gluons.aux
 Database file #1: My_Library.bib
@@ -313,7 +311,7 @@ Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 You've used 103 entries,
             2773 wiz_defined-function locations,
-            1316 strings with 31780 characters,
+            1314 strings with 31736 characters,
 and the built_in function-call counts, 53395 in all, are:
 = -- 4582
 > -- 3649
