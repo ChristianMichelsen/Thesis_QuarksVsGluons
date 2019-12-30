@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.27)  30 DEC 2019 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.27)  30 DEC 2019 18:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3349,10 +3349,10 @@ Underfull \hbox (badness 6063) in paragraph at lines 662--662
 \T1/pplj/m/n/8 ored ac-cord-ing to the sales date
  []
 
+
+LaTeX Warning: Marginpar on page 45 moved.
+
 [45 </Users/michelsen/Master_Thesis/thesis/figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_tight_SHAP_vals_interaction_Vaerdi0.pdf>]
-
-LaTeX Warning: Marginpar on page 46 moved.
-
 
 LaTeX Warning: Marginpar on page 46 moved.
 
@@ -3371,20 +3371,36 @@ LaTeX Warning: Marginpar on page 46 moved.
 
 LaTeX Warning: Marginpar on page 48 moved.
 
-
-Overfull \hbox (26.52946pt too wide) in paragraph at lines 713--714
-[][][][][][] \T1/pplj/m/n/10 (postal code), [][][][][][] (year of con-struc-tion), [][][][][][]
- []
-
-<figures/housing_text/villa_tfidf.pdf, id=2035, 376.53172pt x 390.8994pt>
+<figures/housing_text/villa_tfidf.pdf, id=2033, 376.53172pt x 390.8994pt>
 File: figures/housing_text/villa_tfidf.pdf Graphic file (type pdf)
 <use figures/housing_text/villa_tfidf.pdf>
-Package pdftex.def Info: figures/housing_text/villa_tfidf.pdf  used on input line 716.
-(pdftex.def)             Requested size: 139.15367pt x 144.4635pt.
+Package pdftex.def Info: figures/housing_text/villa_tfidf.pdf  used on input line 719.
+(pdftex.def)             Requested size: 243.5649pt x 252.85884pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 726--726
+$[]$\T1/pplj/m/n/8 With the Dan-ish names:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 726--726
+[][][][][][]\T1/pplj/m/n/8 , [][][][][][],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 726--726
+[][][][][][]\T1/pplj/m/n/8 , [][][][][][], and
+ []
+
+
+LaTeX Warning: Marginpar on page 48 moved.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [48 </Users/michelsen/Master_Thesis/thesis/figures/housing_text/villa_tfidf.pdf>]
+ [48]
 
 LaTeX Warning: Marginpar on page 49 moved.
 
@@ -3392,8 +3408,8 @@ LaTeX Warning: Marginpar on page 49 moved.
 LaTeX Warning: Marginpar on page 49 moved.
 
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 728.
-) [49] [50
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 738.
+) [49 </Users/michelsen/Master_Thesis/thesis/figures/housing_text/villa_tfidf.pdf>] [50
 
 
 ] [51]
@@ -4175,10 +4191,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 495.
  ) 
 Here is how much of TeX's memory you used:
- 42039 strings out of 492646
- 813003 string characters out of 6129563
- 984042 words of memory out of 5000000
- 44663 multiletter control sequences out of 15000+600000
+ 42040 strings out of 492646
+ 813018 string characters out of 6129563
+ 984007 words of memory out of 5000000
+ 44664 multiletter control sequences out of 15000+600000
  663494 words of font info for 282 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,20n,96p,1866b,1390s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4323,7 +4339,7 @@ pdfTeX warning (dest): name{chapter.2} has been referenced but does not exist, r
 pdfTeX warning (dest): name{chapter.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmb.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/michelsen/Master_Thesis/thesis/MasterThesis.pdf (84 pages, 5923146 bytes).
+Output written on /Users/michelsen/Master_Thesis/thesis/MasterThesis.pdf (84 pages, 5924047 bytes).
 PDF statistics:
  3643 PDF objects out of 4296 (max. 8388607)
  1951 compressed objects within 20 object streams
