@@ -121,14 +121,15 @@ The vertex variables are a subset of all variables which include the three varia
 
 % \begin{enumerate}
 \begin{enumerate}[leftmargin=*,labelindent=16pt]
-  \begin{marginfigure}[3cm]
+  
+  \item[\hspace{0.5cm} \code{projet}:] \newthought{Probability of significant lifetime}. For each track in the jet an impact parameter $\delta$ is computed. This parameter is the minimum distance between the estimated $Z$ decay point and the track itself and its sign depends on whether or not the point of closest approach is in front of or behind the $Z$ decay point (relative to the momentum). From $\delta$ the significance $\mathcal{S}$ -- which is $\delta / \sigma_\delta$ -- is computed and is thus a measure of the certainty of a measured track being from primary vertex. High values of $\mathcal{S}$ is typically an indicator of $b$ jets, since long-lived particles typically decay in front of the $Z$ relative to the jet direction, while $uds$-jets generally have small significance and might as well have negative values of $\mathcal{S}$. An illustration of the difference in significance between $uds$-jets and $b$-jets can be seen in Figure~\ref{fig:hep:significance}.
+  \begin{marginfigure}[-0.5cm]
     \centerfloat
     \includegraphics[width=0.9\textwidth]{figures/projet_significance/projet_significance.pdf}
     \caption[Track Significance]{Distribution showing the difference in significance $\mathcal{S}$ between $uds$-jets and $b$-jets. Based on own, simulated data to illustrate this difference.}
     \label{fig:hep:significance}
   \end{marginfigure} 
-  \item[\hspace{0.5cm} \code{projet}:] \newthought{Probability of significant lifetime}. For each track in the jet an impact parameter $\delta$ is computed. This parameter is the minimum distance between the estimated $Z$ decay point and the track itself and its sign depends on whether or not the point of closest approach is in front of or behind the $Z$ decay point (relative to the momentum). From $\delta$ the significance $\mathcal{S}$ -- which is $\delta / \sigma_\delta$ -- is computed and is thus a measure of the certainty of a measured track being from primary vertex. High values of $\mathcal{S}$ is typically an indicator of $b$ jets, since long-lived particles typically decay in front of the $Z$ relative to the jet direction, while $uds$-jets generally have small significance and might as well have negative values of $\mathcal{S}$. An illustration of the difference in significance between $uds$-jets and $b$-jets can be seen in Figure~\ref{fig:hep:significance}.
-  From $\mathcal{S}$ the track probability $\mathcal{P}_\mathrm{track}$ of a track originating at the decay point of the $Z$ can be computed, which can further be aggregated across all tracks within a jet to form the jet probability $\mathcal{P}_\mathrm{jet}$ which \code{projet} is a function of \autocite{buskulicPreciseMeasurementGZ1993}. 
+  \noindent From $\mathcal{S}$ the track probability $\mathcal{P}_\mathrm{track}$ of a track originating at the decay point of the $Z$ can be computed, which can further be aggregated across all tracks within a jet to form the jet probability $\mathcal{P}_\mathrm{jet}$ which \code{projet} is a function of \autocite{buskulicPreciseMeasurementGZ1993}. 
   Whether or not $\mathcal{P}_\mathrm{jet}$ is strictly a probability can be discussed but it is related to the probability of all tracks within a jet to originate from long-lived particles, which itself is a good indicator of being a $b$- (or $c$-) jet. This variable further has the advantage of being independent of any vertex algorithm.
 
 
