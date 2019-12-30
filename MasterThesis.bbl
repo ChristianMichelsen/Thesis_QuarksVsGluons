@@ -1,5 +1,5 @@
 \ifdefined\DeclarePrefChars\DeclarePrefChars{'’-}\else\fi
-\begin{thebibliography}{101}
+\begin{thebibliography}{103}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -326,6 +326,14 @@ T.~C. Collaboration.
 \newblock ISSN 03702693.
 \newblock \doi{10.1016/j.physletb.2012.08.021}.
 \newblock URL \url{http://arxiv.org/abs/1207.7235}.
+
+\bibitem[Dam()]{damUpperLimitBr1996}
+M.~Dam.
+\newblock An upper limit for {{Br}}({{Z}}-{$>$}ggg) from symmetric 3–jet z0
+  hadronic decays.
+\newblock 389\penalty0 (2):\penalty0 405--415.
+\newblock ISSN 0370-2693.
+\newblock \doi{10.1016/S0370-2693(96)01450-5}.
 
 \bibitem[Diaz-Papkovich et~al.()Diaz-Papkovich, Anderson-Trocmé, Ben-Eghan,
   and Gravel]{diaz-papkovichUMAPRevealsCryptic2019}
@@ -721,6 +729,15 @@ d.~L. M.~J. {van}, E.~C. Polley, and A.~E. Hubbard.
 \newblock \doi{10.2202/1544-6115.1309}.
 \newblock URL
   \url{https://www.degruyter.com/view/j/sagmb.2007.6.issue-1/sagmb.2007.6.1.1309/sagmb.2007.6.1.1309.xml}.
+
+\bibitem[van~der Bij and Glover()]{vanderbijBosonProductionDecay1989}
+J.~J. van~der Bij and E.~W.~N. Glover.
+\newblock Z boson production and decay via gluons.
+\newblock 313\penalty0 (2):\penalty0 237--257.
+\newblock ISSN 0550-3213.
+\newblock \doi{10.1016/0550-3213(89)90317-9}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/0550321389903179}.
 
 \bibitem[van~der Maaten and Hinton()]{maatenVisualizingDataUsing2008}
 L.~van~der Maaten and G.~Hinton.

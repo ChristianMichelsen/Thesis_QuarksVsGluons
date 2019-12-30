@@ -10,7 +10,7 @@
 \section{Data Preprocessing}
 \label{sec:q:data_preprocessing}
 
-The data files were acquired from Prof. Peter Hansen (NBI) who worked on the ALEPH expiriment. The Data consists of \num{43} data files from between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$\=/quark events (MCb) (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using the Python package uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5-format. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $p_\mathrm{sum}$ in each event is $\SI{32}{\GeV} \leq p_\mathrm{sum}$ to remove any $Z \rightarrow \tau^+ \tau^-$ events. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having at least \num{7} TPC hits and 1 silicon hit or more. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since the detector performance worsens significantly in that region. These cuts were standard requirements for the ALEPH experiment.
+The data files were acquired from Prof. Peter Hansen (NBI) who worked on the ALEPH expiriment. The Data consists of \num{43} data files from between \num{1991} and \num{1995} totalling \SI{3.5}{\giga\byte} (Data). Along with this comes \num{125} files based on Monte Carlo (MC) simulations (\SI{8.4}{\giga\byte}) and additional \num{42} MC-files with only $b$\=/quark events (MCb) (\SI{2.1}{\giga\byte}). The data files which are in the form of \emph{Ntuples}, ROOT's data format \autocite{brunROOTObjectOriented1997}, are converted to HDF5-files by using the Python package uproot \autocite{ScikithepUproot2019}. While iterating over the Ntuples, some basic cuts are applied before exporting the data to HDF5-format. The first one being that the (center of mass) energy $E$ in the event has to be within $\SI{90.8}{\GeV} \leq E \leq \SI{91.6}{\GeV}$ to only use the $Z$ peak data. The second one being that the sum of the momenta $p_\mathrm{sum}$ in each event is $\SI{32}{\GeV} \leq p_\mathrm{sum}$ to remove $Z \rightarrow \tau^+ \tau^-$ events. To ensure a primary vertex, at least two good tracks are required where a good track is defined as having at least \num{7} TPC hits and 1 silicon hit or more. Finally it is required that the cosine of the thrust axis polar angle, which is the angle between the trust axis and the beam, is less than or equal to \num{0.8} to avoid any low angle events since the detector performance worsens significantly in that region. These cuts were standard requirements for the ALEPH experiment.
 % (P. Hansen, personal communication, December, 2019).
 
 One last cut which was experimented with was the threshold value for \emph{jet matching}. The jet matching is the process of matching the jet with one of the final state quarks. The jet is said to be matched if the dot product between the final quark momentum and the jet momentum is more than then threshold value. Higher thresholds means cleaner jets but at the expense of less statistics. A jet matching threshold of \num{0.90} was found to be a good compromise between purity and quantity where \SI{97.8}{\percent} of all 2-jet events are matched and \SI{96.7}{\percent} of all other jets were matched\sidenote{Compare this to \SI{98.5}{\percent} and \SI{97.8}{\percent} for a threshold of \num{0.85} or \SI{95.9}{\percent} and \SI{93.9}{\percent} for a threshold of \num{0.95}.}.  
@@ -71,7 +71,7 @@ Since the machine learning models are only trained on the three vertex variables
 \end{table}
 
 In addition to knowing the correct flavor, we define that an event is \emph{$q$\=/matched} if one, and only one, of the jets are assigned to one of the (final) quarks, if one, and only one, of the jets are assigned to the other (final) quark, and if no other jets are matched to any of the (final) quarks. We then define what constitutes a $b$\=/jet: if it has \code{flevt} $= 5$, the entire event is $q$\=/matched, and the jet is matched to one of the quarks. Similarly we define $c$\=/jets only with the change that \code{flevt} $= 4$, and $uds$\=/jets\sidenote{Will also be called a $l$-jet.} with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined to be a jet in a (any-flavor) $q$\=/matched event where the jet itself is not assigned to any of the (final) quarks. Strictly speaking, this means that the gluon jet is not \SI{100}{\percent} certain of being a gluon. We cannot know this, as not all of the input parameters in the MC simulation are known, only the final clustered jets. Due to the $q$\=/match criterion this also means that some jets are assigned the label \q{non\=/$q$\=/matched} which is regarded as background. The distribution of different types of jets can be seen in Table~\ref{tab:q:flevt_overview} and shown as relative numbers in Table~\ref{tab:q:flevt_overview_percent_relative}.
-
+\vspace{-2mm}
 \begin{table}[h!]
   \centering
   \begin{tabular}{@{}rrrrrr@{}}
@@ -88,11 +88,12 @@ In addition to knowing the correct flavor, we define that an event is \emph{$q$\
   \caption{Number of different types of jets for MC and MCb for $n$-jet events. See also Table~\ref{tab:q:flevt_overview_percent_relative} for relative numbers.}
   \label{tab:q:flevt_overview}
 \end{table}
+\vspace{-5mm}
 
 With the criteria defined above for what constitutes a specific type of jet the 1D-distributions for the three vertex variables are plotted in Figure~\ref{fig:q:vertex_variables}. For all three subplots the histograms are shown with logarithmic $y$\=/axes, all $b$\=/jets in blue, $c$\=/jets in red, $g$\=/jets in green, and all of the jets (no matter their type) are shown in orange. The distributions for 2-jet events are shown in fully opaque color, 3-jet events in dashed lines, and 4-jet events in lighter colors. In the left subplot the \code{projet} variable is plotted where it can be seen that high values of \code{projet} tend to indicate $b$\=/jets. In the middle subplot \code{bqvjet} is plotted which shares many similarities with the \code{projet} variables, including that high values indicate $b$\=/jets. In the right subplot the \code{ptljet} is plotted. This variable has many zeros in it which correlates with mostly with gluons\sidenote{Around \SI{98}{\percent} of all $g$\=/jets are zeros for the variable \code{ptljet} compared to $\sim \SI{82}{\percent}$ for $c$\=/jets and $\sim \SI{70}{\percent}$ for $b$\=/jets.} and large values are mostly due to $b$\=/jets. In general it is clear to see how the differences in distribution between the \num{2}-, \num{3}-, and \num{4}-jet events are minor, with the one exception of \num{2}-jet events which does not contain any gluons at all. 
 
 \begin{figure}[h!]
-  \includegraphics[width=0.9\textwidth, trim=10 10 5 5, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \includegraphics[width=1\textwidth, trim=10 10 5 5, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[Histograms of the vertex variables]
           {Normalized histograms of the three vertex variables: \code{projet}, \code{bqvjet}, and \code{ptljet}. In blue colors the variables are shown for \textcolor{blue}{true b-jets}, in red for \textcolor{red}{true c-jets}, in green for \textcolor{green}{true g-jets}, and in orange for \textcolor{orange}{all of the jets} (including non q-matched). In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. Notice the logarithmic y-axis, that there are no g-jets for 2-jet events (as expected), and that all of the distributions are very similar not matter how many jets.
           } 
@@ -134,7 +135,9 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
   \label{fig:q:UMAP_vertex_2j}
 \end{marginfigure}
 
-The UMAP algorithm has several hyperparameters, where two of the most important ones are the number of neighbors \code{n_neighbors} which controls the priority between correctly preserving the global versus the local structure, and the \code{min_dist} which defines how tightly together UMAP is allowed to cluster the points in the low-dimensional representation. To properly choose the best combination of \code{n_neighbors} and \code{min_dist} a grid search with ${\code{n_neighbors} \in \{10, 50, 100, 250 \}}$ and ${\code{min_dist} \in \{0, 0.2, 0.5\}}$ is performed. This is shown for 4-jet events in Figure~\ref{fig:q:UMAP_vertex_all_4j}. The best combination of \code{n_neighbors} and \code{min_dist} is subjective at best, but I judged that ${\code{n_neighbors}=250}$ and ${\code{min_dist}=0.2}$ gave the best compromise between preserving local and global structure. The results of running UMAP on 4-jet events can be seen in Figure~\ref{fig:q:UMAP_vertex_4j}. Here the millions of points are plotted using Datashader \autocite{bednarDatashaderRevealingStructure2019} to avoid overplotting and colored according to the jet type. From the figure it is seen how there are some clear $b$\=/jet clusters, however, most of the data seem to be a mix of $g$\=/ and $uds$\=/jets. The plots with the same UMAP parameters for 3-jet and 2-jet events are seen in Figure~\ref{fig:q:UMAP_vertex_3j} and \ref{fig:q:UMAP_vertex_2j}. 
+The UMAP algorithm has several hyperparameters, where two of the most important ones are the number of neighbors \code{n_neighbors} which controls the priority between correctly preserving the global versus the local structure, and the \code{min_dist} which defines how tightly together UMAP is allowed to cluster the points in the low-dimensional representation. To properly choose the best combination of \code{n_neighbors} and \code{min_dist} a grid search with \code{n_neighbors} ${\in \{10, 50, 100, 250 \}}$ and \code{min_dist}$\in \{0, 0.2, 0.5\}$ is performed. This is shown for 4-jet events in Figure~\ref{fig:q:UMAP_vertex_all_4j}. 
+
+The best combination of \code{n_neighbors} and \code{min_dist} is subjective at best, but I judged that $\code{n_neighbors}=250$ and $\code{min_dist}=0.2$ gave the best compromise between preserving local and global structure. The results of running UMAP on 4-jet events can be seen in Figure~\ref{fig:q:UMAP_vertex_4j}. Here the millions of points are plotted using Datashader \autocite{bednarDatashaderRevealingStructure2019} to avoid overplotting and colored according to the jet type. From the figure it is seen how there are some clear $b$\=/jet clusters, however, most of the data seem to be a mix of $g$\=/ and $uds$\=/jets. The plots with the same UMAP parameters for 3-jet and 2-jet events are seen in Figure~\ref{fig:q:UMAP_vertex_3j} and \ref{fig:q:UMAP_vertex_2j}. 
 
 These figures suggest that it should be possible to discriminate the $b$\=/jets from the other jets somewhat, however, no clear separation is expected. The t-SNE algorithm was also tested but showed inferior performance compared to UMAP, see Figure~\ref{fig:q:tsne_vertex} for an example of this.
 
@@ -193,7 +196,8 @@ train-test ratio.
 Compared to the housing prices dataset, the number of observations $N$ is a lot larger ($\num{3e7} \gg \num{5e5}$), although the dimensionality $M$ is much smaller ($3 \ll 143 $). Therefore both XGBoost (XGB) and LightGBM (LGB) were included as models initially since their performances in the housing dataset were very similar. LightGBM was expected to be faster on this dataset due to the large $N$. The models were hyperparameter optimized (HPO) using random search (RS) since the Bayesian optimization (BO) did not show any performance gains compared to RS in the housing project. They were both hypermeter optimized with $5$\=/fold cross validation and early stopping with a patience of \num{100}. The PDFs for the random search for the LightGBM model can be seen in Table~\ref{tab:q:hpo_ranges_lgb}, and the ones for XGBoost in Table~\ref{tab:q:hpo_ranges_xgb}. The random search has been run with \num{100} iterations for LightGBM and only \num{10} iterations for XGBoost since XGBoost turned out to be very slow\sidenote{See page \pageref{page:q:timings_b_tag} for a discussion of the timings.} at fitting datasets of this size. The results of the HPO for 3-jet and 4-jet events can be seen in Figure~\ref{fig:q:CV_res_iterations_b_tagging}. For 3-jets it can be seen how most of the iterations share about the same performance (within $1\sigma$), however, some iterations show a significant decrease in performance. The same clear pattern is not seen in the 4-jet events.
 % For 4-jets there are not any iterations which share the same bad performance relative to the others as some of the 3-jets. 
 
-\begin{margintable}[-12.5cm]
+\vspace{-2mm}
+\begin{margintable}[-11cm]
   \centerfloat
   % \vspace{3mm}
   \begin{tabular}{@{}ll@{}}
@@ -217,7 +221,7 @@ Compared to the housing prices dataset, the number of observations $N$ is a lot 
     Hyperparameter Optimization results of $b$\=/tagging with random search. From left to right, we have A) \num{100} iterations of RS with LGB on 3-jets, B) \num{10} iterations of RS with XGB on 3-jets, C) \num{100} iterations of RS with LGB on 4-jets, D) \num{10} iterations of RS with XGB on 4-jets. Notice the different ranges on the y-axes.}
   \label{fig:q:CV_res_iterations_b_tagging}%
 \end{figure*}
-\vspace{-3mm}
+\vspace{-5mm}
 
 The relationship between the different hyperparameters in 4-jet events can be seen in the parallel coordinate plot in Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j}. First of all the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{subsec:q:trunc_uniform} for a deeper discussion about the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j}.
 
@@ -259,17 +263,18 @@ Even though the distributions of $b$\=/tags are different between the three mode
 
 The LGB model is, however, several times faster than the XGB model. In comparison, \num{10} iterations of HPO using RS on 3-jet events with XGB took more almost \num{34} hours on HEP\sidenote{The local computing cluster.} compared to just \num{23} hours for \num{100} iterations for LGB. The same performance difference was seen in 4-jet events where the timings were \num{4} hours for XGB compared to \num{2.5} hours for LGB. Since their performance is similar, XGB is dropped in the subsequent analysis. 
 
-
 The distribution of the $b$\=/tag scores $\beta_\mathrm{tag}$ for signal and background in 4-jet events can be seen in Figure~\ref{fig:q:btag_histogram_4j}. The separation between the heavier quarks and light quarks (and gluons) is clear at high values of $\beta_\mathrm{tag}$, however, a lot of $c$\=/quarks also get a high $b$\=/tag score. The same is seen for 3-jet events in Figure~\ref{fig:q:btag_histogram_3j}. 
 
+\vspace{-5mm}
 \begin{figure}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=15 15 15 50, clip]{figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \vspace{2mm}
   \caption[Distribution of $b$\=/Tags in 4-Jet Events]
           {Distribution of $b$\=/tags in 4-jet events for \textcolor{blue}{$b$\=/jets} in blue, \textcolor{red}{$c$\=/jets} in red, \textcolor{green}{$uds$} in green and \textcolor{orange}{$g$} in orange.} 
   \label{fig:q:btag_histogram_4j}
 \end{figure}
-
+\vspace{-5mm}
 
 \subsection{$b$\=/Tagging Model Inspection}
 
@@ -291,19 +296,20 @@ In regression, the model output is a continuous prediction ${\hat{y}_\mathrm{reg
     \label{eq:q:expit}
     \mathrm{expit(\tilde{y})} = \frac{e^{\tilde{y}}}{1+e^{\tilde{y}}} \equiv p,
 \end{equation}
-where $p$ is a number in the $[0, 1]$\=/interval. The expit function is also sometimes known as the logistic function and is visualized in Figure~\ref{fig:q:expit}. Its inverse is the \emph{logit} function:
-\begin{equation}
-  \label{eq:q:logit}
-  \mathrm{logit}(p) = \log \left( \frac{p}{1-p}  \right) = \tilde{y},
-\end{equation}
 
-\begin{marginfigure}
+\begin{marginfigure}[-2.5cm]
   \centerfloat
   \includegraphics[width=0.8\textwidth]{figures/logit_expit/expit.pdf}
   \caption[The expit Function]
           {The expit function.} 
   \label{fig:q:expit}
 \end{marginfigure}
+
+\noindent where $p$ is a number in the $[0, 1]$\=/interval. The expit function is also sometimes known as the logistic function and is visualized in Figure~\ref{fig:q:expit}. Its inverse is the \emph{logit} function:
+\begin{equation}
+  \label{eq:q:logit}
+  \mathrm{logit}(p) = \log \left( \frac{p}{1-p}  \right) = \tilde{y},
+\end{equation}
 
  \begin{marginfigure}
   \centerfloat
@@ -313,7 +319,7 @@ where $p$ is a number in the $[0, 1]$\=/interval. The expit function is also som
   \label{fig:q:logit}
 \end{marginfigure}
 
- \noindent which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. Because LightGBM makes its predictions in this log-odds space, the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space\sidenote{The additivity property of SHAP, see \autoref{sec:ml:feature_importance}, is thus also in this log-odds space.}. 
+ \noindent which is visualized in Figure~\ref{fig:q:logit}. The fraction in equation \eqref{eq:q:logit} is called the \emph{odds} and the logit-transformed value of $p$, $\mathrm{logit}(p)=\tilde{y}$, is thus sometimes called the \emph{log-odds}. Because LightGBM makes its predictions in this log-odds space, the SHAP values in Figure~\ref{fig:q:shap_btag_global_4j} are also in log-odds space\sidenote[][5mm]{The additivity property of SHAP, see \autoref{sec:ml:feature_importance}, is thus also in this log-odds space.}. 
 
 With this in mind, single predictions of the LGB $b$\=/tagging model can be understood with SHAP which Figure~\ref{fig:q:shap_single_prediction_3j} is an example of. This plot, which is my own extension to Figure~\ref{fig:h:shap_single_apartment}, shows the logic behind the model's prediction for a particular jet in a particular 3-jet event. That the bias is negative reflects that there is a majority of background jets compared to signal jets\sidenote{Only around \SI{22}{\percent} of all the jets are $b$\=/jets.}. This particular event has \code{projet}$=1.003$, \code{bqvjet}$=0.529$, and \code{ptljet}$=0$. In the plot it is seen how this high value of \code{projet} has the greatest impact on the model prediction, while the medium value of \code{bqvjet} also pushes the model prediction towards a signal-prediction. The four red and green bars in the left part of the plot are all in log-odds space and their sum is shown as the blue bar to right, where the right $y$\=/axis shows the value in probability space $p\in [0,1]$. This jet was in fact a $b$\=/jet.
 % , so the model predicted this one correctly. 
@@ -340,7 +346,9 @@ Of course, the truth is never known in Nature, however, it is for simulated MC e
 
 For measuring the $b$\=/tagging efficiency we apply a Tag-Tag-Probe (TTP) method based on the $b$\=/tags. In 3-jet events two of the jets will serve as tags and the last one as probe. The tags are jets where, if they are known, the probe is also known (with high probability). One can then apply the cut to the probe and see if it would have passed the cut or not. This method provides a clean and unbiased sample (the probes) and since (with high probability) the truth of the probe jet is known, the efficiency can be measured in this way \autocite{atlascollaborationElectronEfficiencyMeasurements2017}. Since the TTP method does not depend on real truth, it can be used on both MC and Data.
 
-To measure the $b$\=/tagging efficiency we make use of the characteristic signature of the $Z$ decay that the clear majority\sidenote{The fraction of $Z \rightarrow ggg$ events are $<\SI{1.1}{\percent}$ \autocite{particledatagroupReviewParticlePhysics2018}.} of 3-jet decays are $Z \rightarrow q\bar{q}g$. This means that if one of the jets get a high $b$\=/tag (and is thus likely to be a $b$\=/jet), and another one of the jets gets a low $b$\=/tag (and is thus likely to be a $g$\=/jet), then it is highly probable that the remaining jet is a $b$\=/jet. To formalize this, sort the jets after their $b$\=/tags values from high to low such that $\beta_{\mathrm{tag}_1} > \beta_{\mathrm{tag}_2} > \beta_{\mathrm{tag}_3}$ for the jets $\vec{J}=[J_1, J_2, J_3]$ where $J_i$ has $b$\=/tag $\beta_{\mathrm{tag}_i}$. We then define the two tags $T_b$ and $T_g$ as $\vec{J}=[T_b, P, T_g]$ where $P$ is the probe. If the two tags $T_b$ and $T_g$ passes the cuts $\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_1}$ and $\beta_{\mathrm{tag}_3} < \beta_{g\dash\mathrm{cut}}$, then the probe is selected $P=J_2$. If the probe is selected, then the last cut $\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_2}$ is the one that the efficiency is based on.
+To measure the $b$\=/tagging efficiency we use that the $Z$ decay has the form $Z \rightarrow q\bar{q}g$. Quantum field calculations based on the Standard Model predicts that the decay $Z \rightarrow ggg$ is extremely unlikely with a branching ratio of $\sim 10^{-6}$ \autocite{vanderbijBosonProductionDecay1989}. This decay was actually tested at LEP which did not find any $ggg$ events and concluded that the branching ratio was $< \SI{1.6}{\percent}$ with an upper limit at \SI{95}{\percent} confidence level \autocite{damUpperLimitBr1996}. This number is further reduced today to $<\SI{1.1}{\percent}$ \autocite{particledatagroupReviewParticlePhysics2018}. 
+
+That the $Z$ decays to $q\bar{q}g$ means that if one of the jets get a high $b$\=/tag (and is thus likely to be a $b$\=/jet), and another one of the jets gets a low $b$\=/tag (and is thus likely to be a $g$\=/jet), then it is highly probable that the remaining jet is a $b$\=/jet. To formalize this, sort the jets after their $b$\=/tags values from high to low such that $\beta_{\mathrm{tag}_1} > \beta_{\mathrm{tag}_2} > \beta_{\mathrm{tag}_3}$ for the jets $\vec{J}=[J_1, J_2, J_3]$ where $J_i$ has $b$\=/tag $\beta_{\mathrm{tag}_i}$. We then define the two tags $T_b$ and $T_g$ as $\vec{J}=[T_b, P, T_g]$ where $P$ is the probe. If the two tags $T_b$ and $T_g$ passes the cuts $\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_1}$ and $\beta_{\mathrm{tag}_3} < \beta_{g\dash\mathrm{cut}}$, then the probe is selected $P=J_2$. If the probe is selected, then the last cut $\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_2}$ is the one that the efficiency is based on.
 
 Based on Figure~\ref{fig:q:btag_histogram_4j} we define the threshold for the $b$\=/jet tag to be $\beta_{b\dash\mathrm{cut}}=0.9$ and for the $g$\=/jet to be $\beta_{g\dash\mathrm{cut}} = 0.4$. The $b$\=/signal region is thus $0.9 < \beta$ and the $g$\=/signal region $\beta < 0.4$ . With these cuts, the efficiency, denoted $\varepsilon_b^{b\dash\mathrm{sig}}$, of the $b$\=/jets being tagged as $b$\=/signal is computed. The TTP method is applied to both Data (Data TTP) and MC (MC TTP), along with a measurement of the efficiency when measured using MC truth (MC Truth) and a measurement based on the probes that were actual $b$\=/jets according to truth (MC Truth TTP)\sidenote{So the probes are selected by the TTP method, however, only true $b$-jet probes are kept.}. The efficiency is measured as a function of jet energy $E_\mathrm{jet}$ to gauge the energy dependence of the efficiency, i.e. computed in a bin-by-bin basis split according to the jet energy (of the probe). 
 
@@ -456,7 +464,7 @@ It can be concluded, at least in 1D, that both LGB and PermNet are able to captu
 
 \subsection{$g$\=/Tagging Results}
 
-The distribution of $g$\=/tag scores in 4-jet (training) events the can be seen in Figure~\ref{fig:q:gtag_scores_4j} for the eight combinations of the two models (LGB and PermNet) and the four data sorting methods (energy ordered, (row) shuffled, all permutations, and the 1D sum.). At first the increased number of events (a factor of \num{24} for 4-jet events) with the all-permutation scheme is seen separating the two light green curves from the rest. The energy ordered LGB model is the combination which utilizes most of the $\gamma_\mathrm{tag}$\=/range, while the two 1D sum models have the most limited range, indicating that the models are more uncertain about their predictions. The energy ordered and shuffled PermNet models can more or less only be distinguished because the latter is plotted with dashed lines. This makes sense, since they are also expected to make the same predictions were they really permutation invariant\sidenote{It is only because of the stochasticity in the optimization process of the two networks that they did not converge to exactly the same predictions.}. When plotted with normalized counts it is seen how the shuffled and all-permuted LGB models also follow each other very closely, which can still be partly seen in this plot by comparing the two distributions. The distribution of $g$\=/tags in 3-jet training events can be seen in Figure~\ref{fig:q:gtag_scores_3j}. 
+The distribution of $g$\=/tag scores in 4-jet (training) events the can be seen in Figure~\ref{fig:q:gtag_scores_4j} for the eight combinations of the two models (LGB and PermNet) and the four data sorting methods (energy ordered, (row) shuffled, all permutations, and the 1D sum.). At first the increased number of events (a factor of \num{24} for 4-jet events) with the all-permutation scheme is seen separating the two light green curves from the rest. The energy ordered LGB model is the combination which utilizes most of the $\gamma_\mathrm{tag}$\=/range, while the two 1D sum models have the most limited range, indicating that the models are more uncertain about their predictions. The energy ordered and shuffled PermNet models can more or less only be distinguished because the latter is plotted with dashed lines. This makes sense, since they are also expected to make the same predictions were they really permutation invariant\sidenote[][-0.7cm]{It is only because of the stochasticity in the optimization process of the two networks that they did not converge to exactly the same predictions.}. When plotted with normalized counts it is seen how the shuffled and all-permuted LGB models also follow each other very closely, which can still be partly seen in this plot by comparing the two distributions. The distribution of $g$\=/tags in 3-jet training events can be seen in Figure~\ref{fig:q:gtag_scores_3j}. 
 
 \begin{figure}[ht]
   \centerfloat
@@ -466,6 +474,7 @@ The distribution of $g$\=/tag scores in 4-jet (training) events the can be seen 
   \label{fig:q:gtag_scores_4j}
 \end{figure}
 % {Distribution of $g$\=/tag scores in 4-jet events shown with a logarithmic $y$\=/scale for \textcolor{blue}{LGB: Energy Ordered} in blue, \textcolor{red}{LGB: Shuffled} in red, \textcolor{green}{LGB: All Permutations} in green, \textcolor{orange}{LGB: Sum 1D} in orange, \textcolor{purple}{PermNet: Energy Ordered} in purple, \textcolor{light-blue}{PermNet: Shuffled} in light-blue, \textcolor{light-green}{PermNet: All Permutations} in light-green, \textcolor{light-purple}{PermNet: Sum 1D} in light-purple.  Here LGB and PermNet are the two different type of models and \q{Energy Ordered}, \q{Shuffled}, \q{All Permutations}, and \q{Sum 1D} are the different methods used for making the input data permutation invariant (except energy ordered).}   
+\vspace{-3mm}
 
 The ROC curve in Figure~\ref{fig:q:roc_gtag_4j_non_appendix} shows the performance of the different models on 4-jet events with the AUC shown in the legend. First of all it is easy to see that the energy ordered LGB model is significantly higher-performing than the rest of the models, however, this model is also energy-biased (not permutation invariant in the $b$\=/tags) and is only included to see how large a performance drop the permutation invariance criterion causes. The worst performing models are the two 1D sum models since they only have a single dimension to learn from, compared to the four dimensions that the other models have. Overall it can be seen that the rest of the models are performing almost identically, with the LGB model trained on all permutations to be the highest-performing of them all by a small margin. 
 For 3-jet events a similar picture is seen, see Figure~\ref{fig:q:roc_gtag_3j}, however, here the LGB model trained on the shuffled events performs the best, yet this performance improvement is so small compared to the all-permutations LGB model that it is expected to be due to statistical fluctuations and not a real performance difference. 
@@ -488,6 +497,7 @@ Based on the AUC scores seen in the ROC curves in Figure~\ref{fig:q:roc_gtag_4j_
           {Histogram of $g$\=/tag scores from the LGB-model in 4-jet events for \textcolor{blue}{$b$ signal} in blue, \textcolor{red}{$c$ signal} in red, \textcolor{green}{$l$ ($uds$) signal} in green, \textcolor{orange}{$b$ background} in orange, \textcolor{purple}{$c$ background} in purple, \textcolor{light-blue}{$l$ ($uds$) background} in light-blue.} 
   \label{fig:q:gtag_scores_4j_sig_bkg}
 \end{figure}
+\vspace{-3mm}
 
 The similar plot for 3-jet events is seen in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg}. This plot has some surprising bumps for mainly $l$\=/quark events. When comparing $l$\=/quark events in the high\=/$\gamma_\mathrm{tag}$ bump with the ones getting a low $\gamma_\mathrm{tag}$\=/value, see Figure~\ref{fig:q:gtag_scores_3j_l_quarks}, one can see that $l$\=/quark events with high $\gamma_\mathrm{tag}$ has only two jets with high $b$\=/tags, compared to low\=/$\gamma_\mathrm{tag}$ $l$\=/quark events which more often has three jets with high $b$\=/tags. 
 
@@ -513,7 +523,7 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
   \label{fig:q:gtag_scores_3j_l_quarks_3d}%
 \end{figure*}
 
-
+\vspace{-5mm}
 \section[g-Tagging Efficiency]{$g$\=/Tagging Efficiency}
 \label{sec:q:g_tagging_effiency}
 
@@ -521,13 +531,13 @@ These efficiencies are only possible to measure for MC-generated data as the tru
 \begin{equation}
   \varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}}\left( b \right) \cdot \varepsilon_b^{b\dash\mathrm{sig}}\left(\bar{b}\right) \cdot \varepsilon_g^{g\dash\mathrm{sig}}\left(g\right).
 \end{equation}
-This is only a pseudo efficiency since this number is based on the jets in the event and not the event itself, however, by plotting it as a function of an event variable and comparing MC to Data, we can gauge the validity of the $g$\=/tagging algorithm. The first of the event variables used is the $g$\=/tag of the event $\gamma_\mathrm{tag}$, see Figure~\ref{fig:q:effiency_btag_bbg_gtag}. Here the pseudo efficiency is plotted as a function of $\gamma_\mathrm{tag}$ for Data and MC together with the counts in each bin and the ratio between $\varepsilon_{b\bar{b}g}$ for Data and MC is plotted below. At low values of $\gamma_\mathrm{tag}$ the uncertainties dominate due to low statistics, however, at higher $\gamma_\mathrm{tag}$ $\varepsilon_{b\bar{b}g}$ plateaus until very high values of $\gamma_\mathrm{tag}$ where it increases again. The important thing to note in this figure is the high agreement between Data and MC which converges to (almost) \num{1} at high $\gamma_\mathrm{tag}$\=/values. 
+This is only a pseudo efficiency since this number is based on the jets in the event and not the event itself, however, by plotting it as a function of an event variable and comparing MC to Data, we can gauge the validity of the $g$\=/tagging algorithm. The first of the event variables used is the $g$\=/tag of the event $\gamma_\mathrm{tag}$, see Figure~\ref{fig:q:effiency_btag_bbg_gtag}. Here the pseudo efficiency is plotted as a function of $\gamma_\mathrm{tag}$ for Data and MC together with the counts in each bin and the ratio between $\varepsilon_{b\bar{b}g}$ for Data and MC is plotted below. At low values of $\gamma_\mathrm{tag}$ the uncertainties dominate due to low statistics, however, at higher $\gamma_\mathrm{tag}$ $\varepsilon_{b\bar{b}g}$ plateaus until very high values of $\gamma_\mathrm{tag}$ where it increases again. The important thing to note in this figure is the high agreement between Data and MC which converges to (almost) \num{1} at high $\gamma_\mathrm{tag}$\=/values. This is an important indication of the 3-jet $g$-tagging model working.
 
 \begin{figure}[h!]
   \centerfloat
   \includegraphics[width=1.1\textwidth, trim=10 20 5 40, clip]{figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[$g$\=/Tagging Proxy Efficiency for $b\bar{b}g$\=/Events as a Function of $g$\=/Tag]
-          {Proxy efficiency of the $g$\=/tags for $b\bar{b}g$ 3-jet events as a function of the event's $g$\=/tag $\gamma_\mathrm{tag}$. In the top plot the proxy efficiency $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right $y$\=/axis. In the bottom plot the ratio between Data and MC is shown. The proxy efficiency is measured by finding $b\bar{b}g$\=/events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}} \cdot \varepsilon_{\bar{b}}^{b\dash\mathrm{sig}} \cdot  \varepsilon_g^{g\dash\mathrm{sig}} $. } 
+  \caption[$g$\=/Tagging Pseudo Efficiency for $b\bar{b}g$\=/Events as a Function of $g$\=/Tag]
+          {Pseudo efficiency of the $g$\=/tags for $b\bar{b}g$ 3-jet events as a function of the event's $g$\=/tag $\gamma_\mathrm{tag}$. In the top plot the pseudo efficiency $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right $y$\=/axis. In the bottom plot the ratio between Data and MC is shown. The pseudo efficiency is measured by finding $b\bar{b}g$\=/events where $\beta_b > 0.9$, $\beta_{\bar{b}}>0.9$, and $\beta_g < 0.4$. and then calculating  $\varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}} \cdot \varepsilon_{\bar{b}}^{b\dash\mathrm{sig}} \cdot  \varepsilon_g^{g\dash\mathrm{sig}} $. } 
   \label{fig:q:effiency_btag_bbg_gtag}
 \end{figure}
 
@@ -535,13 +545,13 @@ Another event variable to look at is the mean of the two invariant masses\sideno
 \begin{equation}
   m_{12} = \sqrt{\left(E_1 + E_2\right)^2 - \norm{\vec{p}_1 + \vec{p}_2}^2 },
 \end{equation} 
-where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its momentum. The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{\bar{b}g}$ in Figure~\ref{fig:q:effiency_btag_bbg_m_mean}. Here the overall correspondence between Data and MC is lower than in Figure~\ref{fig:q:effiency_btag_bbg_gtag}, especially for high values of the mean invariant mass. XXX \TODO is this a problem?.
+where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its momentum. The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{\bar{b}g}$ in Figure~\ref{fig:q:effiency_btag_bbg_m_mean}. Here the overall correspondence between Data and MC is lower than in Figure~\ref{fig:q:effiency_btag_bbg_gtag}, especially for high values of the mean invariant mass. That the ratio is close to \num{1} for most of the data (from \SI{20}{\GeV} to \SI{50}{\GeV}) is a good sign, whereas the tails indicate the model is biased here which could be corrected for with correction factors, however, this would increse the systematic uncertainties. 
 
 \begin{figure}[h!]
   \centerfloat
   \includegraphics[width=1.1\textwidth, trim=10 20 5 40, clip]{figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[$g$\=/Tagging Proxy Efficiency for $b\bar{b}g$\=/Events as a Function of The Mean Invariant Mass]
-          {Proxy efficiency of the $g$\=/tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$ in the event. In the top plot the proxy efficiency $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right $y$\=/axis. In the bottom plot the ratio between Data and MC is shown.} 
+  \caption[$g$\=/Tagging Pseudo Efficiency for $b\bar{b}g$\=/Events as a Function of The Mean Invariant Mass]
+          {Pseudo efficiency of the $g$\=/tags for $b\bar{b}g$ 3-jet events as a function of the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$ in the event. In the top plot the pseudo efficiency $\varepsilon_{b\bar{b}g}$ is shown for \textcolor{blue}{MC} in blue and \textcolor{red}{Data} in red where the counts in each bin can be read on right $y$\=/axis. In the bottom plot the ratio between Data and MC is shown.} 
   \label{fig:q:effiency_btag_bbg_m_mean}
 \end{figure}
 
@@ -550,13 +560,13 @@ These two figures strengthens the claim that the trained $b$-tagging and $g$-tag
 \section{Generalized Angularities in 3-jet events}
 \label{sec:q:generalized_angularities_3j}
 
-To measure how gluon jet \q{looks}, i.e. their jet distributions, number of tracks, etc., the \emph{generalized angularities} provide an overall framework for doing so. The generalized angularities is a two-parameter family of variables depending on the angular weighting $\beta \leq 0$ and an energy weighting factor $\kappa \leq 0$:
+To measure how gluon jet hadronizes, i.e. their jet distributions, number of tracks, etc., the \emph{generalized angularities} provide an overall framework for doing so. The generalized angularities is a two-parameter family of variables depending on the angular weighting $\beta \leq 0$ and an energy weighting factor $\kappa \leq 0$:
 \begin{equation}
   \lambda_\beta^\kappa = \sum_{i \in \mathrm{jet}} z_i^\kappa \theta_i^\beta,
 \end{equation}
 where $z_i \equiv E_i / E_\mathrm{jet}$ is the momentum fraction, i.e. $0 \leq z_i \leq 1$, $\theta_i \equiv \Omega_i / R$ is the normalized angle with respect to the jet axis where $R$ is the jet radius such that $0 \leq \theta_i \leq 1$, and $i$ runs over all the jet constituents \citep{grasSystematicsQuarkGluon2017,larkoskiGainingMutualInformation2014}. Different values of ($\beta, \kappa$) probe different parts of the (gluon) jet fragmentation phase space. I will limit the analysis to the five sets of ($\beta, \kappa$)-values shown in Figure~\ref{fig:q:LHA}, where each of the sets of variables are related to the following aspects:
 
-\begin{marginfigure}[2cm]
+\begin{marginfigure}[5.5cm]
   \centerfloat
   \includegraphics[width=0.9\textwidth]{figures/LHA/LHA.pdf}
   \caption[Generalized Angularities]
@@ -576,9 +586,9 @@ where $z_i \equiv E_i / E_\mathrm{jet}$ is the momentum fraction, i.e. $0 \leq z
 
 We will look at the generalized angularity distributions for gluons in 3-jet events. We do so by using the $g$-tag from the $g$-tagging model to select events with a high $g$-tag and then select the jet in the event with the lowest of the $b$-tags since this jet is expected to be the gluon jet. From the plot in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{3\dash\mathrm{jet}} = \SI{19.68}{\percent}$ and a signal purity of $\rho_g^{3\dash\mathrm{jet}}=\SI{98.77}{\percent}$. Here a gluon event is defined as an event with a $0.9 < \gamma_\mathrm{tag}$. 
 
-The distribution of $\lambda_0^2$, i.e. $(\beta, \kappa)=(0,2)$, related to the transverse momentum distribution, in gluon events is seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix}. Here the distribution of $\lambda_0^2$ is shown for MC Truth (actual gluons jets using truth-label), MC selected (gluons jets selected using the $g$-tag) and Data (gluons jets selected using the $g$-tag). The generalized angularities are computed for both charged and neutral jets, where this figure shows the distribution of $\lambda_0^2$ for charged jets. The MC Selected has been scaled to Data according to the fraction of the number of events in each: $w_\mathrm{MC} = N_\mathrm{Data} / N_\mathrm{MC}$. The MC Truth has been scaled with the same weight multiplied with the gluon efficiency $w_\mathrm{MC \dash Truth} = w_\mathrm{MC} \cdot \varepsilon_g^{3\dash\mathrm{jet}}$. The $\lambda_\beta^\kappa=0$ values has been removed before plotting for all sets of values of $(\beta, \kappa)$. 
+The distribution of $\lambda_0^2$, i.e. $(\beta, \kappa)=(0,2)$, related to the transverse momentum distribution, in gluon events is seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix}. Here the distribution of $\lambda_0^2$ is shown for MC Truth (actual gluons jets using truth-label), MC selected (gluons jets selected using the $g$-tag) and Data (gluons jets selected using the $g$-tag). The generalized angularities are computed for both charged jets and neutral clusters, where this figure shows the distribution of $\lambda_0^2$ for charged jets. The MC Selected has been scaled to Data according to the fraction of the number of events in each: $w_\mathrm{MC} = N_\mathrm{Data} / N_\mathrm{MC}$. The MC Truth has been scaled with the same weight multiplied with the gluon efficiency $w_\mathrm{MC \dash Truth} = w_\mathrm{MC} \cdot \varepsilon_g^{3\dash\mathrm{jet}}$. The $\lambda_\beta^\kappa=0$ values has been removed before plotting for all sets of values of $(\beta, \kappa)$. 
 
-In Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} it is seen how MC Selected and Data distributions matches each other quite well. That the MC Truth and Data not matches equally well indicates that XXX \TODO. The rest of the plots can be seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2}--\ref{fig:q:generalized_angularities_neu_lambda_0_0}.
+In Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} it is seen how MC Truth and Data does not match perfectly well which indicates that this is not the perfect method, however, that MC Selected and Data distributions matches each other quite well indicates that the model is equally biased for both MC and Data. 
 
 \begin{figure}
   \centerfloat
@@ -588,17 +598,20 @@ In Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} it is 
   \label{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix}
 \end{figure}
 
-
-\newpage
+The rest of the plots can be seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2}--\ref{fig:q:generalized_angularities_neu_lambda_0_0}. For the charged tracks it can be seen that the first few bins generally has ratios just below \num{1} with a upwards trend until around the middle of the $\lambda$ range and then it decreases again (and the uncertainties increases with lower and lower statistics). The discrepancy between MC selected and Data is larger for the neutral clusters, which are also less well-defined than the charged jets (at the energies used at LEP), and with the same trend as for the charged jets. In general the figures show a resonable good correspondence between MC selected and Data for the generalized angularities.  
 
 \section{Gluon splitting}
 \label{sec:q:gluon_splitting_4j}
 
-In addition to measuring how the gluon jets \q{look}, we are also interested in measuring how they split: $g \rightarrow gg$. We do so by looking at 4-jet events with high $g$-tag values and then identify the two gluon jets (the ones with the lowest $b$-tag values). From Figure \ref{fig:q:gtag_scores_4j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events. This corresponds to selecting \num{41117} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{4\dash\mathrm{jet}} = \SI{23.30}{\percent}$ and a signal purity of $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$. The variables related to measuring the gluon splitting will be introduced in \autoref{subsec:q:gluon_splitting_variables} and their efficiencies in MC will be computed in \autoref{subsec:q:gluon_splitting_efficiency}. The method will be tested with a closure test in \autoref{subsec:q:gluon_splitting_closure} and the results shown in \autoref{subsec:q:gluon_splitting_results}.
+In addition to measuring how the gluon jets hadronizes, we are also interested in measuring how they split: $g \rightarrow gg$. We do so by looking at 4-jet events with high $g$-tag values and then identify the two gluon jets (the ones with the lowest $b$-tag values). From Figure \ref{fig:q:gtag_scores_4j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events. This corresponds to selecting \num{41117} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{4\dash\mathrm{jet}} = \SI{23.30}{\percent}$ and a signal purity of $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$. 
+\marginnote[-1cm]{Note that the number of selected events in the 4-jet case is much lower than in the 3-jet case and that the signal purity is lower as well, $\rho_g^{3\dash\mathrm{jet}}=\SI{98.77}{\percent}$ vs. $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$, at the selected cut value.}
+% The variables related to measuring the gluon splitting will be introduced in \autoref{subsec:q:gluon_splitting_variables} and their efficiencies in MC will be computed in \autoref{subsec:q:gluon_splitting_efficiency}. The method will be tested with a closure test in \autoref{subsec:q:gluon_splitting_closure} and the results shown in \autoref{subsec:q:gluon_splitting_results}.
 
 \subsection{Variables}
 \label{subsec:q:gluon_splitting_variables}
-The variables we use to measure gluon splitting are related to the energy asymmetry, the resolution scale, and the angle between the gluon-jets and the $b$-jets. In addition to these, some extra variables were proposed by Peter Skands in private communication, e.g. the $p_\perp$\=/antenna variable. These \q{Peter Skands}\=/variables are aimed at XXX \TODO. The gluon splitting variables are variables where current MC generators, such as Pythia \autocite{sjostrandIntroductionPYTHIA2015}, and Data show significant differences. Better measurements of these variables might lead to new theoretical insights that can reduce this discrepancy \autocite{skandsPeterSkands2019}. The gluon splitting variables are:
+The variables we use to measure the gluon splitting are each meant to probe different, smaller parts of the phase space. It is difficult to parametrize the basis of this phase space, but in discussion with one of the authors of the MC simulator Pythia \autocite{sjostrandIntroductionPYTHIA2015}, Peter Skands, the first dimension of the phase space will be the energy asymmetry. The energy asymmetry describes how the two gluons share their available energy between them; do they share it equally or does one of them get the majority of it? The second dimension is the resolution scale which probes the hardness of the gluons by looking at their invariant mass and the angle between the their jets. The third axis is the azimuthal angle which measures the rotational distribution of the gluons compared to the quarks. In addition to these, some extra variables were proposed by Peter Skands \autocite{skandsPeterSkands2019}. These \q{Peter Skands}\=/variables are aimed at other probing other interesting areas of the phase space. 
+ 
+The gluon splitting variables are variables where current MC generators, such as Pythia, and Data show some discrepancies. Better measurements of these variables might lead to new theoretical insights that can reduce these discrepancies. The gluon splitting variables are:
 
 \begin{enumerate}[leftmargin=*,labelindent=40pt]
   
@@ -612,30 +625,36 @@ The variables we use to measure gluon splitting are related to the energy asymme
   \item[$\Delta_\theta$:] The angle between the two gluon jets.   
   \item[$m_{gg}$:] The invariant mass of the two gluon jets.
 
-  \item[] \textbf{Angle} 
+  \item[] \textbf{Azimuthal Angle} 
   \item[$\phi_\mathrm{\parallel}$:]  The angle between the plane spanned by the two $b$-jets and the plane spanned by the two gluon jets. This is the same angle as the angle between the $b$-jet cross product $\vec{p}_{b_1} \times \vec{p}_{b_2}$ and the gluon-jet cross product $\vec{p}_{g_1} \times \vec{p}_{g_2}$ where $\vec{p}$ is the jet momentum.
 
   \item[] \textbf{Peter Skands:} 
-  \item[$\ln \left( k_t^2 / m_\mathrm{vis}^2 \right)$:] Logarithm of the ratio between the $k_t$ value of the two gluon jets and their visible mass.  
-  \item[$p^2_{\perp,\mathrm{A}}$:] The $p_T$ antenna defined as: 
+  \item[$\ln \left( k_t^2 / m_\mathrm{vis}^2 \right)$:] Logarithm of the ratio between the $k_t$ value, see equation \eqref{eq:q:k_t_definition_kt}, of the two gluon jets and the visible mass of the event.  
+  \item[$p^2_{\perp,\mathrm{A}}$:] The $p_perp$ antenna defined as: 
   \begin{fullwidth}
     \begin{flalign}
       p^2_{\perp,\mathrm{A}} = \widetilde{m}_{12}^2 \cdot \min \bigg( \frac{\min \big(\widetilde{m}_{b1}^2, \widetilde{m}_{b2}^2 \big) - m_b^2}{\widetilde{m}_{b12}^2 - m_b^2}, \; \frac{\min \big(\widetilde{m}_{\bar{b}1}^2, \widetilde{m}_{\bar{b}2}^2 \big) - m_b^2}{\widetilde{m}_{\bar{b}12}^2 - m_b^2}  \bigg), &&
     \end{flalign}
   \end{fullwidth}
-  where $\widetilde{m}^2 = m^2  m_Z^2 / m_\mathrm{vis}^2$ and $m_Z$ is the mass of the $Z$ boson.  
+  where $\widetilde{m}^2 = m^2 cdot m_Z^2 / m_\mathrm{vis}^2$ and $m_Z$ is the mass of the $Z$ boson.  
 
   % \item[] \textbf{Jet Clustering} 
   % \item[$R_{gg}^{k_t}$:] The ratio between the $k_t$ distance measure for the gluon jets and the minimum non-$gg$ jets: $R_{gg}^{k_t} \equiv R_{gg}(p=1)$, see equation \eqref{eq:q:kt_CA_distance_measure}.
   % \item[$R_{gg}^\mathrm{CA}$:] Same as above, however for the CA algorithm: $R_{gg}^{CA} \equiv R_{gg}(p=0)$. 
 \end{enumerate}
 
-The gluon splitting variables will be analyzed in distinct areas of the phase space. This phase space is defined by the $k_t$ \citep{cataniLongitudinallyinvariantKtclusteringAlgorithms1993,ellisSuccessiveCombinationJet1993} and Cambridge/Aachen (CA) \citep{dokshitzerBetterJetClustering1997,wobischHadronizationCorrectionsJet1999} jet clustering algorithms for $e^+e^-$ collisions which will first be described. The two algorithms uses the following\sidenote{When using $R=1$ in eq. (9a) in Ref. \autocite{cacciariFastJetUserManual2012}.} \emph{jet distance measure}:
+The gluon splitting variables will be analyzed in distinct areas defined by the $k_t$ \citep{cataniLongitudinallyinvariantKtclusteringAlgorithms1993,ellisSuccessiveCombinationJet1993} and Cambridge/Aachen (CA) \citep{dokshitzerBetterJetClustering1997,wobischHadronizationCorrectionsJet1999} jet clustering algorithms for $e^+e^-$ collisions which will first be described. The two algorithms uses the following\sidenote{When using $R=1$ in eq. (9a) in Ref. \autocite{cacciariFastJetUserManual2012}.} \emph{jet distance measure}:
 \begin{equation}
   \label{eq:q:kt_CA_distance_measure}
   d_{ij}^2(p) = \min \left(E_i^{2p}, E_j^{2p} \right) \left(\frac{1-\cos \theta_{ij}}{2} \right), 
 \end{equation}
-where $E$ is the (pseudo)jet energy and $\theta_{ij}$ is the angle between (pseudo)jet $i$ and $j$ \autocite{cacciariFastJetUserManual2012}. For $p=1$ equation \eqref{eq:q:kt_CA_distance_measure} is called the $k_t$ algorithm and the Cambridge/Aachen for $p=0$. Both the $k_t$ and CA algorithms are newer jet clustering algorithms than JADE, see \autoref{sec:hep:jet_clustering}, and their distance measures are also pretty similar to JADE's. Based on the two algorithms, we define the ratio $R_{gg}$ between the two gluon jets $d^2_{gg}$ and the lowest value of $d^2_{ij}$ not including the two gluon jets:
+where $E$ is the (pseudo)jet energy and $\theta_{ij}$ is the angle between (pseudo)jet $i$ and $j$ \autocite{cacciariFastJetUserManual2012}. For $p=1$ equation \eqref{eq:q:kt_CA_distance_measure} is called the $k_t$ algorithm and the Cambridge/Aachen for $p=0$. Both the $k_t$ and CA algorithms are newer jet clustering algorithms than JADE, see \autoref{sec:hep:jet_clustering}, and their distance measures are also pretty similar to JADE's. The value $d_{ij}(p=1)$ is also known as the $k_t$:
+\begin{equation}
+  \label{eq:q:k_t_definition_kt}
+  k_t = \sqrt{\min \left(E_i^2, E_j^2 \right) \left(\frac{1-\cos \theta_{ij}}{2} \right)}.
+\end{equation}
+
+Based on the two algorithms, we define the ratio $R_{gg}$ between the two gluon jets $d^2_{gg}$ and the lowest value of $d^2_{ij}$ not including the two gluon jets:
 \begin{equation}
   R_{gg}(p) \equiv \frac{d^2_{gg}(p)}{\min_{(i,j) \neq (g,g)} d^2_{ij}(p)}.
 \end{equation} 
@@ -643,8 +662,7 @@ We further define $R_{gg}^{k_t} \equiv R_{gg}(p=1)$ and $R_{gg}^{CA} \equiv R_{g
 
 Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, they describe different parts of the phase space. One example of this is the case of soft wide gluon jets illustrated in Figure~\ref{fig:q:kt_CA_soft_wide}. Here the two gluon jets are low-energy (soft) jets but with a high angle between them (wide). In this case the $k_t$ algorithm would probably cluster the two gluon jets together but the CA algorithm would not. This means that $R_{gg}^{k_t}$ would be less than \num{1} since the distance measure between the two gluon jets would be the smallest of them all, whereas to $R_{gg}^{CA}$ would be larger than \num{1} since $d_{\bar{b}g} < d_{gg}$. In addition to the soft, wide angle gluon jets, we have the case of soft, collinear gluon jets which the two algorithms agree to cluster together, see Figure~\ref{fig:q:kt_CA_soft_collinear} or the opposite case where the two algorithms both agree on not to cluster the gluon jets together, see Figure~\ref{fig:q:kt_CA_hard_non_g_to_gg}. These figures are just illustrations of how to better understand the $R_{gg}$ phase space.
 
-
-\begin{marginfigure}[-8cm]
+\begin{marginfigure}[-13cm]
   \centerfloat
   \includegraphics[width=1.1\textwidth]{figures/R_kt_CA/soft_wide_angle.pdf}
   \caption[Soft Wide Angle Gluons in 4-Jet Events]
@@ -652,7 +670,7 @@ Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, the
   \label{fig:q:kt_CA_soft_wide}
 \end{marginfigure}
 
-\begin{marginfigure}[-2cm]
+\begin{marginfigure}[-5cm]
   \centerfloat
   \includegraphics[width=1.1\textwidth]{figures/R_kt_CA/soft_collinear.pdf}
   \caption[Soft Collinear Gluons in 4-Jet Events]
@@ -660,7 +678,7 @@ Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, the
   \label{fig:q:kt_CA_soft_collinear}
 \end{marginfigure}
 
-\begin{marginfigure}[0.5cm]
+\begin{marginfigure}[-0.5cm]
   \centerfloat
   \includegraphics[width=1.1\textwidth]{figures/R_kt_CA/hard_non_g_to_gg.pdf}
   \caption[Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events]
@@ -672,7 +690,7 @@ The variables are computed for each event, and their relationship with $\gamma_\
 
 \subsection{Efficiencies}
 \label{subsec:q:gluon_splitting_efficiency}
-It is not possible to take advantage of the Tag-Tag-Probe method for whole events as it was for individual jets in the 3-jet case. As such, we are also unable to estimate the $g$-tagging efficiency in Data of the gluon splitting variables defined in the previous subsection. However, it is still possible to do so for MC using the truth labels. The efficiency $\varepsilon_{gg}^{4\dash\mathrm{jet}}$ for the gluon splitting variable $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:effiency_gtag_E_diff_non_appendix} for signal and background based on MC Truth.
+It is not possible to take advantage of the Tag-Tag-Probe method for whole events as it was for individual jets in the 3-jet case. As such, we are also unable to estimate the $g$-tagging efficiency in Data of the gluon splitting variables defined in the previous subsection. However, it is still possible to do so for MC using the truth labels. The efficiency $\varepsilon_{gg}^{4\dash\mathrm{jet}}$ for the gluon splitting variable $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:effiency_gtag_E_diff_non_appendix} for signal and background based on MC Truth. Note that even though the efficiency here is quite low, it is close to constant (as a function of $E_\mathrm{diff}$).
 
 \begin{figure}
   \centerfloat
@@ -683,7 +701,7 @@ It is not possible to take advantage of the Tag-Tag-Probe method for whole event
   \label{fig:q:effiency_gtag_E_diff_non_appendix}
 \end{figure}
 
-The plot for the rest of the $g$-tagging efficiencies can be seen in Figure~\ref{fig:q:effiency_gtag_E_diff}--\ref{fig:q:effiency_gtag_R_gg_CA}. It can be concluded that XXX \TODO. 
+The plot for the rest of the $g$-tagging efficiencies can be seen in Figure~\ref{fig:q:effiency_gtag_E_diff}--\ref{fig:q:effiency_gtag_R_gg_CA}. 
 
 \subsection{Closure Test}
 \label{subsec:q:gluon_splitting_closure}
@@ -718,9 +736,9 @@ Plugging equation \eqref{eq:q:closure_P_bkg} into \eqref{eq:q:closure_P_gg_initi
 The advantage of this equation is that only $\varepsilon_{gg}^{4\dash\mathrm{jet}}$ and the two constants\sidenote{Which are found to be: ${f_{gg}^{\mathrm{sig}} = \rho_g^{4\dash\mathrm{jet}} = \SI{92.67}{\percent}}$ and ${f_\mathrm{bkg}^\mathrm{side} = \SI{62.5}{\percent}}$.} $f_{gg}^{\mathrm{sig}}$ and $f_\mathrm{bkg}^\mathrm{side}$ depend on MC truth, the rest can be applied to data without any truth label. 
 It should be made clear that the final expression, equation \eqref{eq:q:closure_P_gg}, is based on the assumption that the signal distribution of $x$ is (approximately) similar in the signal and sideband regions $\mathcal{P}_{gg}^\mathrm{sig} \approx \mathcal{P}_{gg}^\mathrm{side}$ and likewise for the background distributions $\mathcal{P}_{\mathrm{bkg}}^\mathrm{sig} \approx  \mathcal{P}_{\mathrm{bkg}}^\mathrm{side}$. 
 
-The distribution of $\mathcal{P}_{gg}$ in MC is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} together with $\mathcal{P}_{\mathrm{sig}}$, $\mathcal{P}_{\mathrm{side}}$, and the distribution for MC Truth $\mathcal{P}_{gg}^\mathrm{Truth}$. In this figure the distributions are shown for the gluon splitting variable $E_\mathrm{diff}$ with histograms shown in the top plot and a ratio plot between $\mathcal{P}_{gg}$ and $\mathcal{P}_{gg}^\mathrm{Truth}$ in the bottom part. By just looking at the distributions, it can be seen that the distributions in the signal and sideband regions follow each quite closely even though they start to differ at large values of $E_\mathrm{diff}$. Similarly, also $\mathcal{P}_{gg}$ and $\mathcal{P}_{gg}^\mathrm{Truth}$ follow each other quite closely, however, by looking at the ratio plot it can be seen that $\mathcal{P}_{gg}$ generally has fewer counts in each bin than $\mathcal{P}_{gg}^\mathrm{Truth}$. The errorbars in the ratio plot is fitted with both a constant $f(x)=b$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. In the text box \code{DOF} is the number of degrees of freedom and \code{P} is the $\chi^2$-probability\sidenote{ $P(\chi^2; N_\mathrm{DOF}) = \int_{\chi^2}^\infty f_{\chi^2}(x; N_\mathrm{DOF}) \mathop{dx}$, where $f_{\chi^2}(x; N_\mathrm{DOF})$ is the $\chi^2$ distribution with $N_\mathrm{DOF}$ degrees of freedom.}. I compute the systematic error $\sigma_\mathrm{sys}$ that would have to be added in quadrature to the standard deviation, $\sigma \rightarrow \sqrt{\sigma^2 + \sigma_\mathrm{sys}^2}$, such that the $\chi^2$-probability would be \SI{50}{\percent}. I do this using Brent's method \autocite{Brent:113464} and the systematic error is written as \code{sigma_sys} in the figure. 
+The distribution of $\mathcal{P}_{gg}$ in MC is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} together with $\mathcal{P}_{\mathrm{sig}}$, $\mathcal{P}_{\mathrm{side}}$, and the distribution for MC Truth $\mathcal{P}_{gg}^\mathrm{Truth}$. In this figure the distributions are shown for the gluon splitting variable $E_\mathrm{diff}$ with histograms shown in the top plot and a ratio plot between $\mathcal{P}_{gg}$ and $\mathcal{P}_{gg}^\mathrm{Truth}$ in the bottom part. By just looking at the distributions, it can be seen that the distributions in the signal and sideband regions follow each quite closely even though they start to differ at large values of $E_\mathrm{diff}$. Similarly, also $\mathcal{P}_{gg}$ and $\mathcal{P}_{gg}^\mathrm{Truth}$ follow each other quite closely, however, by looking at the ratio plot it can be seen that $\mathcal{P}_{gg}$ generally has fewer counts in each bin than $\mathcal{P}_{gg}^\mathrm{Truth}$. 
 
-\begin{figure}
+\begin{figure}[h!]
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=10 0 20 5, clip, page=1]{figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
   \caption[Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry]
@@ -729,23 +747,27 @@ The distribution of $\mathcal{P}_{gg}$ in MC is shown in Figure~\ref{fig:q:closu
   \label{fig:q:closure_E_diff_non_appendix}
 \end{figure}
 
-The closure plot for $E_\mathrm{diff}$ is shown in Figure~\ref{fig:q:closure_E_diff_non_appendix} and for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $g$-tagging algorithm perform well on the energy asymmetry variables with $\sigma_\mathrm{sys}(E) \approx \SI{3}{\percent}$, the angle-dependant variables, $\Delta_\theta$ and $\phi_\parallel$ with $\sigma_\mathrm{sys}(\Delta_\theta) \approx \SI{5}{\percent}$ and $\sigma_\mathrm{sys}(\phi_\parallel) \approx \SI{2}{\percent}$. When the mass enters in the variables, there is a much higher bias, however, still small for the $p_\perp$-antenna variable $\sigma_\mathrm{sys}(p^2_{\perp,\mathrm{A}}) \approx \SI{5}{\percent}$. Worst is the gluon-gluon invariant mass where $\sigma_\mathrm{sys}(m_{gg}) \approx \SI{23}{\percent}$, see Table~\ref{tab:q:gluon_splitting_systematic_errors} for all of the values. 
+The errorbars in the ratio plot is fitted with both a constant $f(x)=b$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. In the text box \code{DOF} is the number of degrees of freedom and \code{P} is the $\chi^2$-probability\sidenote{ $P(\chi^2; N_\mathrm{DOF}) = \int_{\chi^2}^\infty f_{\chi^2}(x; N_\mathrm{DOF}) \mathop{dx}$, where $f_{\chi^2}(x; N_\mathrm{DOF})$ is the $\chi^2$ distribution with $N_\mathrm{DOF}$ degrees of freedom.}. I compute the systematic error $\sigma_\mathrm{sys}$ that would have to be added in quadrature to the standard deviation, $\sigma \rightarrow \sqrt{\sigma^2 + \sigma_\mathrm{sys}^2}$, such that the $\chi^2$-probability would be \SI{50}{\percent}. I do this using Brent's method \autocite{Brent:113464} and the systematic error is written as \code{sigma_sys} in the figure. 
 
-\begin{margintable}[-3cm]
+The closure plot for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $\mathcal{P}_{gg}$ matches $\mathcal{P}_{gg}^\mathrm{Truth}$ pretty well for all the gluon splitting variables, however, with a \SI{10}{\percent} offset. This offset is easy to correct for with a constant correction factor. However, we see that for the energy asymmetry variables and $\Delta_\theta$ there are clear, linear trends in the ratio plots. This is seen e.g. for $E_\mathrm{diff}$ in Figure~\ref{fig:q:closure_E_diff_non_appendix} where the $\chi^2$ value for the constant fit is \num{109.13} but only \num{76.01} for the linear fit. This difference in $\chi^2$ value cannot be attributed to just the linear fit being a more advanced fit in which case the difference would be expected to be $\Delta \chi^2 \sim 1$ due to difference in the number of fit parameters being \num{1}. For these four variables the systematic uncertainty will thus be based on the linear fit, whereas it will be based on the constant for the rest of the variables. 
+
+The $g$-tagging algorithm perform well in general where most of the systematic attributed are \SI{2}{\percent} to \SI{3}{\percent}. The highest systematic uncertainty is for the invariant mass of the two gluons: $\sigma_\mathrm{sys}(m_{gg}) = \SI{3.6}{\percent}$. A summary of all the systematic errors from the closure tests can be seen in Table~\ref{tab:q:gluon_splitting_systematic_errors} for all of the gluon splitting variables. 
+
+\begin{margintable}
   \centerfloat
-  \begin{tabular}{@{}rr@{}}
-  {}                                                & $\sigma_\mathrm{sys}$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
-  $E_\mathrm{diff}$                                 & $\SI{3.5}{\percent}$  \\ \addlinespace[0.2em]
-  $E_{\mathrm{rel}_\mathrm{min}}$                   & $\SI{3.5}{\percent}$  \\\addlinespace[0.2em]
-  $E_\mathrm{rel}$                                  & $\SI{3.2}{\percent}$  \\\addlinespace[0.2em]
-  $\Delta_\theta$                                   & $\SI{5.6}{\percent}$  \\\addlinespace[0.2em]
-  $m_{gg}$                                          & $\SI{22.6}{\percent}$ \\\addlinespace[0.2em]
-  $\phi_\mathrm{\parallel}$                         & $\SI{1.7}{\percent}$  \\\addlinespace[0.2em]
-  $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$     & $\SI{12.9}{\percent}$ \\\addlinespace[0.2em]
-  $p^2_{\perp,\mathrm{A}}$                          & $\SI{5.0}{\percent}$  \\ %\bottomrule
+  \begin{tabular}{@{}rrc@{}}
+  {}                                                & $\sigma_\mathrm{sys}$& $f(x)$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
+  $E_\mathrm{diff}$                                 & $\SI{2.3}{\percent}$ & $ax+b$ \\ \addlinespace[0.2em]
+  $E_{\mathrm{rel}_\mathrm{min}}$                   & $\SI{2.3}{\percent}$ & $ax+b$  \\\addlinespace[0.2em]
+  $E_\mathrm{rel}$                                  & $\SI{2.5}{\percent}$ & $ax+b$  \\\addlinespace[0.2em]
+  $\Delta_\theta$                                   & $\SI{2.0}{\percent}$ & $ax+b$  \\\addlinespace[0.2em]
+  $m_{gg}$                                          & $\SI{3.6}{\percent}$ & $b$ \\\addlinespace[0.2em]
+  $\phi_\mathrm{\parallel}$                         & $\SI{1.7}{\percent}$ & $b$  \\\addlinespace[0.2em]
+  $\ln \left( k_t^2 / m_\mathrm{vis}^2 \right)$     & $\SI{2.1}{\percent}$ & $b$ \\\addlinespace[0.2em]
+  $p^2_{\perp,\mathrm{A}}$                          & $\SI{3.1}{\percent}$ & $b$  \\ %\bottomrule
   \end{tabular}
-  \vspace{1mm}
-  \caption[Gluon Splitting Systemic Errors]{\label{tab:q:gluon_splitting_systematic_errors}Systematic errors for the gluon splitting variables based on the closure test, see \autoref{subsec:q:gluon_splitting_closure}.}
+  \vspace{3mm}
+  \caption[Gluon Splitting Systemic Errors]{\label{tab:q:gluon_splitting_systematic_errors}Systematic errors for the gluon splitting variables based on the closure test, see \autoref{subsec:q:gluon_splitting_closure}.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
 \end{margintable}
 
 
@@ -754,7 +776,7 @@ The closure test shows that the $g$-tagging algorithm can also be trusted in the
 \subsection{4-jet results}
 \label{subsec:q:gluon_splitting_results}
 
-\begin{margintable}[1cm]
+\begin{margintable}
   \centerfloat
   \begin{tabular}{@{}ccc@{}}
   Region  & $R_{gg}^{k_t}$                & $R_{gg}^\mathrm{CA}$    \\ \addlinespace[0.1em] \midrule \addlinespace[0.4em]
@@ -776,9 +798,9 @@ The comparison between the gluon splitting distributions will be done in four di
           {Overview of the four areas, A, B, C, and D, in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. The areas are shown as colored rectangles together with a scatter plot showing the 2D-distribution for signal gluon events ($0.8 < \gamma_\mathrm{tag}$). The left plot shows is for MC and the right one for Data.} 
   \label{fig:q:R_kt_CA_overview}
 \end{figure*}
-\vspace{-3mm}
+% \vspace{-3mm}
 
-The distributions for the different gluons splitting variables for area A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A_non_appendix} for both MC (scaled to Data) and Data. Area A contains \num{5022} events in the MC sample and \num{3111} in the Data sample. Generally the distributions match pretty well between the MC and Data, however, there seems to small discrepancies in the energy assymetry variables, however, this might just be due to statistical fluctuations (notice the low bin count in each bin). Furthermore, there is a mismatch for the $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$ variable at around \num{16}. When looking at the other areas, see Figure~\ref{fig:q:R_kt_CA_cut_A}--\ref{fig:q:R_kt_CA_cut_D}, the energy discrepancies seem to disappear, whereas the mismatch between MC and Data in $\ln \left( k_T^2 / m_\mathrm{vis}^2 \right)$ continues to exist. 
+The distributions for the different gluons splitting variables for area A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A_non_appendix} for both MC (scaled to Data) and Data. Area A contains \num{5022} events in the MC sample and \num{3111} in the Data sample. Generally the distributions match pretty well between the MC and Data, however, there seems to small discrepancies in the energy asymmetry variables, however, this might just be due to statistical fluctuations (notice the low bin count in each bin). When looking at the other areas, see Figure~\ref{fig:q:R_kt_CA_cut_A}--\ref{fig:q:R_kt_CA_cut_D}, the energy discrepancies seem to disappear. In general there seems to be a reasonably good correspondence between the distributions. 
 
 \begin{figure*}[h!]
   \centerfloat
@@ -791,5 +813,6 @@ The distributions for the different gluons splitting variables for area A, the s
 \section{Quark-Gluon Discussion}
 \label{sec:q:discussion}
 
+Here a discussion of this analysis... 
 
 

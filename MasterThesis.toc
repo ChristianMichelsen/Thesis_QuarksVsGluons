@@ -2,7 +2,7 @@
 \contentsline {chapter}{Table of Contents}{v}{section*.2}
 \contentsline {chapter}{Foreword}{ix}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {part}{Part I}{3}{chapter*.5}
+\contentsline {part}{Part I}{3}{chapter*.4}
 \contentsline {chapter}{\numberline {2}Machine Learning Theory}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Statistical Learning Theory}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Supervised Learning}{6}{section.2.2}
@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {2.4}Avoiding overfitting}{10}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Model Regularization}{10}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Cross Validation}{12}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Early Stopping}{14}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.3}Early Stopping}{13}{subsection.2.4.3}
 \contentsline {section}{\numberline {2.5}Loss functions}{14}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Evaluation Function}{16}{subsection.2.5.1}
 \contentsline {section}{\numberline {2.6}Decision Trees}{16}{section.2.6}
@@ -22,11 +22,11 @@
 \contentsline {subsection}{\numberline {2.7.1}Grid Search}{20}{subsection.2.7.1}
 \contentsline {subsection}{\numberline {2.7.2}Random Search}{20}{subsection.2.7.2}
 \contentsline {subsection}{\numberline {2.7.3}Bayesian Optimization}{21}{subsection.2.7.3}
-\contentsline {section}{\numberline {2.8}Feature Importance}{23}{section.2.8}
+\contentsline {section}{\numberline {2.8}Feature Importance}{22}{section.2.8}
 \contentsline {chapter}{\numberline {3}Danish Housing Prices}{27}{chapter.3}
 \contentsline {section}{\numberline {3.1}Data Preparation and Exploratory Data Analysis}{28}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Correlations}{30}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Validity of input variables}{32}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Validity of input variables}{31}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Cuts}{33}{subsection.3.1.3}
 \contentsline {section}{\numberline {3.2}Feature Augmentation}{33}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Time-Dependent Price Index}{34}{subsection.3.2.1}
@@ -34,13 +34,13 @@
 \contentsline {section}{\numberline {3.4}Initial Hyperparameter Optimization}{36}{section.3.4}
 \contentsline {section}{\numberline {3.5}Hyperparameter Optimization}{38}{section.3.5}
 \contentsline {section}{\numberline {3.6}Results}{40}{section.3.6}
-\contentsline {section}{\numberline {3.7}Model Inspection}{44}{section.3.7}
-\contentsline {section}{\numberline {3.8}Multiple Models}{46}{section.3.8}
-\contentsline {section}{\numberline {3.9}Discussion}{48}{section.3.9}
-\contentsline {part}{Part II}{51}{chapter*.6}
+\contentsline {section}{\numberline {3.7}Model Inspection}{43}{section.3.7}
+\contentsline {section}{\numberline {3.8}Multiple Models}{45}{section.3.8}
+\contentsline {section}{\numberline {3.9}Discussion}{47}{section.3.9}
+\contentsline {part}{Part II}{51}{chapter*.5}
 \contentsline {chapter}{\numberline {4}Particle Physics and LEP}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}The Standard Model}{53}{section.4.1}
-\contentsline {section}{\numberline {4.2}Quark Hadronization}{55}{section.4.2}
+\contentsline {section}{\numberline {4.2}Quark Hadronization}{54}{section.4.2}
 \contentsline {section}{\numberline {4.3}The ALEPH Detector and LEP}{56}{section.4.3}
 \contentsline {section}{\numberline {4.4}Jet clustering}{58}{section.4.4}
 \contentsline {section}{\numberline {4.5}The variables}{58}{section.4.5}
@@ -67,20 +67,20 @@
 \contentsline {section}{\numberline {5.9}Gluon splitting}{84}{section.5.9}
 \contentsline {subsection}{\numberline {5.9.1}Variables}{84}{subsection.5.9.1}
 \contentsline {subsection}{\numberline {5.9.2}Efficiencies}{86}{subsection.5.9.2}
-\contentsline {subsection}{\numberline {5.9.3}Closure Test}{86}{subsection.5.9.3}
+\contentsline {subsection}{\numberline {5.9.3}Closure Test}{87}{subsection.5.9.3}
 \contentsline {subsection}{\numberline {5.9.4}4-jet results}{89}{subsection.5.9.4}
 \contentsline {section}{\numberline {5.10}Quark-Gluon Discussion}{90}{section.5.10}
-\contentsline {part}{Part III}{91}{chapter*.7}
-\contentsline {chapter}{\numberline {6}Discussion and Outlook}{91}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusion}{93}{chapter.7}
-\contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{93}{section.7.1}
-\contentsline {section}{\numberline {7.2}Tufte-\LaTeX \xspace Mailing Lists}{93}{section.7.2}
-\contentsline {paragraph}{Discussion list}{93}{paragraph*.9}
-\contentsline {paragraph}{Commits list}{93}{paragraph*.10}
-\contentsline {section}{\numberline {7.3}Getting Help}{93}{section.7.3}
-\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{95}{appendix.A}
-\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{123}{appendix.B}
-\contentsline {chapter}{List of Figures}{153}{appendix*.8}
-\contentsline {chapter}{List of Tables}{156}{appendix*.9}
-\contentsline {chapter}{Bibliography}{157}{section*.10}
+\contentsline {part}{Part III}{93}{chapter*.6}
+\contentsline {chapter}{\numberline {6}Discussion and Outlook}{93}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusion}{95}{chapter.7}
+\contentsline {section}{\numberline {7.1}Tufte-\LaTeX \xspace Website}{95}{section.7.1}
+\contentsline {section}{\numberline {7.2}Tufte-\LaTeX \xspace Mailing Lists}{95}{section.7.2}
+\contentsline {paragraph}{Discussion list}{95}{paragraph*.10}
+\contentsline {paragraph}{Commits list}{95}{paragraph*.11}
+\contentsline {section}{\numberline {7.3}Getting Help}{95}{section.7.3}
+\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{97}{appendix.A}
+\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{125}{appendix.B}
+\contentsline {chapter}{List of Figures}{156}{appendix*.7}
+\contentsline {chapter}{List of Tables}{158}{appendix*.8}
+\contentsline {chapter}{Bibliography}{159}{section*.9}
 \contentsfinish 

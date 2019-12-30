@@ -1,6 +1,6 @@
 % \documentclass[a4paper, twoside, nobib, justified, nofonts]{tufte-book}
 % \documentclass[a4paper, twoside, nobib    , justified]{tufte-book}
-\documentclass[a4paper, twoside, nobib]{tufte-book} % notoc, justified,marginals=raggedouter
+\documentclass[a4paper, twoside, nobib, justified]{tufte-book} % notoc, justified,marginals=raggedouter
 % right ragged (aligned right)
 % nofonts for using other fonts
 
@@ -98,12 +98,13 @@
 % Prints a trailing space in a smart way.
 \usepackage{xspace}
 
+
 % % slashed symbols
 % \usepackage{slashed}
 \usepackage{centernot}
 
 % ignore overfull up to 5pt
-\hfuzz=5.002pt 
+\hfuzz=10.002pt 
 
 \newcommand{\Independent}{\mathrel{\perp\mspace{-10mu}\perp}}
 \newcommand{\NotIndependent}{\centernot{\Independent}}
@@ -499,10 +500,10 @@
 
 % \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_discussion,chapter_conclusion,chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
-% \includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
+\includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
-\includeonly{chapter_foreword}
+% \includeonly{chapter_foreword}
 
 
 
