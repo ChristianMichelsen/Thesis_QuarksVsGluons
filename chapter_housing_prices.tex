@@ -509,7 +509,7 @@ The ranges of the hyperparameters were chosen by a manual, iterative process of 
 
 The fitting pipeline for this subproject is to first run both RS and BO as HPOs to compare their results. The best of the two models is chosen and finally learning rate optimized by early stopping where the learning rate $\eta$ is reduced from $\eta=0.1$ to $\eta=0.01$. In the end one ends up with a model that has been HPO optimized for preprocessing optimizations, loss functions, sample weights, normal BDT hyperparameters and finally the learning rate. I have manually implemented this pipeline in Python since no other packages provide the same flexibility as a custom implementation that works fully automatically. 
 
-The results of the RS and BO can be seen in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer} and \ref{fig:h:CV_res_BO_parallel_coords_ejer} (in the appendix). The corresponding plots for houses can be seen in Figure~\ref{fig:h:CV_res_RS_parallel_coords_villa} and \ref{fig:h:CV_res_BO_parallel_coords_villa}. 
+The results of the RS and BO can be seen in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix} and \ref{fig:h:CV_res_BO_parallel_coords_ejer} (in the appendix). The corresponding plots for houses can be seen in Figure~\ref{fig:h:CV_res_RS_parallel_coords_villa} and \ref{fig:h:CV_res_BO_parallel_coords_villa}. 
 
 \begin{figure}
   \centerfloat
@@ -517,10 +517,10 @@ The results of the RS and BO can be seen in Figure~\ref{fig:h:CV_res_RS_parallel
   \caption[XXX]
           {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
           } 
-  \label{fig:h:CV_res_RS_parallel_coords_ejer}
+  \label{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix}
 \end{figure}
 
-As with the initial HPO, it is important to compare the results in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer} with their uncertainties. This can be seen in Figure~\ref{fig:h:CV_res_RS_uncertainties_ejer}. Here the value of the evaluation function along with its \num{1}$\sigma$  and \num{2}$\sigma$ uncertainties are plotted as a function of the iteration along the abscissa. The minimum value of $f_\mathrm{eval}$ is shown in red. Even though this is the minimum value, notice how flat of a minimum this is: most of the other iterations are within \num{1}$\sigma$. The plot for BO in Figure~\ref{fig:h:CV_res_BO_uncertainties_ejer} shows the exploration phase in the first half of the iterations where it afterwards converge to a more flat minimum, however, this minimum was still worse than the one found with RS. 
+As with the initial HPO, it is important to compare the results in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix} with their uncertainties. This can be seen in Figure~\ref{fig:h:CV_res_RS_uncertainties_ejer}. Here the value of the evaluation function along with its \num{1}$\sigma$  and \num{2}$\sigma$ uncertainties are plotted as a function of the iteration along the abscissa. The minimum value of $f_\mathrm{eval}$ is shown in red. Even though this is the minimum value, notice how flat of a minimum this is: most of the other iterations are within \num{1}$\sigma$. The plot for BO in Figure~\ref{fig:h:CV_res_BO_uncertainties_ejer} shows the exploration phase in the first half of the iterations where it afterwards converge to a more flat minimum, however, this minimum was still worse than the one found with RS. 
 % XXX add villas
 
 \begin{figure}
