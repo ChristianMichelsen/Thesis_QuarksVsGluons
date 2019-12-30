@@ -32,19 +32,19 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Validity Dendrogram}}{33}{subsection.3.1.2}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for apartments}}{34}{equation.3.2.1}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Prophet Trends}}{35}{equation.3.2.1}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces XXX }}{36}{equation.3.4.6}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Sample Weight as a Function of Time for Different Half-Lives.}}{36}{equation.3.4.6}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments}}{37}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Initial HPO Results for the Weight Half-life $T_{\frac {1}{2}}$}}{38}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Initial HPO Results for the Loss Function}}{38}{equation.3.4.7}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces XXX}}{39}{section.3.5}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Hyperparameter optimization: random search results}}{39}{section.3.5}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Parallel Coordinate Plot of the Random Search Hyperparameter Optimization Results of XGBoost for Apartments}}{39}{section.3.5}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Hyperparameter Optimization: Random Search Results}}{40}{section.3.5}
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Early Stopping results}}{40}{section.3.5}
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Performance of XGB-model on apartment prices}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.20}{\ignorespaces Standard Deviation and MAD of the Static and Dynamic XGB Forecasts}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.21}{\ignorespaces Market Index based on the Static and Dynamic XGB Forecasts}}{42}{equation.3.6.9}
 \contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for apartment}}{44}{section.3.7}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of apartments prices using XGB}}{44}{section.3.7}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature importance of apartments prices using XGB XXX}}{45}{section.3.7}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of Apartments Prices Using XGB}}{44}{section.3.7}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments for the XGB Model.}}{45}{section.3.7}
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Performance Comparison of Multiple Models}}{46}{section.3.8}
 \contentsline {figure}{\numberline {3.26}{\ignorespaces SHAP plot villa TFIDF XXX}}{48}{section.3.9}
 \addvspace {10\p@ }
