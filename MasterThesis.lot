@@ -40,5 +40,5 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {B.1}{\ignorespaces Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI {100}{\percent }. See also Table\nobreakspace {}\ref {tab:q:flevt_overview}.}}{122}{appendix.B}
 \contentsline {table}{\numberline {B.2}{\ignorespaces Random Search PDFs for XGB}}{124}{appendix.B}
-\contentsline {table}{\numberline {B.3}{\ignorespaces Global SHAP Feature Importances for the $g$-Tagging Models in 3-Jet Events}}{129}{appendix.B}
+\contentsline {table}{\numberline {B.3}{\ignorespaces Global SHAP Feature Importances for the $g$-Tagging Models in 3-Jet Events}}{128}{appendix.B}
 \contentsfinish 

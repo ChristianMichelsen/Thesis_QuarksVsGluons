@@ -120,7 +120,7 @@ The most important of the features is the sales price, called \code{SalgsPris} i
 \subsection{Correlations}
 \label{subsec:h:correlations_lin_mic}
 
-Having shown the \num{1}D-distributions of all the different variables in the previous section, the next step would be to look at the correlations between the variables. Since there are \num{168} input variables, it is almost impossible to understand every inter-variable correlation, however, it is tried in Figure~\ref{fig:h:correlations_all_lin}. Here the correlation between all numerical variables that are not obviously related to other variables (like the GPS-coordinates that are in both lattitude-longitude and ETRS89\sidenote{European Terrestrial Reference System \num{1989}.} format), and with the condition that it has to have one inter-variable correlation higher than $|\rho| > \SI{30}{\percent}$, are plotted as a $(86 \times 86)$-dimensional heatmap.
+Having shown the \num{1}D-distributions of all the different variables in the previous section, the next step would be to look at the correlations between the variables. Since there are \num{168} input variables, it is almost impossible to understand every inter-variable correlation, however, it is tried in Figure~\ref{fig:h:correlations_all_lin}. Here the correlation between all numerical variables that are not obviously related to other variables (like the GPS-coordinates that are in both latitude-longitude and ETRS89\sidenote{European Terrestrial Reference System \num{1989}.} format), and with the condition that it has to have one inter-variable correlation higher than $|\rho| > \SI{30}{\percent}$, are plotted as a $(86 \times 86)$-dimensional heatmap.
 
 Even though inter-variable correlations are important in the exploratory data analysis (EDA) phase, what is more important is to get a better understanding of how the input variables correlate with the output variable; the sales price. This is shown in Figure~\ref{fig:h:corr_lin} for the variables where $\abs{\rho} > \SI{10}{\percent}$. It is the previous property evaluation, \code{EjdVurdering_EjendomsVaerdi} that is correlated the most with the sales price, which does not come as any huge surprise. Other positively correlated variables are the cost of ownership\sidenote{This a great example of the fact that correlation does not imply causation}, area, number of bathrooms, its longitude, and distance to nearest wind mill. In the other end, the local income tax, \code{Kommune_SkatteProcent}, is the variable that is the most negatively correlated to the sales price, followed by the geographical variables related to province, municipality, and postcode.
 
@@ -195,7 +195,7 @@ Given the 1D input variable distributions and their validity, we apply some very
   \bottomrule
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption[Basic Cuts]{Overview of the basic cuts which define the minimum information needed to preditct the price of a sale.}
+  \caption[Basic Cuts]{Overview of the basic cuts which define the minimum information needed to predict the price of a sale.}
   \label{tab:h:initial_cuts}
 \end{table}
 
@@ -373,26 +373,6 @@ This is illustrated in Figure~\ref{fig:h:half-life} for the different values of 
   \end{split}
 \end{equation}
 
-% \begin{margintable}
-%   \begin{tabular}{@{}ccrc@{}}
-%     Half-life & $\log_{10}$ & $N_\mathrm{trees}$ & $f_\mathrm{eval}$ \\
-%     \midrule
-%     \num{2.5} & True & \num{393} & \num{0.1609} \\
-%     \num{2.5} & False & \num{887} & \num{0.1449} \\
-%     \num{5} & True & \num{296} & \num{0.1599} \\
-%     \num{5} & False & \num{776} & \num{0.1476} \\
-%     \num{10} & True & \num{266} & \num{0.1611} \\
-%     \num{10} & False & \num{822} & \num{0.1457} \\
-%     \num{20} & True & \num{257} & \num{0.1614} \\
-%     $\mathbf{20}$ & \textbf{False} & $\mathbf{932}$ & $\mathbf{0.1439}$ \\
-%     $\infty$ & True & \num{418} & \num{0.1567} \\
-%     $\infty$ & False & \num{1015} & \num{0.1468} 
-%   \end{tabular}
-%   \vspace{2mm}
-%   \caption{\label{tab:h:HPO_initial_Cauchy}Cauchy. Ejerlejlighed XX}
-% \end{margintable}
-
-
 \begin{margintable}
   \begin{tabular}{@{}ccrc@{}}
     %\toprule
@@ -439,7 +419,7 @@ The grid search is run on the training set with \num{5}-fold cross validation, e
 For houses the loss function with the lowest $f_\mathrm{eval}$ was (also) the Cauchy loss with $T_{\frac{1}{2}}=20$ years and (also) no $\log_{10}$-transformation. This BDT terminated by early stopping after \num{1514} trees, see Table~\ref{tab:h:HPO_initial_Cauchy-villa}. 
 It is interesting to note that both HPO for houses and apartments choose the same loss function and not to do any transformation\sidenote{The reason why the $\log_{10}$-transformation was included even to begin with, was that initially it showed better results than no transformation, however, this turned out to be a numerical consequence which was alleviated by dividing all prices with a million, such that $y$ had units of \si{\Mkr} instead of \si{\kr}}. All of the results for the apartments can be seen in Table~\ref{tab:h:HPO_initial_Rmse-ejerlejlighed-appendix}--\ref{tab:h:HPO_initial_Fair-ejerlejlighed-appendix} along with all of results for the houses in Table~\ref{tab:h:HPO_initial_Rmse-villa-appendix}--\ref{tab:h:HPO_initial_Fair-villa-appendix}. 
 
-A visualization of the HPO results can be seen as the parallel coordinate plot in Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer}. Here the hyperparameters (along the time taken and the number of trees) of the HPO are plotted along the abscissa (x-axis) and the value of the hyperparameter on the ordinate (y-axis). Every iteration of the HPO is thus a line on the plot. The lines are colored according to their evaluation score; the best hyperparameter is shown in red. For the hyperparamater \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. The same plot for houses can be seen in Figure~\ref{fig:h:initial_CV_res_parallel_coords_villa}.
+A visualization of the HPO results can be seen as the parallel coordinate plot in Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer}. Here the hyperparameters (along the time taken and the number of trees) of the HPO are plotted along the abscissa (x-axis) and the value of the hyperparameter on the ordinate (y-axis). Every iteration of the HPO is thus a line on the plot. The lines are colored according to their evaluation score; the best hyperparameter is shown in red. For the hyperparameter \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. The same plot for houses can be seen in Figure~\ref{fig:h:initial_CV_res_parallel_coords_villa}.
 
 \begin{figure}
   \centerfloat
@@ -481,7 +461,7 @@ What can be concluded from Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer
 % % \end{figure}
 For the half-life and the choice of objective function these can be seen in Figure~\ref{fig:h:hpo_gridsearch_objective} and \ref{fig:h:hpo_gridsearch_halflife}. In the first of the two figures it is easily seen that even though $T_{\frac{1}{2}}=\SI{10}{\yr}$ is the minimum, the uncertainties are so large that nothing can be concluded definitely with regards to the half-life parameter related to the weights $w(t)$. In contrary, in the second figure there is a clear performance difference between the different loss functions where the Cauchy loss archives the best (lowest) value of $f_\mathrm{eval}$ and especially the Squared Error is disregarded. 
 
-The rest of the machine learning models thus continue with the following hyperparamaters:
+The rest of the machine learning models thus continue with the following hyperparameters:
 
 \begin{table}[h]
   \centerfloat
@@ -502,7 +482,7 @@ The rest of the machine learning models thus continue with the following hyperpa
 \label{sec:h:hyperparamater_optimization}
 With the initial HPO set, the actual training of the models was started. An XGBoost model was fitted to the each of the two training sets, one for apartments and one for houses, where the hyperparameters were optimized using both random search and Bayesian optimization each run for \num{100} iterations with \num{5}-fold cross validation and early stopping\sidenote{This takes a good \num{4} hours for the RS, \num{7} hours for the BO, and \num{90} minutes to optimize the learning rate with early stopping for apartments when run on the local computing cluster, HEP. For the houses this takes a good \num{24} hours for the RS, \num{34} hours for the BO, and almost \num{5} hours optimize the learning rate with early stopping.}. The hyperparameters to be optimized were the following:
 \begin{itemize}
-  \item[] The \code{subsample} varible controls the row-subsampling and is a number between \num{0} and \num{1}. 
+  \item[] The \code{subsample} variable controls the row-subsampling and is a number between \num{0} and \num{1}. 
   \item[] The hyperparameter \code{colsample_bytree} controls the column-downsampling for each tree, so how many columns (or variables) each tree are allowed to fit to. Is a number between \num{0} and \num{1}.
   \item[] The \code{max_depth} controls the maximum depth of every tree. Is a positive integer (negative values means no maximum depth).  
   \item[] The \code{min_child_weight} variable controls when the decision tree algorithm should stop splitting a node into further nodes (and will thus turn it into a leaf). Is a positive integer.
@@ -620,7 +600,7 @@ Using the relative price predictions $\vec{z}$, we construct the Market Index, $
     \label{eq:h:market_index}
   \end{split}
 \end{equation}
-Here $\vec{z}_\mathrm{mi}$ is the vector of ratios between prediction and actual price, and the market index can then be estimated using either the mean $\mathrm{MI}_\mathrm{mean}$ or the median $\mathrm{MI}_\mathrm{median}$. The market indices for every month of the forecast described in the previous figure can be seen in Figure~\ref{fig:h:forecast_MarketIndex}. In the top panel the market index for the static model is shown where it is visible for $\mathrm{MI}_\mathrm{median}$ how it consistently overshoots. Compare this to the dynamic $\mathrm{MI}_\mathrm{median}$ whic fluctuates around \num{0}. BLABLA mere analyse her XXX. That the $\mathrm{MI}_\mathrm{mean}$ is consistently lower than $\mathrm{MI}_\mathrm{median}$ is an indication of a low tail in $z_\mathrm{mi}$ (\emph{negative skewness}) which means that some of the the predictions are much lower than the actual sales price. BLABLA, XXX. \TODO
+Here $\vec{z}_\mathrm{mi}$ is the vector of ratios between prediction and actual price, and the market index can then be estimated using either the mean $\mathrm{MI}_\mathrm{mean}$ or the median $\mathrm{MI}_\mathrm{median}$. The market indices for every month of the forecast described in the previous figure can be seen in Figure~\ref{fig:h:forecast_MarketIndex}. In the top panel the market index for the static model is shown where it is visible for $\mathrm{MI}_\mathrm{median}$ how it consistently overshoots. Compare this to the dynamic $\mathrm{MI}_\mathrm{median}$ which fluctuates around \num{0}. BLABLA mere analyse her XXX. That the $\mathrm{MI}_\mathrm{mean}$ is consistently lower than $\mathrm{MI}_\mathrm{median}$ is an indication of a low tail in $z_\mathrm{mi}$ (\emph{negative skewness}) which means that some of the the predictions are much lower than the actual sales price. BLABLA, XXX. \TODO
 
 \begin{figure}
   \centerfloat
@@ -630,7 +610,7 @@ Here $\vec{z}_\mathrm{mi}$ is the vector of ratios between prediction and actual
   \label{fig:h:forecast_MarketIndex}
 \end{figure}
 
-The final results for the model is seen in Table~\ref{tab:h:results_ejer} for owner-occupied apartments and in in Table~\ref{tab:h:results_villa} for one family houses. The MAD is around \SI{9}{\percent} for apartments and \SI{16}{\percent} for houses, which is still worse than the realtors' prediction, yet still acceptable for a model that does not have any variables describing the indoor conditions. For apartments around \SI{40}{\percent} of all the predicitions are within $\pm \SI{5}{\percent}$ and more than \SI{90}{\percent} are within $\pm \SI{20}{\percent}$ which is similar to the performance of the professional automated property evaluations from e.g. \citet{bolighedBolighedUsikkerhedDatavurderingen}. The performance on the tight cuts can be seen in Table~\ref{tab:h:results_ejer_tight} and \ref{tab:h:results_villa_tight}. 
+The final results for the model is seen in Table~\ref{tab:h:results_ejer} for owner-occupied apartments and in in Table~\ref{tab:h:results_villa} for one family houses. The MAD is around \SI{9}{\percent} for apartments and \SI{16}{\percent} for houses, which is still worse than the realtors' prediction, yet still acceptable for a model that does not have any variables describing the indoor conditions. For apartments around \SI{40}{\percent} of all the predictions are within $\pm \SI{5}{\percent}$ and more than \SI{90}{\percent} are within $\pm \SI{20}{\percent}$ which is similar to the performance of the professional automated property evaluations from e.g. \citet{bolighedBolighedUsikkerhedDatavurderingen}. The performance on the tight cuts can be seen in Table~\ref{tab:h:results_ejer_tight} and \ref{tab:h:results_villa_tight}. 
 
 
 \begin{table}
@@ -724,7 +704,7 @@ Finally, support vector machines\sidenote{Known as support vector regression whe
 The results for the five different models are shown in Figure~\ref{fig:h:multiple_models}, where the two subplots are the same up to a logarithmic scaling of the ordinate axis in the right plot. It is easily seen how XGBoost and LightGBM are the best-performing models together with the ensemble (ENS) of the different models, see paragraph below for further explanation. In the figure the MAD is also shown on the test set, which confirms the visual clue: that XGBoost performs best, followed by the ensemble model.
 
 
-The five different models -- XGB, LGB, LIN, KNN, SVR -- should be able to each capture different parts of the hyperdimensional phase space and an ensemble of these models would thus be expected to be as good as or better than the best of the individual models. This kind of ensemble model is sometimes called \emph{super learner} in the statistics community \autocite{polleySuperLearnerPrediction2010,vanSuperLearner2007}. To make sure that the ensemble model is not just retraining on the training set, and thus end up overfitting, we follow the process from \citet{polleySuperLearnerPrediction2010}. Using cross-validation for time-series\sidenote{See \autoref{subsec:cross_validation}.} data with $10$ folds, the training data is split up into folds sorted by time. Each fold is fitted with all five models, and the prediction of the next fold is made for all five models. This is repeated for the remaining folds untill one ends up with a matrix of predictions $\vec{Z} \in \mathbb{R}^{(N \times 5)}$ for $N$ training samples. Since all the folds in $\vec{Z}$ consists of predictions on unseen data\sidenote{The predictions for the very first fold is based on training data.} this prevents overfitting. The meta learner then fits $Z$ to the actual predictions of the training data $y$ in the ususal way. The combination of a meta learner fitted to the predictions of individual models is called an ensemble model.
+The five different models -- XGB, LGB, LIN, KNN, SVR -- should be able to each capture different parts of the hyperdimensional phase space and an ensemble of these models would thus be expected to be as good as or better than the best of the individual models. This kind of ensemble model is sometimes called \emph{super learner} in the statistics community \autocite{polleySuperLearnerPrediction2010,vanSuperLearner2007}. To make sure that the ensemble model is not just retraining on the training set, and thus end up overfitting, we follow the process from \citet{polleySuperLearnerPrediction2010}. Using cross-validation for time-series\sidenote{See \autoref{subsec:cross_validation}.} data with $10$ folds, the training data is split up into folds sorted by time. Each fold is fitted with all five models, and the prediction of the next fold is made for all five models. This is repeated for the remaining folds until one ends up with a matrix of predictions $\vec{Z} \in \mathbb{R}^{(N \times 5)}$ for $N$ training samples. Since all the folds in $\vec{Z}$ consists of predictions on unseen data\sidenote{The predictions for the very first fold is based on training data.} this prevents overfitting. The meta learner then fits $Z$ to the actual predictions of the training data $y$ in the usual way. The combination of a meta learner fitted to the predictions of individual models is called an ensemble model.
 
 At first an XGBoost model was used as the meta learner yielding decent results, however, still performing worse than the single XGB model ($\mathrm{MAD} = \SI{9.57}{\percent}$). To better understand the issue, the meta learner was changed to a linear model which would basically just compute a weighted average of the different models:
 \begin{equation}
@@ -756,9 +736,9 @@ The methods for translating the text to numerical variables decipherable by clas
   \label{fig:h:shap_text}
 \end{marginfigure}
 
-The descriptions turned out to be more time-consuming to extract for Boligsiden and along with the fact that overall deadline was quickly approching, the remaining time was focussed on the main part of the project, the quark gluon discrimination. Given more time, the text analysis would definitely be the first step for further improving the accuracy and precision of the price predictions. 
+The descriptions turned out to be more time-consuming to extract for Boligsiden and along with the fact that overall deadline was quickly approaching, the remaining time was focussed on the main part of the project, the quark gluon discrimination. Given more time, the text analysis would definitely be the first step for further improving the accuracy and precision of the price predictions. 
 
-Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the intial stages of this subproject but showed inferior performance compared to BDTs. It is generally accepted in the ML community (with some modifications) that neural networks underperform, or at least not outperform, classic ML methods on structured \sidenote{In general data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations which is why it is also known as \emph{tabular data}.} data \autocite{klambauerSelfNormalizingNeuralNetworks2017}. Most often they have the inherent complexity needed to perform as well as other ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than for classical ML methods and thus requires more care to avoid overfitting.
+Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the initial stages of this subproject but showed inferior performance compared to BDTs. It is generally accepted in the ML community (with some modifications) that neural networks underperform, or at least not outperform, classic ML methods on structured \sidenote{In general data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations which is why it is also known as \emph{tabular data}.} data \autocite{klambauerSelfNormalizingNeuralNetworks2017}. Most often they have the inherent complexity needed to perform as well as other ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than for classical ML methods and thus requires more care to avoid overfitting.
 
 \section{Conclusion}
 \label{sec:h:conclusion}

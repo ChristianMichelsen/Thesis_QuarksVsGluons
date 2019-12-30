@@ -71,10 +71,10 @@
 \contentsline {subsection}{\numberline {5.9.3}Closure Test}{87}{subsection.5.9.3}
 \contentsline {subsection}{\numberline {5.9.4}4-jet results}{89}{subsection.5.9.4}
 \contentsline {section}{\numberline {5.10}Discussion}{90}{section.5.10}
-\contentsline {section}{\numberline {5.11}Conclusion}{90}{section.5.11}
+\contentsline {section}{\numberline {5.11}Conclusion}{92}{section.5.11}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{93}{appendix.A}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{121}{appendix.B}
-\contentsline {chapter}{List of Figures}{152}{appendix*.9}
+\contentsline {chapter}{List of Figures}{151}{appendix*.9}
 \contentsline {chapter}{List of Tables}{154}{appendix*.10}
 \contentsline {chapter}{Bibliography}{155}{section*.11}
 \contentsfinish 
