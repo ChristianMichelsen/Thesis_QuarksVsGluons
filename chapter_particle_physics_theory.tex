@@ -106,7 +106,7 @@ The energy resolution $\sigma$ of the calorimeters, or the \emph{calorimeter per
 \end{equation}
 Even though $\sigma(E)$ increases with $E$, the relative resolutions improves with higher energies. Since one never measures Nature directly, the results one obtains in a measurement are thus products of both model and experimental uncertainties folded together. To unfold the measurements to obtain experiment-independent results, the uncertainties are important to understand. Of course there are dozens of other uncertainties in an advanced experiment like ALEPH, however, the energy dependence is the primary focus in this project. 
 
-\section{Jet clustering}
+\section{Jet Clustering}
 \label{sec:hep:jet_clustering}
 
 Since the initial partons created as decay products from the $Z$ are unstable themselves, what is measured in the detector is a whole shower of hadrons seen as charged tracks in the detectors and energy deposits in the calorimeters. However, say that the $Z$  decayed to a $b\bar{b}$ event. In this case the two $b$'s would be back-to-back and the final hadrons would be observed approximately in the same direction as the $b$'s were created. The interest of the experiment is not to measure the final hadrons, but rather to infer information about the initial quarks and gluons. This is done via the reverse-engineering process called \emph{jet clustering}. Over the years many clustering algorithms have been developed, however, most of these are younger than LEP. In the ALEPH experiment the JADE algorithm was used \autocite{bartelExperimentalStudyJets1981}. JADE is a sequential recombination algorithm where final state particles are initially described as individual so-called pseudo-jets which are then recursively merged to larger jets according to their inter-jet distance $d^2_{ij}$. The distance measure for JADE is:
@@ -115,7 +115,7 @@ Since the initial partons created as decay products from the $Z$ are unstable th
 \end{equation}
 where $E_\mathrm{vis}$ is the visible energy\sidenote{The total sum of energies in the event.} and $\theta_{ij}$ is the angle between jet $i$ and $j$. The JADE algorithm computes $d^2_{ij}$ for all combinations of jets and merges the two jets with the lowest $d^2_{ij}$, continuing like that recursively until $\min(d^2_{ij}) > d^2_\mathrm{cut}$ for some predefined value of $d^2_\mathrm{cut}$. In the dataset at hand, only the final jets were available and not the jet constituents, unfortunately. 
 
-\section{The variables}
+\section{The Variables}
 The overall goal of the project is to be able to discriminate quarks and gluons using only vertex variables. The reason for the last condition is that the goal is to better understand the shape distributions of gluons in which there is still significant differences between Monte Carlo (MC) simulations and Data. Therefore only vertex variables will be used to avoid any biases introduced by using shape-related variables to detect differences in shape-distributions. 
 The vertex variables are a subset of all variables which include the three variables \code{projet}, \code{bqvjet}, and \code{ptlrel}. These three particular variables have each shown discriminatory power in separating $b$-quarks from light quarks and gluons. 
 

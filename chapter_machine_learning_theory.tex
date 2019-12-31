@@ -144,7 +144,7 @@ As we did in equation \eqref{eq:hoeffding_inequality_single_PAC}, equation \eqre
 \end{equation}
 This bound is looser than the one for only a single hypothesis by a factor $\ln K$, however, this holds for the optimal hypothesis $h^*$. 
 
-\subsection{Generalization Bound for infinite hypotheses}
+\subsection{Generalization Bound for Infinite Hypotheses}
 \label{subsec:generalization_bound_infinite}
 Section \ref{sec:generalization_bound} dealt with the case of a single hypotheses $h$ and a finite set of candidate hypotheses $h\in\mathcal{H}, |\mathcal{H}| = K$. When $K$ goes towards infinity the generalization bound goes to infinity and the bound becomes useless. However, even simple models such as a linear classifier\sidenote{Also known as the perceptron. Often includes a constant offset $b$ as well which is omitted here for brevity. The functional form of this function is $f(x)=\mathrm{sign}(\vec{w}^T\vec{x})$.} that predicts $\hat{y}=1$ when the dot product $\vec{w}^T\vec{x}$ is positive and $\hat{y}=-1$ when it is negative, has $|\mathcal{H}| = \infty$. Since an infinite number of hypotheses $h(\vec{w})$ exists, assuming we allow $\vec{w}$ to take any real values as is almost always the case, $\mathcal{H}$ is infinite. 
 
