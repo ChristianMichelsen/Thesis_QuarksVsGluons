@@ -218,6 +218,9 @@ Warning--empty year in mcinnesUMAPUniformManifold2018
 Warning--empty year in mcinnesUMAPUniformManifold2018
 Warning--empty year in nla.cat-vn1067782
 Warning--empty year in nla.cat-vn1067782
+Warning--empty journal in mohdrazaliPowerComparisonsShapiroWilk2011
+Warning--empty year in mohdrazaliPowerComparisonsShapiroWilk2011
+Warning--empty year in mohdrazaliPowerComparisonsShapiroWilk2011
 Warning--empty journal in mulalicFinancialCrisisDiverging2017
 Warning--empty year in mulalicFinancialCrisisDiverging2017
 Warning--empty year in mulalicFinancialCrisisDiverging2017
@@ -312,45 +315,45 @@ Warning--empty year in wobischHadronizationCorrectionsJet1999
 Warning--empty journal in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
 Warning--empty year in zaheerDeepSets2017
-You've used 104 entries,
+You've used 105 entries,
             2773 wiz_defined-function locations,
-            1323 strings with 31942 characters,
-and the built_in function-call counts, 53794 in all, are:
-= -- 4621
-> -- 3659
-< -- 78
-+ -- 1260
-- -- 1150
-* -- 4775
-:= -- 8294
-add.period$ -- 466
-call.type$ -- 104
-change.case$ -- 682
-chr.to.int$ -- 98
-cite$ -- 479
-duplicate$ -- 2150
-empty$ -- 3846
-format.name$ -- 1290
-if$ -- 11054
+            1327 strings with 32183 characters,
+and the built_in function-call counts, 54164 in all, are:
+= -- 4652
+> -- 3680
+< -- 79
++ -- 1267
+- -- 1156
+* -- 4802
+:= -- 8351
+add.period$ -- 469
+call.type$ -- 105
+change.case$ -- 687
+chr.to.int$ -- 99
+cite$ -- 484
+duplicate$ -- 2169
+empty$ -- 3876
+format.name$ -- 1299
+if$ -- 11129
 int.to.chr$ -- 7
 int.to.str$ -- 1
-missing$ -- 93
-newline$ -- 674
-num.names$ -- 390
-pop$ -- 1801
+missing$ -- 94
+newline$ -- 679
+num.names$ -- 394
+pop$ -- 1815
 preamble$ -- 2
-purify$ -- 584
+purify$ -- 588
 quote$ -- 0
-skip$ -- 1557
+skip$ -- 1571
 stack$ -- 0
-substring$ -- 1289
+substring$ -- 1291
 swap$ -- 181
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1104
-warning$ -- 263
-while$ -- 355
+type$ -- 1115
+warning$ -- 266
+while$ -- 358
 width$ -- 0
-write$ -- 1473
-(There were 282 warnings)
+write$ -- 1484
+(There were 285 warnings)

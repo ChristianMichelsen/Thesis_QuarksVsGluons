@@ -677,7 +677,7 @@ The gluon splitting variables are variables where current MC generators, such as
   % \item[$R_{gg}^\mathrm{CA}$:] Same as above, however for the CA algorithm: $R_{gg}^{CA} \equiv R_{gg}(p=0)$. 
 \end{enumerate}
 
-The gluon splitting variables will be analyzed in distinct areas defined by the $k_t$ \citep{cataniLongitudinallyinvariantKtclusteringAlgorithms1993,ellisSuccessiveCombinationJet1993} and Cambridge/Aachen (CA) \citep{dokshitzerBetterJetClustering1997,wobischHadronizationCorrectionsJet1999} jet clustering algorithms for $e^+e^-$ collisions which will first be described. The two algorithms uses the following\sidenote{When using $R=1$ in eq. (9a) in Ref. \autocite{cacciariFastJetUserManual2012}.} \emph{jet distance measure}:
+The gluon splitting variables will be analyzed in distinct regions defined by the $k_t$ \citep{cataniLongitudinallyinvariantKtclusteringAlgorithms1993,ellisSuccessiveCombinationJet1993} and Cambridge/Aachen (CA) \citep{dokshitzerBetterJetClustering1997,wobischHadronizationCorrectionsJet1999} jet clustering algorithms for $e^+e^-$ collisions which will first be described. The two algorithms uses the following\sidenote{When using $R=1$ in eq. (9a) in Ref. \autocite{cacciariFastJetUserManual2012}.} \emph{jet distance measure}:
 \begin{equation}
   \label{eq:q:kt_CA_distance_measure}
   d_{ij}^2(p) = \min \left(E_i^{2p}, E_j^{2p} \right) \left(\frac{1-\cos \theta_{ij}}{2} \right), 
@@ -819,30 +819,58 @@ The closure test shows that the $g$-tagging algorithm can also be trusted in the
   C       & $[0, \frac{5}{3}]$            & $[1, \infty]$           \\ \addlinespace[0.4em]
   D       & $[\frac{5}{3}, \infty]$       & $[\frac{5}{3}, \infty]$
   \end{tabular}
-\vspace{1mm}
-\caption[Area Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space]{\label{tab:q:gluon_splitting_area_definitions}Definitions of the four areas in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space.}
+\vspace{3mm}
+\caption[Rgion Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space]{\label{tab:q:gluon_splitting_region_definitions}Definitions of the four regions in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space.}
 \end{margintable}
 
-The comparison between the gluon splitting distributions will be done in four distinct areas of the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. These four areas, A, B, C, and D, are defined in Table~\ref{tab:q:gluon_splitting_area_definitions}. Three of these regions have already been described, that is area A which is the soft, collinear region with an example shown in Figure~\ref{fig:q:kt_CA_soft_collinear}, area C which is the soft, wide angle region in Figure~\ref{fig:q:kt_CA_soft_wide}, and the hard non-$g\rightarrow gg$ area D in Figure~\ref{fig:q:kt_CA_hard_non_g_to_gg}. Area B is a region where neither the $k_t$ algorithm nor the CA algorithm is totally sure whether or not the two gluons should be clustered together. The four areas are visualized in Figure~\ref{fig:q:R_kt_CA_overview} for both MC and Data. Here each dot shown in the scatter plot is an event with $0.8 < \gamma_\mathrm{tag}$, with a total of \num{41117} events in the MC sample and \num{22473} events in the data sample. The number of events that fall into each of the four areas are shown in the figure. The events are split up into these four areas because they each concern different physical interactions. The number of events in each area were taken into account when creating the ranges in Table~\ref{tab:q:gluon_splitting_area_definitions} to minimize the statistical uncertainties. 
+The comparison between the gluon splitting distributions will be done in four distinct regions of the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. These four regions, A, B, C, and D, are defined in Table~\ref{tab:q:gluon_splitting_region_definitions}. Three of these regions have already been described, that is region A which is the soft, collinear region with an example shown in Figure~\ref{fig:q:kt_CA_soft_collinear}, region C which is the soft, wide angle region in Figure~\ref{fig:q:kt_CA_soft_wide}, and the hard non-$g\rightarrow gg$ region D in Figure~\ref{fig:q:kt_CA_hard_non_g_to_gg}. Region B is a region where neither the $k_t$ algorithm nor the CA algorithm is totally sure whether or not the two gluons should be clustered together. 
+
+The four regions are visualized in Figure~\ref{fig:q:R_kt_CA_overview} for both MC and Data. Here each dot shown in the scatter plot is an event with $0.8 < \gamma_\mathrm{tag}$, with a total of \num{41117} events in the MC sample and \num{22473} events in the data sample. The number of events that fall into each of the four regions are shown in the figure. The events are split up into these four regions because they each concern different physical interactions. The number of events in each region were taken into account when creating the ranges in Table~\ref{tab:q:gluon_splitting_region_definitions} to minimize the statistical uncertainties. 
 
 \begin{figure*}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[Overview of the Four Areas in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space]
-          {Overview of the four areas, A, B, C, and D, in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. The areas are shown as colored rectangles together with a scatter plot showing the 2D-distribution for signal gluon events ($0.8 < \gamma_\mathrm{tag}$). The left plot shows is for MC and the right one for Data.} 
+  \caption[Overview of the Four Regions in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space]
+          {Overview of the four regions, A, B, C, and D, in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space. The regions are shown as colored rectangles together with a scatter plot showing the 2D-distribution for signal gluon events ($0.8 < \gamma_\mathrm{tag}$). The left plot shows is for MC and the right one for Data.} 
   \label{fig:q:R_kt_CA_overview}
 \end{figure*}
 % \vspace{-3mm}
 
-The distributions for the different gluons splitting variables for area A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A_non_appendix} for both MC (scaled to Data) and Data. Area A contains \num{5022} events in the MC sample and \num{3111} in the Data sample. Generally the distributions match pretty well between the MC and Data, however, there seems to small discrepancies in the energy asymmetry variables, however, this might just be due to statistical fluctuations (notice the low bin count in each bin). When looking at the other areas, see Figure~\ref{fig:q:R_kt_CA_cut_A}--\ref{fig:q:R_kt_CA_cut_D}, the energy discrepancies seem to disappear. In general there seems to be a reasonably good correspondence between the distributions for MC and Data. 
+The distributions for the different gluons splitting variables for region A, the soft, collinear region, is shown in Figure~\ref{fig:q:R_kt_CA_cut_A_non_appendix} for both MC (scaled to Data) and Data. The in addition to scaling MC to Data, the samples have been efficiency corrected in the histograms, that is given a weight $w(x)=1/ \varepsilon_{gg}^{4\dash\mathrm{jet}}(x)$. Region A contains \num{5022} events in the MC sample and \num{3111} in the Data samples. Generally the distributions match pretty well between the MC and Data, however, there seems to be small discrepancies in the energy asymmetry variables, however, this might just be due to statistical fluctuations (notice the low bin count in each bin). 
 
 \begin{figure*}[h!]
   \centerfloat
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
-  \caption[Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A]
-          {Comparison of the gluon splitting distributions in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A, see Table~\ref{tab:q:gluon_splitting_area_definitions}. The distribution for \textcolor{blue}{MC} (scaled to Data) is shown in blue and for \textcolor{red}{Data} in red. These eight distributions are for the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Area A which has \num{5022} events in the MC sample and \num{3111} in the Data sample. } 
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ Phase Space Region A]
+          {Comparison of the gluon splitting distributions in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ phase space region A, see Table~\ref{tab:q:gluon_splitting_region_definitions}. The distribution for \textcolor{blue}{MC} (scaled to Data) is shown in blue and for \textcolor{red}{Data} in red. Both MC and Data has been efficiency corrected. These eight distributions are for the $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ region A which has \num{5022} events in the MC sample and \num{3111} in the Data sample. } 
   \label{fig:q:R_kt_CA_cut_A_non_appendix}
 \end{figure*}
+
+When looking at the other regions, see Figure~\ref{fig:q:R_kt_CA_cut_A}--\ref{fig:q:R_kt_CA_cut_D}, the energy discrepancies seem to disappear. To compare the similarity of the MC and Data distributions, I perform a Kolmogorov–Smirnov (KS) two-sample test. This nonparametric hypothesis test compares two samples based on the null hypothesis that they are both samples coming from the same (but unknown) parent distribution. The KS test outputs the probability $P_\mathrm{KS}$ of the null hypothesis. I add this probability to the plot if it is less than \SI{100}{\percent}. This is only the case in region D, Figure~\ref{fig:q:R_kt_CA_cut_D}, which I suspect is due to low statistics in the other regions as the KS test is known for its low power \autocite{mohdrazaliPowerComparisonsShapiroWilk2011}. 
+
+To properly test the assumption that the variations in $E_\mathrm{diff}$ are due to statistical noise, I make a ratio plot between MC and Data and compare them between region A and D. The plot for region A is shown in Figure~\ref{fig:q:ratio_plot_E_diff_region_A}. When looking at the ratio plot in the bottom part of the figure, it can be seen that the almost all of the bins are with $1\sigma$ of \num{1}. Indeed, when calculating the $\chi^2$ value between the errorbars and a constant ratio of \num{1}, that is to say $f(x)=1$, one finds a $\chi^2$ probability of $P_{\chi^2}=\SI{51.3}{\percent}$. This value strongly suggests that the fluctuations in the two histograms are due to statistical noise (at least we cannot disprove that it is not). Remember, that this was not even a fit, but simply a comparison to a (fixed) constant. 
+
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/quarks/cut_region_A_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Ratio Plot of $E_\mathrm{diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ for Region A]
+          {Ratio plot of the gluon splitting variable $E_\mathrm{diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ in region A. In the top plot, the distribution of $E_\mathrm{diff}$ for \textcolor{blue}{MC} (scaled to Data) is shown in blue and for \textcolor{red}{Data} in red. Both MC and Data has been efficiency corrected. Below are the ratio plot between MC and Data. In text is written the $\chi^2$ between the errorbars and a constant ratio equal to \num{1}. That is to say that $f(x)=1$, which is thus not a fit. The $\chi^2$ probability is written as $P_{\chi^2}$ and it indicates an almost perfect correspondence between Data and MC.} 
+  \label{fig:q:ratio_plot_E_diff_region_A}
+\end{figure}
+
+In Figure~\ref{fig:q:ratio_plot_E_diff_region_D} one can compare the ratio in region A with the one in region D. Even though region D contains a lot more data, the same pattern is seen as for region A. In region D the $\chi^2$ probability is even a bit too high which indicates too little variation between the two histograms, however, not by too much to just happen by chance. In comparison to the $\chi^2$ probability, the KS probability between the two samples is $P_\mathrm{KS}(E_\mathrm{diff})=\SI{0.25}{\percent}$. This difference in probability is an implication of the fact that the KS test and $\chi^2$ test are sensitive to different characteristics, e.g. the $\chi^2$ test is only sensitive to absolute differences between distributions, whereas the KS test is not bound to only compare absolute differences. 
+
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/quarks/cut_region_D_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Ratio Plot of $E_\mathrm{diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ for Region D]
+          {Ratio plot of the gluon splitting variable $E_\mathrm{diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ in region D. In the top plot, the distribution of $E_\mathrm{diff}$ for \textcolor{blue}{MC} (scaled to Data) is shown in blue and for \textcolor{red}{Data} in red. Both MC and Data has been efficiency corrected. Below are the ratio plot between MC and Data. In text is written the $\chi^2$ between the errorbars and a constant ratio equal to \num{1}. That is to say that $f(x)=1$, which is thus not a fit. The $\chi^2$ probability is written as $P_{\chi^2}$ and it indicates an high correspondence between Data and MC, almost too high.} 
+  \label{fig:q:ratio_plot_E_diff_region_D}
+\end{figure}
+
+In general there seems to be a high degree of correspondence between the distributions for MC and Data for all the gluon splitting variables in all four of the regions of phase space tested. 
+
+
 
 \section{Discussion}
 \label{sec:q:discussion}
@@ -862,7 +890,7 @@ Even after taking the sources of error into account along with the statistical a
   \label{eq:q:convolution}
   \int f(x) A(x, y) \mathop{dx} = g(y).
 \end{equation}
-The goal is thus to estimate truth $f(x)$ given knowledge about the detectors response $A(x,y)$. Another way to look at this is that $f(x)$ is smeared, or distorted, by detector and binning effects (e.g. finite resolutions). The process of inverting equation \eqref{eq:q:convolution} is known as \emph{unfolding} and is basically a deconvolution process.
+The goal is thus to estimate truth $f(x)$ given knowledge about the detectors response $A(x,y)$. Another way to look at this is that $f(x)$ is smeared, or distorted, by detector and binning effects (e.g. finite resolutions). The process of inverting equation \eqref{eq:q:convolution} is known as \emph{unfolding} and is basically a deconvolution process. 
 
 \section{Conclusion}
 \label{sec:q:conclusion}
