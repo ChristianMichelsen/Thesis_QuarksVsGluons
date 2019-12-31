@@ -589,16 +589,50 @@ We will look at the generalized angularity distributions for gluons in 3-jet eve
 The distribution of $\lambda_0^2$, i.e. $(\beta, \kappa)=(0,2)$, related to the transverse momentum distribution, in gluon events is seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix}. Here the distribution of $\lambda_0^2$ is shown for MC Truth (actual gluons jets using truth-label), MC selected (gluons jets selected using the $g$-tag) and Data (gluons jets selected using the $g$-tag). The generalized angularities are computed for both charged jets and neutral clusters, where this figure shows the distribution of $\lambda_0^2$ for charged jets. The MC Selected has been scaled to Data according to the fraction of the number of events in each: $w_\mathrm{MC} = N_\mathrm{Data} / N_\mathrm{MC}$. The MC Truth has been scaled with the same weight multiplied with the gluon efficiency $w_\mathrm{MC \dash Truth} = w_\mathrm{MC} \cdot \varepsilon_g^{3\dash\mathrm{jet}}$. The $\lambda_\beta^\kappa=0$ values has been removed before plotting for all sets of values of $(\beta, \kappa)$. 
 
 In Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} it is seen how MC Truth and Data does not match perfectly well which indicates that this is not the perfect method, however, that MC Selected and Data distributions matches each other quite well indicates that the model is equally biased for both MC and Data. 
+The errorbars in the ratio plot are fitted with both a constant ${f(x)=b}$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. In the text box \code{DOF} is the number of degrees of freedom and \code{P} is the $\chi^2$-probability\sidenote{ $P(\chi^2; N_\mathrm{DOF}) = \int_{\chi^2}^\infty f_{\chi^2}(x; N_\mathrm{DOF}) \mathop{dx}$, where $f_{\chi^2}(x; N_\mathrm{DOF})$ is the $\chi^2$ distribution with $N_\mathrm{DOF}$ degrees of freedom.}. I compute the systematic error $\sigma_\mathrm{sys}$ that would have to be added in quadrature to the standard deviation, $\sigma \rightarrow \sqrt{\sigma^2 + \sigma_\mathrm{sys}^2}$, such that the $\chi^2$-probability would be \SI{50}{\percent}. I do this using Brent's method \autocite{Brent:113464} and the systematic error is written as \code{sigma_sys} in the figure. 
 
-\begin{figure}
+\begin{figure}[h!]
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip, page=1]{figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda_0^2$]
           {Distribution of the generalized angularity $\lambda_0^2$ for charged gluons jets in 3-jet events: $\lambda_0^2$. The distributions for \textcolor{red}{MC Truth} is shown in red, \textcolor{blue}{MC Truth} in blue, and \textcolor{green}{Data} in green in the top plot and in the bottom plot the ratio between \textcolor{red}{MC Selected and MC Truth} is shown in red and between \textcolor{green}{MC Selected and Data} in green. }
   \label{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix}
 \end{figure}
+\vspace{-3mm} 
 
-The rest of the plots can be seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2}--\ref{fig:q:generalized_angularities_neu_lambda_0_0}. For the charged tracks it can be seen that the first few bins generally has ratios just below \num{1} with a upwards trend until around the middle of the $\lambda$ range and then it decreases again (and the uncertainties increases with lower and lower statistics). The discrepancy between MC selected and Data is larger for the neutral clusters, which are also less well-defined than the charged jets (at the energies used at LEP), and with the same trend as for the charged jets. In general the figures show a reasonable good correspondence between MC selected and Data for the generalized angularities.  
+The rest of the plots can be seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2}--\ref{fig:q:generalized_angularities_neu_lambda_0_0}. For the charged tracks it can be seen that the first few bins generally has ratios just below \num{1} with a upwards trend until around the middle of the $\lambda$ range and then it decreases again (and the uncertainties increases with lower and lower statistics). The discrepancy between MC selected and Data is larger for the neutral clusters, which are also less well-defined than the charged jets (at the energies used at LEP), and with the same trend as for the charged jets. 
+
+These trends are quantified in by the fits to the ratio plots. For $\lambda_0^2$, Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} above, we see that a constant fit does a reasonable job with a $P_\chi^2=\SI{3.9}{\percent}$. The small decrease in $\chi^2$ value, $\chi^2 = 67.76$ for the constant fit but only \num{67.65} for the linear fit, is attributed to the linear fit being a more advanced fit (more fit parameters). In this case the difference would be expected to be $\Delta \chi^2 \sim 1$ due to difference in the number of fit parameters being \num{1}, which is also what is seen. As such, the systematic error will be based on the constant fit here $\sigma_\mathrm{sys}(\lambda_0^2)=\SI{2.0}{\percent}$. 
+
+\begin{margintable}[-6cm]
+  \centerfloat
+  \begin{tabular}{@{}rrc@{}}
+  {}             & $\sigma_\mathrm{sys}$ & $f(x)$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
+  $\lambda_0^2$        & $\SI{2.0}{\percent}$  & $b$ \\ \addlinespace[0.2em]
+  $\lambda^1_{1/2}$    & $\SI{2.1}{\percent}$  & $b$ \\ \addlinespace[0.2em]
+  $\lambda_1^1$        & $\SI{1.1}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
+  $\lambda_2^1$        & $\SI{0.4}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
+  $\lambda_0^0$        & $\SI{7.5}{\percent}$  & $b$ \\ \addlinespace[0.2em]
+  \end{tabular}
+  \vspace{3mm}
+  \caption[Generalized Angularities Systematic Errors, Charged Tracks]{\label{tab:q:generalized_angularities_systematic_errors_charged}Systematic errors for the generalized angularities for charged tracks.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
+\end{margintable}
+
+\begin{margintable}
+  \centerfloat
+  \begin{tabular}{@{}rrc@{}}
+  {}             & $\sigma_\mathrm{sys}$ & $f(x)$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
+  $\lambda_0^2$        & $\SI{4.2}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
+  $\lambda_{1/2}^1$    & $\SI{4.2}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
+  $\lambda_1^1$        & $\SI{3.9}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
+  $\lambda_2^1$        & $\SI{1.6}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
+  $\lambda_0^0$        & $\SI{2.0}{\percent}$  & $b$ \\ \addlinespace[0.2em]
+  \end{tabular}
+  \vspace{3mm}
+  \caption[Generalized Angularities Systematic Errors, Neutral Clusters]{\label{tab:q:generalized_angularities_systematic_errors_neutral}Systematic errors for the generalized angularities for neutral clusters.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
+\end{margintable}
+
+In general there is a $\sim \SI{4}{\percent}$ constant offset for the charged tracks, which is easy to correct for. For the neutral clusters it is seen to be a lot higher at $\sim \SI{15}{\percent}$. For charged tracks the systematic error is around $\sim \SI{2}{\percent}$ for most of the generalized angularities, while it is around $\sim \SI{4}{\percent}$ for the neutral clusters. A summary of all the systematic errors for the charged tracks can be seen in Table~\ref{tab:q:generalized_angularities_systematic_errors_charged} and in Table~\ref{tab:q:generalized_angularities_systematic_errors_neutral} for the neutral clusters. Overall, the figures show a reasonable good correspondence between MC selected and Data for the generalized angularities.  
 
 \section{Gluon splitting}
 \label{sec:q:gluon_splitting_4j}
@@ -660,9 +694,7 @@ Based on the two algorithms, we define the ratio $R_{gg}$ between the two gluon 
 \end{equation} 
 We further define $R_{gg}^{k_t} \equiv R_{gg}(p=1)$ and $R_{gg}^{CA} \equiv R_{gg}(p=0)$. 
 
-Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, they describe different parts of the phase space. One example of this is the case of soft wide gluon jets illustrated in Figure~\ref{fig:q:kt_CA_soft_wide}. Here the two gluon jets are low-energy (soft) jets but with a high angle between them (wide). In this case the $k_t$ algorithm would probably cluster the two gluon jets together but the CA algorithm would not. This means that $R_{gg}^{k_t}$ would be less than \num{1} since the distance measure between the two gluon jets would be the smallest of them all, whereas to $R_{gg}^{CA}$ would be larger than \num{1} since $d_{\bar{b}g} < d_{gg}$. In addition to the soft, wide angle gluon jets, we have the case of soft, collinear gluon jets which the two algorithms agree to cluster together, see Figure~\ref{fig:q:kt_CA_soft_collinear} or the opposite case where the two algorithms both agree on not to cluster the gluon jets together, see Figure~\ref{fig:q:kt_CA_hard_non_g_to_gg}. These figures are just illustrations of how to better understand the $R_{gg}$ phase space.
-
-\begin{marginfigure}[-13cm]
+\begin{marginfigure}
   \centerfloat
   \includegraphics[width=1.1\textwidth]{figures/R_kt_CA/soft_wide_angle.pdf}
   \caption[Soft Wide Angle Gluons in 4-Jet Events]
@@ -670,7 +702,9 @@ Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, the
   \label{fig:q:kt_CA_soft_wide}
 \end{marginfigure}
 
-\begin{marginfigure}[-5cm]
+Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, they describe different parts of the phase space. One example of this is the case of soft wide gluon jets illustrated in Figure~\ref{fig:q:kt_CA_soft_wide}. Here the two gluon jets are low-energy (soft) jets but with a high angle between them (wide). In this case the $k_t$ algorithm would probably cluster the two gluon jets together but the CA algorithm would not. This means that $R_{gg}^{k_t}$ would be less than \num{1} since the distance measure between the two gluon jets would be the smallest of them all, whereas to $R_{gg}^{CA}$ would be larger than \num{1} since $d_{\bar{b}g} < d_{gg}$. In addition to the soft, wide angle gluon jets, we have the case of soft, collinear gluon jets which the two algorithms agree to cluster together, see Figure~\ref{fig:q:kt_CA_soft_collinear} or the opposite case where the two algorithms both agree on not to cluster the gluon jets together, see Figure~\ref{fig:q:kt_CA_hard_non_g_to_gg}. These figures are just illustrations of how to better understand the $R_{gg}$ phase space.
+
+\begin{marginfigure}[-4cm]
   \centerfloat
   \includegraphics[width=1.1\textwidth]{figures/R_kt_CA/soft_collinear.pdf}
   \caption[Soft Collinear Gluons in 4-Jet Events]
@@ -678,7 +712,7 @@ Since the CA algorithm is energy-independent and the $k_t$ algorithm is not, the
   \label{fig:q:kt_CA_soft_collinear}
 \end{marginfigure}
 
-\begin{marginfigure}[-0.5cm]
+\begin{marginfigure}[0.5cm]
   \centerfloat
   \includegraphics[width=1.1\textwidth]{figures/R_kt_CA/hard_non_g_to_gg.pdf}
   \caption[Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events]
@@ -747,13 +781,13 @@ The distribution of $\mathcal{P}_{gg}$ in MC is shown in Figure~\ref{fig:q:closu
   \label{fig:q:closure_E_diff_non_appendix}
 \end{figure}
 
-The errorbars in the ratio plot is fitted with both a constant $f(x)=b$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. In the text box \code{DOF} is the number of degrees of freedom and \code{P} is the $\chi^2$-probability\sidenote{ $P(\chi^2; N_\mathrm{DOF}) = \int_{\chi^2}^\infty f_{\chi^2}(x; N_\mathrm{DOF}) \mathop{dx}$, where $f_{\chi^2}(x; N_\mathrm{DOF})$ is the $\chi^2$ distribution with $N_\mathrm{DOF}$ degrees of freedom.}. I compute the systematic error $\sigma_\mathrm{sys}$ that would have to be added in quadrature to the standard deviation, $\sigma \rightarrow \sqrt{\sigma^2 + \sigma_\mathrm{sys}^2}$, such that the $\chi^2$-probability would be \SI{50}{\percent}. I do this using Brent's method \autocite{Brent:113464} and the systematic error is written as \code{sigma_sys} in the figure. 
+The errorbars in the ratio plot are fitted with both a constant $f(x)=b$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. The closure plot for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $\mathcal{P}_{gg}$ matches $\mathcal{P}_{gg}^\mathrm{Truth}$ pretty well for all the gluon splitting variables, however, with a \SI{10}{\percent} offset. This offset is easy to correct for with a constant correction factor. 
 
-The closure plot for the rest of the gluon splitting variables in Figure~\ref{fig:q:closure_E_diff}--\ref{fig:q:closure_variable_pt_antenna}. In general it can be seen that the $\mathcal{P}_{gg}$ matches $\mathcal{P}_{gg}^\mathrm{Truth}$ pretty well for all the gluon splitting variables, however, with a \SI{10}{\percent} offset. This offset is easy to correct for with a constant correction factor. However, we see that for the energy asymmetry variables and $\Delta_\theta$ there are clear, linear trends in the ratio plots. This is seen e.g. for $E_\mathrm{diff}$ in Figure~\ref{fig:q:closure_E_diff_non_appendix} where the $\chi^2$ value for the constant fit is \num{109.13} but only \num{76.01} for the linear fit. This difference in $\chi^2$ value cannot be attributed to just the linear fit being a more advanced fit in which case the difference would be expected to be $\Delta \chi^2 \sim 1$ due to difference in the number of fit parameters being \num{1}. For these four variables the systematic uncertainty will thus be based on the linear fit, whereas it will be based on the constant for the rest of the variables. 
+However, we see that for the energy asymmetry variables and $\Delta_\theta$ there are clear, linear trends in the ratio plots. This is seen e.g. for $E_\mathrm{diff}$ in Figure~\ref{fig:q:closure_E_diff_non_appendix} where the $\chi^2$ value for the constant fit is \num{109.13} but only \num{76.01} for the linear fit. This difference in $\chi^2$ value cannot be attributed to just the linear fit being a more advanced fit in which case the difference would be expected to be $\Delta \chi^2 \sim 1$ due to difference in the number of fit parameters being \num{1}. For these four variables the systematic uncertainty will thus be based on the linear fit, whereas it will be based on the constant for the rest of the variables. 
 
 The $g$-tagging algorithm perform well in general where most of the systematic attributed are \SI{2}{\percent} to \SI{3}{\percent}. The highest systematic uncertainty is for the invariant mass of the two gluons: $\sigma_\mathrm{sys}(m_{gg}) = \SI{3.6}{\percent}$. A summary of all the systematic errors from the closure tests can be seen in Table~\ref{tab:q:gluon_splitting_systematic_errors} for all of the gluon splitting variables. 
 
-\begin{margintable}
+\begin{margintable}[-3cm]
   \centerfloat
   \begin{tabular}{@{}rrc@{}}
   {}                                                & $\sigma_\mathrm{sys}$& $f(x)$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
@@ -767,7 +801,7 @@ The $g$-tagging algorithm perform well in general where most of the systematic a
   $p^2_{\perp,\mathrm{A}}$                          & $\SI{3.1}{\percent}$ & $b$  \\ %\bottomrule
   \end{tabular}
   \vspace{3mm}
-  \caption[Gluon Splitting Systemic Errors]{\label{tab:q:gluon_splitting_systematic_errors}Systematic errors for the gluon splitting variables based on the closure test, see \autoref{subsec:q:gluon_splitting_closure}.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
+  \caption[Gluon Splitting Systematic Errors]{\label{tab:q:gluon_splitting_systematic_errors}Systematic errors for the gluon splitting variables based on the closure test, see \autoref{subsec:q:gluon_splitting_closure}.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
 \end{margintable}
 
 
@@ -776,7 +810,7 @@ The closure test shows that the $g$-tagging algorithm can also be trusted in the
 \subsection{4-jet results}
 \label{subsec:q:gluon_splitting_results}
 
-\begin{margintable}
+\begin{margintable}[1cm]
   \centerfloat
   \begin{tabular}{@{}ccc@{}}
   Region  & $R_{gg}^{k_t}$                & $R_{gg}^\mathrm{CA}$    \\ \addlinespace[0.1em] \midrule \addlinespace[0.4em]
@@ -821,7 +855,14 @@ That we only train on the vertex variables is to reduce any potential bias that 
 
 As mentioned above, with the modularized approach we apply in this project we are able to measure the $b$-tagging efficiencies not only in MC but also in Data. The efficiencies were measured using a tag-tag-probe method in 3-jet events. In 4-jet events this problem is a lot harder, however, it might have been possible to apply a tag-tag-tag-probe method, although the results of this are very likely to be limited by large uncertainties due to much lower statistics in 4-jet events compared to 3-jet events. 
 
-Something something MC simulation not complete, and that 3-jet events can actually be 4-jet events. 
+Some sources of error in this project not yet mentioned are the fact that we do not have access to the full MC simulation and that sometimes particles do not get detected in the detector. That we do not have access to the full MC simulation means that we have to $q$-matching to the final quarks; we do not know the real truth for the jets, even in MC. On the other hand, particles going undetected is something that also happens i Data. When this happens in e.g. a 4-jet event it will be classified as a 3-jet event in the data which it was clearly not originally. 
+
+Even after taking the sources of error into account along with the statistical and systematic errors, the result would still not reflect Nature. This is due to the fact that the observations $g(y)$ are a combination of the truth in Nature $f(x)$ combined with the detector $A(x, y)$. This combination is mathematically a convolution \autocite{schmittDataUnfoldingMethods2017}: 
+\begin{equation}
+  \label{eq:q:convolution}
+  \int f(x) A(x, y) \mathop{dx} = g(y).
+\end{equation}
+The goal is thus to estimate truth $f(x)$ given knowledge about the detectors response $A(x,y)$. Another way to look at this is that $f(x)$ is smeared, or distorted, by detector and binning effects (e.g. finite resolutions). The process of inverting equation \eqref{eq:q:convolution} is known as \emph{unfolding} and is basically a deconvolution process.
 
 \section{Conclusion}
 \label{sec:q:conclusion}

@@ -1,18 +1,18 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Mapping between the code in \color@box {}{light-gray}{\texttt {SagTypeNr}} and the type of residence. The two important types of residences are villa (one-family houses) and ejerlejlighed (owner-occupied apartments).}}{29}{subfigure.3.2.4}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Mapping between the Code in \color@box {}{light-gray}{\texttt {SagTypeNr}} and the Type of Residence}}{29}{subfigure.3.2.4}
 \contentsline {table}{\numberline {3.2}{\ignorespaces Basic Cuts}}{33}{subsection.3.1.3}
 \contentsline {table}{\numberline {3.3}{\ignorespaces Side Door Mapping.}}{33}{section.3.2}
 \contentsline {table}{\numberline {3.4}{\ignorespaces Street Mapping}}{33}{section.3.2}
 \contentsline {table}{\numberline {3.5}{\ignorespaces Number of Observations in the Housing Dataset}}{36}{section.3.4}
 \contentsline {table}{\numberline {3.6}{\ignorespaces Number of Observations in the Housing Dataset for the Tight Selection}}{36}{section.3.4}
-\contentsline {table}{\numberline {3.7}{\ignorespaces Results of the initial hyperparameter optimization for apartments for the best loss function $\ell _\mathrm {Cauchy}$.}}{37}{equation.3.4.7}
-\contentsline {table}{\numberline {3.8}{\ignorespaces Results of the initial hyperparameter optimization for houses for the best loss function $\ell _\mathrm {Cauchy}$.}}{37}{equation.3.4.7}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Results from the Initial Hyperparameter Optimization for Apartments}}{37}{equation.3.4.7}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Results from the Initial Hyperparameter Optimization for Houses}}{37}{equation.3.4.7}
 \contentsline {table}{\numberline {3.9}{\ignorespaces PDFs Used in the Random Search}}{39}{section.3.5}
 \contentsline {table}{\numberline {3.10}{\ignorespaces Realtors' MAD}}{41}{section.3.6}
-\contentsline {table}{\numberline {3.11}{\ignorespaces Performance Metrics for the Housing Model on Apartments}}{43}{equation.3.6.9}
-\contentsline {table}{\numberline {3.12}{\ignorespaces Performance Metrics for the Housing Model on Houses}}{43}{equation.3.6.9}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Performance Metrics for Apartments}}{43}{equation.3.6.9}
+\contentsline {table}{\numberline {3.12}{\ignorespaces Performance Metrics for Houses}}{43}{equation.3.6.9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces Dimensions of dataset for Data}}{64}{section.5.1}
@@ -20,8 +20,10 @@
 \contentsline {table}{\numberline {5.3}{\ignorespaces Number of different types of jets for MC and MCb for $n$-jet events. See also Table\nobreakspace {}\ref {tab:q:flevt_overview_percent_relative} for relative numbers.}}{65}{section.5.2}
 \contentsline {table}{\numberline {5.4}{\ignorespaces Random Search PDFs for LGB}}{69}{subsection.5.4.1}
 \contentsline {table}{\numberline {5.5}{\ignorespaces Global SHAP Feature Importances for the $g$\BarOrDash /Tagging Models in 4-Jet Events}}{77}{subsection.5.6.3}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Gluon Splitting Systemic Errors}}{89}{equation.5.9.18}
-\contentsline {table}{\numberline {5.7}{\ignorespaces Area Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{89}{subsection.5.9.4}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Generalized Angularities Systematic Errors, Charged Tracks}}{84}{equation.5.8.9}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Generalized Angularities Systematic Errors, Neutral Clusters}}{84}{equation.5.8.9}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Gluon Splitting Systematic Errors}}{89}{equation.5.9.18}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Area Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{90}{subsection.5.9.4}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {A.1}{\ignorespaces XXX \leavevmode {\color {red}\bf TODO!}\xspace .}}{108}{subfigure.A.15.10}
 \contentsline {table}{\numberline {A.2}{\ignorespaces Energy Rating Mapping}}{110}{subfigure.A.15.10}

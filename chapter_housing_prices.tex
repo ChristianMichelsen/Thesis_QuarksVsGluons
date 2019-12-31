@@ -44,7 +44,7 @@ the distribution of the area of the residence \code{ArealBolig} in subfigure~\su
   \includegraphics[width=0.45\textwidth, page=20, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}\hfil
   \subfloat[\label{fig:h:variable_overview_area}]{\qquad}
   \includegraphics[width=0.45\textwidth, page=23, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
-  \caption[Distributions for the housing price dataset]{Distributions of four out of the \num{168} input variables. 
+  \caption[Distributions of the Variables in the Housing Prices]{Distributions of four out of the \num{168} input variables. 
            Subplot ~\protect\subref{fig:h:variable_overview_date} shows the date of the sale, 
            Subplot ~\protect\subref{fig:h:variable_overview_type} shows the type of residence,
            Subplot ~\protect\subref{fig:h:variable_overview_longitude} shows the longitude,
@@ -80,19 +80,13 @@ The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subr
   % \bottomrule
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption{Mapping between the code in \code{SagTypeNr} and the type of residence. The two important types of residences are villa (one-family houses) and ejerlejlighed (owner-occupied apartments).}
+  \caption[Mapping between the Code in \code{SagTypeNr} and the Type of Residence]{Mapping between the code in \code{SagTypeNr} and the type of residence. The two important types of residences are villa (one-family houses) and ejerlejlighed (owner-occupied apartments).}
   \label{tab:h:salgstype}
 \end{margintable}
 
 In this project only one-family houses -- \q{Villas} in Danish -- with code \num{100} and owner-occupied apartments -- \q{Ejerlejlighed} in Danish -- with code \num{300} are considered. As can be seen from Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_type} these two types of residences are also the most frequent sales with close to \num{400000} and \num{150000} sales in total. The longitude distribution, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_longitude}, is mostly interesting due to fact that it clearly shows how the Great Belt and especially the Baltic Sea separates Denmark into three parts; the Western part, the Eastern part, and then Bornholm. Note that more than \SI{5}{\percent} of the residences' locations are unknown values, so-called \q{Not A Number}s (NANs). The distribution of the area, Figure~\ref{fig:h:variable_overview} \subref{fig:h:variable_overview_area}, shows that most residences are between \SI{50}{\meter^2} and \SI{200}{\meter^2}, as expected in Denmark. However, a relatively large part of the residences, \SI{2.5}{\percent}, are listed as having an area of \SI{0}{\meter^2} which are obviously erroneous entries. All of the 1D-distributions can be seen in Figure~\ref{fig:h:variable_overview_all_1}--\ref{fig:h:variable_overview_all_14}. 
 
 The geographic distribution of sales can be seen in Figure~\ref{fig:h:geo_overview}. The residences are coloured according the square meter price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sqm_price} and according to the sales price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sales_price}. Notice the strong correlation between the distance to water and the square meter price, a correlation that is less visible when looking at the sales price. Since these plots each contain \num{674647} points\sidenote{Only sales with a valid GPS-coordinate and area of residence are shown}, over-plotting quickly becomes an issue. To circumvent this the software package called DataShader \autocite{bednarDatashaderRevealingStructure2019} was used which in a simple, consistent, and not at least computationally efficient manner allows one to plot big data.
-% \begin{figure}
-%   \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/Denmark_Overview_SqmPrice.png}
-%   \caption[Geographic overview of square meter price in Denmark]
-%           {Geographic overview of square meter prices for houses and apartments in Denmark (excluding Bornholm for visual purposes). Notice the strong correlation with the major cities and the shore line. Also notice the three outliers west of Jutland. }
-%   \label{fig:h:geo_overview}
-% \end{figure}
 
 \begin{figure*}
   \centering
@@ -101,7 +95,7 @@ The geographic distribution of sales can be seen in Figure~\ref{fig:h:geo_overvi
   \includegraphics[draft=false, width=0.4\textwidth]{figures/housing/Denmark_Overview_SqmPrice.png}\hfil
   \subfloat[\label{fig:h:geo_overview_sales_price}]{\,}
   \includegraphics[draft=false, width=0.4\textwidth]{figures/housing/Denmark_Overview_SalesPrice.png}
-  \caption[Distributions for the housing price dataset]{Geographic distribution of the sold residences. 
+  \caption[Geographic Distribution of the Sold Residences]{Geographic distribution of the sold residences. 
            In subplot ~\protect\subref{fig:h:geo_overview_sqm_price} the sales are colored according to their square meter price and in subplot ~\protect\subref{fig:h:geo_overview_sales_price} according to the sales price. 
            }
   \label{fig:h:geo_overview}
@@ -112,7 +106,7 @@ The most important of the features is the sales price, called \code{SalgsPris} i
 
 \begin{figure}
   \includegraphics[width=0.98\textwidth, page=1, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}
-  \caption[Histogram of prices of houses and apartments sold in Denmark]
+  \caption[Histogram of Prices of Houses and Apartments Sold in Denmark]
           {Histogram of prices of houses and apartments sold in Denmark.}
   \label{fig:h:price_overview_price}
 \end{figure}
@@ -127,7 +121,7 @@ Even though inter-variable correlations are important in the exploratory data an
 \begin{figure*}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=20 10 0 40, clip]{figures/housing/lin_correlation.pdf}
-  \caption[Linear correlation between variables and price]
+  \caption[Linear Correlation Between Variables and Price]
           {Linear correlation between variables and price for variables where the correlation coefficient $\rho$ is $\abs{\rho} > \SI{10}{\percent}$.}
   \label{fig:h:corr_lin}
 \end{figure*}
@@ -147,7 +141,7 @@ Using $\mathrm{MIC}_e$ as the correlation measure between the numerical variable
 \begin{figure*}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=10 10 0 40, clip]{figures/housing/MIC_plot.pdf}
-  \caption[Non-linear correlation between variables and price]
+  \caption[Non-linear correlation Between Variables and Price]
           {Non-linear correlation between variables and price using Maximal Information Coefficient (MIC) for variables where $\text{MIC}>10\%$.}
   \label{fig:h:corr_MIC}
 \end{figure*}
@@ -162,7 +156,7 @@ The fact that some of the variables contains considerable amount of invalid valu
 \begin{figure*}
   \centerfloat
   \includegraphics[width=0.9\textwidth, trim=0 0 0 0, clip]{figures/housing/missing_bar.pdf}
-  \caption[Validity of input features]
+  \caption[Validity of Input Features]
           {Percentage of valid counts for each variable grouped together in categories.}
   \label{fig:h:nans}
 \end{figure*}
@@ -256,7 +250,7 @@ The Prophet model plots for one-family houses can be seen in Figure~\ref{fig:h:p
 
 \begin{figure}
   \includegraphics[draft=false, width=0.9\textwidth, trim=15 15 15 15, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_prophet_forecast.png}
-  \caption[Prophet Forecast for apartments]
+  \caption[Prophet Forecast for Apartments]
           {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the $1\sigma$ confidence interval.
           }
   \label{fig:h:prophet_forecast}
@@ -386,7 +380,7 @@ A small study into the effect of some various hyperparameters was performed befo
     %\bottomrule
   \end{tabular}
   \vspace{3mm}
-  \caption{\label{tab:h:HPO_initial_Cauchy-ejerlejlighed}Results of the initial hyperparameter optimization for apartments for the best loss function $\ell_\mathrm{Cauchy}$.}
+  \caption[Results from the Initial Hyperparameter Optimization for Apartments]{\label{tab:h:HPO_initial_Cauchy-ejerlejlighed}Results of the initial hyperparameter optimization for apartments for the best loss function $\ell_\mathrm{Cauchy}$.}
 \end{margintable}
 
 
@@ -408,7 +402,7 @@ A small study into the effect of some various hyperparameters was performed befo
     %\bottomrule
   \end{tabular}
   \vspace{3mm}
-  \caption{\label{tab:h:HPO_initial_Cauchy-villa}Results of the initial hyperparameter optimization for houses for the best loss function $\ell_\mathrm{Cauchy}$.}
+  \caption[Results from the Initial Hyperparameter Optimization for Houses]{\label{tab:h:HPO_initial_Cauchy-villa}Results of the initial hyperparameter optimization for houses for the best loss function $\ell_\mathrm{Cauchy}$.}
 \end{margintable}
 
 
@@ -520,7 +514,7 @@ The best of the RS and GS models are chosen for subsequent analysis by first red
 \begin{figure}
   \centerfloat
   \includegraphics[draft=false, width=0.99\textwidth, trim=10 20 10 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_early_stopping_fig.png}
-  \caption[Early Stopping results]
+  \caption[Early Stopping Results]
           {The results of early stopping on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s)}, all as a function of number of estimators (trees). In orange the \textcolor{orange}{\q{best} number of estimators} is shown, defined as the lowest number of estimators which are still within $1\sigma$ of the minimum value.} 
   \label{fig:h:CV_res_ES_learning_curve_ejer}
 \end{figure}
@@ -536,7 +530,7 @@ The performances of the different models, the random search optimized, the bayes
 
 \begin{figure}[h!]
   \includegraphics[width=0.95\textwidth, trim=0 10 10 5, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_z_hist_metrics.pdf}
-  \caption[Performance of XGB-model on apartment prices]
+  \caption[Performance of XGB-model for Apartments]
           {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization using \textcolor{blue}{random search} is shown in blue, for \textcolor{red}{Bayesian optimization} in red, and the learning rate optimized with \textcolor{green}{early stopping} in green.
           } 
   \label{fig:h:CV_res_performance_ejer}
@@ -602,7 +596,7 @@ The final results for the model is seen in Table~\ref{tab:h:results_ejer} for ow
     2019  & \num{9.89} & \num{38.85} & \num{66.76} & \num{90.04}    
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption[Performance Metrics for the Housing Model on Apartments]{Performance metrics for the final housing model trained and evaluated on apartments.}
+  \caption[Performance Metrics for Apartments]{Performance metrics for the final housing model trained and evaluated on apartments.}
   \label{tab:h:results_ejer}
 \end{table}
 
@@ -617,7 +611,7 @@ The final results for the model is seen in Table~\ref{tab:h:results_ejer} for ow
     2019  & \num{16.50} & \num{24.01} & \num{45.89} & \num{74.22}     
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption[Performance Metrics for the Housing Model on Houses]{Performance metrics for the final housing model trained and evaluated on houses.}
+  \caption[Performance Metrics for Houses]{Performance metrics for the final housing model trained and evaluated on houses.}
   \label{tab:h:results_villa}
 \end{table}
 
@@ -631,7 +625,7 @@ One of the most important aspects of applying advanced machine learning methods,
 \begin{figure}[ht!]
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=15 15 10 40, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_SHAP_fig_loc=489266.pdf}
-  \caption[SHAP Prediction Explanation for apartment]
+  \caption[SHAP Prediction Explanation for Apartments]
           {Model explanation for XGB model for a specific apartment. The bars are the variables in the dataset that the model found most important sorted after their importance for this particular apartment. The bias bar refers to the expected value of the model, which is simply the mean of the training set which acts as the naive prediction baseline. The \q{cutoff positive (negative)} bars are the sum of the remaining positive (negative) values that are not shown. On the right hand side of the plot is the model prediction shown. The model prediction is the sum of all of the bars in the left par (\SI{6.86}{\Mkr} in this example). The \textcolor{red}{negative} values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
           } 
   \label{fig:h:shap_single_apartment}
@@ -656,7 +650,7 @@ Here the SHAP value of the \code{EjendomdsVaerdi0} is plotted as a function of \
 \begin{figure}
   \centerfloat
   \includegraphics[draft=false, width=0.98\textwidth, trim=15 15 40 40, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_tight_SHAP_vals_interaction_Vaerdi0.pdf}
-  \caption[Feature Importance Interaction Plot for Apartments for the XGB Model.]
+  \caption[Feature Importance Interaction Plot for Apartments for the XGB Model]
           {Interaction plot of the feature importances for the XGB model on apartments. Here shown for the previous public property valuation (\code{EjendomdsVaerdi0}) colored according to the sales date (\code{SalgsDato_siden0}).} 
   \label{fig:h:shap_overview_interaction}
 \end{figure}

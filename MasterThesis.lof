@@ -16,21 +16,21 @@
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Bayesian Optimization}}{22}{subsection.2.7.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Danish Housing Price Index}}{27}{chapter.3}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Distributions for the housing price dataset}}{28}{subfigure.3.2.4}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Distributions of the Variables in the Housing Prices}}{28}{subfigure.3.2.4}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{28}{subfigure.2.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{28}{subfigure.2.2}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{28}{subfigure.2.3}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{28}{subfigure.2.4}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Distributions for the housing price dataset}}{29}{subfigure.3.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Geographic Distribution of the Sold Residences}}{29}{subfigure.3.3.2}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{29}{subfigure.3.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}{subfigure.3.2}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram of prices of houses and apartments sold in Denmark}}{30}{subfigure.3.3.2}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Linear correlation between variables and price}}{31}{subsection.3.1.1}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram of Prices of Houses and Apartments Sold in Denmark}}{30}{subfigure.3.3.2}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Linear Correlation Between Variables and Price}}{31}{subsection.3.1.1}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Comparison of the Linear Correlation $\rho $ and the Non-Linear MIC.}}{31}{subsection.3.1.1}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Non-linear correlation between variables and price}}{32}{subsection.3.1.1}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Validity of input features}}{32}{subsection.3.1.2}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Non-linear correlation Between Variables and Price}}{32}{subsection.3.1.1}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Validity of Input Features}}{32}{subsection.3.1.2}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Validity Dendrogram}}{33}{subsection.3.1.2}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for apartments}}{34}{equation.3.2.1}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for Apartments}}{34}{equation.3.2.1}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Prophet Trends}}{35}{equation.3.2.1}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Sample Weight as a Function of Time for Different Half-Lives.}}{36}{equation.3.4.6}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments}}{37}{equation.3.4.7}
@@ -38,13 +38,13 @@
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Initial HPO Results for the Loss Function}}{38}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.16}{\ignorespaces Parallel Coordinate Plot of the Random Search Hyperparameter Optimization Results of XGBoost for Apartments}}{39}{section.3.5}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Hyperparameter Optimization: Random Search Results}}{40}{section.3.5}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Early Stopping results}}{40}{section.3.5}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Performance of XGB-model on apartment prices}}{41}{section.3.6}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Early Stopping Results}}{40}{section.3.5}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Performance of XGB-model for Apartments}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.20}{\ignorespaces Standard Deviation and MAD of the Static and Dynamic XGB Forecasts}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.21}{\ignorespaces Market Index based on the Static and Dynamic XGB Forecasts}}{42}{equation.3.6.9}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for apartment}}{44}{section.3.7}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for Apartments}}{44}{section.3.7}
 \contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of Apartments Prices Using XGB}}{44}{section.3.7}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments for the XGB Model.}}{45}{section.3.7}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments for the XGB Model}}{45}{section.3.7}
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Performance Comparison of Multiple Models}}{46}{section.3.8}
 \contentsline {figure}{\numberline {3.26}{\ignorespaces Feature Importance of Villas With Descriptions}}{49}{section.3.9}
 \addvspace {10\p@ }
@@ -89,10 +89,10 @@
 \contentsline {figure}{\numberline {5.27}{\ignorespaces Generalized Angularities}}{83}{equation.5.8.9}
 \contentsline {figure}{\numberline {5.28}{\ignorespaces Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda _0^2$}}{84}{equation.5.8.9}
 \contentsline {figure}{\numberline {5.29}{\ignorespaces Soft Wide Angle Gluons in 4-Jet Events}}{86}{equation.5.9.13}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{86}{equation.5.9.13}
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{86}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{87}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{87}{equation.5.9.13}
 \contentsline {figure}{\numberline {5.32}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of the Normalized Gluon-Gluon Jet Energy Difference Asymmetry $E_\mathrm {diff}$}}{87}{subsection.5.9.2}
-\contentsline {figure}{\numberline {5.33}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry}}{88}{equation.5.9.18}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry}}{89}{equation.5.9.18}
 \contentsline {figure}{\numberline {5.34}{\ignorespaces Overview of the Four Areas in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{90}{subsection.5.9.4}
 \contentsline {figure}{\numberline {5.35}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space Area A}}{91}{subsection.5.9.4}
 \addvspace {10\p@ }
