@@ -1,14 +1,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The learning problem.}}{6}{section.2.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The Learning Problem}}{6}{section.2.2}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Approximation-Estimation Tradeoff}}{10}{equation.2.3.16}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Regularization Strength}}{11}{equation.2.4.22}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Regularization Effect of $L_2$ }}{12}{equation.2.4.22}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Regularization Effect of $L_1$}}{12}{equation.2.4.23}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces $k$-Fold Cross Validation}}{13}{subsection.2.4.2}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces $k$-Fold Cross Validation for Time Series Data}}{13}{subsection.2.4.2}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Objective Functions Zoom In.}}{15}{equation.2.5.27}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Objective Functions.}}{15}{equation.2.5.27}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Objective Functions Zoom In}}{15}{equation.2.5.27}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Objective Functions}}{15}{equation.2.5.27}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Decision Tree Cuts In Feature Space}}{16}{section.2.6}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Decision Tree}}{16}{section.2.6}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Grid Search}}{20}{subsection.2.7.1}
@@ -26,8 +26,8 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}{subfigure.3.2}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram of Prices of Houses and Apartments Sold in Denmark}}{30}{subfigure.3.3.2}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Linear Correlation Between Variables and Price}}{31}{subsection.3.1.1}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Comparison of the Linear Correlation $\rho $ and the Non-Linear MIC.}}{31}{subsection.3.1.1}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Non-linear correlation Between Variables and Price}}{32}{subsection.3.1.1}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Comparison of the Linear Correlation $\rho $ and the Nonlinear MIC}}{31}{subsection.3.1.1}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Nonlinear Correlation Between Variables and Price}}{32}{subsection.3.1.1}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Validity of Input Features}}{32}{subsection.3.1.2}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Validity Dendrogram}}{33}{subsection.3.1.2}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for Apartments}}{34}{equation.3.2.1}
@@ -43,41 +43,41 @@
 \contentsline {figure}{\numberline {3.20}{\ignorespaces Standard Deviation and MAD of the Static and Dynamic XGB Forecasts}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.21}{\ignorespaces Market Index based on the Static and Dynamic XGB Forecasts}}{42}{equation.3.6.9}
 \contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for Apartments}}{44}{section.3.7}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of Apartments Prices Using XGB}}{44}{section.3.7}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments for the XGB Model}}{45}{section.3.7}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of Apartments Prices}}{44}{section.3.7}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments}}{45}{section.3.7}
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Performance Comparison of Multiple Models}}{46}{section.3.8}
 \contentsline {figure}{\numberline {3.26}{\ignorespaces Feature Importance of Villas With Descriptions}}{49}{section.3.9}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The Standard Model}}{54}{section.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Feynman diagram for the jet production at LEP}}{55}{section.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Quark splitting}}{55}{section.4.2}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Hadronization process}}{56}{equation.4.2.1}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces The ALEPH detector}}{57}{section.4.3}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Polar angle}}{57}{section.4.3}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Azimuthal angle}}{57}{section.4.3}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Feynman Diagram for the Jet Production at LEP}}{55}{section.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Quark Splitting}}{55}{section.4.2}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Hadronization Process}}{56}{equation.4.2.1}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The ALEPH Detector}}{57}{section.4.3}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Polar Angle}}{57}{section.4.3}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Azimuthal Angle}}{57}{section.4.3}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Track Significance}}{59}{section.4.5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Histograms of the vertex variables}}{65}{section.5.2}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces UMAP visualization of vertex variables for 4-jet events}}{66}{subsection.5.2.1}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces UMAP visualization of vertex variables for 3-jet events}}{66}{subsection.5.2.1}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces UMAP visualization of vertex variables for 2-jet events}}{66}{subsection.5.2.1}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Correlation of Vertex Variables}}{67}{subfigure.5.5.3}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Histograms of the Vertex Variables}}{65}{section.5.2}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces UMAP Visualization of the Vertex Variables for 4-Jet Events}}{66}{subsection.5.2.1}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces UMAP Visualization of the Vertex Variables for 3-Jet Events}}{66}{subsection.5.2.1}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces UMAP Visualization of the Vertex Variables for 2-Jet Events}}{66}{subsection.5.2.1}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Correlation of the Vertex Variables}}{67}{subfigure.5.5.3}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {2-jet events}}}{67}{subfigure.5.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {3-jet events}}}{67}{subfigure.5.2}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {4-jet events}}}{67}{subfigure.5.3}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot of the log-loss $\ell _\mathrm {log}$}}{68}{equation.5.3.2}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Hyperparameter Optimization of $b$\BarOrDash /tagging}}{69}{subsection.5.4.1}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot of the Log-Loss $\ell _\mathrm {log}$}}{68}{equation.5.3.2}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Hyperparameter Optimization of $b$\BarOrDash /Tagging}}{69}{subsection.5.4.1}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $b$\BarOrDash /Tagging}}{69}{subsection.5.4.1}
 \contentsline {figure}{\numberline {5.9}{\ignorespaces $b$\BarOrDash /Tag Scores in 4-Jet Events}}{70}{subsection.5.4.2}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces ROC curve for 4-jet $b$\BarOrDash /tagging}}{70}{subsection.5.4.2}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces ROC Curve for 4-Jet $b$\BarOrDash /Tagging}}{70}{subsection.5.4.2}
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Distribution of $b$\BarOrDash /Tags in 4-Jet Events}}{71}{subsection.5.4.2}
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Global Feature Importances for the LGB $b$\BarOrDash /Tagging Algorithm on 4-Jet Events}}{71}{subsection.5.4.3}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces The expit Function}}{71}{equation.5.4.3}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces The logit Function}}{72}{equation.5.4.4}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces SHAP 3-Jet Model Explanation for $b$\BarOrDash /like Jet}}{72}{equation.5.4.4}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces The Expit Function}}{71}{equation.5.4.3}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces The Logit Function}}{72}{equation.5.4.4}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces SHAP 3-Jet Model Explanation for $b$\BarOrDash /Like Jet}}{72}{equation.5.4.4}
 \contentsline {figure}{\numberline {5.16}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
 \contentsline {figure}{\numberline {5.17}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _g^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Hyperparameter Optimization of $g$\BarOrDash /tagging}}{77}{subsection.5.6.3}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Hyperparameter Optimization of $g$\BarOrDash /Tagging}}{77}{subsection.5.6.3}
 \contentsline {figure}{\numberline {5.19}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets events}}{78}{subsection.5.6.5}
 \contentsline {figure}{\numberline {5.20}{\ignorespaces $g$\BarOrDash /Tag Scores in 4-Jet Events}}{79}{subsection.5.6.6}
 \contentsline {figure}{\numberline {5.21}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 4-Jet Events}}{80}{subsection.5.6.6}

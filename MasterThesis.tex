@@ -348,7 +348,11 @@
   {\titlerule*[0.8em]{.}\normalsize\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
   [\vspace{0.01\baselineskip}] % after
 
-  
+
+% % Fix spacing in list of figures and list of tables
+\usepackage{tocbasic}
+\DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}% for figure entries
+\DeclareTOCStyleEntry[dynnumwidth]{tocline}{table}% for table entries
 
 % Generates the index
 \usepackage{makeidx}
@@ -382,7 +386,7 @@
 % \includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
-% \includeonly{chapter_foreword}
+\includeonly{chapter_appendix_housing,chapter_appendix_quarks_gluons}
 
 
 % \includeonly{chapter_machine_learning_theory}
@@ -476,12 +480,15 @@ Part \RNum{2} of this thesis deals with particle physics and the discriminatory 
 
 \backmatter
 
+\begin{fullwidth}
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
+\end{fullwidth}
 
+\begin{fullwidth}
 \listoftables
 \addcontentsline{toc}{chapter}{List of Tables}
-
+\end{fullwidth}
 
 
 \cleardoublepage

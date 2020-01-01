@@ -1716,18 +1716,18 @@
   \ifthenelse{\equal{\@tufte@class}{book}}%
     {\chapter*{\listfigurename}}%
     {\section*{\listfigurename}}%
-%  \begin{fullwidth}%
+  %\begin{fullwidth}%
     \@starttoc{lof}%
-%  \end{fullwidth}%
+  %\end{fullwidth}%
 }
 
 \renewcommand\listoftables{%
   \ifthenelse{\equal{\@tufte@class}{book}}%
     {\chapter*{\listtablename}}%
     {\section*{\listtablename}}%
-%  \begin{fullwidth}%
+  %\begin{fullwidth}%
     \@starttoc{lot}%
-%  \end{fullwidth}%
+  %\end{fullwidth}%
 }
 
 \newcommand{\@tufte@lof@line}[2]{%
