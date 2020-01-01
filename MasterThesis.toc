@@ -73,6 +73,19 @@
 \contentsline {section}{\numberline {5.10}Discussion}{92}{section.5.10}
 \contentsline {section}{\numberline {5.11}Conclusion}{94}{section.5.11}
 \contentsline {chapter}{\numberline {A}Housing Prices Appendix}{95}{appendix.A}
+\contentsline {section}{\numberline {A.1}Input Distributions}{95}{section.A.1}
+\contentsline {section}{\numberline {A.2}Correlations}{110}{section.A.2}
+\contentsline {section}{\numberline {A.3}Validity Correlations}{111}{section.A.3}
+\contentsline {section}{\numberline {A.4}Energy Rating Mapping}{112}{section.A.4}
+\contentsline {section}{\numberline {A.5}Facebook Prophet for Houses}{112}{section.A.5}
+\contentsline {section}{\numberline {A.6}Final Variable List}{113}{section.A.6}
+\contentsline {section}{\numberline {A.7}Initial Hyperparameter Results Tables}{115}{section.A.7}
+\contentsline {section}{\numberline {A.8}Initial Hyperparameter Results Parallel Coordinates}{118}{section.A.8}
+\contentsline {section}{\numberline {A.9}Hyperparameter Results Parallel Coordinates}{118}{section.A.9}
+\contentsline {section}{\numberline {A.10}Hyperparameter Optimization as a Function of Iterations}{119}{section.A.10}
+\contentsline {section}{\numberline {A.11}Histogram of z Values for Apartments with the Tight Cut}{121}{section.A.11}
+\contentsline {section}{\numberline {A.12}Performance Metrics for the Tight Selection}{121}{section.A.12}
+\contentsline {section}{\numberline {A.13}Multiple Models for Houses}{121}{section.A.13}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{123}{appendix.B}
 \contentsline {chapter}{List of Figures}{155}{appendix*.6}
 \contentsline {chapter}{List of Tables}{158}{appendix*.7}

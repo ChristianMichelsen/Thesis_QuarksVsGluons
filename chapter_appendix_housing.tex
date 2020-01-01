@@ -1,25 +1,19 @@
 
 \chapter{Housing Prices Appendix}
 
-\begin{figure*}[h!]
-  \includegraphics[draft=false, width=0.9\textwidth, trim=10 10 10 10, clip]{figures/housing/missing_heatmap.pdf}
-  \caption[Validity Heatmap]
-          {XXXX \TODO.}
-  \label{fig:h:nans_heatmap}
-\end{figure*}
-
+\section{Input Distributions}
 
 % Input all 1D-variables for housing
-% \input{figures/housing/all_input_variables/all.tex}
 \input{figures/housing/all_input_variables/all_demo2.tex}
 
-\input{figures/housing/all_input_variables/table.tex}
+\FloatBarrier
+\section{Correlations}
 
 \begin{figure*}[h!]
   \centerfloat
   \includegraphics[draft=false, width=1.1\textwidth, trim=10 10 10 10, clip]{figures/housing/correlations_all.pdf}
   \caption[Linear Correlations]
-          {XXXX \TODO.}
+          {Linear correlations between the input variables.}
   \label{fig:h:correlations_all_lin}
 \end{figure*}
 
@@ -27,15 +21,29 @@
 \begin{figure}[h!]
   \centering
   \includegraphics[draft=false, width=0.99\textwidth, trim=0 0 0 40, clip]{figures/housing/MIC_test.pdf}
-  \caption[MIC non-linear correlation]
-          {MIC non-linear correlation.}
+  \caption[Comparison of the Linear Correlation $\rho$ and the Nonlinear MIC for Different Levels of Noise]
+          {Comparison of the linear correlation $\rho$ and the nonlinear MIC for a straight line, a parabola, an exponential, and a sine wave, all with noise added. The different rows are shows the influence of noise on the estimates.}
   \label{fig:h:MIC_example}
 \end{figure}
 
 
+\FloatBarrier
+\section{Validity Correlations}
+
+\begin{figure*}[h!]
+  \includegraphics[draft=false, width=0.9\textwidth, trim=10 10 10 10, clip]{figures/housing/missing_heatmap.pdf}
+  \caption[Validity Heatmap]
+          {Validity Correlations.}
+  \label{fig:h:nans_heatmap}
+\end{figure*}
+
+
+\FloatBarrier
+\section{Energy Rating Mapping}
 
 \begin{table}
-  \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+  \centerfloat
+  \begin{tabular}{l @{\extracolsep{\fill}} r}
   % \begin{tabular}{lr}
   Energy rating label    & Code \\ \midrule
   A2020                  & 2 \\
@@ -56,7 +64,7 @@
   G  & 74 \\
   H, I, J, K, M  & 90 \\
   NAN  & 100
-  \end{tabular*}
+  \end{tabular}
   % \end{tabular}
   \vspace{3mm}
   \caption[Energy Rating Mapping]{Energy rating mapping. If the energy rating is e.g. \q{A2} this gets the code \num{8}.}
@@ -64,11 +72,11 @@
   \vspace{3mm}
 \end{table}
 
-
-
+\FloatBarrier
+\section{Facebook Prophet for Houses}
 
 \begin{figure}[h!]
-  \includegraphics[draft=false, width=0.9\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_forecast.png}
+  \includegraphics[draft=false, width=1\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_forecast.png}
   \caption[Prophet Forecast for apartments]
           {The predictions of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. The data is down-sampled to weekly bins where the median of each week is used as in input to the Prophet model. This can be seen as black dots in the figure. The \textcolor{blue}{model's forecasts} for 2018 and 2019 are shown in blue with a light blue \textcolor{light-blue}{error band} showing the $1-\sigma$ confidence interval.
           }
@@ -76,7 +84,7 @@
 \end{figure}
 
 \begin{figure}[h!]
-  \includegraphics[draft=false, width=0.9\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_trends.pdf}
+  \includegraphics[draft=false, width=1\textwidth]{figures/housing/Villa_v18_cut_all_Ncols_all_prophet_trends.pdf}
   \caption[Prophet Trends]
           {The trends of the Facebook Prophet model trained on square meter prices for owner-occupied apartments sold before January 1st, 2018. In the top plot is the overall trend as a function of year and in the bottom plot is the yearly variation as a function of day of year. It can be seen that the square meter price is higher during the Summer months compared to the Winter months, however, compared to the overall trend this effect is minor ($<10\%$). 
           }
@@ -84,109 +92,150 @@
 \end{figure}
 
 
+\FloatBarrier
+\section{Final Variable List}
+\input{figures/housing/all_input_variables/table.tex}
+
+
 
 \FloatBarrier
+\section{Initial Hyperparameter Results Tables}
 \input{figures/housing/HPO_table/combined.tex}
 
 
-\FloatBarrier
 
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
-  \caption[Overview of initial hyperparameter optimization of the housing model for houses]
-          {Hyperparameter optimization results of the housing model for houses. The results are shown as parallel coordinates with each hyperparameter along the x-axis and the value of that parameter on the y-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by $\mathrm{MAD}_0$ from \textcolor{viridis-dark}{highest} MAD in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparameter \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objektive} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses.
-          } 
+\FloatBarrier
+\section{Initial Hyperparameter Results Parallel Coordinates}
+
+\subsection*{Apartments}
+\begin{figure}[h!]
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
+  \caption[Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments]
+          {Initial hyperparameter optimization results of XGBoost parameters for apartments shown as parallel coordinates.} 
+\end{figure}
+
+\subsection*{Houses}
+\begin{figure}[h!]
+  \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v19_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
+  \caption[Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Houses]
+          {Initial hyperparameter optimization results of XGBoost parameters for houses shown as parallel coordinates.} 
   \label{fig:h:initial_CV_res_parallel_coords_villa}
 \end{figure}
 
 
-\newpage
 
-\begin{figure}
+\FloatBarrier
+\section{Hyperparameter Results Parallel Coordinates}
+
+\subsection*{Apartments, Random Search}
+\begin{figure}[h!]
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
-  \caption[XXX]
-          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
-          } 
+  \caption[Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Random Search]
+          {Random Search Hyperparameter optimization results of XGBoost parameters for apartments shown as parallel coordinates.} 
   \label{fig:h:CV_res_RS_parallel_coords_ejer}
 \end{figure}
 
-\begin{figure}
+\FloatBarrier
+\subsection*{Apartments, Bayesian Optimization}
+\begin{figure}[h!]
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_BO.pdf}
-  \caption[XXX]
-          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
-          } 
+  % \caption[XXX]
+  %         {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+  %         } 
+  \caption[Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Bayesian Optimization]
+          {Bayesian optimization hyperparameter optimization results of XGBoost parameters for apartments shown as parallel coordinates.} 
   \label{fig:h:CV_res_BO_parallel_coords_ejer}
 \end{figure}
 
-
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
-  \caption[XXX]
-          {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
-          } 
+\FloatBarrier
+\subsection*{Houses, Random Search}
+\begin{figure}[h!]
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v19_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
+  % \caption[XXX]
+          % {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
+          % } 
+  \caption[Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Random Search]
+          {Random Search Hyperparameter optimization results of XGBoost parameters for houses shown as parallel coordinates.} 
   \label{fig:h:CV_res_RS_parallel_coords_villa}
 \end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v18_cut_all_Ncols_all_CV_viz_HPO_BO.pdf}
-  \caption[XXX]
-          {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
-          } 
+\FloatBarrier
+\subsection*{Houses, Bayesian Optimization}
+\begin{figure}[h!]
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v19_cut_all_Ncols_all_CV_viz_HPO_BO.pdf}
+  % \caption[XXX]
+          % {Hyperparameter optimization results of XGBoost parameters of the housing model for houses shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          % } 
+  \caption[Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Bayesian Optimization]
+          {Bayesian optimization Hyperparameter optimization results of XGBoost parameters for houses shown as parallel coordinates.}
   \label{fig:h:CV_res_BO_parallel_coords_villa}
 \end{figure}
 
-\newpage
 
 
+\FloatBarrier
+\section{Hyperparameter Optimization as a Function of Iterations}
 
+
+\subsection*{Apartments, Random Search}
 \begin{figure}
-  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
-  \caption[XXX]
-          {XXX of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
-          } 
-  \label{fig:h:CV_res_RS_uncertainties_ejer2}
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=10 20 10 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+  \caption[Random Search Results as a Function of Iteration for Apartments]
+          {The results of running random search (RS) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s)}, all as a function of iteration number.} 
+  % \label{fig:h:CV_res_RS_uncertainties_ejer}
 \end{figure}
 
-\begin{figure}
+
+\FloatBarrier
+\subsection*{Apartments, Bayesian Optimization}
+\begin{figure}[h!]
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
-  \caption[XXX]
-          {XXX of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
-          } 
+  % \caption[XXX]
+          % {XXX of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
+          % } 
+  \caption[Bayesian Optimization Results as a Function of Iteration for Apartments]
+          {The results of running Bayesian optimization (BO) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s)}, all as a function of iteration number.} 
   \label{fig:h:CV_res_BO_uncertainties_ejer}
 \end{figure}
 
 
-% TODO: add villa here
-% \begin{figure}
-%   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
-%   \caption[XXX]
-%           {XXX of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization.
-%           } 
-%   \label{fig:h:CV_res_RS_uncertainties_ejer2}
-% \end{figure}
+\FloatBarrier
+\subsection*{Houses, Random Search}
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.95\textwidth, trim=10 20 10 10, clip]{figures/housing/Villa_v19_cut_all_Ncols_all_xgb_score_over_time_random.pdf}
+  \caption[Random Search Results as a Function of Iteration for Houses]
+          {The results of running random search (RS) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s)}, all as a function of iteration number.} 
+  % \label{fig:h:CV_res_RS_uncertainties_ejer}
+\end{figure}
 
-% \begin{figure}
-%   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v18_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
-%   \caption[XXX]
-%           {XXX of the housing model for apartments shown as parallel coordinates. Here shown for Bayesian optimization as hyperparameter optimization.
-%           } 
-%   \label{fig:h:CV_res_BO_uncertainties_ejer}
-% \end{figure}
 
-\newpage
+\FloatBarrier
+\subsection*{Houses, Bayesian Optimization}
+\begin{figure}[h!]
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Villa_v19_cut_all_Ncols_all_xgb_score_over_time_BO.pdf}
+  \caption[Bayesian Optimization Results as a Function of Iteration for Houses]
+          {The results of running Bayesian optimization (BO) as hyperparameter optimization (HPO) on apartments using the XGB-model. The \textcolor{red}{minimum (mean) loss} along with its uncertainty is shown in red, the \textcolor{blue}{means} for the different iterations of RS in blue, and as light blue bands are the \textcolor{blue}{one (and two) standard deviation(s)}, all as a function of iteration number.} 
+  % \label{fig:h:CV_res_BO_uncertainties_ejer}
+\end{figure}
+
+
+\FloatBarrier
+\section[Histogram of z Values for Apartments with the Tight Cut]{Histogram of $z$ Values for Apartments with the Tight Cut}
 
 \begin{figure}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_z_hist_metrics_tight.pdf}
   \caption[Performance of XGB-model on apartment prices]
-          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.} 
+          {Histogram of $z$-values of the XGB-model trained on apartments using the tight cut. The performance after hyperparameter optimization (HPO) using \textcolor{blue}{Random Search} (RS) is shown in blue, for \textcolor{red}{Bayesian Optimization} (BO) in red. After finding the best model, BO in this case, the model is retrained using \textcolor{green}{early stopping}, the performance of which is shown in green.} 
   \label{fig:h:CV_res_performance_ejer_tight}
 \end{figure}
 
-
-\newpage
 \FloatBarrier
+\section{Performance Metrics for the Tight Selection}
 
-
+\subsection*{Apartments}
 \begin{table}
   \centerfloat
   \begin{tabular}{@{}lccccc@{}}
@@ -197,11 +246,13 @@
     2019  & \num{9.12} & \num{42.63} & \num{71.36} & \num{93.65} &   $0.00297 \pm 0.00235$ 
     \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption{XXX ejer tight}
+  % \caption{XXX ejer tight}
+  \caption[Performance Metrics for Apartments with the Tight Selection]{Performance metrics for the final housing model trained and evaluated on apartments with the tight selection.}
   \label{tab:h:results_ejer_tight}
 \end{table}
 
-
+\FloatBarrier
+\subsection*{Houses}
 \begin{table}
   \centerfloat
   \begin{tabular}{@{}lccccc@{}}
@@ -212,10 +263,20 @@
     2019  & \num{17.17} & \num{23.67} & \num{44.25} & \num{73.54} &  $0.02056 \pm 0.00279$ 
     \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption{XXX villa tight}
+  % \caption{XXX villa tight}
+  \caption[Performance Metrics for Houses with the Tight Selection]{Performance metrics for the final housing model trained and evaluated on houses with the tight selection.}
   \label{tab:h:results_villa_tight}
 \end{table}
 
 
-\newpage
+
 \FloatBarrier
+\section{Multiple Models for Houses}
+
+\begin{figure*}[ht!]
+  \centerfloat
+  \includegraphics[draft=false, width=0.98\textwidth, trim=10 130 40 10, clip]{figures/housing/Villa_v19_cut_all_Ncols_all_all_models.pdf}
+  \caption[Performance Comparison of Multiple Models for Houses]
+          {Distribution of the relative predictions $\vec{z}$ for houses for the five different models and the ensemble model. The left plot shows the normal histogram (with a linear scale), whereas the right one has a log-scaled $y$-axis to better see the tails of the distributions. The MAD scores for the different models is further shown in the left plot.} 
+  \label{fig:h:multiple_models_villa}
+\end{figure*}

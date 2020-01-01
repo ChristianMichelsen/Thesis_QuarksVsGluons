@@ -98,33 +98,37 @@
 \contentsline {figure}{\numberline {5.36}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region A}}{92}{subsection.5.9.4}
 \contentsline {figure}{\numberline {5.37}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region D}}{92}{subsection.5.9.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Validity Heatmap}}{95}{appendix.A}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Distributions for the housing price dataset}}{96}{subfigure.A.2.12}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Distributions for the housing price dataset}}{97}{subfigure.A.3.12}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Distributions for the housing price dataset}}{98}{subfigure.A.4.12}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Distributions for the housing price dataset}}{99}{subfigure.A.5.12}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Distributions for the housing price dataset}}{100}{subfigure.A.6.12}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Distributions for the housing price dataset}}{101}{subfigure.A.7.12}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Distributions for the housing price dataset}}{102}{subfigure.A.8.12}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces Distributions for the housing price dataset}}{103}{subfigure.A.9.12}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces Distributions for the housing price dataset}}{104}{subfigure.A.10.12}
-\contentsline {figure}{\numberline {A.11}{\ignorespaces Distributions for the housing price dataset}}{105}{subfigure.A.11.12}
-\contentsline {figure}{\numberline {A.12}{\ignorespaces Distributions for the housing price dataset}}{106}{subfigure.A.12.12}
-\contentsline {figure}{\numberline {A.13}{\ignorespaces Distributions for the housing price dataset}}{107}{subfigure.A.13.12}
-\contentsline {figure}{\numberline {A.14}{\ignorespaces Distributions for the housing price dataset}}{108}{subfigure.A.14.12}
-\contentsline {figure}{\numberline {A.15}{\ignorespaces Distributions for the housing price dataset}}{109}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.16}{\ignorespaces Linear Correlations}}{111}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.17}{\ignorespaces MIC non-linear correlation}}{112}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.18}{\ignorespaces Prophet Forecast for apartments}}{113}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.19}{\ignorespaces Prophet Trends}}{113}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.20}{\ignorespaces Overview of initial hyperparameter optimization of the housing model for houses}}{117}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.21}{\ignorespaces XXX}}{118}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.22}{\ignorespaces XXX}}{118}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.23}{\ignorespaces XXX}}{118}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.24}{\ignorespaces XXX}}{119}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.25}{\ignorespaces XXX}}{119}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.26}{\ignorespaces XXX}}{119}{subfigure.A.15.10}
-\contentsline {figure}{\numberline {A.27}{\ignorespaces Performance of XGB-model on apartment prices}}{120}{subfigure.A.15.10}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Distributions of the Input Variables -- Part 1}}{96}{subfigure.A.1.12}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Distributions of the Input Variables -- Part 2}}{97}{subfigure.A.2.12}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Distributions of the Input Variables -- Part 3}}{98}{subfigure.A.3.12}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Distributions of the Input Variables -- Part 4}}{99}{subfigure.A.4.12}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Distributions of the Input Variables -- Part 5}}{100}{subfigure.A.5.12}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Distributions of the Input Variables -- Part 6}}{101}{subfigure.A.6.12}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Distributions of the Input Variables -- Part 7}}{102}{subfigure.A.7.12}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Distributions of the Input Variables -- Part 8}}{103}{subfigure.A.8.12}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Distributions of the Input Variables -- Part 9}}{104}{subfigure.A.9.12}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Distributions of the Input Variables -- Part 10}}{105}{subfigure.A.10.12}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Distributions of the Input Variables -- Part 11}}{106}{subfigure.A.11.12}
+\contentsline {figure}{\numberline {A.12}{\ignorespaces Distributions of the Input Variables -- Part 12}}{107}{subfigure.A.12.12}
+\contentsline {figure}{\numberline {A.13}{\ignorespaces Distributions of the Input Variables -- Part 13}}{108}{subfigure.A.13.12}
+\contentsline {figure}{\numberline {A.14}{\ignorespaces Distributions of the Input Variables -- Part 14}}{109}{subfigure.A.14.10}
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Linear Correlations}}{110}{section.A.2}
+\contentsline {figure}{\numberline {A.16}{\ignorespaces Comparison of the Linear Correlation $\rho $ and the Nonlinear MIC for Different Levels of Noise}}{111}{section.A.2}
+\contentsline {figure}{\numberline {A.17}{\ignorespaces Validity Heatmap}}{111}{section.A.3}
+\contentsline {figure}{\numberline {A.18}{\ignorespaces Prophet Forecast for apartments}}{112}{section.A.5}
+\contentsline {figure}{\numberline {A.19}{\ignorespaces Prophet Trends}}{113}{section.A.5}
+\contentsline {figure}{\numberline {A.20}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments}}{118}{section.A.8}
+\contentsline {figure}{\numberline {A.21}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Houses}}{118}{section.A.8}
+\contentsline {figure}{\numberline {A.22}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Random Search}}{118}{section.A.9}
+\contentsline {figure}{\numberline {A.23}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Bayesian Optimization}}{119}{section.A.9}
+\contentsline {figure}{\numberline {A.24}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Random Search}}{119}{section.A.9}
+\contentsline {figure}{\numberline {A.25}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Bayesian Optimization}}{119}{section.A.9}
+\contentsline {figure}{\numberline {A.26}{\ignorespaces Random Search Results as a Function of Iteration for Apartments}}{120}{section.A.10}
+\contentsline {figure}{\numberline {A.27}{\ignorespaces Bayesian Optimization Results as a Function of Iteration for Apartments}}{120}{section.A.10}
+\contentsline {figure}{\numberline {A.28}{\ignorespaces Random Search Results as a Function of Iteration for Houses}}{120}{section.A.10}
+\contentsline {figure}{\numberline {A.29}{\ignorespaces Bayesian Optimization Results as a Function of Iteration for Houses}}{120}{section.A.10}
+\contentsline {figure}{\numberline {A.30}{\ignorespaces Performance of XGB-model on apartment prices}}{121}{section.A.11}
+\contentsline {figure}{\numberline {A.31}{\ignorespaces Performance Comparison of Multiple Models for Houses}}{122}{section.A.13}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {B.1}{\ignorespaces UMAP Parameter Grid Search}}{125}{appendix.B}
 \contentsline {figure}{\numberline {B.2}{\ignorespaces Visualization of the t-SNE algorithm}}{125}{appendix.B}

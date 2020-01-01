@@ -170,7 +170,7 @@ To see how closely related the different validity groups are, one can look at th
   \label{fig:h:nans_dendrogram}
 \end{figure}
 
-To see a heatmap of the inter-variable correlations, see Figure~\ref{fig:h:nans_heatmap}. 
+To see a heatmap of the validity inter-variable correlations, see Figure~\ref{fig:h:nans_heatmap}. 
 
 \subsection{Cuts}
 Given the 1D input variable distributions and their validity, we apply some very basic cuts before any further analysis. These cuts are seen in Table \ref{tab:h:initial_cuts}. Sales type, \code{OISSalgsType}, is a OIS\sidenote{OIS is short for \q{Den Offentlige Informationsserver}, the Danish public information server, and it collects information about Danish residences \autocite{oisWwwOISDk}.} code which describes what type of sale it is: when it is \num{1} it is considered a normal sale, compared to e.g. forced sales. These cuts are seen as the minimum requirements for what constitutes a curated dataset with no obvious outliers. The reason why the time requirement is applied is to reduce the effect of the financial crisis to creep into the model. 
@@ -317,7 +317,7 @@ The data are split intro training and test sets such that training is defined as
    Test       & \num{34628}  & \num{14183}  \\   
    \num{2019} & \num{16619}  & \num{6868} 
   \end{tabular}
-  \vspace{3mm}
+  \vspace{1.5mm}
   \caption[Number of Observations in the Housing Dataset]{\label{tab:h:train_test_split}Number of observations for houses and apartments in the training, test, and \num{2019} set.}
   \vspace{3mm}
 \end{margintable}
@@ -331,7 +331,7 @@ The data are split intro training and test sets such that training is defined as
    Test       & \num{20338}   & \num{8376}  \\   
    \num{2019} & \num{9683}    & \num{4030} 
   \end{tabular}
-  \vspace{3mm}
+  \vspace{1.5mm}
   \caption[Number of Observations in the Housing Dataset for the Tight Selection]{\label{tab:h:train_test_split_tight}Number of observations for houses and apartments in the training, test, and \num{2019} set for the tight selection.}
   \vspace{3mm}
 \end{margintable}
@@ -379,8 +379,8 @@ A small study into the effect of some various hyperparameters was performed befo
     $\infty$ & False & \num{807} & \num{0.1480} \\
     %\bottomrule
   \end{tabular}
-  \vspace{3mm}
-  \caption[Results from the Initial Hyperparameter Optimization for Apartments]{\label{tab:h:HPO_initial_Cauchy-ejerlejlighed}Results of the initial hyperparameter optimization for apartments for the best loss function $\ell_\mathrm{Cauchy}$.}
+  \vspace{1.5mm}
+  \caption[Results from the Initial Hyperparameter Optimization for Apartments]{\label{tab:h:HPO_initial_Cauchy-ejerlejlighed}Results of the initial hyperparameter optimization for apartments for the best loss function $\ell_\mathrm{Cauchy}$. The best hyperparameter is shown in bold.}
 \end{margintable}
 
 
@@ -401,8 +401,8 @@ A small study into the effect of some various hyperparameters was performed befo
     $\infty$ & False & \num{1351} & \num{0.1844} \\
     %\bottomrule
   \end{tabular}
-  \vspace{3mm}
-  \caption[Results from the Initial Hyperparameter Optimization for Houses]{\label{tab:h:HPO_initial_Cauchy-villa}Results of the initial hyperparameter optimization for houses for the best loss function $\ell_\mathrm{Cauchy}$.}
+  \vspace{1.5mm}
+  \caption[Results from the Initial Hyperparameter Optimization for Houses]{\label{tab:h:HPO_initial_Cauchy-villa}Results of the initial hyperparameter optimization for houses for the best loss function $\ell_\mathrm{Cauchy}$. The best hyperparameter is shown in bold.}
 \end{margintable}
 
 
@@ -672,8 +672,8 @@ Finally, support vector machines\sidenote{Known as support vector regression whe
 \begin{figure*}[ht!]
   \centerfloat
   \includegraphics[draft=false, width=0.98\textwidth, trim=10 130 40 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_all_models.pdf}
-  \caption[Performance Comparison of Multiple Models]
-          {Distribution of the relative predictions $\vec{z}$ for the five different models and the ensemble model. The left plot shows the normal histogram (with a linear scale), whereas the right one has a log-scaled $y$-axis to better see the tails of the distributions. The MAD scores for the different models is further shown in the left plot.} 
+  \caption[Performance Comparison of Multiple Models for Apartments]
+          {Distribution of the relative predictions $\vec{z}$ for apartments for the five different models and the ensemble model. The left plot shows the normal histogram (with a linear scale), whereas the right one has a log-scaled $y$-axis to better see the tails of the distributions. The MAD scores for the different models is further shown in the left plot.} 
   \label{fig:h:multiple_models}
 \end{figure*}
 
@@ -695,7 +695,7 @@ Given the training data, the evaluation function as a function of $\bm{\alpha}$ 
 \end{equation}
 The fact that it sums to more than \num{1} just corresponds to an overall scaling. When using the found $\bm{\alpha}$ in equation \eqref{eq:h:meta_learner}, one gets the ensemble model (ENS) shown in Figure~\ref{fig:h:multiple_models} with a $\mathrm{MAD} = \SI{9.20}{\percent}$. This value is the evaluation loss on the test set based on only the training data and outperforms all of the individual models. 
 
-The paragraphs above refer to apartments, however, the intermediate results for houses showed the same pattern. The combined model along with their performance can be seen in Fig XXX (need to be added to appendix). 
+The paragraphs above refer to apartments, however, the intermediate results for houses showed the same pattern. The combined model along with their performance can be seen in Figure~\ref{fig:h:multiple_models_villa}
 
 \section{Discussion}
 \label{sec:h:discussion}
