@@ -126,13 +126,13 @@ Even though inter-variable correlations are important in the exploratory data an
   \label{fig:h:corr_lin}
 \end{figure*}
 
-The correlation $\rho$ used above is the linear correlation which only captures linear relationships between variables. All modern machine learning algorithms, however, are also able to capture higher-order correlations and thus a higher-order correlation measure is needed. The maximal information coefficient (MIC), which is a value between \num{0} and \num{1}, is such a non-linear measure. It finds correlation based on the intuition that if two variables are correlated, it should be possible to split the data up into smaller grids where, if they are correlated, the grid that contain points should contain many points and the rest of the grids should be (relatively) empty \autocite{reshefDetectingNovelAssociations2011}. This is in comparison to two uncorrelated variables which would simply display noisy behavior and only have few grids with many points in. \citet{albanesePracticalToolMaximal2018a} extended on this idea and developed the computationally efficient algorithm called MICtools which computes the estimator for MIC: $\mathrm{MIC}_e$. An example of this non-linear correlation is seen in Figure~\ref{fig:h:MIC_example_small}. Here the relationship between the normal linear correlation $\rho$ and $\mathrm{MIC}_e$ can be seen for four synthetic datasets. Notice that $\mathrm{MIC}_e$ does it particularly well for the sine wave, and decent for the line and parabola, but only slightly captures the relationship for the exponential growth. The influence of noise on $\rho$ and $\mathrm{MIC}_e$ can be see in Figure~\ref{fig:h:MIC_example}. 
+The correlation $\rho$ used above is the linear correlation which only captures linear relationships between variables. All modern machine learning algorithms, however, are also able to capture higher-order correlations and thus a higher-order correlation measure is needed. The maximal information coefficient (MIC), which is a value between \num{0} and \num{1}, is such a nonlinear measure. It finds correlation based on the intuition that if two variables are correlated, it should be possible to split the data up into smaller grids where, if they are correlated, the grid that contain points should contain many points and the rest of the grids should be (relatively) empty \autocite{reshefDetectingNovelAssociations2011}. This is in comparison to two uncorrelated variables which would simply display noisy behavior and only have few grids with many points in. \citet{albanesePracticalToolMaximal2018a} extended on this idea and developed the computationally efficient algorithm called MICtools which computes the estimator for MIC: $\mathrm{MIC}_e$. An example of this nonlinear correlation is seen in Figure~\ref{fig:h:MIC_example_small}. Here the relationship between the normal linear correlation $\rho$ and $\mathrm{MIC}_e$ can be seen for four synthetic datasets. Notice that $\mathrm{MIC}_e$ does it particularly well for the sine wave, and decent for the line and parabola, but only slightly captures the relationship for the exponential growth. The influence of noise on $\rho$ and $\mathrm{MIC}_e$ can be see in Figure~\ref{fig:h:MIC_example}. 
 
 \begin{figure}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=10 10 10 10, clip]{figures/housing/MIC_test_small.pdf}
-  \caption[Comparison of the Linear Correlation $\rho$ and the Non-Linear MIC.]
-          {Comparison of the linear correlation $\rho$ and the non-linear MIC for a straight line, a parabola, an exponential, and a sine wave, all with noise added. See also Figure~\ref{fig:h:MIC_example}.}
+  \caption[Comparison of the Linear Correlation $\rho$ and the Nonlinear MIC.]
+          {Comparison of the linear correlation $\rho$ and the nonlinear MIC for a straight line, a parabola, an exponential, and a sine wave, all with noise added. See also Figure~\ref{fig:h:MIC_example}.}
   \label{fig:h:MIC_example_small}
 \end{figure}
 
@@ -141,8 +141,8 @@ Using $\mathrm{MIC}_e$ as the correlation measure between the numerical variable
 \begin{figure*}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=10 10 0 40, clip]{figures/housing/MIC_plot.pdf}
-  \caption[Non-linear correlation Between Variables and Price]
-          {Non-linear correlation between variables and price using Maximal Information Coefficient (MIC) for variables where $\text{MIC}>10\%$.}
+  \caption[Nonlinear Correlation Between Variables and Price]
+          {Nonlinear correlation between variables and price using Maximal Information Coefficient (MIC) for variables where $\text{MIC}>10\%$.}
   \label{fig:h:corr_MIC}
 \end{figure*}
 
@@ -637,7 +637,7 @@ The way to interpret this plot is as follows. Take a variable of interest, e.g. 
 \begin{figure}[ht!]
   \centerfloat
   \includegraphics[width=0.9\textwidth, trim=0 0 0 1, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_tight_SHAP_vals_summary.pdf}
-  \caption[Feature importance of Apartments Prices Using XGB]
+  \caption[Feature importance of Apartments Prices]
           {Feature importance of apartment prices using the XGB-model. The feature importance is measured using SHAP values. The variables are sorted top to bottom according to their overall feature importance, i.e. the previous public property valuation \code{EjendomdsVaerdi0} is the most important single feature. Along the $x$-axis is the impact on model output, in this example the price in \si{\Mkr} This axes is colored by the value of the feature, from \textcolor{blue}{low} (blue) to \textcolor{red}{high} (red). In this particular example we see that high values of the previous public property valuation has high, positive impact on the model prediction -- exactly as expected. This is exactly opposite the total days on market described by the variable \code{LiggetidSamlet} where a high value has a negative impact.  
           } 
   \label{fig:h:shap_overview}
@@ -650,7 +650,7 @@ Here the SHAP value of the \code{EjendomdsVaerdi0} is plotted as a function of \
 \begin{figure}
   \centerfloat
   \includegraphics[draft=false, width=0.98\textwidth, trim=15 15 40 40, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_tight_SHAP_vals_interaction_Vaerdi0.pdf}
-  \caption[Feature Importance Interaction Plot for Apartments for the XGB Model]
+  \caption[Feature Importance Interaction Plot for Apartments]
           {Interaction plot of the feature importances for the XGB model on apartments. Here shown for the previous public property valuation (\code{EjendomdsVaerdi0}) colored according to the sales date (\code{SalgsDato_siden0}).} 
   \label{fig:h:shap_overview_interaction}
 \end{figure}

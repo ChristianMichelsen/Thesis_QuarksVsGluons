@@ -32,7 +32,7 @@ The number of events for each number of jets can be seen in Table~\ref{tab:q:dat
   Total       &  \num{6886649} &  \num{2610523} \\  
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption[Dimensions of dataset for Data]{The dimensions of the dataset for the actual Data for $n$-jet events. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
+  \caption[Dimensions of the Dataset for Data]{The dimensions of the dataset for the actual Data for $n$-jet events. The numbers in the jet columns are the number of events multiplied with the number of jets; e.g. $85 \cdot 6 = 510$.}
   \label{tab:q:datasize_data}
   \vspace{\abovecaptionskip}
 \end{margintable}
@@ -50,7 +50,7 @@ The number of events for each number of jets can be seen in Table~\ref{tab:q:dat
   Total       &  \num{20420800} &  \num{7821766} \\  
   \end{tabular}
   \vspace{\abovecaptionskip}
-  \caption[Dimensions of dataset for MC and MCb]{The dimensions for the MC and MCb datasets for $n$-jet events.}
+  \caption[Dimensions of the Dataset for MC and MCb]{The dimensions for the MC and MCb datasets for $n$-jet events.}
   \label{tab:q:datasize_MC}
 \end{margintable}
 
@@ -66,8 +66,6 @@ Since the machine learning models are only trained on the three vertex variables
   \code{flevt}: & \num{5} & \num{4} & \num{3} & \num{2} & \num{1}  
   \end{tabular}
   \vspace{\abovecaptionskip}
-  % \caption{The dimensions for the MC and MCb datasets.}
-  % \label{tab:q:flevt}
 \end{table}
 
 In addition to knowing the correct flavor, we define that an event is \emph{$q$\=/matched} if one, and only one, of the jets are assigned to one of the (final) quarks, if one, and only one, of the jets are assigned to the other (final) quark, and if no other jets are matched to any of the (final) quarks. We then define what constitutes a $b$\=/jet: if it has \code{flevt} $= 5$, the entire event is $q$\=/matched, and the jet is matched to one of the quarks. Similarly we define $c$\=/jets only with the change that \code{flevt} $= 4$, and $uds$\=/jets\sidenote{Will also be called a $l$-jet.} with \code{flevt} $\in \{1, 2, 3\}$. A gluon jet is defined to be a jet in a (any-flavor) $q$\=/matched event where the jet itself is not assigned to any of the (final) quarks. Strictly speaking, this means that the gluon jet is not \SI{100}{\percent} certain of being a gluon. We cannot know this, as not all of the input parameters in the MC simulation are known, only the final clustered jets. Due to the $q$\=/match criterion this also means that some jets are assigned the label \q{non\=/$q$\=/matched} which is regarded as background. The distribution of different types of jets can be seen in Table~\ref{tab:q:flevt_overview} and shown as relative numbers in Table~\ref{tab:q:flevt_overview_percent_relative}.
@@ -85,7 +83,7 @@ In addition to knowing the correct flavor, we define that an event is \emph{$q$\
     \midrule
     Total & \num{5483970} & \num{2070910} & \num{4433012} & \num{4604386} & \num{3828522} \\
   \end{tabular}
-  \caption{Number of different types of jets for MC and MCb for $n$-jet events. See also Table~\ref{tab:q:flevt_overview_percent_relative} for relative numbers.}
+  \caption[Number of Different Types of Jets for MC and MCb for $n$-Jet Events]{Number of different types of jets for MC and MCb for $n$-jet events. See also Table~\ref{tab:q:flevt_overview_percent_relative} for relative numbers.}
   \label{tab:q:flevt_overview}
 \end{table}
 \vspace{-5mm}
@@ -94,7 +92,7 @@ With the criteria defined above for what constitutes a specific type of jet the 
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth, trim=10 10 5 5, clip]{figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Histograms of the vertex variables]
+  \caption[Histograms of the Vertex Variables]
           {Normalized histograms of the three vertex variables: \code{projet}, \code{bqvjet}, and \code{ptljet}. In blue colors the variables are shown for \textcolor{blue}{true b-jets}, in red for \textcolor{red}{true c-jets}, in green for \textcolor{green}{true g-jets}, and in orange for \textcolor{orange}{all of the jets} (including non q-matched). In fully opaque color are shown the distributions for 2-jet events, in dashed (and lighter color) 3-jet events, and in semi-transparent 4-jet events. Notice the logarithmic y-axis, that there are no g-jets for 2-jet events (as expected), and that all of the distributions are very similar not matter how many jets.
           } 
   \label{fig:q:vertex_variables}
@@ -111,7 +109,7 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
   \centerfloat
   \includegraphics[draft=false, width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf}
   \vspace{1mm}
-  \caption[UMAP visualization of vertex variables for 4-jet events]
+  \caption[UMAP Visualization of the Vertex Variables for 4-Jet Events]
           {Visualization of the vertex variables in 4-jet events for the different categories: \textcolor{blue}{true b-jets} in blue, \textcolor{red}{true c-jets} in red, \textcolor{green}{true uds-jets} in green, \textcolor{orange}{true g-jets} in orange, and \textcolor{purple}{non q-matched} events in purple. The clustering is performed with the UMAP algorithm which outputs a 2D-projection. This projection is then visualized using the Datashader which takes takes care of point size, avoids over and underplotting, and color intensity.} 
   \label{fig:q:UMAP_vertex_4j}
   \vspace{5mm}
@@ -121,8 +119,8 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
   \centerfloat
   \includegraphics[draft=false, width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf}
   \vspace{1mm}
-  \caption[UMAP visualization of vertex variables for 3-jet events]
-          {UMAP visualization of vertex variables for 3-jet events.} 
+  \caption[UMAP Visualization of the Vertex Variables for 3-Jet Events]
+          {UMAP visualization of the vertex variables for 3-jet events.} 
   \label{fig:q:UMAP_vertex_3j}
 \end{marginfigure}
 
@@ -130,8 +128,8 @@ The aim of UMAP, short for Uniform Manifold Approximation and Projection, is to 
   \centerfloat
   \includegraphics[draft=false, width=0.95\textwidth, trim=50 45 50 50, clip]{figures/quarks/df_UMAP-X=729358-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=2_algorithm=UMAP_single.pdf}
   \vspace{1mm}
-  \caption[UMAP visualization of vertex variables for 2-jet events]
-          {UMAP visualization of vertex variables for 2-jet events.} 
+  \caption[UMAP Visualization of the Vertex Variables for 2-Jet Events]
+          {UMAP visualization of the vertex variables for 2-jet events.} 
   \label{fig:q:UMAP_vertex_2j}
 \end{marginfigure}
 
@@ -150,7 +148,7 @@ The correlation between the vertex variables can be seen in Figure~\ref{fig:q:co
   \subfloat[2-jet events]{{\includegraphics[height=3.15cm]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf} }}%
   \subfloat[3-jet events]{{\includegraphics[height=3.15cm, trim=85 0 0 0, clip]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf} }}%
   \subfloat[4-jet events]{{\includegraphics[height=3.15cm, trim=85 0 0 0, clip]{figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf} }}%
-  \caption[Correlation of Vertex Variables]{Correlation of the three vertex variables for 2-, 3- and 4-jet events. Here the upper diagonal shows the linear correlation $\rho$ and the lower diagonal the nonlinear correlations $\mathrm{MIC}_e$.}%
+  \caption[Correlation of the Vertex Variables]{Correlation of the three vertex variables for 2-, 3- and 4-jet events. Here the upper diagonal shows the linear correlation $\rho$ and the lower diagonal the nonlinear correlations $\mathrm{MIC}_e$.}%
   \label{fig:q:correlation_vertex_all}%
 \end{figure}
 
@@ -175,7 +173,7 @@ This is visualized in Figure~\ref{fig:q:logloss}. Here it can be seen how the lo
 
 \begin{marginfigure}[-5cm]
   \includegraphics[draft=false, width=0.9\textwidth]{figures/log_loss_cross_entropy/logloss.pdf}
-  \caption[Plot of the log-loss $\ell_\mathrm{log}$]
+  \caption[Plot of the Log-Loss $\ell_\mathrm{log}$]
           {Plot of the log-loss $\ell_\mathrm{log}$ for \textcolor{blue}{background ($y=0$)} in blue and \textcolor{red}{signal ($y=1$)} in red.} 
   \label{fig:q:logloss}
 \end{marginfigure}
@@ -217,7 +215,7 @@ Compared to the housing prices dataset, the number of observations $N$ is a lot 
   \centerfloat
   \includegraphics[width=\textwidth, trim=0 0 0 0, clip]{figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \vspace{3mm}
-  \caption[Hyperparameter Optimization of $b$\=/tagging]{
+  \caption[Hyperparameter Optimization of $b$\=/Tagging]{
     Hyperparameter Optimization results of $b$\=/tagging with random search. From left to right, we have A) \num{100} iterations of RS with LGB on 3-jets, B) \num{10} iterations of RS with XGB on 3-jets, C) \num{100} iterations of RS with LGB on 4-jets, D) \num{10} iterations of RS with XGB on 4-jets. Notice the different ranges on the y-axes.}
   \label{fig:q:CV_res_iterations_b_tagging}%
 \end{figure*}
@@ -254,7 +252,7 @@ Even though the distributions of $b$\=/tags are different between the three mode
   \vspace{-0.1cm}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=10 10 10 40, clip]{figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[ROC curve for 4-jet $b$\=/tagging]
+  \caption[ROC Curve for 4-Jet $b$\=/Tagging]
           {ROC curve of the three $b$\=/tag models in 4-jet events for \textcolor{blue}{NNB} (the pre-trained neural network trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the area under curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. 
           } 
   \label{fig:q:roc_btag_4j}
@@ -300,7 +298,7 @@ In regression, the model output is a continuous prediction ${\hat{y}_\mathrm{reg
 \begin{marginfigure}[-2.5cm]
   \centerfloat
   \includegraphics[width=0.8\textwidth]{figures/logit_expit/expit.pdf}
-  \caption[The expit Function]
+  \caption[The Expit Function]
           {The expit function.} 
   \label{fig:q:expit}
 \end{marginfigure}
@@ -314,7 +312,7 @@ In regression, the model output is a continuous prediction ${\hat{y}_\mathrm{reg
  \begin{marginfigure}
   \centerfloat
   \includegraphics[width=0.8\textwidth]{figures/logit_expit/logit.pdf}
-  \caption[The logit Function]
+  \caption[The Logit Function]
           {The logit function.} 
   \label{fig:q:logit}
 \end{marginfigure}
@@ -327,7 +325,7 @@ With this in mind, single predictions of the LGB $b$\=/tagging model can be unde
 \begin{figure}[h!]
   \centerfloat
   \includegraphics[width=0.95\textwidth, trim=0 0 0 40, clip]{figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf}
-  \caption[SHAP 3-Jet Model Explanation for $b$\=/like Jet]
+  \caption[SHAP 3-Jet Model Explanation for $b$\=/Like Jet]
           {Model explanation for the 3-jet $b$\=/tagging LGB model for a $b$\=/like jet. The first column is the bias which can be seen as the naive prediction baseline, the rest are the input variables. On the right hand side of the plot is the model prediction shown. The left part of the plot is shown in log-odds space, the right part in probability space. The \textcolor{red}{negative} log-odd values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction} value in blue. 
           } 
   \label{fig:q:shap_single_prediction_3j}
@@ -413,7 +411,7 @@ The results of the HPO can be seen in Figure~\ref{fig:q:CV_res_iterations_g_tagg
   \centerfloat
   \includegraphics[width=1\textwidth, trim=0 0 0 0, clip]{figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \vspace{3mm}
-  \caption[Hyperparameter Optimization of $g$\=/tagging]{
+  \caption[Hyperparameter Optimization of $g$\=/Tagging]{
     Hyperparameter Optimization results of $g$\=/tagging with \num{100} iterations of random search with LGB. From left to right, we have A) 3-jet events energy-ordered (no permutations), B) 3-jet events row-shuffled, C) 4-jet events energy-ordered, D) 4-jet events row-shuffled. Notice the different ranges on the y-axes.}
   \label{fig:q:CV_res_iterations_g_tagging}%
 \end{figure*}
