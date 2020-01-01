@@ -354,6 +354,14 @@
 \DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}% for figure entries
 \DeclareTOCStyleEntry[dynnumwidth]{tocline}{table}% for table entries
 
+% Custom Figure Titles
+\newcommand*{\figuretitle}[1]{%
+    {\centering%   <--------  will only affect the title because of the grouping (by the
+    \textbf{#1}%              braces before \centering and behind \medskip). If you remove
+    \par\medskip}%            these braces the whole body of a {figure} env will be centered.
+}
+
+
 % Generates the index
 \usepackage{makeidx}
 \makeindex
@@ -386,7 +394,7 @@
 % \includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
-% \includeonly{chapter_appendix_housing}
+\includeonly{chapter_appendix_quarks_gluons}
 
 
 % \includeonly{chapter_machine_learning_theory}
@@ -474,7 +482,6 @@ Part \RNum{2} of this thesis deals with particle physics and the discriminatory 
 % \input{chapter_appendix_housing.tex}
 \include{chapter_appendix_housing}
 
-\chapter{Quarks vs. Gluons Appendix}
 
 \include{chapter_appendix_quarks_gluons}
 

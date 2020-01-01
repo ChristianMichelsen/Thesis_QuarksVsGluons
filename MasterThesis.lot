@@ -40,7 +40,7 @@
 \contentsline {table}{\numberline {A.13}{\ignorespaces Performance Metrics for Apartments with the Tight Selection}}{121}{section.A.12}
 \contentsline {table}{\numberline {A.14}{\ignorespaces Performance Metrics for Houses with the Tight Selection}}{121}{section.A.12}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI {100}{\percent }. See also Table\nobreakspace {}\ref {tab:q:flevt_overview}.}}{124}{appendix.B}
-\contentsline {table}{\numberline {B.2}{\ignorespaces Random Search PDFs for XGB}}{126}{appendix.B}
-\contentsline {table}{\numberline {B.3}{\ignorespaces Global SHAP Feature Importances for the $g$-Tagging Models in 3-Jet Events}}{130}{appendix.B}
+\contentsline {table}{\numberline {B.1}{\ignorespaces Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI {100}{\percent }. See also Table\nobreakspace {}\ref {tab:q:flevt_overview}.}}{123}{section.B.1}
+\contentsline {table}{\numberline {B.2}{\ignorespaces Random Search PDFs for XGB}}{123}{section.B.2}
+\contentsline {table}{\numberline {B.3}{\ignorespaces Global SHAP Feature Importances for the $g$-Tagging Models in 3-Jet Events}}{134}{section.B.19}
 \contentsfinish 

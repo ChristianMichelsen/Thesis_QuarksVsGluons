@@ -1,3 +1,6 @@
+\chapter{Quarks vs. Gluons Appendix}
+
+\section{Fraction of Different Types of Jets}
 
 \begin{table}
   \centering
@@ -14,30 +17,8 @@
   \label{tab:q:flevt_overview_percent_relative}
 \end{table}
 
-
-\newpage
-\begin{figure*}[h!]
-  \centerfloat
-  \includegraphics[draft=false, width=0.98\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf}
-  \caption[UMAP Parameter Grid Search]
-          {Grid search of the two parameters \code{n_neighbors} and \code{min_dist} for the UMAP algorithm run on 4-jet events. For an explanation of these, see \autoref{sec:q:EDA}.} 
-  \label{fig:q:UMAP_vertex_all_4j}
-\end{figure*}
-
-\vspace{2cm}
-
-\begin{figure*}[h!]
-  \centerfloat
-  \includegraphics[draft=false, width=0.98\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_TSNE_MULTI_test_0.5_input2b_njet=4_algorithm=tsne_multi.pdf}
-  \caption[Visualization of the t-SNE algorithm]
-          {Visualization of the t-SNE algorithm as a function of the \code{perplexity} parameters for 4-jet events.} 
-  \label{fig:q:tsne_vertex}
-\end{figure*}
-
 \FloatBarrier
-\newpage
-
-
+\section{Random Search PDFs for XGB}
 \begin{table}
   \centerfloat
   \begin{tabular}{@{}ll@{}}
@@ -52,107 +33,184 @@
   \caption[Random Search PDFs for XGB]{\label{tab:q:hpo_ranges_xgb}Probability Density Functions for the random search hyperparameter optimization process for the XGBoost model.}
 \end{table}
 
+\clearpage
 
-\begin{figure}
+\section{UMAP Parameters Comparison}
+\begin{figure*}[h!]
+  \centerfloat
+  \includegraphics[draft=false, width=1\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_UMAP_test_0.5_input2b_njet=4_algorithm=UMAP.pdf}
+  \caption[UMAP Parameter Grid Search]
+          {Grid search of the two parameters \code{n_neighbors} and \code{min_dist} for the UMAP algorithm run on 4-jet events. For an explanation of these, see \autoref{sec:q:EDA}.} 
+  \label{fig:q:UMAP_vertex_all_4j}
+\end{figure*}
+
+
+\FloatBarrier
+\section{t-SNE Parameters Comparison}
+
+\begin{figure*}[h!]
+  \centerfloat
+  \includegraphics[draft=false, width=0.98\textwidth, trim=30 30 30 70, clip]{figures/quarks/viz_TSNE_MULTI_test_0.5_input2b_njet=4_algorithm=tsne_multi.pdf}
+  \caption[Visualization of the t-SNE algorithm]
+          {Visualization of the t-SNE algorithm as a function of the \code{perplexity} parameters for 4-jet events.} 
+  \label{fig:q:tsne_vertex}
+\end{figure*}
+\clearpage
+
+
+
+
+\FloatBarrier
+\section[HPO results for 3-jet b-Tagging]{HPO results for 3-jet $b$-Tagging}
+\begin{figure*}
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO results for 3-jet $b$-Tagging]
+  \caption[Parallel Coordinate Plot of HPO results for 3-Jet $b$-Tagging]
           {Hyperparameter optimization results of $b$-tagging for 3-jet events. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by AUC from \textcolor{viridis-dark}{highest} AUC in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. 
           } 
   \label{fig:q:initial_CV_res_parallel_coords_3j}
-\end{figure}
+\end{figure*}
+\vspace{5cm}
+\section[HPO results for 4-jet b-Tagging]{HPO results for 4-jet $b$-Tagging}
+\begin{figure*}
+  \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[Parallel Coordinate Plot of HPO results for 4-Jet $b$-Tagging]
+          {Hyperparameter optimization results of $b$-tagging for 4-jet events. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an event in the 4-dimensional space colored according to the performance of that hyperparameter as measured by AUC from \textcolor{viridis-dark}{highest} AUC in dark blue to \textcolor{viridis-light}{lowest} AUC in yellow. The \textcolor{red}{single best hyperparameter} is shown in red. 
+          } 
+\end{figure*}
+\clearpage
 
-
-\begin{figure}
+\FloatBarrier
+\section[b-Tag Scores in 3-Jet Events]{$b$-Tag Scores in 3-Jet Events}
+\begin{figure*}
   \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_3_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[b-tag scores in 3-jet events]
+  \caption[$b$-Tag Scores in 3-Jet Events]
           {Histogram of $b$-tag scores $\beta_\mathrm{tag}$ in 3-jet events for \textcolor{blue}{NNB} (the neural network pre-trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. 
           } 
   \label{fig:q:btag_scores_3j}
-\end{figure}
+\end{figure*}
+\section[b-Tag Scores in 4-Jet Events]{$b$-Tag Scores in 4-Jet Events}
+\begin{figure*}
+  \includegraphics[width=0.95\textwidth, trim=0 0 0 30, clip]{figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[$b$-Tag Scores in 4-Jet Events]
+          {Histogram of $b$-tag scores $\beta_\mathrm{tag}$ in 4-jet events for \textcolor{blue}{NNB} (the neural network pre-trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. 
+          } 
+\end{figure*}
+\clearpage
 
-
-\begin{figure}
+\FloatBarrier
+\section[ROC curve for 3-jet b-tagging]{ROC curve for 3-jet $b$-tagging}
+\begin{figure*}
   \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/ROC_3_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[ROC curve for 3-jet $b$-tagging]
-          {ROC curve of the three $b$-tag models in 3-jet events for \textcolor{blue}{NNB} (the pre-trained neural network trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the area under curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen. In the machine learning community the background efficiency $\varepsilon_\mathrm{bkg}$ is sometimes know as the false positive rate (FPR) and the signal efficiency $\varepsilon_\mathrm{sig}$ as the true positive rate (TPR).  
-          } 
+          {ROC curve of the three $b$-tag models in 3-jet events for \textcolor{blue}{NNB} (the pre-trained neural network trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the area under curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen.} 
   \label{fig:q:roc_btag_3j}
-\end{figure}
+\end{figure*}
+\vspace{2cm}
+\section[ROC curve for 4-jet b-tagging]{ROC curve for 4-jet $b$-tagging}
+\begin{figure*}
+  \includegraphics[width=0.95\textwidth, trim=10 10 10 40, clip]{figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+  \caption[ROC curve for 4-jet $b$-tagging]
+          {ROC curve of the three $b$-tag models in 4-jet events for \textcolor{blue}{NNB} (the pre-trained neural network trained by ALEPH, also called \code{nnbjet}) in blue, \textcolor{red}{LGB} in red, and \textcolor{green}{XGB} in green. In the legend the area under curve (AUC) is also shown. Notice that the LGB and XGB models share performance and it is thus due to overplotting that only the green line for XGB can be seen.} 
+\end{figure*}
+\clearpage
 
 
-\begin{figure}[h!]
+\FloatBarrier
+\section[Distribution of b-Tags in 3-Jet Events]{Distribution of $b$-Tags in 3-Jet Events}
+\begin{figure*}[h!]
     \centerfloat
     \includegraphics[width=0.95\textwidth, trim=15 15 15 50, clip]{figures/quarks/btag_scores_histogram_-njet=3-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
     \caption[Distribution of $b$-Tags in 3-Jet Events]
             {Distribution of $b$-tags in 3-jet events for \textcolor{blue}{$b$-jets} in blue, \textcolor{red}{$c$-jets} in red, \textcolor{green}{$uds$} in green and \textcolor{orange}{$g$} in orange.} 
     \label{fig:q:btag_histogram_3j}
-  \end{figure}
-  
+\end{figure*}
+\vspace{2cm}
+\section[Distribution of b-Tags in 4-Jet Events]{Distribution of $b$-Tags in 4-Jet Events}
+\begin{figure*}[h!]
+    \centerfloat
+    \includegraphics[width=0.95\textwidth, trim=15 15 15 50, clip]{figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
+    \caption[Distribution of $b$-Tags in 4-Jet Events]
+            {Distribution of $b$-tags in 4-jet events for \textcolor{blue}{$b$-jets} in blue, \textcolor{red}{$c$-jets} in red, \textcolor{green}{$uds$} in green and \textcolor{orange}{$g$} in orange.} 
+\end{figure*}
+\clearpage
 
 
-
-\begin{figure}[h!]
+\FloatBarrier
+\section[Global Feature Importances for the LGB b-Tagging Algorithm on 3-Jet Events]{Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events}
+\begin{figure*}[h!]
   \includegraphics[width=0.98\textwidth, trim=10 10 20 10, clip]{figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf}
   \caption[Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events]
           {Global feature importances for the LGB $b$-tagging algorithm on 3-jet events. The normalized feature importance is shown in the parenthesis and the each dot is an observation showing the dependance between the SHAP value and the feature's value. 
           } 
   \label{fig:q:shap_btag_global_3j}
-\end{figure}
+\end{figure*}
+\vspace{3cm}
+\section[Global Feature Importances for the LGB b-Tagging Algorithm on 4-Jet Events]{Global Feature Importances for the LGB $b$-Tagging Algorithm on 4-Jet Events}
+\begin{figure*}[h!]
+  \includegraphics[width=0.98\textwidth, trim=10 10 20 10, clip]{figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  \caption[Global Feature Importances for the LGB $b$-Tagging Algorithm on 4-Jet Events]
+          {Global feature importances for the LGB $b$-tagging algorithm on 4-jet events. The normalized feature importance is shown in the parenthesis and the each dot is an observation showing the dependance between the SHAP value and the feature's value. 
+          } 
+\end{figure*}
+\clearpage
 
-\newpage
+
 \FloatBarrier
-
-
-\begin{figure}[h!]
+\section[Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Energy Ordered Jets]{Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets}
+\begin{figure*}[h!]
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets]
-          {Hyperparameter optimization results of $g$-tagging for 3-jet events for energy ordered jets. 
+  \caption[Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets]
+          {Hyperparameter optimization results of $g$-tagging for 3-jet events for energy ordered jets shown as parallel coordinates. 
           } 
   \label{fig:q:CV_res_parallel_coords_g_tag_3j_energy_ordered}
-\end{figure}
-
-
-\begin{figure}[h!]
+\end{figure*}
+\vspace{3cm}
+\section[Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Shuffled Jets]{Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets}
+\begin{figure*}[h!]
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=3-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets]
-          {Hyperparameter optimization results of $g$-tagging for 3-jet events for (row) shuffled jets. 
+  \caption[Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets]
+          {Hyperparameter optimization results of $g$-tagging for 3-jet events for (row) shuffled jets shown as parallel coordinates. 
           } 
   \label{fig:q:CV_res_parallel_coords_g_tag_3j_shuffled}
-\end{figure}
+\end{figure*}
+\clearpage
 
-\begin{figure}[h!]
+
+\FloatBarrier
+\section[Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Energy Ordered Jets]{Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets}
+\begin{figure*}[h!]
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_gtag_energy_ordered_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets]
-          {Hyperparameter optimization results of $g$-tagging for 4-jet events for energy ordered jets. 
+  \caption[Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets]
+          {Hyperparameter optimization results of $g$-tagging for 4-jet events for energy ordered jets shown as parallel coordinates. 
           } 
   \label{fig:q:CV_res_parallel_coords_g_tag_4j_energy_ordered}
-\end{figure}
-
-
-\begin{figure}[h!]
+\end{figure*}
+\vspace{3cm}
+\section[Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Shuffled Jets]{Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets}
+\begin{figure*}[h!]
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_gtag_shuffled_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
-  \caption[Parallel Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets]
-          {Hyperparameter optimization results of $g$-tagging for 4-jet events for (row) shuffled jets. 
+  \caption[Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets]
+          {Hyperparameter optimization results of $g$-tagging for 4-jet events for (row) shuffled jets shown as parallel coordinates. 
           } 
   \label{fig:q:CV_res_parallel_coords_g_tag_4j_shuffled}
-\end{figure}
+\end{figure*}
+\clearpage
 
-\newpage
+
+
 \FloatBarrier
-
-
+\section{PermNet Architecture}
 
 \begin{figure}
   \centerfloat
-  \includegraphics[width=0.5\textwidth]{figures/quarks/TensorFlow_model.png}
+  \includegraphics[width=0.7\textwidth]{figures/quarks/TensorFlow_model.png}
   \caption[PermNet Architecture]
-          {Architecture of the PermNet neural network. 
-          } 
+          {Architecture of the PermNet neural network. } 
   \label{fig:q:permnet_architecture}
 \end{figure}
+\clearpage
 
-\FloatBarrier
-\newpage
+
 
 
 \begin{figure}

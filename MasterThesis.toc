@@ -87,7 +87,26 @@
 \contentsline {section}{\numberline {A.12}Performance Metrics for the Tight Selection}{121}{section.A.12}
 \contentsline {section}{\numberline {A.13}Multiple Models for Houses}{121}{section.A.13}
 \contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{123}{appendix.B}
-\contentsline {chapter}{List of Figures}{155}{appendix*.6}
-\contentsline {chapter}{List of Tables}{158}{appendix*.7}
-\contentsline {chapter}{Bibliography}{159}{section*.8}
+\contentsline {section}{\numberline {B.1}Fraction of Different Types of Jets}{123}{section.B.1}
+\contentsline {section}{\numberline {B.2}Random Search PDFs for XGB}{123}{section.B.2}
+\contentsline {section}{\numberline {B.3}UMAP Parameters Comparison}{124}{section.B.3}
+\contentsline {section}{\numberline {B.4}t-SNE Parameters Comparison}{124}{section.B.4}
+\contentsline {section}{\numberline {B.5}HPO results for 3-jet b-Tagging}{125}{section.B.5}
+\contentsline {section}{\numberline {B.6}HPO results for 4-jet b-Tagging}{125}{section.B.6}
+\contentsline {section}{\numberline {B.7}b-Tag Scores in 3-Jet Events}{126}{section.B.7}
+\contentsline {section}{\numberline {B.8}b-Tag Scores in 4-Jet Events}{126}{section.B.8}
+\contentsline {section}{\numberline {B.9}ROC curve for 3-jet b-tagging}{127}{section.B.9}
+\contentsline {section}{\numberline {B.10}ROC curve for 4-jet b-tagging}{127}{section.B.10}
+\contentsline {section}{\numberline {B.11}Distribution of b-Tags in 3-Jet Events}{128}{section.B.11}
+\contentsline {section}{\numberline {B.12}Distribution of b-Tags in 4-Jet Events}{128}{section.B.12}
+\contentsline {section}{\numberline {B.13}Global Feature Importances for the LGB b-Tagging Algorithm on 3-Jet Events}{129}{section.B.13}
+\contentsline {section}{\numberline {B.14}Global Feature Importances for the LGB b-Tagging Algorithm on 4-Jet Events}{129}{section.B.14}
+\contentsline {section}{\numberline {B.15}Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Energy Ordered Jets}{130}{section.B.15}
+\contentsline {section}{\numberline {B.16}Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Shuffled Jets}{130}{section.B.16}
+\contentsline {section}{\numberline {B.17}Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Energy Ordered Jets}{131}{section.B.17}
+\contentsline {section}{\numberline {B.18}Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Shuffled Jets}{131}{section.B.18}
+\contentsline {section}{\numberline {B.19}PermNet Architecture}{132}{section.B.19}
+\contentsline {chapter}{List of Figures}{159}{appendix*.6}
+\contentsline {chapter}{List of Tables}{162}{appendix*.7}
+\contentsline {chapter}{Bibliography}{163}{section*.8}
 \contentsfinish 
