@@ -335,7 +335,7 @@
 \titlecontents{section}%
   [0em] % distance from left margin
   {\vspace{0.08\baselineskip}\Large\rmfamily\itshape} % above (global formatting of entry)
-  {\hspace*{2em}\contentslabel{2em}} % before w/label (label = ``2'')
+  {\hspace*{2em}\contentslabel{2.2em}} % before w/label (label = ``2'')
   {\hspace*{2em}} % before w/o label
   {\titlerule*[0.8em]{.}\large\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
   [\vspace{0.01\baselineskip}] % after
@@ -343,8 +343,8 @@
 \titlecontents{subsection}%
   [0em] % distance from left margin
   {\vspace{0.08\baselineskip}\normalsize\rmfamily\itshape} % above (global formatting of entry)
-  {\hspace*{4em}\contentslabel{3em}} % before w/label (label = ``2'')
-  {\hspace*{4em}} % before w/o label
+  {\hspace*{5em}\contentslabel{3em}} % before w/label (label = ``2'')
+  {\hspace*{5em}} % before w/o label
   {\titlerule*[0.8em]{.}\normalsize\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
   [\vspace{0.01\baselineskip}] % after
 
@@ -354,12 +354,28 @@
 \DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}% for figure entries
 \DeclareTOCStyleEntry[dynnumwidth]{tocline}{table}% for table entries
 
-% Custom Figure Titles
-\newcommand*{\figuretitle}[1]{%
-    {\centering%   <--------  will only affect the title because of the grouping (by the
-    \textbf{#1}%              braces before \centering and behind \medskip). If you remove
-    \par\medskip}%            these braces the whole body of a {figure} env will be centered.
-}
+% % Custom Figure Titles
+% \newcommand*{\figuretitle}[1]{%
+%     {\centering%   <--------  will only affect the title because of the grouping (by the
+%     \textbf{#1}%              braces before \centering and behind \medskip). If you remove
+%     \par\medskip}%            these braces the whole body of a {figure} env will be centered.
+% }
+
+
+% This page is intentionally left blank
+% https://tex.stackexchange.com/questions/1727/how-do-i-make-pages-which-were-intentionally-left-blank
+\newcommand*{\blankpage}{%
+\vspace*{\fill}
+{\centering \textit{(This page is intentionally left blank).}\par}
+\vspace{\fill}}
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+\blankpage
+\thispagestyle{empty}
+\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
 
 
 % Generates the index
@@ -382,10 +398,7 @@
 % \== en-dash
 % \=== em-dash
 
-
 \pagenumbering{roman}
-
-
 
 
 % \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_housing,chapter_appendix_quarks_gluons}
@@ -394,7 +407,7 @@
 % \includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
 
 % \includeonly{chapter_housing_prices,chapter_appendix_housing}
-\includeonly{chapter_appendix_quarks_gluons}
+% \includeonly{chapter_appendix_quarks_gluons}
 
 
 % \includeonly{chapter_machine_learning_theory}
@@ -421,13 +434,7 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 \phantomsection
 \addcontentsline{toc}{chapter}{Table of Contents}
 
-\vspace{-5cm}
-% \renewcommand\contentsname{Table of Content}
 \tableofcontents
-% \addtocontents{toc}{~\hfill\textbf{Page}\par}
-
-% r.9 introduction
-\cleardoublepage
 
 
 %%
@@ -437,20 +444,15 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 
 % Start the main matter (normal chapters)
 \mainmatter
-
 \pagenumbering{arabic}
 
 \include{chapter_introduction}
 
 \chapter*{Part I}
-% \part*{Part I}
-% \chapter[Chapter Title]{\centering Chapter Title}
 \addcontentsline{toc}{part}{Part I}
-
 Part \RNum{1} of this thesis covers the introductory theory of machine learning in \autoref{ch:ML_theory} along with some extra technical aspects of it. In \autoref{ch:housing_price_analysis} machine learning is applied to estimate Danish housing prices as precisely and accurately as possible.  
 
 \include{chapter_machine_learning_theory}
-
 \include{chapter_housing_prices}
 
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -460,18 +462,7 @@ Part \RNum{1} of this thesis covers the introductory theory of machine learning 
 Part \RNum{2} of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. In \autoref{ch:hep:particle_physcis_LEP} the theory of the Standard Model is introduced together with a description of the ALEPH detector. Theory is applied in \autoref{ch:quark_gluon_analysis} where the types of jets and events in each collision is analysed using machine learning to improve the understanding of how gluon jets hadronizes and splits: simply said how they look and behave. 
 
 \include{chapter_particle_physics_theory}
-
 \include{chapter_quark_gluon}
-
-% \chapter*{Part III}
-% \addcontentsline{toc}{part}{Part III}
-% Part \RNum{3} of this thesis discusses and concludes the two subprojects.
-
-% \include{chapter_discussion}
-
-% \include{chapter_conclusion}
-
-%  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
 %%
@@ -479,10 +470,7 @@ Part \RNum{2} of this thesis deals with particle physics and the discriminatory 
 
 \appendix
 
-% \input{chapter_appendix_housing.tex}
 \include{chapter_appendix_housing}
-
-
 \include{chapter_appendix_quarks_gluons}
 
 \backmatter
@@ -502,8 +490,6 @@ Part \RNum{2} of this thesis deals with particle physics and the discriminatory 
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{My_Library}
-% \bibliographystyle{plainnat}
-
 
 \printindex
 
