@@ -57,46 +57,45 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Azimuthal Angle}}{57}{section.4.3}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Track Significance}}{59}{section.4.5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Histograms of the Vertex Variables}}{65}{section.5.2}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces UMAP Visualization of the Vertex Variables for 4-Jet Events}}{66}{subsection.5.2.1}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces UMAP Visualization of the Vertex Variables for 3-Jet Events}}{66}{subsection.5.2.1}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces UMAP Visualization of the Vertex Variables for 2-Jet Events}}{66}{subsection.5.2.1}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Correlation of the Vertex Variables}}{67}{subfigure.5.5.3}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {2-jet events}}}{67}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {3-jet events}}}{67}{subfigure.5.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {4-jet events}}}{67}{subfigure.5.3}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot of the Log-Loss $\ell _\mathrm {log}$}}{68}{equation.5.3.2}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Hyperparameter Optimization of $b$\BarOrDash /Tagging}}{69}{subsection.5.4.1}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $b$\BarOrDash /Tagging}}{69}{subsection.5.4.1}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces $b$\BarOrDash /Tag Scores in 4-Jet Events}}{70}{subsection.5.4.2}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces ROC Curve for 4-Jet $b$\BarOrDash /Tagging}}{70}{subsection.5.4.2}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Distribution of $b$\BarOrDash /Tags in 4-Jet Events}}{71}{subsection.5.4.2}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Global Feature Importances for the LGB $b$\BarOrDash /Tagging Algorithm on 4-Jet Events}}{71}{subsection.5.4.3}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces The Expit Function}}{71}{equation.5.4.3}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces The Logit Function}}{72}{equation.5.4.4}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces SHAP 3-Jet Model Explanation for $b$\BarOrDash /Like Jet}}{72}{equation.5.4.4}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _g^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Hyperparameter Optimization of $g$\BarOrDash /Tagging}}{77}{subsection.5.6.3}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets events}}{78}{subsection.5.6.5}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces $g$\BarOrDash /Tag Scores in 4-Jet Events}}{79}{subsection.5.6.6}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 4-Jet Events}}{80}{subsection.5.6.6}
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Distribution of $g$\BarOrDash /Tag Scores in 4-Jet Events for Signal and Background}}{80}{subsection.5.6.6}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Distribution of $b$\BarOrDash /Tag Scores in 3-Jet $l$\BarOrDash /Quark Events for Low and High $g$\BarOrDash /Tag Values}}{80}{subsection.5.6.6}
-\contentsline {figure}{\numberline {5.24}{\ignorespaces 3D Scatter Plot of $\beta _\mathrm {tag}$\BarOrDash /Values for High and Low $\gamma _\mathrm {tag}$ $l$\BarOrDash /Quark Events}}{81}{subfigure.5.24.3}
-\contentsline {figure}{\numberline {5.25}{\ignorespaces $g$\BarOrDash /Tagging Pseudo Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of $g$\BarOrDash /Tag}}{82}{equation.5.7.7}
-\contentsline {figure}{\numberline {5.26}{\ignorespaces $g$\BarOrDash /Tagging Pseudo Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of The Mean Invariant Mass}}{82}{equation.5.7.8}
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Generalized Angularities}}{83}{equation.5.8.9}
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda _0^2$}}{84}{equation.5.8.9}
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Soft Wide Angle Gluons in 4-Jet Events}}{86}{equation.5.9.13}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{87}{equation.5.9.13}
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{87}{equation.5.9.13}
-\contentsline {figure}{\numberline {5.32}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of the Normalized Gluon-Gluon Jet Energy Difference Asymmetry $E_\mathrm {diff}$}}{87}{subsection.5.9.2}
-\contentsline {figure}{\numberline {5.33}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry}}{89}{equation.5.9.18}
-\contentsline {figure}{\numberline {5.34}{\ignorespaces Overview of the Four Regions in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{90}{subsection.5.9.4}
-\contentsline {figure}{\numberline {5.35}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space Region A}}{91}{subsection.5.9.4}
-\contentsline {figure}{\numberline {5.36}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region A}}{92}{subsection.5.9.4}
-\contentsline {figure}{\numberline {5.37}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region D}}{92}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Histograms of the Vertex Variables}}{66}{section.5.2}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces UMAP Visualization of the Vertex Variables for 4-Jet Events}}{67}{subsection.5.2.1}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces UMAP Visualization of the Vertex Variables for 3-Jet Events}}{67}{subsection.5.2.1}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Correlations Between of the Vertex Variables}}{67}{subfigure.5.4.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {2-jet events}}}{67}{subfigure.4.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {3-jet events}}}{67}{subfigure.4.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {4-jet events}}}{67}{subfigure.4.3}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Plot of the Log-Loss $\ell _\mathrm {log}$}}{68}{equation.5.3.2}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Hyperparameter Optimization of $b$\BarOrDash /Tagging}}{69}{subsection.5.4.1}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Parallel Plot of HPO Results for 4-Jet $b$\BarOrDash /Tagging}}{70}{subsection.5.4.1}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces $b$\BarOrDash /Tag Scores in 4-Jet Events}}{70}{subsection.5.4.2}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces ROC Curve for 4-Jet $b$\BarOrDash /Tagging}}{71}{subsection.5.4.2}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Distribution of $b$\BarOrDash /Tags in 4-Jet Events}}{71}{subsection.5.4.2}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Global Feature Importances for the LGB $b$\BarOrDash /Tagging Algorithm on 4-Jet Events}}{72}{subsection.5.4.3}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces The Expit Function}}{72}{equation.5.4.3}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces The Logit Function}}{72}{equation.5.4.4}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces SHAP 3-Jet Model Explanation for $b$\BarOrDash /Like Jet}}{72}{equation.5.4.4}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{74}{equation.5.5.5}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _g^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{75}{equation.5.5.5}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Hyperparameter Optimization of $g$\BarOrDash /Tagging}}{77}{subsection.5.6.3}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets events}}{79}{subsection.5.6.5}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces $g$\BarOrDash /Tag Scores in 4-Jet Events}}{79}{subsection.5.6.6}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 4-Jet Events}}{80}{subsection.5.6.6}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Distribution of $g$\BarOrDash /Tag Scores in 4-Jet Events for Signal and Background}}{80}{subsection.5.6.6}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Distribution of $b$\BarOrDash /Tag Scores in 3-Jet $l$\BarOrDash /Quark Events for Low and High $g$\BarOrDash /Tag Values}}{81}{subsection.5.6.6}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces 3D Scatter Plot of $\beta _\mathrm {tag}$\BarOrDash /Values for High and Low $\gamma _\mathrm {tag}$ $l$\BarOrDash /Quark Events}}{81}{subfigure.5.23.3}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces $g$\BarOrDash /Tagging Pseudo Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of $g$\BarOrDash /Tag}}{82}{equation.5.7.7}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces $g$\BarOrDash /Tagging Pseudo Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of The Mean Invariant Mass}}{83}{equation.5.7.8}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Generalized Angularities}}{83}{equation.5.8.9}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda _0^2$}}{84}{equation.5.8.9}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Soft Wide Angle Gluons in 4-Jet Events}}{87}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{87}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{87}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of the Normalized Gluon-Gluon Jet Energy Difference Asymmetry $E_\mathrm {diff}$}}{88}{subsection.5.9.2}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry}}{89}{equation.5.9.18}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Overview of the Four Regions in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{91}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space Region A}}{92}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region A}}{92}{subsection.5.9.4}
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region D}}{93}{subsection.5.9.4}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {A.1}{\ignorespaces Distributions of the Input Variables -- Part 1}}{96}{subfigure.A.1.12}
 \contentsline {figure}{\numberline {A.2}{\ignorespaces Distributions of the Input Variables -- Part 2}}{97}{subfigure.A.2.12}
