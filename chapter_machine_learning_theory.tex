@@ -1,20 +1,20 @@
 
-\chapter{Machine Learning Theory}
+\chapter{Machine Learning}
 \label{ch:ML_theory}
 
 \epigraph{\textit{``People worry that computers will get too smart and take over the world, but the real problem is that they're too stupid and they've already taken over the world.''}}{--- Pedro Domingos}
 
-\newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a collection of different subjects located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks \citep{veenNeuralNetworkZoo2016} which has seen a plethora of use cases in recent years. 
+\newthought{Machine Learning} is the method of teaching computers how to automatically find patterns in (often high-dimensional) data. According to some sceptics, machine learning (ML) is just glorified statistics, however, by the same logic physics is just glorified mathematics. In contrary, machine learning is a collection of different subjects located somewhere along the hypothetical line from simple, classical statistics to futuristic artificial intelligence. It includes methods ranging from the well-known statistical methods such as linear regression to the modern, advanced zoo of different neural networks \citep{veenNeuralNetworkZoo2016} which has seen a plethora of use cases in recent years. 
 
 \section{Statistical Learning Theory}
-This chapter deals with the theory of ML which Statistical Learning Theory is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data \citep{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning \citep{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU.} at the faculty of Science, University of Copenhagen. Statistical learning theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
+This chapter deals with the theory of ML which statistical learning theory is a subcategory of. Many books are written on the subject where this thesis especially follows the overall notation used in the very accessible introduction in the book Learning From Data \citep{abu-mostafaLearningData2012} and the graduate course Advanced Topics in Machine Learning \citep{AdvancedTopicsMachine} at the computer science institute\sidenote{Datalogisk Institut Københavns Universitet, DIKU.} at the faculty of Science, University of Copenhagen. Statistical learning theory is the analysis of how to not only find the function, or \emph{hypothesis}, that matches the data best, but also bounding the difference in performance between this hypothesis and the hidden, underlying data generation distribution often only known by Nature. 
 
 Overall there are two main branches within machine learning: \emph{supervised} and \emph{unsupervised}\sidenote{Also known as \q{self-supervised} or \q{predictive} learning.}. The difference depends on whether or not the data that is trained on is labelled or not. Classic linear regression is an example of the former and linear dimensionality reduction using PCA of the latter. Since unsupervised learning techniques are only used sparsely throughout this project, the main focus will be on supervised learning. 
 
 \section{Supervised Learning}
 \label{sec:ml:supervised_learning}
 In supervised learning we are given a set of $N$ different samples of which we for each one knows $M$ different variables written as the column-vector $\vec{x}_i = [x_1, x_2, \dots, x_M]^T \in \mathcal{X}$ for the $i$th observation and $\mathcal{X}$ denotes the sample space. All of these samples as a whole is written as the matrix $\vec{X}$ with the individual observations $\vec{x}_i$ transposed and stacked on top of each other $\vec{X} = [\vec{x}_0^T, \vec{x}_1^T, \dots, \vec{x}_N^T]$ such that row $i$ in $\vec{X}$ corresponds to observation $i$. In the case of supervised learning we also have the label $y$ of each sample $y \in \mathcal{Y}$ where $\mathcal{Y}$ denotes the label space. 
-In the case where $y$ is a real number $\mathcal{Y} = \mathbb{R}$ the problem is said to a \emph{regression} problem, e.g. predicting the price of a house. On the contrary, if $\mathcal{Y}$ is binary such that $\mathcal{Y} = \{0, 1\}$ then the problem is said to be a (binary) \emph{classification} problem\sidenote{If $\mathcal{Y}\subset \mathbb{Z}$ then it would be a multiclass classification problem.} e.g. predicting whether or not a particle is a quark or not. 
+In the case where $y$ is a real number $\mathcal{Y} \subset \mathbb{R}$ the problem is said to a \emph{regression} problem, e.g. predicting the price of a house. On the contrary, if $\mathcal{Y}$ is binary, such that $\mathcal{Y} = \{0, 1\}$, then the problem is said to be a binary\sidenote{If $\mathcal{Y}\subset \mathbb{Z}$ then it would be a multiclass classification problem.} \emph{classification} problem, e.g. predicting whether or not a particle is a quark. 
 
 \begin{marginfigure}
   \includegraphics[width=0.99\textwidth]{figures/learning_problem/learning_problem.pdf}
@@ -24,16 +24,16 @@ In the case where $y$ is a real number $\mathcal{Y} = \mathbb{R}$ the problem is
   \label{fig:ml:learning_problem}
 \end{marginfigure}
 
-Without any loss of generality let the focus for now be on classification. The goal is to find the underlying \q{true} function $f: \mathcal{X} \mapsto \mathcal{Y}$ that gives the correct label $y$ for each observation $\vec{x}$. This function, however, is unknown and cannot perfectly be found. Although it is impossible to find $f$ it is possible to learn an approximation of it, $h$, based on some training observations $\mathcal{D}_\mathrm{train} = \left \{(\vec{x}_1, y_1), \dots, (\vec{x}_N, y_N) \right\}$. The optimal hypothesis, $h^*$, is chosen among a set of $K$ candidate hypotheses $\mathcal{H} = \left\{h_1, h_2, \ldots, h_K  \right\}$, and hopefully $h^*$ will be a good approximation of $f$: $h^* \approx f$. A schematic overview of this process is shown in Figure~\ref{fig:ml:learning_problem}. 
+Without any loss of generality, let the focus for now be on classification. The goal is to find the underlying \q{true} function $f: \mathcal{X} \mapsto \mathcal{Y}$ that predicts the correct label $y$ for each observation $\vec{x}$. This function is unknown and although it is impossible to find $f$, it is possible to learn an approximation of it, $h$, based on some training observations $\mathcal{D}_\mathrm{train} = \left \{(\vec{x}_1, y_1), \dots, (\vec{x}_N, y_N) \right\}$. The optimal hypothesis, $h^*$, is chosen among a set of $K$ candidate hypotheses $\mathcal{H} = \left\{h_1, h_2, \ldots, h_K  \right\}$, and hopefully $h^*$ will be a good approximation of $f$: $h^* \approx f$. A schematic overview of this process is shown in Figure~\ref{fig:ml:learning_problem}. 
 
-How can one make sure that $h^*$ really is a good approximation of $f$? That is where statistical learning theory comes into play. From a statistical standpoint we are interested in modelling the unknown joint probability $P(\vec{x}, y)$ over $\mathcal{X}$ and $\mathcal{Y}$. We assume that $\mathcal{D}_\mathrm{train}$ is independent and identically distributed (\emph{iid})\sidenote{This is one of the two key assumptions of statistical learning theory, the other being that future events are coming from the same distrubution as the one that generated the past events. These assumptions are sometimes called the \emph{PAC} assumptions where PAC is an abbreviation for Probably, Approximately Correct.} from $P(\vec{x}, y)$ and thus want to find the hypothesis whose predictions $h(\vec{x})=\hat{y}$ matches the conditional probability distribution $P(y|\vec{x})$ as well as possible. 
+How can one make sure that $h^*$ really is a good approximation of $f$? That is where statistical learning theory comes into play. From a statistical standpoint, we are interested in modelling the unknown joint probability $P(\vec{x}, y)$ over $\mathcal{X}$ and $\mathcal{Y}$. Assuming that $\mathcal{D}_\mathrm{train}$ is independent and identically distributed (\emph{iid})\sidenote[][3mm]{This is one of the two key assumptions of statistical learning theory, the other being that future events are coming from the same distrubution as the one that generated the past events. These assumptions are sometimes called the \emph{PAC} assumptions where PAC is an abbreviation for Probably, Approximately Correct, \autocite{AdvancedTopicsMachine}.} from $P(\vec{x}, y)$, we want to find the hypothesis whose predictions $h(\vec{x})=\hat{y}$ matches the conditional probability distribution $P(y|\vec{x})$ as well as possible. 
 
-To quantify the statement \q{as well as possible} in the previous paragraph, we define the loss function $\ell$ which measures the loss for predicting $\hat{y}$ instead of $y$: $\ell(\hat{y}, y) = \ell(h(\vec{x}), y) \in \mathbb{R}^+$. Given $\ell$ we now introduce the method of (empirical) risk minimization \citep{vapnikPrinciplesRiskMinimization1991} and the expected loss\sidenote{Also called expected error or the out-of-sample error.}:
+To quantify the statement \q{as well as possible} in the previous paragraph, we define the loss function $\ell$ which measures the loss for predicting $\hat{y}$ instead of $y$: $\ell(\hat{y}, y) = \ell(h(\vec{x}), y) \in \mathbb{R}^+$. Given $\ell$, we now introduce the method of (empirical) risk minimization \citep{vapnikPrinciplesRiskMinimization1991} and the expected loss\sidenote[][2mm]{Also called expected error or the out-of-sample error.} $L(h)$:
 \begin{equation} 
   \label{eq:L}
   L(h) = \mathbb{E} \left[\ell(h(\vec{x}), y) \right] = \int \ell(h(\vec{x}), y)  \, dP(\vec{x}, y).
   \end{equation}
-The optimal hypotheses $h^*$ is the hypothesis which minimizes the expected loss $L(h)$. However, the joint probability distribution $P(\vec{x}, y)$ is unknown and we are thus left with the empirical loss\sidenote{Also called empirical error.} of $h$ on $\mathcal{D}_\mathrm{train}$:
+The optimal hypotheses $h^*$ is the hypothesis which minimizes the expected loss. However, the joint probability distribution $P(\vec{x}, y)$ is unknown and we are thus left with the empirical loss\sidenote{Also called the empirical error.} of $h$ on $\mathcal{D}_\mathrm{train}$:
 \begin{equation}
   \label{eq:L_hat}
   \hat{L}(h, S) = \frac{1}{N} \sum_{i=1}^{N} \ell(h(\vec{x}_i), y_i), % \equiv \mathcal{L} 
@@ -47,7 +47,7 @@ Now the optimal hypothesis $h^*$ can defined:
 
 \section{Generalization Bound}
 \label{sec:generalization_bound}
-In \autoref{sec:ml:supervised_learning} the method of selecting the optimal hypotheses $h^*$ out of the total set of candidate hypothesis $\mathcal{H}$ was sketched. However, there is still no guarantee that $h^*$ will work well, that is to say that the \emph{generalization error} $G(h)$ might be big:
+In the previous section, the method of selecting the optimal hypothesis $h^*$ out of the total set of candidate hypotheses $\mathcal{H}$ was sketched. However, there is still no guarantee that $h^*$ will work well, that is to say that the \emph{generalization error} $G(h)$ might be big:
 \begin{equation}
   G(h) = \hat{L}(h, S) - L(h).
 \end{equation}
@@ -71,7 +71,7 @@ The union bound, in simple terms, states that the probability of any one of $n$ 
     \label{eq:hoeffding_onesided_b}
   \end{equation}
 \end{lemma}
-When using the union bound on equation \eqref{eq:hoeffding_onesided_a} and equation \eqref{eq:hoeffding_onesided_b} we arrive at Hoeffding's (two) sided inequality:
+When using the union bound on equation \eqref{eq:hoeffding_onesided_a} and \eqref{eq:hoeffding_onesided_b} we arrive at Hoeffding's (two) sided inequality:
 \begin{lemma}[The two-sided Hoeffding's inequality]
   \label{lemma:hoeffding}
   Let $Z_1, \dots, Z_N$ be independent random variables each belonging to the $[0, 1]$ interval such that $\mathbb{P}\left\{Z_i \in [0, 1] \right\} = 1$ and $\mathbb{E}[Z_i] = \mu$ for all i, then for every $\epsilon > 0$:
@@ -79,9 +79,9 @@ When using the union bound on equation \eqref{eq:hoeffding_onesided_a} and equat
     \mathbb{P} \left\{ \left| \frac{1}{N}\sum_{i=1}^n Z_i - \mu \right| \geq \epsilon \right\} \equiv \mathbb{P} \left\{ \left| \hat{\mu} - \mu \right| \geq \epsilon \right\} \leq 2 e^{-2N\epsilon^2},
     \label{eq:hoeffding_inequality}
   \end{equation}
-  where we have defined the empirical average of $Z$ to be $\hat{\mu}$: $\hat{\mu}=\frac{1}{n}\sum_{i=1}^N Z_i $
+  where we have defined the empirical average $\hat{\mu}$ of $Z$ to be: $\hat{\mu}=\frac{1}{n}\sum_{i=1}^N Z_i$.
 \end{lemma}
-Assuming that the loss $\ell(\hat{y}, y)$ is bounded in the $[0, 1]$ interval\sidenote{Which it is for classification, however, it can be extended in a similar fashion for regression.}, $\ell(\hat{y}, y) \in [0, 1]$ for all $(\hat{y} y)$, we can bound the generalization error $G(h)$ by letting $Z_i = \ell(\hat{y}_i, y_i) = \ell(h(\vec{x}_i), y_i)$ be the loss of $h$ in sample $(\vec{x}_i, y_i)$. By comparing Lemma \ref{lemma:hoeffding} and equation \eqref{eq:L_hat} we see that $\hat{\mu} = \hat{L}(h, S)$, and similar for equation \eqref{eq:L}: $\mu = L(h)$. We then see that the generalization error is bounded:
+Assuming that the loss $\ell(\hat{y}, y)$ is bounded in the $[0, 1]$ interval\sidenote{Which it is for classification, however, it can be extended in a similar fashion for regression.}, the generalization error $G(h)$ is bound by letting $Z_i = \ell(\hat{y}_i, y_i) = \ell(h(\vec{x}_i), y_i)$ be the loss of $h$ in sample $(\vec{x}_i, y_i)$. By comparing Lemma \ref{lemma:hoeffding} and equation \eqref{eq:L_hat}, we see that $\hat{\mu} = \hat{L}(h, S)$, and similar for equation \eqref{eq:L}: $\mu = L(h)$. We then see that the generalization error is bounded:
 \begin{equation}
   \label{eq:hoeffding_inequality_generalization_error}
   \mathbb{P} \left\{ \left| G(h) \right| \geq \epsilon \right\} = \mathbb{P} \left\{ \left| \hat{L}(h, S) - L(h) \right| \geq \epsilon \right\} \leq 2 e^{-2N\epsilon^2}.
@@ -94,7 +94,7 @@ The generalization bound  can be rewritten in terms of $\delta$:
 \end{equation}
 \begin{theorem}[Hoeffding's inequality for a single hypothesis]
   \label{theorem:hoeffding_single}
-  Assume that $\ell$ if bounded in the $[0, 1]$ interval, then for a single hypothesis $h$ and any $\delta\in(0,1)$ we have:  
+  Assume that $\ell$ is bounded in the $[0, 1]$ interval, then for a single hypothesis $h$ and any $\delta\in(0,1)$ we have:  
   \begin{equation}
     \label{eq:hoeffding_inequality_generalization_error_delta}
     \mathbb{P} \left\{ \left| \hat{L}(h, S) - L(h) \right| \geq \sqrt{\frac{\ln \frac{2}{\delta}}{2N}}  \right\} \leq \delta.
@@ -105,7 +105,7 @@ Equation \eqref{eq:hoeffding_inequality_generalization_error_delta} can be read 
   \label{eq:hoeffding_inequality_single_PAC}
   \left| \hat{L}(h, S) - L(h) \right| \leq \sqrt{\frac{\ln \frac{2}{\delta}}{2N}}.
 \end{equation}
-This is a powerful result relating the performance for a (fixed) hypothesis $h$ with the number of samples, $N$. We see that a higher $N$ yields a tighter bound on the generalization error.
+This is a powerful result relating the performance of a (fixed) hypothesis $h$ with the number of samples, $N$. We see that a higher $N$ yields a tighter bound on the generalization error.
 % inversely\sidenote{Not to be understood as $1/x$ in this context.} related to on the certainty\sidenote{Technically the certainty of the model is $1-\delta$.} $\delta$ of this bound.
 
 There is a big assumption of this derivation: that the hypothesis $h$ cannot depend on the sample $S$ and thus has to be chosen before seeing the data. We say that $h$ has to be \emph{fixed}. Of course the term machine learning indicates that some kind of learning is taking place: exactly as seen previously where we wanted to find the optimal hypotheses $h^*$ out of all the possible ones $\mathcal{H}$. For now assume that $\mathcal{H}$ is finite and consists of $K$ hypotheses: $|\mathcal{H}| = K$. We thus have $[h_1, h_2, \dots, h_K]$ hypotheses which we test simultaneously and where Hoeffding's inequality is true for each of them leading to the following theorem:
@@ -117,6 +117,8 @@ There is a big assumption of this derivation: that the hypothesis $h$ cannot dep
     \mathbb{P} \left\{ \exists h \in \mathcal{H}: \left| \hat{L}(h, S) - L(h) \right| \geq \sqrt{\frac{\ln \frac{2K}{\delta}}{2N}}  \right\} \leq \delta.
   \end{equation}
 \end{theorem}
+
+\marginnote[-1cm]{Here \q{$\exists x : y$} means that there exists at least one $x$ such that $y$ is true.}
 
 \begin{proof}
   The proof begins by denoting $h_i$ as the event where: 
@@ -137,7 +139,7 @@ There is a big assumption of this derivation: that the hypothesis $h$ cannot dep
 By making the substitution $\delta = K \delta'$ we arrive at equation \eqref{eq:hoeffding_inequality_theorem_multiple}. 
 \end{proof}
 
-As we did in equation \eqref{eq:hoeffding_inequality_single_PAC}, equation \eqref{eq:hoeffding_inequality_theorem_multiple} can also be read as with probability greater than $1-\delta$ then for all $h\in\mathcal{H}$:
+As we did in equation \eqref{eq:hoeffding_inequality_single_PAC}, equation \eqref{eq:hoeffding_inequality_theorem_multiple} can also be read as with probability greater than $1-\delta$, then for all $h\in\mathcal{H}$:
 \begin{equation}
   \label{eq:hoeffding_inequality_multi_PAC}
   \left| \hat{L}(h, S) - L(h) \right| \leq \sqrt{\frac{\ln \frac{2K}{\delta}}{2N}}.
@@ -146,9 +148,9 @@ This bound is looser than the one for only a single hypothesis by a factor $\ln 
 
 \subsection{Generalization Bound for Infinite Hypotheses}
 \label{subsec:generalization_bound_infinite}
-Section \ref{sec:generalization_bound} dealt with the case of a single hypotheses $h$ and a finite set of candidate hypotheses $h\in\mathcal{H}, |\mathcal{H}| = K$. When $K$ goes towards infinity the generalization bound goes to infinity and the bound becomes useless. However, even simple models such as a linear classifier\sidenote{Also known as the perceptron. Often includes a constant offset $b$ as well which is omitted here for brevity. The functional form of this function is $f(x)=\mathrm{sign}(\vec{w}^T\vec{x})$.} that predicts $\hat{y}=1$ when the dot product $\vec{w}^T\vec{x}$ is positive and $\hat{y}=-1$ when it is negative, has $|\mathcal{H}| = \infty$. Since an infinite number of hypotheses $h(\vec{w})$ exists, assuming we allow $\vec{w}$ to take any real values as is almost always the case, $\mathcal{H}$ is infinite. 
+Section \ref{sec:generalization_bound} dealt with the case of a single hypotheses $h$ and a finite set of candidate hypotheses $h\in\mathcal{H}, |\mathcal{H}| = K$. When $K$ goes towards infinity the generalization bound goes to infinity and the bound becomes useless. However, even some simple models such as a linear classifier\sidenote{Also known as the perceptron. Often includes the constant offset $b$ which is omitted here for brevity. The functional form of this function is $f(x)=\mathrm{sign}(\vec{w}^T\vec{x})$.} that predicts $\hat{y}=1$ when the dot product $\vec{w}^T\vec{x}$ is positive and $\hat{y}=-1$ when it is negative, has $|\mathcal{H}| = \infty$. Since an infinite number of hypotheses $h(\vec{w})$ exists, assuming we allow $\vec{w}$ to take any real values as is almost always the case, $\mathcal{H}$ is infinite. 
 
-To solve this obvious problem with the Hoeffding inequality, we introduce\sidenote{For proof, see: \citet{abu-mostafaLearningData2012}} the Vapnik-Chervonenkis (VC) generalization bound. The VC-bound is based on the so-called VC-dimension of the hypothesis space $\mathcal{H}$: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. The VC-dimension is a measure of the complexity of the hypothesis space, the degrees of freedom of the model so to say. For example the VC-dimension of the $M$-dimensional linear classifier defined above\sidenote{In the general case when the offset $b$ is included: $d_\mathrm{VC}=M+1$.} is $d_\mathrm{VC}=M$ for $\{\vec{x}, \vec{w}\} \in \mathbb{R}^M$. 
+To solve this obvious problem with the Hoeffding inequality, we introduce the Vapnik-Chervonenkis (VC) generalization bound\sidenote{For proof, see: \citet{abu-mostafaLearningData2012}.}. The VC-bound is based on the so-called VC-dimension of the hypothesis space $\mathcal{H}$: $d_\mathrm{VC}(\mathcal{H}) \equiv d_\mathrm{VC}$. The VC-dimension is a measure of the complexity of the hypothesis space; the degrees of freedom of the model so to say. For example, the VC-dimension of the $M$-dimensional linear classifier defined above\sidenote{In the general case when the offset $b$ is included it is $d_\mathrm{VC}=M+1$.} is $d_\mathrm{VC}=M$ for $\{\vec{x}, \vec{w}\} \in \mathbb{R}^M$. 
 \begin{theorem}[VC Generalization Bound]
   \label{theorem:VC_generalization_bound}
   Let $\mathcal{H}$ be a hypotheses class with VC-dimension: $d_\mathrm{VC}(\mathcal{H}) = d_\mathrm{VC}$. Then with probability at least $1-\delta$: 
@@ -157,11 +159,11 @@ To solve this obvious problem with the Hoeffding inequality, we introduce\sideno
     L(h) \leq \hat{L}(h, S) + \sqrt{ \frac{8}{N} \ln \left( \frac{4}{\delta} \left( \left(2N \right)^{d_\mathrm{VC}} + 1 \right)  \right)} .
   \end{equation}
 \end{theorem}
-Equation \eqref{eq:VC_bound} states that the out of sample error $L(h)$ is bounded from above by the empirical error $\hat{L}(h, S)$ and the $\sqrt{ \boldsymbol{\cdot}}$ which is related to the complexity of the hypothesis space $\mathcal{H}$, the number of samples $N$ and the certainty $\delta$. We will call this model complexity penalty $\Omega(N, \mathcal{H}, \delta)$:
+Equation \eqref{eq:VC_bound} states that the out of sample error $L(h)$ is bounded from above by the empirical error $\hat{L}(h, S)$ and second term which is related to the complexity of the hypothesis space $\mathcal{H}$, the number of samples $N$ and the certainty $\delta$. This is called the model complexity penalty $\Omega(N, \mathcal{H}, \delta)$:
 \begin{equation}
   \Omega(N, \mathcal{H}, \delta) = \sqrt{ \frac{8}{N} \ln \left( \frac{4}{\delta} \left( \left(2N \right)^{d_\mathrm{VC}(\mathcal{H})} + 1 \right)  \right)}.
 \end{equation}
-As the hypothesis space complexity $d_\mathrm{VC}$ grows, the model complexity penalty increases but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the approximation-estimation or the  \emph{bias-variance} tradeoff. When the model is too simple to properly fit the complexity in the data it is called \emph{underfitting}\sidenote{Here the error from $\hat{L}(h, S)$ dominates.}, when the model is so complex that it starts fitting the inherent noise in the data it is called \emph{overfitting}\sidenote{Here the error from $\Omega(N, \mathcal{H}, \delta)$ dominates.}. The loss as a function of model complexity gives the characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases the training loss decreases. Initially also the validation loss decreases, but at some point the behavior of the model on the validation set worsens and the loss increases; overfitting happens. 
+As the hypothesis space complexity, $d_\mathrm{VC}$, grows, the model complexity penalty increases but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the approximation-estimation or the  \emph{bias-variance} tradeoff. When the model is too simple to properly fit the complexity in the data, it is called \emph{underfitting}\sidenote{Here the error from $\hat{L}(h, S)$ dominates.}. When the model is so complex that it starts fitting the inherent noise in the data, it is called \emph{overfitting}\sidenote{Here the error from $\Omega(N, \mathcal{H}, \delta)$ dominates.}. The loss as a function of model complexity gives the characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases, the training loss decreases. Initially, also the validation loss decreases, but at some point the behavior of the model on the validation set worsens and the loss increases; overfitting happens. 
 
 \begin{marginfigure}
   \includegraphics[width=0.98\textwidth]{figures/overfitting/overfitting_1.pdf}
@@ -174,22 +176,24 @@ As the hypothesis space complexity $d_\mathrm{VC}$ grows, the model complexity p
 
 \section{Avoiding overfitting}
 \label{sec:ml:overfitting}
-Avoiding overfitting is one of the most important issues in machine learning. By now, most modern machine learning algorithms have the inherent model complexity needed for overfitting and thus it has to be managed. Due to the importance of the issue, a number of different methods preventing or reducing overfitting exists. Most of them are complementary of each other but can be taken advantage of in a combination. In this section model regularization will be introduced in \autoref{subsec:regularization}, cross validation in \autoref{subsec:cross_validation}, and early stopping in \autoref{subsec:early_stopping}. 
+Avoiding overfitting is one of the most important issues in machine learning. By now, most modern machine learning algorithms have the inherent model complexity needed for overfitting and it thus has to be managed. Due to the importance of the issue, a number of different methods exists which reduce overfitting. Most of them are complementary of each other and can be taken advantage of in a combination. Model regularization will be introduced in \autoref{subsec:regularization}, cross validation in \autoref{subsec:cross_validation}, and early stopping in \autoref{subsec:early_stopping}. 
 
 \subsection{Model Regularization}
 \label{subsec:regularization}
-One of the earliest methods developed for preventing overfitting was model regularization. A. N. Tikhonov \citep{tikhonovStabilityInverseProblems1943} was one of the first to describe this method in \num{1943}. In particular, regularization was used to solve \emph{ill posed} linear regression problems. Regular linear regression problems refer to minimizing the residual sum of squares written in matrix form as:
+One of the earliest methods developed for preventing overfitting was model regularization. A. N. Tikhonov \citep{tikhonovStabilityInverseProblems1943} was one of the first to describe this method in \num{1943}. In particular, regularization was used to solve \emph{ill posed}\sidenote{The definition of \q{ill posed} is given in further down.} linear regression problems. Regular linear regression problems refer to minimizing the residual sum of squares written in matrix form as:
 \begin{equation}
   \begin{split}
     \hat{\bm{\beta}}_{\mathrm{LS}} = \argmin_{\bm{\beta}} \norm{\vec{y} - \vec{X} \bm{\beta} }_2^2 = \argmin_{\bm{\beta}} \norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 \\
-    \vec{f}(\vec{X}) = \vec{X} \bm{\beta},
+    \vec{f}(\vec{X}) = \vec{X} \bm{\beta}.
   \end{split}
 \end{equation}
-where $\vec{y}$ is the vector of values we are trying to predict\sidenote{E.g. the prices of a collection of houses.}, $\vec{X}\in\mathbb{R}^{N\times M}$ the matrix of input variables, $\hat{\bm{\beta}}_{\mathrm{LS}}$ the vector of unknown coefficients\sidenote{Here excluding the constant offset $\beta_0$ which can be included trivially.} of the linear least squares (LS) model $\vec{f}$, and $\norm{ \bm{\cdot} }_2$ is the normal Euclidean norm. In general, the $p$-norm is defined as:
+
+Here $\vec{y}$ is the vector of values we are trying to predict\sidenote{E.g. the prices of a collection of houses.}, $\vec{X}\in\mathbb{R}^{N\times M}$ is the matrix of input variables, $\hat{\bm{\beta}}_{\mathrm{LS}}$ is the vector of unknown coefficients\sidenote{Here excluding the constant offset $\beta_0$ which can be included trivially.} of the linear least squares (LS) model $\vec{f}$, and $\norm{ \bm{\cdot} }_2$ is the normal Euclidean norm. In general, the $p$-norm is defined as:
 \begin{equation}
   \norm{\vec{x}}_p = \left( \sum_{i=1}^N \abs{x_i}^p \right)^{1/p}.
 \end{equation}
-Differentiating the objective $\norm{\vec{y} - \vec{X} \bm{\beta} }_2^2$ with respect to (w.r.t.) $\bm{\beta}$ and setting the derivative equal to $0$ to find the minimum\sidenote{When checking the double derivative wrt. $\bm{\beta}$ it is seen that this really is a minimum and not a maximum (or saddle point).} yields the solution for $\bm{\beta}$:
+
+Differentiating the objective $\norm{\vec{y} - \vec{X} \bm{\beta} }_2^2$ with respect to (w.r.t.) $\bm{\beta}$, and setting the derivative equal to $0$ to find the minimum\sidenote{When checking the double derivative wrt. $\bm{\beta}$ it is seen that this really is a minimum and not a maximum (or saddle point).}, yields the solution for $\bm{\beta}$:
 \begin{equation}
   \begin{split}
     \frac{\partial}{\partial \bm{\beta}} \norm{\vec{y} - \vec{X} \bm{\beta} }_2^2 = -2 \vec{X}^T \left( \vec{y} - \vec{X} \bm{\beta} \right) = 0  \Rightarrow \\
@@ -197,17 +201,18 @@ Differentiating the objective $\norm{\vec{y} - \vec{X} \bm{\beta} }_2^2$ with re
     \hat{\bm{\beta}}_{\mathrm{LS}} =  \left( \vec{X}^T \vec{X} \right)^{-1} \vec{X}^T \vec{y}.
   \end{split}
 \end{equation}
-However, this solution for $\hat{\bm{\beta}}_{\mathrm{LS}}$ is only valid when $\vec{X}^T \vec{X}$ is invertible, i.e. $\vec{X}$ has to be full rank \citep{hastieElementsStatisticalLearning2009}. If this is not the case, the problem is said to be ill posed. Tikhonov solved this problem by adding an extra term to the minimization problem, which we will call $\Omega$ for simplicity. For a specific choice of $\Omega$, one gets:
+
+However, this solution for $\hat{\bm{\beta}}_{\mathrm{LS}}$ is only valid when $\vec{X}^T \vec{X}$ is invertible, i.e. $\vec{X}$ has to be full rank \citep{hastieElementsStatisticalLearning2009}. If this is not the case, the problem is said to be ill posed. Tikhonov solved this problem by adding an extra term to the minimization problem, which we will call $\Omega$ for simplicity. For a specific choice of $\Omega = \lambda \norm{ \bm{\beta} }^2_2$, one gets:
 \begin{equation}
   \label{eq:l2_norm}
   \hat{\bm{\beta}}_{\mathrm{L_2}} = \argmin_{\bm{\beta}} \left \{\norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 + \lambda \norm{ \bm{\beta} }^2_2 \right \},
 \end{equation}
-where $\lambda \geq 0$ is the regularization strength. This is the so-called $L_2$-regularization, also known as ridge regression for linear problems. For ridge regression\sidenote{Here $\hat{\bm{\beta}}_{\mathrm{L_2}}$ is the solution for any general function $\vec{f}$ and $\hat{\bm{\beta}}_{\mathrm{ridge}}$ is the specific solution for a linear function $\vec{f}$, where linear is w.r.t. the model parameters $\bm{\beta}$.} the corresponding solution for $\bm{\beta}$ is:
+where $\lambda \geq 0$ is the regularization strength. This is the so-called $L_2$-regularization, also known as ridge regression for linear problems. For ridge regression the corresponding solution for $\bm{\beta}$ is\sidenote{Here $\hat{\bm{\beta}}_{\mathrm{L_2}}$ is the solution for any general function $\vec{f}$ and $\hat{\bm{\beta}}_{\mathrm{ridge}}$ is the specific solution for a linear function $\vec{f}$, where linear is w.r.t. the model parameters $\bm{\beta}$.}:
 \begin{equation}
   \label{eq:l2_norm_linear}
   \hat{\bm{\beta}}_{\mathrm{ridge}} =  \left( \vec{X}^T \vec{X} + \lambda \vec{I} \right)^{-1} \vec{X}^T \vec{y},
 \end{equation}
-where $\vec{I}$ is the identity matrix\sidenote{The $\lambda \vec{I}$ in equation \eqref{eq:l2_norm_linear} also acts as a conditioner on the problem in the sense that it reduces the condition number of the matrix to be inverted turning the ill-posed problem to a well-behaved one.}. This extra term, $\Omega =  \lambda \norm{ \bm{\beta} }^2_2$, acts as a shrinkage factor on the coefficients of $\bm{\beta}$. Looking at equation \eqref{eq:l2_norm}, we see that this is the Lagrangian form of the equivalent problem: 
+where $\vec{I}$ is the identity matrix\sidenote{The $\lambda \vec{I}$ in equation \eqref{eq:l2_norm_linear} also acts as a conditioner on the problem in the sense that it reduces the condition number of the matrix to be inverted turning the ill-posed problem to a well-behaved one.}. The extra term, $\Omega =  \lambda \norm{ \bm{\beta} }^2_2$, in equation \eqref{eq:l2_norm} acts as a shrinkage factor on the coefficients of $\bm{\beta}$. Looking at this equation, we see that this is the Lagrangian form of the equivalent problem: 
 \begin{equation}
   % \label{eq:ml:constrained_minimization_L2}
   \begin{split}
@@ -217,20 +222,21 @@ where $\vec{I}$ is the identity matrix\sidenote{The $\lambda \vec{I}$ in equatio
   \label{eq:l2_norm_non_lagrangian}
 \end{equation}
 
-for some $t \geq 0$ with a one-to-one mapping between $\lambda$ and $t$. We thus see that $L_2$ regularizes the coefficients of $\bm{\beta}$ to have some maximal norm. The effect of the regularization is controlled by $\lambda$, where $\hat{\bm{\beta}}_{\mathrm{L_2}} \rightarrow \hat{\bm{\beta}}_{\mathrm{LS}}$ for $\lambda \rightarrow 0$ and $\hat{\bm{\beta}}_{\mathrm{L_2}} \rightarrow \vec{0}$ for $\lambda \rightarrow \infty$. An example of is shown in Figure~\ref{fig:ml:regularization_ridge}. 
-\begin{marginfigure}
+\begin{marginfigure}[5mm]
   \includegraphics[width=0.99\textwidth, trim=5 5 5 5, clip]{figures/ridge_regression/ridge.pdf}
   \caption[Regularization Strength]
     {Effect of tuning the regularization strength $\lambda$ in ridge regression.
     }
   \label{fig:ml:regularization_ridge}
 \end{marginfigure}
-Here $N=9$ datapoints were randomly generated such that the $x$-values are evenly spaced from \num{0} to \num{2} and $y \sim \mathcal{N}(\mu=0, \sigma=10)$. They were then fit with a \num{9}-order polynomial by minimizing equation \eqref{eq:l2_norm} for different values of $\lambda$. Here we see the regularizing effect of $\lambda$, going from $\lambda=0$ in blue which fits all points\sidenote{Since the order of the polynomial is the same as the number of datapoints.} with a high degree of variance and a wildly oscillatory pattern to $\lambda=10$ in orange which is mostly flat in most of the interval. Also note in the legend how the norm of the fit parameters also decrease with $\lambda$ as expected. This is a great example of the \emph{bias-variance} tradeoff mentioned in \autoref{subsec:generalization_bound_infinite}, where bias refers the error the model makes when it is not advanced enough to fit the overall trend in the data (underfitting) and variance refers to the error the model makes when it starts to fit spurious noisy fluctuations in the training set which are not present in the validation set (overfitting). In this example $\lambda=0$ is clearly overfitting the data whereas $\lambda=10$ is an example of underfitting. 
 
-\begin{marginfigure}[-0.5cm]
-  \includegraphics[width=0.7\textwidth]{figures/ridge_lasso_sparse/ridge.pdf}
+\noindent for some $t \geq 0$ with a one-to-one mapping between $\lambda$ and $t$. We thus see that $L_2$ regularizes the coefficients of $\bm{\beta}$ to have some maximal norm. The effect of the regularization is controlled by $\lambda$, where $\hat{\bm{\beta}}_{\mathrm{L_2}} \rightarrow \hat{\bm{\beta}}_{\mathrm{LS}}$ for $\lambda \rightarrow 0$ and $\hat{\bm{\beta}}_{\mathrm{L_2}} \rightarrow \vec{0}$ for $\lambda \rightarrow \infty$. An example of this is shown in Figure~\ref{fig:ml:regularization_ridge}. Here $N=9$ datapoints were randomly generated such that the $x$-values are evenly spaced from \num{0} to \num{2} and $y \sim \mathcal{N}(\mu=0, \sigma=10)$. They were fit with a \num{9}-order polynomial by minimizing equation \eqref{eq:l2_norm} for different values of $\lambda$. We see the regularizing effect of $\lambda$, going from $\lambda=0$ in blue which fits all points\sidenote{Since the order of the polynomial is the same as the number of datapoints.} with a high degree of variance and a wildly oscillatory pattern, to $\lambda=10$ in orange which is mostly flat in most of the interval. Also note in the legend how the norm of the fit parameters also decrease with $\lambda$, as expected. This is a great example of the \emph{bias-variance} tradeoff mentioned in \autoref{subsec:generalization_bound_infinite}, where bias refers the error the model makes when it is not advanced enough to fit the overall trend in the data (underfitting) and variance refers to the error that the model makes when it starts to fit spurious noisy fluctuations in the training set which are not present in the validation set (overfitting). 
+% In this example $\lambda=0$ is clearly overfitting the data whereas $\lambda=10$ is an example of underfitting. 
+
+\begin{marginfigure}[0.9cm]
+  \includegraphics[width=1\textwidth]{figures/ridge_lasso_sparse/ridge.pdf}
   \caption[Regularization Effect of $L_2$ ]
-    {Sketch of the minimization problem defined in equation \eqref{eq:l2_norm_non_lagrangian}, i.e. for a $L_2$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\beta_1^2 + \beta_2^2 \leq t$ for $L_2$ in $2D$-space and the contours of the unconstrained solution is shown with grey lines. 
+    {Sketch of the minimization problem defined in equation \eqref{eq:l2_norm_non_lagrangian}, i.e. for a $L_2$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\beta_1^2 + \beta_2^2 \leq t$ for $L_2$ in $2D$-space and the contours of the unconstrained solution is shown with grey lines. Adapted from \autocite{hastieElementsStatisticalLearning2009}.
     }
   \label{fig:ml:regularization_effect_ridge}
 \end{marginfigure}
@@ -239,19 +245,19 @@ Other values of the regularization function $\Omega$ exists, for example the $L_
 \begin{equation}
   \Omega = \lambda \norm{\bm{\beta}}_1, 
 \end{equation}
-where the 1-norm, also known as Manhattan norm, is used. In the case of linear problems the $L_1$-penalty leads to Lasso regression introduced by \citet{tibshiraniRegressionShrinkageSelection1996} in \num{1996}. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this loss leads to sparse\sidenote{Meaning that a number of the $\beta_i$ coefficients are 0, the number depending on $\lambda$.} solutions. An illustration of this is shown in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso} where the constraint regions of $\bm{\beta}$ is shown in red and the grey ellipses are the contours of the non-constrained problem. Notice how the intersection of the contour lines and the constrain region leads to $\beta_1 \neq 0, \beta_2 \neq 0$ for the $L_2$-penalty whereas it leads to the sparse solution $\beta_1=0, \beta_2 \neq 0$ for the $L_1$-penalty. This is a general pattern seen for $L_p$-penalties for $p \leq 1$ \autocite{hastieElementsStatisticalLearning2009}.
+where the 1-norm, also known as Manhattan norm, is used. In the case of linear problems, the $L_1$-penalty leads to Lasso regression introduced by \citet{tibshiraniRegressionShrinkageSelection1996} in \num{1996}. As with the $L_2$-penalty, the $L_1$-penalty also regularizes the coefficients of $\bm{\beta}$, however, this penalty leads to sparse\sidenote[][1cm]{Meaning that a number (depending on $\lambda$) of the $\beta_i$ coefficients are 0.} solutions. An illustration of this is shown in Figure~\ref{fig:ml:regularization_effect_ridge} and Figure~\ref{fig:ml:regularization_effect_lasso} where the constraint regions of $\bm{\beta}$ are shown in red, and the grey ellipses are the contours of the non-constrained problem. Notice how the intersection of the contour lines and the constrain region leads to $\beta_1 \neq 0, \beta_2 \neq 0$ for the $L_2$-penalty whereas it leads to the sparse solution $\beta_1=0, \beta_2 \neq 0$ for the $L_1$-penalty. This is a general pattern seen for $L_p$-penalties for $p \leq 1$ \autocite{hastieElementsStatisticalLearning2009}.
 
 \begin{marginfigure}[0.5cm]
-  \includegraphics[width=0.7\textwidth]{figures/ridge_lasso_sparse/lasso.pdf}
+  \includegraphics[width=1\textwidth]{figures/ridge_lasso_sparse/lasso.pdf}
   \caption[Regularization Effect of $L_1$]
-    {Sketch of the similar minimization problem defined in Figure~\ref{fig:ml:regularization_effect_ridge} for the $L_1$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\abs{\beta_1} + \abs{\beta_2} \leq t$ for $L_1$ in $2D$-space and the contours of the unconstrained solution is shown with grey lines.
+    {Sketch of the similar minimization problem defined in Figure~\ref{fig:ml:regularization_effect_ridge} for the $L_1$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\abs{\beta_1} + \abs{\beta_2} \leq t$ for $L_1$ in $2D$-space and the contours of the unconstrained solution is shown with grey lines. Adapted from \autocite{hastieElementsStatisticalLearning2009}.
     }
   \label{fig:ml:regularization_effect_lasso}
 \end{marginfigure} 
 
 Overall, model regularization is heavily used in modern machine learning algorithms. In general, the function or the so-called \emph{objective function} $\mathcal{L}$ they are trying to minimize is:
 \begin{equation}
-  \mathcal{L}(h) = \hat{L}(\ell, h, S) + \Omega(h)
+  \mathcal{L}(h) = \hat{L}(\ell, h, S) + \Omega(h, \lambda)
 \end{equation}
 where $\hat{L}$ is the empirical loss and $\Omega$ is the regularization penalty. 
 
@@ -259,8 +265,8 @@ Choosing the right value for the regularization strength is a fundamental proble
 
 \subsection{Cross Validation}
 \label{subsec:cross_validation}
-In general we want to  be able to estimate the performance\sidenote{\q{Performance} is used here as the word for the general metric to be optimized for, whether or not this metric should be maximized or minimized.} of the developed model. Since evaluating the model on the data it was already trained on would give a biased estimate of the performance, we need an unbiased method of doing so. The easiest way of doing so would be to set a fraction of the data aside, e.g. \SI{20}{\percent}, train on the remaining part and then evaluate the performance on the data set aside. Splitting the data up like this would provide us with a training (data)set and a test set in a $\num{80}:\num{20}$ ratio. This would then yield an unbiased performance estimate when evaluation the performance on the test set. 
-However, if one then needed to compare two different models -- e.g. with different values of regularization strength $\lambda$ -- and choose the best one, as is often the case, this method would not work since we would choose the model with the best performance on the test set which can be seen as training on the test set and thus it has \q{tainted} the purity of the test set. To avoid this, an additional split is made such that we get a training set, a validation set, and a test set, where you often see a $\num{80}:\num{10}:\num{10}$ ratio. The two models can then be compared on the validation set and the performance of the chosen model can be estimated from the test set. 
+In general we want to  be able to estimate the performance\sidenote{\q{Performance} is used here as the word for the general metric to be optimized for, whether or not this metric should be maximized or minimized.} of the developed model. Since evaluating the model on the data it was already trained on would give a biased estimate of the performance, we need an unbiased method of doing so. The easiest way would be to set a fraction of the data aside, e.g. \SI{20}{\percent}, train on the remaining part and then evaluate the performance on the data set aside. Splitting the data up like this would provide us with a training (data)set and a test set in a $(80/20)\%$ ratio. This would then yield an unbiased performance estimate when evaluation the performance on the test set. 
+However, if one then needed to compare two different models -- with e.g. different values of regularization strength $\lambda$ -- and choose the best one, as is often the case, this method would not work since we would choose the model with the best performance on the test set. This can be seen as training on the test set and thus it has \q{tainted} the purity of the test set. To avoid this, an additional split is made such that we get a training set, a validation set, and a test set, where you often see a $(80/10/10)\%$ ratio. The two models can then be compared on the validation set and the performance of the chosen model can be estimated from the test set. 
 
 \begin{marginfigure}
   \includegraphics[width=0.98\textwidth, trim=5 5 5 5, clip]{figures/cross_validation/kfold.pdf}
