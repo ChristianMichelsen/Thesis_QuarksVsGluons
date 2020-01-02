@@ -580,7 +580,7 @@ where $z_i \equiv E_i / E_\mathrm{jet}$ is the momentum fraction, i.e. $0 \leq z
 
 \begin{marginfigure}[5.5cm]
   \centerfloat
-  \includegraphics[width=0.9\textwidth]{figures/LHA/LHA.pdf}
+  \includegraphics[width=\textwidth]{figures/LHA/LHA.pdf}
   \caption[Generalized Angularities]
           {Generalized angularities. Adapted from \citet{larkoskiGainingMutualInformation2014}. } 
   \label{fig:q:LHA}
@@ -866,9 +866,10 @@ When looking at the other regions, see Figure~\ref{fig:q:R_kt_CA_cut_A}--\ref{fi
 
 To properly test the assumption that the variations in $E_\mathrm{diff}$ are due to statistical noise, I make a ratio plot between MC and Data and compare them between region A and D. The plot for region A is shown in Figure~\ref{fig:q:ratio_plot_E_diff_region_A}. When looking at the ratio plot in the bottom part of the figure, it can be seen that the almost all of the bins are with $1\sigma$ of \num{1}. Indeed, when calculating the $\chi^2$ value between the errorbars and a constant ratio of \num{1}, that is to say $f(x)=1$, one finds a $\chi^2$ probability of $P_{\chi^2}=\SI{51.3}{\percent}$. This value strongly suggests that the fluctuations in the two histograms are due to statistical noise (at least we cannot disprove that it is not). Remember, that this was not even a fit, but simply a comparison to a (fixed) constant. 
 
-\begin{figure}[h!]
+\begin{figure}%[h!]
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/quarks/cut_region_A_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf}
+  % \vspace{4cm}
   \caption[Ratio Plot of $E_\mathrm{diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ for Region A]
           {Ratio plot of the gluon splitting variable $E_\mathrm{diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm{CA}$ in region A. In the top plot, the distribution of $E_\mathrm{diff}$ for \textcolor{blue}{MC} (scaled to Data) is shown in blue and for \textcolor{red}{Data} in red. Both MC and Data has been efficiency corrected. Below are the ratio plot between MC and Data. In text is written the $\chi^2$ between the errorbars and a constant ratio equal to \num{1}. That is to say that $f(x)=1$, which is thus not a fit. The $\chi^2$ probability is written as $P_{\chi^2}$ and it indicates an almost perfect correspondence between Data and MC.} 
   \label{fig:q:ratio_plot_E_diff_region_A}
