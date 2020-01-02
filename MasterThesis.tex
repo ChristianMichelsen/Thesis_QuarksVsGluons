@@ -314,13 +314,13 @@
 \newcommand{\TODO}{\textcolor{red}{\bf TODO!}\xspace}
 
 
-
 % Custom TOC
 \titlecontents{part}%
   [0em] % distance from left margin
   {\vspace{0.8\baselineskip}\huge\rmfamily\itshape} % above (global formatting of entry)
   {\hspace*{0em}\contentslabel{2em}} % before w/label (label = ``2'')
-  {\hspace*{0em}} % before w/o label
+  % {\hspace*{0em}\contentslabel[\huge\rmfamily\itshape Part \thecontentslabel]{2em}}
+  {\hspace*{0em}\contentslabel{2em}} % before w/o label
   {\titlerule*[0.8em]{}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
   [\vspace{0.1\baselineskip}] % after
 
@@ -375,6 +375,12 @@
 \newpage
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \makeatother
+
+
+
+% \let\Oldpart\part
+% \newcommand{\parttitle}{}
+% \renewcommand{\part}[1]{\Oldpart{#1}\renewcommand{\parttitle}{#1}}
 
 
 
@@ -448,18 +454,42 @@ Here will be a decent abstract at some point\textsuperscript{TM}.
 
 \include{chapter_introduction}
 
-\chapter*{Part I}
+
+
+% \part*{Part1}
+% \label{part1}
+\phantomsection
+\chapter*{}
 \addcontentsline{toc}{part}{Part I}
-Part \RNum{1} of this thesis covers the introductory theory of machine learning in \autoref{ch:ML_theory} along with some extra technical aspects of it. In \autoref{ch:housing_price_analysis} machine learning is applied to estimate Danish housing prices as precisely and accurately as possible.  
+\label{part1}
+{\Huge \rmfamily Part I}
+% \addcontentsline{toc}{part}{Part I}
+% \addcontentsline{toc}{part}{\nameref{part1}}
+
+% Part \RNum{1} of this thesis covers the introductory theory of machine learning in \autoref{ch:ML_theory} along with some extra technical aspects of it. In \autoref{ch:housing_price_analysis} machine learning is applied to estimate Danish housing prices as precisely and accurately as possible.  
 
 \include{chapter_machine_learning_theory}
 \include{chapter_housing_prices}
 
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-\chapter*{Part II}
+\phantomsection
+\chapter*{}
 \addcontentsline{toc}{part}{Part II}
-Part \RNum{2} of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. In \autoref{ch:hep:particle_physcis_LEP} the theory of the Standard Model is introduced together with a description of the ALEPH detector. Theory is applied in \autoref{ch:quark_gluon_analysis} where the types of jets and events in each collision is analysed using machine learning to improve the understanding of how gluon jets hadronizes and splits: simply said how they look and behave. 
+\label{part2}
+{\Huge \rmfamily Part II}
+% \cleardoublepage
+
+% \part{Part II}
+% \part{Particle Physics and Quark Gluon Discrimination}
+% \label{part2}
+
+% \part*{Part2}
+% \label{part2}
+% \phantomsection
+% \addcontentsline{toc}{part}{Part II}
+% Part \RNum{2} of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. In \autoref{ch:hep:particle_physcis_LEP} the theory of the Standard Model is introduced together with a description of the ALEPH detector. Theory is applied in \autoref{ch:quark_gluon_analysis} where the types of jets and events in each collision is analysed using machine learning to improve the understanding of how gluon jets hadronizes and splits: simply said how they look and behave. 
+
 
 \include{chapter_particle_physics_theory}
 \include{chapter_quark_gluon}
