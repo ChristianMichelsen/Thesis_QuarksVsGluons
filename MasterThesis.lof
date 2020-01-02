@@ -42,7 +42,7 @@
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Performance of XGB-model for Apartments}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.20}{\ignorespaces Standard Deviation and MAD of the Static and Dynamic XGB Forecasts}}{41}{section.3.6}
 \contentsline {figure}{\numberline {3.21}{\ignorespaces Market Index based on the Static and Dynamic XGB Forecasts}}{42}{equation.3.6.9}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for Apartments}}{44}{section.3.7}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for Apartments}}{43}{section.3.7}
 \contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of Apartments Prices}}{44}{section.3.7}
 \contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments}}{45}{section.3.7}
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Performance Comparison of Multiple Models for Apartments}}{46}{section.3.8}

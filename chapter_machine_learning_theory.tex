@@ -161,7 +161,7 @@ Equation \eqref{eq:VC_bound} states that the out of sample error $L(h)$ is bound
 \begin{equation}
   \Omega(N, \mathcal{H}, \delta) = \sqrt{ \frac{8}{N} \ln \left( \frac{4}{\delta} \left( \left(2N \right)^{d_\mathrm{VC}(\mathcal{H})} + 1 \right)  \right)}.
 \end{equation}
-As the hypothesis space complexity $d_\mathrm{VC}$ grows, the model complexity penalty increases but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the approximation-estimation or the  \emph{bias-variance} tradeoff. When the model is too simple to properly fit the complexity in the data it is called \emph{underfitting}\sidenote{Here the error from $\hat{L}(h, S)$ dominates.}, when the model is so complex that it starts fitting the inherent noise in the data it is called \emph{overfitting}\sidenote{Here the error from $\Omega(N, \mathcal{H}, \delta)$ dominates.}. The loss as a function of model complexity gives the characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases the training loss decreases. Initially also the validation loss decreases, but at some point the behavior of model on the validation set worsens and the loss increases; overfitting happens. 
+As the hypothesis space complexity $d_\mathrm{VC}$ grows, the model complexity penalty increases but it is more likely that $\mathcal{H}$ contains a strong hypothesis. This relationship is called the approximation-estimation or the  \emph{bias-variance} tradeoff. When the model is too simple to properly fit the complexity in the data it is called \emph{underfitting}\sidenote{Here the error from $\hat{L}(h, S)$ dominates.}, when the model is so complex that it starts fitting the inherent noise in the data it is called \emph{overfitting}\sidenote{Here the error from $\Omega(N, \mathcal{H}, \delta)$ dominates.}. The loss as a function of model complexity gives the characteristic curve illustrated in Figure~\ref{fig:ml:empirical_risk}. As the model complexity increases the training loss decreases. Initially also the validation loss decreases, but at some point the behavior of the model on the validation set worsens and the loss increases; overfitting happens. 
 
 \begin{marginfigure}
   \includegraphics[width=0.98\textwidth]{figures/overfitting/overfitting_1.pdf}
@@ -202,7 +202,7 @@ However, this solution for $\hat{\bm{\beta}}_{\mathrm{LS}}$ is only valid when $
   \label{eq:l2_norm}
   \hat{\bm{\beta}}_{\mathrm{L_2}} = \argmin_{\bm{\beta}} \left \{\norm{ \vec{y} - \vec{f}(\vec{X}) }_2^2 + \lambda \norm{ \bm{\beta} }^2_2 \right \},
 \end{equation}
-where $\lambda \geq 0$ is the regularization strength. This is the so-called $L_2$-regularization, also known as ridge regression for linear problems. For ridge regression\sidenote{Here $\hat{\bm{\beta}}_{\mathrm{L_2}}$ is the solution for any general function $\vec{f}$ and $\hat{\bm{\beta}}_{\mathrm{ridge}}$ is the specific solution for a linear function $\vec{f}$, where linear is w.r.t. to the model parameters $\bm{\beta}$.} the corresponding solution for $\bm{\beta}$ is:
+where $\lambda \geq 0$ is the regularization strength. This is the so-called $L_2$-regularization, also known as ridge regression for linear problems. For ridge regression\sidenote{Here $\hat{\bm{\beta}}_{\mathrm{L_2}}$ is the solution for any general function $\vec{f}$ and $\hat{\bm{\beta}}_{\mathrm{ridge}}$ is the specific solution for a linear function $\vec{f}$, where linear is w.r.t. the model parameters $\bm{\beta}$.} the corresponding solution for $\bm{\beta}$ is:
 \begin{equation}
   \label{eq:l2_norm_linear}
   \hat{\bm{\beta}}_{\mathrm{ridge}} =  \left( \vec{X}^T \vec{X} + \lambda \vec{I} \right)^{-1} \vec{X}^T \vec{y},
@@ -230,7 +230,7 @@ Here $N=9$ datapoints were randomly generated such that the $x$-values are evenl
 \begin{marginfigure}[-0.5cm]
   \includegraphics[width=0.7\textwidth]{figures/ridge_lasso_sparse/ridge.pdf}
   \caption[Regularization Effect of $L_2$ ]
-    {Sketch of the minimization problem defined in equation \eqref{eq:l2_norm_non_lagrangian}, i.e. for a $L_2$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\beta_1^2 + \beta_2^2 \leq t$ for $L_2$ in $2D$-space and the contours of the unconstrained solution is shown with grey, dashed lines. 
+    {Sketch of the minimization problem defined in equation \eqref{eq:l2_norm_non_lagrangian}, i.e. for a $L_2$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\beta_1^2 + \beta_2^2 \leq t$ for $L_2$ in $2D$-space and the contours of the unconstrained solution is shown with grey lines. 
     }
   \label{fig:ml:regularization_effect_ridge}
 \end{marginfigure}
@@ -244,7 +244,7 @@ where the 1-norm, also known as Manhattan norm, is used. In the case of linear p
 \begin{marginfigure}[0.5cm]
   \includegraphics[width=0.7\textwidth]{figures/ridge_lasso_sparse/lasso.pdf}
   \caption[Regularization Effect of $L_1$]
-    {Sketch of the similar minimization problem defined in Figure~\ref{fig:ml:regularization_effect_ridge} for the $L_1$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\abs{\beta_1} + \abs{\beta_2} \leq t$ for $L_1$ in $2D$-space and the contours of the unconstrained solution is shown with grey, dashed lines.
+    {Sketch of the similar minimization problem defined in Figure~\ref{fig:ml:regularization_effect_ridge} for the $L_1$-penalty. The \textcolor{red}{constrain region} shown in red is defined as $\abs{\beta_1} + \abs{\beta_2} \leq t$ for $L_1$ in $2D$-space and the contours of the unconstrained solution is shown with grey lines.
     }
   \label{fig:ml:regularization_effect_lasso}
 \end{marginfigure} 
@@ -255,7 +255,7 @@ Overall, model regularization is heavily used in modern machine learning algorit
 \end{equation}
 where $\hat{L}$ is the empirical loss and $\Omega$ is the regularization penalty. 
 
-Choosing the right value for the regularization strength is fundamental problem in model regularization. How to choose a suitable value for $\lambda$ via cross validation is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{sec:ml:loss_function}. 
+Choosing the right value for the regularization strength is a fundamental problem in model regularization. How to choose a suitable value for $\lambda$ via cross validation is discussed in \autoref{subsec:cross_validation} and the choice of the training loss function $\ell$ in \autoref{sec:ml:loss_function}. 
 
 \subsection{Cross Validation}
 \label{subsec:cross_validation}
@@ -291,11 +291,11 @@ Most modern machine learning models are trained iteratively. This is the case fo
 
 This is a another example of the bias-variance tradeoff. The model should be trained long enough to be able to capture the complexity inherent in the data but also should not train for so long that it starts to overfit the data. Even though Figure~\ref{fig:ml:empirical_risk} was just an illustration of the bias variance tradeoff, it is also something that is seen in real data and can be taken advantage of through \emph{early stopping}. Early stopping is the process of monitoring the loss for the training set $\mathcal{D}_\mathrm{train}$ and validation set $\mathcal{D}_\mathrm{val}$. As mentioned in \autoref{subsec:cross_validation}, the model is only fitted on $\mathcal{D}_\mathrm{train}$ but the performance on $\mathcal{D}_\mathrm{val}$ is also measured. Whenever the validation loss starts to increase, the training of the model should be terminated. 
 
-To avoid stopping due to a single noise-induced outlier which terminated the process, one often uses \emph{patience} in the early stopping process: if the loss has not decreased since the last minimum after \emph{patience} number of iterations, then terminate the process. Early stopping is thus an easy way of avoiding overfitting for iteratively trained models only requiring a validation set.  
+To avoid stopping due to a single noise-induced outlier which terminated the process, one often uses \emph{patience} in the early stopping process: if the loss has not decreased since the last minimum after \emph{patience} number of iterations the process is terminated. Early stopping is thus an easy way of avoiding overfitting for iteratively trained models only requiring a validation set.  
 
 \section{Loss functions}
 \label{sec:ml:loss_function}
-How we evaluate the performance of a model is of course very important since it defines the metric for the problem; what is good and what is bad? Obviously this depends on whether or not a classification problem or a regression problem is dealth with. Let us for know focus on the latter. Say that a house is estimated to cost \num{2} million DKK (\si{\Mkr}) but was sold for \SI{4}{\Mkr}. Compare this to a house that was estimated to cost \SI{8}{\Mkr} but was sold for \SI{6}{\Mkr} In both cases the price was \SI{2}{\Mkr} wrong, but does this mean that both predictions are equally good or bad? The first case was a factor of 2 off, whereas the prediction in the second case was only $33\%$ off compared to the true value. The first case underestimated the price whereas the second overestimated; should this have any importance?
+How we evaluate the performance of a model is of course very important since it defines the metric for the problem; what is good and what is bad? Obviously this depends on whether or not a classification problem or a regression problem is dealt with. Let us for now focus on the latter. Say that a house is estimated to cost \num{2} million DKK (\si{\Mkr}) but was sold for \SI{4}{\Mkr} Compare this to a house that was estimated to cost \SI{8}{\Mkr} but was sold for \SI{6}{\Mkr} In both cases the price was off by \SI{2}{\Mkr}, but does this mean that both predictions are equally good or bad? The first case was off by a factor of \num{2}, whereas the prediction in the second case was only off by $33\%$ (compared to the true value). The first case underestimated the price whereas the second overestimated; should this have any importance?
 
 As it should be clear by now the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, it is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyperparameter}, the optimization of which is further discussed in \autoref{sec:ml:hyperparameter_optimization}. The most common choice of loss function is by far the Squared Error (SE): 
 \begin{equation}
@@ -349,7 +349,7 @@ For the loss functions defined in \autoref{sec:ml:loss_function} the objective f
 \begin{marginfigure}
   \includegraphics[width=0.99\textwidth, trim=10 10 10 10, clip]{figures/decision_tree/tree_example.pdf}%     without .tex extension
   % or use \input{mytikz}
-  \caption[Decision Tree Cuts In Feature Space]{Illustration of the cuts a decision tree model make for \textcolor{blue}{signal} in blue circles and \textcolor{red}{background} in red squares. This is an visualization in the feature space of the decision tree seen in Figure~\ref{fig:ml:decision_tree}.}
+  \caption[Decision Tree Cuts In Feature Space]{Illustration of the cuts a decision tree model make for \textcolor{blue}{signal} in blue circles and \textcolor{red}{background} in red squares. This is a visualization in the feature space of the decision tree seen in Figure~\ref{fig:ml:decision_tree}.}
   \label{fig:ml:decision_tree_feature_space}
 \end{marginfigure}
 
