@@ -2,7 +2,7 @@
 \contentsline {chapter}{Table of Contents}{v}{section*.2}
 \contentsline {chapter}{Foreword}{xi}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {part}{Part I}{3}{chapter*.5}
+\contentsline {part}{Part I}{3}{chapter*.6}
 \contentsline {chapter}{\numberline {2}Machine Learning}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Statistical Learning Theory}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Supervised Learning}{6}{section.2.2}
@@ -34,11 +34,12 @@
 \contentsline {section}{\numberline {3.4}Initial Hyperparameter Optimization}{36}{section.3.4}
 \contentsline {section}{\numberline {3.5}Hyperparameter Optimization}{38}{section.3.5}
 \contentsline {section}{\numberline {3.6}Results}{40}{section.3.6}
-\contentsline {section}{\numberline {3.7}Model Inspection}{43}{section.3.7}
-\contentsline {section}{\numberline {3.8}Multiple Models}{45}{section.3.8}
-\contentsline {section}{\numberline {3.9}Discussion}{47}{section.3.9}
-\contentsline {section}{\numberline {3.10}Conclusion}{49}{section.3.10}
-\contentsline {part}{Part II}{51}{chapter*.7}
+\contentsline {section}{\numberline {3.7}Forecasting}{42}{section.3.7}
+\contentsline {section}{\numberline {3.8}Model Inspection}{43}{section.3.8}
+\contentsline {section}{\numberline {3.9}Multiple Models}{46}{section.3.9}
+\contentsline {section}{\numberline {3.10}Discussion}{48}{section.3.10}
+\contentsline {section}{\numberline {3.11}Conclusion}{50}{section.3.11}
+\contentsline {part}{Part II}{51}{chapter*.10}
 \contentsline {chapter}{\numberline {4}Particle Physics and LEP}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}The Standard Model}{53}{section.4.1}
 \contentsline {section}{\numberline {4.2}Quark Hadronization}{54}{section.4.2}
@@ -127,7 +128,7 @@
 \contentsline {section}{\numberline {B.38}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region B}{154}{section.B.38}
 \contentsline {section}{\numberline {B.39}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region C}{155}{section.B.39}
 \contentsline {section}{\numberline {B.40}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region D}{156}{section.B.40}
-\contentsline {chapter}{List of Figures}{163}{appendix*.8}
-\contentsline {chapter}{List of Tables}{166}{appendix*.9}
-\contentsline {chapter}{Bibliography}{167}{section*.10}
+\contentsline {chapter}{List of Figures}{163}{appendix*.11}
+\contentsline {chapter}{List of Tables}{166}{appendix*.12}
+\contentsline {chapter}{Bibliography}{167}{section*.13}
 \contentsfinish 

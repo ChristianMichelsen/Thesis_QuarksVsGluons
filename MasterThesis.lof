@@ -11,7 +11,7 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Decision Tree Cuts In Feature Space}}{16}{section.2.6}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Decision Tree}}{16}{section.2.6}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Grid Search}}{20}{subsection.2.7.1}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Random Search}}{21}{equation.2.7.38}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Random Search}}{21}{equation.2.7.39}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Bayesian Optimization}}{22}{subsection.2.7.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Price Index of the Danish Housing Market}}{27}{chapter.3}
@@ -39,13 +39,13 @@
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Hyperparameter Optimization: Random Search Results}}{40}{section.3.5}
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Early Stopping Results}}{40}{section.3.5}
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Performance of XGB-model for Apartments}}{41}{section.3.6}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Standard Deviation and MAD of the Static and Dynamic XGB Forecasts}}{41}{section.3.6}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Market Index based on the Static and Dynamic XGB Forecasts}}{42}{equation.3.6.9}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for Apartments}}{43}{section.3.7}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of Apartments Prices}}{44}{section.3.7}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments}}{45}{section.3.7}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Performance Comparison of Multiple Models for Apartments}}{46}{section.3.8}
-\contentsline {figure}{\numberline {3.26}{\ignorespaces Feature Importance of Villas With Descriptions}}{49}{section.3.9}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Standard Deviation and MAD of the Static and Dynamic XGB Forecasts}}{42}{section.3.7}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Market Index based on the Static and Dynamic XGB Forecasts}}{43}{equation.3.7.9}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces SHAP Prediction Explanation for Apartments}}{44}{section.3.8}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Feature importance of Apartments Prices}}{45}{section.3.8}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Feature Importance Interaction Plot for Apartments}}{45}{section.3.8}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Performance Comparison of Multiple Models for Apartments}}{46}{section.3.9}
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Feature Importance of Villas With Descriptions}}{49}{section.3.10}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The Standard Model}}{54}{section.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Feynman Diagram for the Jet Production at LEP}}{55}{section.4.2}

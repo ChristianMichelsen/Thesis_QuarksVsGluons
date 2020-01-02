@@ -16,7 +16,7 @@ If one takes a look at the time development of the Danish housing market, the Da
 
 The goal of this subproject is not to predict any future collapse in the financial markets as we saw upwards of 10 years ago. Instead, it is to learn patterns in the price of houses in steady times. The goal is training a computer to automatically\sidenote{In contrary to \citet{hviidWorkingPaperRegional2017, mulalicFinancialCrisisDiverging2017} and others who base their models on macro-economic principles.} be able to find these patterns and see if we can improve this model.
 
-This chapter is organized as follows. The data will be introduced in  \autoref{sec:h:data_cleaning} where also some initial plots are shown. The data set is feature augmented in \autoref{sec:h:feature_augmentation} and the different evaluation functions will be discussed in \autoref{sec:h:evaluation_function}. The choice of evaluation function will be based on an initial hyperparameter optimization process in \autoref{sec:h:initial_hyperparameter_optimization}. The model is fitted and optimized in \autoref{sec:h:hyperparamater_optimization} and the results from the final model are presented in \autoref{sec:h:results}. The forecasting performance of the model will be tested in XXX \TODO. To better understand the model, \autoref{sec:h:model_inspection} deals with the issue of model inspection. The model is extended by combining multiple ML models into an ensemble, a process that is described in \autoref{sec:h:multiple_models}. Finally, the project concerning Danish housing prices will be discussed in \autoref{sec:h:discussion} and concluded in \autoref{sec:h:conclusion}.
+This chapter is organized as follows. The data will be introduced in  \autoref{sec:h:data_cleaning} where also some initial plots are shown. The data set is feature augmented in \autoref{sec:h:feature_augmentation} and the different evaluation functions will be discussed in \autoref{sec:h:evaluation_function}. The choice of evaluation function will be based on an initial hyperparameter optimization process in \autoref{sec:h:initial_hyperparameter_optimization}. The model is fitted and optimized in \autoref{sec:h:hyperparamater_optimization} and the results from the final model are presented in \autoref{sec:h:results}. The forecasting performance of the model will be tested in \autoref{sec:h:forecasting}. To better understand the model, \autoref{sec:h:model_inspection} deals with the issue of model inspection. The model is extended by combining multiple ML models into an ensemble, a process that is described in \autoref{sec:h:multiple_models}. Finally, the project concerning Danish housing prices will be discussed in \autoref{sec:h:discussion} and concluded in \autoref{sec:h:conclusion}.
 
 \section{Data Preparation and Exploratory Data Analysis}
 \label{sec:h:data_cleaning}
@@ -63,7 +63,6 @@ The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subr
 
 \begin{figure*}
   \centering
-  % \vspace*{-\abovecaptionskip}
   \subfloat[\label{fig:h:variable_overview_date}]{\qquad}
   \includegraphics[width=0.45\textwidth, page=2, trim=15 15 15 15, clip]{figures/housing/overview_fig.pdf}\hfil
   \subfloat[\label{fig:h:variable_overview_type}]{\qquad}
@@ -78,7 +77,6 @@ The distribution of the date of sale, Figure~\ref{fig:h:variable_overview} \subr
            Subplot ~\protect\subref{fig:h:variable_overview_longitude} shows the longitude,
            Subplot ~\protect\subref{fig:h:variable_overview_area} shows the area of the house.}
   \label{fig:h:variable_overview}
-  \vspace{\abovecaptionskip}
 \end{figure*}
 
 % \vspace{-2cm}
@@ -86,7 +84,6 @@ In this project only one-family houses (\q{Villas}) with code \num{100} and owne
 
 \begin{figure*}
   \centering
-  % \vspace*{-\abovecaptionskip}
   \subfloat[\label{fig:h:geo_overview_sqm_price}]{\,}
   \includegraphics[draft=false, width=0.4\textwidth]{figures/housing/Denmark_Overview_SqmPrice.png}\hfil
   \subfloat[\label{fig:h:geo_overview_sales_price}]{\,}
@@ -95,7 +92,6 @@ In this project only one-family houses (\q{Villas}) with code \num{100} and owne
            In subplot ~\protect\subref{fig:h:geo_overview_sqm_price} the sales are colored according to their square meter price and in subplot ~\protect\subref{fig:h:geo_overview_sales_price} according to the sales price. 
            }
   \label{fig:h:geo_overview}
-  \vspace{\abovecaptionskip}
 \end{figure*}
 
 The geographic distribution of sales are shown in Figure~\ref{fig:h:geo_overview}. The residences are coloured according to the square meter price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sqm_price} and according to the sales price in Figure~\ref{fig:h:geo_overview} \subref{fig:h:geo_overview_sales_price}. Notice the strong correlation between the distance to water and the square meter price, a correlation that is less visible when looking at the sales price. Since these plots each contain \num{674647} points\sidenote{Only sales with a valid GPS-coordinate and area of residence are shown}, over-plotting quickly becomes an issue. To circumvent this, the software package called DataShader \autocite{bednarDatashaderRevealingStructure2019} was used which in a simple, consistent, and not at least computationally efficient manner allows one to plot big data.
@@ -188,7 +184,6 @@ Given the 1D input variable distributions and their validity, we apply some very
   Time         & Sold in \num{2009} or later                                         & \num{520548}              & \num{28592}     \\
   \bottomrule
   \end{tabular}
-  \vspace{\abovecaptionskip}
   \caption[Basic Selection Criteria]{Overview of the basic selection criteria which define the minimum information needed to predict the price of a sale.}
   \label{tab:h:initial_cuts}
 \end{table}
@@ -220,8 +215,6 @@ The analysis have dealt with different types of residences all together until no
 First, invalid counts are dropped such that variables which contain more than \SI{10}{\percent} NANs are dropped, and duplicate rows are also removed. Then some manual features are added based on existing features. The day of the month, the month, and the year are extracted from the sales date. The sales date is converted to the numbers of days since January \nth{1}, \num{2009}. From the number of the house, \code{HusNr}, the value is extracted along with a boolean flag indicating whether or not it includes a letter (eg. \q{27B}). The number of the side door, \code{SidedoerNr}, is formatted according to Table~\ref{tab:h:sidedoor_code} and the road name according to  Table~\ref{tab:h:road_code}. The age of the house is added\sidenote[][-1cm]{In addition to only having the year the house was was built.} and the amount of time (in years) since last major modification. The energy rating label, \code{EnergiMaerke}, is also converted from strings to values according to Table~\ref{tab:h:energy_code}.
 
 \begin{margintable}
-  % \vspace{\abovecaptionskip}
-  % \begin{tabular}{llr}
   \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} lr}
   Contains   & Explanation  & Code \\ \midrule
   Vej        & Road       & \num{0}    \\
@@ -423,7 +416,7 @@ The $\log_{10}$-transformation was included as some machine learning methods ass
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
   \caption[Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments]
-          {Hyperparameter optimization results for apartments. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an iteration of the grid search, colored according to the performance of that hyperparameter as measured by the MAD. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparameter \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objective} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. } 
+          {Hyperparameter optimization results for apartments. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an iteration of the grid search, colored according to the performance of that hyperparameter as measured by the MAD. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparameter \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objective} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. See Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer_appendix_big} for a bigger version of this figure.} 
   \label{fig:h:initial_CV_res_parallel_coords_ejer}
 \end{figure}
 
@@ -466,7 +459,7 @@ The rest of the machine learning models thus continue with the following hyperpa
 \FloatBarrier
 \section{Hyperparameter Optimization}
 \label{sec:h:hyperparamater_optimization}
-With the initial hyperparameter optimization finished, the actual training of the models was started. Again, two XGBoost models were fitted (one for apartments and one for houses) to the training set the hyperparameters were optimized using both random search and Bayesian optimization. These were each run for \num{100} iterations with \num{5}-fold cross validation and early stopping\sidenote{This takes a good \num{4} hours for the random search, \num{7} hours for the Bayesian optimization, and \num{90} minutes to optimize the learning rate with early stopping for apartments when run on the local computing cluster, HEP. For the houses this takes a good \num{24} hours for the random search, \num{34} hours for the Bayesian optimization, and almost \num{5} hours to optimize the number of estimators with early stopping.}. The hyperparameters to be optimized were the following:
+With the initial hyperparameter optimization finished, the actual training of the models was started. Again, two XGBoost models were fitted (one for apartments and one for houses) to the training set the hyperparameters were optimized using both random search and Bayesian optimization. These were each run for \num{100} iterations with \num{5}-fold cross validation and early stopping\sidenote{This takes a good \num{4} hours for the random search, \num{7} hours for the Bayesian optimization, and \num{90} minutes to optimize the number of estimators with early stopping for apartments when run on the local computing cluster, HEP. For the houses this takes a good \num{24} hours for the random search, \num{34} hours for the Bayesian optimization, and almost \num{5} hours to optimize the number of estimators with early stopping.}. The hyperparameters to be optimized were the following:
 \begin{itemize}
   \item[] The \code{subsample} controls the fraction of row subsampling and is a number between \num{0} and \num{1}. 
   \item[] The \code{colsample_bytree} controls the fraction of column downsampling for each tree, so how many columns (or variables) each tree are allowed to fit to. Is a number between \num{0} and \num{1}.
@@ -493,19 +486,17 @@ The ranges of the hyperparameters were chosen by a manual, iterative process of 
   \caption[PDFs Used in the Random Search]{\label{tab:h:hpo_ranges} Probability Density Functions used in the random search to draw new sets of values for the hyperparameters. Each hyperparameter is drawn from the distribution seen in the table.}
 \end{margintable}
 
-The fitting pipeline for this subproject is to first run both random search and Bayesian optimization to compare their results. The best of the two models is chosen and finally learning rate optimized by early stopping where the learning rate $\eta$ is reduced from $\eta=0.1$ to $\eta=0.01$. In the end one ends up with a model that has been hyperparameter optimized for preprocessing optimizations, loss functions, sample weights, normal BDT hyperparameters and finally the learning rate. I have manually implemented this pipeline in Python since no other packages provide the same flexibility as a custom implementation that works fully automated. 
+The fitting pipeline from this point on consists of first running both random search and Bayesian optimization. Their results are compared and the best of the two models is chosen. Finally, this model is re-fitted with early stopping where the learning rate $\eta$ is reduced from $\eta=0.1$ to $\eta=0.01$. In the end, one ends up with a model that has been hyperparameter optimized for preprocessing optimizations, loss functions, sample weights, normal XGB hyperparameters and finally the number of estimators. I have manually implemented this pipeline in Python since no other packages provide the same flexibility as a custom implementation that works fully automated. The results of the random search and the Bayesian optimization are shown in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix} and \ref{fig:h:CV_res_BO_parallel_coords_ejer}. The corresponding plots for houses are shown in Figure~\ref{fig:h:CV_res_RS_parallel_coords_villa} and \ref{fig:h:CV_res_BO_parallel_coords_villa}. 
 
-The results of the random search and the Bayesian optimization are shown in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix} and \ref{fig:h:CV_res_BO_parallel_coords_ejer}. The corresponding plots for houses are shown in Figure~\ref{fig:h:CV_res_RS_parallel_coords_villa} and \ref{fig:h:CV_res_BO_parallel_coords_villa}. 
-
-\begin{figure}
+\begin{figure*}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_HPO_RS.pdf}
   \caption[Parallel Coordinate Plot of the Random Search Hyperparameter Optimization Results of XGBoost for Apartments]
-          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for random search as hyperparameter optimization. } 
+          {Hyperparameter optimization results of XGBoost parameters of the housing model for apartments shown as parallel coordinates. Here shown for random search. } 
   \label{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix}
-\end{figure}
+\end{figure*}
 
-As with the initial grid search, it is important to compare the results in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix} with their uncertainties. This is shown in Figure~\ref{fig:h:CV_res_RS_uncertainties_ejer}. Here the value of the evaluation function along with its \num{1}$\sigma$  and \num{2}$\sigma$ uncertainties are plotted as a function of the iteration along the abscissa. The minimum value of $f_\mathrm{eval}$ is shown in red. Even though this is the minimum value, notice how most of the other iterations are within \num{1}$\sigma$. The plot for the Bayesian optimization in Figure~\ref{fig:h:CV_res_BO_uncertainties_ejer} shows the exploration phase in the first half of the iterations where it afterwards converge to a more flat minimum, however, this minimum was still worse than the one found with random search. 
+As with the initial grid search, it is important to compare the results in Figure~\ref{fig:h:CV_res_RS_parallel_coords_ejer_non_appendix} with their uncertainties. Figure~\ref{fig:h:CV_res_RS_uncertainties_ejer} shows the value of the evaluation function along with its \num{1}$\sigma$  and \num{2}$\sigma$ uncertainties are plotted as a function of the iteration along the $x$-axis. The minimum value of $f_\mathrm{eval}$ is shown in red. Even though this is the minimum value, notice how most of the other iterations are within \num{1}$\sigma$. The plot for the Bayesian optimization in Figure~\ref{fig:h:CV_res_BO_uncertainties_ejer} shows the exploration phase in the first half of the iterations where it afterwards converge to a more flat minimum, however, this minimum was still worse than the one found with random search. 
 
 \begin{figure}
   \centerfloat
@@ -515,7 +506,8 @@ As with the initial grid search, it is important to compare the results in Figur
   \label{fig:h:CV_res_RS_uncertainties_ejer}
 \end{figure}
 
-The best of the random search and the Bayesian optimization models are chosen for subsequent analysis by first reducing the learning rate to $\eta=0.01$ and then find the best number of estimators by early stopping. The evaluation function as a function of number of estimators, also known as the \emph{learning curve}, is seen in Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer}. This curve is the realization of Figure~\ref{fig:ml:empirical_risk} in real data, where it first improves a lot and then finds a stable plateau. The minimum is shown in red with its uncertainty. To reduce the risk of overfitting and model complexity -- with the further advantage of resulting in a faster model at prediction time -- we keep the model with the lowest number of estimators that are still within $1\sigma$ of the minimum: see the orange point in the figure. This results in a model that contains less than a fifth of the number of trees and is thus also significantly simpler and faster at inference time. This is the final hyperparameter optimized model that will be used for the further analysis. 
+% The best of the random search and the Bayesian optimization models is chosen for the subsequent analysis by first reducing the learning rate to $\eta=0.01$ and then find the best number of estimators by early stopping. 
+The evaluation function as a function of number of estimators, also known as the \emph{learning curve}, is shown in Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer} for the combined early stopping model. This curve is the realization of the theoretical Figure~\ref{fig:ml:empirical_risk} in real data, where it first improves a lot and then finds a stable plateau, although it slowly increases. The minimum and its uncertainty are shown in red. To reduce the model complexity (with the further advantage of resulting in a faster model at prediction time) we keep the model with the lowest number of estimators that are still within $1\sigma$ of the minimum: see the orange point in the figure. This results in a model that contains less than a fifth of the number of trees and is thus also significantly simpler and faster at inference time. This is the final hyperparameter optimized model that will be used for the further analysis. 
 
 \begin{figure}
   \centerfloat
@@ -532,65 +524,30 @@ The best of the random search and the Bayesian optimization models are chosen fo
 \section{Results}
 \label{sec:h:results}
 
-The performances of the different models (the random search optimized, the bayesian optimization optimized and the best of the two $\eta$ optimized with early stopping) are shown in Figure~\ref{fig:h:CV_res_performance_ejer}. Here the distribution of the relative price prediction $\vec{z}$ of the model evaluated on the test set, apartments sold in \num{2018}, is shown for the three models. In addition to the distributions, also the performance metrics are shown: the value of the evaluation function\sidenote{Written as \code{MAD}.} along with the fraction of relative price predictions that are within the specified percentage. In this particular instance it is seen that \SI{41.3}{\percent} of the predictions by the final early stopping model are less than $\pm\SI{5}{\percent}$ wrong, \SI{69.8}{\percent} within $\pm\SI{10}{\percent}$, and \SI{91.9}{\percent} within $\pm\SI{20}{\percent}$. Note that the differences between the three models are minor and that the distributions almost cannot be distinguished from each other. 
+The performances of the three different models (the RS-optimized, the BO-optimized and the best of the two optimized with early stopping) are shown in Figure~\ref{fig:h:CV_res_performance_ejer}. Here the distribution of the relative price prediction $\vec{z}$ of the test set is shown for the three models. In addition to the distributions, also the performance metrics are shown: the value of the evaluation function\sidenote{Written as \code{MAD}.} along with the fraction of relative price predictions that are within the specified percentage. In this particular instance it is seen that \SI{41.3}{\percent} of the predictions by the final early stopping model are less than $\pm\SI{5}{\percent}$ wrong, \SI{69.8}{\percent} within $\pm\SI{10}{\percent}$, and \SI{91.9}{\percent} within $\pm\SI{20}{\percent}$. Note that the differences between the three models are minor and that the distributions almost cannot be distinguished from each other. 
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
   \includegraphics[width=0.95\textwidth, trim=0 10 10 5, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_z_hist_metrics.pdf}
   \caption[Performance of XGB-model for Apartments]
-          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization using \textcolor{blue}{random search} is shown in blue, for \textcolor{red}{Bayesian optimization} in red, and the learning rate optimized with \textcolor{green}{early stopping} in green.
+          {Histogram of $z$-values of the XGB-model trained on apartments. The performance after hyperparameter optimization using \textcolor{blue}{random search} is shown in blue, for \textcolor{red}{Bayesian optimization} in red, and the final model which is optimized with \textcolor{green}{early stopping} in green.
           } 
   \label{fig:h:CV_res_performance_ejer}
-\end{figure}
+\end{figure*}
 
-An interesting observation from the performance metrics of the test set is the low value of $f_\mathrm{eval}=\SI{9.289}{\percent}$ (\code{MAD}). By looking at Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer} one would expect a test loss of around \SI{12}{\percent} assuming iid. samples. However, this assumption does not seem to be fulfilled for the test set. The performances of the realtors are also better for the test set than the training set, and by comparing the test set with the extra \num{2019} set it seems to be \num{2018} that was an extra homogenous year, see Table~\ref{tab:h:realtor_mad_train_test_2019}. The \q{Tight} in the the table corresponds to the realtors performance on the tight version of the different datasets. The performance of the XGB models on the tight test set is shown in Figure~\ref{fig:h:CV_res_performance_ejer_tight}, where it can be seen that the final model has $f_\mathrm{eval}=\SI{8.383}{\percent}$. 
-\begin{margintable}[-3cm]
+An interesting observation from the performance metrics of the test set is the low value of $f_\mathrm{eval}=\SI{9.289}{\percent}$ (\code{MAD}). By looking at Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer}, one would expect a test loss of around \SI{12}{\percent} assuming iid. samples. However, this assumption does not seem to be fulfilled for the test set. The performances of the realtors are also better for the test set than the training set, and by comparing the test set with the extra \num{2019} set, it seems to be \num{2018} that was an extra homogenous year. The realtors' performance is shown in Table~\ref{tab:h:realtor_mad_train_test_2019}. The \q{Tight} in the the table corresponds to the realtors performance on the tight versions of the different datasets. The performance of the XGB models on the tight test set is shown in Figure~\ref{fig:h:CV_res_performance_ejer_tight}, where it can be seen that the final model has $f_\mathrm{eval}=\SI{8.383}{\percent}$. 
+\begin{margintable}
   \centerfloat
   \begin{tabular}{@{}rlll@{}}
           & Train               & Test                & \num{2019}          \\ \midrule
   Normal  & \SI{5.80}{\percent} & \SI{4.97}{\percent} & \SI{6.19}{\percent} \\
   Tight   & \SI{5.69}{\percent} & \SI{4.94}{\percent} & \SI{6.19}{\percent} 
   \end{tabular}
-  \vspace{\abovecaptionskip}
+  \vspace{2mm}
   \caption[Realtors' MAD]{The MAD of the realtors' predictions for the normal and tight selections in the training, test, and \num{2019} datasets.}
   \label{tab:h:realtor_mad_train_test_2019}
 \end{margintable}
 
-To gauge the predictive power of the model over time, we applied the model to the next month's data and evaluated the results for that month, for all the months in the test set (\num{2018}) and \num{2019}. We applied two different methods of forecasting: \emph{static} forecasting where the model is only trained once, and \emph{dynamic} forecasting where the model is retrained after each month on all of the previous sales. These predictions allow the relative predictions $\vec{z}$ to be calculated and the MAD and the standard deviation (SD) of $\vec{z}$ are shown in Figure~\ref{fig:h:forecast_MAD_SD}. 
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.99\textwidth, trim=10 15 10 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_forecast_prediction_MAD.pdf}
-  \caption[Standard Deviation and MAD of the Static and Dynamic XGB Forecasts]
-          {Performance of 1-month forecasts for apartments sold in \num{2018} and \num{2019}. For both plots the XGB model is trained on data up to (but excluding) 2018. Top) The performance of the static model's prediction for both the \textcolor{blue}{standard deviation (SD)} and \textcolor{red}{MAD} of the $z$-scores. Bottom) Same as above, however, based on a dynamic model, i.e. a model which is retrained after every month to include the previous month's sales.} 
-  \label{fig:h:forecast_MAD_SD}
-\end{figure}
-
-In the top subplot the results for the static forecast are shown, whereas the dynamic results are shown in the bottom subplot. The errorbars are calculated using the usual variance of the standard deviation:
-\begin{equation}
-  \sigma_\mu  = \frac{\sigma}{\sqrt{N}}, \quad \sigma_\sigma = \frac{\sigma}{\sqrt{2N}},
-\end{equation}
-where $\sigma_\mu$ is the standard deviation of the mean and $\sigma_\sigma$ is the standard deviation of the standard deviation\sidenote{That this estimator is biased does not matter since we are in the large $N$ limit, $N \sim 1000$.} \autocite{Barlow:0471922951}.
-Notice the large fluctuations in the standard deviations over time compared to MADs which is an effect of MAD being a robust estimator. What is also interesting to note is that the MAD seems to increase over time for the static model, albeit slowly. In comparison, for the dynamic model this seem less pronounced. This figure not only shows the time dependence of the performance of the model, but also that the model is quite stable over time, at least for the dynamic model. 
-
-Using the relative price predictions $\vec{z}$, we construct the Market Index, $\mathrm{MI}$. This is an index which measures the overall level of the Danish housing market based on the assumption that if the houses sold in a month are generally sold at a higher price than was predicted by the model, there can be two reasons for it: either the model was wrong or the market simply changed in the time span. With the latter assumption, the ratio between the prediction and the actual price of a residence is thus a measure of the market index:
-\begin{equation}
-  \begin{split}
-    z_\mathrm{mi} &\equiv \frac{\hat{y}}{y} = 1 - \frac{\hat{y}-y}{y}  = 1-z \\
-    \mathrm{MI}_\mathrm{mean} &= \mathrm{mean}(\vec{z}_\mathrm{mi}) \\
-    \mathrm{MI}_\mathrm{median} &= \mathrm{median}(\vec{z}_\mathrm{mi}).
-    \label{eq:h:market_index}
-  \end{split}
-\end{equation}
-Here $\vec{z}_\mathrm{mi}$ is the vector of ratios between prediction and actual price, and the market index can then be estimated using either the mean $\mathrm{MI}_\mathrm{mean}$ or the median $\mathrm{MI}_\mathrm{median}$. The market indices for every month of the forecast described in the previous figure are shown in Figure~\ref{fig:h:forecast_MarketIndex}. In the top panel the market index is shown for the static model. Here the median $\mathrm{MI}_\mathrm{median}$  is consistently higher than \num{1}, around \SI{1}{\percent}. Compare this to the dynamic $\mathrm{MI}_\mathrm{median}$ in the lower plot which fluctuates around \num{1}. The mean $\mathrm{MI}_\mathrm{mean}$ is added to show that its fluctuations are higher than the medians. 
-\begin{figure}
-  \centerfloat
-  \includegraphics[width=0.99\textwidth, trim=10 15 10 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_forecast_prediction_MarketIndex.pdf}
-  \caption[Market Index based on the Static and Dynamic XGB Forecasts]
-          {The Market Index as defined in equation \eqref{eq:h:market_index} for the static and dynamic 1-month forecasts for \num{2018} and \num{2019}. The \textcolor{red}{mean} is plotted in red and the \textcolor{blue}{median} in blue.} 
-  \label{fig:h:forecast_MarketIndex}
-\end{figure}
-
-The final results for the model is seen in Table~\ref{tab:h:results_ejer} for owner-occupied apartments and in in Table~\ref{tab:h:results_villa} for one family houses. The MAD is around \SI{9}{\percent} for apartments and \SI{16}{\percent} for houses, which is still worse than the realtors' prediction, yet still acceptable for a model that does not have any variables describing the indoor conditions. For apartments around \SI{40}{\percent} of all the predictions are within $\pm \SI{5}{\percent}$ and more than \SI{90}{\percent} are within $\pm \SI{20}{\percent}$ which is similar to the performance of the professional automated property evaluations from e.g. \citet{bolighedBolighedUsikkerhedDatavurderingen}. The performance on the tight cuts is shown in Table~\ref{tab:h:results_ejer_tight} and \ref{tab:h:results_villa_tight}. 
-
+The results for the final model are shown in Table~\ref{tab:h:results_ejer} for owner-occupied apartments and in in Table~\ref{tab:h:results_villa} for one family houses. The MAD is around \SI{9}{\percent} for apartments and \SI{16}{\percent} for houses, which is still worse than the realtors' predictions, yet still acceptable for a model that does not have any variables describing the indoor conditions. For apartments around \SI{40}{\percent} of all the predictions are within $\pm \SI{5}{\percent}$ and more than \SI{90}{\percent} are within $\pm \SI{20}{\percent}$ which is similar to the performance of the professional, automated property evaluations from e.g. \citet{bolighedBolighedUsikkerhedDatavurderingen}. The performances on the tight cuts are shown in Table~\ref{tab:h:results_ejer_tight} and \ref{tab:h:results_villa_tight}. 
 
 \begin{table}
   \centerfloat
@@ -601,7 +558,6 @@ The final results for the model is seen in Table~\ref{tab:h:results_ejer} for ow
     Test  & \num{9.29} & \num{41.33} & \num{69.77} & \num{91.91} \\
     2019  & \num{9.89} & \num{38.85} & \num{66.76} & \num{90.04}    
   \end{tabular}
-  \vspace{\abovecaptionskip}
   \caption[Performance Metrics for Apartments]{Performance metrics for the final housing model trained and evaluated on apartments.}
   \label{tab:h:results_ejer}
 \end{table}
@@ -616,29 +572,70 @@ The final results for the model is seen in Table~\ref{tab:h:results_ejer} for ow
     Test  & \num{15.79} & \num{25.61} & \num{47.52} & \num{75.14}  \\
     2019  & \num{16.50} & \num{24.01} & \num{45.89} & \num{74.22}     
   \end{tabular}
-  \vspace{\abovecaptionskip}
   \caption[Performance Metrics for Houses]{Performance metrics for the final housing model trained and evaluated on houses.}
   \label{tab:h:results_villa}
 \end{table}
 
 
+
+\section{Forecasting}
+\label{sec:h:forecasting}
+
+To gauge the predictive power of the final model over time, we predicted prices of the following month's sales and compared the predictions to the actual, sold prices. This is done on a month-by-month basis for all the months in the test set (\num{2018}) and \num{2019}. 
+We applied two different methods of forecasting: \emph{static} forecasting where the model is only trained once, and \emph{dynamic} forecasting where the model is retrained after each month on all of the previous sales. These predictions allow the relative predictions $\vec{z}$ to be calculated and the MAD and the standard deviation (SD) of $\vec{z}$ are shown in Figure~\ref{fig:h:forecast_MAD_SD}. 
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=10 15 10 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_forecast_prediction_MAD.pdf}
+  \caption[Standard Deviation and MAD of the Static and Dynamic XGB Forecasts]
+          {Performance of 1-month forecasts for apartments sold in \num{2018} and \num{2019}. For both plots the XGB model is trained on data up to (but excluding) 2018. Top) The performance of the static model's prediction for both the \textcolor{blue}{standard deviation (SD)} and \textcolor{red}{MAD} of the $z$-scores. Bottom) Same as above, however, based on a dynamic model, i.e. a model which is retrained after every month to include the previous month's sales.} 
+  \label{fig:h:forecast_MAD_SD}
+\end{figure}
+
+In the top subplot the results for the static forecast are shown, whereas the dynamic results are shown in the bottom subplot. The errorbars are calculated using the usual variance of the standard deviation:
+\begin{equation}
+  \sigma_\mu  = \frac{\sigma}{\sqrt{N}}, \quad \sigma_\sigma = \frac{\sigma}{\sqrt{2N}},
+\end{equation}
+where $\sigma_\mu$ is the standard deviation of the mean and $\sigma_\sigma$ is the standard deviation of the standard deviation\sidenote{That this estimator is biased does not matter since we are in the large $N$ limit, $N \sim 1000$.} \autocite{Barlow:0471922951}.
+Notice the large fluctuations in the standard deviations over time compared to the MADs which is an effect of MAD being a robust estimator. What is also interesting to note is that the MAD seems to increase over time for the static model, albeit slowly. In comparison, for the dynamic model this seem less pronounced. This figure not only shows the time dependence of the performance of the model, but also that the model is quite stable over time, at least for the dynamic model. 
+
+Using the relative price predictions $\vec{z}$, we construct the Market Index, $\mathrm{MI}$. This is an index which measures the overall level of the Danish housing market based on the assumption that if the houses sold in a month are generally sold at a higher price than was predicted by the model, there can be two reasons for it: either the model was wrong or the market simply changed in the time span. With the latter assumption, the ratio between the prediction and the actual price of a residence is thus a measure of the market index:
+\begin{equation}
+  \begin{split}
+    z_\mathrm{mi} &\equiv \frac{\hat{y}}{y} = 1 - \frac{\hat{y}-y}{y}  = 1-z \\
+    \mathrm{MI}_\mathrm{mean} &= \mathrm{mean}(\vec{z}_\mathrm{mi}) \\
+    \mathrm{MI}_\mathrm{median} &= \mathrm{median}(\vec{z}_\mathrm{mi}).
+    \label{eq:h:market_index}
+  \end{split}
+\end{equation}
+Here $\vec{z}_\mathrm{mi}$ is the vector of ratios between prediction and actual price, and the market index can then be estimated using either the mean $\mathrm{MI}_\mathrm{mean}$ or the median $\mathrm{MI}_\mathrm{median}$. 
+
+Figure~\ref{fig:h:forecast_MarketIndex} shows the market indices on a monthly basis for the static and the dynamic models. In the top panel the market index is shown for the static model. Here the median $\mathrm{MI}_\mathrm{median}$  is consistently higher than \num{1}, around \SI{1}{\percent}. Compare this to the dynamic $\mathrm{MI}_\mathrm{median}$ in the lower plot which fluctuates around \num{1}. The mean $\mathrm{MI}_\mathrm{mean}$ is added to show that its fluctuations are higher than the medians. 
+\begin{figure}
+  \centerfloat
+  \includegraphics[width=0.99\textwidth, trim=10 15 10 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_forecast_prediction_MarketIndex.pdf}
+  \caption[Market Index based on the Static and Dynamic XGB Forecasts]
+          {The Market Index as defined in equation \eqref{eq:h:market_index} for the static and dynamic 1-month forecasts for \num{2018} and \num{2019}. The \textcolor{red}{mean} is plotted in red and the \textcolor{blue}{median} in blue.} 
+  \label{fig:h:forecast_MarketIndex}
+\end{figure}
+
 \FloatBarrier
 \section{Model Inspection}
 \label{sec:h:model_inspection}
 
-One of the most important aspects of applying advanced machine learning methods, in addition to getting accurate predictions is to understand the model. As mentioned in \autoref{sec:ml:feature_importance}, it is possible to use SHAP values to inspect the trained model for both local predictions and for global feature importances $\phi_i^\mathrm{tot}$. An example of how to use SHAP to better understand a local prediction is seen in Figure~\ref{fig:h:shap_single_apartment}. Here the SHAP values for a particular sale are visualized as a bar chart where the green colors are positive values, red values negative values and the blue is the final prediction $\hat{y}$. Remember that for SHAP values the prediction is the sum of all of the SHAP values, see equation \eqref{eq:ml:additive_feature_attribution_method}. Here $\phi_0$ is the expectation value denoted as \code{Bias} in the plot. To show all \num{143} variables would make the figure excessively large, so two extra bins have been added: the \code{Overflow} bar which is the sum of the remaining positive SHAP values and likewise with \code{Underflow} for negative values. The sum of all the green and red bars adds up to $\hat{y}=\SI{6.86}{\Mkr}$ in this particular instance and the actual sold value was $y=\SI{6.35}{\Mkr}$ Thus, in cases where there is a large discrepancy between the predicted and actual sales prices, one can use this tool to better understand why the prediction was estimated as it was. 
+As mentioned previously, one of the most important aspects of advanced machine learning methods (in addition to getting accurate predictions) is to understand the model. As mentioned in \autoref{sec:ml:feature_importance}, it is possible to use SHAP values to inspect the trained model for both local predictions and for global feature importances $\phi_i^\mathrm{tot}$. An example of how to use SHAP to better understand a local prediction is shown in Figure~\ref{fig:h:shap_single_apartment}. In this figure, I visualize the SHAP values for a particular sale as a bar chart and compare it to the final prediction $\hat{y}$. Remember, for SHAP values the prediction is the sum of all of the SHAP values. The expectation value is denoted as \code{Bias} in the plot. To show all \num{143} variables would make the figure excessively large, so two extra bins have been added: the \code{Overflow} bar which is the sum of the remaining positive SHAP values and likewise with \code{Underflow} for negative values. The sum of all the green and red bars adds up to $\hat{y}=\SI{6.86}{\Mkr}$ in this particular instance and the actual sold value was $y=\SI{6.35}{\Mkr}$ Thus, in cases where there is a large discrepancy between the predicted and actual sales prices, one can use this tool to better understand why the prediction was estimated as it was. 
 
-\begin{figure}[ht!]
+\begin{figure*}[ht!]
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=15 15 10 40, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_SHAP_fig_loc=489266.pdf}
   \caption[SHAP Prediction Explanation for Apartments]
           {Model explanation for XGB model for a specific apartment. The bars are the variables in the dataset that the model found most important sorted after their importance for this particular apartment. The bias bar refers to the expected value of the model, which is simply the mean of the training set which acts as the naive prediction baseline. The \q{cutoff positive (negative)} bars are the sum of the remaining positive (negative) values that are not shown. On the right hand side of the plot is the model prediction shown. The model prediction is the sum of all of the bars in the left par (\SI{6.86}{\Mkr} in this example). The \textcolor{red}{negative} values are shown in red, \textcolor{green}{positive} ones in green, and the \textcolor{blue}{prediction value} in blue. 
           } 
   \label{fig:h:shap_single_apartment}
-\end{figure}
+\end{figure*}
 
-Figure~\ref{fig:h:shap_overview} showns which variables are most important on a global\sidenote{Global here meaning for the entire dataset.} scale as measured by $\phi_i^\mathrm{tot}$. Here the variables are sorted according to the normalized $\phi_i^\mathrm{tot}$ which is shown in parentheses after each variable name. In the center of the plot is shown a dot-plot of the dataset plotted with the SHAP value on the abscissa and colored according to the feature value. 
-The way to interpret this plot is as follows. Take a variable of interest, e.g. the area of the apartment \code{ArealBolig} with $\phi_\mathrm{ArealBolig}^\mathrm{tot}=\SI{5.35}{\percent}$. Every dot is a sale plotted as a function of their SHAP value with a spread such that the height corresponds to the SHAP distribution of that specific feature. For the area it can be seen that there is a long tail towards high SHAP values, however, most of the samples have slightly negative SHAP values. The dots are colored according to their feature value and it can thus be seen that large apartments (red) are given a higher SHAP value than small apartments (blue); precisely as expected from the model. In contrary, when the total days on market (\code{LiggetidSamlet}) is large it pushes the prediction in the negative direction. 
+Figure~\ref{fig:h:shap_overview} shows which variables are most important on a global scale as measured by $\phi_i^\mathrm{tot}$. Here the variables are sorted according to the normalized $\phi_i^\mathrm{tot}$ which is shown in parentheses after each variable name. In the center of the plot is shown a dot-plot of the dataset plotted with the SHAP value on the $x$-axis and colored according to the feature value. 
+
+The way to interpret this plot is as follows. Take a variable of interest, e.g. the area of the apartment \code{ArealBolig} with $\phi_\mathrm{ArealBolig}^\mathrm{tot}=\SI{5.35}{\percent}$. Every dot is a sale plotted as a function of their SHAP value with a spread such that the height corresponds to the SHAP distribution of that specific feature. For the area, it can be seen that there is a long tail towards high SHAP values, however, most of the samples have slightly negative SHAP values. The dots are colored according to their feature value and it can thus be seen that large apartments (red) are given a higher SHAP value than small apartments (blue); precisely as expected from the model. In contrary, when the total days on market (\code{LiggetidSamlet}) is large it pushes the prediction in the negative direction. 
 
 \begin{figure}[ht!]
   \centerfloat
@@ -649,9 +646,7 @@ The way to interpret this plot is as follows. Take a variable of interest, e.g. 
   \label{fig:h:shap_overview}
 \end{figure}
 
-The SHAP software \citep{lundbergConsistentIndividualizedFeature2018} not only allows for 1D dependencies to be gauged, it also allows for so-called \emph{interaction plots}. These plots shows the 2D-dependence between the variable and the SHAP value colored according to a second variable. Since the previous public property valuation (PPPV) (\code{EjendomdsVaerdi0}) is the most important of the features, the interaction plot of this variable is seen in Figure~\ref{fig:h:shap_overview_interaction}. 
-
-Here the SHAP value of the \code{EjendomdsVaerdi0} is plotted as a function of \code{EjendomdsVaerdi0}. This plot shows that the higher the PPPV, the higher the model output. The colors show how this trend depends on time by the variable \code{SalgsDato_siden0} which is the number of days since January \nth{1} 2009 that the apartment was sold. The plots shows that newer sales with a high PPPV has even higher SHAP values than older sales with the same high PPPV. This agrees with the fact that the market has gone up since 2009. On the other hand, for low PPPV apartments the relationship with time is inverse, however, the effect is much smaller here. The SHAP software chose to color by \code{SalgsDato_siden0} since this is the variable which explains most of the variation for a given PPPV. 
+The SHAP software \citep{lundbergConsistentIndividualizedFeature2018} not only allows for 1D dependencies to be gauged, it also features the so-called \emph{interaction plots}. These plots show the 2D-dependence between the variable and the SHAP value colored according to a second variable. Since the previous public property valuation (PPPV) (\code{EjendomdsVaerdi0}) is the most important of the features, the interaction plot of this variable is seen in Figure~\ref{fig:h:shap_overview_interaction}. Here the SHAP value (of the \code{EjendomdsVaerdi0}) is plotted as a function of \code{EjendomdsVaerdi0}. This plot shows that the higher the PPPV, the higher the model output. The colors show how this trend depends on time by the variable \code{SalgsDato_siden0} which is the number of days since January \nth{1} 2009 that the apartment was sold. The plots shows that newer sales with a high PPPV has even higher SHAP values than older sales with the same high PPPV. This agrees with the fact that the market has gone up since 2009. On the other hand, for low PPPV apartments the relationship with time is opposite, however, the effect is much smaller here. The SHAP software chose to color by \code{SalgsDato_siden0} since this is the variable which explains most of the variation for a given PPPV. 
 
 \begin{figure}
   \centerfloat
@@ -661,15 +656,15 @@ Here the SHAP value of the \code{EjendomdsVaerdi0} is plotted as a function of \
   \label{fig:h:shap_overview_interaction}
 \end{figure}
 
-What can be concluded from this plot is that for apartments with a high PPPV and that were sold recently were sold for more than apartments with the same PPPV that were sold longer time ago; effectively the time dependence of sales prices. These interaction plots serves as helpful sanity checks to see that the model is actually learning reasonable relationships between the variables. 
+What can be concluded from this plot is that apartments with a high PPPV that were sold recently were sold for more than similar apartments (with the same PPPV) which were sold a longer time ago. This is effectively the time dependence of the sales prices. These interaction plots serves as helpful sanity checks to see that the model is actually learning reasonable relationships between the variables. 
 
 \FloatBarrier
 \section{Multiple Models}
 \label{sec:h:multiple_models}
 
-In addition to the XGBoost \autocite{chenXGBoostScalableTree2016} (XGB) BDT model, several other models were also tested. During the sub-project the LightGBM package \autocite{keLightGBMHighlyEfficient2017} (LGB), also a BDT model, was released and started gaining traction in the ML community, especially for large-scale data analysis. In comparison to XGBoost, LightGBM implements some extra binning and categorical assumptions that greatly speeds up the fitting process. It was trained in the same way as the XGBoost model with the same hyperparameter optimization process and range for the hyperparameters. 
+In addition to the XGBoost model, several other models were also tested. During the project, the LightGBM package \autocite{keLightGBMHighlyEfficient2017} (LGB), was released and started gaining traction in the ML community, especially for large-scale data analysis. LightGBM is also a type of boosted decision tree, however, in comparison to XGBoost, LightGBM implements some extra binning and categorical assumptions that greatly speeds up the fitting process. The LightGBM model was trained in the same way as the XGBoost model with the same hyperparameter optimization process and range for the hyperparameters. 
 
-To compliment the boosted decision trees, a simple linear model (LIN) with $L_2$ loss (ridge regression) was fitted. Before the fit all of the NANs were median-imputed which means that all invalid values were replaced with the median along each column. All the features were scaled\sidenote{Scaling of input features is generally an important preprocessing step for non-tree based ML models.} with a robust scaler from Scipy \autocite{virtanenSciPyFundamentalAlgorithms2019} in the $(25, 75)$ quantiles range and the regularization parameter was hyperparameter optimized. This linear model is quick and easy to both implement and fit, and can be seen as the simplest baseline model.
+To compliment the boosted decision trees, a simple linear model (LIN) with $L_2$ loss (ridge regression) was fit. Before it was fit, all of the NANs were median-imputed. This means that all invalid values were replaced with the median for each variable\sidenote[][-6mm]{Since the linear model cannot deal with NANs naturally like XGBoost and LightGBM can.}. All the features were scaled\sidenote[][3mm]{Scaling of input features is generally an important preprocessing step for non-tree based ML models.} with a robust scaler from Scipy \autocite{virtanenSciPyFundamentalAlgorithms2019} in the $(25, 75)$ quantiles range and the regularization parameter was hyperparameter optimized. This linear model is quick and easy to both implement and fit, and can be seen as the simplest baseline model.
 
 The $K$-nearest neighbors (KNN) algorithm was fitted to the data with a data preprocessing pipeline similar to the linear model with median imputation and robust scaling of the input features. The number of neighbors, $K$, was hyperparameter optimized together with the $p$-norm of the metric, $p \in \left\{ 1, 2\right\}$ (Manhattan, Euclidean, see also \autoref{subsec:regularization}).
 
@@ -683,41 +678,42 @@ Finally, support vector machines\sidenote{Known as support vector regression whe
   \label{fig:h:multiple_models}
 \end{figure*}
 
-The results for the five different models are shown in Figure~\ref{fig:h:multiple_models}, where the two subplots are the same up to a logarithmic scaling of the ordinate axis in the right plot. It is easily seen how XGBoost and LightGBM are the best-performing models together with the ensemble (ENS) of the different models, see paragraph below for further explanation. In the figure the MAD is also shown on the test set, which confirms the visual clue: that XGBoost performs best, followed by the ensemble model.
+The results for the five different models are shown in Figure~\ref{fig:h:multiple_models}. The two histograms are the same, the only difference is the logarithmic $y$-axis in the right subplot to better visualize the tails of the distributions. The figure shows how XGBoost and LightGBM are the best-performing models together with the ensemble (\code{ENS}) of the different models. This combined model is explained below. The evaluation score of the test set, \code{MAD}, is also shown on the figure. The scores confirm the visual clue: that the ensemble model performs the best, followed by the XGBoost model.
 
 
-The five different models -- XGB, LGB, LIN, KNN, SVR -- should be able to each capture different parts of the hyperdimensional phase space and an ensemble of these models would thus be expected to be as good as or better than the best of the individual models. This kind of ensemble model is sometimes called a \emph{super learner} in the statistics community \autocite{polleySuperLearnerPrediction2010,vanSuperLearner2007}. To make sure that the ensemble model is not just retraining on the training set, and thus end up overfitting, we follow the process from \citet{polleySuperLearnerPrediction2010}. Using cross-validation for time-series\sidenote{See \autoref{subsec:cross_validation}.} data with $10$ folds, the training data is split up into folds sorted by time. Each fold is fitted with all five models, and the prediction of the next fold is made for all five models. This is repeated for the remaining folds until one ends up with a matrix of predictions $\vec{Z} \in \mathbb{R}^{(N \times 5)}$ for $N$ training samples. Since all the folds in $\vec{Z}$ consists of predictions on unseen data\sidenote{The predictions for the very first fold is based on training data.} this prevents overfitting. The meta learner then fits $\vec{Z}$ to the actual predictions of the training data $y$ in the usual way. The combination of a meta learner fitted to the predictions of individual models is called an ensemble model.
+The five different models -- XGB, LGB, LIN, KNN, SVR -- should be able to each capture different parts of the hyperdimensional phase space and an ensemble of these models would thus be expected to be as good as or better than the best of the individual models. This kind of ensemble model is sometimes called a meta learner or a \emph{super learner} in the statistics community \autocite{vanSuperLearner2007}. 
+
+To make sure that the ensemble model is not just retraining on the training set, and thus end up overfitting, we follow the process from \citet{polleySuperLearnerPrediction2010}. Using cross-validation for time-series\sidenote{See \autoref{subsec:cross_validation}.} data with $10$ folds, the training data is split up into folds sorted by time. Each fold is fitted with all five models, and the prediction of the next fold is made for all five models. This is repeated for the remaining folds until one ends up with a matrix of predictions $\vec{Z} \in \mathbb{R}^{(N \times 5)}$ for $N$ training samples. Since all the folds in $\vec{Z}$ consists of predictions on unseen data\sidenote{The predictions for the very first fold is based on training data.}, this prevents overfitting. The meta learner fits $\vec{Z}$ to the actual predictions of the training data $y$ in the usual way. The combination of a meta learner fitted to the predictions of individual models is called an ensemble model.
 
 At first an XGBoost model was used as the meta learner yielding decent results, however, still performing worse than the single XGB model ($\mathrm{MAD} = \SI{9.57}{\percent}$). To better understand the issue, the meta learner was changed to a linear model which would basically just compute a weighted average of the different models:
 \begin{equation}
   \label{eq:h:meta_learner}
   \Psi_\mathrm{meta}(\vec{x}) = \sum_{i=1}^5 \alpha_i \Psi_i(\vec{x}),
 \end{equation}
-where $\bm{\alpha}$ is a vector of the weights for the meta learner and $\Psi_i$ is each of the individual ML models. The linear model performed even worse than using XGB as the meta learner ($\mathrm{MAD} = \SI{10.48}{\percent}$), yet it was more transparent. During the debugging process it was realized that none of these models actually optimize the evaluation function, MAD, directly. The XGBoost model was trained using the Cauchy loss found earlier and the linear regression model using a simple squared error loss. Since a simple weighted average should work as the meta learner \citep{polleySuperLearnerPrediction2010}, a custom algorithm for finding $\bm{\alpha}$ according to MAD was implemented.
+where $\bm{\alpha}$ is a vector of the weights for the meta learner and $\Psi_i$ is one of the individual ML models. The linear model performed even worse than using XGB as the meta learner ($\mathrm{MAD} = \SI{10.48}{\percent}$), yet it was more transparent. During the debugging process it was realized that none of these models actually optimize the evaluation function, MAD, directly. The XGBoost model was trained using the Cauchy loss found earlier and the linear regression model using a simple squared error loss. Since a simple weighted average should work as the meta learner \citep{polleySuperLearnerPrediction2010}, a custom algorithm for finding $\bm{\alpha}$ according to MAD was implemented.
 
 Given the training data, the evaluation function as a function of $\bm{\alpha}$ was minimized using the MINUIT algorithm \cite{1975CoPhC..10..343J} via the iminuit \cite{iminuit} Python interface. It yielded decent results, yet they were all very dependent on the initial parameter of the fit indicating many local minima. A scan over the 5-dimensional hyperspace in steps of $0.01$ was thus conducted and the result of this scan was used as the new initial parameter in the minimization routine. This yielded the following result:
 \begin{equation}
   \bm{\alpha} = \begin{bmatrix*}[r] \alpha_\mathrm{LIN} \\  \alpha_\mathrm{KNN} \\ \alpha_\mathrm{SVR} \\ \alpha_\mathrm{XGB} \\ \alpha_\mathrm{LGB} \end{bmatrix*} = \begin{bmatrix*}[r] 0.202 \\  0.002 \\ 0.001 \\ 81.302 \\ 20.002 \end{bmatrix*} \times 10^{-2}.
 \end{equation}
-The fact that it sums to more than \num{1} just corresponds to an overall scaling. When using the found $\bm{\alpha}$ in equation \eqref{eq:h:meta_learner}, one gets the ensemble model (ENS) shown in Figure~\ref{fig:h:multiple_models} with a $\mathrm{MAD} = \SI{9.20}{\percent}$. This value is the evaluation loss on the test set based on only the training data and outperforms all of the individual models. 
+The fact that it sums to more than \num{1} just corresponds to an overall scaling. When using the found $\bm{\alpha}$ in equation \eqref{eq:h:meta_learner}, one gets the ensemble model (ENS) shown in Figure~\ref{fig:h:multiple_models} with a $\mathrm{MAD} = \SI{9.20}{\percent}$. This value is the evaluation loss on the test set based on only the training data and it outperforms all of the individual models. Even though the ensemble model has the best evaluation score, the performance gain is very little. Since it also requires a lot of training time (five different models have to be fitted), the ensemble model should mostly be seen as a proof of concept.
 
 The paragraphs above refer to apartments, however, the intermediate results for houses showed the same pattern. The combined model along with its performance is shown in Figure~\ref{fig:h:multiple_models_villa}
 
 \section{Discussion}
 \label{sec:h:discussion}
 
-The subproject of estimating housing prices has focussed a lot on experimenting with different machine learning models and how to optimize them. As shown in the previous sections, the choice of ML model is by far the most important. Actually, the gain from hyperparameter optimization is quite small, especially considering the amount of time spent on it\sidenote{Not only user-time programming it, but also the computational ressources spent.}. With the dataset at hand, decent results were achieved, however, they were nowhere near the performance of the realtors' predictions. 
+The subproject of estimating housing prices has focussed a lot on experimenting with different machine learning models and how to optimize them. As shown in the previous sections, the choice of ML model is by far the most important. Actually, the gain from hyperparameter optimization is quite small, especially considering the amount of time spent on it\sidenote{Not only user-time while programming it, but also the computational ressources spent.}. With the dataset at hand, decent results were achieved, however, they were nowhere near the performance of the realtors' predictions. 
 
-There are two main reasons for this, the first being that realtors are educated within this field and thus have developed the skills required for estimating the price of a house over many years of hard work. The second reason is the fact that the realtor has access to a lot more information than the ML models have. We are not in possession of any \emph{indoor variables}. The area of the house, the number of rooms, the name of the street, and the distance to a highway are all variables that are in the data set but none of them describe the overall quality of the house, the maintenance level, the age of the kitchen or bathroom. These indoor features are invisible to the ML model. 
+There are two main reasons for this. The first being that realtors are educated within this field and thus have developed the skills required for estimating the price of a house during many years of hard work. The second reason is the fact that the realtors have access to a lot more information than the ML models have. The ML models seen so far have not been trained on any \emph{indoor variables}. The area of the house, the number of rooms, the name of the street, and the distance to a highway are all variables that are in the data set but none of them describe the overall quality of the house, the maintenance level, the age of the kitchen or bathroom. These indoor features are invisible to the ML model. 
 
-During the project it was investigated how to get access to these variables. At first the online images from each sale was suggested, however, it turned out that Boligsiden only have the right to use them while a residence is for sale; when it is sold all rights return to the photographer. The images are not the only thing that provide more information about the condition of the residence, also the descriptions does that. 
+During the project it was investigated how to get access to these variables. At first the online images from each sale were suggested. Unfortunately, it turned out that Boligsiden only have the right to use them while a residence is for sale; when it is sold all rights return to the photographer. Fortunately, the images are not the only piece of data that provide more information about the condition of the residence: also the descriptions do that. 
 
-The descriptions turned out to be available for most of the sales and was investigated for a short period. At that time of the project, the MAD for (a subset of the) apartments was around $\pm \SI{14}{\percent}$ and $\pm \SI{20}{\percent}$ for houses. By using methods from the big natural language processing (NLP) community within the field of machine learning, it was possible to reduce the MAD to around $\pm \SI{12}{\percent}$ and $\pm \SI{15}{\percent}$ for apartments and houses respectively. From the improvement in performance it is noticeable how apartments in general are much more uniform compared to houses where the \q{inside} is more decisive regarding the price. 
+The descriptions turned out to be available for most of the sales and were investigated for a short period. At that time of the small investigation, the MAD for (a subset of) the apartments was around $\pm \SI{14}{\percent}$ and $\pm \SI{20}{\percent}$ for houses. By using methods from the big natural language processing (NLP) community within the field of machine learning, it was possible to reduce the MAD to around $\pm \SI{12}{\percent}$ and $\pm \SI{15}{\percent}$ for apartments and houses respectively. From the improvement in performance it is noticeable how apartments in general are much more uniform compared to houses where the \q{inside} is more decisive regarding the price. 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/housing_text/villa_tfidf.pdf}
-  % \caption[SHAP plot villa TFIDF XXX]{SHAP plot villa TFIDF XXX.}
   \caption[Feature Importance of Villas With Descriptions]
           {Feature importance of villas when the descriptions are also used. The variables are sorted top to bottom according to their overall feature importance, i.e. the previous public property valuation \code{EjendomdsVaerdi0} is the most important single feature. Along the $x$-axis is the impact on model output, in this example the price in \si{\Mkr} This axis is colored by the value of the feature, from \textcolor{blue}{low} (blue) to \textcolor{red}{high} (red). In this particular example we see that high values of the previous public property valuation has high, positive impact on the model prediction -- exactly as expected. This is in contrast to the word \q{requires} (\colorbox{light-gray}{\texttt{trænger}}) where a high value has a negative impact.} 
   \label{fig:h:shap_text}
@@ -725,12 +721,12 @@ The descriptions turned out to be available for most of the sales and was invest
 
 The methods for translating the text to numerical variables decipherable by classical ML models were for instance simple \emph{bag of words} (BOW) models and \emph{Term Frequency, Inverse Document Frequency} (TF-IDF) but also slightly more advanced statistical tools such as \emph{Latent Dirichlet Allocation} (LDA). 
 
-An old example of this were a housing-based model that was trained with the five numerical variables\sidenote{With the Danish names: \code{Ejendomsvaerdi0}, \code{GeoPostNr}, \code{ByggeAAr}, \code{Afstand_Kyst}, and \code{BeregnetAreal}.}: the PPPV, postal code, year of construction, distance to shore, and the weighted area. and the text descriptions (encoded with TF-IDF). Figure~\ref{fig:h:shap_text} shows the SHAP summary plot of the trained model. As expected, the most important features are the numerical ones, however, the word \code{flot} (\q{pretty}) was in top five. The model also learnt that \code{flot} has a positive impact on the price compared to \colorbox{light-gray}{\texttt{trænger}} (\q{requires}) which has a negative impact.
+An old example of this was a house based model that was trained with the five numerical variables\sidenote{With the Danish names: \code{Ejendomsvaerdi0}, \code{GeoPostNr}, \code{ByggeAAr}, \code{Afstand_Kyst}, and \code{BeregnetAreal}.}: the PPPV, postal code, year of construction, distance to shore, and the weighted area. In addition ti the numerical variables, also the text descriptions (encoded with TF-IDF) were trained on. Figure~\ref{fig:h:shap_text} shows the SHAP summary plot of the trained model. The three most important features turned out to be the numerical ones, however, the word \code{flot} (\q{pretty}) was ranked \nth{4}. The model also learnt that \code{flot} has a positive impact on the price compared to \colorbox{light-gray}{\texttt{trænger}} (\q{requires}) which has a negative impact.
 % \code{Ejendomsvaerdi0} (PPPV), \code{GeoPostNr} (postal code), \code{ByggeAAr} (year of construction), \code{Afstand_Kyst} (distance to shore), and \code{BeregnetAreal} (weighted area) 
 
-The descriptions turned out to be more time-consuming to extract for Boligsiden and along with the fact that overall deadline was quickly approaching, the remaining time was focussed on the main part of the project, the quark gluon discrimination. Given more time, the text analysis would definitely be the first step for further improving the accuracy and precision of the price predictions. 
+The descriptions turned out to be more time-consuming to extract for Boligsiden and along with the fact that the overall deadline was quickly approaching, the remaining time was focussed on the main part of the project, the quark gluon discrimination. Given more time, the text analysis would definitely be the first step for further improving the accuracy and precision of the price predictions. 
 
-Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the initial stages of this subproject but showed inferior performance compared to BDTs. It is generally accepted in the ML community (with some modifications) that neural networks underperform, or at least not outperform, classic ML methods on structured \sidenote{In general data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations which is why it is also known as \emph{tabular data}.} data \autocite{klambauerSelfNormalizingNeuralNetworks2017}. Most often they have the inherent complexity needed to perform as well as other ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than for classical ML methods and thus requires more care to avoid overfitting.
+Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the initial stages of this subproject but showed inferior performance compared to BDTs. It is generally accepted in the ML community (with some modifications) that neural networks underperform, or at least not outperform, classic ML methods on structured data\sidenote{Structured data are data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations. This is why it is also known as \emph{tabular data}.} \autocite{klambauerSelfNormalizingNeuralNetworks2017}. Most often they have the inherent complexity needed to perform as well as other ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than for classical ML methods and thus requires more care to avoid overfitting.
 
 \section{Conclusion}
 \label{sec:h:conclusion}

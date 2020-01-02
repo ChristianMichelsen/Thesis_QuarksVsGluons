@@ -433,11 +433,15 @@ This is exactly the negative of the r.h.s. of equation \eqref{eq:ml:boosted_deci
 \begin{equation}
   h(x) = - \frac{\partial L}{\partial F_k}.
 \end{equation}
-We thus end up with the following iterative model which is basically a \emph{gradient descent} algorithm.
+We thus end up with the following iterative model which is basically a \emph{gradient descent} algorithm with the learning $\eta$ set to \num{1}:
 \begin{equation}
   F_{k+1}(x) = F_k(x) + h(x) = F_k - \frac{\partial L}{\partial F_k}.
 \end{equation}
-
+When the learning rate is allowed to float, one gets:
+\begin{equation}
+  F_{k+1}(x) = F_k - \eta \cdot \frac{\partial L}{\partial F_k}.
+\end{equation}
+In general, the learning rate is a low value, e.g. $\eta=0.01$. The learning rate scales the following iteration by a factor $\eta$ after each step of tree boosting.
 
 AdaBoost \autocite{freundDesiciontheoreticGeneralizationOnline1995} was the first major algorithm to make use of boosting. It was seen as a way of iteratively giving wrongly predicted observations higher weight, however, this is just a result of a \q{lucky} choice of loss function\sidenote{Exponential loss for classification.} which was not realized until much later. AdaBoost could be used with many different weak learners, however, mostly decision trees were used to form boosted decision trees. 
 
@@ -456,7 +460,7 @@ The naive approach would simply be to manually\sidenote[][-5mm]{Also known jokin
 
 Grid search (GS) is a HPO method also known as full factorial design. It is called grid search because it tries all possible combinations of the hyperparameter configuration space: the so-called cartesian product of $\bm{\Lambda}$. Imagine a 2D space where the two domains are respectively $x=\{1, 2, 3\}$ and $y=\{1, 2, 3,4\}$. Grid search runs through all $3 \times 4 = 12$ combinations of these two sets: 
 
-\begin{marginfigure}
+\begin{marginfigure}[-4cm]
   \centerfloat
   \includegraphics[width=\textwidth]{figures/gridsearch/grid.pdf}
   \caption[Grid Search]{Visualization of grid search run on the two hyperparameters $x$ and why $y$ with the domains $x=\{1, 2, 3\}$ and $y=\{1, 2, 3,4\}$.}
@@ -466,7 +470,7 @@ Grid search (GS) is a HPO method also known as full factorial design. It is call
 \begin{equation}
   (x_i, y_i) \in \{(1, 1), (1, 2), \dots, (x_i, y_i), \dots, (3, 4)\},
 \end{equation}
-as visualized in Figure~\ref{fig:ml:gridsearch}. The advantage of grid search is that it is an exhaustive search over all combinations of hyperparameters, however, the total number of combinations grows exponentially and grid search as a method thus suffers the curse of dimensionality\sidenote[][2mm]{Not the dimensionality of the input feature space, but of the hyperparameter configuration space.}.
+as visualized in Figure~\ref{fig:ml:gridsearch}. The advantage of grid search is that it is an exhaustive search over all combinations of hyperparameters, however, the total number of combinations grows exponentially and grid search as a method thus suffers the curse of dimensionality\sidenote{Not the dimensionality of the input feature space, but of the hyperparameter configuration space.}.
 
 
 
