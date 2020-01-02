@@ -2,7 +2,7 @@
 \contentsline {chapter}{Table of Contents}{v}{section*.2}
 \contentsline {chapter}{Foreword}{xi}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {part}{Part I}{3}{chapter*.5}
+\contentsline {part}{Part I}{3}{chapter*.6}
 \contentsline {chapter}{\numberline {2}Machine Learning}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Statistical Learning Theory}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Supervised Learning}{6}{section.2.2}
@@ -16,13 +16,13 @@
 \contentsline {subsection}{\numberline {2.5.1}Evaluation Function}{16}{subsection.2.5.1}
 \contentsline {section}{\numberline {2.6}Decision Trees}{16}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Ensembles of Decision Trees}{17}{subsection.2.6.1}
-\contentsline {subsubsection}{Random Forests}{17}{subsubsection*.6}
-\contentsline {subsubsection}{Boosted Decision Trees}{18}{subsubsection*.7}
-\contentsline {section}{\numberline {2.7}Hyperparamater Optimization}{19}{section.2.7}
+\contentsline {subsubsection}{Random Forests}{17}{subsubsection*.7}
+\contentsline {subsubsection}{Boosted Decision Trees}{18}{subsubsection*.8}
+\contentsline {section}{\numberline {2.7}Hyperparameter Optimization}{19}{section.2.7}
 \contentsline {subsection}{\numberline {2.7.1}Grid Search}{20}{subsection.2.7.1}
 \contentsline {subsection}{\numberline {2.7.2}Random Search}{20}{subsection.2.7.2}
 \contentsline {subsection}{\numberline {2.7.3}Bayesian Optimization}{21}{subsection.2.7.3}
-\contentsline {section}{\numberline {2.8}Feature Importance}{22}{section.2.8}
+\contentsline {section}{\numberline {2.8}Feature Importance}{23}{section.2.8}
 \contentsline {chapter}{\numberline {3}Danish Housing Prices}{27}{chapter.3}
 \contentsline {section}{\numberline {3.1}Data Preparation and Exploratory Data Analysis}{28}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Correlations}{30}{subsection.3.1.1}
@@ -38,7 +38,7 @@
 \contentsline {section}{\numberline {3.8}Multiple Models}{45}{section.3.8}
 \contentsline {section}{\numberline {3.9}Discussion}{47}{section.3.9}
 \contentsline {section}{\numberline {3.10}Conclusion}{49}{section.3.10}
-\contentsline {part}{Part II}{51}{chapter*.9}
+\contentsline {part}{Part II}{51}{chapter*.10}
 \contentsline {chapter}{\numberline {4}Particle Physics and LEP}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}The Standard Model}{53}{section.4.1}
 \contentsline {section}{\numberline {4.2}Quark Hadronization}{54}{section.4.2}
@@ -127,7 +127,7 @@
 \contentsline {section}{\numberline {B.38}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region B}{150}{section.B.38}
 \contentsline {section}{\numberline {B.39}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region C}{151}{section.B.39}
 \contentsline {section}{\numberline {B.40}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region D}{152}{section.B.40}
-\contentsline {chapter}{List of Figures}{159}{appendix*.10}
-\contentsline {chapter}{List of Tables}{162}{appendix*.11}
-\contentsline {chapter}{Bibliography}{163}{section*.12}
+\contentsline {chapter}{List of Figures}{159}{appendix*.11}
+\contentsline {chapter}{List of Tables}{162}{appendix*.12}
+\contentsline {chapter}{Bibliography}{163}{section*.13}
 \contentsfinish 

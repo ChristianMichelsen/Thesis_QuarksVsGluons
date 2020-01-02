@@ -268,51 +268,54 @@ Choosing the right value for the regularization strength is a fundamental proble
 In general we want to  be able to estimate the performance\sidenote{\q{Performance} is used here as the word for the general metric to be optimized for, whether or not this metric should be maximized or minimized.} of the developed model. Since evaluating the model on the data it was already trained on would give a biased estimate of the performance, we need an unbiased method of doing so. The easiest way would be to set a fraction of the data aside, e.g. \SI{20}{\percent}, train on the remaining part and then evaluate the performance on the data set aside. Splitting the data up like this would provide us with a training (data)set and a test set in a $(80/20)\%$ ratio. This would then yield an unbiased performance estimate when evaluation the performance on the test set. 
 However, if one then needed to compare two different models -- with e.g. different values of regularization strength $\lambda$ -- and choose the best one, as is often the case, this method would not work since we would choose the model with the best performance on the test set. This can be seen as training on the test set and thus it has \q{tainted} the purity of the test set. To avoid this, an additional split is made such that we get a training set, a validation set, and a test set, where you often see a $(80/10/10)\%$ ratio. The two models can then be compared on the validation set and the performance of the chosen model can be estimated from the test set. 
 
-\begin{marginfigure}
-  \includegraphics[width=0.98\textwidth, trim=5 5 5 5, clip]{figures/cross_validation/kfold.pdf}
+
+
+This way of splitting up the data has some clear benefits and is thus also often used. There is a drawback, however, and that is that we are not fully utilizing a lot of the data in this way. Basically, \SI{20}{\percent} of the data are only used to provide a single number of performance and does not necessarily allow an uncertainty or confidence interval of this measurement to be calculated. Thus, other methods of estimating model performance are developed. 
+
+\begin{marginfigure}[1cm]
+  \includegraphics[width=\textwidth, trim=5 5 5 5, clip]{figures/cross_validation/kfold.pdf}
   \caption[$k$-Fold Cross Validation]
     {$k$-fold cross validation. 
     }
   \label{fig:ml:cross_val_kfold}
 \end{marginfigure} 
 
-\begin{marginfigure}
-  \includegraphics[width=0.98\textwidth, trim=10 10 10 10, clip]{figures/cross_validation/kfold_time.pdf}
+One of the most used and well-known ones is the $k$-fold cross validation (CV). In $k$-fold cross validation the entire dataset is split up into $k$ chunks which are randomly drawn subsamples (without replacement). In the first iteration, the model is trained on the first $k-1$ subsamples and evaluated on the last $k$ subsample. In the second iteration the evaluation subsample is a new one. This process is continued $k$ times until all samples in the dataset have been trained and evaluated on \citep{hastieElementsStatisticalLearning2009}. For an illustration of this, see Figure~\ref{fig:ml:cross_val_kfold}. 
+
+The process yields $k$ estimates of the performance of the model which can then be averaged to form a single performance number and the variability of the performance can even be gauged\sidenote{Special care has to be taken here since the $k$ different performance values are not independent.}. The disadvantage of $k$-fold CV is that the performance estimate is now slightly biased, however, this effect is generally very small. The biggest disadvantage is the computational burden related to doing $k$-fold CV where $k\gg 1$. A compromise often used in applied machine learning is $k=5$ which is also what is used in this project.  
+
+Special care has to be taken when dealing with time series data. Here the problem of \emph{data leakage} is often introduced inadvertently. Data leakage is when the model is exposed to information from the test set that it was not supposed to be exposed to. In the case of time series data, if the data is split by the usual $k$-fold CV, then each subsample contains events from all times and the model does not learn how to predict future events. To circumvent this problem, a special type of $k$-fold CV for time series data has to be used. Here all samples up to a specific time, eg. all houses sold before 2018, is used for training and then the model is evaluated on the performance of samples after the event, e.g. houses sold in \num{2018}. For an illustration of this, see Figure~\ref{fig:ml:cross_val_kfold_time}.
+
+\begin{marginfigure}[-6cm]
+  \includegraphics[width=\textwidth, trim=5 5 5 5, clip]{figures/cross_validation/kfold_time.pdf}
   \caption[$k$-Fold Cross Validation for Time Series Data]
     {$k$-fold cross validation for time series data. 
     }
   \label{fig:ml:cross_val_kfold_time}
 \end{marginfigure} 
 
-This way of splitting up the data has some clear benefits and is thus also often used. There is a drawback, however, and that is that we are not fully utilizing a lot of the data in this way. Basically \SI{20}{\percent} of the data are only used to provide a single number of performance and does not necessarily allow an uncertainty or confidence interval of this measurement to be calculated. Thus other methods of estimating model performance are developed where one of the most used and well-known are the $k$-fold cross validation (CV). 
-
-In $k$-fold cross validation the entire dataset is split up into $k$ chunks which are randomly drawn subsamples (without replacement). In the first iteration, the model is trained on the first $k-1$ subsamples and evaluated on the last $k$ subsample. In the second iteration the evaluation subsample is a new one. This process is continued $k$ times until all samples in the dataset have been trained and evaluated on \citep{hastieElementsStatisticalLearning2009}. For an illustration of this, see Figure~\ref{fig:ml:cross_val_kfold}. The process yields $k$ estimates of the performance of the model which can then be averaged to form a single performance number and the variability of the performance can even be gauged\sidenote{Special care has to be taken here since the $k$ different performance values are not independent.}. The disadvantage of $k$-fold CV is that the performance estimate is now slightly biased, however, this effect is generally very small. The biggest disadvantage is the computational burden related to doing $k$-fold CV where $k\gg 1$. A compromise often used in applied machine learning is $k=5$ which is also what is used in this project.  
-
-Special care has to be taken when dealing with time series data. Here the problem of \q{data leakage} is often introduced inadvertently. Data leakage is when the model is exposed to information from the test set that it was not supposed to be exposed to. In the case of time series data, if the data is split by the usual $k$-fold CV, then each subsample contains events from all times and the model does not learn how to predict future events. To circumvent this problem, a special type of $k$-fold CV for time series data has to be used. Here all samples up to a specific time, eg. all houses sold before 2018, is used for training and then the model is evaluated on the performance of samples after the event, e.g. houses sold in \num{2018}. For an illustration of this, see Figure~\ref{fig:ml:cross_val_kfold_time}.
-
-
 \subsection{Early Stopping}
 \label{subsec:early_stopping}
-Most modern machine learning models are trained iteratively. This is the case for both (boosted) decision trees and neural networks, both of which are used in this project. Iteratively here means that the model starts off with an initial guess of the parameters of the model and then by looking at the data \q{learns} a new and better set of values. The question then become: for how long should the model be allowed to continue training?
+Most modern machine learning models are trained iteratively. This is the case for both (boosted) decision trees and neural networks, both of which are used in this project. In this context, iteratively means that the model starts off with an initial guess of the parameters of the model and \q{learns} a new and better set of values by looking at the data. The question then becomes: for how long should the model be allowed to continue training?
 
-This is a another example of the bias-variance tradeoff. The model should be trained long enough to be able to capture the complexity inherent in the data but also should not train for so long that it starts to overfit the data. Even though Figure~\ref{fig:ml:empirical_risk} was just an illustration of the bias variance tradeoff, it is also something that is seen in real data and can be taken advantage of through \emph{early stopping}. Early stopping is the process of monitoring the loss for the training set $\mathcal{D}_\mathrm{train}$ and validation set $\mathcal{D}_\mathrm{val}$. As mentioned in \autoref{subsec:cross_validation}, the model is only fitted on $\mathcal{D}_\mathrm{train}$ but the performance on $\mathcal{D}_\mathrm{val}$ is also measured. Whenever the validation loss starts to increase, the training of the model should be terminated. 
+This is a another example of the bias-variance tradeoff. The model should be trained long enough to be able to capture the complexity inherent in the data but also should not train for so long that it starts to overfit the data. Even though Figure~\ref{fig:ml:empirical_risk} was just an illustration of the bias variance tradeoff, it is also something that is seen in real data and can be taken advantage of through \emph{early stopping}. Early stopping is the process of monitoring the loss for the training set $\mathcal{D}_\mathrm{train}$ and validation set $\mathcal{D}_\mathrm{val}$. The model is only fitted on $\mathcal{D}_\mathrm{train}$ but the performance on $\mathcal{D}_\mathrm{val}$ is measured simultaneously. Whenever the validation loss starts to increase, the training of the model should be terminated. 
 
-To avoid stopping due to a single noise-induced outlier which terminated the process, one often uses \emph{patience} in the early stopping process: if the loss has not decreased since the last minimum after \emph{patience} number of iterations the process is terminated. Early stopping is thus an easy way of avoiding overfitting for iteratively trained models only requiring a validation set.  
+To avoid stopping due to a single noise-induced outlier which terminated the process, one often uses \emph{patience} in the early stopping process: if the loss has not decreased since the last minimum after \emph{patience} number of iterations the process is terminated. Early stopping is thus an easy way of avoiding overfitting for iteratively trained models that only requires a validation set.  
 
 \section{Loss functions}
 \label{sec:ml:loss_function}
-How we evaluate the performance of a model is of course very important since it defines the metric for the problem; what is good and what is bad? Obviously this depends on whether or not a classification problem or a regression problem is dealt with. Let us for now focus on the latter. Say that a house is estimated to cost \num{2} million DKK (\si{\Mkr}) but was sold for \SI{4}{\Mkr} Compare this to a house that was estimated to cost \SI{8}{\Mkr} but was sold for \SI{6}{\Mkr} In both cases the price was off by \SI{2}{\Mkr}, but does this mean that both predictions are equally good or bad? The first case was off by a factor of \num{2}, whereas the prediction in the second case was only off by $33\%$ (compared to the true value). The first case underestimated the price whereas the second overestimated; should this have any importance?
+How we evaluate the performance of a model is of course very important since it defines the metric for the problem; what is good and what is bad? Obviously, this depends on whether or not a classification problem or a regression problem is dealt with. Let us for now focus on the latter. Say that a house is estimated to cost \num{2} million DKK (\si{\Mkr}) but was sold for \SI{4}{\Mkr} Compare this to a house that was estimated to cost \SI{8}{\Mkr} but was sold for \SI{6}{\Mkr} In both cases the price was off by \SI{2}{\Mkr}, but does this mean that both predictions are equally good or bad? The first case was off by a factor of \num{2}, whereas the prediction in the second case was only off by $33\%$ (compared to the true value). The first case underestimated the price whereas the second overestimated; should this have any importance?
 
-As it should be clear by now the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, it is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyperparameter}, the optimization of which is further discussed in \autoref{sec:ml:hyperparameter_optimization}. The most common choice of loss function is by far the Squared Error (SE): 
+As it should be clear by now, the choice of loss function $\ell$ is of utmost importance. It is also not a problem that can be solved by computers, it is problem-specific, and has to be defined manually. The choice of loss function is what is called a \emph{hyperparameter}, the optimization of which is further discussed in \autoref{sec:ml:hyperparameter_optimization}. The most common choice of loss function is by far the squared error (SE): 
 \begin{equation}
   \ell_\mathrm{SE}(y, \hat{y}) = \left( y-\hat{y} \right)^2,
 \end{equation}
-where $y$ is the true value and $\hat{y}$ is the predicted one. Squared Error has the advantage that it is differentiable everywhere, an effect that is both needed for many statistical derivations but also a requirement for some machine learning models. The disadvantage is that it gives too much weight to outliers since every deviation away from the truth is squared. In contrast to this, there is the Absolute Error (AE) defined as:
+where $y$ is the true value and $\hat{y}$ is the predicted one. Squared error has the advantage that it is differentiable everywhere, an effect that is both needed for many statistical derivations but also a requirement for some machine learning models. The disadvantage is that it gives too much weight to outliers since every deviation away from the truth is squared. In contrast to this, there is the absolute error (AE) defined as:
 \begin{equation}
   \ell_\mathrm{AE}(y, \hat{y})  = \abs{y-\hat{y} }.
 \end{equation}
 
-For AE, outliers have a lot smaller weight since it deals with the absolute value of the deviation and not the squared deviation. However, this comes at a price; AE is not differentiable at every point: at $y-\hat{y} = 0$ the derivative of the absolute value function is un-defined. Many functions have been invented trying to deal with these problems. For a more general discussion of loss functions, see e.g. Barron \citep{barronGeneralAdaptiveRobust2017}. Six different loss functions (for regression problems) have been investigated in this project. In addition to SE and AE also the LogCosh, Cauchy  \citep{barronGeneralAdaptiveRobust2017}, Welsch  \citep{barronGeneralAdaptiveRobust2017} and Fair  \citep{AllstateClaimsSeverity} loss functions are used:
+For the absolute error, outliers have a lot smaller weight since it deals with the absolute value of the deviation and not the squared deviation. However, this comes at a price; the absolute error is not differentiable at every point. At $y-\hat{y} = 0$, the derivative of the absolute value function is un-defined. Many functions have been invented trying to deal with these problems. For a more general discussion of loss functions, see e.g. Barron \citep{barronGeneralAdaptiveRobust2017}. Six different loss functions (for regression problems) have been investigated in this project. In addition to the squared error and the absolute error also the LogCosh, Cauchy  \citep{barronGeneralAdaptiveRobust2017}, Welsch  \citep{barronGeneralAdaptiveRobust2017} and Fair  \citep{AllstateClaimsSeverity} loss functions are used:
 \begin{equation}
   \begin{split}
     \label{eq:ml:loss_functions}
@@ -322,28 +325,29 @@ For AE, outliers have a lot smaller weight since it deals with the absolute valu
     \ell_\mathrm{Fair}(y, \hat{y})  &= c^2  \left( \frac{\abs{y-\hat{y}} }{c}  - \log \left(\frac{\abs{y-\hat{y}}}{c} +1 \right )   \right). 
   \end{split}
 \end{equation}
-The above loss functions share some similarities with AE, and in addition to this they are all (twice) differentiable functions. They are shown in Figure~\ref{fig:ml:objective_funcs}. They are shown for only positive values of $y-\hat{y}$ since they are symmetric in $y-\hat{y}$. Notice how SE quickly grows very large compared to the others. Absolute Error has a kink at $y-\hat{y}=0$ as the only one of the functions. Welsch is bounded in the interval $[0, 1)$. The derivative of both LogCosh and Fair goes toward one when $y-\hat{y}$ goes towards infinity, whereas it goes to zero for the Cauchy loss. A priori it is almost impossible to know which one of these loss functions performs best for a specific data set, so they have to be treated as hyperparameters. 
+The above loss functions share some similarities with the absolute error, and, in addition to this, they are all (twice) differentiable functions. They are shown in Figure~\ref{fig:ml:objective_funcs}. They are shown for only positive values of $y-\hat{y}$ since they are symmetric in $y-\hat{y}$. Notice how the squared error quickly grows very large compared to the others. The absolute error has a kink at $y-\hat{y}=0$ as the only one of the functions. Welsch is bounded in the interval $[0, 1)$. The derivative of both LogCosh and Fair goes toward one when $y-\hat{y}$ goes towards infinity, whereas it goes to zero for the Cauchy loss. A priori, it is almost impossible to know which one of these loss functions performs best for a specific data set, so they have to be treated as hyperparameters. 
 
-\begin{marginfigure}[-5cm]
-  \includegraphics[width=0.98\textwidth]{figures/objective_functions/objective_functions_zoom.pdf}
-  \caption[Objective Functions Zoom In]
-    {Zoom in of \figref{fig:ml:objective_funcs}. 
-    }
-  \label{fig:ml:objective_funcs_zoom}
-\end{marginfigure}
+% \begin{marginfigure}[-5cm]
+%   \includegraphics[width=0.98\textwidth]{figures/objective_functions/objective_functions_zoom.pdf}
+%   \caption[Objective Functions Zoom In]
+%     {Zoom in of \figref{fig:ml:objective_funcs}. 
+%     }
+%   \label{fig:ml:objective_funcs_zoom}
+% \end{marginfigure}
 
 \begin{figure}
   \includegraphics[width=0.9\textwidth]{figures/objective_functions/objective_functions.pdf}
   \caption[Objective Functions]
-    {Comparison of the the six loss functions SE, AE, LogCosh, Cauchy, Welsch, and Fair as a function of $y-\hat{y}$, see equation \eqref{eq:ml:loss_functions}. In the plot \textcolor{blue}{SE} is shown in blue, \textcolor{red}{AE} in red, \textcolor{green}{LogCosh} in green, \textcolor{orange}{Cauchy} in orange, \textcolor{purple}{Welsch} in purple, and \textcolor{light-blue}{Fair} in light blue. For the Cauchy, Welsch, and Fair functions $c$ is set to 1. For a zoom in of the inner region 
-    where $y-\hat{y}<2$ see \figref{fig:ml:objective_funcs_zoom}. All six graphs are symmetric in $y-\hat{y}$ which is why they are only shown for positive values of $y-\hat{y}$.
+    {Comparison of the the six loss functions SE, AE, LogCosh, Cauchy, Welsch, and Fair as a function of $y-\hat{y}$, see equation \eqref{eq:ml:loss_functions}. In the plot \textcolor{blue}{SE} is shown in blue, \textcolor{red}{AE} in red, \textcolor{green}{LogCosh} in green, \textcolor{orange}{Cauchy} in orange, \textcolor{purple}{Welsch} in purple, and \textcolor{light-blue}{Fair} in light blue. For the Cauchy, Welsch, and Fair functions $c$ is set to 1. 
+    % For a zoom in of the inner region where $y-\hat{y}<2$ see \figref{fig:ml:objective_funcs_zoom}. 
+    All six graphs are symmetric in $y-\hat{y}$ which is why they are only shown for positive values of $y-\hat{y}$.
     }
   \label{fig:ml:objective_funcs}
 \end{figure}
 
 
 \subsection{Evaluation Function}
-Since some machine learning models require an analytic expression for the derivative and second derivative, it not always possible to use a custom objective function if it is non-differentiable. The Area Under Curve (AUC) of the Receiver Operating Characteristic (ROC) is such a measure. Another example would be the width of the distribution of all $y_i-\hat{y}_i$. In this thesis this overall performance metric will be called the \emph{evaluation function} $f_\mathrm{eval}$ compared to the differentiable proxy for this function, the objective function. To sum up: the loss function $\ell(y, \hat{y})$ measures the loss for an individual prediction and the objective function $\mathcal{L}$ is the aggregated version of the individual losses. The objective function is assumed to be a good proxy for the evaluation function $f_\mathrm{eval}$ which is the overall metric.  
+Since some machine learning models require an analytic expression for the derivative and second derivative, it not always possible to use a custom objective function if it is non-differentiable. The Area Under Curve (AUC) of the Receiver Operating Characteristic (ROC) is such a measure. Another example would be the width of the distribution of all $y_i-\hat{y}_i$. In this thesis the overall performance metric will be called the \emph{evaluation function}, $f_\mathrm{eval}$, compared to the differentiable proxy for this function, the objective function $\mathcal{L}$. To sum up: the loss function $\ell(y, \hat{y})$ measures the loss for an individual prediction and the objective function is the aggregated version of the individual losses. The objective function is assumed to be a good proxy for the evaluation function $f_\mathrm{eval}$ which is the overall metric.  
 For the loss functions defined in \autoref{sec:ml:loss_function} the objective function is based on the mean of the individual losses:
 \begin{equation}
   \mathcal{L} = \frac{1}{N} \sum_{i=1}^N \ell(y_i, \hat{y}_i) + \Omega. 
@@ -353,13 +357,16 @@ For the loss functions defined in \autoref{sec:ml:loss_function} the objective f
 \label{sec:ml:decision_trees}
 
 \begin{marginfigure}
-  \includegraphics[width=0.99\textwidth, trim=10 10 10 10, clip]{figures/decision_tree/tree_example.pdf}%     without .tex extension
+  \includegraphics[width=\textwidth, trim=5 5 5 5, clip]{figures/decision_tree/tree_example.pdf}%     without .tex extension
   % or use \input{mytikz}
   \caption[Decision Tree Cuts In Feature Space]{Illustration of the cuts a decision tree model make for \textcolor{blue}{signal} in blue circles and \textcolor{red}{background} in red squares. This is a visualization in the feature space of the decision tree seen in Figure~\ref{fig:ml:decision_tree}.}
   \label{fig:ml:decision_tree_feature_space}
 \end{marginfigure}
 
-Decision Trees are a simple machine learning method that works by partitioning the feature space into smaller subspaces, high-dimensional rectangles basically, and then fit each subspace with a constant for regression problems or a single label for classification problems \citep{hastieElementsStatisticalLearning2009}. A simple example of this is visualized in Figure~\ref{fig:ml:decision_tree_feature_space} and Figure~\ref{fig:ml:decision_tree}. In the first figure we see an illustration of how the signal and background distributions look in the 2D feature space. The dashed lines in the figure indicate the cuts made by the decision tree (DT), cuts which are shown on the second figure as a typical DT plot. 
+Decision trees (DTs) are simple machine learning methods that works by partitioning the feature space into smaller subspaces, high dimensional rectangles basically, and then fit each subspace with a constant (for regression problems) or a single label (for classification problems) \citep{hastieElementsStatisticalLearning2009}. 
+
+A simple example of this is visualized in Figure~\ref{fig:ml:decision_tree_feature_space} and \ref{fig:ml:decision_tree}. Figure~\ref{fig:ml:decision_tree_feature_space} illustrates how the (hypothetical) signal and background distributions look in the 2D feature space. The dashed lines in the figure indicate the cuts made by the decision tree, cuts which are shown as a typical decision tree visualization in Figure~\ref{fig:ml:decision_tree}. 
+
 \begin{figure}
   \centering
   \includestandalone[width=0.6\textwidth]{figures/decision_tree/decision_tree}%     without .tex extension
@@ -369,21 +376,21 @@ Decision Trees are a simple machine learning method that works by partitioning t
   }
   \label{fig:ml:decision_tree}
 \end{figure}
-Here the top \q{box} is called the \emph{root} of the tree, any subsequent boxes are \emph{nodes} except the final ones that are not split any further which are \emph{leaves}.
+Here the top \q{box} is called the \emph{root} of the tree, any subsequent boxes are \emph{nodes}, except the final ones that are not split any further which are \emph{leaves}. At first, the decision tree partitions the space according to the value of the transverse momentum\sidenote{All units in this project are in natural units such that both momentum and energy are in units of \si{\eV}.} $p_\perp$: if it is lower than (or equal to) \SI{20}{\GeV} it classified as background. If the value is higher than \SI{20}{\GeV} an extra split is made. This split is on the energy of the jet $E_\mathrm{jet}$: if it is higher than \SI{10}{\GeV} it is classified as signal and otherwise as background. Training a decision tree on this data allows us to predict a new unseen event, $(p_\perp, E_\mathrm{jet}) = (\SI{24}{\GeV},\SI{11}{\GeV})$, to be a signal-like event. 
 
-At first the decision tree partitions the space according to the value of the transverse momentum\sidenote{All units in this project are in natural units such that both momentum and energy are in units of \si{\eV}.} $p_\perp$: if it is lower than (or equal to) \SI{20}{\GeV} then it classified as background. If the value is higher than \SI{20}{\GeV} then an extra split is made, this time on the energy of the jet $E_\mathrm{jet}$: if it is higher than \SI{10}{\GeV} it is classified as signal and otherwise as background. Training a DT on this data allows us to predict a new unseen event $(p_\perp, E_\mathrm{jet}) = (\SI{24}{\GeV},\SI{11}{\GeV})$ to be a signal-like event. This DT is said to be a shallow tree since it only has a depth of \num{2}. The maximum depth allowed for the model is an important hyperparameter since it clearly controls under- and overfitting by changing how many cuts and partitions in the feature space are allowed; the deeper the tree, the more complex the model becomes. Single DTs are very prone to overfitting
+This decision tree is said to be a shallow tree since it only has a depth of \num{2}. The maximum depth allowed for the model is an important hyperparameter since it clearly controls under- and overfitting by changing how many cuts and partitions in the feature space are allowed; the deeper the tree, the more complex the model becomes. Single decision trees are very prone to overfitting
 % \sidenote{With a solution to this problem given in \autoref{subsec:ml:multiple_decision_trees}.}
 , however, they are also extremely inspectable. They are even referred to as \q{white-box models} compared to black-box models such as neural networks. For a more thorough introduction to decision trees and how they are internally optimized (for finding the best cut values), see \citet{hastieElementsStatisticalLearning2009}. 
 
 \subsection{Ensembles of Decision Trees}
 \label{subsec:ml:multiple_decision_trees}
-Single decision trees are prone to overfitting and generally suffer from high variance. Today especially two different methods exist to alleviate these problems: Random Forests (RFs) and Boosted Decision Trees (BDTs). Both methods are examples of so-called ensemble methods where a set of ML methods are combined into a single model. Typically ensemble methods are based on \emph{weak learners}: simple, often fast, methods that individually show relatively poor generalization performance typically due to high variance. 
+Single decision trees are prone to overfitting and generally suffer from high variance. Today especially two different methods exist to alleviate these problems: random forests and boosted decision trees (BDTs). Both methods are examples of so-called ensemble methods where a set of ML methods are combined into a single model. Typically ensemble methods are based on \emph{weak learners}: simple, often fast, methods that individually show relatively poor generalization performance, typically due to high variance. 
 
 \subsubsection{Random Forests}
 \label{subsubsec:ml:random_forest}
-Random Forests were first introduced in 2001 by \citet{breimanRandomForests2001}. Random Forests are a collection of $B$ decision trees where each tree is trained on bootstrapped versions of the training data and then the individual trees' predictions $T_b$ are averaged\sidenote{In the case of classification it is the majority vote which is taken.}: 
+Random forests were first introduced in 2001 by \citet{breimanRandomForests2001}. Random forests are collectiona of $B$ decision trees where each tree is trained on bootstrapped versions of the training data and then the individual trees' predictions $T_b$ are averaged\sidenote{In the case of classification it is the majority vote which is taken.}: 
 \begin{equation}
-  f_\mathrm{RF}(\vec{x}) = \hat{y}_\mathrm{RF} = \frac{1}{B}  \sum_{b=1}^B T_b(\vec{x}).
+  f_\mathrm{RF}(\vec{x}) = \frac{1}{B}  \sum_{b=1}^B T_b(\vec{x}).
 \end{equation}
 The method of making artificial extra samples and training on them is in general called bootstrap aggregation or \emph{bagging} \autocite{hastieElementsStatisticalLearning2009}. It works by averaging out noisy estimates of the individual models hence reducing variance. 
 \begin{theorem}[Variance of average of correlated i.d. variables]
@@ -394,9 +401,11 @@ The method of making artificial extra samples and training on them is in general
   \end{equation}
   where $\bar{\mu}_B$ is the average of the i.d. variables \autocite{hastieElementsStatisticalLearning2009}. % XXX maybe write proof here myself: https://stats.stackexchange.com/questions/320083/calculating-the-variance-of-the-average-of-b-dependent-random-variable
 \end{theorem}
-Equation \eqref{eq:ml:variance_of_correlated_variables} is the main idea behind RFs. As the number of trees $B$ in the forest increases, the first term goes towards zero. Thus, the more the correlation $\rho$ between the individual trees is reduced, the more the variance is reduced (which is the main problem in the case of DTs to begin with). 
+Equation \eqref{eq:ml:variance_of_correlated_variables} is the main idea behind random forests. As the number of trees, $B$, in the forest increases, the first term goes towards zero. Thus, the more the correlation $\rho$ between the individual trees is reduced, the more the variance is reduced (which is the main problem in the case of decision trees to begin with). 
 
-In addition to training the trees on bagged samples, one more technique is used to further decrease the correlation between the individual trees: each bootstrapped sample of the dataset not only contains just a subset of the observations (rows), but also only a subset of the variables (columns)\sidenote{Throughout this project all data is assumed to be \emph{tidy data} unless otherwise explicitly mentioned. Tidy data was a concept formalized in 2003 by \citet{JSSv059i10} which basically states that each variable forms a columns, each observation forms a row, and that each type of observation unit forms a table. This also means that the term variable and column will be used interchangeable (together with \emph{feature}), and likewise with observation and row.}. This is called column-subsampling (in contrast to row subsampling).
+In addition to training the trees on bagged samples, one more technique is used to further decrease the correlation between the individual trees: each bootstrapped sample of the dataset not only contains just a subset of the observations (rows), but also only a subset of the variables (columns). This is called column subsampling (in contrast to row subsampling).
+
+\marginnote[-2.5cm]{Throughout this project all data is assumed to be \emph{tidy data} unless otherwise explicitly mentioned. Tidy data was a concept formalized in 2003 by \citet{JSSv059i10} which basically states that each variable forms a column, each observation forms a row, and that each type of observation unit forms a table. This also means that the term variable and column will be used interchangeable (together with \emph{feature}), and likewise with observation and row.}
 
 % Until very recently RF has suffered from the lack of a fast, optimized implementation in Python that could deal with big data sets. 
 
@@ -404,20 +413,19 @@ In addition to training the trees on bagged samples, one more technique is used 
 \label{subsubsec:ml:boosted_decision_trees}
 In the overall family of ensemble models, \emph{boosting} might be the most successful of them all where especially the specific algorithm called XGBoost \autocite{chenXGBoostScalableTree2016} revolutionized the ML world by winning numerous Kaggle\sidenote{Kaggle is an online platform where people compete with machine learning models.} competitions \autocite{DmlcXgboost} including the Higgs Machine Learning competition in \num{2014} \autocite{HEPMeetsML}. 
 
-Boosting is the process of sequentially applying weak learner models to repeatedly modified versions of data \autocite{hastieElementsStatisticalLearning2009}. In an iterative fashion this combines many weak learners into a single strong learner. The final prediction is thus a weighted sum over the $K$ different weak learners $F_k$: 
+Boosting is the process of sequentially applying weak learner models to repeatedly modified versions of data \autocite{hastieElementsStatisticalLearning2009}. This combines many weak learners into a single strong learner in an iterative fashion. The final prediction is a weighted sum over the $K$ different weak learners $F_k$: 
 \begin{equation}
   f_\mathrm{BDT}(\vec{x}) = F(\vec{x}) = \sum_{k=1}^K \alpha_k F_k(\vec{x})
 \end{equation}
-Boosting thus works by reducing both bias and variance since it iteratively fits weak learners. The variance is not reduced as much as for RFs since the weak learners are more correlated, however, their bias is lower. 
+Boosting works by reducing both bias and variance since it iteratively fits weak learners. The variance is not reduced as much as for random forests since the weak learners are more correlated, however, their bias is lower. 
 
 The term gradient boosting comes from the observation that repeatedly minimizing the residuals of the current model is similar to minimizing the gradient of the loss function for a specific choice of the loss function.
-
-Imagine that we start off with an imperfect model $F_k(x)=\hat{y}$. In boosting we want the next iteration to be a better model than the previous one, so imagine that the perfect addition to the model that we needed to make was $h(x)$. For it to be perfect, the following would have to be true:
+Imagine that we start off with an imperfect model $F_k(x)=\hat{y}$. In boosting, we want the next iteration to be a better model than the previous one, so imagine that the perfect addition to the model was $h(x)$. For it to be perfect, the following would have to be true:
 \begin{equation}
   \label{eq:ml:boosted_decision_trees_residual}
-  F_{k+1}(x) = F_k(x) + h(x) = y \Leftrightarrow h(x) = y - F_k(x).
+  F_{k+1}(x) \equiv F_k(x) + h(x) = y \Leftrightarrow h(x) = y - F_k(x).
 \end{equation}
-The r.h.s. is the residual of the model, so at each stage the model is trying to fit the residuals of the current iteration of model. The \q{gradient} in \q{gradient boosting} comes from the following. Assume the loss function: $L(y, F_k(x)) = \frac{1}{2}  (y-F_k(x))^2$. The gradient of the loss w.r.t. to $F_k(x)$ is:
+The r.h.s. is the residual of the model, so at each stage the model is trying to fit the residuals of the current iteration of model. The \q{gradient} in \q{gradient boosting} comes from the following. Assume the loss function: $L(y, F_k(x)) = \frac{1}{2}  (y-F_k(x))^2$. The gradient of the loss w.r.t. $F_k(x)$ is:
 \begin{equation}
   \frac{\partial L(y, F_k(x))}{\partial F_k(x)} = F_k(x) - y. 
 \end{equation}
@@ -431,23 +439,26 @@ We thus end up with the following iterative model which is basically a \emph{gra
 \end{equation}
 
 
-AdaBoost \autocite{freundDesiciontheoreticGeneralizationOnline1995} was the first major algorithm to make use of boosting. It was seen as a way of iteratively giving wrongly predicted observations higher weight, however, this is just a result of a \q{lucky} choice of loss function\sidenote{Exponential loss for classification.} which was not realized until much later. AdaBoost could be used with many different weak learners, however, mostly DTs were used to form BDTs. XGBoost \autocite{chenXGBoostScalableTree2016} is a fast, computationally efficient implementation of gradient boosting with DTs as base learners. It implements several model regularization techniques which makes it less prone to overfitting than other BDTs. 
+AdaBoost \autocite{freundDesiciontheoreticGeneralizationOnline1995} was the first major algorithm to make use of boosting. It was seen as a way of iteratively giving wrongly predicted observations higher weight, however, this is just a result of a \q{lucky} choice of loss function\sidenote{Exponential loss for classification.} which was not realized until much later. AdaBoost could be used with many different weak learners, however, mostly decision trees were used to form boosted decision trees. 
 
-\section{Hyperparamater Optimization}
+XGBoost \autocite{chenXGBoostScalableTree2016} is a fast, computationally efficient implementation of gradient boosting with decision trees as base learners: so-called \emph{boosted decision trees} (BDTs). It implements several model regularization techniques which makes it less prone to overfitting than other boosted decision trees. 
+
+\section{Hyperparameter Optimization}
 \label{sec:ml:hyperparameter_optimization}
-By now linear models with $L_1$ and $L_2$ regularization have been introduced along with decision trees (DTs), random forests (RFs) and gradient boosted trees (GBTs). All of these ML models tries to optimize their parameters according to some objective function. In addition to the parameters of the model, each one has a specific set of hyperparameters that cannot directly be optimized in the internal optimization process. This could be the amount of regularization $\lambda$ for linear models, the maximum tree depth for DTs, the number of trees for RFs, or the column (or row) subsampling fraction for BTDs. 
+By now, linear models with $L_1$ and $L_2$ regularization have been introduced along with decision trees, random forests and gradient boosted trees. All of these ML models tries to optimize their parameters according to some objective function. In addition to the parameters of the model, each one has a specific set of hyperparameters that cannot directly be optimized in the internal optimization process. This could be the amount of regularization $\lambda$ for linear models, the maximum tree depth for decision trees, the number of trees for random forests, or the column (or row) subsampling fraction for boosted decision trees. 
 
-In general we say that we have the ML model $\mathcal{A}$ with $K$ hyperparameters. Each of these hyperparameters have a domain $\Lambda_k$. The domain can be either real numbers $\Lambda_k \in \mathbb{R}$, integers $\Lambda_k \in \mathbb{Z}$, binary $\Lambda_k \in \{0, 1\}$, or categorical\sidenote{Could e.g. be the choice of loss function.}. We define the hyperparameter configuration space as: $\bm{\Lambda} = \Lambda_1 \times \Lambda_2 \times \dots \times \Lambda_K$. Within this space we are searching for a vector of hyperparameters $\bm{\lambda} \in \bm{\Lambda}$ which defines the optimal model $\mathcal{A}_{\bm{\lambda}^*}$. Here the optimal model is the defined as the model which gives the best generalization performance according to some evaluation function. The goal of finding the best hyperparameter $\bm{\lambda^*}$ is known as \emph{hyperparameter optimization} (HPO.)
+In general we say that we have the ML model $\mathcal{A}$ with $K$ hyperparameters. Each of these hyperparameters have a domain $\Lambda_k$. The domain can be either real numbers $\Lambda_k \in \mathbb{R}$, integers $\Lambda_k \in \mathbb{Z}$, binary $\Lambda_k \in \{0, 1\}$, or categorical\sidenote{Could e.g. be the choice of loss function.}. We define the hyperparameter configuration space as: $\bm{\Lambda} = \Lambda_1 \times \Lambda_2 \times \dots \times \Lambda_K$. Within this space we are searching for a vector of hyperparameters $\bm{\lambda} \in \bm{\Lambda}$ which defines the optimal model $\mathcal{A}_{\bm{\lambda}^*}$. Here the optimal model is the model which gives the best generalization performance according to some evaluation function. The goal of finding the best hyperparameter $\bm{\lambda^*}$ is known as \emph{hyperparameter optimization} (HPO).
 
-The first naive approach would simply to manually\sidenote{Also known jokingly as \q{Grad Student Descent}.} try out different combinations of $\bm{\lambda}$ and see performance on the validation set\sidenote{Remember only to use the test set on the final model.}. This is of course too cumbersome for advanced ML models, but it should be noted that it is a good place to start. In \autoref{subsec:ml:grid_search} the HPO method called Grid Search is introduced which is further generalized and optimized in \autoref{subsec:ml:random_search} with Random Search. Both these methods are easily parallelizable since they do not have any inherent history in its guesses. This is in contrast to Bayesian Optimization introduced in \autoref{subsec:ml:bayesian_optimization} which allows for \q{smart} guesses.
+The naive approach would simply be to manually\sidenote[][-5mm]{Also known jokingly as \q{Grad Student Descent}.} try out different combinations of $\bm{\lambda}$ and see performance on the validation set\sidenote{Remember only to use the test set on the final model.}. This is of course too cumbersome for advanced ML models, but it should be noted that it is a good place to start. In \autoref{subsec:ml:grid_search} the HPO method called grid search is introduced which is further generalized and optimized in \autoref{subsec:ml:random_search} with random search. Both these methods are easily parallelizable since they do not have any inherent history in its guesses. This is in contrast to Bayesian optimization introduced in \autoref{subsec:ml:bayesian_optimization} which allows for \q{smart} guesses.
 
 \subsection{Grid Search}
 \label{subsec:ml:grid_search}
 
-Grid search (GS) is a HPO method also known as full factorial design. It is called this because it tries out all possible combinations of the hyperparameter configuration space: the so-called cartesian product of $\bm{\Lambda}$. Imagine a 2D space where the two domains are respectively $x=\{1, 2, 3\}$ and $y=\{1, 2, 3,4\}$. Then GS runs through all $3 \times 4 = 12$ combinations of these two sets: 
+Grid search (GS) is a HPO method also known as full factorial design. It is called grid search because it tries all possible combinations of the hyperparameter configuration space: the so-called cartesian product of $\bm{\Lambda}$. Imagine a 2D space where the two domains are respectively $x=\{1, 2, 3\}$ and $y=\{1, 2, 3,4\}$. Grid search runs through all $3 \times 4 = 12$ combinations of these two sets: 
 
 \begin{marginfigure}
-  \includegraphics[width=0.8\textwidth]{figures/gridsearch/grid.pdf}
+  \centerfloat
+  \includegraphics[width=\textwidth]{figures/gridsearch/grid.pdf}
   \caption[Grid Search]{Visualization of grid search run on the two hyperparameters $x$ and why $y$ with the domains $x=\{1, 2, 3\}$ and $y=\{1, 2, 3,4\}$.}
   \label{fig:ml:gridsearch}
 \end{marginfigure}
@@ -455,73 +466,72 @@ Grid search (GS) is a HPO method also known as full factorial design. It is call
 \begin{equation}
   (x_i, y_i) \in \{(1, 1), (1, 2), \dots, (x_i, y_i), \dots, (3, 4)\},
 \end{equation}
-as visualized in Figure~\ref{fig:ml:gridsearch}. The advantage of GS is that it is an exhaustive search over all combinations\sidenote{Note that the user has to provide the values for each hyperparamater to be tried out manually.} of hyperparameters, however, the total number of combinations grows exponentially and GS as a method thus suffers the curse of dimensionality\sidenote{Not the dimensionality of the input feature space, but of the hyperparameter configuration space.}.
+as visualized in Figure~\ref{fig:ml:gridsearch}. The advantage of grid search is that it is an exhaustive search over all combinations of hyperparameters, however, the total number of combinations grows exponentially and grid search as a method thus suffers the curse of dimensionality\sidenote[][2mm]{Not the dimensionality of the input feature space, but of the hyperparameter configuration space.}.
 
 
 
 \subsection{Random Search}
 \label{subsec:ml:random_search}
 
-To circumvent the problems of grid search, \citet{bergstraRandomSearchHyperparameter2012} developed the Random Search (RS) algorithm in 2012. Regarding the effect of the curse of dimensionality on grid search they wrote: \emph{``This failure of grid search is the rule rather than the exception in high dimensional hyper-parameter optimization''} \citep{bergstraRandomSearchHyperparameter2012}. Instead of searching through all possible values of $\bm{\lambda}$ like in GS, RS makes $B$ runs where each $\bm{\lambda}_i$ is given by:
+To circumvent the problems of grid search, \citet{bergstraRandomSearchHyperparameter2012} developed the Random Search (RS) algorithm in 2012. Regarding the effect of the curse of dimensionality on grid search they wrote: \emph{``This failure of grid search is the rule rather than the exception in high dimensional hyper-parameter optimization''} \citep{bergstraRandomSearchHyperparameter2012}. Instead of searching through all possible values of $\bm{\lambda}$, like in grid search, random search makes $B$ runs where each $\bm{\lambda}_i$ is given by:
 \begin{equation}
   \label{eq:ml:random_search}
-  \bm{\lambda}_i \sim \sum_{j=1}^K  \mathrm{PDF}_j(\Lambda_j) \cdot \bm{\hat{e}}_j  .
+  \bm{\lambda}_i \sim \sum_{j=1}^K  \mathrm{PDF}_j(\Lambda_j) \cdot \bm{\hat{e}}_j ,
 \end{equation}
-Equation \eqref{eq:ml:random_search} should be understood in the following way. For each hyperparameter draw a random number from a user-defined Probability Density Function (PDF) and then let $\bm{\lambda}$ be the vector of those $N$ random numbers. In a 2D-space $\bm{\lambda}_i$ could thus be: 
+where $\bm{\hat{e}}_j$ is the unit vector for dimension $j$ in the $K$ dimensional hyperspace. Equation \eqref{eq:ml:random_search} should be understood in the following way. For each hyperparameter draw a random number from a user-defined probability density function (PDF) and then let $\bm{\lambda}$ be the vector of those $K$ random numbers. In a 2D-space, $\bm{\lambda}_i$ could thus be: 
 \begin{align}
-  \bm{\lambda}_i \sim &= \begin{bmatrix}
+  \bm{\lambda}_i \sim & \begin{bmatrix}
       \mathcal{N}(100, 4) \\
       \mathcal{U}(0, 1)
        \end{bmatrix},
 \end{align}
-where $\mathcal{N}(100, 2)$ is normal (Gaussian) distribution with mean $\mu=100$ and standard deviation $\sigma^2=4$ and $\mathcal{U}(0, 1)$ is the uniform distribution in the interval $[0, 1]$. Of course the PDF can be a PMF in the case of discrete hyperparameter domains.
+where $\mathcal{N}(100, 4)$ is normal (Gaussian) distribution with mean $\mu=100$ and standard deviation $\sigma=4$ and $\mathcal{U}(0, 1)$ is the uniform distribution in the interval $[0, 1]$. The PDF can be a probability mass function (PMF) in the case of discrete hyperparameter domains.
+
+
+The reason why random search is so powerful is not only because the number of function evaluations $B$ is easily tunable\sidenote{Compared to grid search which tries \emph{all} possible combinations.}, but also due to the fact that often some hyperparameter dimensions are more important than other. Even though the hyperparameter configuration space $\bm{\Lambda}$  might be high-dimensional, it often exhibits \emph{low effective dimensionality} \autocite{bergstraRandomSearchHyperparameter2012}. In the simplest 2D-case, this can be written as the following example. Imagine that we want to maximize some evaluation function, e.g. accuracy of the predictions, and the model depends on the two independent hyperparameters $x$ and $y$: $f(x, y)$. In this example assume that $f$ is almost insensitive to $y$ and thus has an effective dimensionality of 1. Then $f(x,y) = g(x) + h(y) \approx g(x)$. For a visualization of this example, see Figure~\ref{fig:ml:random_search}.
 
 \begin{marginfigure}
-  \includegraphics[width=0.8\textwidth]{figures/randomsearch/random.pdf}
+  \centerfloat
+  \includegraphics[width=1\textwidth]{figures/randomsearch/random.pdf}
   \caption[Random Search]{Visualization of the difference between grid search and random search. Adapted from \citet{bergstraRandomSearchHyperparameter2012}.}
   \label{fig:ml:random_search}
 \end{marginfigure}
 
-The reason why random search is so powerful is not only because the number of function evaluations $B$ is easily tunable\sidenote{Compared to grid search which tries \emph{all} possible combinations.}, but also due to the fact that often some hyperparameter dimensions are more important than other. Even though the hyperparameter configuration space $\bm{\Lambda}$  might be high-dimensional, it often exhibits \emph{low effective dimensionality} \autocite{bergstraRandomSearchHyperparameter2012}. In the simplest 2D-case this can be written as the following example. Imagine that we want to maximize some evaluation function, e.g. accuracy of the predictions, and the model depends on the two independent hyperparameters $x$ and $y$: $f(x, y)$. In this example assume that $f$ is almost insensitive to $y$ and thus has an effective dimensionality of 1. Then $f(x,y) = g(x) + h(y) \approx g(x)$. For a visualization of this example, see Figure~\ref{fig:ml:random_search}.
+Grid search is run with a grid of $3\times3 = 9$ points in the figure and random search is similarly run with 9 points drawn from uniform PDFs in the same interval. It easy to see that when the hyperparameter configuration space has a lower effective dimensionality than the actual dimensionality, random search is far better at probing the space due to the projections into the sensitive dimensions cover more of these axes than for grid search. That the hyperparameter configuration space has lower effective dimension than its actual dimension is quite common. 
 
-Here GS is run with a grid of $3\times3 = 9$ points and RS is similarly run with 9 points drawn from uniform PDFs in the same interval. It easy to see that when the hyperparameter configuration space has a lower effective dimensionality than the actual dimensionality RS is far better at probing the space due to the projections into the sensitive dimensions cover more of these axes than for GS. In general in ML the hyperparameter configuration space has lower effective dimension than its actual dimension, but different hyperparameters matter in different datasets
-
-In general only a fraction of all hyperparameters matter for any dataset but different hyperparameters matter in different datasets and thus generally RS performs as well as GS or better \autocite{bergstraRandomSearchHyperparameter2012}. 
-
-Note that RS can be seen as a generalization of GS, where GS is the specific example of RS if one uses a multidimensional binomial distribution as PDF where the PDF is reevaluated after each run. 
+In general, only a fraction of all hyperparameters matter for any dataset but different hyperparameters matter in different datasets and thus generally random search performs as well as grid search or better \autocite{bergstraRandomSearchHyperparameter2012}. 
+Note that random search can be seen as a generalization of grid search, where grid search is the specific example of random search if one uses a multidimensional binomial distribution as PDF and the PDF is reevaluated after each run. 
 
 \subsection{Bayesian Optimization}
 \label{subsec:ml:bayesian_optimization}
-When performing hyperparameter optimization it often takes a lot of time to evaluate the individual hyperparameters. Remember, that each evaluation consists of fitting $\mathcal{A}_{\bm{\lambda}}$ to the training data and then measure the performance on the validation set. Fitting the model on the training set can often take minutes, if not hours. This process is even slower when using cross validation. The idea behind Bayesian Optimization is that when the ML model, or any other black box function, is expensive\sidenote{With respect to time.} to evaluate then \q{smart} guesses are worth spending a bit of time on developing. The hope is that the time taken to come up with smart guesses is negligible compared to the overall function evaluation time. This is contrast to both GS and RS where each new set of hyperparameters $\bm{\lambda}$ is independent of the value of the evaluation performance.
+When performing hyperparameter optimization, it often takes a lot of time to evaluate the individual hyperparameters. Remember, that each evaluation consists of fitting $\mathcal{A}_{\bm{\lambda}}$ to the training data and then measure the performance on the validation set. Fitting the model on the training set can often take minutes, if not hours. This process is even slower when using cross validation. The idea behind Bayesian optimization is that when the ML model, or any other black box function, is expensive\sidenote{With respect to time.} to evaluate, then computing \q{smart} guesses are worth spending a bit of time. The hope is that the time taken to come up with smart guesses is negligible compared to the overall function evaluation time. This is contrast to both grid search and random search where each new set of hyperparameters $\bm{\lambda}$ are independent of the value of the evaluation performance.
 
-In Bayesian Optimization (BO) \autocite{brochuTutorialBayesianOptimization2010}, the evaluation function as a function of hyperparameter is unknown. This unknown function is iteratively fitted with a probabilistic surrogate model, most often by Gaussian processes (GPs). Given the fitted surrogate model, an acquisition function is computed. This is a manually chosen function which is cheap to evaluate and is a measure of where in the hyper-dimensional hyperparameter space there is a highest chance of finding a new good value of $\bm{\lambda}$. The acquisition function has to be chosen manually and especially the tradeoff between \emph{exploitation} versus \emph{exploration} is particularly important. This value decides how \q{adventurous} or conservative the BO algorithm should be when exploring the evaluation space. 
+In Bayesian optimization (BO) \autocite{brochuTutorialBayesianOptimization2010}, the evaluation function as a function of hyperparameter is assumed to be unknown. This unknown function is iteratively fitted with a probabilistic surrogate model, most often by Gaussian processes (GPs). Given the fitted surrogate model, an acquisition function is computed. This is a manually chosen function which is cheap to evaluate and is a measure of where in the high dimensional hyperparameter space the highest chance of finding a new good value of $\bm{\lambda}$ is. The acquisition function has to be chosen manually and especially the tradeoff between \emph{exploitation} versus \emph{exploration} is particularly important. This value decides how \q{adventurous} or conservative the BO algorithm should be when exploring the evaluation space. 
 
-Bayesian Optimization is better explained by looking at Figure~\ref{fig:ml:bayesian_optimization}. First look at the top plot. This is a plot of the surrogate function in black with uncertainties shown in blue. This is a result of fitting GPs to the two previous points in black, $t=2$. This surrogate function is supposed to fit the unknown hyperparameter-dependent evaluation function (called objective in the figure) shown as a dashed black line. Below we see the acquisition function in green. This is a function of the blue curve and the position of its maximum decides where the next guess of $\bm{\lambda}$ should be. With the chosen acquisition function and exploration willingness, we see that the next guess should be slightly to the left of the right-most point. This is a simple 1D toy problem, but one should imagine this happening in a high-dimensional space. After making a new guess, $t=3$ in the middle plot, the acquisition function changes since it learnt that this gave a worse evaluation value than the right-most point. Therefore, the next proposal for $\bm{\lambda}$ is slightly to the right of the right-most point. The process continues like this in an iterative fashion: first fitting GPs to the previous evaluation values and then choosing the next $\bm{\lambda}$ according the acquisition function given the GPs. 
+Bayesian optimization is better explained by looking at Figure~\ref{fig:ml:bayesian_optimization}. First look at the top plot. This is a plot of the surrogate function in black with uncertainties shown in blue. This is a result of fitting GPs to the two previous points, $t=2$. This surrogate function is supposed to fit the unknown hyperparameter-dependent evaluation function (called objective in the figure) shown as a dashed black line. Below we see the acquisition function in green. This is a function of the blue curve and the position of its maximum decides where the next guess of $\bm{\lambda}$ should be. With the chosen acquisition function and exploration willingness, we see that the next guess should be slightly to the left of the right-most point. This is a simple 1D toy problem, but one should imagine this happening in a high-dimensional space. After making a new guess, $t=3$ in the middle plot, the acquisition function changes since it learnt that this gave a worse evaluation value than the right-most point. Therefore, the next proposal for $\bm{\lambda}$ is slightly to the right of the right-most point. The process continues like this in an iterative fashion: first fitting GPs to the previous evaluation values and then choosing the next $\bm{\lambda}$ according the acquisition function. 
 
-\begin{marginfigure}[-2cm]
-  \includegraphics[width=0.99\textwidth]{figures/bayesian_optimization/bo.pdf}
+\begin{figure}
+  \includegraphics[width=0.99\textwidth]{figures/bayesian_optimization/bo_full.pdf}
   \caption[Bayesian Optimization]{Illustration of the learning process of Bayesian optimization. The previous observations are shown as black dots and the true objective function is shown as a dashed black line. This line is fitted with Gaussian processes (GPs) which is shown as the solid line with its uncertainty in purple. The acquisition function is shown in green and its maximum decides what the next iteration of the hyperparameter value(s) should be. 
   Adapted from \citet{brochuTutorialBayesianOptimization2010}.}
   \label{fig:ml:bayesian_optimization}
-\end{marginfigure}
+\end{figure}
 
-Gaussian Processes provide a posterior distribution given some prior distribution and the data-dependent likelihood. The process of BO is quite technical and mathematical, especially if GPs are new material. For a more in-depth explanation of the topic, see \citet{brochuTutorialBayesianOptimization2010}. The important thing to note is that GPs return not only a posterior mean $\mu(\vec{x})$ but also an uncertainty $\sigma(\vec{x})$, as seen in Figure~\ref{fig:ml:bayesian_optimization} described above. The acquisition function used in this project is the Upper Confidence Bound (UCB):
+Gaussian processes provide a posterior distribution given some prior distribution and the data-dependent likelihood. The process of BO is quite technical and mathematical, especially if GPs are new material. For a more in-depth explanation of the topic, see \citet{brochuTutorialBayesianOptimization2010}. The important thing to note is that GPs return not only a posterior mean $\mu(\vec{x})$ but also an uncertainty $\sigma(\vec{x})$, as seen in Figure~\ref{fig:ml:bayesian_optimization}. The acquisition function used in this project is the upper confidence bound (UCB):
 \begin{equation}
   \mathrm{UCB}(\vec{x}) = \mu(\vec{x}) + \kappa \sigma(\vec{x}),
 \end{equation}
-where $\kappa \geq 0$ is the parameter\sidenote{Here $\kappa$ can be regarded as a hyper-hyperparameter since it controlls how the other hyperparamaters are optimized.} controlling the exploration-exploitation tradeoff. 
+where $\kappa \geq 0$ is the parameter\sidenote{Here $\kappa$ can be regarded as a hyper-hyperparameter since it controlls how the other hyperparamaters are optimized.} controlling the exploration exploitation tradeoff. 
 
-Bayesian Optimization has the great benefit of slowly learning the hyperparameter space and making smarter and more educated guesses over time. However, it also comes with the cost of being harder to numerically implement compared to GS and RS\sidenote{Which are basically plug-and-play with Scikit-Learn \autocite{scikit-learn}.}, and parallelization is non-trivial to implement since it by definition is a sequential process. The performance boost is also not guaranteed. 
+Bayesian optimization has the great benefit of slowly learning the hyperparameter space and making smarter and more educated guesses over time. However, it also comes with the cost of being harder to numerically implement compared to grid search and random search\sidenote{Which are basically plug-and-play with Scikit-Learn \autocite{scikit-learn}.}, and parallelization is non-trivial to implement since it by definition is a sequential process. The performance boost is also not guaranteed. 
 
 \section{Feature Importance}
 \label{sec:ml:feature_importance}
-Having first established in \autoref{sec:ml:supervised_learning} that machine learning algorithms are indeed able to not only learn from data but also to generalize well without overfitting (\autoref{sec:ml:overfitting}), modern ML algorithms such as decision trees, random forests and boosted decision trees were introduced in \autoref{sec:ml:decision_trees} and they were hyperparameter optimized in \autoref{sec:ml:hyperparameter_optimization}, one would expect that one would have a well performing model by now. 
+Having first established that machine learning algorithms are indeed able to not only learn from data but also to generalize well without overfitting, modern ML hyperparameter optimized algorithms such as decision trees, random forests and boosted decision trees are generally performing well on very different data set. As such, one would think that machine learning has reached its goal. However, one of the most important issues in ML today is model inspection. Actually trying to make sense of the learnt model. Why does it predict as it does? Which features or variables are most important according to the model? Model interpretation is still very much active research today with no universally accepted methods. Some methods are model dependent and accurate, others might be model agnostic but slow or only approximations. In this project the focus will be on the so-called \emph{SHAP} values. 
 
-Now comes one of the most important issues in ML today: model inspection. Actually trying to make sense of the learnt model. Why does it predict as it does? Which features or variables are most important according to the model? Model interpretation is still very much active research today with no universally accepted methods. Some methods are model dependent and accurate, others might be model agnostic but slow or only approximations. In this project the focus will be on the so-called \emph{SHAP} values. 
+In 2017, \citet{Lundberg:2017} showed that six different previously used methods were all specific instances of the same, universal underlying method and proposed SHaplay Additive exPlanation (SHAP) values as a unified measure of feature importance. In \num{2018} they developed a fast algorithm for computing SHAP values for tree ensemples and showed that previous measures of feature importance heavily used for trees, e.g. gain, were inconsistent \autocite{lundbergConsistentIndividualizedFeature2019}. That a measure for feature importance is inconsistent means that a model could rely more on feature $A$ than $B$, however, the feature importance would indicate opposite. SHAP values and permutation-based feature importances are both consistent feature importance measure, however, only SHAP allows for individualized\sidenote{Meaning that you can get the feature importances for a single observation compared to only the global, overall feature importances as seen across the entire data set.}, or local, feature importances.  
 
-In 2017 \citet{Lundberg:2017} showed that six different previously used methods were all specific instances of a universal underlying method\sidenote{The class of \emph{additive feature attribution methods} \citep{Lundberg:2017}.} and proposed SHaplay Additive exPlanation (SHAP) values as a unified measure of feature importance. In \num{2018} they developed a fast algorithm for computing SHAP values for tree ensemples and showed that previous measures of feature importance heavily used for trees, e.g. \emph{gain}, were \emph{inconsistent} \autocite{lundbergConsistentIndividualizedFeature2019}. That a measure for feature importance is inconsistent means that a model could rely more on feature $A$ than $B$, however, the feature importance would indicate opposite. SHAP values and \emph{permutation}-based feature importances are both consistent feature importance measure, however, only SHAP allows for individualized\sidenote{Meaning that you can get the feature importances for a single observation compared to only the global, overall feature importances as seen across the entire data set.}, or local, feature importances.  
-
-SHAP values are within the class of additive feature attribution methods, which are functions where the explanation model $g$ is a linear combination of binary variables:
+SHAP values are within the class of additive feature attribution methods, which are functions where the explanation model $g$ is a linear combination of binary variables \citep{Lundberg:2017}:
 \begin{equation}
   \label{eq:ml:additive_feature_attribution_method}
   g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'.
@@ -563,7 +573,7 @@ Given these three axioms, \citet{Lundberg:2017} show that the only solution to e
   \label{eq:ml:shap_feature_importance}
     \phi_i = \sum_{S \subseteq \widetilde{M} \backslash \{i\}} \frac{|S|!(M-|S|-1)!}{M!} \left[ f_x(S \cup \{i\}) - f_x(S) \right] ,
 \end{equation}
-which one can simplify to:
+which one can rewrite to:
 \begin{equation}
   \label{eq:ml:shap_feature_importance_simplification}
   \begin{split}
@@ -576,7 +586,7 @@ which one can simplify to:
 
 In equation \eqref{eq:ml:shap_feature_importance} $\widetilde{M}$ is the \emph{set} of all input features\sidenote{Compared to $M=|\widetilde{M}|$ which is the \emph{number} of all input features.}, $S \subseteq \widetilde{M} \backslash \{i\}$ means a subset $S$ of $\widetilde{M}$ without feature $i$, $S \cup \{i\}$ means the set $S$ with feature $i$ and $f_x(S) = f(h_x(z'))$ where $h_x(z')$ is the mapping function from the binary $z'$ space to the input feature space $x$. In equation \eqref{eq:ml:shap_feature_importance_simplification} the function is simplified to its basic constituents: the difference in performance  between including feature $i$ and not including it, $\Delta_{f_x}$, and its weight $w$. 
 
-To get a better understanding of the different sets in the summation, one could look at the decision tree shown in Figure~\ref{fig:ml:decision_tree}. Here $\widetilde{M}$ would be $\widetilde{M}=\{p_\perp, E_\mathrm{jet} \}$. For the feature $i=p_\perp $ one would thus have:
+To get a better understanding of the different terms in equation \eqref{eq:ml:shap_feature_importance_simplification}, one could look at the decision tree shown in Figure~\ref{fig:ml:decision_tree}. Here $\widetilde{M}$ would be $\widetilde{M}=\{p_\perp, E_\mathrm{jet} \}$. For the feature $i=p_\perp $ one would thus have:
 \begin{equation}
   \begin{split}
     \phi_{p_\perp} = & \sum_{S \subseteq \widetilde{M} \backslash \{p_\perp \}} w(S)  \cdot\Delta_{f_x}(S)  \\
@@ -585,9 +595,9 @@ To get a better understanding of the different sets in the summation, one could 
                      & +    \frac{1! (2-1-1)!}{2!} \cdot [f_x(\{ E_\mathrm{jet}, p_\perp \}) - f_x(\{ E_\mathrm{jet} \})].
   \end{split}
 \end{equation}
-Whereas $w(S)$ are easily calculated, $\Delta_{f_x}$ depends on the data. As the number of features grows, the number of terms in the sum grows exponentially. What \citet{lundbergConsistentIndividualizedFeature2019} did was to develop an efficient algorithm that could solve this for trees in polynomial time\sidenote{Specifically they managed to improve the time complexity from $\mathcal{O}(TL2^M)$ to $\mathcal{O}(TLD^2)$ where $T$ is the number of trees, $L$ is the maximum number of leaves in any tree, $M$ is the number of features, and $D$ is the maximum depth of any tree (where $D\approx \log L$ for balanced trees).}. 
+Whereas $w(S)$ is easily calculated, $\Delta_{f_x}$ depends on the data and the ML model. As the number of features grows, the number of terms in the sum grows exponentially. What \citet{lundbergConsistentIndividualizedFeature2019} did was to develop an efficient algorithm that could solve this in polynomial time for trees\sidenote{Specifically they managed to improve the time complexity from $\mathcal{O}(TL2^M)$ to $\mathcal{O}(TLD^2)$ where $T$ is the number of trees, $L$ is the maximum number of leaves in any tree, $M$ is the number of features, and $D$ is the maximum depth of any tree (where $D\approx \log L$ for balanced trees).}. 
 
-SHAP values allows one to explain for a single prediction why it got the prediction that it got. When applied to the entire data set $\vec{X} \in \mathbb{R}^{N \times M}$ with $N$ observations each with $M$ features, one gets the matrix $\bm{\Phi}$. When summing over the absolute value of each column, one gets the global impact $\phi_i^\mathrm{tot}$ of the $i^{\mathrm{th}}$ feature \citep{lundbergConsistentIndividualizedFeature2019}:
+SHAP values allow one to explain for a single observation why it got the prediction that it got. When applied to the entire data set $\vec{X} \in \mathbb{R}^{N \times M}$ with $N$ observations each with $M$ features, one gets the matrix $\bm{\Phi} \in \mathbb{R}^{N \times M}$. When summing over the absolute value of each column, one gets the global impact $\phi_i^\mathrm{tot}$ of the $i^{\mathrm{th}}$ feature \citep{lundbergConsistentIndividualizedFeature2019}:
 \begin{equation}
   \phi_i^\mathrm{tot} = \sum_{j=1}^N \abs{ \bm{\Phi}_{i, j} }.
 \end{equation}
