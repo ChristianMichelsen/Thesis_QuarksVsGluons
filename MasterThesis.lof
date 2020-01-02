@@ -14,12 +14,12 @@
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Random Search}}{21}{equation.2.7.38}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Bayesian Optimization}}{22}{subsection.2.7.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Danish Housing Price Index}}{27}{chapter.3}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Distributions of the Variables in the Housing Prices}}{28}{subfigure.3.2.4}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{28}{subfigure.2.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{28}{subfigure.2.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{28}{subfigure.2.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{28}{subfigure.2.4}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Price Index of the Danish Housing Market}}{27}{chapter.3}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Distributions of the Variables in the Housing Prices}}{29}{subfigure.3.2.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{29}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}{subfigure.2.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{29}{subfigure.2.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{29}{subfigure.2.4}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Geographic Distribution of the Sold Residences}}{29}{subfigure.3.3.2}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{29}{subfigure.3.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}{subfigure.3.2}
@@ -29,9 +29,9 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Nonlinear Correlation Between Variables and Price}}{32}{subsection.3.1.1}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Validity of Input Features}}{32}{subsection.3.1.2}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Validity Dendrogram}}{33}{subsection.3.1.2}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for Apartments}}{34}{equation.3.2.1}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Prophet Forecast for Apartments}}{35}{equation.3.2.1}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Prophet Trends}}{35}{equation.3.2.1}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Sample Weight as a Function of Time for Different Half-Lives.}}{36}{equation.3.4.6}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Sample Weight as a Function of Time for Different Half-Lives.}}{36}{section.3.4}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments}}{37}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Initial HPO Results for the Weight Half-life $T_{\frac {1}{2}}$}}{38}{equation.3.4.7}
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Initial HPO Results for the Loss Function}}{38}{equation.3.4.7}
