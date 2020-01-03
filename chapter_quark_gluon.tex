@@ -544,15 +544,15 @@ This is even more visible once seen in a 3D scatter plot with the lowest $\beta_
   \label{fig:q:gtag_scores_3j_l_quarks_3d}%
 \end{figure*}
 
-\vspace{-5mm}
+% \vspace{-5mm}
 \section[g-Tagging Efficiency]{$g$\=/Tagging Efficiency}
 \label{sec:q:g_tagging_effiency}
 
-These efficiencies are only possible to measure for MC-generated data as the truth labels are required. The Tag-Tag-Probe (TTP) method in \autoref{sec:q:b_tagging_effiency} is not possible for whole events as every event is completely independent of the other and thus one event cannot work as a tag for another event. We can, however, construct a pseudo $g$\=/tagging efficiency based on the $b$\=/tagging efficiencies. This efficiency will be computed by looking at 3-jet events with two jets with a high $b$\=/tag and one jet with a low $b$\=/tag, i.e. events where two jets has $0.9 < \beta_\mathrm{tag}$ and one jet has $\beta_\mathrm{tag} < 0.4$. This indicates a $b\bar{b}g$ event where all of the jets have been correctly identified by the $b$\=/tagging algorithm. The pseudo efficiency $\varepsilon_{b\bar{b}g}$ is then defined as:
+These $g$-tagging efficiencies are only possible to measure for MC generated data as the truth labels are required. The tag-tag-probe method in \autoref{sec:q:b_tagging_effiency} is not possible for whole events as every event is completely independent of the other events (and thus cannot work as a tag for another event). We can, however, construct a pseudo $g$\=/tagging efficiency based on the $b$\=/tagging efficiencies. This efficiency is computed by selecting 3-jet events where two of the jets have high $b$\=/tags and one jets has a low $b$\=/tag: $0.9 < \beta_\mathrm{tag}$ and $\beta_\mathrm{tag} < 0.4$. This selection indicates a $b\bar{b}g$ event where all of the jets have been correctly identified by the $b$\=/tagging algorithm. The pseudo efficiency $\varepsilon_{b\bar{b}g}$ is then defined as:
 \begin{equation}
   \varepsilon_{b\bar{b}g} = \varepsilon_b^{b\dash\mathrm{sig}}\left( b \right) \cdot \varepsilon_b^{b\dash\mathrm{sig}}\left(\bar{b}\right) \cdot \varepsilon_g^{g\dash\mathrm{sig}}\left(g\right).
 \end{equation}
-This is only a pseudo efficiency since this number is based on the jets in the event and not the event itself, however, by plotting it as a function of an event variable and comparing MC to Data, we can gauge the validity of the $g$\=/tagging algorithm. The first of the event variables used is the $g$\=/tag of the event $\gamma_\mathrm{tag}$, see Figure~\ref{fig:q:effiency_btag_bbg_gtag}. Here the pseudo efficiency is plotted as a function of $\gamma_\mathrm{tag}$ for Data and MC together with the counts in each bin and the ratio between $\varepsilon_{b\bar{b}g}$ for Data and MC is plotted below. At low values of $\gamma_\mathrm{tag}$ the uncertainties dominate due to low statistics, however, at higher $\gamma_\mathrm{tag}$ $\varepsilon_{b\bar{b}g}$ plateaus until very high values of $\gamma_\mathrm{tag}$ where it increases again. The important thing to note in this figure is the high agreement between Data and MC which converges to (almost) \num{1} at high $\gamma_\mathrm{tag}$\=/values. This is an important indication of the 3-jet $g$-tagging model working.
+This is only a pseudo efficiency since this number is based on the jets in the event and not the event itself, however, by plotting it as a function of an event variable and comparing MC to Data, the validity of the $g$\=/tagging algorithm can be gauged. The first of the event variables used is the $g$\=/tag of the event, see Figure~\ref{fig:q:effiency_btag_bbg_gtag}. 
 
 \begin{figure}[h!]
   \centerfloat
@@ -562,13 +562,16 @@ This is only a pseudo efficiency since this number is based on the jets in the e
   \label{fig:q:effiency_btag_bbg_gtag}
 \end{figure}
 
+This figure shows the pseudo efficiency as a function of the $g$-tag for Data and MC. The efficiency is shown on the left $y$-axis, and the bin counts on the right $y$-axis. The ratio between $\varepsilon_{b\bar{b}g}$ for Data and MC is plotted on the bottom part of the figure. At low values of the $g$-tag, the uncertainties dominate due to low statistics, however, at higher values of the $g$-tag the efficiency plateaus until at very high values of the $g$-tag where the efficiency increases again. The important thing to note in this figure is the high agreement between Data and MC which converges to (almost) \num{1} at high the $g$-tag values. This is an important indication of the 3-jet $g$-tagging model working.
+
+
 Another event variable to look at is the mean of the two invariant masses $m_{bg}$ and $m_{\bar{b}g}$. The invariant mass between two quantities\sidenote{When measured in natural units.} is:
 \begin{equation}
   m_{12} = \sqrt{\left(E_1 + E_2\right)^2 - \norm{\vec{p}_1 + \vec{p}_2}^2 },
 \end{equation} 
-where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its momentum. The invariant masses between all three jets $m_{b\bar{b}g}$, which otherwise might have been the first intuition to use as the event variable, is non-informative (in this context) since this is just the total event energy which is kept (approximately) constant at $\sim \SI{91}{\GeV}$.
-
-The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{\bar{b}g}$ in Figure~\ref{fig:q:effiency_btag_bbg_m_mean}. Here the overall correspondence between Data and MC is lower than in Figure~\ref{fig:q:effiency_btag_bbg_gtag}, especially for high values of the mean invariant mass. That the ratio is close to \num{1} for most of the data (from \SI{20}{\GeV} to \SI{50}{\GeV}) is a good sign, whereas the tails indicate the model is biased here which could be corrected for with correction factors, however, this would increase the systematic uncertainties. 
+where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its momentum. 
+% The invariant masses between all three jets $m_{b\bar{b}g}$, which otherwise might have been the first intuition to use as the event variable, is non-informative (in this context) since this is just the total event energy which is kept (approximately) constant at $\sim \SI{91}{\GeV}$.
+The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{\bar{b}g}$ in Figure~\ref{fig:q:effiency_btag_bbg_m_mean}. The overall correspondence between Data and MC is lower than in Figure~\ref{fig:q:effiency_btag_bbg_gtag}, especially for high values of the mean invariant mass. That the ratio is close to \num{1} for most of the data (from \SI{20}{\GeV} to \SI{50}{\GeV}) is a good sign. The tails indicate a biased model in these parts of the phase space which could be corrected with correction factors, however, this would increase the systematic uncertainties. 
 
 \begin{figure}[h!]
   \centerfloat
@@ -578,16 +581,16 @@ The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{
   \label{fig:q:effiency_btag_bbg_m_mean}
 \end{figure}
 
-These two figures strengthens the claim that the trained $b$-tagging and $g$-tagging models provide un-biased models that not only work in Data but also in MC. 
+These two figures strengthen the claim that the trained $b$-tagging and $g$-tagging models are (relatively) unbiased models that work not only in MC but also in Data.
 
 \section{Generalized Angularities in 3-Jet Events}
 \label{sec:q:generalized_angularities_3j}
 
-To measure how gluon jet hadronizes, i.e. their jet distributions, number of tracks, etc., the \emph{generalized angularities} provide an overall framework for doing so. The generalized angularities is a two-parameter family of variables depending on the angular weighting $\beta \leq 0$ and an energy weighting factor $\kappa \leq 0$:
+To measure how gluon jets hadronize, i.e. their jet distributions, the \emph{generalized angularities} provide an overall framework for doing so. The generalized angularities are a two-parameter family of variables depending on the angular weighting $\beta \geq 0$ and an energy weighting factor $\kappa \geq 0$:
 \begin{equation}
   \lambda_\beta^\kappa = \sum_{i \in \mathrm{jet}} z_i^\kappa \theta_i^\beta,
 \end{equation}
-where $z_i \equiv E_i / E_\mathrm{jet}$ is the momentum fraction, i.e. $0 \leq z_i \leq 1$, $\theta_i \equiv \Omega_i / R$ is the normalized angle with respect to the jet axis where $R$ is the jet radius such that $0 \leq \theta_i \leq 1$, and $i$ runs over all the jet constituents \citep{grasSystematicsQuarkGluon2017,larkoskiGainingMutualInformation2014}. Different values of ($\beta, \kappa$) probe different parts of the (gluon) jet fragmentation phase space. I will limit the analysis to the five sets of ($\beta, \kappa$)-values shown in Figure~\ref{fig:q:LHA}, where each of the sets of variables are related to the following aspects:
+where $z_i \equiv E_i / E_\mathrm{jet}$ is the energy fraction, $\theta_i \equiv \Omega_i / R$ is the normalized angle with respect to the jet axis ($R$ is the jet radius), and $i$ runs over all the jet constituents \citep{grasSystematicsQuarkGluon2017,larkoskiGainingMutualInformation2014}. Different values of ($\beta, \kappa$) probe different parts of the (gluon) jet fragmentation phase space. I will limit the analysis to the five sets of ($\beta, \kappa$)-values shown in Figure~\ref{fig:q:LHA}, where each of the sets of variables are related to the following aspects:
 
 \begin{marginfigure}[5.5cm]
   \centerfloat
@@ -607,27 +610,31 @@ where $z_i \equiv E_i / E_\mathrm{jet}$ is the momentum fraction, i.e. $0 \leq z
   \item[($2, 1$):] Mass.
 \end{enumerate}
 
-We will look at the generalized angularity distributions for gluons in 3-jet events. We do so by using the $g$-tag from the $g$-tagging model to select events with a high $g$-tag and then select the jet in the event with the lowest of the $b$-tags since this jet is expected to be the gluon jet. From the plot in Figure~\ref{fig:q:gtag_scores_3j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{3\dash\mathrm{jet}} = \SI{19.68}{\percent}$ and a signal purity of $\rho_g^{3\dash\mathrm{jet}}=\SI{98.77}{\percent}$. Here a gluon event is defined as an event with a $0.9 < \gamma_\mathrm{tag}$. 
+The generalized angularity distributions for gluons will be measured in 3-jet events since this provide a (relatively) clean sample of gluon jets. 
+The $g$-tagging model is used to select events based on the $g$-tag and in these events, the jet with the lowest of the $b$-tags is selected since this jet is expected to be the gluon jet. Based on Figure~\ref{fig:q:gtag_scores_3j_sig_bkg}, the $g$-tag cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.9$ for 3-jet events. This cut corresponds to selecting \num{340476} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{3\dash\mathrm{jet}} = \SI{19.68}{\percent}$ and a signal purity of $\rho_g^{3\dash\mathrm{jet}}=\SI{98.77}{\percent}$. Here a gluon event is defined as an event with $0.9 < \gamma_\mathrm{tag}$. 
 
-The distribution of $\lambda_0^2$, i.e. $(\beta, \kappa)=(0,2)$, related to the transverse momentum distribution, in gluon events is seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix}. Here the distribution of $\lambda_0^2$ is shown for MC Truth (actual gluons jets using truth-label), MC selected (gluons jets selected using the $g$-tag) and Data (gluons jets selected using the $g$-tag). The generalized angularities are computed for both charged jets and neutral clusters, where this figure shows the distribution of $\lambda_0^2$ for charged jets. The MC Selected has been scaled to Data according to the fraction of the number of events in each: $w_\mathrm{MC} = N_\mathrm{Data} / N_\mathrm{MC}$. The MC Truth has been scaled with the same weight multiplied with the gluon efficiency $w_\mathrm{MC \dash Truth} = w_\mathrm{MC} \cdot \varepsilon_g^{3\dash\mathrm{jet}}$. The $\lambda_\beta^\kappa=0$ values has been removed before plotting for all sets of values of $(\beta, \kappa)$. 
+Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} shows the distribution of $\lambda_0^2$, i.e. $(\beta, \kappa)=(0,2)$, (which is related to the transverse momentum distribution) in gluon events. The distribution is shown for MC Truth (actual gluons jets in MC using truth-label), MC selected (gluons jets in MC selected using the $g$-tag) and Data (gluons jets in Data selected using the $g$-tag). The generalized angularities are computed for both charged jets and neutral clusters: Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} shows the distribution of $\lambda_0^2$ for charged jets. The MC Selected has been scaled to Data according to the fraction of the number of events in each: $w_\mathrm{MC} = N_\mathrm{Data} / N_\mathrm{MC}$. The MC Truth has been scaled with the same weight multiplied with the gluon efficiency $w_\mathrm{MC \dash Truth} = w_\mathrm{MC} \cdot \varepsilon_g^{3\dash\mathrm{jet}}$. The $\lambda_\beta^\kappa=0$ values has been removed before plotting for all sets of values of $(\beta, \kappa)$. 
 
-In Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} it is seen how MC Truth and Data does not match perfectly well which indicates that this is not the perfect method, however, that MC Selected and Data distributions matches each other quite well indicates that the model is equally biased for both MC and Data. 
-The errorbars in the ratio plot are fitted with both a constant ${f(x)=b}$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. In the text box \code{DOF} is the number of degrees of freedom and \code{P} is the $\chi^2$-probability\sidenote{ $P(\chi^2; N_\mathrm{DOF}) = \int_{\chi^2}^\infty f_{\chi^2}(x; N_\mathrm{DOF}) \mathop{dx}$, where $f_{\chi^2}(x; N_\mathrm{DOF})$ is the $\chi^2$ distribution with $N_\mathrm{DOF}$ degrees of freedom.}. I compute the systematic error $\sigma_\mathrm{sys}$ that would have to be added in quadrature to the standard deviation, $\sigma \rightarrow \sqrt{\sigma^2 + \sigma_\mathrm{sys}^2}$, such that the $\chi^2$-probability would be \SI{50}{\percent}. I do this using Brent's method \autocite{Brent:113464} and the systematic error is written as \code{sigma_sys} in the figure. 
-
-\begin{figure}[h!]
+\begin{figure*}[h!]
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip, page=1]{figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda_0^2$]
           {Distribution of the generalized angularity $\lambda_0^2$ for charged gluons jets in 3-jet events: $\lambda_0^2$. The distributions for \textcolor{red}{MC Truth} is shown in red, \textcolor{blue}{MC Truth} in blue, and \textcolor{green}{Data} in green in the top plot and in the bottom plot the ratio between \textcolor{red}{MC Selected and MC Truth} is shown in red and between \textcolor{green}{MC Selected and Data} in green. }
   \label{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix}
-\end{figure}
-\vspace{-3mm} 
+\end{figure*}
+\vspace{-5mm} 
 
-The rest of the plots can be seen in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2}--\ref{fig:q:generalized_angularities_neu_lambda_0_0}. For the charged tracks it can be seen that the first few bins generally has ratios just below \num{1} with a upwards trend until around the middle of the $\lambda$ range and then it decreases again (and the uncertainties increases with lower and lower statistics). The discrepancy between MC selected and Data is larger for the neutral clusters, which are also less well-defined than the charged jets (at the energies used at LEP), and with the same trend as for the charged jets. 
+Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} shows that the MC Truth and Data does not match perfectly well, which indicates that this is not a perfect method. However, that the MC Selected and Data distributions matches each other quite well, indicates that the model is equally biased for both MC and Data. 
+The errorbars in the ratio plot are fitted with both a constant ${f(x)=b}$ and a straight line $f(x)=ax+b$ with the fit results shown as text in the plot. In the text box, \code{DOF} is the number of degrees of freedom and \code{P} is the $\chi^2$-probability\sidenote{ $P(\chi^2; N_\mathrm{DOF}) = \int_{\chi^2}^\infty f_{\chi^2}(x; N_\mathrm{DOF}) \mathop{dx}$, where $f_{\chi^2}(x; N_\mathrm{DOF})$ is the $\chi^2$ distribution with $N_\mathrm{DOF}$ degrees of freedom.}. I compute the systematic error $\sigma_\mathrm{sys}$ that would have to be added in quadrature to the standard deviation, $\sigma \rightarrow \sqrt{\sigma^2 + \sigma_\mathrm{sys}^2}$, such that the $\chi^2$-probability would be \SI{50}{\percent}. I do this using Brent's method \autocite{Brent:113464} and the systematic error is written as \code{sigma_sys} in the figure. 
 
-These trends are quantified in by the fits to the ratio plots. For $\lambda_0^2$, Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} above, we see that a constant fit does a reasonable job with a $P_\chi^2=\SI{3.9}{\percent}$. The small decrease in $\chi^2$ value, $\chi^2 = 67.76$ for the constant fit but only \num{67.65} for the linear fit, is attributed to the linear fit being a more advanced fit (more fit parameters). In this case the difference would be expected to be $\Delta \chi^2 \sim 1$ due to difference in the number of fit parameters being \num{1}, which is also what is seen. As such, the systematic error will be based on the constant fit here $\sigma_\mathrm{sys}(\lambda_0^2)=\SI{2.0}{\percent}$. 
+The rest of the angularities, both charged and neutral, are show in Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2} to \ref{fig:q:generalized_angularities_neu_lambda_0_0}. For the charged tracks it can be seen that the first few bins generally has ratios just below \num{1} followed by a upwards trend until around the middle of the $\lambda$ range and after it decreases again. The discrepancy between MC selected and Data is larger for the neutral clusters, which are also less well-defined than the charged jets (at the energies used at LEP). 
 
-\begin{margintable}[-6cm]
+These trends are quantified by the fits to the ratio plots. Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} shows that a constant fit does a reasonable job with a $\chi^2$ probability $P_{\chi^2}=\SI{3.9}{\percent}$. The small decrease in $\chi^2$ value ($\Delta \chi^2 = 67.76-67.65=0.12$) is attributed to the linear fit having more fit parameters and not due to it being a better model. This is also indicated by the probability. In this case, the systematic error will be based on the constant fit $\sigma_\mathrm{sys}(\lambda_0^2)=\SI{2.0}{\percent}$. 
+
+
+In general there is a $\sim \SI{4}{\percent}$ constant offset for the charged tracks, which is easy to correct for. For the neutral clusters it is seen to be a lot higher at $\sim \SI{15}{\percent}$. For charged tracks the systematic error is around $\sim \SI{2}{\percent}$ for most of the generalized angularities, while it is around $\sim \SI{4}{\percent}$ for the neutral clusters. A summary of all the systematic errors for the charged tracks can be seen in Table~\ref{tab:q:generalized_angularities_systematic_errors_charged} and in Table~\ref{tab:q:generalized_angularities_systematic_errors_neutral} for the neutral clusters. Overall, the figures show a reasonable good correspondence between MC selected and Data for the generalized angularities.  
+
+\begin{margintable}
   \centerfloat
   \begin{tabular}{@{}rrc@{}}
   {}             & $\sigma_\mathrm{sys}$ & $f(x)$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
@@ -654,8 +661,6 @@ These trends are quantified in by the fits to the ratio plots. For $\lambda_0^2$
   \vspace{3mm}
   \caption[Generalized Angularities Systematic Errors, Neutral Clusters]{\label{tab:q:generalized_angularities_systematic_errors_neutral}Systematic errors for the generalized angularities for neutral clusters.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
 \end{margintable}
-
-In general there is a $\sim \SI{4}{\percent}$ constant offset for the charged tracks, which is easy to correct for. For the neutral clusters it is seen to be a lot higher at $\sim \SI{15}{\percent}$. For charged tracks the systematic error is around $\sim \SI{2}{\percent}$ for most of the generalized angularities, while it is around $\sim \SI{4}{\percent}$ for the neutral clusters. A summary of all the systematic errors for the charged tracks can be seen in Table~\ref{tab:q:generalized_angularities_systematic_errors_charged} and in Table~\ref{tab:q:generalized_angularities_systematic_errors_neutral} for the neutral clusters. Overall, the figures show a reasonable good correspondence between MC selected and Data for the generalized angularities.  
 
 \section{Gluon splitting}
 \label{sec:q:gluon_splitting_4j}

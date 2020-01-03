@@ -12,7 +12,7 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Decision Tree}}{16}{section.2.6}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Grid Search}}{20}{subsection.2.7.1}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Random Search}}{21}{equation.2.7.39}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Bayesian Optimization}}{22}{subsection.2.7.3}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Bayesian Optimization}}{23}{subsection.2.7.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Price Index of the Danish Housing Market}}{27}{chapter.3}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Distributions of the Variables in the Housing Prices}}{29}{subfigure.3.2.4}
@@ -87,9 +87,9 @@
 \contentsline {figure}{\numberline {5.26}{\ignorespaces $g$\BarOrDash /Tagging Pseudo Efficiency for $b\bar {b}g$\BarOrDash /Events as a Function of The Mean Invariant Mass}}{83}{equation.5.7.8}
 \contentsline {figure}{\numberline {5.27}{\ignorespaces Generalized Angularities}}{84}{equation.5.8.9}
 \contentsline {figure}{\numberline {5.28}{\ignorespaces Generalized Angularities for Charged Gluons Jets in 3-Jet Events: $\lambda _0^2$}}{85}{equation.5.8.9}
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Soft Wide Angle Gluons in 4-Jet Events}}{87}{equation.5.9.13}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{87}{equation.5.9.13}
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{87}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Soft Wide Angle Gluons in 4-Jet Events}}{88}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Soft Collinear Gluons in 4-Jet Events}}{88}{equation.5.9.13}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Hard Non $g\rightarrow gg$ Gluons in 4-Jet Events}}{88}{equation.5.9.13}
 \contentsline {figure}{\numberline {5.32}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of the Normalized Gluon-Gluon Jet Energy Difference Asymmetry $E_\mathrm {diff}$}}{88}{subsection.5.9.2}
 \contentsline {figure}{\numberline {5.33}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for the Normalized Gluon Gluon Jet Energy Asymmetry}}{90}{equation.5.9.18}
 \contentsline {figure}{\numberline {5.34}{\ignorespaces Overview of the Four Regions in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{91}{subsection.5.9.4}
