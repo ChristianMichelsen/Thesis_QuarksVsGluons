@@ -10,9 +10,10 @@
 \contentsline {table}{\numberline {3.7}{\ignorespaces Results from the Initial Hyperparameter Optimization for Apartments}}{37}{equation.3.4.7}
 \contentsline {table}{\numberline {3.8}{\ignorespaces Results from the Initial Hyperparameter Optimization for Houses}}{37}{equation.3.4.7}
 \contentsline {table}{\numberline {3.9}{\ignorespaces PDFs Used in the Random Search}}{39}{section.3.5}
-\contentsline {table}{\numberline {3.10}{\ignorespaces Realtors' MAD}}{41}{section.3.6}
-\contentsline {table}{\numberline {3.11}{\ignorespaces Performance Metrics for Apartments}}{41}{section.3.6}
-\contentsline {table}{\numberline {3.12}{\ignorespaces Performance Metrics for Houses}}{41}{section.3.6}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Realtors' MAD for apartments}}{41}{section.3.6}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Realtors' MAD for houses}}{41}{section.3.6}
+\contentsline {table}{\numberline {3.12}{\ignorespaces Performance Metrics for Apartments}}{41}{section.3.6}
+\contentsline {table}{\numberline {3.13}{\ignorespaces Performance Metrics for Houses}}{41}{section.3.6}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces The number of $n$-jet events for Data and MC.}}{64}{section.5.1}

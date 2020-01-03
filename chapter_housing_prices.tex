@@ -416,7 +416,7 @@ The $\log_{10}$-transformation was included as some machine learning methods ass
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=0 0 0 0, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_CV_viz_initial_HPO.pdf}
   \caption[Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments]
-          {Hyperparameter optimization results for apartments. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an iteration of the grid search, colored according to the performance of that hyperparameter as measured by the MAD. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparameter \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objective} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. See Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer_appendix_big} for a bigger version of this figure.} 
+          {Hyperparameter optimization results for apartments. The results are shown as parallel coordinates with each hyperparameter along the $x$-axis and the value of that parameter on the $y$-axis. Each line is an iteration of the grid search, colored according to the performance of that hyperparameter as measured by the $\mathrm{MAD}_0$. The \textcolor{red}{single best hyperparameter} is shown in red. For the hyperparameter \code{log10} \code{0} means False and \code{1} means True, for \code{Halftime} $\infty$ is mapped to \code{30}, and for \code{objective} the functions Cauchy (0), Fair (1), LogCosh (2) SquaredError (3), and Welsch (4) are mapped to the integers in the parentheses. See Figure~\ref{fig:h:initial_CV_res_parallel_coords_ejer_appendix_big} for a bigger version of this figure.} 
   \label{fig:h:initial_CV_res_parallel_coords_ejer}
 \end{figure}
 
@@ -534,8 +534,8 @@ The performances of the three different models (the RS-optimized, the BO-optimiz
   \label{fig:h:CV_res_performance_ejer}
 \end{figure*}
 
-An interesting observation from the performance metrics of the test set is the low value of $f_\mathrm{eval}=\SI{9.289}{\percent}$ (\code{MAD}). By looking at Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer}, one would expect a test loss of around \SI{12}{\percent} assuming iid. samples. However, this assumption does not seem to be fulfilled for the test set. The performances of the realtors are also better for the test set than the training set, and by comparing the test set with the extra \num{2019} set, it seems to be \num{2018} that was an extra homogenous year. The realtors' performance is shown in Table~\ref{tab:h:realtor_mad_train_test_2019}. The \q{Tight} in the the table corresponds to the realtors performance on the tight versions of the different datasets. The performance of the XGB models on the tight test set is shown in Figure~\ref{fig:h:CV_res_performance_ejer_tight}, where it can be seen that the final model has $f_\mathrm{eval}=\SI{8.383}{\percent}$. 
-\begin{margintable}
+An interesting observation from the performance metrics of the test set is the low value of $f_\mathrm{eval}=\SI{9.289}{\percent}$ (\code{MAD}). By looking at Figure~\ref{fig:h:CV_res_ES_learning_curve_ejer}, one would expect a test loss of around \SI{12}{\percent} assuming iid. samples. However, this assumption does not seem to be fulfilled for the test set. The performances of the realtors are also better for the test set than the training set, and by comparing the test set with the extra \num{2019} set, it seems to be \num{2018} that was an extra homogenous year. The realtors' performance is shown in Table~\ref{tab:h:realtor_mad_train_test_2019} for apartments and in Table~\ref{tab:h:realtor_mad_train_test_2019_houses} for houses. The \q{Tight} in the the table corresponds to the realtors performance on the tight versions of the different datasets. The performance of the XGB models on the tight test set is shown in Figure~\ref{fig:h:CV_res_performance_ejer_tight}. 
+\begin{margintable}[-0.5cm]
   \centerfloat
   \begin{tabular}{@{}rlll@{}}
           & Train               & Test                & \num{2019}          \\ \midrule
@@ -543,16 +543,27 @@ An interesting observation from the performance metrics of the test set is the l
   Tight   & \SI{5.69}{\percent} & \SI{4.94}{\percent} & \SI{6.19}{\percent} 
   \end{tabular}
   \vspace{2mm}
-  \caption[Realtors' MAD]{The MAD of the realtors' predictions for the normal and tight selections in the training, test, and \num{2019} datasets.}
+  \caption[Realtors' MAD for apartments]{The $\mathrm{MAD}_0$ of the realtors' predictions for the normal and tight selections of apartments in the training, test, and \num{2019} datasets.}
   \label{tab:h:realtor_mad_train_test_2019}
 \end{margintable}
+\begin{margintable}[0.1cm]
+  \centerfloat
+  \begin{tabular}{@{}rlll@{}}
+          & Train               & Test                & \num{2019}          \\ \midrule
+  Normal  & \SI{12.25}{\percent} & \SI{7.89}{\percent} & \SI{8.49}{\percent} \\
+  Tight   & \SI{11.62}{\percent} & \SI{7.59}{\percent} & \SI{8.07}{\percent} 
+  \end{tabular}
+  \vspace{2mm}
+  \caption[Realtors' MAD for houses]{The $\mathrm{MAD}_0$ of the realtors' predictions for the normal and tight selections of houses in the training, test, and \num{2019} datasets.}
+  \label{tab:h:realtor_mad_train_test_2019_houses}
+\end{margintable}
 
-The results for the final model are shown in Table~\ref{tab:h:results_ejer} for owner-occupied apartments and in in Table~\ref{tab:h:results_villa} for one family houses. The MAD is around \SI{9}{\percent} for apartments and \SI{16}{\percent} for houses, which is still worse than the realtors' predictions, yet still acceptable for a model that does not have any variables describing the indoor conditions. For apartments around \SI{40}{\percent} of all the predictions are within $\pm \SI{5}{\percent}$ and more than \SI{90}{\percent} are within $\pm \SI{20}{\percent}$ which is similar to the performance of the professional, automated property evaluations from e.g. \citet{bolighedBolighedUsikkerhedDatavurderingen}. The performances on the tight cuts are shown in Table~\ref{tab:h:results_ejer_tight} and \ref{tab:h:results_villa_tight}. 
+The results for the final model are shown in Table~\ref{tab:h:results_ejer} for owner-occupied apartments and in in Table~\ref{tab:h:results_villa} for one family houses. The $\mathrm{MAD}_0$ is around \SI{9}{\percent} for apartments and \SI{16}{\percent} for houses, which is still worse than the realtors' predictions, yet still acceptable for a model that does not have any variables describing the indoor conditions. For apartments around \SI{40}{\percent} of all the predictions are within $\pm \SI{5}{\percent}$ and more than \SI{90}{\percent} are within $\pm \SI{20}{\percent}$ which is similar to the performance of the professional, automated property evaluations from e.g. \citet{bolighedBolighedUsikkerhedDatavurderingen}. The performances on the tight cuts are shown in Table~\ref{tab:h:results_ejer_tight} and \ref{tab:h:results_villa_tight}. 
 
 \begin{table}
   \centerfloat
   \begin{tabular}{@{}lcccc@{}}
-    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$   \\
+    {} &      $\mathrm{MAD}_0$ (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$   \\
     \midrule
     Train & \num{7.83} & \num{47.90} & \num{75.74} & \num{93.97} \\
     Test  & \num{9.29} & \num{41.33} & \num{69.77} & \num{91.91} \\
@@ -566,7 +577,7 @@ The results for the final model are shown in Table~\ref{tab:h:results_ejer} for 
 \begin{table}
   \centerfloat
   \begin{tabular}{@{}lcccc@{}}
-    {} &      MAD (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$    \\
+    {} &      $\mathrm{MAD}_0$ (\%) & $\leq 5\% (\%)$ &  $\leq 10\% (\%)$ &   $\leq 20\% (\%)$    \\
     \midrule
     Train & \num{14.12} & \num{28.95} & \num{51.89} & \num{78.04}  \\
     Test  & \num{15.79} & \num{25.61} & \num{47.52} & \num{75.14}  \\
@@ -582,12 +593,12 @@ The results for the final model are shown in Table~\ref{tab:h:results_ejer} for 
 \label{sec:h:forecasting}
 
 To gauge the predictive power of the final model over time, we predicted prices of the following month's sales and compared the predictions to the actual, sold prices. This is done on a month-by-month basis for all the months in the test set (\num{2018}) and \num{2019}. 
-We applied two different methods of forecasting: \emph{static} forecasting where the model is only trained once, and \emph{dynamic} forecasting where the model is retrained after each month on all of the previous sales. These predictions allow the relative predictions $\vec{z}$ to be calculated and the MAD and the standard deviation (SD) of $\vec{z}$ are shown in Figure~\ref{fig:h:forecast_MAD_SD}. 
+We applied two different methods of forecasting: \emph{static} forecasting where the model is only trained once, and \emph{dynamic} forecasting where the model is retrained after each month on all of the previous sales. These predictions allow the relative predictions $\vec{z}$ to be calculated and the $\mathrm{MAD}_0$ and the standard deviation (SD) of $\vec{z}$ are shown in Figure~\ref{fig:h:forecast_MAD_SD}. 
 \begin{figure}
   \centerfloat
   \includegraphics[width=0.99\textwidth, trim=10 15 10 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_xgb_forecast_prediction_MAD.pdf}
   \caption[Standard Deviation and MAD of the Static and Dynamic XGB Forecasts]
-          {Performance of 1-month forecasts for apartments sold in \num{2018} and \num{2019}. For both plots the XGB model is trained on data up to (but excluding) 2018. Top) The performance of the static model's prediction for both the \textcolor{blue}{standard deviation (SD)} and \textcolor{red}{MAD} of the $z$-scores. Bottom) Same as above, however, based on a dynamic model, i.e. a model which is retrained after every month to include the previous month's sales.} 
+          {Performance of 1-month forecasts for apartments sold in \num{2018} and \num{2019}. For both plots the XGB model is trained on data up to (but excluding) 2018. Top) The performance of the static model's prediction for both the \textcolor{blue}{standard deviation (SD)} and \textcolor{red}{$\mathrm{MAD}_0$} of the $z$-scores. Bottom) Same as above, however, based on a dynamic model, i.e. a model which is retrained after every month to include the previous month's sales.} 
   \label{fig:h:forecast_MAD_SD}
 \end{figure}
 
@@ -596,7 +607,7 @@ In the top subplot the results for the static forecast are shown, whereas the dy
   \sigma_\mu  = \frac{\sigma}{\sqrt{N}}, \quad \sigma_\sigma = \frac{\sigma}{\sqrt{2N}},
 \end{equation}
 where $\sigma_\mu$ is the standard deviation of the mean and $\sigma_\sigma$ is the standard deviation of the standard deviation\sidenote{That this estimator is biased does not matter since we are in the large $N$ limit, $N \sim 1000$.} \autocite{Barlow:0471922951}.
-Notice the large fluctuations in the standard deviations over time compared to the MADs which is an effect of MAD being a robust estimator. What is also interesting to note is that the MAD seems to increase over time for the static model, albeit slowly. In comparison, for the dynamic model this seem less pronounced. This figure not only shows the time dependence of the performance of the model, but also that the model is quite stable over time, at least for the dynamic model. 
+Notice the large fluctuations in the standard deviations over time compared to the $\mathrm{MAD}_0$s which is an effect of $\mathrm{MAD}_0$ being a robust estimator. What is also interesting to note is that the $\mathrm{MAD}_0$ seems to increase over time for the static model, albeit slowly. In comparison, for the dynamic model this seem less pronounced. This figure not only shows the time dependence of the performance of the model, but also that the model is quite stable over time, at least for the dynamic model. 
 
 Using the relative price predictions $\vec{z}$, we construct the Market Index, $\mathrm{MI}$. This is an index which measures the overall level of the Danish housing market based on the assumption that if the houses sold in a month are generally sold at a higher price than was predicted by the model, there can be two reasons for it: either the model was wrong or the market simply changed in the time span. With the latter assumption, the ratio between the prediction and the actual price of a residence is thus a measure of the market index:
 \begin{equation}
@@ -674,7 +685,7 @@ Finally, support vector machines\sidenote{Known as support vector regression whe
   \centerfloat
   \includegraphics[draft=false, width=0.98\textwidth, trim=10 130 40 10, clip]{figures/housing/Ejerlejlighed_v19_cut_all_Ncols_all_all_models.pdf}
   \caption[Performance Comparison of Multiple Models for Apartments]
-          {Distribution of the relative predictions $\vec{z}$ for apartments for the five different models and the ensemble model. The left plot shows the normal histogram (with a linear scale), whereas the right one has a log-scaled $y$-axis to better see the tails of the distributions. The MAD scores for the different models is further shown in the left plot.} 
+          {Distribution of the relative predictions $\vec{z}$ for apartments for the five different models and the ensemble model. The left plot shows the normal histogram (with a linear scale), whereas the right one has a log-scaled $y$-axis to better see the tails of the distributions. The $\mathrm{MAD}_0$ scores for the different models is further shown in the left plot.} 
   \label{fig:h:multiple_models}
 \end{figure*}
 
@@ -690,7 +701,7 @@ At first an XGBoost model was used as the meta learner yielding decent results, 
   \label{eq:h:meta_learner}
   \Psi_\mathrm{meta}(\vec{x}) = \sum_{i=1}^5 \alpha_i \Psi_i(\vec{x}),
 \end{equation}
-where $\bm{\alpha}$ is a vector of the weights for the meta learner and $\Psi_i$ is one of the individual ML models. The linear model performed even worse than using XGB as the meta learner ($\mathrm{MAD} = \SI{10.48}{\percent}$), yet it was more transparent. During the debugging process it was realized that none of these models actually optimize the evaluation function, MAD, directly. The XGBoost model was trained using the Cauchy loss found earlier and the linear regression model using a simple squared error loss. Since a simple weighted average should work as the meta learner \citep{polleySuperLearnerPrediction2010}, a custom algorithm for finding $\bm{\alpha}$ according to MAD was implemented.
+where $\bm{\alpha}$ is a vector of the weights for the meta learner and $\Psi_i$ is one of the individual ML models. The linear model performed even worse than using XGB as the meta learner ($\mathrm{MAD} = \SI{10.48}{\percent}$), yet it was more transparent. During the debugging process it was realized that none of these models actually optimize the evaluation function, $\mathrm{MAD}_0$, directly. The XGBoost model was trained using the Cauchy loss found earlier and the linear regression model using a simple squared error loss. Since a simple weighted average should work as the meta learner \citep{polleySuperLearnerPrediction2010}, a custom algorithm for finding $\bm{\alpha}$ according to $\mathrm{MAD}_0$ was implemented.
 
 Given the training data, the evaluation function as a function of $\bm{\alpha}$ was minimized using the MINUIT algorithm \cite{1975CoPhC..10..343J} via the iminuit \cite{iminuit} Python interface. It yielded decent results, yet they were all very dependent on the initial parameter of the fit indicating many local minima. A scan over the 5-dimensional hyperspace in steps of $0.01$ was thus conducted and the result of this scan was used as the new initial parameter in the minimization routine. This yielded the following result:
 \begin{equation}
@@ -709,7 +720,7 @@ There are two main reasons for this. The first being that realtors are educated 
 
 During the project it was investigated how to get access to these variables. At first the online images from each sale were suggested. Unfortunately, it turned out that Boligsiden only have the right to use them while a residence is for sale; when it is sold all rights return to the photographer. Fortunately, the images are not the only piece of data that provide more information about the condition of the residence: also the descriptions do that. 
 
-The descriptions turned out to be available for most of the sales and were investigated for a short period. At that time of the small investigation, the MAD for (a subset of) the apartments was around $\pm \SI{14}{\percent}$ and $\pm \SI{20}{\percent}$ for houses. By using methods from the big natural language processing (NLP) community within the field of machine learning, it was possible to reduce the MAD to around $\pm \SI{12}{\percent}$ and $\pm \SI{15}{\percent}$ for apartments and houses respectively. From the improvement in performance it is noticeable how apartments in general are much more uniform compared to houses where the \q{inside} is more decisive regarding the price. 
+The descriptions turned out to be available for most of the sales and were investigated for a short period. At that time of the small investigation, the $\mathrm{MAD}_0$ for (a subset of) the apartments was around $\pm \SI{14}{\percent}$ and $\pm \SI{20}{\percent}$ for houses. By using methods from the big natural language processing (NLP) community within the field of machine learning, it was possible to reduce the $\mathrm{MAD}_0$ to around $\pm \SI{12}{\percent}$ and $\pm \SI{15}{\percent}$ for apartments and houses respectively. From the improvement in performance it is noticeable how apartments in general are much more uniform compared to houses where the \q{inside} is more decisive regarding the price. 
 
 \begin{figure}[h!]
   \centering
@@ -726,9 +737,13 @@ An old example of this was a house based model that was trained with the five nu
 
 The descriptions turned out to be more time-consuming to extract for Boligsiden and along with the fact that the overall deadline was quickly approaching, the remaining time was focussed on the main part of the project, the quark gluon discrimination. Given more time, the text analysis would definitely be the first step for further improving the accuracy and precision of the price predictions. 
 
-Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the initial stages of this subproject but showed inferior performance compared to BDTs. It is generally accepted in the ML community (with some modifications) that neural networks underperform, or at least not outperform, classic ML methods on structured data\sidenote{Structured data are data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations. This is why it is also known as \emph{tabular data}.} \autocite{klambauerSelfNormalizingNeuralNetworks2017}. Most often they have the inherent complexity needed to perform as well as other ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than for classical ML methods and thus requires more care to avoid overfitting.
+Another step would be to apply more modern deep learning\sidenote{Basically advanced neural networks with many layers.} methods. These methods were briefly experimented with in the initial stages of this subproject but showed inferior performance compared to boosted decision trees. It is generally accepted in the ML community (with some modifications) that neural networks underperform, or at least not outperform, classic ML methods on structured data\sidenote{Structured data are data that can be described by a spread sheet, i.e. has a well-defined number of variables and observations. This is why it is also known as \emph{tabular data}.} \autocite{klambauerSelfNormalizingNeuralNetworks2017}. Most often they have the inherent complexity needed to perform as well as other ML methods, however, this requires extensive architecture optimization, or, in short; the hypothesis space for neural networks is much larger than classical ML methods and thus requires more care to avoid overfitting.
 
 \section{Conclusion}
 \label{sec:h:conclusion}
 
-XXX \TODO
+Estimating housing prices is not easy and computer models are still not as high performing as professional realtors, however, the field of automated housing predictions is rapidly progressing. In this first half of the thesis, Danish housing prices were predicting using a multitude of different machine learning models and techniques. A fitting pipeline consisting of first optimizing for the best loss function, sample weight, and transformation of the data was tested followed by a comparison of the random search and Bayesian optimization hyperparameter optimization routines. This pipeline was evaluated for the XGBoost model and its forecasting abilities measured along with an inspection of the most important features according to this model. This showed that the previous public property valuations are still the highest ranking features followed by the area, however, the data augmented price index turned out to be in the top five as well. This shows that feature engineering is still an important technique in machine learning. 
+
+The model's performance, as measured by the median absolute deviation around zero, $\mathrm{MAD}_0$, on the (unseen) test set (all sales in \num{2018}) is found to be \SI{9.3}{\percent} for apartments and \SI{15.8}{\percent} for houses. For a subset af the sales (around \SI{60}{\percent}), which is still a pretty loose selection, the scores were improved even further down to \SI{8.5}{\percent} and \SI{14.9}{\percent}. These numbers should be compared to the performance of the realtors which were \SI{4.9}{\percent} and \SI{7.6}{\percent}. The apartment model correctly predict more than \SI{41}{\percent} of the price of apartments to be within $\pm \SI{5}{\percent}$, around \SI{70}{\percent} within $\pm \SI{10}{\percent}$, and more than \SI{91}{\percent} within $\pm \SI{20}{\percent}$. 
+
+The results show that houses are much harder to predict than apartments since they are much more diverse. A short study into using the text descriptions of the sales showed that the model for houses could potentially improve with up to \num{5} percentage points, while only a around \num{2} percentage points for apartments. Another way of improving the model was by using an ensemble of different models, which also showed improvements, however small, and was not concluded to be worth the extra time compared to a single model.
