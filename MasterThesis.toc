@@ -2,7 +2,7 @@
 \contentsline {chapter}{Table of Contents}{v}{section*.2}
 \contentsline {chapter}{Foreword}{xi}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {part}{Part I}{3}{chapter*.5}
+\contentsline {part}{Part I}{3}{chapter*.6}
 \contentsline {chapter}{\numberline {2}Machine Learning}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Statistical Learning Theory}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Supervised Learning}{6}{section.2.2}
@@ -39,7 +39,7 @@
 \contentsline {section}{\numberline {3.9}Multiple Models}{46}{section.3.9}
 \contentsline {section}{\numberline {3.10}Discussion}{48}{section.3.10}
 \contentsline {section}{\numberline {3.11}Conclusion}{50}{section.3.11}
-\contentsline {part}{Part II}{51}{chapter*.7}
+\contentsline {part}{Part II}{51}{chapter*.10}
 \contentsline {chapter}{\numberline {4}Particle Physics and LEP}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}The Standard Model}{53}{section.4.1}
 \contentsline {section}{\numberline {4.2}Quark Hadronization}{54}{section.4.2}
@@ -73,62 +73,62 @@
 \contentsline {subsection}{\numberline {5.9.4}Results}{91}{subsection.5.9.4}
 \contentsline {section}{\numberline {5.10}Discussion}{94}{section.5.10}
 \contentsline {section}{\numberline {5.11}Conclusion}{96}{section.5.11}
-\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{97}{appendix.A}
-\contentsline {section}{\numberline {A.1}Input Distributions}{97}{section.A.1}
-\contentsline {section}{\numberline {A.2}Correlations}{112}{section.A.2}
-\contentsline {section}{\numberline {A.3}Validity Correlations}{113}{section.A.3}
-\contentsline {section}{\numberline {A.4}Energy Rating Mapping}{114}{section.A.4}
-\contentsline {section}{\numberline {A.5}Facebook Prophet for Houses}{115}{section.A.5}
-\contentsline {section}{\numberline {A.6}Final Variable List}{116}{section.A.6}
-\contentsline {section}{\numberline {A.7}Initial Hyperparameter Results Tables}{118}{section.A.7}
-\contentsline {section}{\numberline {A.8}Initial Hyperparameter Results Parallel Coordinates}{122}{section.A.8}
-\contentsline {section}{\numberline {A.9}Hyperparameter Results Parallel Coordinates}{123}{section.A.9}
-\contentsline {section}{\numberline {A.10}Hyperparameter Optimization as a Function of Iterations}{125}{section.A.10}
-\contentsline {section}{\numberline {A.11}Histogram of z Values for Apartments with the Tight Cut}{127}{section.A.11}
-\contentsline {section}{\numberline {A.12}Multiple Models for Houses}{127}{section.A.12}
-\contentsline {section}{\numberline {A.13}Performance Metrics for the Tight Selection}{128}{section.A.13}
-\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{129}{appendix.B}
-\contentsline {section}{\numberline {B.1}Fraction of Different Types of Jets}{129}{section.B.1}
-\contentsline {section}{\numberline {B.2}Random Search PDFs for XGB}{129}{section.B.2}
-\contentsline {section}{\numberline {B.3}Global SHAP Feature Importances for the g-Tagging Models in 3-Jet Events}{129}{section.B.3}
-\contentsline {section}{\numberline {B.4}UMAP Parameters Comparison}{130}{section.B.4}
-\contentsline {section}{\numberline {B.5}t-SNE Parameters Comparison}{130}{section.B.5}
-\contentsline {section}{\numberline {B.6}HPO results for 3-jet b-Tagging}{131}{section.B.6}
-\contentsline {section}{\numberline {B.7}HPO results for 4-jet b-Tagging}{131}{section.B.7}
-\contentsline {section}{\numberline {B.8}b-Tag Scores in 3-Jet Events}{132}{section.B.8}
-\contentsline {section}{\numberline {B.9}b-Tag Scores in 4-Jet Events}{132}{section.B.9}
-\contentsline {section}{\numberline {B.10}ROC curve for 3-jet b-tagging}{133}{section.B.10}
-\contentsline {section}{\numberline {B.11}ROC curve for 4-jet b-tagging}{133}{section.B.11}
-\contentsline {section}{\numberline {B.12}Distribution of b-Tags in 3-Jet Events}{134}{section.B.12}
-\contentsline {section}{\numberline {B.13}Distribution of b-Tags in 4-Jet Events}{134}{section.B.13}
-\contentsline {section}{\numberline {B.14}Global Feature Importances for the LGB b-Tagging Algorithm on 3-Jet Events}{135}{section.B.14}
-\contentsline {section}{\numberline {B.15}Global Feature Importances for the LGB b-Tagging Algorithm on 4-Jet Events}{135}{section.B.15}
-\contentsline {section}{\numberline {B.16}b-tag Efficiency for b-Jets in the b-Signal Region for 3-jet events}{136}{section.B.16}
-\contentsline {section}{\numberline {B.17}b-tag Efficiency for g-Jets in the g-Signal Region for 3-jet events}{136}{section.B.17}
-\contentsline {section}{\numberline {B.18}b-tag Efficiency for b-Jets in the g-Signal Region for 3-jet events}{137}{section.B.18}
-\contentsline {section}{\numberline {B.19}b-tag Efficiency for g-Jets in the b-Signal Region for 3-jet events}{137}{section.B.19}
-\contentsline {section}{\numberline {B.20}Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Energy Ordered Jets}{138}{section.B.20}
-\contentsline {section}{\numberline {B.21}Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Shuffled Jets}{138}{section.B.21}
-\contentsline {section}{\numberline {B.22}Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Energy Ordered Jets}{139}{section.B.22}
-\contentsline {section}{\numberline {B.23}Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Shuffled Jets}{139}{section.B.23}
-\contentsline {section}{\numberline {B.24}PermNet Architecture}{140}{section.B.24}
-\contentsline {section}{\numberline {B.25}1D LGB and PermNet Comparison for 4-Jet Events}{141}{section.B.25}
-\contentsline {section}{\numberline {B.26}1D LGB and PermNet Comparison for 3-Jet Events}{142}{section.B.26}
-\contentsline {section}{\numberline {B.27}g-Tag Scores in 4-Jet Events}{143}{section.B.27}
-\contentsline {section}{\numberline {B.28}g-Tag Scores in 3-Jet Events}{143}{section.B.28}
-\contentsline {section}{\numberline {B.29}ROC Curve for g-Tag in 4-Jet Events}{144}{section.B.29}
-\contentsline {section}{\numberline {B.30}ROC Curve for g-Tag in 3-Jet Events}{144}{section.B.30}
-\contentsline {section}{\numberline {B.31}Distribution of g-Tag Scores in 4-Jet Events for Signal and Background}{145}{section.B.31}
-\contentsline {section}{\numberline {B.32}Distribution of g-Tag Scores in 3-Jet Events for Signal and Background}{145}{section.B.32}
-\contentsline {section}{\numberline {B.33}Generalized Angularities for Charged Gluons Tracks}{146}{section.B.33}
-\contentsline {section}{\numberline {B.34}Generalized Angularities for Neutral Gluons Clusters}{148}{section.B.34}
-\contentsline {section}{\numberline {B.35}g-Tagging Efficiency for 4-Jet Events in MC}{150}{section.B.35}
-\contentsline {section}{\numberline {B.36}Closure Plot for g-Tagging Model in 4-Jet Events}{152}{section.B.36}
-\contentsline {section}{\numberline {B.37}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region A}{155}{section.B.37}
-\contentsline {section}{\numberline {B.38}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region B}{156}{section.B.38}
-\contentsline {section}{\numberline {B.39}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region C}{157}{section.B.39}
-\contentsline {section}{\numberline {B.40}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region D}{158}{section.B.40}
-\contentsline {chapter}{List of Figures}{165}{appendix*.8}
-\contentsline {chapter}{List of Tables}{168}{appendix*.9}
-\contentsline {chapter}{Bibliography}{169}{section*.10}
+\contentsline {chapter}{\numberline {A}Housing Prices Appendix}{99}{appendix.A}
+\contentsline {section}{\numberline {A.1}Input Distributions}{99}{section.A.1}
+\contentsline {section}{\numberline {A.2}Correlations}{114}{section.A.2}
+\contentsline {section}{\numberline {A.3}Validity Correlations}{115}{section.A.3}
+\contentsline {section}{\numberline {A.4}Energy Rating Mapping}{116}{section.A.4}
+\contentsline {section}{\numberline {A.5}Facebook Prophet for Houses}{117}{section.A.5}
+\contentsline {section}{\numberline {A.6}Final Variable List}{118}{section.A.6}
+\contentsline {section}{\numberline {A.7}Initial Hyperparameter Results Tables}{120}{section.A.7}
+\contentsline {section}{\numberline {A.8}Initial Hyperparameter Results Parallel Coordinates}{124}{section.A.8}
+\contentsline {section}{\numberline {A.9}Hyperparameter Results Parallel Coordinates}{125}{section.A.9}
+\contentsline {section}{\numberline {A.10}Hyperparameter Optimization as a Function of Iterations}{127}{section.A.10}
+\contentsline {section}{\numberline {A.11}Histogram of z Values for Apartments with the Tight Cut}{129}{section.A.11}
+\contentsline {section}{\numberline {A.12}Multiple Models for Houses}{129}{section.A.12}
+\contentsline {section}{\numberline {A.13}Performance Metrics for the Tight Selection}{130}{section.A.13}
+\contentsline {chapter}{\numberline {B}Quarks vs. Gluons Appendix}{131}{appendix.B}
+\contentsline {section}{\numberline {B.1}Fraction of Different Types of Jets}{131}{section.B.1}
+\contentsline {section}{\numberline {B.2}Random Search PDFs for XGB}{131}{section.B.2}
+\contentsline {section}{\numberline {B.3}Global SHAP Feature Importances for the g-Tagging Models in 3-Jet Events}{131}{section.B.3}
+\contentsline {section}{\numberline {B.4}UMAP Parameters Comparison}{132}{section.B.4}
+\contentsline {section}{\numberline {B.5}t-SNE Parameters Comparison}{132}{section.B.5}
+\contentsline {section}{\numberline {B.6}HPO results for 3-jet b-Tagging}{133}{section.B.6}
+\contentsline {section}{\numberline {B.7}HPO results for 4-jet b-Tagging}{133}{section.B.7}
+\contentsline {section}{\numberline {B.8}b-Tag Scores in 3-Jet Events}{134}{section.B.8}
+\contentsline {section}{\numberline {B.9}b-Tag Scores in 4-Jet Events}{134}{section.B.9}
+\contentsline {section}{\numberline {B.10}ROC curve for 3-jet b-tagging}{135}{section.B.10}
+\contentsline {section}{\numberline {B.11}ROC curve for 4-jet b-tagging}{135}{section.B.11}
+\contentsline {section}{\numberline {B.12}Distribution of b-Tags in 3-Jet Events}{136}{section.B.12}
+\contentsline {section}{\numberline {B.13}Distribution of b-Tags in 4-Jet Events}{136}{section.B.13}
+\contentsline {section}{\numberline {B.14}Global Feature Importances for the LGB b-Tagging Algorithm on 3-Jet Events}{137}{section.B.14}
+\contentsline {section}{\numberline {B.15}Global Feature Importances for the LGB b-Tagging Algorithm on 4-Jet Events}{137}{section.B.15}
+\contentsline {section}{\numberline {B.16}b-tag Efficiency for b-Jets in the b-Signal Region for 3-jet events}{138}{section.B.16}
+\contentsline {section}{\numberline {B.17}b-tag Efficiency for g-Jets in the g-Signal Region for 3-jet events}{138}{section.B.17}
+\contentsline {section}{\numberline {B.18}b-tag Efficiency for b-Jets in the g-Signal Region for 3-jet events}{139}{section.B.18}
+\contentsline {section}{\numberline {B.19}b-tag Efficiency for g-Jets in the b-Signal Region for 3-jet events}{139}{section.B.19}
+\contentsline {section}{\numberline {B.20}Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Energy Ordered Jets}{140}{section.B.20}
+\contentsline {section}{\numberline {B.21}Parallel Coordinate Plot of HPO Results for 3-Jet g-Tagging for Shuffled Jets}{140}{section.B.21}
+\contentsline {section}{\numberline {B.22}Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Energy Ordered Jets}{141}{section.B.22}
+\contentsline {section}{\numberline {B.23}Parallel Coordinate Plot of HPO Results for 4-Jet g-Tagging for Shuffled Jets}{141}{section.B.23}
+\contentsline {section}{\numberline {B.24}PermNet Architecture}{142}{section.B.24}
+\contentsline {section}{\numberline {B.25}1D LGB and PermNet Comparison for 4-Jet Events}{143}{section.B.25}
+\contentsline {section}{\numberline {B.26}1D LGB and PermNet Comparison for 3-Jet Events}{144}{section.B.26}
+\contentsline {section}{\numberline {B.27}g-Tag Scores in 4-Jet Events}{145}{section.B.27}
+\contentsline {section}{\numberline {B.28}g-Tag Scores in 3-Jet Events}{145}{section.B.28}
+\contentsline {section}{\numberline {B.29}ROC Curve for g-Tag in 4-Jet Events}{146}{section.B.29}
+\contentsline {section}{\numberline {B.30}ROC Curve for g-Tag in 3-Jet Events}{146}{section.B.30}
+\contentsline {section}{\numberline {B.31}Distribution of g-Tag Scores in 4-Jet Events for Signal and Background}{147}{section.B.31}
+\contentsline {section}{\numberline {B.32}Distribution of g-Tag Scores in 3-Jet Events for Signal and Background}{147}{section.B.32}
+\contentsline {section}{\numberline {B.33}Generalized Angularities for Charged Gluons Tracks}{148}{section.B.33}
+\contentsline {section}{\numberline {B.34}Generalized Angularities for Neutral Gluons Clusters}{150}{section.B.34}
+\contentsline {section}{\numberline {B.35}g-Tagging Efficiency for 4-Jet Events in MC}{152}{section.B.35}
+\contentsline {section}{\numberline {B.36}Closure Plot for g-Tagging Model in 4-Jet Events}{154}{section.B.36}
+\contentsline {section}{\numberline {B.37}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region A}{157}{section.B.37}
+\contentsline {section}{\numberline {B.38}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region B}{158}{section.B.38}
+\contentsline {section}{\numberline {B.39}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region C}{159}{section.B.39}
+\contentsline {section}{\numberline {B.40}Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region D}{160}{section.B.40}
+\contentsline {chapter}{List of Figures}{167}{appendix*.11}
+\contentsline {chapter}{List of Tables}{170}{appendix*.12}
+\contentsline {chapter}{Bibliography}{171}{section*.13}
 \contentsfinish 

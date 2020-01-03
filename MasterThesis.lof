@@ -97,97 +97,97 @@
 \contentsline {figure}{\numberline {5.36}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region A}}{94}{subsection.5.9.4}
 \contentsline {figure}{\numberline {5.37}{\ignorespaces Ratio Plot of $E_\mathrm {diff}$ in MC and Data for $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ for Region D}}{94}{subsection.5.9.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Distributions of the Input Variables -- Part 1}}{98}{subfigure.A.1.12}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Distributions of the Input Variables -- Part 2}}{99}{subfigure.A.2.12}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Distributions of the Input Variables -- Part 3}}{100}{subfigure.A.3.12}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Distributions of the Input Variables -- Part 4}}{101}{subfigure.A.4.12}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Distributions of the Input Variables -- Part 5}}{102}{subfigure.A.5.12}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Distributions of the Input Variables -- Part 6}}{103}{subfigure.A.6.12}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Distributions of the Input Variables -- Part 7}}{104}{subfigure.A.7.12}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Distributions of the Input Variables -- Part 8}}{105}{subfigure.A.8.12}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces Distributions of the Input Variables -- Part 9}}{106}{subfigure.A.9.12}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces Distributions of the Input Variables -- Part 10}}{107}{subfigure.A.10.12}
-\contentsline {figure}{\numberline {A.11}{\ignorespaces Distributions of the Input Variables -- Part 11}}{108}{subfigure.A.11.12}
-\contentsline {figure}{\numberline {A.12}{\ignorespaces Distributions of the Input Variables -- Part 12}}{109}{subfigure.A.12.12}
-\contentsline {figure}{\numberline {A.13}{\ignorespaces Distributions of the Input Variables -- Part 13}}{110}{subfigure.A.13.12}
-\contentsline {figure}{\numberline {A.14}{\ignorespaces Distributions of the Input Variables -- Part 14}}{111}{subfigure.A.14.10}
-\contentsline {figure}{\numberline {A.15}{\ignorespaces Linear Correlations}}{112}{section.A.2}
-\contentsline {figure}{\numberline {A.16}{\ignorespaces Comparison of the Linear Correlation $\rho $ and the Nonlinear MIC for Different Levels of Noise}}{113}{section.A.2}
-\contentsline {figure}{\numberline {A.17}{\ignorespaces Validity Heatmap}}{113}{section.A.3}
-\contentsline {figure}{\numberline {A.18}{\ignorespaces Prophet Forecast for apartments}}{115}{section.A.5}
-\contentsline {figure}{\numberline {A.19}{\ignorespaces Prophet Trends}}{115}{section.A.5}
-\contentsline {figure}{\numberline {A.20}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments}}{122}{section.A.8}
-\contentsline {figure}{\numberline {A.21}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Houses}}{122}{section.A.8}
-\contentsline {figure}{\numberline {A.22}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Random Search}}{123}{section.A.9}
-\contentsline {figure}{\numberline {A.23}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Bayesian Optimization}}{123}{section.A.9}
-\contentsline {figure}{\numberline {A.24}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Random Search}}{124}{section.A.9}
-\contentsline {figure}{\numberline {A.25}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Bayesian Optimization}}{124}{section.A.9}
-\contentsline {figure}{\numberline {A.26}{\ignorespaces Random Search Results as a Function of Iteration for Apartments}}{125}{section.A.10}
-\contentsline {figure}{\numberline {A.27}{\ignorespaces Bayesian Optimization Results as a Function of Iteration for Apartments}}{125}{section.A.10}
-\contentsline {figure}{\numberline {A.28}{\ignorespaces Random Search Results as a Function of Iteration for Houses}}{126}{section.A.10}
-\contentsline {figure}{\numberline {A.29}{\ignorespaces Bayesian Optimization Results as a Function of Iteration for Houses}}{126}{section.A.10}
-\contentsline {figure}{\numberline {A.30}{\ignorespaces Performance of XGB-model on apartment prices}}{127}{section.A.11}
-\contentsline {figure}{\numberline {A.31}{\ignorespaces Performance Comparison of Multiple Models for Houses}}{127}{section.A.12}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Distributions of the Input Variables -- Part 1}}{100}{subfigure.A.1.12}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Distributions of the Input Variables -- Part 2}}{101}{subfigure.A.2.12}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Distributions of the Input Variables -- Part 3}}{102}{subfigure.A.3.12}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Distributions of the Input Variables -- Part 4}}{103}{subfigure.A.4.12}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Distributions of the Input Variables -- Part 5}}{104}{subfigure.A.5.12}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Distributions of the Input Variables -- Part 6}}{105}{subfigure.A.6.12}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Distributions of the Input Variables -- Part 7}}{106}{subfigure.A.7.12}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Distributions of the Input Variables -- Part 8}}{107}{subfigure.A.8.12}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Distributions of the Input Variables -- Part 9}}{108}{subfigure.A.9.12}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Distributions of the Input Variables -- Part 10}}{109}{subfigure.A.10.12}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Distributions of the Input Variables -- Part 11}}{110}{subfigure.A.11.12}
+\contentsline {figure}{\numberline {A.12}{\ignorespaces Distributions of the Input Variables -- Part 12}}{111}{subfigure.A.12.12}
+\contentsline {figure}{\numberline {A.13}{\ignorespaces Distributions of the Input Variables -- Part 13}}{112}{subfigure.A.13.12}
+\contentsline {figure}{\numberline {A.14}{\ignorespaces Distributions of the Input Variables -- Part 14}}{113}{subfigure.A.14.10}
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Linear Correlations}}{114}{section.A.2}
+\contentsline {figure}{\numberline {A.16}{\ignorespaces Comparison of the Linear Correlation $\rho $ and the Nonlinear MIC for Different Levels of Noise}}{115}{section.A.2}
+\contentsline {figure}{\numberline {A.17}{\ignorespaces Validity Heatmap}}{115}{section.A.3}
+\contentsline {figure}{\numberline {A.18}{\ignorespaces Prophet Forecast for apartments}}{117}{section.A.5}
+\contentsline {figure}{\numberline {A.19}{\ignorespaces Prophet Trends}}{117}{section.A.5}
+\contentsline {figure}{\numberline {A.20}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Apartments}}{124}{section.A.8}
+\contentsline {figure}{\numberline {A.21}{\ignorespaces Parallel Coordinate Plot of the Initial Hyperparameter Optimization for Houses}}{124}{section.A.8}
+\contentsline {figure}{\numberline {A.22}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Random Search}}{125}{section.A.9}
+\contentsline {figure}{\numberline {A.23}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Apartments Using Bayesian Optimization}}{125}{section.A.9}
+\contentsline {figure}{\numberline {A.24}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Random Search}}{126}{section.A.9}
+\contentsline {figure}{\numberline {A.25}{\ignorespaces Parallel Coordinate Plot of the Hyperparameter Optimization for Houses Using Bayesian Optimization}}{126}{section.A.9}
+\contentsline {figure}{\numberline {A.26}{\ignorespaces Random Search Results as a Function of Iteration for Apartments}}{127}{section.A.10}
+\contentsline {figure}{\numberline {A.27}{\ignorespaces Bayesian Optimization Results as a Function of Iteration for Apartments}}{127}{section.A.10}
+\contentsline {figure}{\numberline {A.28}{\ignorespaces Random Search Results as a Function of Iteration for Houses}}{128}{section.A.10}
+\contentsline {figure}{\numberline {A.29}{\ignorespaces Bayesian Optimization Results as a Function of Iteration for Houses}}{128}{section.A.10}
+\contentsline {figure}{\numberline {A.30}{\ignorespaces Performance of XGB-model on apartment prices}}{129}{section.A.11}
+\contentsline {figure}{\numberline {A.31}{\ignorespaces Performance Comparison of Multiple Models for Houses}}{129}{section.A.12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces UMAP Parameter Grid Search}}{130}{section.B.4}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Visualization of the t-SNE algorithm}}{130}{section.B.5}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Parallel Coordinate Plot of HPO results for 3-Jet $b$-Tagging}}{131}{section.B.6}
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Parallel Coordinate Plot of HPO results for 4-Jet $b$-Tagging}}{131}{section.B.7}
-\contentsline {figure}{\numberline {B.5}{\ignorespaces $b$-Tag Scores in 3-Jet Events}}{132}{section.B.8}
-\contentsline {figure}{\numberline {B.6}{\ignorespaces $b$-Tag Scores in 4-Jet Events}}{132}{section.B.9}
-\contentsline {figure}{\numberline {B.7}{\ignorespaces ROC curve for 3-jet $b$-tagging}}{133}{section.B.10}
-\contentsline {figure}{\numberline {B.8}{\ignorespaces ROC curve for 4-jet $b$-tagging}}{133}{section.B.11}
-\contentsline {figure}{\numberline {B.9}{\ignorespaces Distribution of $b$-Tags in 3-Jet Events}}{134}{section.B.12}
-\contentsline {figure}{\numberline {B.10}{\ignorespaces Distribution of $b$-Tags in 4-Jet Events}}{134}{section.B.13}
-\contentsline {figure}{\numberline {B.11}{\ignorespaces Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events}}{135}{section.B.14}
-\contentsline {figure}{\numberline {B.12}{\ignorespaces Global Feature Importances for the LGB $b$-Tagging Algorithm on 4-Jet Events}}{135}{section.B.15}
-\contentsline {figure}{\numberline {B.13}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{136}{section.B.16}
-\contentsline {figure}{\numberline {B.14}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _g^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{136}{section.B.17}
-\contentsline {figure}{\numberline {B.15}{\ignorespaces $b$-Tagging Efficiency $\varepsilon _b^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{137}{section.B.18}
-\contentsline {figure}{\numberline {B.16}{\ignorespaces $b$-Tagging Efficiency $\varepsilon _g^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{137}{section.B.19}
-\contentsline {figure}{\numberline {B.17}{\ignorespaces Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets}}{138}{section.B.20}
-\contentsline {figure}{\numberline {B.18}{\ignorespaces Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets}}{138}{section.B.21}
-\contentsline {figure}{\numberline {B.19}{\ignorespaces Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets}}{139}{section.B.22}
-\contentsline {figure}{\numberline {B.20}{\ignorespaces Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets}}{139}{section.B.23}
-\contentsline {figure}{\numberline {B.21}{\ignorespaces PermNet Architecture}}{140}{section.B.24}
-\contentsline {figure}{\numberline {B.22}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets events}}{141}{section.B.25}
-\contentsline {figure}{\numberline {B.23}{\ignorespaces 1D LGB Model Cuts for 4-jets events}}{141}{section.B.25}
-\contentsline {figure}{\numberline {B.24}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 3-jets events}}{142}{section.B.26}
-\contentsline {figure}{\numberline {B.25}{\ignorespaces 1D LGB Model Cuts for 3-jets events}}{142}{section.B.26}
-\contentsline {figure}{\numberline {B.26}{\ignorespaces $g$\BarOrDash /Tag Scores in 4-Jet Events}}{143}{section.B.27}
-\contentsline {figure}{\numberline {B.27}{\ignorespaces $g$\BarOrDash /Tag Scores in 3-Jet Events}}{143}{section.B.28}
-\contentsline {figure}{\numberline {B.28}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 4-Jet Events}}{144}{section.B.29}
-\contentsline {figure}{\numberline {B.29}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 3-Jet Events}}{144}{section.B.30}
-\contentsline {figure}{\numberline {B.30}{\ignorespaces Distribution of $g$-Tag Scores in 4-Jet Events for Signal and Background}}{145}{section.B.31}
-\contentsline {figure}{\numberline {B.31}{\ignorespaces Distribution of $g$-Tag Scores in 3-Jet Events for Signal and Background}}{145}{section.B.32}
-\contentsline {figure}{\numberline {B.32}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _0^2$}}{146}{section.B.33}
-\contentsline {figure}{\numberline {B.33}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _{1/2}^1$}}{146}{section.B.33}
-\contentsline {figure}{\numberline {B.34}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _1^1$}}{146}{section.B.33}
-\contentsline {figure}{\numberline {B.35}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _1^2$}}{147}{section.B.33}
-\contentsline {figure}{\numberline {B.36}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _0^0$}}{147}{section.B.33}
-\contentsline {figure}{\numberline {B.37}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _0^2$}}{148}{section.B.34}
-\contentsline {figure}{\numberline {B.38}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _{\frac {1}{2}}^1$}}{148}{section.B.34}
-\contentsline {figure}{\numberline {B.39}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _1^1$}}{148}{section.B.34}
-\contentsline {figure}{\numberline {B.40}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _1^2$}}{149}{section.B.34}
-\contentsline {figure}{\numberline {B.41}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _0^0$}}{149}{section.B.34}
-\contentsline {figure}{\numberline {B.42}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {diff}$}}{150}{section.B.35}
-\contentsline {figure}{\numberline {B.43}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_{\mathrm {rel}_\mathrm {min}}$}}{150}{section.B.35}
-\contentsline {figure}{\numberline {B.44}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {rel}$}}{150}{section.B.35}
-\contentsline {figure}{\numberline {B.45}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\Delta _\theta $}}{151}{section.B.35}
-\contentsline {figure}{\numberline {B.46}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $m_{gg}$}}{151}{section.B.35}
-\contentsline {figure}{\numberline {B.47}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\phi _\mathrm {\parallel }$}}{151}{section.B.35}
-\contentsline {figure}{\numberline {B.48}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{151}{section.B.35}
-\contentsline {figure}{\numberline {B.49}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $p^2_{\perp ,\mathrm {A}}$}}{151}{section.B.35}
-\contentsline {figure}{\numberline {B.50}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_\mathrm {diff}$}}{152}{section.B.36}
-\contentsline {figure}{\numberline {B.51}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_{\mathrm {rel}_\mathrm {min}}$}}{152}{section.B.36}
-\contentsline {figure}{\numberline {B.52}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_\mathrm {rel}$}}{153}{section.B.36}
-\contentsline {figure}{\numberline {B.53}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\Delta _\theta $}}{153}{section.B.36}
-\contentsline {figure}{\numberline {B.54}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $m_{gg}$}}{153}{section.B.36}
-\contentsline {figure}{\numberline {B.55}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\phi _\mathrm {\parallel }$}}{154}{section.B.36}
-\contentsline {figure}{\numberline {B.56}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{154}{section.B.36}
-\contentsline {figure}{\numberline {B.57}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $p^2_{\perp ,\mathrm {A}}$}}{154}{section.B.36}
-\contentsline {figure}{\numberline {B.58}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region A}}{155}{section.B.37}
-\contentsline {figure}{\numberline {B.59}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region B}}{156}{section.B.38}
-\contentsline {figure}{\numberline {B.60}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region C}}{157}{section.B.39}
-\contentsline {figure}{\numberline {B.61}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region D}}{158}{section.B.40}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces UMAP Parameter Grid Search}}{132}{section.B.4}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Visualization of the t-SNE algorithm}}{132}{section.B.5}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Parallel Coordinate Plot of HPO results for 3-Jet $b$-Tagging}}{133}{section.B.6}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Parallel Coordinate Plot of HPO results for 4-Jet $b$-Tagging}}{133}{section.B.7}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces $b$-Tag Scores in 3-Jet Events}}{134}{section.B.8}
+\contentsline {figure}{\numberline {B.6}{\ignorespaces $b$-Tag Scores in 4-Jet Events}}{134}{section.B.9}
+\contentsline {figure}{\numberline {B.7}{\ignorespaces ROC curve for 3-jet $b$-tagging}}{135}{section.B.10}
+\contentsline {figure}{\numberline {B.8}{\ignorespaces ROC curve for 4-jet $b$-tagging}}{135}{section.B.11}
+\contentsline {figure}{\numberline {B.9}{\ignorespaces Distribution of $b$-Tags in 3-Jet Events}}{136}{section.B.12}
+\contentsline {figure}{\numberline {B.10}{\ignorespaces Distribution of $b$-Tags in 4-Jet Events}}{136}{section.B.13}
+\contentsline {figure}{\numberline {B.11}{\ignorespaces Global Feature Importances for the LGB $b$-Tagging Algorithm on 3-Jet Events}}{137}{section.B.14}
+\contentsline {figure}{\numberline {B.12}{\ignorespaces Global Feature Importances for the LGB $b$-Tagging Algorithm on 4-Jet Events}}{137}{section.B.15}
+\contentsline {figure}{\numberline {B.13}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _b^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{138}{section.B.16}
+\contentsline {figure}{\numberline {B.14}{\ignorespaces $b$\BarOrDash /Tagging Efficiency $\varepsilon _g^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{138}{section.B.17}
+\contentsline {figure}{\numberline {B.15}{\ignorespaces $b$-Tagging Efficiency $\varepsilon _b^{g\dash \mathrm {sig}}$ as a Function of Jet Energy}}{139}{section.B.18}
+\contentsline {figure}{\numberline {B.16}{\ignorespaces $b$-Tagging Efficiency $\varepsilon _g^{b\dash \mathrm {sig}}$ as a Function of Jet Energy}}{139}{section.B.19}
+\contentsline {figure}{\numberline {B.17}{\ignorespaces Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Energy Ordered Jets}}{140}{section.B.20}
+\contentsline {figure}{\numberline {B.18}{\ignorespaces Parallel Coordinate Plot of HPO Results for 3-Jet $g$-Tagging for Shuffled Jets}}{140}{section.B.21}
+\contentsline {figure}{\numberline {B.19}{\ignorespaces Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Energy Ordered Jets}}{141}{section.B.22}
+\contentsline {figure}{\numberline {B.20}{\ignorespaces Parallel Coordinate Plot of HPO Results for 4-Jet $g$-Tagging for Shuffled Jets}}{141}{section.B.23}
+\contentsline {figure}{\numberline {B.21}{\ignorespaces PermNet Architecture}}{142}{section.B.24}
+\contentsline {figure}{\numberline {B.22}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 4-jets events}}{143}{section.B.25}
+\contentsline {figure}{\numberline {B.23}{\ignorespaces 1D LGB Model Cuts for 4-jets events}}{143}{section.B.25}
+\contentsline {figure}{\numberline {B.24}{\ignorespaces 1D Sum Models Predictions and Signal Fraction for 3-jets events}}{144}{section.B.26}
+\contentsline {figure}{\numberline {B.25}{\ignorespaces 1D LGB Model Cuts for 3-jets events}}{144}{section.B.26}
+\contentsline {figure}{\numberline {B.26}{\ignorespaces $g$\BarOrDash /Tag Scores in 4-Jet Events}}{145}{section.B.27}
+\contentsline {figure}{\numberline {B.27}{\ignorespaces $g$\BarOrDash /Tag Scores in 3-Jet Events}}{145}{section.B.28}
+\contentsline {figure}{\numberline {B.28}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 4-Jet Events}}{146}{section.B.29}
+\contentsline {figure}{\numberline {B.29}{\ignorespaces ROC Curve for $g$\BarOrDash /Tag in 3-Jet Events}}{146}{section.B.30}
+\contentsline {figure}{\numberline {B.30}{\ignorespaces Distribution of $g$-Tag Scores in 4-Jet Events for Signal and Background}}{147}{section.B.31}
+\contentsline {figure}{\numberline {B.31}{\ignorespaces Distribution of $g$-Tag Scores in 3-Jet Events for Signal and Background}}{147}{section.B.32}
+\contentsline {figure}{\numberline {B.32}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _0^2$}}{148}{section.B.33}
+\contentsline {figure}{\numberline {B.33}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _{1/2}^1$}}{148}{section.B.33}
+\contentsline {figure}{\numberline {B.34}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _1^1$}}{148}{section.B.33}
+\contentsline {figure}{\numberline {B.35}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _1^2$}}{149}{section.B.33}
+\contentsline {figure}{\numberline {B.36}{\ignorespaces Generalized Angularities for Charged Gluons Jets: $\lambda _0^0$}}{149}{section.B.33}
+\contentsline {figure}{\numberline {B.37}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _0^2$}}{150}{section.B.34}
+\contentsline {figure}{\numberline {B.38}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _{\frac {1}{2}}^1$}}{150}{section.B.34}
+\contentsline {figure}{\numberline {B.39}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _1^1$}}{150}{section.B.34}
+\contentsline {figure}{\numberline {B.40}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _1^2$}}{151}{section.B.34}
+\contentsline {figure}{\numberline {B.41}{\ignorespaces Generalized Angularities for Neutral Gluons Jets: $\lambda _0^0$}}{151}{section.B.34}
+\contentsline {figure}{\numberline {B.42}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {diff}$}}{152}{section.B.35}
+\contentsline {figure}{\numberline {B.43}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_{\mathrm {rel}_\mathrm {min}}$}}{152}{section.B.35}
+\contentsline {figure}{\numberline {B.44}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $E_\mathrm {rel}$}}{152}{section.B.35}
+\contentsline {figure}{\numberline {B.45}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\Delta _\theta $}}{153}{section.B.35}
+\contentsline {figure}{\numberline {B.46}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $m_{gg}$}}{153}{section.B.35}
+\contentsline {figure}{\numberline {B.47}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\phi _\mathrm {\parallel }$}}{153}{section.B.35}
+\contentsline {figure}{\numberline {B.48}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{153}{section.B.35}
+\contentsline {figure}{\numberline {B.49}{\ignorespaces $g$-Tagging Efficiency for 4-Jet Events in MC as a Function of $p^2_{\perp ,\mathrm {A}}$}}{153}{section.B.35}
+\contentsline {figure}{\numberline {B.50}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_\mathrm {diff}$}}{154}{section.B.36}
+\contentsline {figure}{\numberline {B.51}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_{\mathrm {rel}_\mathrm {min}}$}}{154}{section.B.36}
+\contentsline {figure}{\numberline {B.52}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $E_\mathrm {rel}$}}{155}{section.B.36}
+\contentsline {figure}{\numberline {B.53}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\Delta _\theta $}}{155}{section.B.36}
+\contentsline {figure}{\numberline {B.54}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $m_{gg}$}}{155}{section.B.36}
+\contentsline {figure}{\numberline {B.55}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\phi _\mathrm {\parallel }$}}{156}{section.B.36}
+\contentsline {figure}{\numberline {B.56}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $\qopname \relax o{ln}\left ( k_t^2 / m_\mathrm {vis}^2 \right )$}}{156}{section.B.36}
+\contentsline {figure}{\numberline {B.57}{\ignorespaces Closure Plot Comparing MC Truth and the Efficiency Corrected $g$-Tagging Model in 4-Jet Events for $p^2_{\perp ,\mathrm {A}}$}}{156}{section.B.36}
+\contentsline {figure}{\numberline {B.58}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region A}}{157}{section.B.37}
+\contentsline {figure}{\numberline {B.59}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region B}}{158}{section.B.38}
+\contentsline {figure}{\numberline {B.60}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region C}}{159}{section.B.39}
+\contentsline {figure}{\numberline {B.61}{\ignorespaces Gluon Splitting Distribution Comparison in MC and Data for Phase Space Region D}}{160}{section.B.40}
 \contentsfinish 
