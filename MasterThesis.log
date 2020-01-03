@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.27)  3 JAN 2020 13:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.27)  3 JAN 2020 13:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1371,10 +1371,10 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_shortintertext_sep=\dimen336
 )
 \symXcmmi=\mathgroup11
-LaTeX Font Info:    Redeclaring math symbol \rho on input line 298.
-LaTeX Font Info:    Redeclaring math symbol \tau on input line 300.
-LaTeX Font Info:    Redeclaring math symbol \chi on input line 302.
-LaTeX Font Info:    Redeclaring math symbol \phi on input line 304.
+LaTeX Font Info:    Redeclaring math symbol \rho on input line 303.
+LaTeX Font Info:    Redeclaring math symbol \tau on input line 305.
+LaTeX Font Info:    Redeclaring math symbol \chi on input line 307.
+LaTeX Font Info:    Redeclaring math symbol \phi on input line 309.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/koma-script/tocbasic.sty
 Package: tocbasic 2018/03/30 v3.25 KOMA-Script package (handling toc-files)
  (/usr/local/texlive/2018/texmf-dist/tex/latex/koma-script/scrbase.sty
@@ -1403,34 +1403,34 @@ Package: extdash 2005/01/29 v1.2 Extended Dash Package (NCC)
 ) (/Users/michelsen/Master_Thesis/thesis/MasterThesis.aux (/Users/michelsen/Master_Thesis/thesis/chapter_foreword.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_introduction.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_machine_learning_theory.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_housing_prices.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_particle_physics_theory.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_quark_gluon.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_housing.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.aux))
 \openout1 = `MasterThesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 424.
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 424.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 424.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 429.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 429.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 424.
-LaTeX Font Info:    Try loading font information for T1+pplj on input line 424.
+LaTeX Font Info:    ... okay on input line 429.
+LaTeX Font Info:    Try loading font information for T1+pplj on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pplj.fd
 File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
 )
 \AtBeginShipoutBox=\box101
-Package hyperref Info: Link coloring ON on input line 424.
+Package hyperref Info: Link coloring ON on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1438,15 +1438,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count352
 )
-LaTeX Info: Redefining \ref on input line 424.
-LaTeX Info: Redefining \pageref on input line 424.
-LaTeX Info: Redefining \nameref on input line 424.
+LaTeX Info: Redefining \ref on input line 429.
+LaTeX Info: Redefining \pageref on input line 429.
+LaTeX Info: Redefining \nameref on input line 429.
  (/Users/michelsen/Master_Thesis/thesis/MasterThesis.out) (/Users/michelsen/Master_Thesis/thesis/MasterThesis.out)
 \@outlinefile=\write7
 \openout7 = `MasterThesis.out'.
 
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 424.
+LaTeX Info: Redefining \selectfont on input line 429.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1534,1324 +1534,1324 @@ File: siunitx-binary.cfg 2017/11/26 v2.7k siunitx: Binary units
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \of with sig. '' on line 424.
+. Defining command \of with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \highlight with sig. '' on line 424.
+. Defining command \highlight with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \per with sig. '' on line 424.
+. Defining command \per with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \raiseto with sig. '' on line 424.
+. Defining command \raiseto with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \tothe with sig. '' on line 424.
+. Defining command \tothe with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kilogram with sig. '' on line 424.
+. Defining command \kilogram with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \metre with sig. '' on line 424.
+. Defining command \metre with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \meter with sig. '' on line 424.
+. Defining command \meter with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mole with sig. '' on line 424.
+. Defining command \mole with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \second with sig. '' on line 424.
+. Defining command \second with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ampere with sig. '' on line 424.
+. Defining command \ampere with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kelvin with sig. '' on line 424.
+. Defining command \kelvin with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \candela with sig. '' on line 424.
+. Defining command \candela with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \gram with sig. '' on line 424.
+. Defining command \gram with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \yocto with sig. '' on line 424.
+. Defining command \yocto with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \zepto with sig. '' on line 424.
+. Defining command \zepto with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \atto with sig. '' on line 424.
+. Defining command \atto with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \femto with sig. '' on line 424.
+. Defining command \femto with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pico with sig. '' on line 424.
+. Defining command \pico with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nano with sig. '' on line 424.
+. Defining command \nano with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micro with sig. '' on line 424.
+. Defining command \micro with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \milli with sig. '' on line 424.
+. Defining command \milli with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \centi with sig. '' on line 424.
+. Defining command \centi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \deci with sig. '' on line 424.
+. Defining command \deci with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \deca with sig. '' on line 424.
+. Defining command \deca with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \deka with sig. '' on line 424.
+. Defining command \deka with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \hecto with sig. '' on line 424.
+. Defining command \hecto with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kilo with sig. '' on line 424.
+. Defining command \kilo with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mega with sig. '' on line 424.
+. Defining command \mega with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \giga with sig. '' on line 424.
+. Defining command \giga with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \tera with sig. '' on line 424.
+. Defining command \tera with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \peta with sig. '' on line 424.
+. Defining command \peta with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \exa with sig. '' on line 424.
+. Defining command \exa with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \zetta with sig. '' on line 424.
+. Defining command \zetta with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \yotta with sig. '' on line 424.
+. Defining command \yotta with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \becquerel with sig. '' on line 424.
+. Defining command \becquerel with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \celsius with sig. '' on line 424.
+. Defining command \celsius with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \degreeCelsius with sig. '' on line 424.
+. Defining command \degreeCelsius with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \coulomb with sig. '' on line 424.
+. Defining command \coulomb with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \farad with sig. '' on line 424.
+. Defining command \farad with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \gray with sig. '' on line 424.
+. Defining command \gray with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \hertz with sig. '' on line 424.
+. Defining command \hertz with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \henry with sig. '' on line 424.
+. Defining command \henry with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \joule with sig. '' on line 424.
+. Defining command \joule with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \katal with sig. '' on line 424.
+. Defining command \katal with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \lumen with sig. '' on line 424.
+. Defining command \lumen with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \lux with sig. '' on line 424.
+. Defining command \lux with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \newton with sig. '' on line 424.
+. Defining command \newton with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ohm with sig. '' on line 424.
+. Defining command \ohm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pascal with sig. '' on line 424.
+. Defining command \pascal with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \radian with sig. '' on line 424.
+. Defining command \radian with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \siemens with sig. '' on line 424.
+. Defining command \siemens with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \sievert with sig. '' on line 424.
+. Defining command \sievert with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \steradian with sig. '' on line 424.
+. Defining command \steradian with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \tesla with sig. '' on line 424.
+. Defining command \tesla with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \volt with sig. '' on line 424.
+. Defining command \volt with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \watt with sig. '' on line 424.
+. Defining command \watt with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \weber with sig. '' on line 424.
+. Defining command \weber with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \arcmin with sig. '' on line 424.
+. Defining command \arcmin with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \arcminute with sig. '' on line 424.
+. Defining command \arcminute with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \arcsecond with sig. '' on line 424.
+. Defining command \arcsecond with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \degree with sig. '' on line 424.
+. Defining command \degree with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \hectare with sig. '' on line 424.
+. Defining command \hectare with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \hour with sig. '' on line 424.
+. Defining command \hour with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \litre with sig. '' on line 424.
+. Defining command \litre with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \liter with sig. '' on line 424.
+. Defining command \liter with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \minute with sig. '' on line 424.
+. Defining command \minute with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \percent with sig. '' on line 424.
+. Defining command \percent with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \tonne with sig. '' on line 424.
+. Defining command \tonne with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \astronomicalunit with sig. '' on line 424.
+. Defining command \astronomicalunit with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \atomicmassunit with sig. '' on line 424.
+. Defining command \atomicmassunit with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \electronvolt with sig. '' on line 424.
+. Defining command \electronvolt with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \dalton with sig. '' on line 424.
+. Defining command \dalton with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \clight with sig. '' on line 424.
+. Defining command \clight with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \electronmass with sig. '' on line 424.
+. Defining command \electronmass with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \planckbar with sig. '' on line 424.
+. Defining command \planckbar with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \elementarycharge with sig. '' on line 424.
+. Defining command \elementarycharge with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \bohr with sig. '' on line 424.
+. Defining command \bohr with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \hartree with sig. '' on line 424.
+. Defining command \hartree with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \angstrom with sig. '' on line 424.
+. Defining command \angstrom with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \barn with sig. '' on line 424.
+. Defining command \barn with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \bel with sig. '' on line 424.
+. Defining command \bel with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \decibel with sig. '' on line 424.
+. Defining command \decibel with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \knot with sig. '' on line 424.
+. Defining command \knot with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mmHg with sig. '' on line 424.
+. Defining command \mmHg with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nauticalmile with sig. '' on line 424.
+. Defining command \nauticalmile with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \neper with sig. '' on line 424.
+. Defining command \neper with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \squared with sig. '' on line 424.
+. Defining command \squared with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \cubic with sig. '' on line 424.
+. Defining command \cubic with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \cubed with sig. '' on line 424.
+. Defining command \cubed with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Square with sig. '' on line 424.
+. Defining command \Square with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ssquare with sig. '' on line 424.
+. Defining command \ssquare with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \BAR with sig. '' on line 424.
+. Defining command \BAR with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \bbar with sig. '' on line 424.
+. Defining command \bbar with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Day with sig. '' on line 424.
+. Defining command \Day with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \dday with sig. '' on line 424.
+. Defining command \dday with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Gray with sig. '' on line 424.
+. Defining command \Gray with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ggray with sig. '' on line 424.
+. Defining command \ggray with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \atomicmass with sig. '' on line 424.
+. Defining command \atomicmass with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \arcsec with sig. '' on line 424.
+. Defining command \arcsec with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \are with sig. '' on line 424.
+. Defining command \are with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \curie with sig. '' on line 424.
+. Defining command \curie with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \gal with sig. '' on line 424.
+. Defining command \gal with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \millibar with sig. '' on line 424.
+. Defining command \millibar with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \rad with sig. '' on line 424.
+. Defining command \rad with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \rem with sig. '' on line 424.
+. Defining command \rem with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \roentgen with sig. '' on line 424.
+. Defining command \roentgen with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micA with sig. '' on line 424.
+. Defining command \micA with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micmol with sig. '' on line 424.
+. Defining command \micmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micl with sig. '' on line 424.
+. Defining command \micl with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micL with sig. '' on line 424.
+. Defining command \micL with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nanog with sig. '' on line 424.
+. Defining command \nanog with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micg with sig. '' on line 424.
+. Defining command \micg with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \picm with sig. '' on line 424.
+. Defining command \picm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micm with sig. '' on line 424.
+. Defining command \micm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Sec with sig. '' on line 424.
+. Defining command \Sec with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mics with sig. '' on line 424.
+. Defining command \mics with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \cmc with sig. '' on line 424.
+. Defining command \cmc with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \dmc with sig. '' on line 424.
+. Defining command \dmc with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \cms with sig. '' on line 424.
+. Defining command \cms with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \centimetrecubed with sig. '' on line 424.
+. Defining command \centimetrecubed with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \centimetresquared with sig. '' on line 424.
+. Defining command \centimetresquared with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \cubiccentimetre with sig. '' on line 424.
+. Defining command \cubiccentimetre with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \cubicdecimetre with sig. '' on line 424.
+. Defining command \cubicdecimetre with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \squarecentimetre with sig. '' on line 424.
+. Defining command \squarecentimetre with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \squaremetre with sig. '' on line 424.
+. Defining command \squaremetre with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \squarekilometre with sig. '' on line 424.
+. Defining command \squarekilometre with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \parsec with sig. '' on line 424.
+. Defining command \parsec with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \lightyear with sig. '' on line 424.
+. Defining command \lightyear with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \gmol with sig. '' on line 424.
+. Defining command \gmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kgmol with sig. '' on line 424.
+. Defining command \kgmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \lbmol with sig. '' on line 424.
+. Defining command \lbmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \molar with sig. '' on line 424.
+. Defining command \molar with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Molar with sig. '' on line 424.
+. Defining command \Molar with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \torr with sig. '' on line 424.
+. Defining command \torr with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \gon with sig. '' on line 424.
+. Defining command \gon with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \micron with sig. '' on line 424.
+. Defining command \micron with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mrad with sig. '' on line 424.
+. Defining command \mrad with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \gauss with sig. '' on line 424.
+. Defining command \gauss with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \eVperc with sig. '' on line 424.
+. Defining command \eVperc with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nanobarn with sig. '' on line 424.
+. Defining command \nanobarn with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \picobarn with sig. '' on line 424.
+. Defining command \picobarn with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \femtobarn with sig. '' on line 424.
+. Defining command \femtobarn with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \attobarn with sig. '' on line 424.
+. Defining command \attobarn with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \zeptobarn with sig. '' on line 424.
+. Defining command \zeptobarn with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \yoctobarn with sig. '' on line 424.
+. Defining command \yoctobarn with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nb with sig. '' on line 424.
+. Defining command \nb with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pb with sig. '' on line 424.
+. Defining command \pb with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \fb with sig. '' on line 424.
+. Defining command \fb with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ab with sig. '' on line 424.
+. Defining command \ab with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \zb with sig. '' on line 424.
+. Defining command \zb with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \yb with sig. '' on line 424.
+. Defining command \yb with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kroner with sig. '' on line 424.
+. Defining command \kroner with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kr with sig. '' on line 424.
+. Defining command \kr with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Mkr with sig. '' on line 424.
+. Defining command \Mkr with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \years with sig. '' on line 424.
+. Defining command \years with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \yr with sig. '' on line 424.
+. Defining command \yr with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \A with sig. '' on line 424.
+. Defining command \A with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pA with sig. '' on line 424.
+. Defining command \pA with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nA with sig. '' on line 424.
+. Defining command \nA with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \uA with sig. '' on line 424.
+. Defining command \uA with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mA with sig. '' on line 424.
+. Defining command \mA with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kA with sig. '' on line 424.
+. Defining command \kA with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Hz with sig. '' on line 424.
+. Defining command \Hz with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mHz with sig. '' on line 424.
+. Defining command \mHz with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kHz with sig. '' on line 424.
+. Defining command \kHz with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \MHz with sig. '' on line 424.
+. Defining command \MHz with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \GHz with sig. '' on line 424.
+. Defining command \GHz with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \THz with sig. '' on line 424.
+. Defining command \THz with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mol with sig. '' on line 424.
+. Defining command \mol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \fmol with sig. '' on line 424.
+. Defining command \fmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pmol with sig. '' on line 424.
+. Defining command \pmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nmol with sig. '' on line 424.
+. Defining command \nmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \umol with sig. '' on line 424.
+. Defining command \umol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mmol with sig. '' on line 424.
+. Defining command \mmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kmol with sig. '' on line 424.
+. Defining command \kmol with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \V with sig. '' on line 424.
+. Defining command \V with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pV with sig. '' on line 424.
+. Defining command \pV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nV with sig. '' on line 424.
+. Defining command \nV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \uV with sig. '' on line 424.
+. Defining command \uV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mV with sig. '' on line 424.
+. Defining command \mV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kV with sig. '' on line 424.
+. Defining command \kV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \hl with sig. '' on line 424.
+. Defining command \hl with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ml with sig. '' on line 424.
+. Defining command \ml with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ul with sig. '' on line 424.
+. Defining command \ul with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \hL with sig. '' on line 424.
+. Defining command \hL with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mL with sig. '' on line 424.
+. Defining command \mL with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \uL with sig. '' on line 424.
+. Defining command \uL with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \fg with sig. '' on line 424.
+. Defining command \fg with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pg with sig. '' on line 424.
+. Defining command \pg with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ug with sig. '' on line 424.
+. Defining command \ug with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mg with sig. '' on line 424.
+. Defining command \mg with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \g with sig. '' on line 424.
+. Defining command \g with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kg with sig. '' on line 424.
+. Defining command \kg with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \amu with sig. '' on line 424.
+. Defining command \amu with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \W with sig. '' on line 424.
+. Defining command \W with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \uW with sig. '' on line 424.
+. Defining command \uW with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mW with sig. '' on line 424.
+. Defining command \mW with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kW with sig. '' on line 424.
+. Defining command \kW with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \MW with sig. '' on line 424.
+. Defining command \MW with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \GW with sig. '' on line 424.
+. Defining command \GW with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \J with sig. '' on line 424.
+. Defining command \J with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \uJ with sig. '' on line 424.
+. Defining command \uJ with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mJ with sig. '' on line 424.
+. Defining command \mJ with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kJ with sig. '' on line 424.
+. Defining command \kJ with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \eV with sig. '' on line 424.
+. Defining command \eV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \meV with sig. '' on line 424.
+. Defining command \meV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \keV with sig. '' on line 424.
+. Defining command \keV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \MeV with sig. '' on line 424.
+. Defining command \MeV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \GeV with sig. '' on line 424.
+. Defining command \GeV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \TeV with sig. '' on line 424.
+. Defining command \TeV with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kWh with sig. '' on line 424.
+. Defining command \kWh with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \m with sig. '' on line 424.
+. Defining command \m with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \nm with sig. '' on line 424.
+. Defining command \nm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \um with sig. '' on line 424.
+. Defining command \um with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mm with sig. '' on line 424.
+. Defining command \mm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \cm with sig. '' on line 424.
+. Defining command \cm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \dm with sig. '' on line 424.
+. Defining command \dm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \km with sig. '' on line 424.
+. Defining command \km with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \K with sig. '' on line 424.
+. Defining command \K with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \dB with sig. '' on line 424.
+. Defining command \dB with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \F with sig. '' on line 424.
+. Defining command \F with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \fF with sig. '' on line 424.
+. Defining command \fF with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pF with sig. '' on line 424.
+. Defining command \pF with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \N with sig. '' on line 424.
+. Defining command \N with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mN with sig. '' on line 424.
+. Defining command \mN with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kN with sig. '' on line 424.
+. Defining command \kN with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \MN with sig. '' on line 424.
+. Defining command \MN with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Pa with sig. '' on line 424.
+. Defining command \Pa with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kPa with sig. '' on line 424.
+. Defining command \kPa with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \MPa with sig. '' on line 424.
+. Defining command \MPa with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \GPa with sig. '' on line 424.
+. Defining command \GPa with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mohm with sig. '' on line 424.
+. Defining command \mohm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kohm with sig. '' on line 424.
+. Defining command \kohm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \Mohm with sig. '' on line 424.
+. Defining command \Mohm with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \s with sig. '' on line 424.
+. Defining command \s with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \as with sig. '' on line 424.
+. Defining command \as with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \fs with sig. '' on line 424.
+. Defining command \fs with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ps with sig. '' on line 424.
+. Defining command \ps with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ns with sig. '' on line 424.
+. Defining command \ns with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \us with sig. '' on line 424.
+. Defining command \us with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \ms with sig. '' on line 424.
+. Defining command \ms with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kibi with sig. '' on line 424.
+. Defining command \kibi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \mebi with sig. '' on line 424.
+. Defining command \mebi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \gibi with sig. '' on line 424.
+. Defining command \gibi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \tebi with sig. '' on line 424.
+. Defining command \tebi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \pebi with sig. '' on line 424.
+. Defining command \pebi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \exbi with sig. '' on line 424.
+. Defining command \exbi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \zebi with sig. '' on line 424.
+. Defining command \zebi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \yobi with sig. '' on line 424.
+. Defining command \yobi with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \bit with sig. '' on line 424.
+. Defining command \bit with sig. '' on line 429.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \byte with sig. '' on line 424.
+. Defining command \byte with sig. '' on line 429.
 .................................................
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 424.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 424.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 424.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 424.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 424.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 429.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 424.
+(Font)              scaled to size 10.42007pt on input line 429.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 424.
+(Font)              scaled to size 7.91925pt on input line 429.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 424.
+(Font)              scaled to size 6.25204pt on input line 429.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 424.
+(Font)              scaled to size 10.42007pt on input line 429.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 424.
+(Font)              scaled to size 7.91925pt on input line 429.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 424.
+(Font)              scaled to size 6.25204pt on input line 429.
 <./frontpage/frontpage.pdf, id=421, 597.50829pt x 845.0471pt>
 File: ./frontpage/frontpage.pdf Graphic file (type pdf)
 <use ./frontpage/frontpage.pdf>
-Package pdftex.def Info: ./frontpage/frontpage.pdf  used on input line 429.
+Package pdftex.def Info: ./frontpage/frontpage.pdf  used on input line 434.
 (pdftex.def)             Requested size: 304.44255pt x 430.5686pt.
 File: ./frontpage/frontpage.pdf Graphic file (type pdf)
 <use ./frontpage/frontpage.pdf>
-Package pdftex.def Info: ./frontpage/frontpage.pdf  used on input line 429.
+Package pdftex.def Info: ./frontpage/frontpage.pdf  used on input line 434.
 (pdftex.def)             Requested size: 304.44255pt x 430.5686pt.
 <./frontpage/frontpage.pdf, id=424, page=1, 597.50829pt x 845.0471pt>
 File: ./frontpage/frontpage.pdf Graphic file (type pdf)
 <use ./frontpage/frontpage.pdf, page 1>
-Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 429.
+Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 434.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: ./frontpage/frontpage.pdf Graphic file (type pdf)
 <use ./frontpage/frontpage.pdf, page 1>
-Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 429.
+Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 434.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: ./frontpage/frontpage.pdf Graphic file (type pdf)
 <use ./frontpage/frontpage.pdf, page 1>
-Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 429.
+Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 434.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: ./frontpage/frontpage.pdf Graphic file (type pdf)
 <use ./frontpage/frontpage.pdf, page 1>
-Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 429.
+Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 434.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: ./frontpage/frontpage.pdf Graphic file (type pdf)
 <use ./frontpage/frontpage.pdf, page 1>
-Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 429.
+Package pdftex.def Info: ./frontpage/frontpage.pdf , page1 used on input line 434.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [1
 
@@ -3877,7 +3877,7 @@ LaTeX Warning: Marginpar on page 65 moved.
 <figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3453, 867.24pt x 433.62pt>
 File: figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 96.
+Package pdftex.def Info: figures/quarks/btagging_variables_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 98.
 (pdftex.def)             Requested size: 468.33841pt x 230.03192pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -3889,7 +3889,7 @@ Underfull \vbox (badness 1048) has occurred while \output is active []
 <figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf, id=3526, 706.23848pt x 706.23848pt>
 File: figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf Graphic file (type pdf)
 <use figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf>
-Package pdftex.def Info: figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf  used on input line 116.
+Package pdftex.def Info: figures/quarks/df_UMAP-X=1120952-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=4_algorithm=UMAP_single.pdf  used on input line 118.
 (pdftex.def)             Requested size: 133.52144pt x 134.62749pt.
 
 
@@ -3898,7 +3898,7 @@ LaTeX Warning: Marginpar on page 67 moved.
 <figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf, id=3532, 706.23848pt x 706.23848pt>
 File: figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf Graphic file (type pdf)
 <use figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf>
-Package pdftex.def Info: figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf  used on input line 132.
+Package pdftex.def Info: figures/quarks/df_UMAP-X=1078089-n_neighbors=250-min_dist=0.2-metric=euclidean-input2b_njet=3_algorithm=UMAP_single.pdf  used on input line 134.
 (pdftex.def)             Requested size: 133.52144pt x 134.62749pt.
 
 LaTeX Warning: Marginpar on page 67 moved.
@@ -3906,17 +3906,17 @@ LaTeX Warning: Marginpar on page 67 moved.
 <figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf, id=3536, 416.60017pt x 333.00034pt>
 File: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf Graphic file (type pdf)
 <use figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf>
-Package pdftex.def Info: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf  used on input line 156.
+Package pdftex.def Info: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=2.pdf  used on input line 158.
 (pdftex.def)             Requested size: 112.12756pt x 89.62674pt.
 <figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf, id=3537, 416.60017pt x 333.00034pt>
 File: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf Graphic file (type pdf)
 <use figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf>
-Package pdftex.def Info: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf  used on input line 157.
+Package pdftex.def Info: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=3.pdf  used on input line 159.
 (pdftex.def)             Requested size: 89.16403pt x 89.62674pt.
 <figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf, id=3539, 416.60017pt x 333.00034pt>
 File: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf>
-Package pdftex.def Info: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf  used on input line 158.
+Package pdftex.def Info: figures/quarks/correlations_vertex_vars-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19_njet=4.pdf  used on input line 160.
 (pdftex.def)             Requested size: 89.16403pt x 89.62674pt.
 
 LaTeX Warning: Marginpar on page 67 moved.
@@ -3937,27 +3937,27 @@ LaTeX Warning: Marginpar on page 68 moved.
 <figures/log_loss_cross_entropy/logloss.pdf, id=3691, 255.08144pt x 256.625pt>
 File: figures/log_loss_cross_entropy/logloss.pdf Graphic file (type pdf)
 <use figures/log_loss_cross_entropy/logloss.pdf>
-Package pdftex.def Info: figures/log_loss_cross_entropy/logloss.pdf  used on input line 183.
+Package pdftex.def Info: figures/log_loss_cross_entropy/logloss.pdf  used on input line 185.
 (pdftex.def)             Requested size: 126.50117pt x 127.26666pt.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 190.
+(Font)              scaled to size 12.50409pt on input line 192.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 190.
+(Font)              scaled to size 12.50409pt on input line 192.
 [68 </Users/michelsen/Master_Thesis/thesis/figures/log_loss_cross_entropy/logloss.pdf>]
 
 LaTeX Warning: Marginpar on page 69 moved.
 
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 195.
+(Font)              scaled to size 11.40997pt on input line 197.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 195.
+(Font)              scaled to size 11.40997pt on input line 197.
 
 LaTeX Warning: Marginpar on page 69 moved.
 
 <figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3735, 1211.95093pt x 319.93842pt>
 File: figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 218.
+Package pdftex.def Info: figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 220.
 (pdftex.def)             Requested size: 468.33163pt x 123.63312pt.
 [69 </Users/michelsen/Master_Thesis/thesis/figures/quarks/cv_res_lgb-btag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
 
@@ -3966,22 +3966,22 @@ LaTeX Warning: Marginpar on page 70 moved.
 <figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3805, 945.32904pt x 320.65604pt>
 File: figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 231.
+Package pdftex.def Info: figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 233.
 (pdftex.def)             Requested size: 298.35721pt x 101.2029pt.
 
-Underfull \hbox (badness 1629) in paragraph at lines 236--236
+Underfull \hbox (badness 1629) in paragraph at lines 238--238
 \T1/pplj/m/n/8 or-di-nates with each hy-per-pa-ram-e-ter
  []
 
 <figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3809, 722.7pt x 361.35pt>
 File: figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 245.
+Package pdftex.def Info: figures/quarks/y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 247.
 (pdftex.def)             Requested size: 289.21799pt x 137.42981pt.
 <figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3813, 578.16pt x 325.215pt>
 File: figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 258.
+Package pdftex.def Info: figures/quarks/ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 260.
 (pdftex.def)             Requested size: 301.41248pt x 148.53775pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -3990,12 +3990,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=3903, 722.7pt x 361.35pt>
 File: figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 273.
+Package pdftex.def Info: figures/quarks/btag_scores_histogram_-njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 275.
 (pdftex.def)             Requested size: 289.22556pt x 123.65434pt.
 <figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=3906, 578.16pt x 195.129pt>
 File: figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>
-Package pdftex.def Info: figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 287.
+Package pdftex.def Info: figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 289.
 (pdftex.def)             Requested size: 298.35797pt x 95.29967pt.
 
 
@@ -4005,12 +4005,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <figures/logit_expit/expit.pdf, id=4010, 254.33519pt x 258.49136pt>
 File: figures/logit_expit/expit.pdf Graphic file (type pdf)
 <use figures/logit_expit/expit.pdf>
-Package pdftex.def Info: figures/logit_expit/expit.pdf  used on input line 304.
+Package pdftex.def Info: figures/logit_expit/expit.pdf  used on input line 306.
 (pdftex.def)             Requested size: 112.44725pt x 114.28479pt.
 <figures/logit_expit/logit.pdf, id=4012, 237.61989pt x 254.70631pt>
 File: figures/logit_expit/logit.pdf Graphic file (type pdf)
 <use figures/logit_expit/logit.pdf>
-Package pdftex.def Info: figures/logit_expit/logit.pdf  used on input line 318.
+Package pdftex.def Info: figures/logit_expit/logit.pdf  used on input line 320.
 (pdftex.def)             Requested size: 112.4464pt x 120.53203pt.
 
 
@@ -4028,7 +4028,7 @@ LaTeX Warning: Marginpar on page 72 moved.
 <figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf, id=4019, 722.7pt x 289.08pt>
 File: figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf Graphic file (type pdf)
 <use figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf>
-Package pdftex.def Info: figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf  used on input line 331.
+Package pdftex.def Info: figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf  used on input line 333.
 (pdftex.def)             Requested size: 289.21823pt x 99.61957pt.
 [72 </Users/michelsen/Master_Thesis/thesis/figures/quarks/shap_global-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/shap_values-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3loc=24325621.pdf> </Users/michelsen/Master_Thesis/thesis/figures/logit_expit/expit.pdf
 
@@ -4040,12 +4040,12 @@ pdfTeX warning: pdflatex (file /Users/michelsen/Master_Thesis/thesis/figures/log
 <figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4218, 867.24pt x 433.62pt>
 File: figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 362.
+Package pdftex.def Info: figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 364.
 (pdftex.def)             Requested size: 468.3336pt x 200.87286pt.
 <figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4223, 867.24pt x 433.62pt>
 File: figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 374.
+Package pdftex.def Info: figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 376.
 (pdftex.def)             Requested size: 468.3336pt x 200.87286pt.
  [74 </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_b_bsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>] [75 </Users/michelsen/Master_Thesis/thesis/figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
 
@@ -4067,15 +4067,15 @@ LaTeX Warning: Marginpar on page 77 moved.
 <figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4428, 1201.72523pt x 318.97856pt>
 File: figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 418.
+Package pdftex.def Info: figures/quarks/cv_res_lgb-gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 420.
 (pdftex.def)             Requested size: 468.32256pt x 124.30865pt.
 
-Underfull \hbox (badness 2253) in paragraph at lines 423--423
+Underfull \hbox (badness 2253) in paragraph at lines 425--425
 \T1/pplj/m/n/8 Figure 5.17: Hy-per-pa-ram-e-ter Op-ti-
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 423--423
+Underfull \hbox (badness 1596) in paragraph at lines 425--425
 \T1/pplj/m/n/8 From left to right, we have A) 3-
  []
 
@@ -4090,7 +4090,7 @@ LaTeX Warning: Marginpar on page 79 moved.
 <figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4521, 722.7pt x 361.35pt>
 File: figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 464.
+Package pdftex.def Info: figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 466.
 (pdftex.def)             Requested size: 289.22527pt x 136.34903pt.
 
 LaTeX Warning: Marginpar on page 79 moved.
@@ -4098,13 +4098,13 @@ LaTeX Warning: Marginpar on page 79 moved.
 <figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4526, 722.7pt x 433.62pt>
 File: figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 480.
+Package pdftex.def Info: figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 482.
 (pdftex.def)             Requested size: 289.22527pt x 155.76842pt.
 [79 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_sum_models_njet=4-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
 <figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4593, 722.7pt x 433.62pt>
 File: figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 495.
+Package pdftex.def Info: figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 497.
 (pdftex.def)             Requested size: 289.22527pt x 157.83432pt.
  [80 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_y_pred_4_jet_hist-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag_ROC_4_jet-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
 
@@ -4113,43 +4113,43 @@ LaTeX Warning: Marginpar on page 81 moved.
 <figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=4733, 722.7pt x 361.35pt>
 File: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>
-Package pdftex.def Info: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 507.
+Package pdftex.def Info: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 509.
 (pdftex.def)             Requested size: 274.00119pt x 119.38618pt.
 <figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf, id=4736, 722.7pt x 361.35pt>
 File: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf>
-Package pdftex.def Info: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf  used on input line 517.
+Package pdftex.def Info: figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf  used on input line 519.
 (pdftex.def)             Requested size: 289.22527pt x 126.01953pt.
 <figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4739, 722.7pt x 433.62pt>
 File: figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 527.
+Package pdftex.def Info: figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 529.
 (pdftex.def)             Requested size: 289.22527pt x 170.22972pt.
 [81 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-histogram-sigbkg-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=3.pdf> </Users/michelsen/Master_Thesis/thesis/figures/quarks/leptons_high_g_tag_3j_0.75_gtag_0.85-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>]
 <figures/quarks/leptons_high_g_vs_low_1.png, id=4912, 865.2325pt x 909.3975pt>
 File: figures/quarks/leptons_high_g_vs_low_1.png Graphic file (type png)
 <use figures/quarks/leptons_high_g_vs_low_1.png>
-Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_1.png  used on input line 537.
+Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_1.png  used on input line 539.
 (pdftex.def)             Requested size: 140.49959pt x 147.67126pt.
 <figures/quarks/leptons_high_g_vs_low_3.png, id=4913, 1157.32375pt x 973.6375pt>
 File: figures/quarks/leptons_high_g_vs_low_3.png Graphic file (type png)
 <use figures/quarks/leptons_high_g_vs_low_3.png>
-Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_3.png  used on input line 538.
+Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_3.png  used on input line 540.
 (pdftex.def)             Requested size: 163.91376pt x 137.89796pt.
 <figures/quarks/leptons_high_g_vs_low_2.png, id=4914, 955.57pt x 870.25125pt>
 File: figures/quarks/leptons_high_g_vs_low_2.png Graphic file (type png)
 <use figures/quarks/leptons_high_g_vs_low_2.png>
-Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_2.png  used on input line 539.
+Package pdftex.def Info: figures/quarks/leptons_high_g_vs_low_2.png  used on input line 541.
 (pdftex.def)             Requested size: 159.22238pt x 145.0061pt.
 
-Underfull \hbox (badness 1688) in paragraph at lines 545--545
+Underfull \hbox (badness 1688) in paragraph at lines 547--547
 \T1/pplj/m/n/8 ues for high and low $\OML/zplm/m/it/8 ^^M[]$ $l$[]\T1/pplj/m/n/8 quark
  []
 
 <figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4917, 1011.78pt x 578.16pt>
 File: figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 559.
+Package pdftex.def Info: figures/quarks/eff_bbg_gtag-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 561.
 (pdftex.def)             Requested size: 334.88167pt x 174.01701pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -4161,7 +4161,7 @@ LaTeX Warning: Marginpar on page 83 moved.
 <figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=4931, 1011.78pt x 578.16pt>
 File: figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf>
-Package pdftex.def Info: figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 578.
+Package pdftex.def Info: figures/quarks/eff_bbg_m_mean-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf  used on input line 580.
 (pdftex.def)             Requested size: 334.88167pt x 174.01701pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -4170,12 +4170,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <figures/LHA/LHA.pdf, id=5077, 282.62387pt x 271.5164pt>
 File: figures/LHA/LHA.pdf Graphic file (type pdf)
 <use figures/LHA/LHA.pdf>
-Package pdftex.def Info: figures/LHA/LHA.pdf  used on input line 597.
+Package pdftex.def Info: figures/LHA/LHA.pdf  used on input line 599.
 (pdftex.def)             Requested size: 140.5612pt x 135.03697pt.
 <figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, id=5085, page=1, 723.08266pt x 451.43672pt>
 File: figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf Graphic file (type pdf)
 <use figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf, page 1>
-Package pdftex.def Info: figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf , page1 used on input line 620.
+Package pdftex.def Info: figures/quarks/generalized_angularities_cha-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf , page1 used on input line 622.
 (pdftex.def)             Requested size: 463.65399pt x 289.46959pt.
 
 
@@ -4195,9 +4195,6 @@ LaTeX Warning: Marginpar on page 86 moved.
 
 LaTeX Warning: Marginpar on page 86 moved.
 
-
-LaTeX Warning: Marginpar on page 86 moved.
-
 [86]
 
 LaTeX Warning: Marginpar on page 87 moved.
@@ -4205,12 +4202,12 @@ LaTeX Warning: Marginpar on page 87 moved.
 <figures/R_kt_CA/soft_wide_angle.pdf, id=5318, 376.40022pt x 203.43402pt>
 File: figures/R_kt_CA/soft_wide_angle.pdf Graphic file (type pdf)
 <use figures/R_kt_CA/soft_wide_angle.pdf>
-Package pdftex.def Info: figures/R_kt_CA/soft_wide_angle.pdf  used on input line 727.
+Package pdftex.def Info: figures/R_kt_CA/soft_wide_angle.pdf  used on input line 729.
 (pdftex.def)             Requested size: 154.61224pt x 83.56369pt.
 <figures/R_kt_CA/soft_collinear.pdf, id=5319, 376.40022pt x 203.43402pt>
 File: figures/R_kt_CA/soft_collinear.pdf Graphic file (type pdf)
 <use figures/R_kt_CA/soft_collinear.pdf>
-Package pdftex.def Info: figures/R_kt_CA/soft_collinear.pdf  used on input line 736.
+Package pdftex.def Info: figures/R_kt_CA/soft_collinear.pdf  used on input line 738.
 (pdftex.def)             Requested size: 154.61224pt x 83.56369pt.
 
 LaTeX Warning: Marginpar on page 87 moved.
@@ -4218,7 +4215,7 @@ LaTeX Warning: Marginpar on page 87 moved.
 <figures/R_kt_CA/hard_non_g_to_gg.pdf, id=5320, 376.40022pt x 203.43402pt>
 File: figures/R_kt_CA/hard_non_g_to_gg.pdf Graphic file (type pdf)
 <use figures/R_kt_CA/hard_non_g_to_gg.pdf>
-Package pdftex.def Info: figures/R_kt_CA/hard_non_g_to_gg.pdf  used on input line 744.
+Package pdftex.def Info: figures/R_kt_CA/hard_non_g_to_gg.pdf  used on input line 746.
 (pdftex.def)             Requested size: 154.61224pt x 83.56369pt.
 
 LaTeX Warning: Marginpar on page 87 moved.
@@ -4227,7 +4224,7 @@ LaTeX Warning: Marginpar on page 87 moved.
 <figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=5338, page=1, 722.7pt x 361.35pt>
 File: figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, page 1>
-Package pdftex.def Info: figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf , page1 used on input line 763.
+Package pdftex.def Info: figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf , page1 used on input line 765.
 (pdftex.def)             Requested size: 289.22527pt x 126.01953pt.
  [88 </Users/michelsen/Master_Thesis/thesis/figures/quarks/efficiency_events-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf> </Users/michelsen/Master_Thesis/thesis/figures/R_kt_CA/soft_wide_angle.pdf
 
@@ -4240,12 +4237,12 @@ LaTeX Warning: Marginpar on page 89 moved.
 LaTeX Warning: Marginpar on page 89 moved.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 802--802
+Underfull \hbox (badness 10000) in paragraph at lines 804--804
 $[]$\T1/pplj/m/n/8 Which are found to be:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 802--802
+Underfull \hbox (badness 10000) in paragraph at lines 804--804
 []$ \T1/pplj/m/n/8 and
  []
 
@@ -4256,10 +4253,10 @@ LaTeX Warning: Marginpar on page 89 moved.
 <figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=5573, page=1, 791.62866pt x 504.11867pt>
 File: figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, page 1>
-Package pdftex.def Info: figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf , page1 used on input line 809.
+Package pdftex.def Info: figures/quarks/gtag-closure_test-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf , page1 used on input line 811.
 (pdftex.def)             Requested size: 301.4056pt x 197.54211pt.
 
-Underfull \hbox (badness 1668) in paragraph at lines 814--814
+Underfull \hbox (badness 1668) in paragraph at lines 816--816
 \OML/zplm/m/it/8 g$\T1/pplj/m/n/8 -tagging model in 4-jet events for
  []
 
@@ -4273,24 +4270,24 @@ LaTeX Warning: Marginpar on page 91 moved.
 <figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=5724, 971.82195pt x 512.34793pt>
 File: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>
-Package pdftex.def Info: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 864.
+Package pdftex.def Info: figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 866.
 (pdftex.def)             Requested size: 444.90817pt x 234.55713pt.
 [91 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_overview-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>]
 <figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=5790, 867.24pt x 722.7pt>
 File: figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>
-Package pdftex.def Info: figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 875.
+Package pdftex.def Info: figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 877.
 (pdftex.def)             Requested size: 463.65785pt x 386.38153pt.
  [92 </Users/michelsen/Master_Thesis/thesis/figures/quarks/gtag-R_kt_CA_histograms-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>]
 <figures/quarks/cut_region_A_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=5895, 613.02249pt x 295.00087pt>
 File: figures/quarks/cut_region_A_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/cut_region_A_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>
-Package pdftex.def Info: figures/quarks/cut_region_A_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 887.
+Package pdftex.def Info: figures/quarks/cut_region_A_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 889.
 (pdftex.def)             Requested size: 301.40323pt x 145.04233pt.
 <figures/quarks/cut_region_D_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf, id=5898, 623.24818pt x 295.00087pt>
 File: figures/quarks/cut_region_D_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf Graphic file (type pdf)
 <use figures/quarks/cut_region_D_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf>
-Package pdftex.def Info: figures/quarks/cut_region_D_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 898.
+Package pdftex.def Info: figures/quarks/cut_region_D_ratio_plot-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19-njet=4.pdf  used on input line 900.
 (pdftex.def)             Requested size: 301.40959pt x 142.66562pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -6230,11 +6227,11 @@ Underfull \hbox (badness 1859) in paragraph at lines 798--806
  []
 
 ) (/Users/michelsen/Master_Thesis/thesis/MasterThesis.ind) [178]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 528.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 528.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 533.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 533.
  (/Users/michelsen/Master_Thesis/thesis/MasterThesis.aux (/Users/michelsen/Master_Thesis/thesis/chapter_foreword.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_introduction.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_machine_learning_theory.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_housing_prices.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_particle_physics_theory.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_quark_gluon.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_housing.aux) (/Users/michelsen/Master_Thesis/thesis/chapter_appendix_quarks_gluons.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 528.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 528.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 533.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 533.
 Package rerunfilecheck Info: File `MasterThesis.out' has not changed.
 (rerunfilecheck)             Checksum: 7CF02F700CF1D5627B46C9299C6A43CA;23923.
 
@@ -6245,7 +6242,7 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 528.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 533.
  ) 
 Here is how much of TeX's memory you used:
  43708 strings out of 492646
@@ -6256,7 +6253,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,20n,96p,1979b,2006s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmb.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/michelsen/Master_Thesis/thesis/MasterThesis.pdf (190 pages, 17524844 bytes).
+Output written on /Users/michelsen/Master_Thesis/thesis/MasterThesis.pdf (190 pages, 17524768 bytes).
 PDF statistics:
  10745 PDF objects out of 12825 (max. 8388607)
  4921 compressed objects within 50 object streams

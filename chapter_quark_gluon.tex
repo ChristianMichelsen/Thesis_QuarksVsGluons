@@ -1,7 +1,9 @@
 
 \chapter{Quark Gluon Analysis}
 \label{ch:quark_gluon_analysis}
-\epigraph{\textit{``Research is what I am doing I don't know know what I'm doing.''}}{---  Wernher von Braun}
+\epigraph{\textit{``Research is what I'm doing when I don’t know what I’m doing.''}}{---  Wernher von Braun}
+
+
 
 \newthought{In this chapter}, the analysis of quarks and gluons is presented. The overall goal with this analysis is to improve the knowledge of gluon jets by developing a method to increase the precision at which quark and gluon jets can be distinguished. The overall goal is to improve the understanding af gluon hadronization and splitting by measuring the gluon hadronization in 3-jet events and the gluon splitting in 4-jet events.
 The method includes two models; a $b$-tagging model which tag individual jets within an event, and a $g$-tagging models which classify entire events. 
@@ -85,7 +87,7 @@ Applying the criteria defined above for what constitutes a specific type of jet,
 % For all three subplots the histograms are shown with logarithmic $y$\=/axes, all $b$\=/jets in blue, $c$\=/jets in red, $g$\=/jets in green, and all of the jets (no matter their type) are shown in orange. The distributions for 2-jet events are shown in fully opaque color, 3-jet events in dashed lines, and 4-jet events in lighter colors. 
 % In the left subplot the \code{projet} variable is plotted where it can be seen that high values of \code{projet} tend to indicate $b$\=/jets. 
 The left subplot shows that high values of \code{projet} tend to indicate $b$\=/jets. 
-In the middle subplot \code{bqvjet} is plotted which shares many similarities with the \code{projet} variables, including that high values indicate $b$\=/jets. In the right subplot the \code{ptljet} is plotted. This variable has many zeros in it which correlates mostly with gluons\sidenote{Around \SI{98}{\percent} of all $g$\=/jets are zeros for the variable \code{ptljet} compared to $\sim \SI{82}{\percent}$ for $c$\=/jets and $\sim \SI{70}{\percent}$ for $b$\=/jets.} and large values are mostly due to $b$\=/jets. 
+In the middle subplot \code{bqvjet} is plotted which shares many similarities with the \code{projet} variables, including that high values indicate $b$\=/jets. In the right subplot the \code{ptljet} is plotted. This variable has many zeros in it which correlates mostly with gluons\sidenote{Around \SI{98}{\percent} of all $g$\=/jets are zeros for the variable \code{ptljet} compared to ${\sim} \SI{82}{\percent}$ for $c$\=/jets and ${\sim} \SI{70}{\percent}$ for $b$\=/jets.} and large values are mostly due to $b$\=/jets. 
 
 Furthermore, Figure~\ref{fig:q:vertex_variables} shows that there are only minor differences between the variables when comparing 2-, 3-, and 4-jet events, except for 2-jet events which do not contain any gluons at all. 
 
@@ -225,7 +227,7 @@ They were both hyperparameter optimized with $5$\=/fold cross validation and ear
 
 The results of the HPO for 3-jet and 4-jet events are shown in Figure~\ref{fig:q:CV_res_iterations_b_tagging}. For 3-jets it can be seen how most of the iterations share about the same performance (within $1\sigma$), however, some iterations show a significant decrease in performance. The same clear pattern is not found in the 4-jet events.
 
-Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j} shows the relationship between the different hyperparameters in 4-jet events in a parallel coordinate plot. First of all, the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}(\sim 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{subsec:q:trunc_uniform} for a deeper discussion or the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j}.
+Figure~\ref{fig:q:initial_CV_res_parallel_coords_4j} shows the relationship between the different hyperparameters in 4-jet events in a parallel coordinate plot. First of all, the importance of the column downsampling \code{colsample_bytree} variable is significant: all of the low-performing hyperparameter sets have a low value of this hyperparameter. Since $M=3$ for the vertex variables this makes logical sense; using only $\mathrm{int}({\sim} 0.5 \cdot 3) = 1$ variable\sidenote{See \autoref{subsec:q:trunc_uniform} for a deeper discussion or the \code{colsample_bytree} hyperparameter.} the model cannot properly learn the structure in the data. Compared to the column downsampling, the other hyperparameters are less important. The same overall conclusion can be inferred in the 3-jet case, see Figure~\ref{fig:q:initial_CV_res_parallel_coords_3j}.
 
 \begin{figure}
   \includegraphics[width=0.98\textwidth, trim=0 0 0 0, clip]{figures/quarks/CV_viz-njet=4-name=lf_lgb_down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
@@ -348,13 +350,13 @@ Of course, the truth is never known in Nature, however, it is for simulated MC e
 
 For measuring the $b$\=/tagging efficiency we apply a tag-tag-probe (TTP) method based on the $b$\=/tags. In 3-jet events two of the jets will serve as tags and the last one as probe. The tags are jets where, if they are known, the probe is also known (with high probability). One can then apply the cut to the probe and see if it would have passed the cut or not. This method provides a clean and unbiased sample (the probes) and since the truth of the probe jet is known (with high probability), the efficiency can be measured in this way \autocite{atlascollaborationElectronEfficiencyMeasurements2017}. Since the tag-tag-probe method does not depend on real truth, it can be used on both MC and Data.
 
-To measure the $b$\=/tagging efficiency we use that the $Z$ decay has the form $Z \rightarrow q\bar{q}g$ in 3-jet events. Quantum field calculations based on the Standard Model predicts that the decay $Z \rightarrow ggg$ is extremely unlikely with a branching ratio of $\sim 10^{-6}$ \autocite{vanderbijBosonProductionDecay1989}. This decay was actually tested at LEP which did not find any $ggg$ events and concluded that the branching ratio was $< \SI{1.6}{\percent}$ with an upper limit at \SI{95}{\percent} confidence level \autocite{damUpperLimitBr1996}. This number is further reduced to $<\SI{1.1}{\percent}$ today\autocite{particledatagroupReviewParticlePhysics2018}. 
+To measure the $b$\=/tagging efficiency we use that the $Z$ decay has the form $Z \rightarrow q\bar{q}g$ in 3-jet events. Quantum field calculations based on the Standard Model predicts that the decay $Z \rightarrow ggg$ is extremely unlikely with a branching ratio of ${\sim} 10^{-6}$ \autocite{vanderbijBosonProductionDecay1989}. This decay was actually tested at LEP which did not find any $ggg$ events and concluded that the branching ratio was $< \SI{1.6}{\percent}$ with an upper limit at \SI{95}{\percent} confidence level \autocite{damUpperLimitBr1996}. This number is further reduced to $<\SI{1.1}{\percent}$ today\autocite{particledatagroupReviewParticlePhysics2018}. 
 
 That the $Z$ decays to $q\bar{q}g$ means that if one of the jets get a high $b$\=/tag (and is thus likely to be a $b$\=/jet), and another one of the jets gets a low $b$\=/tag (and is thus likely to be a $g$\=/jet), then it is highly probable that the remaining jet is a $b$\=/jet. To formalize this, sort the jets after their $b$\=/tags values from high to low such that $\beta_{\mathrm{tag}_1} > \beta_{\mathrm{tag}_2} > \beta_{\mathrm{tag}_3}$ for the jets $\vec{J}=[J_1, J_2, J_3]$ where $J_i$ has the $b$\=/tag value $\beta_{\mathrm{tag}_i}$. We then define the two tags $T_b$ and $T_g$ as $\vec{J}=[T_b, P, T_g]$ where $P$ is the probe. If the two tags ($T_b$ and $T_g$) pass the cuts ($\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_1}$ and $\beta_{\mathrm{tag}_3} < \beta_{g\dash\mathrm{cut}}$), then the probe is selected: $P=J_2$. If the probe is selected, then the last cut $\beta_{b\dash\mathrm{cut}} < \beta_{\mathrm{tag}_2}$ is the one that the efficiency is based on.
 
 Based on Figure~\ref{fig:q:btag_histogram_4j}, we define the threshold for the $b$\=/jet tag to be $\beta_{b\dash\mathrm{cut}}=0.9$ and for the $g$\=/jet to be $\beta_{g\dash\mathrm{cut}} = 0.4$. The $b$\=/signal region is thus $0.9 < \beta_\mathrm{tag}$ and the $g$\=/signal region $\beta_\mathrm{tag} < 0.4$ . With these cuts, the efficiency of the $b$\=/jets being tagged as $b$\=/signal, denoted $\varepsilon_b^{b\dash\mathrm{sig}}$, is computed. The TTP method is applied to both Data (Data TTP) and MC (MC TTP), along with a measurement of the efficiency when measured using MC Truth. In addition to MC Truth, a measurement based on the probes that were actual $b$\=/jets according to truth (MC Truth TTP) is also computed. In this method, the probes are selected by the TTP method, however, only true $b$-jet probes are kept for the efficiency measurement. The efficiency is measured as a function of jet energy $E_\mathrm{jet}$ to gauge the energy dependence of the efficiency, i.e. computed in a bin-by-bin basis split according to the jet energy (of the probe). 
 
-Figure~\ref{fig:q:effiency_btag_bjet_bsig} shows the efficiencies $\varepsilon_b^{b\dash\mathrm{sig}}$ as a function of jet energy $E_\mathrm{jet}$. The efficiency scale is shown on the left $y$\=/axis, whereas the number of probes in each bin $N_\mathrm{truth}$ is shown on the right $y$\=/axis. The efficiencies increase as a function of energy and reaches a plateau at $E_\mathrm{jet} \sim \SI{30}{\GeV}$: high-energy $b$\=/jets are easier to classify than low-energy ones. 
+Figure~\ref{fig:q:effiency_btag_bjet_bsig} shows the efficiencies $\varepsilon_b^{b\dash\mathrm{sig}}$ as a function of jet energy $E_\mathrm{jet}$. The efficiency scale is shown on the left $y$\=/axis, whereas the number of probes in each bin $N_\mathrm{truth}$ is shown on the right $y$\=/axis. The efficiencies increase as a function of energy and reaches a plateau at $E_\mathrm{jet} {\sim} \SI{30}{\GeV}$: high-energy $b$\=/jets are easier to classify than low-energy ones. 
 Even though the efficiencies of the MC TTP and Data TTP methods are lower than the MC Truth and MC Truth TTP, the important thing to notice is that they follow each other closely. This indicates that the trained $b$\=/tagging model work equally well on both MC and Data (as hoped).  
 
 \begin{figure*}[h!]
@@ -365,7 +367,7 @@ Even though the efficiencies of the MC TTP and Data TTP methods are lower than t
   \label{fig:q:effiency_btag_bjet_bsig}
 \end{figure*}
 
-The efficiency of $g$\=/jets in the $g$\=/jet signal region $\varepsilon_g^{g\dash\mathrm{sig}}$ based on the $b$\=/tags is measured in a similar manner. Again the tag-tag-probe method is used, however, now the two $b$\=/jets are the tags and the $g$\=/jet is the probe. The cut values are the same as before although now it is required that $0.9 < \beta_{\mathrm{tag}_1}$ and $0.9 < \beta_{\mathrm{tag}_2}$ before the probe is selected: $P=J_3$. The efficiency is based on $\beta_{\mathrm{tag}_3} < 0.4$. The efficiency $\varepsilon_g^{g\dash\mathrm{sig}}$ is plotted in Figure~\ref{fig:q:effiency_btag_gjet_gsig} where it can be seen that the MC TTP and Data TTP also follow each other closely, this time to around $\sim \SI{25}{\GeV}$.
+The efficiency of $g$\=/jets in the $g$\=/jet signal region $\varepsilon_g^{g\dash\mathrm{sig}}$ based on the $b$\=/tags is measured in a similar manner. Again the tag-tag-probe method is used, however, now the two $b$\=/jets are the tags and the $g$\=/jet is the probe. The cut values are the same as before although now it is required that $0.9 < \beta_{\mathrm{tag}_1}$ and $0.9 < \beta_{\mathrm{tag}_2}$ before the probe is selected: $P=J_3$. The efficiency is based on $\beta_{\mathrm{tag}_3} < 0.4$. The efficiency $\varepsilon_g^{g\dash\mathrm{sig}}$ is plotted in Figure~\ref{fig:q:effiency_btag_gjet_gsig} where it can be seen that the MC TTP and Data TTP also follow each other closely, this time to around ${\sim} \SI{25}{\GeV}$.
 
 Both of the efficiencies so far ($\varepsilon_b^{b\dash\mathrm{sig}}$ and $\varepsilon_g^{g\dash\mathrm{sig}}$) are to be regarded as signal efficiencies. Similarly, there are two background efficiencies, one for $b$\=/jets in the $g$\=/signal region $\varepsilon_b^{g\dash\mathrm{sig}}$ shown in Figure~\ref{fig:q:effiency_btag_bjet_gsig} and one for $g$\=/jets in the $b$\=/signal region $\varepsilon_g^{b\dash\mathrm{sig}}$ shown in Figure~\ref{fig:q:effiency_btag_gjet_bsig}.
 
@@ -373,7 +375,7 @@ Both of the efficiencies so far ($\varepsilon_b^{b\dash\mathrm{sig}}$ and $\vare
   \centerfloat
   \includegraphics[width=\textwidth, trim=20 30 0 40, clip]{figures/quarks/eff_g_gsig-down_sample=1.00-ML_vars=vertex-selection=b-ejet_min=4-n_iter_RS_lgb=99-n_iter_RS_xgb=9-cdot_cut=0.90-version=19.pdf}
   \caption[$b$\=/Tagging Efficiency $\varepsilon_g^{g\dash\mathrm{sig}}$ as a Function of Jet Energy]
-          {$b$\=/tag efficiency for $g$\=/jets in the $g$\=/signal region for 3-jet events, $\varepsilon_g^{g\dash\mathrm{sig}}$, as a function of jet energy $E_\mathrm{jet}$. In the plot the efficiencies are shown for \textcolor{blue}{MC TTP} in blue, \textcolor{red}{Data TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{MC Truth TTP} in orange. The efficiencies (the errorbars) can be read off on the left $y$\=/axis and the counts (histograms) on the right $y$\=/axis. Notice how both MC TTP and Data TTP follow each other closely until $\sim \SI{25}{\GeV}$.} 
+          {$b$\=/tag efficiency for $g$\=/jets in the $g$\=/signal region for 3-jet events, $\varepsilon_g^{g\dash\mathrm{sig}}$, as a function of jet energy $E_\mathrm{jet}$. In the plot the efficiencies are shown for \textcolor{blue}{MC TTP} in blue, \textcolor{red}{Data TTP} in red, \textcolor{green}{MC Truth TTP} in green, and \textcolor{orange}{MC Truth TTP} in orange. The efficiencies (the errorbars) can be read off on the left $y$\=/axis and the counts (histograms) on the right $y$\=/axis. Notice how both MC TTP and Data TTP follow each other closely until ${\sim} \SI{25}{\GeV}$.} 
   \label{fig:q:effiency_btag_gjet_gsig}
 \end{figure*}
 
@@ -570,7 +572,7 @@ Another event variable to look at is the mean of the two invariant masses $m_{bg
   m_{12} = \sqrt{\left(E_1 + E_2\right)^2 - \norm{\vec{p}_1 + \vec{p}_2}^2 },
 \end{equation} 
 where $E_i$ is the energy of the $i^\mathrm{th}$ quantity and $\vec{p}_i$ its momentum. 
-% The invariant masses between all three jets $m_{b\bar{b}g}$, which otherwise might have been the first intuition to use as the event variable, is non-informative (in this context) since this is just the total event energy which is kept (approximately) constant at $\sim \SI{91}{\GeV}$.
+% The invariant masses between all three jets $m_{b\bar{b}g}$, which otherwise might have been the first intuition to use as the event variable, is non-informative (in this context) since this is just the total event energy which is kept (approximately) constant at ${\sim} \SI{91}{\GeV}$.
 The pseudo efficiency is plotted as a function of the  mean of $m_{bg}$ and $m_{\bar{b}g}$ in Figure~\ref{fig:q:effiency_btag_bbg_m_mean}. The overall correspondence between Data and MC is lower than in Figure~\ref{fig:q:effiency_btag_bbg_gtag}, especially for high values of the mean invariant mass. That the ratio is close to \num{1} for most of the data (from \SI{20}{\GeV} to \SI{50}{\GeV}) is a good sign. The tails indicate a biased model in these parts of the phase space which could be corrected with correction factors, however, this would increase the systematic uncertainties. 
 
 \begin{figure}[h!]
@@ -631,12 +633,11 @@ The rest of the angularities, both charged and neutral, are show in Figure~\ref{
 
 These trends are quantified by the fits to the ratio plots. Figure~\ref{fig:q:generalized_angularities_cha_lambda_0_2_nonappendix} shows that a constant fit does a reasonable job with a $\chi^2$ probability $P_{\chi^2}=\SI{3.9}{\percent}$. The small decrease in $\chi^2$ value ($\Delta \chi^2 = 67.76-67.65=0.12$) is attributed to the linear fit having more fit parameters and not due to it being a better model. This is also indicated by the probability. In this case, the systematic error will be based on the constant fit $\sigma_\mathrm{sys}(\lambda_0^2)=\SI{2.0}{\percent}$. 
 
+In general, there is a ${\sim}\SI{4}{\percent}$ constant offset for the charged tracks, which is easy to correct for. For the neutral clusters, it is to be a lot higher: ${\sim} \SI{15}{\percent}$. The systematic error for charged tracks is around ${\sim} \SI{2}{\percent}$ for most of the generalized angularities and around ${\sim} \SI{4}{\percent}$ for the neutral clusters. Table~\ref{tab:q:generalized_angularities_systematic_errors_charged} shows a summary of all the systematic errors for the charged tracks. The similar table for neutral clusters is shown in Table~\ref{tab:q:generalized_angularities_systematic_errors_neutral}. The figures show an overall reasonably good correspondence between MC selected and Data for the generalized angularities.  
 
-In general there is a $\sim \SI{4}{\percent}$ constant offset for the charged tracks, which is easy to correct for. For the neutral clusters it is seen to be a lot higher at $\sim \SI{15}{\percent}$. For charged tracks the systematic error is around $\sim \SI{2}{\percent}$ for most of the generalized angularities, while it is around $\sim \SI{4}{\percent}$ for the neutral clusters. A summary of all the systematic errors for the charged tracks can be seen in Table~\ref{tab:q:generalized_angularities_systematic_errors_charged} and in Table~\ref{tab:q:generalized_angularities_systematic_errors_neutral} for the neutral clusters. Overall, the figures show a reasonable good correspondence between MC selected and Data for the generalized angularities.  
-
-\begin{margintable}
+\begin{margintable}[-4.3cm]
   \centerfloat
-  \begin{tabular}{@{}rrc@{}}
+  \begin{tabular}{@{}lrc@{}}
   {}             & $\sigma_\mathrm{sys}$ & $f(x)$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
   $\lambda_0^2$        & $\SI{2.0}{\percent}$  & $b$ \\ \addlinespace[0.2em]
   $\lambda^1_{1/2}$    & $\SI{2.1}{\percent}$  & $b$ \\ \addlinespace[0.2em]
@@ -644,13 +645,13 @@ In general there is a $\sim \SI{4}{\percent}$ constant offset for the charged tr
   $\lambda_2^1$        & $\SI{0.4}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
   $\lambda_0^0$        & $\SI{7.5}{\percent}$  & $b$ \\ \addlinespace[0.2em]
   \end{tabular}
-  \vspace{3mm}
+  \vspace{2mm}
   \caption[Generalized Angularities Systematic Errors, Charged Tracks]{\label{tab:q:generalized_angularities_systematic_errors_charged}Systematic errors for the generalized angularities for charged tracks.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
 \end{margintable}
 
 \begin{margintable}
   \centerfloat
-  \begin{tabular}{@{}rrc@{}}
+  \begin{tabular}{@{}lrc@{}}
   {}             & $\sigma_\mathrm{sys}$ & $f(x)$ \\ \addlinespace[0.1em] \midrule \addlinespace[0.2em]
   $\lambda_0^2$        & $\SI{4.2}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
   $\lambda_{1/2}^1$    & $\SI{4.2}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
@@ -658,15 +659,16 @@ In general there is a $\sim \SI{4}{\percent}$ constant offset for the charged tr
   $\lambda_2^1$        & $\SI{1.6}{\percent}$  & $ax+b$ \\ \addlinespace[0.2em]
   $\lambda_0^0$        & $\SI{2.0}{\percent}$  & $b$ \\ \addlinespace[0.2em]
   \end{tabular}
-  \vspace{3mm}
-  \caption[Generalized Angularities Systematic Errors, Neutral Clusters]{\label{tab:q:generalized_angularities_systematic_errors_neutral}Systematic errors for the generalized angularities for neutral clusters.  The last column, $f(x)$, denotes which fit the systematic error is based on.}
+  \vspace{1mm}
+  \caption[Generalized Angularities Systematic Errors, Neutral Clusters]{\label{tab:q:generalized_angularities_systematic_errors_neutral}Systematic errors for the generalized angularities for neutral clusters.  The last column denotes which fit the systematic error is based on.}
 \end{margintable}
 
 \section{Gluon splitting}
 \label{sec:q:gluon_splitting_4j}
 
 In addition to measuring how the gluon jets hadronizes, we are also interested in measuring how they split: $g \rightarrow gg$. We do so by looking at 4-jet events with high $g$-tag values and then identify the two gluon jets (the ones with the lowest $b$-tag values). From Figure \ref{fig:q:gtag_scores_4j_sig_bkg}, the $\gamma_\mathrm{tag}$ cut off threshold is set to $\gamma_\mathrm{cutoff} = 0.8$ for 4-jet events. This corresponds to selecting \num{41117} events in MC as gluon events with a signal efficiency of $\varepsilon_g^{4\dash\mathrm{jet}} = \SI{23.30}{\percent}$ and a signal purity of $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$. 
-\marginnote[-1cm]{Note that the number of selected events in the 4-jet case is much lower than in the 3-jet case and that the signal purity is lower as well, $\rho_g^{3\dash\mathrm{jet}}=\SI{98.77}{\percent}$ vs. $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$, at the selected cut value.}
+
+\marginnote{Note that the number of selected events in the 4-jet case is much lower than in the 3-jet case and that the signal purity is lower as well, $\rho_g^{3\dash\mathrm{jet}}=\SI{98.77}{\percent}$ vs. $\rho_g^{4\dash\mathrm{jet}}=\SI{92.67}{\percent}$, at the selected cut value.}
 % The variables related to measuring the gluon splitting will be introduced in \autoref{subsec:q:gluon_splitting_variables} and their efficiencies in MC will be computed in \autoref{subsec:q:gluon_splitting_efficiency}. The method will be tested with a closure test in \autoref{subsec:q:gluon_splitting_closure} and the results shown in \autoref{subsec:q:gluon_splitting_results}.
 
 \subsection{Variables}
