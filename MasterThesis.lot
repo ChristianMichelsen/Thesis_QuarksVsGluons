@@ -20,28 +20,28 @@
 \contentsline {table}{\numberline {5.2}{\ignorespaces Mapping Between the Flavor and the Variable Flevt}}{64}{section.5.2}
 \contentsline {table}{\numberline {5.3}{\ignorespaces Number of Different Types of Jets for MC and MCb for $n$-Jet Events}}{65}{section.5.2}
 \contentsline {table}{\numberline {5.4}{\ignorespaces Random Search PDFs for LGB}}{69}{subsection.5.4.1}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Global SHAP Feature Importances for the $g$\BarOrDash /Tagging Models in 4-Jet Events}}{77}{subsection.5.6.3}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Global SHAP Feature Importances for the $g$\BarOrDash /Tagging Models in 4-Jet Events}}{78}{subsection.5.6.3}
 \contentsline {table}{\numberline {5.6}{\ignorespaces Generalized Angularities Systematic Errors, Charged Tracks}}{85}{equation.5.8.9}
 \contentsline {table}{\numberline {5.7}{\ignorespaces Generalized Angularities Systematic Errors, Neutral Clusters}}{85}{equation.5.8.9}
 \contentsline {table}{\numberline {5.8}{\ignorespaces Gluon Splitting Systematic Errors}}{90}{equation.5.9.18}
-\contentsline {table}{\numberline {5.9}{\ignorespaces Rgion Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{90}{subsection.5.9.4}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Rgion Definition in the $R_{gg}^{k_t}$-$R_{gg}^\mathrm {CA}$ Phase Space}}{91}{subsection.5.9.4}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Energy Rating Mapping}}{112}{section.A.4}
-\contentsline {table}{\numberline {A.2}{\ignorespaces Final Variable List}}{115}{section.A.6}
-\contentsline {table}{\numberline {A.3}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- SE Loss Function}}{116}{section.A.7}
-\contentsline {table}{\numberline {A.4}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Log-Cosh Loss Function}}{116}{section.A.7}
-\contentsline {table}{\numberline {A.5}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Cauchy Loss Function}}{116}{section.A.7}
-\contentsline {table}{\numberline {A.6}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Welsch Loss Function}}{117}{section.A.7}
-\contentsline {table}{\numberline {A.7}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Fair Loss Function}}{117}{section.A.7}
-\contentsline {table}{\numberline {A.8}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- SE Loss Function}}{118}{section.A.7}
-\contentsline {table}{\numberline {A.9}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Log-Cosh Loss Function}}{118}{section.A.7}
-\contentsline {table}{\numberline {A.10}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Cauchy Loss Function}}{118}{section.A.7}
-\contentsline {table}{\numberline {A.11}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Welsch Loss Function}}{119}{section.A.7}
-\contentsline {table}{\numberline {A.12}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Fair Loss Function}}{119}{section.A.7}
-\contentsline {table}{\numberline {A.13}{\ignorespaces Performance Metrics for Apartments with the Tight Selection}}{126}{section.A.13}
-\contentsline {table}{\numberline {A.14}{\ignorespaces Performance Metrics for Houses with the Tight Selection}}{126}{section.A.13}
+\contentsline {table}{\numberline {A.1}{\ignorespaces Energy Rating Mapping}}{114}{section.A.4}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Final Variable List}}{117}{section.A.6}
+\contentsline {table}{\numberline {A.3}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- SE Loss Function}}{118}{section.A.7}
+\contentsline {table}{\numberline {A.4}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Log-Cosh Loss Function}}{118}{section.A.7}
+\contentsline {table}{\numberline {A.5}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Cauchy Loss Function}}{118}{section.A.7}
+\contentsline {table}{\numberline {A.6}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Welsch Loss Function}}{119}{section.A.7}
+\contentsline {table}{\numberline {A.7}{\ignorespaces Initial Hyperparameter Optimization Results for Apartments -- Fair Loss Function}}{119}{section.A.7}
+\contentsline {table}{\numberline {A.8}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- SE Loss Function}}{120}{section.A.7}
+\contentsline {table}{\numberline {A.9}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Log-Cosh Loss Function}}{120}{section.A.7}
+\contentsline {table}{\numberline {A.10}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Cauchy Loss Function}}{120}{section.A.7}
+\contentsline {table}{\numberline {A.11}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Welsch Loss Function}}{121}{section.A.7}
+\contentsline {table}{\numberline {A.12}{\ignorespaces Initial Hyperparameter Optimization Results for Houses -- Fair Loss Function}}{121}{section.A.7}
+\contentsline {table}{\numberline {A.13}{\ignorespaces Performance Metrics for Apartments with the Tight Selection}}{128}{section.A.13}
+\contentsline {table}{\numberline {A.14}{\ignorespaces Performance Metrics for Houses with the Tight Selection}}{128}{section.A.13}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI {100}{\percent }. See also Table\nobreakspace {}\ref {tab:q:flevt_overview}.}}{127}{section.B.1}
-\contentsline {table}{\numberline {B.2}{\ignorespaces Random Search PDFs for XGB}}{127}{section.B.2}
-\contentsline {table}{\numberline {B.3}{\ignorespaces Global SHAP Feature Importances for the $g$-Tagging Models in 3-Jet Events}}{127}{section.B.3}
+\contentsline {table}{\numberline {B.1}{\ignorespaces Number of different types of jets for MC and MCb written in relative numbers such that each row sum to \SI {100}{\percent }. See also Table\nobreakspace {}\ref {tab:q:flevt_overview}.}}{129}{section.B.1}
+\contentsline {table}{\numberline {B.2}{\ignorespaces Random Search PDFs for XGB}}{129}{section.B.2}
+\contentsline {table}{\numberline {B.3}{\ignorespaces Global SHAP Feature Importances for the $g$-Tagging Models in 3-Jet Events}}{129}{section.B.3}
 \contentsfinish 
