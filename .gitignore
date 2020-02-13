@@ -1,9 +1,11 @@
 *
-!.gitignore
-!*.tex
-!*.pdf
-!figures
-!frontpage
-!tufte-book.cls
-!My_Library.bib
+!/.gitignore
+!/*.tex
+!/*.pdf
+!/figures
+!/figures/*
+!/frontpage
+!/frontpage/*
+!/tufte-book.cls
+!/My_Library.bib
 
