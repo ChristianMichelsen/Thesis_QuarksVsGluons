@@ -414,16 +414,6 @@
 \pagenumbering{roman}
 
 
-% \includeonly{chapter_foreword,chapter_introduction,chapter_machine_learning_theory,chapter_housing_prices,chapter_particle_physics_theory,chapter_quark_gluon,chapter_appendix_housing,chapter_appendix_quarks_gluons}
-
-% \includeonly{chapter_quark_gluon}
-% \includeonly{chapter_quark_gluon,chapter_appendix_quarks_gluons}
-
-% \includeonly{chapter_housing_prices}  
-% \includeonly{chapter_housing_prices,chapter_appendix_housing}
-
-% \includeonly{chapter_particle_physics_theory}
-
 % \includeonly{chapter_introduction}
 
 
@@ -436,7 +426,7 @@
 \end{titlepage}
 
 %  copyright page
-\input{copyright.tex}
+\input{./chapters/copyright.tex}
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -458,13 +448,13 @@ The methods used to optimize the $b$-tagging and $g$-tagging models are based on
 %%
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-\include{chapter_foreword}
+\include{./chapters/chapter_foreword}
 
 % Start the main matter (normal chapters)
 \mainmatter
 \pagenumbering{arabic}
 
-\include{chapter_introduction}
+\include{./chapters/chapter_introduction}
 
 
 
@@ -480,8 +470,8 @@ The methods used to optimize the $b$-tagging and $g$-tagging models are based on
 
 % Part \RNum{1} of this thesis covers the introductory theory of machine learning in \autoref{ch:ML_theory} along with some extra technical aspects of it. In \autoref{ch:housing_price_analysis} machine learning is applied to estimate Danish housing prices as precisely and accurately as possible.  
 
-\include{chapter_machine_learning_theory}
-\include{chapter_housing_prices}
+\include{./chapters/chapter_machine_learning_theory}
+\include{./chapters/chapter_housing_prices}
 
 %  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -503,8 +493,8 @@ The methods used to optimize the $b$-tagging and $g$-tagging models are based on
 % Part \RNum{2} of this thesis deals with particle physics and the discriminatory power of machine learning for quark-gluon identification and subsequent analysis. In \autoref{ch:hep:particle_physcis_LEP} the theory of the Standard Model is introduced together with a description of the ALEPH detector. Theory is applied in \autoref{ch:quark_gluon_analysis} where the types of jets and events in each collision is analysed using machine learning to improve the understanding of how gluon jets hadronizes and splits: simply said how they look and behave. 
 
 
-\include{chapter_particle_physics_theory}
-\include{chapter_quark_gluon}
+\include{./chapters/chapter_particle_physics_theory}
+\include{./chapters/chapter_quark_gluon}
 
 
 %%
@@ -512,8 +502,8 @@ The methods used to optimize the $b$-tagging and $g$-tagging models are based on
 
 \appendix
 
-\include{chapter_appendix_housing}
-\include{chapter_appendix_quarks_gluons}
+\include{./chapters/chapter_appendix_housing}
+\include{./chapters/chapter_appendix_quarks_gluons}
 
 \backmatter
 
