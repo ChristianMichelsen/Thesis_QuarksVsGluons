@@ -1,11 +1,2 @@
-*
-!/.gitignore
-!/*.tex
-!/*.pdf
-!/figures
-!/figures/*
-!/frontpage
-!/frontpage/*
-!/tufte-book.cls
-!/My_Library.bib
-
+.DS_Store
+*.zip
